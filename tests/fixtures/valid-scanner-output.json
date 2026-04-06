@@ -14,7 +14,8 @@
         "summary": "A new federal privacy bill has been introduced.",
         "relevance": "high",
         "jurisdiction": "federal",
-        "development_type": "legislation"
+        "development_type": "legislation",
+        "category": "privacy"
       }
     ]
   }
