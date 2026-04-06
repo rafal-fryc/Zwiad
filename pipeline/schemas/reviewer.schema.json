@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reviewer Stage Data",
+  "description": "Schema for reviewer agent output data field",
+  "type": "object",
+  "required": ["reviews"],
+  "properties": {
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding_id", "report_path", "status", "iteration_count", "claims_checked", "issues_found"],
+        "properties": {
+          "finding_id": { "type": "string" },
+          "report_path": { "type": "string" },
+          "status": { "type": "string", "enum": ["verified", "disputed", "needs-human-review"] },
+          "iteration_count": { "type": "integer", "minimum": 1, "maximum": 3 },
+          "claims_checked": { "type": "integer" },
+          "issues_found": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["claim", "issue", "severity"],
+              "properties": {
+                "claim": { "type": "string" },
+                "issue": { "type": "string" },
+                "severity": { "type": "string", "enum": ["critical", "major", "minor"] }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

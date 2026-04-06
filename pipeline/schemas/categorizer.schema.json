@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Categorizer Stage Data",
+  "description": "Schema for categorizer agent output data field",
+  "type": "object",
+  "required": ["filed_reports"],
+  "properties": {
+    "filed_reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding_id", "source_path", "destination_path", "topic", "subcategory"],
+        "properties": {
+          "finding_id": { "type": "string" },
+          "source_path": { "type": "string" },
+          "destination_path": { "type": "string" },
+          "topic": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] },
+          "subcategory": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

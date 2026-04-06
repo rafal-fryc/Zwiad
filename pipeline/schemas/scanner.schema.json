@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Scanner Stage Data",
+  "description": "Schema for scanner agent output data field",
+  "type": "object",
+  "required": ["findings"],
+  "properties": {
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "source", "source_url", "summary", "relevance", "jurisdiction", "development_type"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "source": { "type": "string" },
+          "source_url": { "type": "string" },
+          "summary": { "type": "string" },
+          "relevance": { "type": "string", "enum": ["high", "medium", "low"] },
+          "jurisdiction": { "type": "string" },
+          "development_type": { "type": "string", "enum": ["legislation", "regulation", "enforcement", "guidance", "court-decision", "other"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
