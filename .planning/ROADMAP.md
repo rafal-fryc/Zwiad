@@ -49,7 +49,7 @@ Plans:
 - [x] 02-01-PLAN.md -- Scanner core: source config, EML conversion, agent prompt, orchestration
 - [x] 02-02-PLAN.md -- Dedup pipeline, review markdown generator, approval gate
 - [x] 02-03-PLAN.md -- Test fixtures and test scripts for scanner components
-- [ ] 02-04-PLAN.md -- Gap closure: law firm alert search queries, test fixture fix
+- [x] 02-04-PLAN.md -- Gap closure: law firm alert search queries, test fixture fix
 
 ### Phase 3: Report Generation
 **Goal**: The researcher agent takes a set of approved findings and produces complete, publication-quality markdown reports with citations, jurisdiction tags, adaptive format selection, and confidence-scored claims
