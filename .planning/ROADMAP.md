@@ -44,11 +44,12 @@ Plans:
   3. Scanner queries law firm alert websites and returns new client alerts
   4. Scanner flags any finding that duplicates a development already covered by an existing report
   5. Scanner outputs a structured list (title, source, summary, relevance, link) and the pipeline halts until the user approves or rejects each finding
-**Plans:** 3 plans
+**Plans:** 4 plans
 Plans:
-- [ ] 02-01-PLAN.md -- Scanner core: source config, EML conversion, agent prompt, orchestration
-- [ ] 02-02-PLAN.md -- Dedup pipeline, review markdown generator, approval gate
-- [ ] 02-03-PLAN.md -- Test fixtures and test scripts for scanner components
+- [x] 02-01-PLAN.md -- Scanner core: source config, EML conversion, agent prompt, orchestration
+- [x] 02-02-PLAN.md -- Dedup pipeline, review markdown generator, approval gate
+- [x] 02-03-PLAN.md -- Test fixtures and test scripts for scanner components
+- [ ] 02-04-PLAN.md -- Gap closure: law firm alert search queries, test fixture fix
 
 ### Phase 3: Report Generation
 **Goal**: The researcher agent takes a set of approved findings and produces complete, publication-quality markdown reports with citations, jurisdiction tags, adaptive format selection, and confidence-scored claims
@@ -91,7 +92,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Agent Framework | 0/3 | Planning complete | - |
-| 2. Scanner | 0/3 | Planning complete | - |
+| 2. Scanner | 0/4 | Gap closure planned | - |
 | 3. Report Generation | 0/TBD | Not started | - |
 | 4. Verification | 0/TBD | Not started | - |
 | 5. Pipeline Integration | 0/TBD | Not started | - |
