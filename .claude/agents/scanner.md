@@ -49,6 +49,12 @@ Read `pipeline/config/sources.json` for source definitions.
 - Extract relevant results (regulatory developments, not general news)
 - Classify each result into the source's category
 
+**Supplemental law firm alert discovery (D-07):**
+- The search_queries in sources.json include law firm alert queries (IDs starting with "law-firm-")
+- These supplement the Lexology digest to catch alerts from firms not covered by the daily feed
+- When processing law firm search results, prefer the original law firm publication URL over aggregator links
+- Set the source field to the firm name (e.g., "Baker McKenzie" not "Google search result")
+
 **On source failure (D-08):**
 - Log the failure with source_id, source_name, and error message
 - Continue scanning remaining sources

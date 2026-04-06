@@ -54,6 +54,24 @@
         "query": "state attorney general privacy enforcement settlement 2026",
         "category": ["privacy"],
         "description": "State AG enforcement actions"
+      },
+      {
+        "id": "law-firm-privacy-alerts",
+        "query": "law firm client alert privacy data protection 2026",
+        "category": ["privacy"],
+        "description": "Law firm client alerts on privacy developments not in Lexology digest"
+      },
+      {
+        "id": "law-firm-cybersecurity-alerts",
+        "query": "law firm client alert cybersecurity data breach 2026",
+        "category": ["cybersecurity"],
+        "description": "Law firm client alerts on cybersecurity developments not in Lexology digest"
+      },
+      {
+        "id": "law-firm-ai-alerts",
+        "query": "law firm client alert artificial intelligence AI regulation 2026",
+        "category": ["ai-law"],
+        "description": "Law firm client alerts on AI law developments not in Lexology digest"
       }
     ]
   }
