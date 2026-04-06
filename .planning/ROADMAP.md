@@ -2,7 +2,7 @@
 
 ## Overview
 
-Zwiad is built in five phases. Phase 1 establishes the subprocess agent framework and JSON handoff contracts that every other phase depends on. Phase 2 delivers the scanner — parsing email digests, querying government and law firm sites, deduplicating, and presenting findings for human approval. Phase 3 delivers the researcher agent that turns approved findings into structured markdown reports with source citations and confidence tagging. Phase 4 adds the reviewer agent and the researcher-reviewer iteration loop with human escalation. Phase 5 closes the pipeline: categorized output folders, audit trail logs, and scheduled execution support.
+Zwiad is built in five phases. Phase 1 establishes the subprocess agent framework and JSON handoff contracts that every other phase depends on. Phase 2 delivers the scanner -- parsing email digests, querying government and law firm sites, deduplicating, and presenting findings for human approval. Phase 3 delivers the researcher agent that turns approved findings into structured markdown reports with source citations and confidence tagging. Phase 4 adds the reviewer agent and the researcher-reviewer iteration loop with human escalation. Phase 5 closes the pipeline: categorized output folders, audit trail logs, and scheduled execution support.
 
 ## Phases
 
@@ -30,9 +30,9 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A malformed or schema-violating JSON handoff is caught and reported as an error rather than silently passed through
 **Plans:** 3 plans
 Plans:
-- [x] 01-01-PLAN.md — Directory structure + agent definition stubs
-- [x] 01-02-PLAN.md — JSON schemas + jq validation script
-- [x] 01-03-PLAN.md — Test fixtures, test scripts, and smoke test
+- [x] 01-01-PLAN.md -- Directory structure + agent definition stubs
+- [x] 01-02-PLAN.md -- JSON schemas + jq validation script
+- [x] 01-03-PLAN.md -- Test fixtures, test scripts, and smoke test
 
 ### Phase 2: Scanner
 **Goal**: The scanner agent can ingest an email digest file, query government and law firm websites, detect duplicates against existing reports, and present a structured findings list requiring human approval before any research proceeds
@@ -44,7 +44,11 @@ Plans:
   3. Scanner queries law firm alert websites and returns new client alerts
   4. Scanner flags any finding that duplicates a development already covered by an existing report
   5. Scanner outputs a structured list (title, source, summary, relevance, link) and the pipeline halts until the user approves or rejects each finding
-**Plans**: TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 02-01-PLAN.md -- Scanner core: source config, EML conversion, agent prompt, orchestration
+- [ ] 02-02-PLAN.md -- Dedup pipeline, review markdown generator, approval gate
+- [ ] 02-03-PLAN.md -- Test fixtures and test scripts for scanner components
 
 ### Phase 3: Report Generation
 **Goal**: The researcher agent takes a set of approved findings and produces complete, publication-quality markdown reports with citations, jurisdiction tags, adaptive format selection, and confidence-scored claims
@@ -82,12 +86,12 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Agent Framework | 0/3 | Planning complete | - |
-| 2. Scanner | 0/TBD | Not started | - |
+| 2. Scanner | 0/3 | Planning complete | - |
 | 3. Report Generation | 0/TBD | Not started | - |
 | 4. Verification | 0/TBD | Not started | - |
 | 5. Pipeline Integration | 0/TBD | Not started | - |
