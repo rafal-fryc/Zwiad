@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "sources": {
+    "direct_fetch": [
+      {
+        "id": "ftc-press",
+        "name": "FTC Press Releases",
+        "url": "https://www.ftc.gov/news-events/news/press-releases",
+        "category": ["privacy", "cybersecurity"],
+        "extract": "List of recent press release titles, dates, and links from the page"
+      },
+      {
+        "id": "nist-csrc",
+        "name": "NIST CSRC News",
+        "url": "https://csrc.nist.gov/news",
+        "category": ["cybersecurity", "ai-law"],
+        "extract": "Recent publications, frameworks, and announcements with titles and links"
+      },
+      {
+        "id": "congress-privacy",
+        "name": "Congress.gov Privacy/Data Bills",
+        "url": "https://www.congress.gov/search?q=%7B%22source%22%3A%22legislation%22%2C%22congress%22%3A%22119%22%2C%22type%22%3A%22bills%22%7D&searchResultViewType=expanded",
+        "category": ["privacy"],
+        "extract": "New bills related to privacy, data protection, and cybersecurity"
+      }
+    ],
+    "search_queries": [
+      {
+        "id": "state-privacy-2026",
+        "query": "state privacy law legislation 2026 new bill",
+        "category": ["privacy"],
+        "description": "State-level comprehensive privacy legislation"
+      },
+      {
+        "id": "ftc-enforcement-2026",
+        "query": "FTC enforcement action data privacy cybersecurity 2026",
+        "category": ["privacy", "cybersecurity"],
+        "description": "FTC enforcement actions"
+      },
+      {
+        "id": "ai-regulation-2026",
+        "query": "artificial intelligence regulation law executive order 2026 US",
+        "category": ["ai-law"],
+        "description": "Federal and state AI regulation"
+      },
+      {
+        "id": "nist-ai-2026",
+        "query": "NIST AI framework guidance publication 2026",
+        "category": ["ai-law", "cybersecurity"],
+        "description": "NIST AI-related publications"
+      },
+      {
+        "id": "state-ag-privacy",
+        "query": "state attorney general privacy enforcement settlement 2026",
+        "category": ["privacy"],
+        "description": "State AG enforcement actions"
+      }
+    ]
+  }
+}

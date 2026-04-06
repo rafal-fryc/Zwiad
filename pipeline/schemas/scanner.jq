@@ -10,5 +10,7 @@
   (.relevance | IN("high", "medium", "low")) and
   (.jurisdiction | type == "string") and
   (.development_type | type == "string") and
-  (.development_type | IN("legislation", "regulation", "enforcement", "guidance", "court-decision", "other"))
+  (.development_type | IN("legislation", "regulation", "enforcement", "guidance", "court-decision", "other")) and
+  (.category | type == "string") and
+  (.category | IN("privacy", "cybersecurity", "ai-law"))
 ))

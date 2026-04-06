@@ -9,7 +9,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "title", "source", "source_url", "summary", "relevance", "jurisdiction", "development_type"],
+        "required": ["id", "title", "source", "source_url", "summary", "relevance", "jurisdiction", "development_type", "category"],
         "properties": {
           "id": { "type": "string" },
           "title": { "type": "string" },
@@ -18,9 +18,22 @@
           "summary": { "type": "string" },
           "relevance": { "type": "string", "enum": ["high", "medium", "low"] },
           "jurisdiction": { "type": "string" },
-          "development_type": { "type": "string", "enum": ["legislation", "regulation", "enforcement", "guidance", "court-decision", "other"] }
+          "development_type": { "type": "string", "enum": ["legislation", "regulation", "enforcement", "guidance", "court-decision", "other"] },
+          "category": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] }
         },
         "additionalProperties": false
+      }
+    },
+    "source_failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "error"],
+        "properties": {
+          "source_id": { "type": "string" },
+          "source_name": { "type": "string" },
+          "error": { "type": "string" }
+        }
       }
     }
   },
