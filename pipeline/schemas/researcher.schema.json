@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Researcher Stage Data",
+  "description": "Schema for researcher agent output data field",
+  "type": "object",
+  "required": ["reports"],
+  "properties": {
+    "reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding_id", "report_path", "format", "jurisdiction_tags", "confidence_summary"],
+        "properties": {
+          "finding_id": { "type": "string" },
+          "report_path": { "type": "string" },
+          "format": { "type": "string", "enum": ["client-alert", "research-memo"] },
+          "jurisdiction_tags": { "type": "array", "items": { "type": "string" } },
+          "confidence_summary": {
+            "type": "object",
+            "required": ["high", "medium", "low"],
+            "properties": {
+              "high": { "type": "integer" },
+              "medium": { "type": "integer" },
+              "low": { "type": "integer" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
