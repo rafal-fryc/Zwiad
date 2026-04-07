@@ -74,7 +74,10 @@ Plans:
   2. Reviewer agent flags incorrect statute citations, wrong effective dates, or misattributed jurisdictions
   3. Researcher and reviewer automatically iterate to resolve disagreements; after 3 unsuccessful rounds the report is flagged for human review and the pipeline pauses
   4. The final verified report includes a per-claim verification status annotation (verified / disputed / needs human review)
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 04-01-PLAN.md -- Reviewer agent definition, feedback schema, and test fixtures
+- [ ] 04-02-PLAN.md -- Review orchestration scripts, escalation flow, and test scripts
 
 ### Phase 5: Pipeline Integration
 **Goal**: Finalized reports are automatically filed into the correct topic folders with emergent subcategories, every pipeline run produces a complete audit log, and the pipeline can be triggered on a schedule
@@ -96,5 +99,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Agent Framework | 0/3 | Planning complete | - |
 | 2. Scanner | 0/4 | Gap closure planned | - |
 | 3. Report Generation | 0/2 | Planning complete | - |
-| 4. Verification | 0/TBD | Not started | - |
+| 4. Verification | 0/2 | Planning complete | - |
 | 5. Pipeline Integration | 0/TBD | Not started | - |
