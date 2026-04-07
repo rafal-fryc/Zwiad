@@ -87,7 +87,11 @@ Plans:
   1. After verification, each report is filed into /privacy, /cybersecurity, or /ai-law with a subcategory subfolder determined by the categorizer agent
   2. Each pipeline run produces a log file recording what was scanned, which findings were approved, which reports were produced, and whether verification passed
   3. The pipeline can be triggered by a cron job (or equivalent scheduler) for daily automated execution without manual intervention
-**Plans**: TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 05-01-PLAN.md -- Categorizer agent, subcategory registry, schema extension, orchestrator prompt
+- [ ] 05-02-PLAN.md -- Python entry point (run_pipeline.py), audit log, notifications
+- [ ] 05-03-PLAN.md -- Cron scheduling, install script, pipeline test script
 
 ## Progress
 
@@ -100,4 +104,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Scanner | 0/4 | Gap closure planned | - |
 | 3. Report Generation | 0/2 | Planning complete | - |
 | 4. Verification | 0/2 | Planning complete | - |
-| 5. Pipeline Integration | 0/TBD | Not started | - |
+| 5. Pipeline Integration | 0/3 | Planning complete | - |
