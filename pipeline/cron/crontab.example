@@ -1,0 +1,15 @@
+# Zwiad Regulatory Monitoring Pipeline - Daily Scan
+# Install with: bash pipeline/cron/install-cron.sh
+#
+# Environment variables required for notify-send from cron:
+DISPLAY=:0
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+# Ensure claude CLI and python3 are in PATH
+# Adjust this PATH to match your system (run `echo $PATH` in terminal)
+PATH=/home/rafal/.local/bin:/home/rafal/.nvm/versions/node/v24.14.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Daily at 6:00 AM UTC - web-only scan (no email digest)
+# Pipeline pauses after scan for human approval (D-08)
+# Resume with: python3 run_pipeline.py resume <run-id>
+0 6 * * * cd /home/rafal/projecty/Zwiad && /usr/bin/python3 run_pipeline.py run --web-only >> pipeline/logs/cron.log 2>&1
