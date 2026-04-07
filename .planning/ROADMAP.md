@@ -89,9 +89,9 @@ Plans:
   3. The pipeline can be triggered by a cron job (or equivalent scheduler) for daily automated execution without manual intervention
 **Plans:** 3 plans
 Plans:
-- [ ] 05-01-PLAN.md -- Categorizer agent, subcategory registry, schema extension, orchestrator prompt
-- [ ] 05-02-PLAN.md -- Python entry point (run_pipeline.py), audit log, notifications
-- [ ] 05-03-PLAN.md -- Cron scheduling, install script, pipeline test script
+- [x] 05-01-PLAN.md -- Categorizer agent, subcategory registry, schema extension, orchestrator prompt
+- [x] 05-02-PLAN.md -- Python entry point (run_pipeline.py), audit log, notifications
+- [x] 05-03-PLAN.md -- Cron scheduling, install script, pipeline test script
 
 ## Progress
 
