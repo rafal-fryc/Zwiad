@@ -60,8 +60,10 @@ Plans:
   2. Breaking news findings produce client-alert format reports; complex analysis findings produce research memo format reports
   3. Every factual claim in the report carries a HIGH, MEDIUM, or LOW confidence tag reflecting source quality
   4. Each finalized report contains a "Related Reports" section that links thematically similar reports already in the knowledge base
-**Plans**: TBD
-**UI hint**: no
+**Plans:** 2 plans
+Plans:
+- [ ] 03-01-PLAN.md -- Report templates and researcher agent system prompt
+- [ ] 03-02-PLAN.md -- Orchestration script, test fixtures, and validation tests
 
 ### Phase 4: Verification
 **Goal**: The reviewer agent independently audits every report for hallucinations and legal accuracy, iterates with the researcher to resolve disagreements, and escalates to human review when iteration is exhausted
@@ -93,6 +95,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Agent Framework | 0/3 | Planning complete | - |
 | 2. Scanner | 0/4 | Gap closure planned | - |
-| 3. Report Generation | 0/TBD | Not started | - |
+| 3. Report Generation | 0/2 | Planning complete | - |
 | 4. Verification | 0/TBD | Not started | - |
 | 5. Pipeline Integration | 0/TBD | Not started | - |
