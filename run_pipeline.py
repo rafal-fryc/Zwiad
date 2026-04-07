@@ -1,0 +1,475 @@
+#!/usr/bin/env python3
+"""Zwiad regulatory monitoring pipeline entry point.
+
+Usage:
+    python3 run_pipeline.py run --input <digest-file>   # Scan from email digest
+    python3 run_pipeline.py run --web-only               # Scan web sources only
+    python3 run_pipeline.py resume <run-id>              # Resume after approval
+"""
+
+import argparse
+import json
+import os
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+PIPELINE_DIR = PROJECT_ROOT / "pipeline"
+RUNS_DIR = PIPELINE_DIR / "runs"
+PENDING_DIR = PIPELINE_DIR / "pending"
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+
+def create_run_id() -> str:
+    """Generate a UTC-timestamped run ID (matches run-scanner.sh pattern)."""
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%S")
+
+
+def setup_run_dir(run_id: str) -> Path:
+    """Create and return the run directory for *run_id*."""
+    run_dir = RUNS_DIR / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    return run_dir
+
+
+def notify(title: str, message: str) -> None:
+    """Send a desktop notification via notify-send (best-effort).
+
+    Falls back to stdout if notify-send is unavailable or times out.
+    """
+    print(f"[NOTIFY] Zwiad: {title} -- {message}")
+    try:
+        subprocess.run(
+            ["notify-send", "--urgency=normal", f"Zwiad: {title}", message],
+            timeout=5,
+            capture_output=True,
+        )
+    except FileNotFoundError:
+        pass  # notify-send not installed -- stdout fallback above suffices
+    except subprocess.TimeoutExpired:
+        pass  # non-critical
+
+
+def run_stage(
+    name: str,
+    cmd: list,
+    run_id: str,
+    run_dir: Path,
+    audit_entries: list,
+) -> subprocess.CompletedProcess:
+    """Execute a pipeline stage, record audit info, and handle errors."""
+    start = time.monotonic()
+    start_wall = datetime.now(timezone.utc).isoformat()
+
+    print(f"[STAGE] {name} -- starting at {start_wall}")
+
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
+
+    end = time.monotonic()
+    duration = round(end - start, 1)
+    stdout_lines = (result.stdout or "").strip().splitlines()
+
+    if result.returncode != 0:
+        error_msg = (result.stderr or "").strip() or "(no stderr)"
+        # Write error.log
+        error_log = run_dir / "error.log"
+        with open(error_log, "a") as f:
+            f.write(f"[{name}] exit={result.returncode}  duration={duration}s\n")
+            f.write(f"stderr:\n{error_msg}\n\n")
+
+        audit_entries.append({
+            "name": name,
+            "duration_seconds": duration,
+            "status": "error",
+            "error": error_msg[:500],
+        })
+
+        notify("Pipeline Failure", f"Stage {name} failed for run {run_id}")
+        raise RuntimeError(f"Stage {name} failed (exit {result.returncode}): {error_msg[:200]}")
+
+    audit_entries.append({
+        "name": name,
+        "duration_seconds": duration,
+        "stdout_tail": stdout_lines[-20:] if stdout_lines else [],
+        "status": "complete",
+    })
+
+    print(f"[STAGE] {name} -- completed in {duration}s")
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Phase runners
+# ---------------------------------------------------------------------------
+
+
+def run_scan_phase(
+    run_id: str,
+    run_dir: Path,
+    audit_entries: list,
+    input_file: str | None = None,
+    web_only: bool = False,
+) -> list:
+    """Execute the scan phase via the orchestrator agent."""
+    prompt_parts = [
+        f"Scan phase for run {run_id}.",
+        f"Write all output to pipeline/runs/{run_id}/.",
+    ]
+
+    if input_file:
+        abs_input = str(Path(input_file).resolve())
+        prompt_parts.append(f"Input digest file: {abs_input}")
+    elif web_only:
+        prompt_parts.append("Web sources only (--sources-only). No email digest.")
+
+    prompt = " ".join(prompt_parts)
+
+    cmd = [
+        "claude", "-p",
+        "--agent", "orchestrator",
+        "--output-format", "json",
+        "--max-turns", "30",
+        prompt,
+    ]
+
+    run_stage("orchestrator-scan", cmd, run_id, run_dir, audit_entries)
+
+    # Check for scan-complete marker
+    marker = run_dir / "scan-complete.marker"
+    if not marker.exists():
+        audit_entries.append({
+            "name": "scan-marker-check",
+            "duration_seconds": 0,
+            "status": "warning",
+            "error": "scan-complete.marker not found -- orchestrator may not have finished cleanly",
+        })
+        print("[WARN] scan-complete.marker not found in run directory")
+
+    notify(
+        "Findings Ready",
+        f"Run {run_id}: Review scanner findings at pipeline/runs/{run_id}/scanner-review.md",
+    )
+
+    return audit_entries
+
+
+def run_research_phase(
+    run_id: str,
+    run_dir: Path,
+    audit_entries: list,
+) -> list:
+    """Execute the research phase via the orchestrator agent."""
+    # Validate state: approved findings must exist
+    approved = run_dir / "scanner-approved.json"
+    if not approved.exists():
+        raise RuntimeError(
+            f"Cannot resume: scanner-approved.json not found in {run_dir}. "
+            "Approve findings first via pipeline/scripts/approve-findings.sh"
+        )
+
+    # Guard against duplicate runs
+    cat_output = run_dir / "categorizer-output.json"
+    if cat_output.exists():
+        raise RuntimeError(
+            f"Run {run_id} already complete (categorizer-output.json exists). "
+            "Create a new run instead."
+        )
+
+    prompt = (
+        f"Research phase for run {run_id}. "
+        f"Process approved findings from pipeline/runs/{run_id}/scanner-approved.json."
+    )
+
+    cmd = [
+        "claude", "-p",
+        "--agent", "orchestrator",
+        "--output-format", "json",
+        "--max-turns", "50",
+        prompt,
+    ]
+
+    run_stage("orchestrator-research", cmd, run_id, run_dir, audit_entries)
+
+    # Check for completion markers
+    complete_marker = run_dir / "pipeline-complete.marker"
+    escalation_marker = run_dir / "has-escalations.marker"
+
+    if escalation_marker.exists():
+        notify("Escalations Pending", f"Run {run_id}: Review escalations")
+    elif complete_marker.exists():
+        notify("Pipeline Complete", f"Run {run_id}: Reports filed")
+    else:
+        audit_entries.append({
+            "name": "research-marker-check",
+            "duration_seconds": 0,
+            "status": "warning",
+            "error": "Neither pipeline-complete.marker nor has-escalations.marker found",
+        })
+        print("[WARN] No completion marker found in run directory")
+
+    return audit_entries
+
+
+# ---------------------------------------------------------------------------
+# Audit log
+# ---------------------------------------------------------------------------
+
+
+def _read_json_safe(path: Path) -> dict | list | None:
+    """Read a JSON file, returning None on any error."""
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return None
+
+
+def _format_duration(seconds: float) -> str:
+    """Human-readable duration string."""
+    if seconds < 60:
+        return f"{seconds:.1f}s"
+    minutes = int(seconds // 60)
+    secs = seconds % 60
+    return f"{minutes}m {secs:.1f}s"
+
+
+def write_audit_log(
+    run_id: str,
+    run_dir: Path,
+    audit_entries: list,
+    overall_status: str,
+    start_time: str,
+) -> None:
+    """Write audit-log.md to the run directory."""
+    end_time = datetime.now(timezone.utc).isoformat()
+
+    lines = [
+        "# Pipeline Audit Log",
+        "",
+        f"**Run ID:** {run_id}",
+        f"**Started:** {start_time}",
+        f"**Completed:** {end_time}",
+        f"**Status:** {overall_status}",
+        "",
+    ]
+
+    # Stage entries
+    for entry in audit_entries:
+        lines.append(f"## {entry['name']}")
+        lines.append(f"- **Duration:** {_format_duration(entry['duration_seconds'])}")
+        lines.append(f"- **Status:** {entry['status']}")
+        if entry.get("error"):
+            lines.append(f"- **Error:** {entry['error']}")
+        lines.append("")
+
+    # Summary counts from run directory artifacts
+    lines.append("## Artifact Summary")
+    lines.append("")
+
+    scanner_output = _read_json_safe(run_dir / "scanner-output.json")
+    if scanner_output and isinstance(scanner_output, dict):
+        data = scanner_output.get("data", scanner_output)
+        findings = data.get("findings", [])
+        source_failures = data.get("source_failures", [])
+        lines.append(f"- **Scanner findings:** {len(findings)}")
+        lines.append(f"- **Source failures:** {len(source_failures)}")
+
+    approved = _read_json_safe(run_dir / "scanner-approved.json")
+    if approved and isinstance(approved, dict):
+        data = approved.get("data", approved)
+        approved_findings = data.get("findings", data.get("approved_findings", []))
+        lines.append(f"- **Approved findings:** {len(approved_findings)}")
+
+    reviewer = _read_json_safe(run_dir / "reviewer-output.json")
+    if reviewer and isinstance(reviewer, dict):
+        data = reviewer.get("data", reviewer)
+        reviews = data.get("reviews", [])
+        verified = sum(1 for r in reviews if r.get("verdict") == "verified")
+        escalated = sum(1 for r in reviews if r.get("verdict") == "escalate")
+        lines.append(f"- **Reviewer verified:** {verified}")
+        lines.append(f"- **Reviewer escalated:** {escalated}")
+
+    categorizer = _read_json_safe(run_dir / "categorizer-output.json")
+    if categorizer and isinstance(categorizer, dict):
+        data = categorizer.get("data", categorizer)
+        filed = data.get("filed", [])
+        pending = data.get("pending", [])
+        lines.append(f"- **Categorizer filed:** {len(filed)}")
+        lines.append(f"- **Categorizer pending:** {len(pending)}")
+
+    lines.append("")
+
+    # Errors section
+    errors = [e for e in audit_entries if e["status"] == "error"]
+    lines.append("## Errors")
+    lines.append("")
+    if errors:
+        for e in errors:
+            lines.append(f"- **{e['name']}:** {e.get('error', 'unknown')}")
+    else:
+        lines.append("None")
+    lines.append("")
+
+    audit_path = run_dir / "audit-log.md"
+    with open(audit_path, "w") as f:
+        f.write("\n".join(lines))
+
+    print(f"[AUDIT] Written to {audit_path}")
+
+
+# ---------------------------------------------------------------------------
+# Subcommand handlers
+# ---------------------------------------------------------------------------
+
+
+def cmd_run(args: argparse.Namespace) -> None:
+    """Handle the 'run' subcommand -- execute scan phase."""
+    if not args.input and not args.web_only:
+        print("ERROR: Provide --input <file> or --web-only", file=sys.stderr)
+        sys.exit(1)
+
+    input_file = None
+    if args.input:
+        input_path = Path(args.input)
+        if not input_path.exists():
+            print(f"ERROR: Input file not found: {args.input}", file=sys.stderr)
+            sys.exit(1)
+        input_file = str(input_path)
+
+    run_id = create_run_id()
+    run_dir = setup_run_dir(run_id)
+    audit_entries: list = []
+    start_time = datetime.now(timezone.utc).isoformat()
+
+    print(f"[RUN] Pipeline run {run_id}")
+    print(f"[RUN] Run directory: {run_dir}")
+    print(f"[ENV] PATH={os.environ.get('PATH', '(unset)')}")
+    print(f"[ENV] DISPLAY={os.environ.get('DISPLAY', '(unset)')}")
+    print(f"[ENV] Python={sys.executable}")
+
+    try:
+        run_scan_phase(
+            run_id, run_dir, audit_entries,
+            input_file=input_file, web_only=args.web_only,
+        )
+        write_audit_log(run_id, run_dir, audit_entries, "scan-complete", start_time)
+    except RuntimeError as exc:
+        write_audit_log(run_id, run_dir, audit_entries, "error", start_time)
+        notify("Pipeline Failure", str(exc)[:200])
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as exc:
+        # Catch-all for unexpected errors
+        error_log = run_dir / "error.log"
+        with open(error_log, "a") as f:
+            f.write(f"[unexpected] {type(exc).__name__}: {exc}\n")
+        write_audit_log(run_id, run_dir, audit_entries, "error", start_time)
+        notify("Pipeline Failure", f"Unexpected error: {exc}")
+        print(f"[ERROR] Unexpected: {exc}", file=sys.stderr)
+        sys.exit(1)
+
+    print()
+    print(f"Scan complete. Review findings at: pipeline/runs/{run_id}/scanner-review.md")
+    print(f"After approval, run: python3 run_pipeline.py resume {run_id}")
+
+
+def cmd_resume(args: argparse.Namespace) -> None:
+    """Handle the 'resume' subcommand -- execute research phase."""
+    run_id = args.run_id
+    run_dir = RUNS_DIR / run_id
+
+    if not run_dir.is_dir():
+        print(f"ERROR: Run directory not found: {run_dir}", file=sys.stderr)
+        sys.exit(1)
+
+    audit_entries: list = []
+    start_time = datetime.now(timezone.utc).isoformat()
+
+    print(f"[RESUME] Pipeline run {run_id}")
+    print(f"[RESUME] Run directory: {run_dir}")
+    print(f"[ENV] PATH={os.environ.get('PATH', '(unset)')}")
+    print(f"[ENV] DISPLAY={os.environ.get('DISPLAY', '(unset)')}")
+    print(f"[ENV] Python={sys.executable}")
+
+    try:
+        run_research_phase(run_id, run_dir, audit_entries)
+        write_audit_log(run_id, run_dir, audit_entries, "complete", start_time)
+    except RuntimeError as exc:
+        write_audit_log(run_id, run_dir, audit_entries, "error", start_time)
+        notify("Pipeline Failure", str(exc)[:200])
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as exc:
+        error_log = run_dir / "error.log"
+        with open(error_log, "a") as f:
+            f.write(f"[unexpected] {type(exc).__name__}: {exc}\n")
+        write_audit_log(run_id, run_dir, audit_entries, "error", start_time)
+        notify("Pipeline Failure", f"Unexpected error: {exc}")
+        print(f"[ERROR] Unexpected: {exc}", file=sys.stderr)
+        sys.exit(1)
+
+    print()
+    print(f"Pipeline complete for run {run_id}.")
+
+    # Check for escalations
+    if (run_dir / "has-escalations.marker").exists():
+        print("NOTE: Some findings were escalated. Review escalation reports.")
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+
+def main() -> None:
+    """Parse arguments and dispatch to subcommand handler."""
+    parser = argparse.ArgumentParser(
+        description="Zwiad regulatory monitoring pipeline",
+    )
+    subparsers = parser.add_subparsers(dest="command", help="Pipeline commands")
+
+    # run subcommand
+    run_parser = subparsers.add_parser("run", help="Start a new pipeline scan")
+    run_parser.add_argument(
+        "--input",
+        metavar="FILE",
+        help="Path to email digest file (.eml, .html, .txt)",
+    )
+    run_parser.add_argument(
+        "--web-only",
+        action="store_true",
+        help="Scan web sources only (no email digest)",
+    )
+    run_parser.set_defaults(func=cmd_run)
+
+    # resume subcommand
+    resume_parser = subparsers.add_parser(
+        "resume", help="Resume pipeline after findings approval",
+    )
+    resume_parser.add_argument(
+        "run_id",
+        help="Run ID to resume (e.g. 2026-04-07T14-30-00)",
+    )
+    resume_parser.set_defaults(func=cmd_resume)
+
+    args = parser.parse_args()
+
+    if not args.command:
+        parser.print_help()
+        sys.exit(1)
+
+    args.func(args)
+
+
+if __name__ == "__main__":
+    main()
