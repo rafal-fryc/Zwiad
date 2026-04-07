@@ -15,9 +15,11 @@
           "source_path": { "type": "string" },
           "destination_path": { "type": "string" },
           "topic": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] },
-          "subcategory": { "type": "string" }
-        },
-        "additionalProperties": false
+          "subcategory": { "type": "string" },
+          "is_pending": { "type": "boolean" },
+          "proposed_subcategory": { "type": "string" },
+          "symlinks": { "type": "array", "items": { "type": "string" } }
+        }
       }
     }
   },

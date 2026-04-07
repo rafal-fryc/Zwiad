@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "topics": {
+    "privacy": {
+      "subcategories": [
+        "state-comprehensive-laws",
+        "federal-legislation",
+        "enforcement-actions",
+        "data-breach",
+        "childrens-privacy",
+        "health-data"
+      ]
+    },
+    "cybersecurity": {
+      "subcategories": [
+        "federal-frameworks",
+        "incident-reporting",
+        "enforcement-actions",
+        "critical-infrastructure",
+        "standards-guidance"
+      ]
+    },
+    "ai-law": {
+      "subcategories": [
+        "federal-regulation",
+        "state-legislation",
+        "executive-orders",
+        "enforcement-actions",
+        "frameworks-guidance"
+      ]
+    }
+  }
+}
