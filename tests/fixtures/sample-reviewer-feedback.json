@@ -1,0 +1,36 @@
+{
+  "finding_id": "SCAN-20260406-001",
+  "report_path": "reports/privacy/federal-apra-privacy-act-2026-04-06.md",
+  "round": 1,
+  "claims_checked": 8,
+  "issues": [
+    {
+      "claim": "The American Privacy Rights Act was introduced on April 4, 2026",
+      "section": "Key Facts",
+      "source_url": "https://www.congress.gov/bill/119th-congress/house-bill/0000",
+      "issue": "Congress.gov shows the introduction date as April 7, 2026, not April 4",
+      "severity": "critical",
+      "suggested_fix": "Update introduction date to April 7, 2026",
+      "status": "open"
+    },
+    {
+      "claim": "The bill preempts all existing state privacy laws",
+      "section": "Analysis",
+      "source_url": "https://www.congress.gov/bill/119th-congress/house-bill/0000/text",
+      "issue": "Bill text shows partial preemption with carve-outs for California, Illinois, and state consumer protection laws",
+      "severity": "major",
+      "suggested_fix": "Clarify that preemption is partial with specific state carve-outs listed in Section 404",
+      "status": "open"
+    },
+    {
+      "claim": "Industry groups have expressed opposition to the enforcement provisions",
+      "section": "Impact",
+      "source_url": "https://example.com/industry-reaction",
+      "issue": "Source uses 'concern' rather than 'opposition' -- characterization is slightly stronger than source supports",
+      "severity": "minor",
+      "suggested_fix": "Change 'opposition' to 'concern' to match source language",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}
