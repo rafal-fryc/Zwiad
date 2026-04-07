@@ -76,8 +76,8 @@ Plans:
   4. The final verified report includes a per-claim verification status annotation (verified / disputed / needs human review)
 **Plans:** 2 plans
 Plans:
-- [ ] 04-01-PLAN.md -- Reviewer agent definition, feedback schema, and test fixtures
-- [ ] 04-02-PLAN.md -- Review orchestration scripts, escalation flow, and test scripts
+- [x] 04-01-PLAN.md -- Reviewer agent definition, feedback schema, and test fixtures
+- [x] 04-02-PLAN.md -- Review orchestration scripts, escalation flow, and test scripts
 
 ### Phase 5: Pipeline Integration
 **Goal**: Finalized reports are automatically filed into the correct topic folders with emergent subcategories, every pipeline run produces a complete audit log, and the pipeline can be triggered on a schedule
