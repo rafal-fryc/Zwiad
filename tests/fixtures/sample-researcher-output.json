@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-06T14-30-00",
+  "timestamp": "2026-04-06T15:30:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260406-001",
+        "report_path": "reports/privacy/federal-apra-privacy-act-2026-04-06.md",
+        "format": "client-alert",
+        "jurisdiction_tags": ["Federal"],
+        "confidence_summary": {
+          "high": 2,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      {
+        "finding_id": "SCAN-20260406-002",
+        "report_path": "reports/cybersecurity/california-ccpa-enforcement-2026-04-06.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["California"],
+        "confidence_summary": {
+          "high": 1,
+          "medium": 2,
+          "low": 1
+        }
+      }
+    ]
+  }
+}

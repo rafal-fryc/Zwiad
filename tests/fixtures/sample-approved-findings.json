@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-06T14-30-00",
+  "timestamp": "2026-04-06T15:00:00Z",
+  "stage": "human-review",
+  "status": "complete",
+  "data": {
+    "findings": [
+      {
+        "id": "SCAN-20260406-001",
+        "title": "APRA Privacy Act Introduced in Senate",
+        "source": "congress.gov",
+        "source_url": "https://www.congress.gov/bill/119th-congress/senate-bill/1234",
+        "summary": "New comprehensive federal privacy bill introduced with bipartisan support, establishing national data protection standards and preempting state privacy laws.",
+        "relevance": "high",
+        "jurisdiction": "Federal",
+        "development_type": "legislation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260406-002",
+        "title": "California AG Cybersecurity Enforcement Action",
+        "source": "oag.ca.gov",
+        "source_url": "https://oag.ca.gov/news/press-releases/2026-cybersecurity",
+        "summary": "California Attorney General fines major tech company $15M for CCPA cybersecurity violations related to inadequate data protection measures.",
+        "relevance": "medium",
+        "jurisdiction": "California",
+        "development_type": "enforcement",
+        "category": "cybersecurity"
+      }
+    ]
+  }
+}
