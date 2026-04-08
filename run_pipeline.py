@@ -138,6 +138,7 @@ def run_scan_phase(
         "claude", "-p",
         "--agent", "orchestrator",
         "--output-format", "json",
+        "--permission-mode", "acceptEdits",
         "--max-turns", "30",
         prompt,
     ]
@@ -194,6 +195,7 @@ def run_research_phase(
         "claude", "-p",
         "--agent", "orchestrator",
         "--output-format", "json",
+        "--permission-mode", "acceptEdits",
         "--max-turns", "50",
         prompt,
     ]

@@ -34,7 +34,8 @@ for RESEARCHER_FILE in "$RUN_DIR"/researcher-*.json; do
   fi
 
   # Extract reports from each researcher output
-  FILE_REPORTS=$(jq -c '.data.reports[]' "$RESEARCHER_FILE" 2>/dev/null || true)
+  # Handle both formats: .data.reports[] (array) and .data (flat object with finding_id)
+  FILE_REPORTS=$(jq -c 'if .data.reports then .data.reports[] else .data | select(.finding_id) end' "$RESEARCHER_FILE" 2>/dev/null || true)
   while IFS= read -r report; do
     [ -z "$report" ] && continue
     REPORTS_JSON=$(echo "$REPORTS_JSON" | jq --argjson r "$report" '. + [$r]')
@@ -100,6 +101,7 @@ for i in $(seq 0 $((REPORT_COUNT - 1))); do
     # Invoke reviewer agent
     claude -p --agent reviewer \
       --output-format json \
+      --permission-mode acceptEdits \
       --max-turns 25 \
       "$PROMPT"
 
@@ -150,6 +152,7 @@ for i in $(seq 0 $((REPORT_COUNT - 1))); do
 
     claude -p --agent researcher \
       --output-format json \
+      --permission-mode acceptEdits \
       --max-turns 20 \
       "$REVISION_PROMPT"
 
