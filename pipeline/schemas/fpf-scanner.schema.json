@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FPF Scanner Stage Data",
+  "description": "Schema for fpf-scanner agent output data field",
+  "type": "object",
+  "required": ["email_files_processed", "bills"],
+  "properties": {
+    "email_files_processed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "email_dates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "bills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "bill_identifier", "state", "state_abbrev", "session", "title", "summary", "status", "category"],
+        "properties": {
+          "id": { "type": "string", "description": "Format: FPF-YYYYMMDD-NNN" },
+          "bill_identifier": { "type": "string", "description": "e.g. SB 1546, HB 2225" },
+          "state": { "type": "string", "description": "Full state name, e.g. Oregon" },
+          "state_abbrev": { "type": "string", "description": "Two-letter abbreviation, e.g. OR" },
+          "session": { "type": "string", "description": "Legislative session year, e.g. 2026" },
+          "title": { "type": "string", "description": "Short descriptive title of the bill" },
+          "summary": { "type": "string", "description": "Summary of what the bill does" },
+          "status": {
+            "type": "string",
+            "enum": ["introduced", "in-committee", "passed-committee", "passed-first-chamber", "passed-second-chamber", "enrolled", "signed", "vetoed", "dead", "tabled", "amended"],
+            "description": "Current legislative status"
+          },
+          "status_detail": { "type": "string", "description": "Detailed status text, e.g. Passed Senate 26-1 on March 5" },
+          "last_action_date": { "type": ["string", "null"], "description": "Date of last legislative action, ISO format" },
+          "bill_text_url": { "type": ["string", "null"], "description": "URL to bill text (may be FPF redirect)" },
+          "category": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["ai-law", "privacy"] },
+            "description": "Regulatory categories this bill falls under"
+          },
+          "topics": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Topic tags, e.g. chatbots, health, liability, employment"
+          },
+          "sponsors": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Bill sponsors with party affiliation"
+          },
+          "is_new": { "type": "boolean", "description": "True if this bill was not previously in tracker.json" },
+          "previous_status": { "type": ["string", "null"], "description": "Previous status from tracker if this is an update" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source_failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["email_file", "error"],
+        "properties": {
+          "email_file": { "type": "string" },
+          "error": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,7 +1,7 @@
 ---
 name: orchestrator
-description: Coordinates the Zwiad regulatory monitoring pipeline. Spawns scanner, researcher, reviewer, and categorizer subagents in sequence.
-tools: Agent(scanner, researcher, reviewer, categorizer), Read, Write, Bash, Glob, Grep
+description: Coordinates the Zwiad regulatory monitoring pipeline. Spawns scanner, researcher, reviewer, categorizer, and fpf-scanner subagents.
+tools: Agent(scanner, researcher, reviewer, categorizer, fpf-scanner), Read, Write, Bash, Glob, Grep
 model: sonnet
 ---
 
@@ -213,6 +213,50 @@ Log progress messages to stdout at each stage transition so the Python entry poi
 [{run_id}] Categorization complete. Filed N reports.
 [{run_id}] Pipeline complete.
 ```
+
+## Mode 3: FPF Legislative Scan
+
+You are invoked with a prompt like: `"FPF scan for run {run_id}. Process FPF emails in pipeline/runs/{run_id}/emails/."`
+
+This mode processes FPF (Future of Privacy Forum) legislative tracking emails to extract bill data, download bill text, and update the bill tracker.
+
+### Step 1: Invoke FPF Scanner
+
+Use the Agent tool to spawn the **fpf-scanner** subagent. Pass it a prompt containing:
+- The pipeline run ID
+- Paths to the FPF email files
+- Output path: `pipeline/runs/{run_id}/fpf-scanner-output.json`
+
+Example prompt:
+```
+Scan FPF legislative tracking emails. Pipeline run ID: {run_id}. Email files are in pipeline/runs/{run_id}/emails/. Only process files matching *.html that have .meta.json sidecars where the subject contains "FPF U.S.". Read the existing tracker at bills/tracker.json to check for existing bills. Write output to pipeline/runs/{run_id}/fpf-scanner-output.json
+```
+
+After the scanner completes, verify the output file exists.
+
+### Step 2: Run Bill Processor
+
+```bash
+python3 tools/bill_processor.py process --fpf-output pipeline/runs/{run_id}/fpf-scanner-output.json --run-id {run_id} --skip-convert
+```
+
+This downloads bill text PDFs and updates `bills/tracker.json`. The `--skip-convert` flag skips the slow docling PDF-to-markdown conversion (it can be run separately later).
+
+### Step 3: Write FPF-Complete Marker
+
+Write the file `pipeline/runs/{run_id}/fpf-complete.marker` with content:
+```
+FPF_SCAN_COMPLETE
+```
+
+### Step 4: Report Results
+
+Read `pipeline/runs/{run_id}/fpf-bills-processed.json` and log a summary:
+```
+[{run_id}] FPF scan complete. Bills: N new, M status updates. Downloads: X success, Y failed.
+```
+
+Do NOT proceed to research or categorization. FPF bills are auto-processed without approval gates.
 
 ## Important
 

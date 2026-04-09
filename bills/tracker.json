@@ -1,0 +1,1176 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-04-09T18:57:54.604875+00:00",
+  "bills": {
+    "AZ-HB-2410-2026": {
+      "bill_identifier": "HB 2410",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "session": "2026",
+      "title": "AI Communications Privilege",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "liability"
+      ],
+      "sponsors": [
+        "Rep. Kolodin (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/arizona/HB-2410",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/bills/HB2410P.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Kolodin (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/arizona/HB-2410/versions/v1-introduced.pdf",
+          "md_path": "bills/arizona/HB-2410/versions/v1-introduced.md"
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "AZ-HB-2489-2026": {
+      "bill_identifier": "HB 2489",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "session": "2026",
+      "title": "Surveillance Pricing Prohibition",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "data-pricing"
+      ],
+      "sponsors": [
+        "Rep. De Los Santos (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/arizona/HB-2489",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/bills/HB2489P.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. De Los Santos (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/arizona/HB-2489/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "CA-AB-1609-2026": {
+      "bill_identifier": "AB 1609",
+      "state": "California",
+      "state_abbrev": "CA",
+      "session": "2026",
+      "title": "Chatbot Deceptive Identity Prohibition",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [
+        "Asm. Zbur (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/california/AB-1609",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjA0MzE5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDU2Mjc3Mg/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Asm. Zbur (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "FL-SB-482-2026": {
+      "bill_identifier": "SB 482",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "session": "2026",
+      "title": "Florida AI Bill of Rights",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots",
+        "liability",
+        "privacy"
+      ],
+      "sponsors": [],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/florida/SB-482",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://flsenate.gov/Session/Bill/2026/482/BillText/e1/PDF",
+      "status_history": [
+        {
+          "date": "2026-01-21",
+          "status": "passed-committee",
+          "detail": "Reported favorably out of first committee on January 21, 2026",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/florida/SB-482/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "FL-SB-7030-2026": {
+      "bill_identifier": "SB 7030",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "session": "2026",
+      "title": "Chatbot Litigation Confidentiality",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots",
+        "liability"
+      ],
+      "sponsors": [
+        "Commerce Committee"
+      ],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/florida/SB-7030",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://flsenate.gov/Session/Bill/2026/7030",
+      "status_history": [
+        {
+          "date": "2026-01-21",
+          "status": "passed-committee",
+          "detail": "Reported favorably out of committee on January 21, 2026",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "HI-SB-2281-2026": {
+      "bill_identifier": "SB 2281",
+      "state": "Hawaii",
+      "state_abbrev": "HI",
+      "session": "2026",
+      "title": "Healthcare AI Disclosure and Oversight",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Sen. Buenaventura (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/hawaii/SB-2281",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://www.capitol.hawaii.gov/session/measure_indiv.aspx?billtype=SB&billnumber=2281&year=2026",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Buenaventura (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "IN-SB-108-2026": {
+      "bill_identifier": "SB 108",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "session": "2026",
+      "title": "Chatbot Regulation",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/indiana/SB-108",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://iga.in.gov/legislative/2026/bills/senate/180/details",
+      "status_history": [
+        {
+          "date": "2026-01-15",
+          "status": "passed-committee",
+          "detail": "Passed policy committee on January 15, 2026; set to be heard in Appropriations on January 22, 2026",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "IA-HF-2048-2026": {
+      "bill_identifier": "HF 2048",
+      "state": "Iowa",
+      "state_abbrev": "IA",
+      "session": "2026",
+      "title": "Automated Decision Making Data Disclosure",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "transparency",
+        "admt"
+      ],
+      "sponsors": [
+        "Rep. Gearhart (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/iowa/HF-2048",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://www.legis.iowa.gov/legislation/BillBook?ba=HF2048&ga=91",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Gearhart (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "ME-LD-2162-2026": {
+      "bill_identifier": "LD 2162",
+      "state": "Maine",
+      "state_abbrev": "ME",
+      "session": "2026",
+      "title": "Chatbot Age Restrictions for Minors",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [
+        "Rep. Gramlich (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/maine/LD-2162",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://legislature.maine.gov/billtracker/#Paper/HP1451?legislature=132",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Gramlich (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "MS-HB-1048-2026": {
+      "bill_identifier": "HB 1048",
+      "state": "Mississippi",
+      "state_abbrev": "MS",
+      "session": "2026",
+      "title": "AI in Mental and Behavioral Health Care Restrictions",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Rep. Ford (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/mississippi/HB-1048",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjA0MzE5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDU2Mjc4Nw/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Ford (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "MS-SB-2437-2026": {
+      "bill_identifier": "SB 2437",
+      "state": "Mississippi",
+      "state_abbrev": "MS",
+      "session": "2026",
+      "title": "Artificial Intelligence Definition",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "miscellaneous"
+      ],
+      "sponsors": [
+        "Sen. Williams (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/mississippi/SB-2437",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjA0MzE5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDU2MjgwMA/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Williams (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "MS-SB-2354-2026": {
+      "bill_identifier": "SB 2354",
+      "state": "Mississippi",
+      "state_abbrev": "MS",
+      "session": "2026",
+      "title": "AI Fraud Liability",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "liability"
+      ],
+      "sponsors": [
+        "Sen. Blackmon (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/mississippi/SB-2354",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjA0MzE5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDU2MjgwMg/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Blackmon (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "NE-LB-1083-2026": {
+      "bill_identifier": "LB 1083",
+      "state": "Nebraska",
+      "state_abbrev": "NE",
+      "session": "2026",
+      "title": "Frontier Model and Chatbot Safety Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "frontier-models",
+        "chatbots"
+      ],
+      "sponsors": [
+        "Sen. Storer (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/nebraska/LB-1083",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID=63049",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Storer (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "NE-LB-1185-2026": {
+      "bill_identifier": "LB 1185",
+      "state": "Nebraska",
+      "state_abbrev": "NE",
+      "session": "2026",
+      "title": "Chatbot Disclosures and Safety Protocols for Minors",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots",
+        "transparency"
+      ],
+      "sponsors": [
+        "Sen. Bostar (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/nebraska/LB-1185",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID=63873",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Bostar (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "NY-A-9487-2026": {
+      "bill_identifier": "A 9487",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "session": "2026",
+      "title": "AI Employment Protections",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "employment"
+      ],
+      "sponsors": [],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/new-york/A-9487",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://nyassembly.gov/leg/?bn=A9487&term=2025",
+      "status_history": [
+        {
+          "date": "2026-01-21",
+          "status": "passed-committee",
+          "detail": "Reported favorably out of the Assembly Science and Technology Committee on January 21, 2026",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "NY-A-9449-2026": {
+      "bill_identifier": "A 9449",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "session": "2026",
+      "title": "RAISE Act Governor's Amendments",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "high-risk-ai"
+      ],
+      "sponsors": [],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/new-york/A-9449",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjA0MzE5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDU2MjgwOA/index.html",
+      "status_history": [
+        {
+          "date": "2026-01-21",
+          "status": "passed-committee",
+          "detail": "Reported favorably out of the Assembly Science and Technology Committee on January 21, 2026",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "OK-SB-2085-2026": {
+      "bill_identifier": "SB 2085",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "AI Bill of Rights - Government Use and NIL Protections",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots",
+        "transparency",
+        "government-use"
+      ],
+      "sponsors": [
+        "Sen. Hamilton (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/SB-2085",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB2085%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Hamilton (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/oklahoma/SB-2085/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "OK-HB-3959-2026": {
+      "bill_identifier": "HB 3959",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "Food Retail Algorithmic Pricing Prohibition",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "data-pricing"
+      ],
+      "sponsors": [
+        "Rep. Munson (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/HB-3959",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/HB/HB3959%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Munson (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/oklahoma/HB-3959/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "OK-SB-1785-2026": {
+      "bill_identifier": "SB 1785",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "AI Prohibitions in Life/Death Situations and Worker Replacement",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "miscellaneous"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/SB-1785",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB1785%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/oklahoma/SB-1785/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "OK-HB-4083-2026": {
+      "bill_identifier": "HB 4083",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "Chatbot Protections for Minors and Therapeutic Use Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/HB-4083",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/HB/HB4083%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/oklahoma/HB-4083/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "OK-SB-2037-2026": {
+      "bill_identifier": "SB 2037",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "AI in Mental and Behavioral Health Care Restrictions",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/SB-2037",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB2037%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/oklahoma/SB-2037/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "TN-SB-1700-2026": {
+      "bill_identifier": "SB 1700",
+      "state": "Tennessee",
+      "state_abbrev": "TN",
+      "session": "2026",
+      "title": "Chatbot Safety Requirements and Minor Data Consent",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [
+        "Sen. Akbari (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/tennessee/SB-1700",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1700&ga=114",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Akbari (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "UT-HB-286-2026": {
+      "bill_identifier": "HB 286",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "session": "2026",
+      "title": "Frontier Model and Chatbot Safety Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "frontier-models",
+        "chatbots"
+      ],
+      "sponsors": [
+        "Rep. Fiefia (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/utah/HB-286",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://le.utah.gov/session/2026/bills/introduced/HB0286S01.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Fiefia (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/utah/HB-286/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "UT-HB-276-2026": {
+      "bill_identifier": "HB 276",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "session": "2026",
+      "title": "Generative AI Provenance Data Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/utah/HB-276",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://le.utah.gov/session/2026/bills/introduced/HB0276S01.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/utah/HB-276/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "UT-SB-150-2026": {
+      "bill_identifier": "SB 150",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "session": "2026",
+      "title": "Healthcare Practitioner AI Use Expansion",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/utah/SB-150",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://le.utah.gov/session/2026/bills/introduced/SB0150S01.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/utah/SB-150/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "UT-SB-177-2026": {
+      "bill_identifier": "SB 177",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "session": "2026",
+      "title": "Algorithmic Pricing Disclosure Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "data-pricing"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/utah/SB-177",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://le.utah.gov/session/2026/bills/introduced/SB0177S01.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/utah/SB-177/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "WA-HB-1170-2026": {
+      "bill_identifier": "HB 1170",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "session": "2026",
+      "title": "AI Content Transparency (California AI Transparency Act-style)",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/washington/HB-1170",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://app.leg.wa.gov/billsummary?BillNumber=1170&Year=2025",
+      "status_history": [
+        {
+          "date": "2026-01-14",
+          "status": "passed-committee",
+          "detail": "Passed Committee on January 14, 2026",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "WA-HB-2503-2026": {
+      "bill_identifier": "HB 2503",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "session": "2026",
+      "title": "Generative AI Training Data Disclosure",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Rep. Shavers (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/washington/HB-2503",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://app.leg.wa.gov/billsummary?BillNumber=2503&Year=2025",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Shavers (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "WA-SB-6284-2026": {
+      "bill_identifier": "SB 6284",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "session": "2026",
+      "title": "High-Risk AI System Deployer Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "high-risk-ai",
+        "admt"
+      ],
+      "sponsors": [
+        "Bipartisan group of Senators"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/washington/SB-6284",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://app.leg.wa.gov/billsummary?BillNumber=6284&Year=2025",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by a bipartisan group of Senators",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "WA-HB-2599-2026": {
+      "bill_identifier": "HB 2599",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "session": "2026",
+      "title": "AI in Mental and Behavioral Health Care Restrictions",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Rep. Kloba (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/washington/HB-2599",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://app.leg.wa.gov/billsummary?BillNumber=2599&Year=2025",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Kloba (D)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "WV-HB-4496-2026": {
+      "bill_identifier": "HB 4496",
+      "state": "West Virginia",
+      "state_abbrev": "WV",
+      "session": "2026",
+      "title": "AI-Generated Media Disclosure Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Del. Flannigan (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/west-virginia/HB-4496",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://www.wvlegislature.gov/bill_status/bills_history.cfm?input=4496&year=2026&sessiontype=rs&btype=bill",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Del. Flannigan (R)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "US-S-3680-2026": {
+      "bill_identifier": "S 3680",
+      "state": "Federal",
+      "state_abbrev": "US",
+      "session": "2026",
+      "title": "Algorithmic Civil Rights Office Requirement",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "high-risk-ai",
+        "government-use"
+      ],
+      "sponsors": [
+        "Sen. Markey (D-MA)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/federal/S-3680",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.congress.gov/119/bills/s3680/BILLS-119s3680is.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Markey (D-MA)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-09",
+          "pdf_path": "bills/federal/S-3680/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    },
+    "US-HR-7110-2026": {
+      "bill_identifier": "H.R. 7110",
+      "state": "Federal",
+      "state_abbrev": "US",
+      "session": "2026",
+      "title": "Algorithmic Civil Rights Office Requirement (House Companion)",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "high-risk-ai",
+        "government-use"
+      ],
+      "sponsors": [
+        "Rep. Lee (D-PA)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/federal/HR-7110",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjA0MzE5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDU2Mjc5Mg/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Lee (D-PA)",
+          "source_email_date": "2026-01-22",
+          "source_run_id": "fpf-test-001"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "fpf-test-001",
+      "last_updated_run": "fpf-test-001"
+    }
+  }
+}

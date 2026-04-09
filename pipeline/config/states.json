@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "states": {
+    "AZ": {
+      "name": "Arizona",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://apps.azleg.gov/BillStatus/BillOverview?Bill={bill_type}{bill_number}&SessionId=",
+      "pdf_pattern": "https://www.azleg.gov/legtext/57leg/2R/bills/{bill_type}{bill_number}P.pdf",
+      "notes": "Direct PDF link. Session format in URL is like '57leg/2R'. bill_type is HB/SB. bill_number is digits only."
+    },
+    "FL": {
+      "name": "Florida",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://flsenate.gov/Session/Bill/{session}/{bill_number}/?Tab=BillText",
+      "pdf_pattern": "https://flsenate.gov/Session/Bill/{session}/{bill_number}/BillText/e1/PDF",
+      "notes": "PDF available via BillText tab. session is 4-digit year. bill_number is digits only (from bill identifier, not bill_type). e1 = first engrossed. May need e2, e3 for amended versions."
+    },
+    "OK": {
+      "name": "Oklahoma",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://www.oklegislature.gov/BillInfo.aspx?Bill={bill_type}{bill_number}&Session=2600",
+      "pdf_pattern": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/{bill_type}/{bill_type}{bill_number}%20INT.PDF",
+      "notes": "PDF URL uses '2025-26 INT' for introduced versions. Session=2600 for 2025-2026 session. bill_type is SB/HB."
+    },
+    "UT": {
+      "name": "Utah",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://le.utah.gov/~{session}/bills/static/{bill_type}{bill_number_padded}.html",
+      "pdf_pattern": "https://le.utah.gov/session/{session}/bills/introduced/{bill_type}{bill_number_padded}S01.pdf",
+      "notes": "bill_number_padded is zero-padded to 4 digits (e.g., 286 -> 0286). session is 4-digit year. S01 suffix for substitute 1. bill_type is HB/SB."
+    },
+    "WA": {
+      "name": "Washington",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://app.leg.wa.gov/billsummary?BillNumber={bill_number}&Year=2025",
+      "pdf_selector_hint": "Look for 'Available Documents' section. Find the latest version PDF link. Prefer 'Substitute' or 'Engrossed' versions over 'Original' if available.",
+      "notes": "Multiple versions listed under Available Documents. Bill number is digits only. Year is session start year (2025 for 2025-26 session)."
+    },
+    "CA": {
+      "name": "California",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id={session_id}{bill_type}{bill_number}",
+      "pdf_selector_hint": "Look for PDF download link on the bill page. session_id is like '202520260' for 2025-2026 session. bill_type is AB/SB.",
+      "notes": "CA leginfo has bill text as HTML and also a PDF option. session_id format: start year + end year + '0'."
+    },
+    "NE": {
+      "name": "Nebraska",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID={doc_id}",
+      "pdf_selector_hint": "Look for PDF link on the bill page. DocumentID is a unique number per bill.",
+      "notes": "Nebraska uses DocumentID rather than bill number in URLs. PDF link should be on the page."
+    },
+    "US": {
+      "name": "Federal",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://www.congress.gov/bill/119th-congress/{chamber_slug}/{bill_number}",
+      "pdf_pattern": "https://www.congress.gov/119/bills/{bill_type_lower}{bill_number}/BILLS-119{bill_type_lower}{bill_number}is.pdf",
+      "notes": "Federal bills on congress.gov. chamber_slug is 'senate-bill' or 'house-bill'. bill_type_lower is 's' or 'hr'. 'is' suffix = introduced in senate, 'ih' = introduced in house."
+    }
+  }
+}

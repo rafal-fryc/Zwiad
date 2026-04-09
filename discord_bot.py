@@ -2,6 +2,8 @@
 """Zwiad Discord bot — interact with the regulatory monitoring pipeline via Discord."""
 
 import asyncio
+import email as email_lib
+import imaplib
 import json
 import os
 import re
@@ -23,6 +25,8 @@ load_dotenv()
 TOKEN = os.environ["DISCORD_TOKEN"]
 GUILD_ID = int(os.environ["DISCORD_GUILD_ID"])
 CHANNEL_ID = int(os.environ["DISCORD_CHANNEL_ID"])
+IMAP_EMAIL = os.environ.get("IMAP_EMAIL", "")
+IMAP_PASSWORD = os.environ.get("IMAP_PASSWORD", "")
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
@@ -38,6 +42,106 @@ latest_run_id: str | None = None
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+
+def fetch_new_emails(run_id: str) -> list[Path]:
+    """Fetch unread emails via IMAP, save as HTML, mark as read. Returns saved file paths."""
+    if not IMAP_EMAIL or not IMAP_PASSWORD:
+        return []
+
+    input_dir = RUNS_DIR / run_id / "emails"
+    input_dir.mkdir(parents=True, exist_ok=True)
+
+    saved = []
+    mail = imaplib.IMAP4_SSL("imap.gmail.com")
+    try:
+        mail.login(IMAP_EMAIL, IMAP_PASSWORD)
+        mail.select("INBOX")
+        status, messages = mail.search(None, "UNSEEN")
+        if status != "OK" or not messages[0]:
+            return []
+
+        msg_ids = messages[0].split()
+        for i, msg_id in enumerate(msg_ids):
+            status, data = mail.fetch(msg_id, "(RFC822)")
+            if status != "OK":
+                continue
+
+            msg = email_lib.message_from_bytes(data[0][1])
+
+            # Extract HTML body
+            html_body = None
+            if msg.is_multipart():
+                for part in msg.walk():
+                    if part.get_content_type() == "text/html":
+                        html_body = part.get_payload(decode=True)
+                        break
+            elif msg.get_content_type() == "text/html":
+                html_body = msg.get_payload(decode=True)
+
+            if not html_body:
+                # Fall back to plain text wrapped in HTML
+                for part in msg.walk() if msg.is_multipart() else [msg]:
+                    if part.get_content_type() == "text/plain":
+                        text = part.get_payload(decode=True).decode("utf-8", errors="replace")
+                        html_body = f"<html><body><pre>{text}</pre></body></html>".encode()
+                        break
+
+            if html_body:
+                subject = msg.get("Subject", f"email-{i}")
+                safe_name = re.sub(r"[^\w\s-]", "", subject)[:50].strip().replace(" ", "-")
+                filepath = input_dir / f"{safe_name}-{i}.html"
+                filepath.write_bytes(html_body)
+                saved.append(filepath)
+
+                # Save metadata sidecar for email classification
+                meta = {
+                    "subject": subject,
+                    "from": msg.get("From", ""),
+                    "date": msg.get("Date", ""),
+                }
+                meta_path = input_dir / f"{safe_name}-{i}.meta.json"
+                with open(meta_path, "w") as mf:
+                    json.dump(meta, mf, indent=2)
+
+            # Mark as read
+            mail.store(msg_id, "+FLAGS", "\\Seen")
+    finally:
+        try:
+            mail.logout()
+        except Exception:
+            pass
+
+    return saved
+
+
+def classify_emails(email_dir: Path) -> dict[str, list[Path]]:
+    """Classify emails in a directory by type using metadata sidecars.
+
+    Returns dict mapping type ('fpf', 'lexology', 'unknown') to list of HTML file paths.
+    """
+    result: dict[str, list[Path]] = {"fpf": [], "lexology": [], "unknown": []}
+
+    for html_file in sorted(email_dir.glob("*.html")):
+        meta_path = html_file.with_suffix(".meta.json")
+        if not meta_path.exists():
+            result["unknown"].append(html_file)
+            continue
+
+        with open(meta_path) as f:
+            meta = json.load(f)
+
+        sender = (meta.get("from") or "").lower()
+        subject = (meta.get("subject") or "").lower()
+
+        if ("fpf.org" in sender or "informz.net" in sender) and "fpf u.s." in subject:
+            result["fpf"].append(html_file)
+        elif "lexology" in sender:
+            result["lexology"].append(html_file)
+        else:
+            result["unknown"].append(html_file)
+
+    return result
 
 
 def get_latest_run_id() -> str | None:
@@ -272,18 +376,94 @@ async def on_ready():
 
 
 @bot.tree.command(name="scan", description="Start a pipeline scan")
-@app_commands.describe(web_only="Scan web sources only (default: True)")
-async def cmd_scan(interaction: discord.Interaction, web_only: bool = True):
+async def cmd_scan(interaction: discord.Interaction):
     global latest_run_id
 
     await interaction.response.send_message(
-        "Starting scan... this takes 10-17 minutes. I'll post findings when done."
+        "Checking for new emails and starting scan..."
     )
 
+    channel = bot.get_channel(CHANNEL_ID)
+    run_id = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%S")
+    run_dir = RUNS_DIR / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    # Fetch new emails
+    email_files = await asyncio.to_thread(fetch_new_emails, run_id)
+
+    if email_files:
+        await channel.send(
+            f"**Found {len(email_files)} new email(s).** Classifying..."
+        )
+    else:
+        await channel.send("No new emails. Scanning web sources only...")
+
+    # Classify emails
+    email_dir = run_dir / "emails"
+    classified = classify_emails(email_dir) if email_files else {"fpf": [], "lexology": [], "unknown": []}
+
+    fpf_emails = classified.get("fpf", [])
+    lexology_emails = classified.get("lexology", [])
+
+    if fpf_emails:
+        await channel.send(f"**{len(fpf_emails)} FPF legislative email(s)** detected. Processing bills...")
+    if lexology_emails:
+        await channel.send(f"**{len(lexology_emails)} Lexology digest(s)** detected.")
+
+    # Run FPF scan if FPF emails found
+    if fpf_emails:
+        def _run_fpf_scan():
+            prompt = (
+                f"FPF scan for run {run_id}. "
+                f"Process FPF emails in pipeline/runs/{run_id}/emails/. "
+                f"Write output to pipeline/runs/{run_id}/."
+            )
+            cmd = [
+                "claude", "-p",
+                "--agent", "orchestrator",
+                "--output-format", "json",
+                "--permission-mode", "acceptEdits",
+                "--max-turns", "20",
+                prompt,
+            ]
+            subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
+
+        await asyncio.to_thread(_run_fpf_scan)
+
+        # Post FPF results
+        fpf_results_path = run_dir / "fpf-bills-processed.json"
+        if fpf_results_path.exists():
+            with open(fpf_results_path) as f:
+                fpf_results = json.load(f)
+            new_bills = fpf_results.get("new_bills", 0)
+            status_updates = fpf_results.get("status_updates", 0)
+            dl_success = fpf_results.get("downloads_success", 0)
+            dl_failed = fpf_results.get("downloads_failed", 0)
+
+            embed = discord.Embed(
+                title="FPF Legislative Scan Results",
+                color=discord.Color.teal(),
+            )
+            embed.add_field(name="New Bills", value=str(new_bills), inline=True)
+            embed.add_field(name="Status Updates", value=str(status_updates), inline=True)
+            embed.add_field(name="PDFs Downloaded", value=f"{dl_success} success, {dl_failed} pending", inline=False)
+            embed.set_footer(text=f"Run {run_id}")
+            await channel.send(embed=embed)
+
+    # Run Lexology/web scan
     def _run_scan():
-        run_id = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%S")
-        run_dir = RUNS_DIR / run_id
-        run_dir.mkdir(parents=True, exist_ok=True)
+        if lexology_emails:
+            input_path = str(lexology_emails[0])
+            prompt = (
+                f"Scan phase for run {run_id}. "
+                f"Input digest file: {input_path}. "
+                f"Write all output to pipeline/runs/{run_id}/."
+            )
+        else:
+            prompt = (
+                f"Scan phase for run {run_id}. Web sources only (--sources-only). "
+                f"No email digest. Write all output to pipeline/runs/{run_id}/."
+            )
 
         cmd = [
             "claude", "-p",
@@ -291,8 +471,7 @@ async def cmd_scan(interaction: discord.Interaction, web_only: bool = True):
             "--output-format", "json",
             "--permission-mode", "acceptEdits",
             "--max-turns", "30",
-            f"Scan phase for run {run_id}. Web sources only (--sources-only). "
-            f"No email digest. Write all output to pipeline/runs/{run_id}/.",
+            prompt,
         ]
 
         subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
@@ -741,6 +920,134 @@ async def cmd_results(interaction: discord.Interaction, run_id: str = None):
 
     view = ResultsSelectView(reports_data, run_id)
     await interaction.response.send_message(embed=embed, view=view)
+
+
+# ---------------------------------------------------------------------------
+# /bills — list tracked bills
+# ---------------------------------------------------------------------------
+
+BILLS_DIR = PROJECT_ROOT / "bills"
+TRACKER_PATH = BILLS_DIR / "tracker.json"
+
+
+def load_tracker() -> dict:
+    if TRACKER_PATH.exists():
+        with open(TRACKER_PATH) as f:
+            return json.load(f)
+    return {"schema_version": "1.0", "bills": {}}
+
+
+@bot.tree.command(name="bills", description="List tracked legislative bills")
+@app_commands.describe(state="Filter by state abbreviation (e.g., FL, OR)")
+async def cmd_bills(interaction: discord.Interaction, state: str = None):
+    tracker = load_tracker()
+    bills = tracker.get("bills", {})
+
+    if not bills:
+        await interaction.response.send_message("No bills tracked yet. Run `/scan` with FPF emails first.")
+        return
+
+    if state:
+        state = state.upper()
+        bills = {k: v for k, v in bills.items() if v.get("state_abbrev") == state}
+        if not bills:
+            await interaction.response.send_message(f"No bills tracked for state `{state}`.")
+            return
+
+    # Group by state
+    by_state: dict[str, list] = {}
+    for key, bill in sorted(bills.items()):
+        st = bill.get("state", "Unknown")
+        by_state.setdefault(st, []).append((key, bill))
+
+    lines = []
+    for st in sorted(by_state):
+        lines.append(f"**{st}**")
+        for key, bill in by_state[st]:
+            status = bill.get("current_status", "?")
+            title = bill.get("title", "")[:50]
+            dl = "📄" if bill.get("download_status") == "success" else "⏳"
+            cats = ", ".join(bill.get("category", []))
+            lines.append(f"  {dl} `{bill['bill_identifier']}` — {status} | {cats}")
+            if title:
+                lines.append(f"    _{title}_")
+        lines.append("")
+
+    text = "\n".join(lines)
+    if len(text) > 4000:
+        text = text[:3997] + "..."
+
+    embed = discord.Embed(
+        title=f"Tracked Bills ({len(bills)} total)",
+        description=text,
+        color=discord.Color.teal(),
+    )
+    await interaction.response.send_message(embed=embed)
+
+
+@bot.tree.command(name="bill", description="Show details for a specific bill")
+@app_commands.describe(identifier="Bill key (e.g., OR-SB-1546-2026) or bill ID (e.g., SB 1546)")
+async def cmd_bill(interaction: discord.Interaction, identifier: str):
+    tracker = load_tracker()
+    bills = tracker.get("bills", {})
+
+    # Try exact key match first
+    bill = bills.get(identifier.upper())
+
+    # Fuzzy match: search by bill_identifier
+    if not bill:
+        search = identifier.upper().replace(".", "").strip()
+        for key, b in bills.items():
+            if b.get("bill_identifier", "").upper().replace(".", "") == search:
+                bill = b
+                break
+            if search in key.upper():
+                bill = b
+                break
+
+    if not bill:
+        await interaction.response.send_message(f"Bill `{identifier}` not found in tracker.")
+        return
+
+    # Build status history timeline
+    history_lines = []
+    for entry in bill.get("status_history", []):
+        date = entry.get("date", "?")
+        status = entry.get("status", "?")
+        detail = entry.get("detail", "")
+        line = f"**{date}** — {status}"
+        if detail:
+            line += f": {detail[:80]}"
+        history_lines.append(line)
+
+    history_text = "\n".join(history_lines[-10:]) or "No history recorded"
+
+    embed = discord.Embed(
+        title=f"{bill.get('state', '')} {bill.get('bill_identifier', '')}",
+        description=bill.get("title", "No title"),
+        color=discord.Color.teal(),
+    )
+    embed.add_field(name="Status", value=bill.get("current_status", "?"), inline=True)
+    embed.add_field(name="Category", value=", ".join(bill.get("category", [])), inline=True)
+    embed.add_field(name="Topics", value=", ".join(bill.get("topics", [])) or "—", inline=True)
+    embed.add_field(name="Sponsors", value=", ".join(bill.get("sponsors", []))[:200] or "—", inline=False)
+    embed.add_field(name="Download", value=bill.get("download_status", "?"), inline=True)
+    embed.add_field(name="Session", value=bill.get("session", "?"), inline=True)
+
+    if bill.get("bill_text_url"):
+        embed.add_field(name="URL", value=bill["bill_text_url"][:200], inline=False)
+
+    embed.add_field(name="Status History", value=history_text[:1024], inline=False)
+
+    versions = bill.get("versions", [])
+    if versions:
+        ver_text = "\n".join(
+            f"• {v['version_id']}: {'✅ MD' if v.get('md_path') else '📄 PDF only'}"
+            for v in versions[-5:]
+        )
+        embed.add_field(name="Versions", value=ver_text, inline=False)
+
+    await interaction.response.send_message(embed=embed)
 
 
 # ---------------------------------------------------------------------------
