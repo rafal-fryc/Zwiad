@@ -15,12 +15,68 @@
       "pdf_pattern": "https://flsenate.gov/Session/Bill/{session}/{bill_number}/BillText/e1/PDF",
       "notes": "PDF available via BillText tab. session is 4-digit year. bill_number is digits only (from bill identifier, not bill_type). e1 = first engrossed. May need e2, e3 for amended versions."
     },
+    "HI": {
+      "name": "Hawaii",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://www.capitol.hawaii.gov/session/measure_indiv.aspx?billtype={bill_type}&billnumber={bill_number}&year={session}",
+      "pdf_selector_hint": "Look for the small PDF icon/logo next to the hyperlinked bill number. That links directly to the bill text PDF.",
+      "notes": "bill_type is SB/HB. bill_number is digits only. session is 4-digit year."
+    },
+    "IA": {
+      "name": "Iowa",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://www.legis.iowa.gov/legislation/BillBook?ba={bill_type}{bill_number}&ga=91",
+      "pdf_pattern": "https://www.legis.iowa.gov/docs/publications/LGI/91/{bill_type}{bill_number}.pdf",
+      "notes": "Direct PDF link. ga=91 is the 91st General Assembly (2025-2026). bill_type is HF/SF/HJR/SJR. bill_number is digits only."
+    },
+    "IN": {
+      "name": "Indiana",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://iga.in.gov/legislative/{session}/bills/{chamber}/{bill_number}/details",
+      "pdf_selector_hint": "Look for 'Latest Version' section which has a PDF logo/link to the bill text PDF.",
+      "notes": "chamber is 'senate' or 'house'. bill_number is digits only. session is 4-digit year."
+    },
+    "ME": {
+      "name": "Maine",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://legislature.maine.gov/billtracker/#Paper/{paper_id}?legislature=132",
+      "pdf_selector_hint": "Look in the 'Documents' section. Has links to original bill and amendments. The most recent amendment contains the full updated bill text. Prefer the latest amendment over the original if amendments exist.",
+      "notes": "Maine uses paper IDs (like HP1451) not bill numbers. legislature=132 is the 132nd session. Documents section has PDF links."
+    },
+    "MS": {
+      "name": "Mississippi",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://billstatus.ls.state.ms.us/{session}/pdf/history/{bill_type}/{bill_type}{bill_number}.xml",
+      "pdf_selector_hint": "This XML page contains links to PDF versions of the bill. Look for the bill text PDF link.",
+      "notes": "MS uses an XML-based bill status system. session is 4-digit year. bill_type is HB/SB. bill_number is digits only."
+    },
+    "NE": {
+      "name": "Nebraska",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID={doc_id}",
+      "pdf_selector_hint": "Look for PDF link on the bill page. DocumentID is a unique number per bill.",
+      "notes": "Nebraska uses DocumentID rather than bill number in URLs. PDF link should be on the page."
+    },
+    "NY": {
+      "name": "New York",
+      "strategy": "agent_navigate",
+      "bill_page_pattern": "https://nyassembly.gov/leg/?bn={bill_type}{bill_number}&term=2025",
+      "pdf_selector_hint": "NY Assembly site requires checking a 'Text' checkbox to display bill text. The text appears inline on the page, not as a PDF. Use WebFetch to extract the full page content after the text is displayed, or save the page content as the bill text.",
+      "notes": "NY is tricky — bill text requires interaction (checkbox). May need to capture HTML text content rather than PDF. term=2025 for 2025-2026 session. bill_type is A/S for Assembly/Senate."
+    },
     "OK": {
       "name": "Oklahoma",
       "strategy": "direct_pdf",
       "bill_page_pattern": "https://www.oklegislature.gov/BillInfo.aspx?Bill={bill_type}{bill_number}&Session=2600",
       "pdf_pattern": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/{bill_type}/{bill_type}{bill_number}%20INT.PDF",
       "notes": "PDF URL uses '2025-26 INT' for introduced versions. Session=2600 for 2025-2026 session. bill_type is SB/HB."
+    },
+    "TN": {
+      "name": "Tennessee",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber={bill_type}{bill_number}&ga=114",
+      "pdf_pattern": "https://capitol.tn.gov/Bills/114/Bill/{bill_type}{bill_number}.pdf",
+      "notes": "Direct PDF link. ga=114 is the 114th General Assembly. bill_type is SB/HB. bill_number is digits only."
     },
     "UT": {
       "name": "Utah",
@@ -36,19 +92,19 @@
       "pdf_selector_hint": "Look for 'Available Documents' section. Find the latest version PDF link. Prefer 'Substitute' or 'Engrossed' versions over 'Original' if available.",
       "notes": "Multiple versions listed under Available Documents. Bill number is digits only. Year is session start year (2025 for 2025-26 session)."
     },
+    "WV": {
+      "name": "West Virginia",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://www.wvlegislature.gov/Bill_Status/bills_history.cfm?year={session}&sessiontype=RS&input={bill_number}",
+      "pdf_pattern": "https://www.wvlegislature.gov/Bill_Text_HTML/{session}_SESSIONS/RS/bills/{bill_type_lower}{bill_number}%20intr.pdf",
+      "notes": "Direct PDF link. session is 4-digit year. bill_type_lower is hb/sb. bill_number is digits only. 'intr' suffix for introduced version. sessiontype=RS for regular session."
+    },
     "CA": {
       "name": "California",
       "strategy": "page_with_pdf_link",
       "bill_page_pattern": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id={session_id}{bill_type}{bill_number}",
       "pdf_selector_hint": "Look for PDF download link on the bill page. session_id is like '202520260' for 2025-2026 session. bill_type is AB/SB.",
       "notes": "CA leginfo has bill text as HTML and also a PDF option. session_id format: start year + end year + '0'."
-    },
-    "NE": {
-      "name": "Nebraska",
-      "strategy": "page_with_pdf_link",
-      "bill_page_pattern": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID={doc_id}",
-      "pdf_selector_hint": "Look for PDF link on the bill page. DocumentID is a unique number per bill.",
-      "notes": "Nebraska uses DocumentID rather than bill number in URLs. PDF link should be on the page."
     },
     "US": {
       "name": "Federal",
