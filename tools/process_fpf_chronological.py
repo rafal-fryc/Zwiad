@@ -125,7 +125,7 @@ def run_fpf_scanner(run_id: str) -> bool:
         "--agent", "fpf-scanner",
         "--output-format", "json",
         "--permission-mode", "acceptEdits",
-        "--max-turns", "20",
+        "--max-turns", "40",
         prompt,
     ]
 

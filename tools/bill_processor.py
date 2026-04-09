@@ -186,6 +186,83 @@ def scrape_page_for_pdf(page_url: str, hint: str = "") -> str | None:
         return None
 
 
+def scrape_page_for_pdf_js(page_url: str) -> str | None:
+    """Fetch a JS-rendered bill page using playwright and find a PDF link.
+
+    Falls back gracefully if playwright is not installed.
+    """
+    EXCLUDE_PATTERNS = (
+        "transcript", "journal", "rules", "rulebook", "constitution",
+        "committee statement", "fiscal", "testimony", "witness",
+        "agenda", "minutes", "calendar", "statement of intent",
+        "/cs/", "/si/", "/am/", "/fa/",
+    )
+    BILL_TEXT_MARKERS = (
+        "enrolled", "engrossed", "chaptered", "substitute",
+        "introduced", "current", "latest", "official",
+        "bill text", "full text", "pdf format", "bill pdf",
+    )
+
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return None
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.goto(page_url, timeout=30000)
+            page.wait_for_load_state("networkidle", timeout=15000)
+
+            links = page.eval_on_selector_all("a[href]", """elements => elements.map(e => ({
+                href: e.href,
+                text: e.textContent.trim()
+            }))""")
+            browser.close()
+
+        pdf_links = []
+        seen = set()
+        for link in links:
+            href = link["href"]
+            text = link["text"].lower()
+            href_lower = href.lower()
+
+            if href in seen:
+                continue
+
+            is_pdf = href_lower.endswith(".pdf") or "pdf" in text or "/pdf" in href_lower
+            if not is_pdf:
+                continue
+
+            seen.add(href)
+            combined = (text + " " + href_lower).lower()
+            if any(excl in combined for excl in EXCLUDE_PATTERNS):
+                continue
+
+            score = 0
+            if href_lower.endswith(".pdf"):
+                score += 10
+            if any(m in text for m in BILL_TEXT_MARKERS):
+                score += 20
+            if any(m in href_lower for m in ("intro", "enrolled", "engrossed")):
+                score += 15
+            pdf_links.append((href, text, score, len(pdf_links)))
+
+        if not pdf_links:
+            print(f"    [js-scrape] No bill text PDF links found")
+            return None
+
+        pdf_links.sort(key=lambda x: (x[2], x[3]), reverse=True)
+        best_url, best_text, best_score, _ = pdf_links[0]
+        print(f"    [js-scrape] Found {len(pdf_links)} PDF candidates, best: '{best_text}' (score={best_score})")
+        return best_url
+
+    except Exception as e:
+        print(f"    [js-scrape-error] {e}")
+        return None
+
+
 # ---------------------------------------------------------------------------
 # Bill download
 # ---------------------------------------------------------------------------
@@ -340,6 +417,20 @@ def download_bill(state_abbrev: str, state_name: str, bill_identifier: str,
                     result["resolved_url"] = pdf_url
                     result["method"] = "page-scrape"
                     return result
+
+    # Tier 2c: JS-rendered page scraping via playwright
+    page_url = result.get("resolved_url") or fpf_url
+    if page_url and not page_url.startswith("https://FPF.informz.net"):
+        print(f"  [tier2c] JS scraping via playwright: {page_url[:80]}...")
+        pdf_url = scrape_page_for_pdf_js(page_url)
+        if pdf_url:
+            print(f"    Found PDF: {pdf_url[:100]}")
+            if download_pdf(pdf_url, pdf_path):
+                result["download_status"] = "success"
+                result["pdf_path"] = str(pdf_path.relative_to(PROJECT_ROOT))
+                result["resolved_url"] = pdf_url
+                result["method"] = "js-scrape"
+                return result
 
     # Tier 3: Log for manual/agent resolution
     print(f"  [tier3] Automated download failed. Logging for manual resolution.")
