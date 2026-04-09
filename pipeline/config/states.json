@@ -99,12 +99,110 @@
       "pdf_pattern": "https://www.wvlegislature.gov/Bill_Text_HTML/{session}_SESSIONS/RS/bills/{bill_type_lower}{bill_number}%20intr.pdf",
       "notes": "Direct PDF link. session is 4-digit year. bill_type_lower is hb/sb. bill_number is digits only. 'intr' suffix for introduced version. sessiontype=RS for regular session."
     },
+    "AL": {
+      "name": "Alabama",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://alison.legislature.state.al.us/bill-search?SearchTerm={bill_type}{bill_number}",
+      "pdf_pattern": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/{session}RS/{bill_type}{bill_number}-int.pdf",
+      "notes": "Direct PDF link. session is 4-digit year. bill_type is HB/SB. RS = Regular Session. -int suffix for introduced version."
+    },
     "CA": {
       "name": "California",
       "strategy": "page_with_pdf_link",
       "bill_page_pattern": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id={session_id}{bill_type}{bill_number}",
       "pdf_selector_hint": "Look for PDF download link on the bill page. session_id is like '202520260' for 2025-2026 session. bill_type is AB/SB.",
       "notes": "CA leginfo has bill text as HTML and also a PDF option. session_id format: start year + end year + '0'."
+    },
+    "IL": {
+      "name": "Illinois",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://ilga.gov/Legislation/BillStatus?DocNum={bill_number}&GAID=18&DocTypeID={bill_type}&SessionID=114",
+      "pdf_selector_hint": "Go to the 'Full Text' tab, then click the 'PDF' button/logo to get the bill text PDF.",
+      "notes": "GAID=18 and SessionID=114 for 2025-2026 session. bill_type is HB/SB. bill_number is digits only."
+    },
+    "KS": {
+      "name": "Kansas",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://www.kslegislature.gov/li/b2025_26/measures/{bill_type_lower}{bill_number}/",
+      "pdf_selector_hint": "Under 'Bill Versions' in the 'Documents' column, find PDF logo links. Multiple versions may exist — choose the most recent one.",
+      "notes": "bill_type_lower is sb/hb. bill_number is digits only. b2025_26 is the biennium."
+    },
+    "KY": {
+      "name": "Kentucky",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://apps.legislature.ky.gov/record/26rs/{bill_type_lower}{bill_number}.html",
+      "pdf_selector_hint": "Under the 'Bill Documents' tab, look for the hyperlink labeled 'Current' which leads to the current bill version PDF.",
+      "notes": "26rs = 2026 Regular Session. bill_type_lower is hb/sb. bill_number is digits only."
+    },
+    "LA": {
+      "name": "Louisiana",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://legis.la.gov/legis/BillInfo.aspx?i={doc_id}",
+      "pdf_selector_hint": "Go to the 'Text' tab and find the PDF link there.",
+      "notes": "Louisiana uses doc_id (unique number) in URLs, not bill numbers directly. The FPF resolved URL should provide this."
+    },
+    "MD": {
+      "name": "Maryland",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/{bill_type_lower}{bill_number_padded}?ys={session}RS",
+      "pdf_selector_hint": "Click the hyperlinked bill number on the page to get the PDF version of the bill text.",
+      "notes": "bill_type_lower is hb/sb. bill_number_padded is zero-padded to 4 digits. session is 4-digit year. RS = Regular Session."
+    },
+    "NJ": {
+      "name": "New Jersey",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://njleg.gov/bill-search/{session}/{bill_type}{bill_number}",
+      "pdf_selector_hint": "Scroll down to find multiple versions. Look for 'pdf format' links. The most recent version is at the bottom of the list.",
+      "notes": "session is 4-digit year. bill_type is A/S for Assembly/Senate. bill_number is digits only."
+    },
+    "NM": {
+      "name": "New Mexico",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://www.nmlegis.gov/Legislation/Legislation?chamber={chamber}&legtype=B&legno={bill_number}&year=26",
+      "pdf_selector_hint": "Under the 'Text' section, find hyperlinks to PDF versions of the bill.",
+      "notes": "chamber is H or S. year=26 for 2026. bill_number is digits only."
+    },
+    "OR": {
+      "name": "Oregon",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://olis.oregonlegislature.gov/liz/2026R1/Measures/Overview/{bill_type}{bill_number}",
+      "pdf_selector_hint": "Find the hyperlinked bill number on the overview page — it links directly to the bill text PDF.",
+      "notes": "2026R1 is the 2026 Regular Session. bill_type is SB/HB. bill_number is digits only."
+    },
+    "RI": {
+      "name": "Rhode Island",
+      "strategy": "direct_pdf",
+      "bill_page_pattern": "https://webserver.rilegislature.gov/BillText/BillText26/{chamber_folder}/{bill_type_ri}{bill_number}.pdf",
+      "pdf_pattern": "https://webserver.rilegislature.gov/BillText/BillText26/{chamber_folder}/{bill_type_ri}{bill_number}.pdf",
+      "notes": "Direct PDF link. chamber_folder is 'SenateText26' or 'HouseText26'. bill_type_ri is S or H (single letter). bill_number is digits only. 26 = 2026."
+    },
+    "SD": {
+      "name": "South Dakota",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://sdlegislature.gov/Session/Bill/{doc_id}",
+      "pdf_selector_hint": "Scroll down to 'Bill Text Versions' section and find the hyperlinked 'pdf format' text.",
+      "notes": "SD uses doc_id (unique number) in URLs. The FPF resolved URL should provide this."
+    },
+    "VA": {
+      "name": "Virginia",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://lis.virginia.gov/bill-details/20261/{bill_type}{bill_number}",
+      "pdf_selector_hint": "In the 'History' section, find the most recent action that has document links. Under those links (vote, introduced, PDF), click 'PDF' for the correct version.",
+      "notes": "20261 = 2026 session 1. bill_type is HB/SB. bill_number is digits only."
+    },
+    "VT": {
+      "name": "Vermont",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://legislature.vermont.gov/bill/status/{session}/{bill_type_vt}.{bill_number}",
+      "pdf_selector_hint": "Scroll down to 'Bill/Resolution Text' section. Multiple columns show different stages. Find the most recent one and click the 'Official' or 'Introduced' hyperlink for the PDF.",
+      "notes": "session is 4-digit year. bill_type_vt is H or S (single letter). bill_number is digits only. Dot separator between type and number."
+    },
+    "WI": {
+      "name": "Wisconsin",
+      "strategy": "page_with_pdf_link",
+      "bill_page_pattern": "https://docs.legis.wisconsin.gov/2025/proposals/reg/{chamber_lower}/bill/{bill_type_lower}{bill_number}",
+      "pdf_selector_hint": "Under the 'Links' section, find the hyperlinked 'Bill Text' which leads to the PDF.",
+      "notes": "chamber_lower is 'sen' or 'asm'. bill_type_lower is sb/ab. bill_number is digits only. 2025 is the session start year."
     },
     "US": {
       "name": "Federal",

@@ -152,16 +152,28 @@ def try_state_config(state_abbrev: str, bill_identifier: str, session: str,
     if not pattern:
         return None
 
+    # Determine chamber from bill type
+    is_senate = bill_type.upper() in ("S", "SB", "SF", "SB", "SJR")
+
     # Build template variables for state-specific URL patterns
     template_vars = {
         "session": session,
         "bill_type": bill_type,
         "bill_number": bill_number,
         "bill_type_lower": bill_type.lower(),
-        # Utah needs zero-padded bill numbers (e.g., 286 -> 0286)
+        # Utah/Maryland: zero-padded bill numbers (e.g., 286 -> 0286)
         "bill_number_padded": bill_number.zfill(4),
         # Federal: chamber slug for congress.gov
-        "chamber_slug": "senate-bill" if bill_type.upper() in ("S", "SB") else "house-bill",
+        "chamber_slug": "senate-bill" if is_senate else "house-bill",
+        # Rhode Island: chamber folder and single-letter bill type
+        "chamber_folder": "SenateText26" if is_senate else "HouseText26",
+        "bill_type_ri": "S" if is_senate else "H",
+        # New Mexico: chamber letter
+        "chamber": "S" if is_senate else "H",
+        # Wisconsin/Kansas: chamber lower
+        "chamber_lower": "sen" if is_senate else "asm",
+        # Vermont: single-letter bill type with dot
+        "bill_type_vt": "S" if is_senate else "H",
     }
 
     try:
