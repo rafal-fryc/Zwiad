@@ -97,6 +97,96 @@ def resolve_redirect(url: str, max_redirects: int = 10) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Page scraping for PDF links
+# ---------------------------------------------------------------------------
+
+
+def scrape_page_for_pdf(page_url: str, hint: str = "") -> str | None:
+    """Fetch a bill page and find a bill text PDF link using BeautifulSoup.
+
+    Filters out non-bill-text PDFs (transcripts, journals, committee statements, etc.)
+    and prefers the most recent version of the bill text.
+    """
+    # URLs/text patterns that indicate NOT a bill text PDF
+    EXCLUDE_PATTERNS = (
+        "transcript", "journal", "rules", "rulebook", "constitution",
+        "committee statement", "committee_statement", "fiscal",
+        "testimony", "witness", "agenda", "minutes", "calendar",
+        "statement of intent", "/cs/", "/si/", "/am/", "/fa/",
+    )
+    # Text patterns that indicate a bill text PDF (higher priority)
+    BILL_TEXT_MARKERS = (
+        "enrolled", "engrossed", "chaptered", "substitute",
+        "introduced", "current", "latest", "official",
+        "bill text", "full text", "pdf format",
+    )
+
+    try:
+        from bs4 import BeautifulSoup
+        from urllib.parse import urljoin
+
+        req = urllib.request.Request(page_url)
+        req.add_header("User-Agent", "Mozilla/5.0 (compatible; Zwiad/1.0)")
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+
+        soup = BeautifulSoup(html, "html.parser")
+
+        # Collect all PDF-related links
+        pdf_links = []
+        seen_urls = set()
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            full_url = urljoin(page_url, href)
+            if full_url in seen_urls:
+                continue
+
+            text = a.get_text(strip=True).lower()
+            href_lower = href.lower()
+
+            is_pdf = href_lower.endswith(".pdf") or "pdf" in text or "/pdf" in href_lower
+            if not is_pdf:
+                continue
+
+            seen_urls.add(full_url)
+
+            # Check if this is likely NOT bill text
+            combined = (text + " " + href_lower).lower()
+            if any(excl in combined for excl in EXCLUDE_PATTERNS):
+                continue
+
+            # Score the link based on how likely it is to be bill text
+            score = 0
+            if href_lower.endswith(".pdf"):
+                score += 10
+            if any(marker in text for marker in BILL_TEXT_MARKERS):
+                score += 20
+            if any(marker in href_lower for marker in ("intro", "enrolled", "engrossed")):
+                score += 15
+            # Prefer links with the bill type/number in the URL
+            if "/hb" in href_lower or "/sb" in href_lower or "/lb" in href_lower:
+                score += 5
+
+            pdf_links.append((full_url, text, score, len(pdf_links)))
+
+        if not pdf_links:
+            print(f"    [scrape] No bill text PDF links found on page")
+            return None
+
+        # Sort by score descending, then prefer later links (more recent versions)
+        pdf_links.sort(key=lambda x: (x[2], x[3]), reverse=True)
+
+        best_url, best_text, best_score, _ = pdf_links[0]
+        if len(pdf_links) > 1:
+            print(f"    [scrape] Found {len(pdf_links)} PDF candidates, best: '{best_text}' (score={best_score})")
+        return best_url
+
+    except Exception as e:
+        print(f"    [scrape-error] {e}")
+        return None
+
+
+# ---------------------------------------------------------------------------
 # Bill download
 # ---------------------------------------------------------------------------
 
@@ -234,6 +324,22 @@ def download_bill(state_abbrev: str, state_name: str, bill_identifier: str,
             result["resolved_url"] = config_url
             result["method"] = "state-config"
             return result
+
+    # Tier 2b: Scrape bill page for PDF link (page_with_pdf_link states)
+    state_cfg = states_config.get("states", {}).get(state_abbrev, {})
+    if state_cfg.get("strategy") == "page_with_pdf_link":
+        page_url = result.get("resolved_url") or fpf_url
+        if page_url:
+            print(f"  [tier2b] Scraping page for PDF link: {page_url[:80]}...")
+            pdf_url = scrape_page_for_pdf(page_url, state_cfg.get("pdf_selector_hint", ""))
+            if pdf_url:
+                print(f"    Found PDF: {pdf_url[:100]}")
+                if download_pdf(pdf_url, pdf_path):
+                    result["download_status"] = "success"
+                    result["pdf_path"] = str(pdf_path.relative_to(PROJECT_ROOT))
+                    result["resolved_url"] = pdf_url
+                    result["method"] = "page-scrape"
+                    return result
 
     # Tier 3: Log for manual/agent resolution
     print(f"  [tier3] Automated download failed. Logging for manual resolution.")
