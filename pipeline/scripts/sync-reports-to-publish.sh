@@ -107,6 +107,40 @@ def normalize_slug(stem):
 def yaml_escape(s):
     return s.replace('"', '\\"')
 
+# US state names + common federal signals for jurisdiction regex fallback
+_US_STATES = [
+    "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
+    "Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa",
+    "Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan",
+    "Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada",
+    "New Hampshire","New Jersey","New Mexico","New York","North Carolina",
+    "North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island",
+    "South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
+    "Virginia","Washington","West Virginia","Wisconsin","Wyoming",
+    "District of Columbia",
+]
+_FEDERAL_HINTS = [
+    r"\bFederal\b", r"\bFTC\b", r"\bFCC\b", r"\bHHS\b", r"\bOCR\b",
+    r"\bDOJ\b", r"\bSEC\b", r"\bNIST\b", r"\bCongress\b", r"\bWhite House\b",
+    r"\bFDA\b", r"\bFISA\b", r"\bTAKE IT DOWN\b", r"\bCOPPA\b", r"\bHIPAA\b",
+    r"\bGLBA\b", r"\bCIRCIA\b", r"\bEO\b",
+]
+
+def infer_jurisdiction(title: str, summary: str = "") -> str:
+    """Regex-based jurisdiction fallback for reports whose frontmatter lacks one."""
+    if not title:
+        return "Unknown"
+    text = f"{title} {summary}"
+    # State names first — prefer specificity
+    for state in _US_STATES:
+        if re.search(rf"\b{re.escape(state)}\b", text):
+            return state
+    # Federal fallback
+    for pat in _FEDERAL_HINTS:
+        if re.search(pat, text):
+            return "Federal"
+    return "Unknown"
+
 def call_claude(prompt, timeout_sec=120):
     """Call `claude -p` with the prompt; return stdout text or None on error."""
     try:
@@ -249,7 +283,7 @@ for src in sources:
     # reports/privacy/state-comprehensive-laws/foo.md.
     top_topic = src.relative_to(src_reports).parts[0]
     topic = meta.get("category") or top_topic
-    jurisdiction = meta.get("jurisdiction") or "Unknown"
+    jurisdiction = meta.get("jurisdiction") or infer_jurisdiction(title or "", extract_summary(body) or "")
     summary = extract_summary(body) or title
 
     cluster_slug = meta.get("cluster_slug")
