@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Federal"
 category: "privacy"
 development_type: "enforcement"
+cluster: "FTC Enforcement: Match Group/OkCupid Data Sharing with Clarifai"
+cluster_slug: "ftc-match-group-okcupid-clarifai-enforcement"
 ---
 
 # FTC Takes Enforcement Action Against Match Group and OkCupid for Sharing User Photos and Data With AI Startup Without Consent

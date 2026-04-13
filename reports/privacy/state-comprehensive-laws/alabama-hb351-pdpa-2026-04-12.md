@@ -9,6 +9,8 @@ first_reported: 2026-04-10
 last_updated: 2026-04-12
 status_history: []
 relevance: high
+cluster: "Alabama HB 351: Personal Data Protection Act (2026)"
+cluster_slug: "alabama-hb-351-apdpa"
 ---
 
 # Alabama Becomes 21st State to Enact Comprehensive Privacy Law (HB 351)

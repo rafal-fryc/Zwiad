@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "IL, Federal (Seventh Circuit)"
 category: "privacy"
 development_type: "court-decision"
+cluster: "Illinois BIPA Litigation and Amendments"
+cluster_slug: "illinois-bipa-litigation"
 ---
 
 # Seventh Circuit Holds BIPA Damages Amendment Applies Retroactively, Reshaping Liability for Hundreds of Pending Cases

@@ -9,6 +9,8 @@ last_updated: 2026-04-12
 topic_key: federal-glba-title-v-modernization-2026
 topic_type: federal_bill
 status_history: []
+cluster: "GLBA Title V Modernization and Federal Financial Privacy Preemption (2026)"
+cluster_slug: "glba-title-v-modernization-2026"
 ---
 
 # House Discussion Draft Would Modernize GLBA Title V and Broadly Preempt State Financial Privacy Laws

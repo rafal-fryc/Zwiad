@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:35:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260413-003",
+        "operation": "new_report",
+        "report_path": "reports/privacy/ftc-strategic-plan-fy2026-2030-2026-04-13.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["Federal"],
+        "category": "privacy",
+        "development_type": "guidance",
+        "title": "FTC Publishes FY 2026-2030 Strategic Plan Prioritizing Children's Privacy and Data Security",
+        "summary": "The FTC's April 3, 2026 FY 2026-2030 Strategic Plan, approved 2-0, elevates children's online safety, COPPA, the TAKE IT DOWN Act, and PADFAA as top consumer protection priorities. Covered platforms face a May 19, 2026 TAKE IT DOWN Act notice-and-removal deadline, and data brokers should expect accelerated PADFAA enforcement.",
+        "sources": [
+          "https://www.ftc.gov/reports/fy-2026-2030-strategic-plan",
+          "https://dataprivacy.foxrothschild.com/2026/04/articles/general-privacy-data-security-news-developments/ftcs-new-strategic-plan-reports-of-the-death-of-ftc-privacy-enforcement-have-been-greatly-exaggerated/",
+          "https://www.pymnts.com/news/regulation/2026/ftc-prioritizes-childrens-online-safety-in-5-year-strategic-plan/",
+          "https://ppc.land/ftcs-2026-2030-plan-puts-big-tech-kids-data-and-ad-fraud-in-the-crosshairs/",
+          "https://www.stateagreport.com/news/ftc-maps-out-fy-2026-2030-priorities/",
+          "https://www.hunton.com/privacy-and-information-security-law/ftcs-draft-strategic-plan-focuses-on-childrens-privacy-and-telemarketing",
+          "https://epic.org/documents/comment-of-epic-and-other-civil-society-organizations-on-the-ftcs-proposed-strategic-plan-for-fiscal-years-2026-2030/",
+          "https://www.childrenandscreens.org/newsroom/news/children-and-screen-urges-ftc-to-prioritize-childrens-privacy-and-safety/",
+          "https://www.congress.gov/bill/119th-congress/senate-bill/146/text",
+          "https://www.ftc.gov/legal-library/browse/statutes/tools-address-known-exploitation-immobilizing-technological-deepfakes-websites-networks-act-take-it",
+          "https://www.congress.gov/bill/118th-congress/house-bill/7520/text",
+          "https://www.ftc.gov/news-events/news/press-releases/2026/02/ftc-reminds-data-brokers-their-obligations-comply-padfaa",
+          "https://www.mofo.com/resources/insights/250722-ftc-looks-to-leverage-padfaa-enforcement"
+        ],
+        "confidence_summary": {"high": 3, "medium": 1, "low": 0}
+      }
+    ]
+  }
+}

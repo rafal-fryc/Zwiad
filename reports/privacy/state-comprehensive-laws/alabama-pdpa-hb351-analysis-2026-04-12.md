@@ -10,6 +10,8 @@ last_updated: 2026-04-12
 topic_key: al-hb351-2026rs
 topic_type: state_bill
 status_history: []
+cluster: "Alabama HB 351: Personal Data Protection Act (2026)"
+cluster_slug: "alabama-hb-351-apdpa"
 ---
 
 # Alabama Personal Data Protection Act (HB 351): Compliance Playbook

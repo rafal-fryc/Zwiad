@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "California"
 category: "privacy"
 development_type: "enforcement"
+cluster: "CPPA CCPA Enforcement Actions"
+cluster_slug: "cppa-ccpa-enforcement-actions"
 ---
 
 # California AG Announces Record $2.75 Million CCPA Settlement With Disney for Opt-Out Violations Across Streaming Services

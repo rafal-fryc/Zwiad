@@ -1,0 +1,27 @@
+{
+  "finding_id": "SCAN-20260413-005",
+  "report_path": "reports/privacy/massachusetts-sjc-meta-minors-2026-04-13.md",
+  "round": 1,
+  "claims_checked": 14,
+  "issues": [
+    {
+      "claim": "Campbell's complaint, originally filed in 2023 alongside parallel actions by 40+ other state attorneys general",
+      "section": "AG's Legal Claims",
+      "source_url": "https://epic.org/documents/massachusetts-v-meta/",
+      "issue": "The '40+' figure is in the plausible range but none of the cited sources explicitly state this number.",
+      "severity": "minor",
+      "suggested_fix": "Cite a specific source for the '40+ state AGs' figure or soften to 'dozens of other state AGs'.",
+      "status": "open"
+    },
+    {
+      "claim": "Massachusetts House passed the youth online-safety bill 129-25 on April 9, 2026",
+      "section": "Overview",
+      "source_url": "https://malegislature.gov/PressRoom/Detail?pressReleaseId=359",
+      "issue": "Minor date imprecision: WGBH and Boston Globe date floor passage to April 8, while WBUR/Axios report April 9. Report uses both dates inconsistently.",
+      "severity": "minor",
+      "suggested_fix": "Reconcile the date: House floor passage was April 8, 2026; use a single consistent date or clarify '(engrossed April 9)'.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

@@ -1,0 +1,82 @@
+---
+cluster: "Colorado AI Act (SB 24-205): Enforcement and Amendments"
+cluster_slug: "colorado-ai-act-sb-24-205-enforcement"
+---
+
+# Colorado AI Act Enforcement Delayed to June 30, 2026 Amid Federal Preemption Pressure
+
+## Overview [HIGH confidence]
+
+Colorado's landmark Artificial Intelligence Act (SB 24-205), the first comprehensive state AI law in the United States governing high-risk AI systems in consequential decisions, will now become enforceable on **June 30, 2026**, rather than the original February 1, 2026 effective date. Governor Jared Polis signed [SB 25B-004](https://leg.colorado.gov/bills/sb25b-004) on August 28, 2025 during a special legislative session, while a working group drafts a potential repeal-and-replace bill. The delay now intersects with President Trump's [December 11, 2025 executive order](https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/), which targets "onerous" state AI laws for federal preemption challenge.
+
+## Key Requirements of the Colorado AI Act [HIGH confidence]
+
+SB 24-205 creates a duty of reasonable care for developers and deployers of "high-risk" AI systems — systems that make, or are a substantial factor in making, "consequential decisions" affecting education, employment, financial/lending services, essential government services, health care, housing, insurance, or legal services.
+
+**Developer duties:**
+- Documentation to deployers (intended uses, harmful uses, training data summaries, risk mitigation, evaluation outputs)
+- Public statement summarizing high-risk systems
+- Disclosure of algorithmic discrimination risks to the Colorado AG and deployers within 90 days of discovery
+
+**Deployer duties:**
+- Risk management program (NIST AI RMF or equivalent)
+- Annual impact assessments
+- Consumer notice when high-risk AI is used in a consequential decision
+- Right to correct data and appeal to human review
+- Public summary of deployed high-risk systems
+
+**Enforcement:** The Colorado Attorney General has **exclusive** enforcement authority; no private right of action. Violations are unfair trade practices under the Colorado Consumer Protection Act — civil penalties **up to $20,000 per violation**.
+
+## Enforcement Timeline [HIGH confidence]
+
+| Date | Event |
+|------|-------|
+| May 17, 2024 | Governor Polis signs SB 24-205 with a reluctance letter asking the legislature to refine before effectiveness |
+| 2025 regular session | Multiple amendment bills introduced; none advance |
+| August 2025 special session | Legislature passes SB 25B-004 postponing effective date |
+| August 28, 2025 | Polis signs SB 25B-004 |
+| ~March 2026 | Working group expected to release repeal-and-replace consensus language |
+| **June 30, 2026** | New effective/enforcement date |
+
+SB 25B-004 did not modify substantive obligations — only the trigger date.
+
+## Federal Preemption Concerns [HIGH confidence]
+
+On December 11, 2025, President Trump signed **"Eliminating State Law Obstruction of National Artificial Intelligence Policy"**. Key directives bearing on Colorado:
+
+- **Commerce Department list (~March 11, 2026):** Evaluation identifying "onerous" state AI laws conflicting with federal minimally-burdensome policy. Colorado's Act is widely expected to appear.
+- **DOJ AI Litigation Task Force:** Challenges on Commerce Clause, preemption, or other constitutional grounds.
+- **Federal funding conditions:** Potential BEAD broadband funding conditions tied to state AI-law posture.
+- **FTC/FCC actions:** FTC policy statement on FTC Act application to AI (potentially preempting state UDAP-based AI enforcement) and an FCC AI reporting/disclosure proceeding.
+
+Commentators agree the EO itself cannot preempt state law — preemption requires a federal statute or validly promulgated regulation — but it signals aggressive federal litigation posture. Colorado AG Phil Weiser has defended the Act, making a federal-state confrontation plausible before June 30, 2026.
+
+## Compliance Implications [MEDIUM confidence]
+
+1. **Do not pause compliance work.** June 30, 2026 is real; substantive obligations are unchanged.
+2. **Track the repeal-and-replace draft.** Any substantive changes will arrive on a tight pre-effective-date window.
+3. **Monitor the Commerce Department 90-day list.** Inclusion likely triggers DOJ litigation and possible preliminary injunctions.
+4. **Preserve documentation optionality.** Developer/deployer artifacts align with NIST AI RMF and the EU AI Act — value retained under most scenarios.
+5. **Watch FTC preemption statement.** Because enforcement runs through the Colorado Consumer Protection Act, an FTC policy statement could indirectly weaken the $20,000-per-violation hook.
+
+## Sources
+
+1. [Hunton Andrews Kurth — Enforcement of Colorado AI Act Delayed Until June 2026](https://www.hunton.com/privacy-and-information-security-law/enforcement-of-colorado-ai-act-delayed-until-june-2026)
+2. [Colorado General Assembly — SB24-205](https://leg.colorado.gov/bills/sb24-205)
+3. [Colorado General Assembly — SB25B-004](https://leg.colorado.gov/bills/sb25b-004)
+4. [White House — Dec. 11, 2025 Executive Order](https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/)
+5. [Akin Gump — Colorado Postpones Implementation](https://www.akingump.com/en/insights/ai-law-and-regulation-tracker/colorado-postpones-implementation-of-colorado-ai-act-sb-24-205)
+6. [Baker Botts — Colorado AI Act Implementation Delayed](https://www.bakerbotts.com/thought-leadership/publications/2025/september/colorado-ai-act-implementation-delayed)
+7. [Clark Hill — What the latest setback means for businesses](https://www.clarkhill.com/news-events/news/colorados-ai-law-delayed-until-june-2026-what-the-latest-setback-means-for-businesses/)
+8. [Brownstein — Colorado's Landmark AI Law Coming Online](https://www.bhfs.com/insight/colorados-landmark-ai-law-coming-online-what-developers-and-deployers-should-know/)
+9. [Sidley — Unpacking the Dec. 11, 2025 EO](https://www.sidley.com/en/insights/newsupdates/2025/12/unpacking-the-december-11-2025-executive-order)
+10. [DLA Piper — EO Aims to Preempt State AI Regulation](https://www.dlapiper.com/en-us/insights/publications/2025/12/new-executive-order-aims-to-preempt-state-ai-regulation)
+11. [Paul Hastings — EO Challenging State AI Laws](https://www.paulhastings.com/insights/client-alerts/president-trump-signs-executive-order-challenging-state-ai-laws)
+12. [Morrison Foerster — EO Takes Aim at State AI Laws](https://www.mofo.com/resources/insights/251213-executive-order-state-ai-laws)
+13. [Latham & Watkins — AI EO Targets State Laws](https://www.lw.com/en/insights/ai-executive-order-targets-state-laws-and-seeks-uniform-federal-standards)
+14. [Goodwin — EO Unlikely to Put a Lid on State AI Laws](https://www.goodwinlaw.com/en/insights/publications/2025/12/alerts-otherindustries-trumps-ai-preemption-executive-order)
+15. [NPR — Trump AI preemption EO](https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order)
+
+## Related Reports
+
+No related reports found in the knowledge base.

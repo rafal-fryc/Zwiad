@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:30:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260413-004",
+        "operation": "new_report",
+        "report_path": "reports/privacy/fisa-section-702-renewal-2026-04-13.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["Federal"],
+        "category": "privacy",
+        "development_type": "legislation",
+        "title": "FISA Section 702 Renewal Deadline Looms as Congress Debates Reauthorization",
+        "summary": "Section 702 of FISA sunsets April 20, 2026; the Trump administration is pushing a clean 18-month renewal while a bipartisan bloc demands a warrant requirement for U.S.-person queries, and carriers have warned they will halt collection if the statute lapses.",
+        "sources": [
+          "https://www.congress.gov/crs-product/R48592",
+          "https://www.congress.gov/crs_external_products/R/PDF/R48592/R48592.1.pdf",
+          "https://www.cnn.com/2026/04/13/politics/fisa-section-702-suveillance-law-expiration-congress",
+          "https://www.washingtonpost.com/national-security/2026/04/11/fisa-section-702-renewal-deadline-surveillance/",
+          "https://reason.com/2026/03/27/trump-backs-section-702-reauthorization-after-once-calling-to-kill-fisa/",
+          "https://www.brennancenter.org/our-work/research-reports/section-702-foreign-intelligence-surveillance-act-fisa-2026-resource-page",
+          "https://www.judiciary.senate.gov/press/dem/releases/durbin-calls-for-reforms-to-fisa-section-702-ahead-of-its-expiration-next-month",
+          "https://www.nextgov.com/policy/2026/04/former-national-security-officials-urge-congress-renew-section-702-expiration/412703/",
+          "https://www.nextgov.com/policy/2026/04/judge-renews-procedures-702-surveillance-program-could-soon-lapse/412767/",
+          "https://www.brookings.edu/articles/a-key-intelligence-law-expires-in-april-and-the-path-for-reauthorization-is-unclear/",
+          "https://epic.org/campaigns/fisa-section-702-reform-or-sunset/",
+          "https://www.cnn.com/2026/02/09/politics/fisa-section-702-renewal-classified-hearing-frustration"
+        ],
+        "confidence_summary": {"high": 3, "medium": 1, "low": 0}
+      }
+    ]
+  }
+}

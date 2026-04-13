@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:40:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260413-005",
+        "operation": "new_report",
+        "report_path": "reports/privacy/massachusetts-sjc-meta-minors-2026-04-13.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["Massachusetts"],
+        "category": "privacy",
+        "development_type": "enforcement",
+        "title": "Massachusetts SJC Clears AG Campbell's Lawsuit Against Meta Over Addictive Design Features for Minors",
+        "summary": "The Massachusetts Supreme Judicial Court ruled April 10, 2026 in Commonwealth v. Meta that Section 230 does not bar AG Campbell's Chapter 93A and public-nuisance claims targeting Instagram's addictive design features for minors — the first state high court holding of its kind. Separately, the Massachusetts House passed a bill banning under-14 social media accounts and requiring parental consent for ages 14-15.",
+        "sources": [
+          "https://www.bostonglobe.com/2026/04/10/business/social-media-addiction/",
+          "https://www.cnbc.com/2026/04/10/meta-must-face-youth-addiction-lawsuit-by-massachusetts-court-rules.html",
+          "https://news.bloomberglaw.com/litigation/meta-denied-shield-in-massachusetts-youth-addiction-lawsuit",
+          "https://www.courthousenews.com/meta-must-face-instagram-public-nuisance-case-massachusetts-high-court-says/",
+          "https://commonwealthbeacon.org/courts/in-first-ruling-of-its-kind-mass-high-court-says-meta-not-shielded-from-lawsuits-over-addictive-features/",
+          "https://thehill.com/policy/technology/5826114-meta-design-lawsuit-advances/",
+          "https://ppc.land/massachusetts-top-court-rules-meta-cant-hide-behind-section-230-in-kids-addiction-case/",
+          "https://www.boston.com/news/local-news/2026/04/11/mass-high-court-allows-ags-lawsuit-against-meta-to-move-forward/",
+          "https://epic.org/documents/massachusetts-v-meta/",
+          "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93a/Section2",
+          "https://www.mass.gov/orgs/massachusetts-supreme-judicial-court",
+          "https://malegislature.gov/PressRoom/Detail?pressReleaseId=359",
+          "https://www.wgbh.org/news/politics/2026-04-08/mass-house-passes-bill-to-ban-kids-under-14-from-social-media",
+          "https://www.wbur.org/news/2026/04/09/massachusettse-house-social-media-bill-teens",
+          "https://www.axios.com/local/boston/2026/04/09/massachusetts-house-social-media-age-verification-youth-technology-bill-ban-privacy",
+          "https://markets.financialcontent.com/stocks/article/marketminute-2026-4-10-metas-big-tobacco-moment-massachusetts-high-court-greenlights-landmark-addiction-suit-amidst-mounting-legal-defeats"
+        ],
+        "confidence_summary": {"high": 5, "medium": 0, "low": 0}
+      }
+    ]
+  }
+}

@@ -215,7 +215,7 @@ sources = []
 for topic_dir in sorted(src_reports.iterdir()):
     if not topic_dir.is_dir():
         continue
-    for f in sorted(topic_dir.glob("*.md")):
+    for f in sorted(topic_dir.rglob("*.md")):
         if f.name == "CLAUDE.md":
             continue
         sources.append(f)
@@ -244,7 +244,11 @@ for src in sources:
         print(f"  SKIP (no # heading): {src.name}", file=sys.stderr)
         continue
     date = meta.get("date") or date_from_filename
-    topic = meta.get("category") or src.parent.name
+    # Topic is the first path segment under src_reports (privacy / cybersecurity / ai-law),
+    # not the immediate parent dir — reports can live in nested subdirs like
+    # reports/privacy/state-comprehensive-laws/foo.md.
+    top_topic = src.relative_to(src_reports).parts[0]
+    topic = meta.get("category") or top_topic
     jurisdiction = meta.get("jurisdiction") or "Unknown"
     summary = extract_summary(body) or title
 

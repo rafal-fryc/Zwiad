@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "processed": {
+    "<B8.73.31393.219CCD96@i-09f62d4b144eae0c8.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-13T22-26-28",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-13T22:26:29.598980+00:00"
+    },
+    "<40979206.32485329.1776105163146@abmktmail-batch1j.marketo.org>": {
+      "first_seen_run": "2026-04-13T22-26-28",
+      "subject": "Understanding emerging digital litigation trends in the US",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-13T22:26:29.862102+00:00"
+    }
+  }
+}

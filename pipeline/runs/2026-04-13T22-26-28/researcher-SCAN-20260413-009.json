@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:30:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260413-009",
+        "operation": "new_report",
+        "report_path": "reports/ai-law/nist-ai-rmf-critical-infrastructure-profile-2026-04-13.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["Federal"],
+        "category": "ai-law",
+        "development_type": "guidance",
+        "title": "NIST Releases Concept Note for AI RMF Profile on Trustworthy AI in Critical Infrastructure",
+        "summary": "NIST released a concept note on April 7, 2026 launching development of an AI RMF Profile tailored to critical infrastructure operators and suppliers, extending AI RMF 1.0 to IT/OT/ICS environments and opening a Community of Interest for stakeholder feedback.",
+        "sources": [
+          "https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure",
+          "https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf",
+          "https://www.nist.gov/itl/ai-risk-management-framework",
+          "https://csrc.nist.gov/pubs/ir/8596/iprd",
+          "https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era"
+        ],
+        "confidence_summary": {"high": 3, "medium": 2, "low": 0}
+      }
+    ]
+  }
+}

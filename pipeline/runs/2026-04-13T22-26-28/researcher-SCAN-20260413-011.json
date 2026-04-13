@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:40:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260413-011",
+        "operation": "new_report",
+        "report_path": "reports/ai-law/colorado-ai-act-enforcement-delayed-2026-04-13.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["Colorado", "Federal"],
+        "category": "ai-law",
+        "development_type": "regulation",
+        "title": "Colorado AI Act Enforcement Delayed to June 30, 2026 Amid Federal Preemption Pressure",
+        "summary": "Colorado SB 24-205, the first comprehensive US state AI law, will now be enforceable June 30, 2026 after SB 25B-004 pushed back the original February 1, 2026 effective date. The delay coincides with President Trump's December 11, 2025 executive order directing Commerce to list 'onerous' state AI laws and DOJ to challenge them, creating federal preemption risk just as Colorado's working group drafts a repeal-and-replace bill.",
+        "sources": [
+          "https://www.hunton.com/privacy-and-information-security-law/enforcement-of-colorado-ai-act-delayed-until-june-2026",
+          "https://leg.colorado.gov/bills/sb24-205",
+          "https://leg.colorado.gov/bills/sb25b-004",
+          "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
+          "https://www.akingump.com/en/insights/ai-law-and-regulation-tracker/colorado-postpones-implementation-of-colorado-ai-act-sb-24-205",
+          "https://www.bakerbotts.com/thought-leadership/publications/2025/september/colorado-ai-act-implementation-delayed",
+          "https://www.clarkhill.com/news-events/news/colorados-ai-law-delayed-until-june-2026-what-the-latest-setback-means-for-businesses/",
+          "https://www.bhfs.com/insight/colorados-landmark-ai-law-coming-online-what-developers-and-deployers-should-know/",
+          "https://www.healthlawadvisor.com/will-colorados-historic-ai-law-go-live-in-2026-its-fate-hangs-in-the-balance-in-2025",
+          "https://www.workforcebulletin.com/colorados-historic-sb-24-205-concerning-consumer-protections-in-interactions-with-ai-signed-into-law-after-passing-state-senate-and-house",
+          "https://www.govtech.com/artificial-intelligence/colorado-passes-bill-amending-current-ai-legislation",
+          "https://www.sidley.com/en/insights/newsupdates/2025/12/unpacking-the-december-11-2025-executive-order",
+          "https://www.dlapiper.com/en-us/insights/publications/2025/12/new-executive-order-aims-to-preempt-state-ai-regulation",
+          "https://www.paulhastings.com/insights/client-alerts/president-trump-signs-executive-order-challenging-state-ai-laws",
+          "https://www.mofo.com/resources/insights/251213-executive-order-state-ai-laws",
+          "https://www.lw.com/en/insights/ai-executive-order-targets-state-laws-and-seeks-uniform-federal-standards",
+          "https://www.goodwinlaw.com/en/insights/publications/2025/12/alerts-otherindustries-trumps-ai-preemption-executive-order",
+          "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+          "https://www.epi.org/policywatch/executive-order-to-challenge-or-deter-state-laws-that-would-impact-artificial-intelligence-ai/"
+        ],
+        "confidence_summary": {"high": 4, "medium": 1, "low": 0}
+      }
+    ]
+  }
+}

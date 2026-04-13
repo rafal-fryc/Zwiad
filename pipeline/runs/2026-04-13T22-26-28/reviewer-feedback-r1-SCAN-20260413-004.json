@@ -1,0 +1,36 @@
+{
+  "finding_id": "SCAN-20260413-004",
+  "report_path": "reports/privacy/fisa-section-702-renewal-2026-04-13.md",
+  "round": 1,
+  "claims_checked": 14,
+  "issues": [
+    {
+      "claim": "RISAA reauthorizes Section 702 for two years",
+      "section": "Timeline",
+      "source_url": "https://www.congress.gov/crs-product/R48592",
+      "issue": "The timeline entry says 'April 20, 2024' but narrative body uses 'April 2024' — minor inconsistency, not an error.",
+      "severity": "minor",
+      "suggested_fix": "Harmonize 'April 2024' references with the April 20, 2024 enactment date for consistency.",
+      "status": "open"
+    },
+    {
+      "claim": "House Intelligence Chair Rick Crawford (R-AR) has been shuttling between GOP factions",
+      "section": "Current Debate — Republican fractures",
+      "source_url": "https://www.congress.gov/crs-product/R48592",
+      "issue": "No inline citation for Crawford's HPSCI chairmanship attribution.",
+      "severity": "minor",
+      "suggested_fix": "Add an inline citation supporting Crawford's HPSCI chairmanship and his role in the 702 whip effort.",
+      "status": "open"
+    },
+    {
+      "claim": "Carriers have privately warned the Intelligence Community they will stop collecting under Section 702 directives if the statute lapses",
+      "section": "Overview",
+      "source_url": "https://www.cnn.com/2026/04/13/politics/fisa-section-702-suveillance-law-expiration-congress",
+      "issue": "Source URL contains apparent typo ('suveillance' instead of 'surveillance') — link may 404.",
+      "severity": "minor",
+      "suggested_fix": "Verify the CNN article URL resolves; correct slug typo if needed.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

@@ -1,0 +1,27 @@
+{
+  "finding_id": "SCAN-20260413-010",
+  "report_path": "reports/privacy/coppa-amendments-compliance-deadline-2026-04-13.md",
+  "round": 1,
+  "claims_checked": 14,
+  "issues": [
+    {
+      "claim": "Government-issued identifiers beyond SSN (state ID, passport numbers) added to PI definition",
+      "section": "Key New Requirements - Expanded Definition of Personal Information",
+      "source_url": "https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule",
+      "issue": "Biometric identifiers confirmed; the specific enumeration (state ID, passport) is widely reported in secondary sources but not independently verified against primary FR text in this round.",
+      "severity": "minor",
+      "suggested_fix": "Add inline citation to a specific secondary source (e.g., White & Case or Mayer Brown alert) at the bullet enumerating state ID/passport numbers, or quote the regulatory text.",
+      "status": "open"
+    },
+    {
+      "claim": "Safe Harbor compliance deadlines 90 days to 6 months after publication (July-October 2025)",
+      "section": "Timeline",
+      "source_url": "https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule",
+      "issue": "Safe Harbor deadlines vary per § 312.11(d)(1), (d)(4), and (g); the summarized July-October 2025 window is an interpretation rather than a specific regulatory citation.",
+      "severity": "minor",
+      "suggested_fix": "Reference the specific § 312.11 subsections and their respective deadlines rather than a generalized window.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Federal"
 category: "ai-law"
 development_type: "guidance"
+cluster: "NIST AI Agent Standards Initiative (CAISI)"
+cluster_slug: "nist-ai-agent-standards-initiative"
 ---
 
 # NIST AI Agent Standards Initiative Launches Sector-Specific Listening Sessions Starting April 2026

@@ -1,0 +1,1082 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head> 
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW"> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<title>Daily Dashboard</title> 
+<style type="text/css">
+        .ReadMsgBody {
+            width: 100%;
+        }                                 
+        .ExternalClass {
+            width: 100%;
+        }                                              
+        span.yshortcuts {
+            color: #000; 
+            background-color: none; 
+            border: none;
+        }
+        span.yshortcuts:hover,
+        span.yshortcuts:active,
+        span.yshortcuts:focus {
+            color: #000; 
+            background-color: none; 
+            border: none;
+        }
+        hr {
+            margin-top: 15px; 
+            margin-bottom: 15px;
+            color: #eeeeee;
+        }
+        h1 {
+            /*@editable*/ color: #202020 !important;
+            display: block;
+            /*@editable*/ font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+            /*@editable*/ font-size: 26px;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+        }
+
+            /**
+            * @tab Page
+            * @section heading 2
+            * @tip Set the styling for all second-level headings in your emails.
+            * @style heading 2
+            */
+
+            h2 {
+                /*@editable*/ color: #404040 !important;
+                display: block;
+                /*@editable*/ font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                /*@editable*/ font-size: 16px;
+                /*@editable*/ font-style: normal;
+                /*@editable*/ font-weight: bold;
+                /*@editable*/ line-height: 100%;
+                /*@editable*/ letter-spacing: normal;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 5px;
+                margin-left: 0;
+                /*@editable*/ text-align: left;
+            }
+
+            /**
+            * @tab Page
+            * @section heading 3
+            * @tip Set the styling for all third-level headings in your emails.
+            * @style heading 3
+            */
+
+            h3 {
+                /*@editable*/ color: #0C7EC0 !important;
+                display: block;
+                /*@editable*/ font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                /*@editable*/ font-size: 14px;
+                /*@editable*/ font-style: normal;
+                /*@editable*/ font-weight: bold !important;
+                /*@editable*/ line-height: 100%;
+                /*@editable*/ letter-spacing: normal;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 5px;
+                margin-left: 0;
+                /*@editable*/ text-align: left;
+            }
+
+            /**
+            * @tab Page
+            * @section heading 4
+            * @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+            * @style heading 4
+            */
+
+            h4 {
+                /*@editable*/ color: #808080 !important;
+                display: block;
+                /*@editable*/ font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                /*@editable*/ font-size: 14px;
+                /*@editable*/ font-style: normal;
+                /*@editable*/ font-weight: bold;
+                /*@editable*/ line-height: 100%;
+                /*@editable*/ letter-spacing: normal;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 5px;
+                margin-left: 0;
+                /*@editable*/ text-align: left;
+            }
+            h5 {
+                /*@editable*/ color: #404040 !important;
+                display: block;
+                /*@editable*/ font-family:  "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                /*@editable*/ font-size: 18px;
+                /*@editable*/ font-style: normal;
+                /*@editable*/ font-weight: bold;
+                /*@editable*/ line-height: 100%;
+                /*@editable*/ letter-spacing: normal;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 5px;
+                margin-left: 0;
+                /*@editable*/ text-align: left;
+            }
+            h6 {
+                /*@editable*/ color: #404040 !important;
+                display: block;
+                /*@editable*/ font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                /*@editable*/ font-size: 18px;
+                /*@editable*/ font-style: normal;
+                /*@editable*/ font-weight: bold;
+                /*@editable*/ line-height: 100%;
+                /*@editable*/ letter-spacing: normal;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 0;
+                margin-left: 0;
+                /*@editable*/ text-align: left;
+            }
+            p, ul li, ol li {
+                font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                font-size: 13.5px;
+                line-height: 120%;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 10px;
+                margin-left: 0;
+            }
+            a:link, a:visited {
+                color: #70bf4c;
+                font-weight: normal;
+                text-decoration: underline;
+            }
+            table.button {
+                width: 100%;
+                overflow: hidden;
+            }
+            table.button td {
+                display: block;
+                width: auto !important;
+                text-align: center;
+                background: #71BF4B;
+                border: 1px solid #4F8C31;
+                color: #ffffff;
+                padding: 8px 0;
+            }
+            table.button td a {
+                font-weight: bold;
+                text-decoration: none !important;
+                font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; 
+                color: #ffffff !important;
+                font-size: 16px;
+            }
+            table.button:hover td,
+            table.button:visited td,
+            table.button:active td {
+                background: #4F8C31 !important;
+            }
+            table.button:hover td a,
+            table.button:visited td a,
+            table.button:active td a {
+                color: #fff !important;
+            }
+            table.button:hover td {
+                background: #4F8C31 !important;
+            }
+            table.button:hover td a,
+            table.button:active td a,
+            table.button td a:visited {
+                color: #ffffff !important; 
+            }
+</style> 
+</head> 
+<body style=""><style type="text/css">div#emailPreHeader{ display: none !important; }</style><div id="emailPreHeader" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">IAPP scholarship recipients reflect on professional development, advancement</div>
+<div style="text-align: center"><font face="Verdana" size="1">To view this email as a web page, <a href=
+"http://info.iapp.org/v/MTM4LUVaTS0wNDIAAAGhJxa5fwlExeHDcxbALrKqpHXvtdCLKddB0oBq1n0SjyyIYoab3tidnCXs0NynCG9tSLoMvGY="
+>click here</a></font></div>
+
+<div class="mktEditable" id="main_content_container" style=""> 
+<table width="680" align="center" cellspacing="0"> 
+<tbody> 
+<tr> 
+<td width="680" valign="top"> 
+<div> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5frAgPGPiVS_VzF8mrG0HRS8OYtiXm6YhyZKtil5IzDeJyLV77vh0CyX9Z0QCmeElhY8="
+><img class="alignnone size-full wp-image-633317" src="https://media.iapp.org/2026/01/11054626/AIGGEU26_Email-Banner-Ads_FINAL_NewsletterBannerAd-740x91-680x83-1.png" alt="" width="680" height="84" srcset="https://media.iapp.org/2026/01/11054626/AIGGEU26_Email-Banner-Ads_FINAL_NewsletterBannerAd-740x91-680x83-1.png 680w, 
+https://media.iapp.org/2026/01/11054626/AIGGEU26_Email-Banner-Ads_FINAL_NewsletterBannerAd-740x91-680x83-1-300x37.png 300w" sizes="(max-width: 680px) 100vw, 680px"></a></p> 
+<table cellpadding="5" cellspacing="0" width="100%"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<img height="245" width="680" src="https://iapp.org/media/images/publications/DD_Email_header_final-01.png" border="0"> 
+<table cellpadding="5" cellspacing="0" width="100%"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+</div> </td> 
+</tr> 
+<tr> 
+<td width="680" valign="middle"> 
+<table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+<tbody> 
+<tr> 
+<td> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+<tbody> 
+<tr> 
+<td style="font-family: Trebuchet MS; font-size: 13px;"> 
+<div>
+<br>
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+<tr> 
+<td> 
+<table width="680" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td width="325" valign="top"> 
+<table width="325" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td valign="top"> 
+<table width="325" cellpadding="0" cellspacing="0" border="0" bgcolor="#EEEEEE"> 
+<tbody> 
+<tr> 
+<td valign="top"> 
+<table cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td valign="top"> 
+<table cellpadding="15" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td> 
+<div> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+<tbody> 
+<tr> 
+<td class="calloutBox" valign="top"> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+<tbody> 
+<tr> 
+<td class="calloutBox" valign="top"><img src="https://media.iapp.org/2022/08/02133954/Nav_ICON_75x75.png" align="left"> <img src="https://media.iapp.org/2017/05/31103016/spacer.png" width="5" height="96" border="0" align="left"> <h4>Navigate 2026</h4> <h5>ROLL UP YOUR SLEEVES AND BUILD THE FUTURE</h5> <p>Contribute your thoughts and experiences to policy ideas shaping digital responsibility in collaborative sessions at <strong>Navigate 2026</strong>. The event is co-presented by the Berkman Klein Center for Internet &amp; Society at Harvard University and the IAPP. <br><strong>Navigate 2026: Digital Policy Leadership Summit </strong><br><strong>24-25 June | Portsmouth, N.H.</strong></p> 
+<table class="button"> 
+<tbody> 
+<tr> 
+<td><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gFoC84m2KHJ0r61SsaWk6ESz0n1YULVwiR4I3_nYUwI92Vm5Dc9pUnfsNsLkTccoVwc="
+>Register now</a></td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> 
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+<td width="15"></td> 
+</tr> 
+</tbody> 
+</table> 
+<table> 
+<tbody> 
+<tr> 
+<td height="15"></td> 
+</tr> 
+</tbody> 
+</table> 
+<table width="325" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td width="15"></td> 
+<td valign="top"> 
+<table cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td valign="top"> 
+<div> 
+<h3>IAPP NEWS</h3> 
+<h2>Understanding emerging digital litigation trends in the US</h2> 
+<p>Data privacy lawsuits, primarily driven by class-action complaints, are soaring in the U.S. At the IAPP Global Summit 2026 in Washington, D.C., attorneys, regulators and members of the judiciary shared their thoughts on the current state of privacy litigation, and how emerging technologies like AI are impacting legal cases. IAPP Staff Writer Alex LaCasse has the details.&nbsp;<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f4wcxqvQpk81mxlu6pvfL33j_9TC7mreEl3BgKnEj0ioLqCB4PW-Lp2_KzywXnAYz5M="
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>IAPP NEWS</h3> 
+<h2>IAPP scholarship recipients reflect on professional development, advancement</h2> 
+<p>The IAPP's scholarships, which provide students interested in privacy, cybersecurity and digital governance the chance to access certifications and attend an IAPP conference, have been impactful in the careers of many privacy professionals. IAPP Staff Writer Lexie White reports on the careers of previous scholarship recipients and how scholarship opportunities have shaped their professional advancement.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fxTgAtUDUV9RUXM3wgx_mcssDgdaRqe8F4uonEd61idTH8d8cyvP8BlhwBsZ8U7oELA="
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>LAW &amp; REGULATION—EU &amp; U.K.</h3> 
+<h2>UK government considers increased alignment with EU rules</h2> 
+<p>Reuters reports Members of U.K. Parliament will soon vote on government-drafted legislation to align various regulations with the EU with the aim to ease trade. Prime Minister Keir Starmer noted the U.K.'s "best interests" lie with "a stronger, closer relationship with ‌Europe," adding the objective of any reforms would be to create "less burdens for businesses." It is unclear what, if any, impact potential U.K. legal changes will have on its data protection and technology rulebooks. The U.K. left the EU in 2020 following <a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fv2vwCASKX24YmbfdHu807jRQ2zvc1XlN6hTEUlifbRh06lOjGmsEhUo9_8hymwrYM4="
+>Brexit</a>.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gJ70DY3buIqXu3nELXJqE1kYwmCEiPUHf9ULc9CDBomtXoa7vDmYmAsXN2U9ds18fSI=" target="_blank" rel="noopener noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<p style="color: #808080; font-weight: bold; font-size: 8pt;">Sponsored Content</p> 
+<h4>Live webinar — Web privacy litigation in 2026: What's causing it and how to stay compliant</h4> 
+<p>U.S. online privacy lawsuits have surged, from about 600 in 2022 to 4,000 in 2025. Why? Most websites and apps share personal data with advertisers despite user opt-outs, and law firms and state regulators are exploiting this. The underlying problem is that privacy teams and their CMPs lack the capabilities to properly audit websites and apps for privacy compliance. Join this webinar to learn what is causing most privacy litigation and how Privado AI continuously audits websites and apps to ensure compliance.</p> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f9r8xQh20G0MnXQSKhbCsRfVdfJA1VLULJynYSAts1bAFkQ3dVw9KviVrmf3IYUFIc0="
+><strong>Register now</strong></a></p> 
+<hr> 
+<h3>LAW &amp; REGULATION—SOUTH AFRICA</h3> 
+<h2>South Africa releases draft national AI policy for public comment</h2> 
+<p>South Africa's Minister of Communications and Digital Technologies Solly Malatsi published the country's draft <a class="mktNoTok" href=
+"http://info.iapp.org/n/MTM4LUVaTS0wNDIAAAGhJxa5fzDPLt53j1WTcpt8p2bv_q8L21VgqaN4bLZiDx777Lu6h0UM5JU5LLYP2KVrmbLZa9M=" target="_blank" rel="noopener noreferrer"
+>AI policy</a> for a 60-day public comment period, TechCentral reports. Key features include proposals to create a National AI Commission to coordinate policy, an AI Ethics Board to enforce governance around bias and fairness, an AI Regulatory Authority and a National AI Safety Institute. Proposed safety requirements include mandatory human rights and gender impact assessments for AI models, human intervention requirements and obligations surrounding "sufficient explainability" and "sufficient transparency" for high-risk systems used in the public sector.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5flsfLI0bQ7rphHXGA35_TVRheCN60DM5ua-mlkqrjcijCy28n3mFQ4L6_LYHzFer92I=" target="_blank" rel="noopener 
+noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>PERSPECTIVES</h3> 
+<h2>The AI opportunity: Professionals as toolmakers for compliance&nbsp;</h2> 
+<p>With the advancement of organizations'&nbsp;use of AI tools, digital security professionals may be using the technology to ease compliance burdens. In an op-ed, Waivern CEO Vincent Nunan, AIGP, CIPP/E, notes&nbsp;the constantly evolving cybersecurity and digital governance landscape needs&nbsp;"more and better tools to accelerate our work — and this technology now allows us to build them ourselves."&nbsp;<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f9n315CL5F1Baci-K3AK7bLA332AonVecdh6CztGkU8NWx3K1MjKZQ72Ao1Ja-5voig=" target="_blank" rel="noreferrer noopener"
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>ENFORCEMENT—U.K.</h3> 
+<h2>UK law amendment could hold executives liable for nonconsensual imagery shared on platforms</h2> 
+<p>Under a proposed amendment to the U.K. Crime and Policing Bill, senior executives of technology companies could be held criminally responsible if they do not remove nonconsensual intimate images shared on their platforms, Reuters reports. Executives whose platforms fail to comply with enforcement decisions from the Office of Communications could be subject to imprisonment under the amendment, which is anticipated to be debated in Parliament next week.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5ftLgtfJm5jmdq4XA8JVUp2u7W2LcSVRybFqjOO9sODVYoxl78pfeP9iaesYlhCDSilE=" target="_blank" rel="noopener 
+noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<p style="color: #808080; font-weight: bold; font-size: 8pt;">Sponsored Content</p> 
+<h4>Leading CPOs aren't reacting anymore, they're automating</h4> 
+<p>The CPO role is evolving fast. Cloud sprawl, AI blind spots, mounting regulations — your privacy program needs to evolve too. Download the CPO's guide to building end-to-end privacy automation at scale to learn more.</p> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f0T1Newe05XKH9LNz-d9ri70hBMusIPC7CcEG4Vbp_tN_ySRxx7F3cb77Vujc8-Ho1g="
+><b>Download now</b></a></p> 
+<hr> 
+<h3>CHILDREN'S ONLINE SAFETY—AUSTRALIA</h3> 
+<h2>Survey: 61% of Australian minors are still accessing social media</h2> 
+<p>A survey by the Molly Rose Foundation found 61% of users ages 12-15 who had their accounts restricted under Australia's social media ban still have access to their accounts. The report also found 51% of respondents claimed restrictions on social platforms have not improved their online safety. The Molly Rose Foundation said it is urging the U.K. government to "follow the evidence which shows an Australia-style ban won't deliver the immediate improvements in safety that parents and children demand and deserve."<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gPVaz4NCda89VvEtk_-8WIQXF7NGrBV6kncDq7V4VeEVzrxuO28ik6NKTkcKAQkvMIo=" target="_blank" rel="noopener noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>CHILDREN'S ONLINE SAFETY—U.S.</h3> 
+<h2>Meta to face Massachusetts attorney general lawsuit over design features</h2> 
+<p>The Massachusetts Supreme Judicial Court ruled Meta must face a lawsuit by Massachusetts Attorney General Andrea Campbell claiming the company's design features for its social media platforms are harmful and addictive for underage users, Reuters reports. Campbell said the court's ruling is a "major step in holding these companies accountable for practices that have fueled the youth mental health crisis and put profits over kids." Meanwhile, the Lowell Sun reports the Massachusetts House advanced a <a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fn60lVM_oW_QhWsIHxG_YZY248atHcUEfXUWnei1Xj5RfSRk1sHUpesmfbEVzLpTKwU=" target="_blank" rel="noopener 
+noreferrer"
+>bill</a> to the Senate that introduces social media age restrictions.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fzVVCa817RxeXxtLHpeZrm6s0uIyyXIfbLhe_C_uTmwC-v6bMmmKa67suoDPGallu1s=" target="_blank" rel="noopener noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>LITIGATION &amp; CASE LAW—INDIA</h3> 
+<h2>India's Supreme Court seeks government response to petition seeking to overturn portion of DPDPA</h2> 
+<p>India's Supreme Court is awaiting a response from the government to a public interest litigation petition challenging provisions of the <a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f9BKQgZEgQtY5zITiU4ie6jOqK75G2EJ12-RK5HtNyEminaep990NCeHwoJWrRYz1iI="
+>Digital Personal Data Protection Act</a> that claims the law weakens portions of the existing 2005 Right to Information Act, the Hindustan Times reports. The petitioners are asking the Supreme Court to strike down Section 44 of the DPDPA because they allege it erodes Section 8 of the RIA and that the DPDPA section in question also violates Articles 14, 19 and 21 of the Constitution of India.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fwctjvFRT6S9YjxiwtkDn017lIAA0xhZ5VEyyVZD_1_A25xNwb85oVgSJ53cpWErfLE=" target="_blank" rel="noopener noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<p style="color: #808080; font-weight: bold; font-size: 8pt;">Sponsored Content</p> 
+<h4>Organizational Digital Governance Report 2025</h4> 
+<p>Digital organizational governance is no longer siloed within the privacy domain. The IAPP "Organizational Digital Governance Report 2025" features insights gleaned from a survey of more than 600 respondents from 45 countries and territories that sought to elicit information on the extent to which organizations are defining, designing and deploying digital governance programs.</p> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gBOQekGZdj8ErH6CkQf_ujUF3PNncljsKZ_9Bz6cUNpHh7KuwAGS1gaiYsEK-DKejWk="
+><strong>Access now</strong></a></p> 
+<hr> 
+<h3>SURVEILLANCE—U.S.</h3> 
+<h2>FISA Section 702 renewal deadline looms</h2> 
+<p>U.S. Congress must assess whether to renew Section 702 of the Foreign Intelligence Surveillance Act, which expires 20 April, as concerns continue over the program's access to individuals' data without a search warrant, The Washington Post reports. Despite U.S. officials' claims that the law expands surveillance powers needed to safeguard national security, lawmakers and civil society groups have warned the program's privacy implications violate constitutional rights. President Donald Trump's administration is lobbying for a "clean" renewal of the program.<br><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fug9UFtLBU99HCUSBjf5na-V9J4lOs5Xg_wAc3ewIfcfDHNgXahmJ7z4zLG1aBHSCyQ=" target="_blank" rel="noopener noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+<h3>BENCHMARKING &amp; RESEARCH</h3> 
+<h2>FPF report details impacts of data-driven pricing schemes</h2> 
+<p>The Future of Privacy Forum released a report exploring the responsible use of data-driven pricing mechanisms and provided recommendations for organizations. The FPF recommended companies enlist compliant consumer-focused policies, remain transparent with consumers about how their personal data is used for pricing purposes, and ensure systems are tested to prevent potential bias.<br><a class="mktNoTok" href=
+"http://info.iapp.org/n/MTM4LUVaTS0wNDIAAAGhJxa5fxpJGZUuN65fjLI4U5_sRE9fapVRuStLZp0VWcrnwvuF8a9kTnL68UZ_O1y0azJMNQ4=" target="_blank" rel="noopener 
+noreferrer"
+><strong>Full story</strong></a></p> 
+<hr> 
+</div> </td> 
+</tr> 
+<tr> 
+<td valign="top"><a name="job" style="color: #70bf4c; font-weight: normal; text-decoration: underline;"></a> <a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fisy8bGKd7MzrQ7zInIyF12YxP62fzEgXVb4mqxxpEGwmUk_5EdXacKl2gqbDsgh_Hw=" style="color: #70bf4c; font-weight: normal; text-decoration: underline;" target="_blank"
+><img src="https://iapp.org/media/images/publications/IAPP_CareerCenter_DailyDbanner_325x109_FINAL-01.png"></a> <p style="font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif; font-size: 13.5px; line-height: 120%; margin: 0 0 10px 0;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fisy8bGKd7MzrQ7zInIyF12YxP62fzEgXVb4mqxxpEGwmUk_5EdXacKl2gqbDsgh_Hw=" style="font-weight: bold; color: #70bf4c; text-decoration: underline;" target="_blank"
+>All Current Job Listings </a></p> </td> 
+</tr> 
+<tr> 
+<td height="15"></td> 
+</tr> 
+<tr> 
+<td valign="top" id="bttm"> 
+<div name="bttm"> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+<tbody> 
+<tr> 
+<td class="calloutBox" valign="top"> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+<tbody> 
+<tr> 
+<td class="calloutBox" valign="top"><img src="https://media.iapp.org/2023/07/12092441/AI_96x96.png" align="left"> <img src="https://media.iapp.org/2017/05/31103016/spacer.png" width="5" height="96" border="0" align="left"> <h5>EXPERT PANEL DISCUSSES FUTURE AI RISK CYCLES</h5> <p>Join ZoomInfo's Simon Dougall, Anthropic’s Ronan Davy, Online Safety Commissioner Niamh Hodnett and Oxford University Policy Visiting Fellow Gill Whitehead at <strong>IAPP AIGG Europe 2026</strong> as they debate practical methods to anticipate policy shifts and compliance strategies. <br><strong>IAPP AI Governance Global Europe 2026 </strong><br><strong>1-4 June | Dublin</strong></p> 
+<table class="button"> 
+<tbody> 
+<tr> 
+<td><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gOzMybh_tmQgoRYxiWgjrbMKZX0cC_DYGm34fsf6rLSOOVPLXD7m8_5v1Egzcl6wh1s="
+>Save your seat</a></td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> 
+<table cellpadding="10" cellspacing="0" width="100%"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+<tbody> 
+<tr> 
+<td class="calloutBox" valign="top"> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+<tbody> 
+<tr> 
+<td class="calloutBox" valign="top"><img src="https://media.iapp.org/2017/12/21114549/IAPP-logo_96x96.png" align="left"> <img src="https://media.iapp.org/2017/05/31103016/spacer.png" width="5" height="96" border="0" align="left"> <h5>RISK MANAGEMENT IS EVERYONE'S BUSINESS</h5> <p>Keeping customer data safe is of the highest importance.<strong> IAPP organizational membership</strong> gives your entire team access to resources and training to help them learn best practices for mitigating risk. Help your team build up your privacy and AI governance operations.</p> 
+<table class="button"> 
+<tbody> 
+<tr> 
+<td><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gJX_pdh72cAZCz5Pzu7M6JYSjBMdltkrl7axC4gr8Y2_ajhy1f1PffPhoHfffYGYr_k="
+>Speak with a sales rep</a></td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> 
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+<tr> 
+<td height="15"></td> 
+</tr> 
+<tr> 
+<td valign="top"></td> 
+</tr> 
+</tbody> 
+</table> </td> 
+<td width="15"></td> 
+<td width="340" valign="top" style="border-left: 1px solid #eeeeee;"> 
+<table width="340" cellpadding="0" cellspacing="0" border="0" bgcolor="#EEEEEE"> 
+<tbody> 
+<tr> 
+<td width="15"></td> 
+<td valign="top"> 
+<table cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td height="15"></td> 
+</tr> 
+<tr> 
+<td valign="top"> 
+<table cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td> 
+<div> 
+<h6 style="display: block; font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size: 18px; font-style: normal; font-weight: bold; line-height: 100%; letter-spacing: normal; text-align: left; color: #404040 !important; margin: 0;">13 April 2026</h6> 
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+<tr> 
+<td height="15"></td> 
+</tr> 
+</tbody> 
+</table> </td> 
+<td width="15"></td> 
+</tr> 
+</tbody> 
+</table> 
+<table width="340" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td height="15"></td> 
+</tr> 
+<tr> 
+<td> 
+<table width="340" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td width="15"></td> 
+<td valign="top"> <h3 style="display: block; font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; line-height: 100%; letter-spacing: normal; text-transform: uppercase; text-align: left; color: #0c7ec0 !important; font-weight: bold !important; margin: 0 0 5px 0;">Quick Links</h3> 
+<div style="padding-left: 2px;"> 
+<div> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fihZT27wCkwjJVd1lXgJQsjslrk33-9NpxcwgNJvnwPm99Bth8KXZTHSapcDOe05BRY="
+><strong>IAPP Newsletter Subscriptions</strong></a></p> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fisy8bGKd7MzrQ7zInIyF12YxP62fzEgXVb4mqxxpEGwmUk_5EdXacKl2gqbDsgh_Hw="
+><strong>Career Central</strong></a></p> 
+<p><a href="#job"><strong>IAPP AI Governance Global Europe 2026</strong></a></p> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fwNRIWI_9T9OTvlvPu7sAVgy1PYWSnVM2yAjuDPvZLHhqgDzqoT6OF3V5rDf5MCp3s4="
+><strong>Become a Member</strong></a></p> 
+<p><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gMB4DXGoXHC219NGWiOCcTrVu3V7JehEgbPcU12GPBZ9dgG_pk5wJ-m9S-DTqdSAxzI="
+><strong>Resource Center</strong></a></p> 
+</div> 
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+<tr> 
+<td height="25"></td> 
+</tr> 
+<tr> 
+<td> 
+<table width="340" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td width="15"></td> 
+<td valign="top"> 
+<table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+<tbody> 
+<tr> 
+<td valign="top" align="center"> 
+<div> 
+<p style="text-align: center;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fyYRfObsMuuUcglrJEeJBF3oe1M21YeU243Xyt4IDsxNicqZFFQX3D4Q1Bas48tz56Y="
+><img class="size-full wp-image-635766 aligncenter" src="https://media.iapp.org/2026/03/23095832/PLI-GO-4766-Data-Law-and-AI-2026-IAPP-Ad-300x250_V1-230326.png" alt="" width="300" height="251"></a></p> 
+<table cellpadding="10"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<p style="text-align: center;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f5sL0STSK83O5pT1SSY6hBv5ZkU28yGNbBFPcy1OYr-Y36g1eZYNV53kfgxWdBZE9Lc=" target="_blank" rel="noopener noreferrer"
+><img class="alignnone size-full wp-image-612504" src="https://media.iapp.org/2026/03/19044938/Cyera-AD_1-031926.png" alt="" width="300" height="250"></a></p> 
+<table cellpadding="10"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<p style="text-align: center;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fuayOaoDn0snumr5tU-zt_AzWY860_aW53C9xw8n27JnVom2dOjjVKdIzHhGJqNRmN0="
+><img class="size-full wp-image-636054 aligncenter" src="https://media.iapp.org/2026/03/27062711/Clym-IAPP_Newsletter-banner_Visual_350x292px-270326-300x250-1.png" alt="" width="300" height="250"></a></p> 
+<table cellpadding="10"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<p style="text-align: center;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5frtyG93a65P0-Reb9TSqLc7HEV_pJYd69hwxoxhJISfvu2jxR7-2zRndlrqaaNLgV-8="
+><img class="size-full wp-image-636054 aligncenter" src="https://media.iapp.org/2026/04/13042613/Ethyca_Ad_02-041326.png" alt="" width="300" height="250"></a></p> 
+<table cellpadding="10"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<p style="text-align: center;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fxd15KREtQ5vi3Hp-Q3cEpWIQoVeIWPSkJXftq246DGCBWfLts3M5-c1Nc-Oz43W1U8="
+><img class="size-full wp-image-632053 aligncenter" src="https://media.iapp.org/2026/01/22101548/NAV26_Email-Banner-Ads_FINAL_NewsletterTileAd-constentstack-350x292-300x250-1.png" alt="" width="300" height="250"></a></p> 
+<table cellpadding="10"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+<p style="text-align: center;"><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f8V_Bk8r0eshn2XoqE5Lep_h-6EVrkjD8mBXfYCTqm0OL9v5PXvCds0MjZPmDFJPfE8="
+><img class="size-full wp-image-633960 aligncenter" src="https://media.iapp.org/2026/02/20095748/CS26_Email-Banner-Ads_FINAL_NewsletterTileAd-wp-300x250-1.png" alt="" width="300" height="250"></a></p> 
+<table cellpadding="10"> 
+<tbody> 
+<tr> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> 
+<table width="340" cellpadding="0" cellspacing="0" border="0"> 
+<tbody> 
+<tr> 
+<td width="15"></td> 
+<td valign="top"> 
+<table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+<tbody> 
+<tr> 
+<td> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+<tbody> 
+<tr> 
+<td style="font-family: Trebuchet MS; font-size: 13px;"> 
+<div>
+<br> 
+<h3>Diamond Members</h3> » 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gKGayfMb-z5EC2L8F0t5Mt8Uv_EGl_P5pAgWFjK6W9ciJIO40MAyyGrf_ikqcxC2Hds="
+>AT&amp;T Inc.</a>
+<br>» AXA
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fw_YRkdEvTTtjcKnaTKbrgZoiC9o7nAHIaTitzS_2v1MHJy0IbbCGknwYsz74cpN0GE="
+>Accenture LLP</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fhXzlLYR13NgiP1F-jb0taSBEHcm10v0cu_GC-kJtyPbENjS1bWZ-sAUcddXLJ_286I="
+>Adobe Inc</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gMUh4ltLOtPXAkfNg0DjD_CkRkC7F144nXQVQfTJn8pkUDQrO4PF_BuKKDx-xX4cocw="
+>Amazon Web Services, Inc</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f6yEsfAGal1fH7QqEJ7Mqejbz46GG9aPmolm9uOwxdMugWoMg5TKW1HNWsUvqn9QG5I="
+>American Express</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f1DYHTJE3-iZViI61IpnrLbQzn68V4HHGv-CWRPNA1v9UXtdT3t55IyfxiK20WOgDSI="
+>Axiom Global Ltd.</a>
+<br>» BNP Paribas
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fyeV7Gef7ACrFo6R7y7_y_JzD4ZGt36dxW78KB1ltrJzehNueIRUUBqz96SutfOcipI="
+>Baker McKenzie</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5foL4OyM-WZOsmhMLLK86EMxVqHiYgqU5E2mBiEtcaJNH2_uD47r8OEH9iNx6t8uJtYY="
+>Bank of America</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5frOreng4dGmmAKUIdZxaIzlTbodIWFaA-ZK01rNiFgSCNHCDe-r6G2cqQ2pQxF_iLn0="
+>Barclays</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f4SvQUf9SZeJVZDkk_ETB0KH7TtLNUOSY7PeuhgJFyLkqTHGaImLt6HGhYupAuDLmG4="
+>Capgemini Nederland B.V.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f_W1xCW-gU5pdw-3UJ0dUZrHEEvTHOW_c3-U5KVEOnnqWA9pd028IbGScFS6k0d7vpU="
+>Capital One</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gLHo7CDziTP8QP5WssJGh9jgb8ROqIJx_52kNTlJlCPjXe50k-jdkdmzaUZrYaLM4Lw="
+>Cisco Systems, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f2JmIGdGzuq9axNA5gLluF1p8bxvB7fXqfK3WetZsVh4n0emBuxZNc_UTcbKH_sWfXY="
+>Citigroup, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fuzjx6Ri7WcWKkLT-IGZlNpyPOZC8O8t-e3wbBVK8VM33r8jynJJkZQMbOXg-c7HV6A="
+>Clarip</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gNW1Qn0fxKQNjEwD5ZxnonZFLTTqkI9jXgwaPfLf1e6woNyafIiYskN3WX76xK1r6FE="
+>Data Guidance</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f8wIKCPqc6vFg6KAFiAqtRVJl9jSQYgtvFZCyIPnOnRA5eCBbddZqT06wcsD5KD_X7A="
+>Deloitte &amp; Touche LLP</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f3019Jf2wvVcqdtOWlI9685PzYSBnJjRMxVdhbo0r2LIPQKw5pLJ7ydoO9TDr-ZQ06s="
+>EY</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gJcHTxrX_ZPHST5UqOrnDJROS4QMKi5SvljDOf93dlKKOCMu7aKPy2nHEP8iA3MZv1U="
+>Ebay Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fllaNJ15pBjy2z4snIKraKMBHb9Ihm4hrC27I6OeWTyhCEDf4WxW1oxmRLAor6LphY4="
+>Glaxo Smith Kline</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fs8mhOz_IajB5NINC8QcO54FWHTG_tL3Bh9sz7kEafIjBdnT9CcfG0S8WmwTOTIWOxY="
+>Google Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fyKxcZarF9jKeycFYgDoyfc9QtEScvFAlzmGcroLI9mlEF9pui0MTLtE2dS_hEgYKgA="
+>HP, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f8Ne_YvmPJsCDQEp40xyEKSGM8RtBzP9ccjrn5_zTYyQR0kEKN7L6fFoiRaFsuJZ24U="
+>HSBC</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gAym7Mtu7nnteKlZddgPSViiT7WzH8yyBK-4maRSz-4-hvQKdCAyneXQxegrw-P2vJQ="
+>Hewlett Packard Enterprise</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f0V9ni0B1qi9-lORmwDjQeWIQelKF08o1LVWt2GWX204nmNzyZpd-AC4RcWRlwogeTg="
+>Huawei Technologies Co., Ltd.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f-W88rZPAXENSUdFNBfkm3cg1ZLux1jiYn0etCJdDr7wtKCcKjxgGpzrhIsJneaaYgU="
+>IBM</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gIeOALEi5-KXqHhS12wWph69oZVZm7G7AG5ftdw0vUauIGmvm-PSHTZ2w5jWpHczzmc="
+>Intel Corporation</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f3tLKGyPxydr7BR185e17gEsBsSsHMSnmlnq4X00-9ldEMM3jTKfezYvLDDQzQ6Jmbw="
+>Interpublic Group/Kinesso</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fy9GSbPtbv3Kvx_sM7JDkfcdJXO24RvdvyOz762dok2IX-ZEWcPYguc3Y5Z8bLg0w8w="
+>KPMG</a>
+<br>» Kyndryl Holdings Inc.
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gESBWyw7Wxk_yIOF3NgmL3y8FgZ0mrELCM0OOKl5Oylns-9E7WNoK_FEuGn6u-hUPYo="
+>LiveNation</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fvTWiW2Z1JlTNC2TklOO_lwiBlGCN_puFsnVyzuEMvl154Gy5IJSBMrVgFGwj1CFnPU="
+>Lockheed Martin Corporation</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5flXAFzft3PmAxKOGskxvUdow1J1Tn8ckJyadUcF_KlMzA6v2xqjbPCcZDx9e4xwmsM0="
+>Merck &amp; Co., Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fx95OMdNufIQA6Eec55Fd0xC-Ns-vtlRcydhWcIO21mJD6GZjLwx3R-gKrkjnSYb3Ng="
+>Meta Platforms, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f3_pQ2GpMKKmdJlpG21AFF_y08nv-LxUiV1W3dUrzig_oLTHfaO5_BtpQEGAhfiaEG8="
+>Microsoft Corporation</a>
+<br>» Naspers
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gI6XCbbrp8bbb817-6R8Nl-NcBPdGDDgnlsUVCby093fup3ESenJ0SnnaSLQdJuxW3w="
+>Nebius AI</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f5X3ql9xTB7AV13xUjVAWPO3tJLHoRVQPeX5YSIQpQLt_Ugb0qqUHYEQNM2WY0dl31g="
+>Nike</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fjzYVYSSNq5tkkj9jaKLyR9PC7mhhCUq1fOz7u7R3tH1dISo4dUGZU5xnGOOuJwVr94="
+>OneTrust</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gLesGA_Cm-Ed3XOpgDSVUa80EsXJMqyQMLbnQtJXM3ApcLintXIdhmePUBhuH9_VwwU="
+>Oracle</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fx3b9nOlr0hQc-L5ysxOc0u95Hjcbybt6t-AwHKrRNgsCC9dEhlk5VHUYtNTlfbHqc4="
+>Protiviti</a>
+<br>» 
+<a href="  https://www.pwc.com/">PwC</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f2peVIw4q6gfD-BK1bClB9g0cWghN8FsItb0Xi-S9r7pC2hU5cYXQ1DTFiUpAr84koY="
+>RELX Group</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gJBY30sChTPye_rhYJpZoK9qoCxcs6GztbxdI6713ccTFFdTZOTNo9WUzuOpCCgN71A="
+>Rabobank</a>
+<br>» SAP DS
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5focsYWxY3TDgSj564qPqz_qM5a_Y9hf-woF0RgwSQIeKWSt0gwToE1UzaFyjSiKx_pw="
+>Salesforce</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5foIVkCSb2Pw1pNVx4itjTpkjwIQXvKs8K1e-V9CCh4ihclJw2GImuyAx92kLuvInniw="
+>Securiti</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f4zR80Suo-KWQ3sv0fNaSCakOOL9goImn33K0M-LkT6M0VWfl49JJv-6hdlSFJxbTlk="
+>Standard Chartered</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f-2myG6BwhO1a1PoDIwlhcfemlsVEf4ESiWSuXeGqoeJUzh8Og9bKCUMmLA2hCrP4XM="
+>State Farm Insurance Companies</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gC_wgbN7Im1YpKGB7qEE0007yWSlDOajg79r3B85AFdcQ3u-IEFx44BYScvC2cAJNcU="
+>TD Bank</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f6EDzTeucjkh9jGIceLpvFmHXIl6f3d_cqbaRrQHtO0r7HQ38Vr-KtW6KqDNhIQqym0="
+>Teleperformance Group</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5ftqgICSMY2K6eKB4kJRsbDN84Xn8K6xN2zEiprAWBKCYe1ipmtrPeqjc-uf22ilVsWQ="
+>Toyota</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gFvaVbLO16fjX-R5T_iPU2wo8nc4w-U0VDxHZoWESSerF2g7reK2yzvTEhTuNyK6gf8="
+>Transcend</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fxNhSeeAxAZ8nkDOOjBYFrWDE7X4i1WoJZF-hPNbqmXl8Rsp8Y22KY5N83TtH3_P208="
+>TrustArc</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f-y-JnyCKQ-XV-gugeuPxC-GB6TAyTTamAPhrAOwgAFevkgdh3sAxp29m9gnCDlWNg4="
+>Uber Technologies, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gI6rup3DTyT9ub-585PmMvthcknH4Y5VM0GLdJXHkIYr4lmHuVpE-BEBqjI44wQ1FCY="
+>United Parcel Services, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fswHFmhhhINM5mvTsB8O9-hYOki3-iyW2PcC_anHs9m91AV4mWfvuIRX4jk_lD20-lg="
+>Verisk Analytics, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fhuPQcZAsGLMDjMGVlBeW9ZeveF86RvMLNnkD5J1yv05ooqnMMpwj8WLNZ_7XAIVAZo="
+>Walmart</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f2nFlL0KWynsTjDcJlFihtCgNPClRqEE6hpc-cOIZDm4GIIQpBLB8gxafANc-eed-ik="
+>Workday</a>
+<br>
+<br> 
+<h3>Platinum Members</h3> » 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f3oSdSaFLOq7_JVlE1aBP0r8OoQlhH4BByyYGWyTVS8mMV2F41K6f4wgy9di-tDpQvc="
+>AstraZeneca</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gDehLyKullhzWF6raiCXngf564-IfPqw7Ro0OzWk1TY6VlXpSod3y_yvl4asRtUO_40="
+>Atlassian</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f6-na3pArTQ3mn8f4jH8HvkPDHlswoOjFz1es9niORCJ7yPBIEQsk_gHBZHyGDW52u4="
+>Autodesk, Inc.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fhCFS6S6BKdGlbVcRxHay3XLtoeXxNxBKaq5lXzs7RIDo-eTqNDK1bIBAw9TSKtVv9w="
+>BDO Global</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gL5x0MPqlVORhZhfovQ1dvri-ruEq4xFHEV3LDFTY1xn3QeOmhLlceQE_D-Mu5TbdKs="
+>BigID</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fxSGxGRLwBmti4-he3h3vCW7xFLu5s8aKUBhMRDysU_E7THoctmxaec4y81FTBj0KDU="
+>Booking Holdings</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f0i29fniHbB1im28xj4-VVkSQK2K-DeHiDwoQW79QUWK0uqYEQp3qezRoZup0DWkykI="
+>Clifford Chance</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gKumamukaEsDfGp3hwpvpk_rxf1RMEOoNAjuhdhJM3ntXRybw4_KGn0yFwP2jYQoiXs="
+>Comcast Cable Communications</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5foU2YxgfIzdVze29BtX1SlQsyme5QFgreuvXDoGOBnOKSuSZwH81sTm4C6EQsRognCM="
+>Dun &amp; Bradstreet</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fnb2RXubpniM9pTGmOWQPYnZExn29enzr1FiALPL5VnNZmXXRvi6D5e4wpKHJ8tFCO0="
+>Ericsson</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f4SydnBJwg5nCV4iDGwAcpJ5ug2Cvx1ZxO8-VGGxkbS4KDa56tYiojMZc9fY-eVEC-g="
+>Future of Privacy Forum</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f64sqFMSd-A9wQfaHH2B--jMIdp6OVeDEHPLcnveA-P6kF0TNWG0BSxafmaaTqEBIvw="
+>Honor Device Co. Ltd.</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gCk6d3EUZQHCzlgD8WUdQPvkDmglgEyEAk-muY2TJMl_JxptRWF7oWIMG8lG6tKzKQg="
+>Intuit</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f7YIOq3Xg7ouLhRFD_jhRcQ27xn1duAscctVqMVEsJxERirnkZSeAjve5ynWfNk7Fxs="
+>Johnson &amp; Johnson</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f01RLzcRJN6BPHbY_jALYNCSqLpkGsYjgHt-vYvPkHsksjZk38L_OiI6XGxpRkLJfT8="
+>LinkedIn</a>
+<br>» MasterCard
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gPkHkHS3z7GZ0mCPIV-yTjYBn-aP8zdOU-XFHVXrctPTj5nfvl-48JKOWSBE65gcIG0="
+>McKesson Corporation</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gABOOy5J6W3iUaEirMnwLAu_on41Cx-y7JmQArQh-Aceo42IADEHOZTytxp-6QCDrWk="
+>Novartis International AG</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f_vX6P32W57cxQj8zo7rMquculnSJe3THdVXmWRH9TfzrNM71JaCl_JVQwoOi0sfZVw="
+>Ponemon Institute</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f4Nm5uVf7CqaZ7_iHxHu-0CB2kMSayZzNBeY6BTNnlTT9D7j9wfPzcnY2Nkww_cq4Cw="
+>Randstad</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fol4_cDsS0ulasWOxOTOT5cxd0bXCzpkOnkk8gAvR0wvjWKQqEhU1BDFYBpl288VqIg="
+>Ropes &amp; Gray</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gIpAnEMGn1aCuCyBTTj2do7TMM1D1vcAlrArH8LYYAHIhJDfYCUP29Ln1oh-lR5Dc-s="
+>Sandoz</a>
+<br>» T-mobile
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fzIFP9fV89BtD1d7ZYscuxFsZP_lEw-QtcZ5WIlTN2fh8hbRT-OOBfhYjDq4g53wev0="
+>Takeda</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f0O1F0oQGumTLch-YbH6qT7KnVIg2id6g7_GJAzJ3Zq-Y0NwdkD-cw5QeeiGqf9N4iY="
+>The Nielsen Company</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gKcUJwtz6sunXqemydbjGjqaWub1AXleiQGO9XNAJS9T_RZ3WwOD7I7Saz-6TL4_MRU="
+>TransUnion</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fypbd_BVXq2p2fQjLo_xJxbAermaFM6NTE3S-EP215_GBdNS2q6q2ab2klNbubFsR_U="
+>UnitedHealth Group</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fkrvo075svJZwbTD1fqFHwDEk4WJFU6PLdjQVdyb08BXbJEIrERIu9-5AbqE-wJFdmI="
+>Visa</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gLX90HUVASGIBkZsVtVl4RUMBeNbXJYH_ZuvI9tbQ3d1JNqt3xALkBLH59OWWAC7B-s="
+>Wells Fargo</a>
+<br>» 
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gI9CD_NIviQA-5dsYvNB9XaHomoIbm8em0Vnu-c6yCxmq-kYbe2xET93qeBL7N13dsA="
+>Willis Towers Watson</a>
+<br>
+<br> 
+<h3><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f5oso3iqHPOQl54Nkls2WV3bWfHVj0f0Bj3syu0LLZubOcpTeQYK7pf8kexeihZLsZ0=" style="font-weight: bold; text-decoration: none;"
+>Gold Members</a></h3> 
+<h3><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5f7FJt_Gup46lu6Kt4RuQ4bRouExxSCeavaUZiKe7nmRQSmqEcAU-2Oy126syZfJPxew=" style="font-weight: bold; text-decoration: none;"
+>Silver Members</a></h3> 
+<h3><a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5flEotUUR9qE5Z7jftdABBzM7jztZDJ4Uf-fywIjfMjXAjtWX4XyGxrJGOHUjdP7WA4s=" style="font-weight: bold; text-decoration: none;"
+>Bronze Members</a></h3> 
+</div> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> </td> 
+</tr> 
+</tbody> 
+</table> 
+<table style="width: 680px;" align="center" width="680" cellspacing="5"> 
+<tbody> 
+<tr> 
+<td valign="top"><p style="font-family: Trebuchet MS, sans-serif; font-size: 11px; color: #222; text-align: left;">Copyright&copy; 2000&ndash;2026 IAPP.<br /> The views in this eNewsletter, if any, are those of the authors and are not necessarily those of the IAPP.</p> <p style="font-family: Trebuchet MS, sans-serif; font-size: 11px; color: #777; text-align: left;">This email was sent by: The IAPP,&nbsp;75 Rochester Ave., Suite 4, Portsmouth, NH 03801 USA +1 603.427.9200</p></td> 
+</tr> 
+</tbody> 
+</table> 
+</div>
+<a href=
+"http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gJOaTq6SQeTaL9LbSC_IOObguxXWloyjeHNDrxRjO2wOIuwQbDo6R3aqSBrQZYmujOI="
+></a>
+<img src="http://info.iapp.org/trk?t=1&mid=MTM4LUVaTS0wNDIAAAGhJxa5gMdUvwP3xYXaA2yt2xXgt5l4hppWfHm1_frLmonyUmLkwENdoXOgkYvK857_RPsoxmJbx-wFM-42OwEn7AEA3072eiVdYjLUndLHUtTrKcO_Vwwt0CsfmfjS-UApL86IcwvnsdM6EJEsLCrB" width="1" height="1" style="display:none !important;" alt="" />
+
+<table cellpadding="0" cellspacing="0" align="center">
+<tbody>
+<tr>
+<td class="pattern" width="600" align="center">
+<table width="600" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td>
+
+<p style="font-family: Trebuchet MS, sans-serif; font-size: 11px; color: #777; text-align:center;">This email was sent by: The IAPP, 75 Rochester Ave., Portsmouth, NH 03801 USA +1.800.266.6501. This email was sent to you at zwiad.monitor@gmail.com. You received this email because you are a member of the IAPP or you provided your email address to us. We respect your right to privacy; <a href=
+"http://info.iapp.org/u/MTM4LUVaTS0wNDIAAAGhJxa5f2OOk30ggV4FiuIw1depP975xUfTBM1DrSLW9QsFvYiJMT79Iqc1JADHmzmY8MUqfNc=" style="color: #70bf4c; font-weight: normal; text-decoration: underline;" target="_blank"
+>view our privacy statement</a>.</p>
+<p style="font-family: Trebuchet MS, sans-serif; font-size: 11px; color: #777;text-align:center;">To manage all your IAPP email subscriptions individually, visit <a href=
+"http://info.iapp.org/u/MTM4LUVaTS0wNDIAAAGhJxa5gCoFo_xltvW1vJLwscQE8s3CUX7crKV8jUhJD7UV9GzAfYHhimxqN8nn-6MzeMOfGCU=" style="color: #70bf4c; font-weight: normal; text-decoration: underline;" target="_blank"
+>our subscription page.</a><br> <p style="font-family: Trebuchet MS, sans-serif; font-size: 11px; color: #777;text-align:center;">To unsubscribe from this email and all other IAPP marketing communications, please <a href=
+"http://info.iapp.org/u/MTM4LUVaTS0wNDIAAAGhJxa5fiwZEDjtcczwLgZQ6k2gM_2szZ1OZj8imrAp8D9xl7ub-JVLaFDDjby2e6o4wVvbb-U=" style="color: #70bf4c; font-weight: normal; text-decoration: underline;" target="_blank"
+>click here.</a><br>
+</br>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

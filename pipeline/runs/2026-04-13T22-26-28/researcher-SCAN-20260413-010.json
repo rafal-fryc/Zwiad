@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:30:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260413-010",
+        "operation": "new_report",
+        "report_path": "reports/privacy/coppa-amendments-compliance-deadline-2026-04-13.md",
+        "format": "research-memo",
+        "jurisdiction_tags": ["Federal"],
+        "category": "privacy",
+        "development_type": "regulation",
+        "title": "COPPA Rule Amendments: New Data Security and Parental Consent Requirements Take Effect April 22, 2026",
+        "summary": "The FTC's 2025 COPPA Rule amendments (published April 22, 2025; effective June 23, 2025) reach their general compliance deadline on April 22, 2026, imposing separate verifiable parental consent for third-party disclosures, a written information security program, explicit data retention limits with public schedules, and an expanded definition of personal information covering biometric identifiers and government-issued IDs.",
+        "sources": [
+          "https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule",
+          "https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa",
+          "https://www.whitecase.com/insight-alert/unpacking-ftcs-coppa-amendments-what-you-need-know",
+          "https://www.mayerbrown.com/en/insights/publications/2025/04/ftc-announces-significant-amendments-to-coppa",
+          "https://www.lw.com/en/insights/ftc-publishes-updates-to-coppa-rule",
+          "https://www.alstonprivacy.com/ftc-publishes-amendments-to-coppa-rule/",
+          "https://www.jonesday.com/en/insights/2025/05/ftc-finalizes-amendments-to-coppa--rule",
+          "https://www.loeb.com/en/insights/publications/2025/05/childrens-online-privacy-in-2025-the-amended-coppa-rule",
+          "https://www.dwt.com/blogs/privacy--security-law-blog/2025/05/coppa-rule-ftc-amended-childrens-privacy",
+          "https://www.hunton.com/privacy-and-cybersecurity-law-blog/ftc-publishes-final-coppa-rule-amendments",
+          "https://securiti.ai/ftc-coppa-final-rule-amendments/"
+        ],
+        "confidence_summary": {"high": 4, "medium": 1, "low": 0}
+      }
+    ]
+  }
+}

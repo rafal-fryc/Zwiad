@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Federal"
 category: "cybersecurity"
 development_type: "regulation"
+cluster: "CIRCIA: Cyber Incident Reporting for Critical Infrastructure"
+cluster_slug: "circia-cyber-incident-reporting-rule"
 ---
 
 # CIRCIA Final Cyber Incident Reporting Rule Delayed Again -- Now Expected May 2026 at Earliest

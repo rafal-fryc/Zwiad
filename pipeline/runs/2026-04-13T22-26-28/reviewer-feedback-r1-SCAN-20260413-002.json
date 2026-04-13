@@ -1,0 +1,18 @@
+{
+  "finding_id": "SCAN-20260413-002",
+  "report_path": "reports/privacy/kentucky-hb692-acr-sensitive-data-2026-04-13.md",
+  "round": 1,
+  "claims_checked": 9,
+  "issues": [
+    {
+      "claim": "amends the state's consumer data privacy law",
+      "section": "Overview",
+      "source_url": "https://apps.legislature.ky.gov/record/26rs/hb692.html",
+      "issue": "Kentucky's statute is formally titled the 'Consumer Data Protection Act' (KCDPA). The report's generic 'consumer data privacy law' phrasing is imprecise but not incorrect.",
+      "severity": "minor",
+      "suggested_fix": "Refer to the statute by its formal name 'Kentucky Consumer Data Protection Act' on first mention.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

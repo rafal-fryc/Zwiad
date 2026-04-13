@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Colorado"
 category: "ai-law"
 development_type: "legislation"
+cluster: "Colorado AI Act (SB 24-205): Enforcement and Amendments"
+cluster_slug: "colorado-ai-act-sb-24-205-enforcement"
 ---
 
 # Colorado AI Act Enforcement Delayed Until June 30, 2026; Chatbot Safety Bill HB 1263 Advances

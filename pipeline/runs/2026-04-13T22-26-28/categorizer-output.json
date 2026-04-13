@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:45:00Z",
+  "stage": "categorizer",
+  "status": "complete",
+  "data": {
+    "reports_filed": [
+      {
+        "finding_id": "SCAN-20260413-001",
+        "final_path": "reports/privacy/state-comprehensive-laws/alabama-apdpa-hb351-2026-04-13.md",
+        "category": "privacy",
+        "topic_tags": ["state-law", "comprehensive-privacy", "Alabama", "state-comprehensive-laws"],
+        "filing_notes": "Alabama APDPA (HB 351) is a Virginia-model omnibus consumer data privacy statute — canonical fit for state-comprehensive-laws. Moved from privacy root to state-comprehensive-laws/."
+      },
+      {
+        "finding_id": "SCAN-20260413-002",
+        "final_path": "reports/privacy/state-comprehensive-laws/kentucky-hb692-acr-sensitive-data-2026-04-13.md",
+        "category": "privacy",
+        "topic_tags": ["state-law", "comprehensive-privacy", "Kentucky", "smart-TV", "ACR", "sensitive-data"],
+        "filing_notes": "KY HB 692 amends Kentucky's comprehensive consumer data privacy statute (KCDPA) to classify ACR data as sensitive. Primary classification is state-comprehensive-laws because the mechanism is an amendment to the omnibus state privacy law. Moved from privacy root to state-comprehensive-laws/."
+      },
+      {
+        "finding_id": "SCAN-20260413-003",
+        "final_path": "reports/privacy/enforcement-actions/ftc-strategic-plan-fy2026-2030-2026-04-13.md",
+        "category": "privacy",
+        "topic_tags": ["federal", "FTC", "enforcement", "strategic-plan", "COPPA", "PADFAA", "TAKE-IT-DOWN-Act"],
+        "filing_notes": "FTC FY 2026-2030 Strategic Plan is an agency enforcement roadmap. Primary classification is enforcement-actions as it sets FTC's consumer-protection and privacy enforcement priorities. Moved from privacy root to enforcement-actions/."
+      },
+      {
+        "finding_id": "SCAN-20260413-004",
+        "final_path": "reports/privacy/federal-legislation/fisa-section-702-renewal-2026-04-13.md",
+        "category": "privacy",
+        "topic_tags": ["federal", "FISA", "Section-702", "surveillance", "intelligence", "federal-legislation"],
+        "filing_notes": "FISA Section 702 is federal legislation governing warrantless surveillance with direct privacy implications. Filed under federal-legislation (known subcategory in categories.json). Directory created as it did not exist. Moved from privacy root."
+      },
+      {
+        "finding_id": "SCAN-20260413-005",
+        "final_path": "reports/privacy/enforcement-actions/massachusetts-sjc-meta-minors-2026-04-13.md",
+        "category": "privacy",
+        "topic_tags": ["state", "Massachusetts", "enforcement", "AG", "Meta", "Section-230", "minors", "social-media"],
+        "filing_notes": "Massachusetts SJC ruling enables AG Campbell's consumer-protection enforcement action against Meta; the core development is a state enforcement action and court ruling clearing the AG's suit. Filed under enforcement-actions. Moved from privacy root."
+      },
+      {
+        "finding_id": "SCAN-20260413-009",
+        "final_path": "reports/ai-law/frameworks-guidance/nist-ai-rmf-critical-infrastructure-profile-2026-04-13.md",
+        "category": "ai-law",
+        "topic_tags": ["federal", "NIST", "AI-RMF", "critical-infrastructure", "frameworks-guidance", "voluntary-framework"],
+        "filing_notes": "NIST AI RMF Critical Infrastructure Profile concept note is a voluntary guidance document extending AI RMF 1.0 — canonical fit for frameworks-guidance. Moved from ai-law root to frameworks-guidance/."
+      },
+      {
+        "finding_id": "SCAN-20260413-010",
+        "final_path": "reports/privacy/childrens-privacy/coppa-amendments-compliance-deadline-2026-04-13.md",
+        "category": "privacy",
+        "topic_tags": ["federal", "COPPA", "FTC", "childrens-privacy", "compliance-deadline", "rulemaking"],
+        "filing_notes": "COPPA Rule amendments and April 22, 2026 compliance deadline is a direct children's privacy matter. Filed under childrens-privacy (known subcategory in categories.json). Directory created as it did not exist. Moved from privacy root."
+      },
+      {
+        "finding_id": "SCAN-20260413-011",
+        "final_path": "reports/ai-law/state-legislation/colorado-ai-act-enforcement-delayed-2026-04-13.md",
+        "category": "ai-law",
+        "topic_tags": ["state", "Colorado", "AI-Act", "SB24-205", "enforcement-delay", "state-legislation", "federal-preemption"],
+        "filing_notes": "Colorado AI Act enforcement delay (SB 25B-004) is a state AI legislation development. Filed under state-legislation. Moved from ai-law root to state-legislation/."
+      }
+    ]
+  }
+}

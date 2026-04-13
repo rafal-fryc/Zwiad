@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Federal"
 category: "ai-law"
 development_type: "guidance"
+cluster: "Trump EO: National AI Policy Framework (Dec 2025)"
+cluster_slug: "trump-eo-national-ai-policy"
 ---
 
 # White House Releases National Policy Framework for AI, Urges Congress to Preempt State AI Laws

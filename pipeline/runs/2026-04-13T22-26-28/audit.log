@@ -1,0 +1,5 @@
+2026-04-13 18:26:28,591 [INFO] zwiad.bot: scan starting run_id=2026-04-13T22-26-28
+2026-04-13 18:40:29,462 [INFO] zwiad.bot: scan cost run_id=2026-04-13T22-26-28 usd=2.9150
+2026-04-13 18:40:31,957 [INFO] zwiad.bot: scan complete run_id=2026-04-13T22-26-28 findings=15 updates=0 auto=0 escalated=0
+2026-04-13 18:42:46,241 [INFO] zwiad.bot: research starting run_id=2026-04-13T22-26-28 findings=8 estimated_usd=13.20
+2026-04-13 19:21:03,294 [INFO] zwiad.bot: research cost run_id=2026-04-13T22-26-28 usd=9.8186

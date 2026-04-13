@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T23:15:00Z",
+  "stage": "reviewer",
+  "status": "complete",
+  "data": {
+    "reviews": [
+      {
+        "finding_id": "SCAN-20260413-001",
+        "report_path": "reports/privacy/alabama-apdpa-hb351-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 18,
+        "issues_found": []
+      },
+      {
+        "finding_id": "SCAN-20260413-002",
+        "report_path": "reports/privacy/kentucky-hb692-acr-sensitive-data-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 9,
+        "issues_found": [
+          {
+            "claim": "amends the state's consumer data privacy law",
+            "issue": "Kentucky's statute is formally titled the 'Consumer Data Protection Act' (KCDPA); generic phrasing is imprecise but not incorrect.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260413-003",
+        "report_path": "reports/privacy/ftc-strategic-plan-fy2026-2030-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 10,
+        "issues_found": []
+      },
+      {
+        "finding_id": "SCAN-20260413-004",
+        "report_path": "reports/privacy/fisa-section-702-renewal-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "RISAA reauthorizes Section 702 for two years",
+            "issue": "Timeline entry uses April 20, 2024 but narrative body uses 'April 2024' — minor date inconsistency.",
+            "severity": "minor"
+          },
+          {
+            "claim": "House Intelligence Chair Rick Crawford (R-AR) has been shuttling between GOP factions",
+            "issue": "No inline citation for Crawford's HPSCI chairmanship attribution.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Carriers have privately warned the Intelligence Community they will stop collecting",
+            "issue": "CNN URL contains typo 'suveillance' instead of 'surveillance' — link may 404.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260413-005",
+        "report_path": "reports/privacy/massachusetts-sjc-meta-minors-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "Campbell's complaint, originally filed in 2023 alongside parallel actions by 40+ other state attorneys general",
+            "issue": "The '40+' figure is in plausible range but no cited source explicitly states this number.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Massachusetts House passed the youth online-safety bill 129-25 on April 9, 2026",
+            "issue": "Minor date imprecision: WGBH/Globe date floor passage to April 8; WBUR/Axios report April 9. Report uses both dates inconsistently.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260413-009",
+        "report_path": "reports/ai-law/nist-ai-rmf-critical-infrastructure-profile-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 9,
+        "issues_found": []
+      },
+      {
+        "finding_id": "SCAN-20260413-010",
+        "report_path": "reports/privacy/coppa-amendments-compliance-deadline-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "Government-issued identifiers beyond SSN (state ID, passport numbers) added to PI definition",
+            "issue": "Specific enumeration (state ID, passport) verified in secondary sources but not independently confirmed against primary FR text.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Safe Harbor compliance deadlines 90 days to 6 months after publication",
+            "issue": "Summarized window is an interpretation; specific § 312.11 subsections not cited.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260413-011",
+        "report_path": "reports/ai-law/colorado-ai-act-enforcement-delayed-2026-04-13.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 12,
+        "issues_found": []
+      }
+    ]
+  }
+}

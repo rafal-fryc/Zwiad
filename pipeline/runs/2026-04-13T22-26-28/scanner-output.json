@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-13T22-26-28",
+  "timestamp": "2026-04-13T22:26:28Z",
+  "stage": "scanner",
+  "status": "complete",
+  "data": {
+    "findings": [
+      {
+        "id": "SCAN-20260413-001",
+        "title": "Alabama Becomes 21st State to Enact Comprehensive Privacy Law (HB 351)",
+        "source": "DLA Piper / Privacy Matters",
+        "source_url": "https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/",
+        "summary": "On April 7, 2026, the Alabama legislature unanimously passed House Bill 351, the Alabama Personal Data Protection Act, with votes of 104-0 in the House and 34-0 in the Senate, making Alabama the 21st state to enact a comprehensive consumer privacy law. The law provides Alabama consumers rights to access, correct, delete, and obtain a portable copy of their personal data, and to opt out of targeted advertising, data sales, and profiling for solely automated significant decisions. The law departs from the Virginia model in several respects: it lacks data protection impact assessment requirements, has a non-sunsetting 45-day cure period, no private right of action, and no express opt-out preference signal requirements. Civil penalties are capped at $15,000 per violation, and the law takes effect May 1, 2027, pending the Governor's signature.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Alabama",
+        "development_type": "legislation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-002",
+        "title": "Kentucky HB 692: Automatic Content Recognition Added as Sensitive Data Category",
+        "source": "Troutman Pepper Locke / Privacy + Cyber + AI",
+        "source_url": "https://www.troutmanprivacy.com/2026/04/proposed-state-privacy-law-update-april-6-2026/",
+        "summary": "Kentucky's HB 692 passed the state legislature and was delivered to the Governor for signature. The bill amends Kentucky's consumer data privacy law to add 'automatic content recognition' as a category of sensitive data, requiring consumer consent before smart television manufacturers collect ACR data. ACR technology identifies in real time the specific content displayed on smart TVs by analyzing audio or video fingerprints. The House passed the bill 92-0 on March 13, 2026. This is considered the first state legislation to specifically target smart TV surveillance technology. If signed, it takes effect July 1, 2027.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Kentucky",
+        "development_type": "legislation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-003",
+        "title": "FTC Publishes FY 2026-2030 Strategic Plan Prioritizing Children's Privacy and Data Security",
+        "source": "Fox Rothschild / Privacy Compliance & Data Security",
+        "source_url": "https://dataprivacy.foxrothschild.com/2026/04/articles/general-privacy-data-security-news-developments/ftcs-new-strategic-plan-reports-of-the-death-of-ftc-privacy-enforcement-have-been-greatly-exaggerated/",
+        "summary": "The Federal Trade Commission published its FY 2026-2030 Strategic Plan on April 3, 2026, approved by a 2-0 Commission vote. The plan identifies consumer protection priorities including fraud, deception, privacy and data security, unlawful telemarketing, and online harms to children. Children's online safety is described as 'one of the most important consumer protection issues of our time,' and the FTC signals continued COPPA enforcement alongside new authority under the Take It Down Act. The plan also anticipates enforcement under the Protecting Americans' Data from Foreign Adversaries Act and scrutiny of sensitive data collection and sale.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Federal",
+        "development_type": "guidance",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-004",
+        "title": "FISA Section 702 Renewal Deadline Looms as Congress Debates Reauthorization",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fug9UFtLBU99HCUSBjf5na-V9J4lOs5Xg_wAc3ewIfcfDHNgXahmJ7z4zLG1aBHSCyQ=",
+        "summary": "Section 702 of the Foreign Intelligence Surveillance Act is set to expire on April 20, 2026, absent congressional reauthorization. The law allows the FBI, NSA, and other intelligence agencies to collect overseas foreigners' communications without a warrant, but can sweep in Americans' communications as incidental collection. The Trump administration is lobbying for a 'clean' renewal of the program without reforms, while civil liberties groups argue the program violates constitutional rights. Communications carriers have privately warned they will stop collecting data if the law expires.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Federal",
+        "development_type": "legislation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-005",
+        "title": "Massachusetts Supreme Judicial Court Rules Meta Must Face AG Lawsuit Over Harmful Design Features for Minors",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fzVVCa817RxeXxtLHpeZrm6s0uIyyXIfbLhe_C_uTmwC-v6bMmmKa67suoDPGallu1s=",
+        "summary": "The Massachusetts Supreme Judicial Court ruled on April 10, 2026 that Meta must face a lawsuit by Massachusetts Attorney General Andrea Campbell alleging the company's Instagram and Facebook design features — including push notifications, infinite scroll, and 'likes' — are harmful and addictive for underage users. AG Campbell described the ruling as a 'major step in holding these companies accountable for practices that have fueled the youth mental health crisis.' Separately, the Massachusetts House advanced a bill to the Senate that would prohibit social media accounts for users under 14 and require parental consent for users ages 14-15.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Massachusetts",
+        "development_type": "enforcement",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-006",
+        "title": "UK Crime and Policing Bill Amendment Proposes Executive Liability for Nonconsensual Intimate Imagery on Platforms",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5ftLgtfJm5jmdq4XA8JVUp2u7W2LcSVRybFqjOO9sODVYoxl78pfeP9iaesYlhCDSilE=",
+        "summary": "A proposed amendment to the UK Crime and Policing Bill, tabled on April 10, 2026, would hold senior executives of technology companies criminally liable — including potential imprisonment — if their platforms fail to remove nonconsensual intimate images following enforcement decisions from the Office of Communications (Ofcom). The amendment amends the Online Safety Act 2023 to establish a reporting process for individuals when a service fails its duty to remove such content. The Commons was expected to consider the Lords amendments on April 14, 2026.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "UK",
+        "development_type": "legislation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-007",
+        "title": "UK Parliament to Vote on Legislation to Align UK Regulations with EU Rules",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gJ70DY3buIqXu3nELXJqE1kYwmCEiPUHf9ULc9CDBomtXoa7vDmYmAsXN2U9ds18fSI=",
+        "summary": "Members of UK Parliament will vote on government-drafted legislation to align various UK regulations with EU standards to ease trade, Reuters reports. Prime Minister Keir Starmer stated the UK's 'best interests' lie with 'a stronger, closer relationship with Europe.' It remains unclear what impact any UK legal changes may have on its data protection and technology rulebooks; the UK left the EU in 2020 following Brexit. The EU renewed its adequacy decision for the UK in December 2025, maintaining data transfer rights until at least 2031.",
+        "date": "2026-04-13",
+        "relevance": "medium",
+        "jurisdiction": "UK",
+        "development_type": "legislation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-008",
+        "title": "South Africa Releases Draft National AI Policy for 60-Day Public Comment Period",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5flsfLI0bQ7rphHXGA35_TVRheCN60DM5ua-mlkqrjcijCy28n3mFQ4L6_LYHzFer92I=",
+        "summary": "South Africa's Department of Communications and Digital Technologies published the Draft National AI Policy on April 10, 2026, opening a 60-day public comment period ending June 10, 2026. The policy was approved by Cabinet on March 25, 2026. Key features include proposals to create a National AI Commission, an AI Ethics Board to enforce governance around bias and fairness, an AI Regulatory Authority, and a National AI Safety Institute. Proposed safety requirements include mandatory human rights and gender impact assessments for AI models, human intervention requirements, and transparency and explainability obligations for high-risk AI systems used in the public sector.",
+        "date": "2026-04-13",
+        "relevance": "medium",
+        "jurisdiction": "South Africa",
+        "development_type": "regulation",
+        "category": "ai-law"
+      },
+      {
+        "id": "SCAN-20260413-009",
+        "title": "NIST Releases Concept Note for AI RMF Profile on Trustworthy AI in Critical Infrastructure",
+        "source": "NIST",
+        "source_url": "https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure",
+        "summary": "On April 7, 2026, NIST released a concept note for an AI Risk Management Framework Profile on Trustworthy AI in Critical Infrastructure. The profile is intended to guide critical infrastructure operators and suppliers toward specific risk management practices for deploying AI-enabled capabilities across critical sectors. The concept note extends the existing NIST AI RMF 1.0 framework, which was originally released in January 2023, to address the particular needs of critical infrastructure environments where AI failures could have significant safety and security implications.",
+        "date": "2026-04-07",
+        "relevance": "medium",
+        "jurisdiction": "Federal",
+        "development_type": "guidance",
+        "category": "ai-law"
+      },
+      {
+        "id": "SCAN-20260413-010",
+        "title": "COPPA Rule Amendments: New Data Security and Parental Consent Requirements Take Effect April 22, 2026",
+        "source": "FTC",
+        "source_url": "https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa",
+        "summary": "The deadline for compliance with the FTC's 2025 COPPA Rule amendments arrives on April 22, 2026. The amendments, finalized in January 2025 and effective June 23, 2025, require operators to obtain separate verifiable parental consent before disclosing children's personal information to third parties for targeted advertising or unrelated purposes. Additional requirements include a written information security program and data retention policy, publication of data retention schedules, and expanded definitions of personal information to include biometric identifiers and government-issued ID numbers. The amendments represent the most significant changes to COPPA in over a decade.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Federal",
+        "development_type": "regulation",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-011",
+        "title": "Colorado AI Act Enforcement Delayed to June 2026 Amid Federal Preemption Concerns",
+        "source": "Hunton Andrews Kurth / Privacy and Information Security Law Blog",
+        "source_url": "https://www.hunton.com/privacy-and-information-security-law/enforcement-of-colorado-ai-act-delayed-until-june-2026",
+        "summary": "Colorado's groundbreaking AI Act (SB 24-205) is scheduled for enforcement beginning June 30, 2026, following delays from the original effective date. The Colorado AI Act, which regulates high-risk AI systems used in consequential decisions, is enforced by the Colorado Attorney General and violations carry penalties of up to $20,000 per violation under the Colorado Consumer Protection Act. Federal preemption concerns have grown following President Trump's December 2025 executive order directing the Commerce Department to compile a list of 'onerous' state AI laws, with Colorado's Act likely to be featured. Colorado legislators are also working on a repeal-and-replace bill amid ongoing uncertainty.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Colorado",
+        "development_type": "regulation",
+        "category": "ai-law"
+      },
+      {
+        "id": "SCAN-20260413-012",
+        "title": "India Supreme Court Seeks Government Response to Petition Challenging Portion of Digital Personal Data Protection Act",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5fwctjvFRT6S9YjxiwtkDn017lIAA0xhZ5VEyyVZD_1_A25xNwb85oVgSJ53cpWErfLE=",
+        "summary": "India's Supreme Court is awaiting a government response to a public interest litigation petition challenging provisions of the Digital Personal Data Protection Act 2023 that allegedly weaken the 2005 Right to Information Act. Petitioners are asking the Supreme Court to strike down Section 44 of the DPDPA because they allege it erodes Section 8 of the RTI Act and violates Articles 14, 19, and 21 of the Constitution. The Court issued notice in the matter on February 16, 2026, and referred core constitutional questions to a larger bench. The Court declined to grant an interim stay on the DPDPA.",
+        "date": "2026-04-13",
+        "relevance": "medium",
+        "jurisdiction": "India",
+        "development_type": "court-decision",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-013",
+        "title": "Australian Social Media Ban: Survey Finds 61% of Restricted Minors Still Accessing Platforms",
+        "source": "IAPP Daily Dashboard",
+        "source_url": "http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhJxa5gPVaz4NCda89VvEtk_-8WIQXF7NGrBV6kncDq7V4VeEVzrxuO28ik6NKTkcKAQkvMIo=",
+        "summary": "A survey by the Molly Rose Foundation found that 61% of Australian users ages 12-15 whose accounts were restricted under Australia's social media ban still have access to their accounts. The report also found 51% of respondents said restrictions have not improved their online safety. The Molly Rose Foundation is urging the UK government not to adopt a similar Australia-style ban, arguing the evidence shows such bans do not deliver immediate safety improvements. The findings raise questions about the effectiveness of age-based social media bans as a regulatory approach.",
+        "date": "2026-04-13",
+        "relevance": "medium",
+        "jurisdiction": "Australia",
+        "development_type": "other",
+        "category": "privacy"
+      },
+      {
+        "id": "SCAN-20260413-014",
+        "title": "Trump Executive Order on AI Preemption: Federal Push to Override State AI Regulations",
+        "source": "Ropes & Gray LLP",
+        "source_url": "https://www.ropesgray.com/en/insights/alerts/2026/03/examining-the-landscape-and-limitations-of-the-federal-push-to-override-state-ai-regulation",
+        "summary": "President Trump's December 2025 executive order 'Ensuring a National Policy Framework for Artificial Intelligence' continues to shape federal-state AI regulatory tensions through April 2026. The order directs the Attorney General to establish an AI Litigation Task Force to challenge state AI laws inconsistent with federal policy, and requires the Commerce Department to compile a list of 'onerous' state AI laws. The order also conditions federal broadband funding on states avoiding conflicting AI regulations. Several state AI laws — including Colorado's AI Act taking effect June 2026 and California's transparency laws effective January 2026 — are potentially affected by preemption challenges.",
+        "date": "2026-04-13",
+        "relevance": "high",
+        "jurisdiction": "Federal",
+        "development_type": "regulation",
+        "category": "ai-law"
+      },
+      {
+        "id": "SCAN-20260413-015",
+        "title": "Government Surveillance Transparency Act of 2026 Introduced in 119th Congress",
+        "source": "Congress.gov",
+        "source_url": "https://www.congress.gov/bill/119th-congress/senate-bill/3918/all-actions-without-amendments",
+        "summary": "The Government Surveillance Transparency Act of 2026 was introduced in both the Senate (S.3918) and House (H.R.7738) of the 119th Congress. The bill is among several federal privacy-related bills active in the current Congress, which also includes the AI Accountability and Personal Data Protection Act (S.2367), the Protecting Americans' Privacy Act of 2025 (S.490), and the American Privacy Restoration Act (H.R.3245). These bills are pending as lawmakers also face the imminent April 20, 2026 expiration of FISA Section 702.",
+        "date": "2026-04-13",
+        "relevance": "medium",
+        "jurisdiction": "Federal",
+        "development_type": "legislation",
+        "category": "privacy"
+      }
+    ],
+    "source_failures": [
+      {
+        "source_id": "lexology-digest",
+        "source_name": "Lexology Practical Know-How Digest (April 13, 2026)",
+        "error": "The Lexology digest HTML file (Lexology---practical-know-how-0.html) is encoded as a single continuous line of approximately 100,000+ characters. The Read tool exceeds token limits on this file, and Grep pattern matching returns only 'Omitted long matching line' for all content patterns. Full article extraction from the digest was not possible. Direct web searches for recent Lexology IT & Data Protection articles were used to supplement; specific article URLs from the digest could not be captured."
+      },
+      {
+        "source_id": "ftc-press",
+        "source_name": "FTC Press Releases",
+        "error": "WebFetch is not available in this agent session (permission not granted). FTC press release data supplemented via WebSearch instead."
+      },
+      {
+        "source_id": "nist-csrc",
+        "source_name": "NIST CSRC News",
+        "error": "WebFetch is not available in this agent session (permission not granted). NIST CSRC data supplemented via WebSearch instead."
+      },
+      {
+        "source_id": "congress-privacy",
+        "source_name": "Congress.gov Privacy/Data Bills",
+        "error": "WebFetch is not available in this agent session (permission not granted). Congressional bill data supplemented via WebSearch instead."
+      }
+    ]
+  }
+}
