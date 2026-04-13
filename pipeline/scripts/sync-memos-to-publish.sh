@@ -118,6 +118,7 @@ for src in sources:
 
     date = meta.get("date") or date_from_filename
     topic = meta.get("category") or src.parent.name
+    jurisdiction = meta.get("jurisdiction") or "Unknown"
     summary = extract_summary(body)
     if not summary:
         summary = title  # last-resort fallback
@@ -128,6 +129,7 @@ for src in sources:
         f'title: "{yaml_escape(title)}"\n'
         f"date: {date}\n"
         f"topic: {topic}\n"
+        f'jurisdiction: "{yaml_escape(jurisdiction)}"\n'
         f'summary: "{yaml_escape(summary)}"\n'
         "---\n\n"
     )
@@ -163,6 +165,7 @@ for f in sorted(dst_memos.glob("*.md")):
         "title": meta.get("title", ""),
         "date": meta.get("date", ""),
         "topic": meta.get("topic", ""),
+        "jurisdiction": meta.get("jurisdiction", "Unknown"),
         "summary": meta.get("summary", ""),
     })
 entries.sort(key=lambda e: e["date"], reverse=True)
