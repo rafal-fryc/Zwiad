@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 1163",
+  "state": "Hawaii",
+  "state_abbrev": "HI",
+  "session": "2026",
+  "title": "Hawaii Geolocation and Browser Data Sale Consent Requirement",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "sensitive-data"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/hawaii/SB-1163",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.capitol.hawaii.gov/sessions/session2025/bills/SB1163_.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Reported out of committee",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/hawaii/SB-1163/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

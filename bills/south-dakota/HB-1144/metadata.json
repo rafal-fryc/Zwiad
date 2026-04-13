@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 1144",
+  "state": "South Dakota",
+  "state_abbrev": "SD",
+  "session": "2026",
+  "title": "South Dakota AI in Health Care (Illinois HB 1806-style)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "mental-health"
+  ],
+  "sponsors": [
+    "Rep. Rehfeldt (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/south-dakota/HB-1144",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mylrc.sdlegislature.gov/api/Documents/297721.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/south-dakota/HB-1144/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

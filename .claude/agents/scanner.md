@@ -13,8 +13,16 @@ Read CLAUDE.md for project context before proceeding.
 
 You receive two types of input:
 
-### 1. Email Digest HTML (when provided as argument or piped)
-Parse the Lexology daily newsfeed HTML to extract law firm alert items.
+### 1. Email Digest HTML (when provided as argument(s) or piped)
+
+You may be given one or more digest HTML files. Each file has a `.meta.json` sidecar at the same path with `subject`, `from`, and `date` fields. **Determine the source type from the sidecar's `from` field before parsing:**
+
+- `from` contains `lexology` → Lexology newsfeed
+- `from` contains `iapp.org` → IAPP newsletter (Daily Dashboard or U.S. Privacy Digest)
+
+Apply the appropriate parsing rules below for each file. Combine all findings from all files into a single `scanner-output.json`.
+
+#### 1a. Lexology newsfeed parsing
 
 **Extraction rules (D-02, D-04):**
 - Each digest item has: title (linked to full article URL), law firm name, summary snippet, optional tags (jurisdiction badges like "Iowa", content type like "Video")
@@ -30,11 +38,67 @@ Parse the Lexology daily newsfeed HTML to extract law firm alert items.
 - If WebFetch fails on a URL, use the digest snippet as the summary and log the failure
 - Process links sequentially, not in parallel, to avoid rate limiting
 
-**URL normalization:**
+**URL normalization (Lexology):**
 - Strip UTM parameters (?utm_source=, &utm_medium=, etc.)
 - Strip Lexology tracking parameters (?g=...)
 - Remove trailing slashes
 - Force https://
+
+#### 1b. IAPP newsletter parsing
+
+IAPP (International Association of Privacy Professionals) sends two newsletter templates from `publications@iapp.org`, both using the same layout:
+
+1. **IAPP Daily Dashboard** — daily digest of global privacy/cyber/AI regulatory developments
+2. **IAPP U.S. Privacy Digest** — weekly US-focused privacy roundup (denser, more articles)
+
+Determine which by reading the sidecar `subject` field or the email body's title.
+
+**Layout structure:**
+- Top housekeeping area (membership promos, subscription info, "click here to view as web page") — SKIP
+- Main content is organized into uppercase section headers, e.g.:
+  - `IAPP NEWS`
+  - `LAW & REGULATION` (may have regional suffix: `LAW & REGULATION—U.S.`, `LAW & REGULATION—EU`)
+  - `ANALYSIS`
+  - `ENFORCEMENT` (may have regional suffix: `ENFORCEMENT—U.K.`, `ENFORCEMENT—U.S.`)
+  - `ON THE GROUND—{REGION}` (regional regulatory updates)
+  - `INCIDENT MANAGEMENT` (breach/incident news)
+  - `REGULATORY GUIDANCE`
+  - `CHILDREN'S ONLINE SAFETY`
+  - `SURVEILLANCE`
+  - `GOVERNMENT ACCESS`
+  - `IOT & PERSONAL DEVICES`
+- Bottom sections: member/sponsor lists, upcoming events, IAPP conference promos — SKIP
+- Each article within a section has: a title (bold/linked), a 2-4 sentence summary, and a "Full story" link at the end
+
+**Sections to EXTRACT as findings** (regulatory content):
+`IAPP NEWS`, `LAW & REGULATION`, `ANALYSIS`, `ENFORCEMENT`, `ON THE GROUND`, `INCIDENT MANAGEMENT`, `REGULATORY GUIDANCE`, `CHILDREN'S ONLINE SAFETY`, `SURVEILLANCE`, `GOVERNMENT ACCESS`, `IOT & PERSONAL DEVICES`
+
+**Sections to SKIP** (not primary regulatory developments):
+`IAPP PODCAST`, `IAPP PERSPECTIVES`, `PERSPECTIVES`, `OPINION`, `A view from DC/Brussels/...` columns, `IAPP RESEARCH`, `BENCHMARKING & RESEARCH`, `CUSTOMER TRUST & EXPECTATIONS`, `PROGRAM MANAGEMENT`, promo/sponsor sections starting with `FIND ANSWERS AT`, `JOIN OTHER LEADERS`, `»`, etc.
+
+**For each extracted item:**
+- **Title**: the headline text (often the text inside the first bold or linked element of the article block)
+- **Summary**: the 2-4 sentence prose description between the title and the "Full story" link
+- **URL**: the `href` of the "Full story" link. IAPP uses tracking redirects at `info.iapp.org/...` or `info.iapp.org/v/...` (base64-encoded paths). Extract the tracking URL as-is; downstream processing will resolve redirects via WebFetch.
+- **Category classification**:
+  - `ai-law` if the article primarily concerns AI models, LLMs, algorithmic decision-making, automated systems, AI governance, or AI regulation
+  - `cybersecurity` if the article primarily concerns cyberattacks, breaches, incidents, vulnerabilities, ransomware, or infosec enforcement
+  - `privacy` otherwise (default — most IAPP content is privacy)
+- **Jurisdiction**:
+  - From regional section suffix if present: `—U.S.` → `Federal`, `—EU` → `EU`, `—U.K.` → `UK`, `—SOUTH KOREA` → `South Korea`, etc.
+  - If no regional suffix, infer from article content (state bills → state name, federal actions → `Federal`)
+  - IAPP U.S. Privacy Digest defaults to `Federal` or specific US state when mentioned
+- **development_type**:
+  - `legislation` for bill/statute coverage
+  - `enforcement` for settlements, penalties, AG actions, prosecutions, court decisions
+  - `regulation` for rulemakings, final rules, proposed rules
+  - `guidance` for agency guidance documents, frameworks, advisories
+  - `court-decision` for circuit court or supreme court rulings
+  - `other` for anything else
+
+**Follow-up research**: Do NOT WebFetch the tracking URL at scan time — the redirect resolution is expensive and unreliable. Emit the tracking URL as-is in `source_url`. The researcher stage will resolve it when writing the full report.
+
+**IAPP URL handling**: No UTM stripping needed (tracking URLs are opaque). Do not modify them.
 
 ### 2. Source Config Scanning
 Read `pipeline/config/sources.json` for source definitions.
@@ -70,10 +134,14 @@ Write a JSON file matching the scanner envelope schema. The output MUST be valid
 - `source`: Human-readable source name (e.g., "FTC Press Release", "Lexology / Baker McKenzie")
 - `source_url`: Canonical URL (normalized, no tracking params)
 - `summary`: 2-4 sentence summary of the development from full article text
+- `date`: ISO date (YYYY-MM-DD) representing when the development was reported. For digest emails, use the digest send date from the `.meta.json` sidecar. For web-scanned sources, use the article's publication date, falling back to the current scan date. Required.
 - `relevance`: "high" (new legislation/enforcement), "medium" (guidance/updates), "low" (commentary/opinion)
 - `jurisdiction`: Specific jurisdiction (e.g., "Federal", "California", "Iowa", "EU")
 - `development_type`: One of: legislation, regulation, enforcement, guidance, court-decision, other
 - `category`: One of: privacy, cybersecurity, ai-law
+
+**Topic key fields (auto-populated downstream — do NOT set manually):**
+- `topic_key`, `topic_type`, `topic_key_confidence`: leave these OFF your output. A post-process step (`python3 tools/topic_keys.py annotate`) computes them deterministically from `title`, `summary`, `jurisdiction`, `development_type`, and `date` before the dedup stage runs. Providing accurate `date` and `jurisdiction` values is what gives the post-process enough signal to build high-confidence keys.
 
 **Envelope fields:**
 - `schema_version`: "1.0"

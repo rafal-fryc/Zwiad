@@ -1,0 +1,18 @@
+{
+  "finding_id": "SCAN-20260412-001",
+  "report_path": "reports/privacy/state-comprehensive-laws/alabama-hb351-pdpa-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "Citations to DLA Piper Privacy Matters and IAPP articles",
+      "section": "Multiple",
+      "source_url": "https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/",
+      "issue": "Reviewer could not directly re-fetch DLA Piper and IAPP pages via WebFetch (permission restriction in this session). All claims attributed to these sources were independently corroborated via WebSearch, which surfaced verbatim excerpts matching the report's characterizations.",
+      "severity": "minor",
+      "suggested_fix": "No change required; flagging only for transparency.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

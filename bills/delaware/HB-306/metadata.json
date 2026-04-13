@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 306",
+  "state": "Delaware",
+  "state_abbrev": "DE",
+  "session": "2026",
+  "title": "Chatbot and AI Agent Disclosure Requirement",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "transparency"
+  ],
+  "sponsors": [
+    "Rep. Romer (D)"
+  ],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/delaware/HB-306",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legis.delaware.gov/json/BillDetail/GeneratePdfDocument?legislationId=142896&legislationTypeId=1&docTypeId=2&legislationName=HB306",
+  "status_history": [
+    {
+      "date": "2026-03-12",
+      "status": "passed-committee",
+      "detail": "Introduced by Rep. Romer (D); passed committee after introduction",
+      "source_email_date": "2026-03-12",
+      "source_run_id": "fpf-chronological-week-08-Mar-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/delaware/HB-306/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-08-Mar-12-13",
+  "last_updated_run": "fpf-chronological-week-08-Mar-12-13"
+}

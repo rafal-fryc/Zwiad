@@ -1,0 +1,443 @@
+{
+  "run_id": "fpf-chronological-week-09-Mar-19-20",
+  "timestamp": "2026-04-09T22:54:41.794627+00:00",
+  "bills_processed": [
+    {
+      "bill_key": "CA-AB-2027-2026",
+      "bill_identifier": "AB 2027",
+      "state": "California",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CA-AB-1979-2026",
+      "bill_identifier": "AB 1979",
+      "state": "California",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CA-SB-1130-2026",
+      "bill_identifier": "SB 1130",
+      "state": "California",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CO-HB-1210-2026",
+      "bill_identifier": "HB 1210",
+      "state": "Colorado",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "CT-SB-5-2026",
+      "bill_identifier": "SB 5",
+      "state": "Connecticut",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "IL-HB-3567-2026",
+      "bill_identifier": "HB 3567",
+      "state": "Illinois",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MN-SF-4509-2026",
+      "bill_identifier": "SF 4509",
+      "state": "Minnesota",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MN-SF-4573-2026",
+      "bill_identifier": "SF 4573",
+      "state": "Minnesota",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MO-HB-2318-2026",
+      "bill_identifier": "HB 2318",
+      "state": "Missouri",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MO-HB-2368-2026",
+      "bill_identifier": "HB 2368",
+      "state": "Missouri",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NH-HB-1124-2026",
+      "bill_identifier": "HB 1124",
+      "state": "New Hampshire",
+      "is_new": false,
+      "status": "passed-first-chamber",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "NH-SB-640-2026",
+      "bill_identifier": "SB 640",
+      "state": "New Hampshire",
+      "is_new": false,
+      "status": "passed-first-chamber",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "NJ-A-4732-2026",
+      "bill_identifier": "A 4732",
+      "state": "New Jersey",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-A-4733-2026",
+      "bill_identifier": "A 4733",
+      "state": "New Jersey",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-A-4730-2026",
+      "bill_identifier": "A 4730",
+      "state": "New Jersey",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-A-2767-2026",
+      "bill_identifier": "A 2767",
+      "state": "New Jersey",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-S-3612-2026",
+      "bill_identifier": "S 3612",
+      "state": "New Jersey",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "PA-SB-1090-2026",
+      "bill_identifier": "SB 1090",
+      "state": "Pennsylvania",
+      "is_new": false,
+      "status": "passed-first-chamber",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "TN-SB-1580-2026",
+      "bill_identifier": "SB 1580",
+      "state": "Tennessee",
+      "is_new": false,
+      "status": "passed-second-chamber",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H-816-2026",
+      "bill_identifier": "H 816",
+      "state": "Vermont",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "CA-SB-867-2026",
+      "bill_identifier": "SB 867",
+      "state": "California",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CA-SB-1142-2026",
+      "bill_identifier": "SB 1142",
+      "state": "California",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CA-SB-1146-2026",
+      "bill_identifier": "SB 1146",
+      "state": "California",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "IL-HB-4711-2026",
+      "bill_identifier": "HB 4711",
+      "state": "Illinois",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MO-HB-2032-2026",
+      "bill_identifier": "HB 2032",
+      "state": "Missouri",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-TRUMP-AMERICA-2026",
+      "bill_identifier": "TRUMP AMERICA AI Act",
+      "state": "Federal",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "US-AI-Related-Job-2026",
+      "bill_identifier": "AI-Related Job Impacts Clarity Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-Kids-Online-2026",
+      "bill_identifier": "Kids Online Safety Act (KOSA)",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-The-GUARD-2026",
+      "bill_identifier": "The GUARD Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-AI-Risk-2026",
+      "bill_identifier": "AI Risk Evaluation Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-AI-LEAD-2026",
+      "bill_identifier": "AI LEAD Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-COPIEDM-Act-2026",
+      "bill_identifier": "COPIEDM Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-Preventing-Woke-2026",
+      "bill_identifier": "Preventing Woke AI in the Federal Government Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-Third-Party-Audits-2026",
+      "bill_identifier": "Third-Party Audits for Political Bias Provision",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-NO-FAKES-2026",
+      "bill_identifier": "NO FAKES Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-Future-of-2026",
+      "bill_identifier": "Future of AI Innovation Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-CREATE-AI-2026",
+      "bill_identifier": "CREATE AI Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-SHIELD-Act-2026",
+      "bill_identifier": "SHIELD Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-TRAIN-Act-2026",
+      "bill_identifier": "TRAIN Act",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "US-AI-Guardrails-2026",
+      "bill_identifier": "AI Guardrails Act",
+      "state": "Federal",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "CA-AB-1833-2026",
+      "bill_identifier": "AB 1833",
+      "state": "California",
+      "is_new": false,
+      "status": "amended",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CT-SB-4-2026",
+      "bill_identifier": "SB 4",
+      "state": "Connecticut",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "IL-HB-3041-2026",
+      "bill_identifier": "HB 3041",
+      "state": "Illinois",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "IL-HB-5221-2026",
+      "bill_identifier": "HB 5221",
+      "state": "Illinois",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-2984-2026",
+      "bill_identifier": "HB 2984",
+      "state": "Illinois",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4556-2026",
+      "bill_identifier": "HB 4556",
+      "state": "Illinois",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "KY-HB-692-2026",
+      "bill_identifier": "HB 692",
+      "state": "Kentucky",
+      "is_new": false,
+      "status": "passed-first-chamber",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "LA-HB-977-2026",
+      "bill_identifier": "HB 977",
+      "state": "Louisiana",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "MN-SF-4574-2026",
+      "bill_identifier": "SF 4574",
+      "state": "Minnesota",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MN-HF-4456-2026",
+      "bill_identifier": "HF 4456",
+      "state": "Minnesota",
+      "is_new": false,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "OK-SB-546-2026",
+      "bill_identifier": "SB 546",
+      "state": "Oklahoma",
+      "is_new": false,
+      "status": "enrolled",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H211--2026",
+      "bill_identifier": "H.211",
+      "state": "Vermont",
+      "is_new": false,
+      "status": "amended",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H814--2026",
+      "bill_identifier": "H.814",
+      "state": "Vermont",
+      "is_new": false,
+      "status": "passed-first-chamber",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "US-HR-Lofgren-2026",
+      "bill_identifier": "H.R. Lofgren Privacy Bill",
+      "state": "Federal",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    }
+  ],
+  "new_bills": 14,
+  "status_updates": 40,
+  "downloads_success": 1,
+  "downloads_failed": 13,
+  "conversions_success": 0
+}

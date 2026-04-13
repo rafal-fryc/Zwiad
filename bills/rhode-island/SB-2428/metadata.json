@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 2428",
+  "state": "Rhode Island",
+  "state_abbrev": "RI",
+  "session": "2026",
+  "title": "Rhode Island Data-Driven Pricing",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-driven-pricing"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/rhode-island/SB-2428",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://webserver.rilegislature.gov/BillText/BillText26/SenateText26/S2428.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/rhode-island/SB-2428/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

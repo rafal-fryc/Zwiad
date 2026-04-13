@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "S 3982",
+  "state": "Federal",
+  "state_abbrev": "US",
+  "session": "2026",
+  "title": "Federal AI Digital Impersonation Fraud Criminalization Act",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "liability",
+    "deepfakes"
+  ],
+  "sponsors": [
+    "Sen. Sheehy (R-MT)",
+    "Sen. Rochester (D-DE)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/federal/S-3982",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.congress.gov/119/bills/s3982/BILLS-119s3982is.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Sheehy (R-MT) and Sen. Rochester (D-DE)",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/federal/S-3982/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

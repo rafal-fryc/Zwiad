@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 1834",
+  "state": "Washington",
+  "state_abbrev": "WA",
+  "session": "2026",
+  "title": "Prohibition on Addictive Feeds for Minors",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "youth-privacy",
+    "social-media",
+    "online-safety"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/washington/HB-1834",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/House%20Bills/1834-S3.pdf#page=1",
+  "status_history": [
+    {
+      "date": "2026-02-10",
+      "status": "passed-committee",
+      "detail": "Passed out of committee and placed on second reading on February 10, 2026",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/washington/HB-1834/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

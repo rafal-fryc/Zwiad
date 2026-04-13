@@ -1,0 +1,1015 @@
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+	<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="robots" content="noimageindex">
+	    <meta charset="iso-8859-1">
+	    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+	    	    <title>South Carolina Legislature Online - Bill Search by Bill Number</title>
+	    <link rel="SHORTCUT ICON" href="/images/stateflagsmall.ico" />
+		<link rel="icon" href="/images/stateflagsmall.ico" type="image/ico" />
+		<link rel="SHORTCUT ICON" href="/images/South-Carolina-Flag2.ico" />
+
+		<link type="text/css" rel="stylesheet" href="/css/main.css" media="all" />
+				
+		<!--[if lte IE 7]>
+		<link type="text/css" rel="stylesheet" href="/css/ie7main.css" media="all" />
+		<![endif]-->
+		<!--[if gte IE 7]>
+		<link type="text/css" rel="stylesheet" href="/css/iemain.css" media="all" />
+		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="/css/print.css" media="print" />
+		<link type="text/css" rel="stylesheet" href="/css/supplement.css" media="screen" />
+		<!--<link type="text/css" rel="stylesheet" href="/css/zipsearch.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/vote.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/contact.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/navwrap.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="/css/linkbar.css" media="screen" />-->
+	
+		<!--<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>-->
+		<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+
+		<script type="text/javascript" src="/js/main_linux.js"></script>
+		
+		
+
+
+
+		<!--<script type="text/javascript" src="/js/common.js"></script>
+		<script type="text/javascript" src="/js/utils.js"></script>
+		<script type="text/javascript" src="/js/date.js"></script>
+		<script type="text/javascript" src="/js/lightbox.js"></script>
+		<script type="text/javascript" src="/js/legislation.js"></script>
+		<script type="text/javascript" src="/js/logon_lits.js"></script>
+		<script type="text/javascript" src="/js/message.js"></script>
+		<script type="text/javascript" src="/js/comm_meeting.js"></script>-->
+		<script type="text/vbscript" src="/vbs/comm_meeting.vbs"></script>
+		<!--<script type="text/javascript" src="/js/regs.js"></script>-->
+				
+	   	<script type="text/javascript">
+	    //document.onclick = function () { document.getElementById('transbox').style.display= 'none' };
+	    	var xmlhttp=false;
+			xmlhttp = create_xml_object();
+	
+			function getElement(ele)
+			{
+				var theobj = false;
+				if(typeof ele == 'string')
+					theobj = (document.getElementById)?document.getElementById(ele):document.all[ele];
+				else
+					theobj = ele;
+			
+				return theobj;
+			}
+		
+			function checkreader(friendlyalert)
+			{
+			 	/*friendlyalert=friendlyalert||false;
+			 	
+			 	var browser_info = perform_acrobat_detection();
+				if (!browser_info.acrobat)
+				{
+				 	loadadobebox('adobebox', '/adobe.php');
+					return false;
+				}
+				else if (friendlyalert)
+				{
+			 		alert(friendlyalert);
+				}*/
+				return true;
+			}
+				
+			function loadadobebox(boxname, url)
+			{
+				var response = false;
+	
+				doRequest(xmlhttp, "GET", url, false, null, null);
+				if (xmlhttp.status == 200)
+				{
+		         	response = xmlhttp.responseText;
+				}
+	
+				if(response)
+				{
+			 		var ele = document.getElementById(boxname);
+				 	if (ele)
+				 	{
+				 		ele.style.visibility = 'hidden';
+		 				ele.style.display = 'block';
+	
+		 				positionElement(ele, 'center', 'center', true);
+	
+						ele.innerHTML = response;
+					    ele.style.visibility = 'visible';
+					    ele.style.display = 'block';
+	//				    ele.scrollIntoView(true);
+					}
+				}
+				return response;
+			}
+	
+	
+			function init()
+			{
+		 		var ld=document.getElementById("loading");
+				if(ld)
+				{
+					ld.style.display = 'none';
+				}
+			}
+			
+			function openmore()
+			{
+			 	var id = document.getElementById('quicksearch');
+			 	if (id)
+			 	{
+				 	var pos = findPos(id);
+				 	id.style.zIndex = 10;
+		//		 	id.style.left = pos[0]+'px';
+		//		  	id.style.top = pos[1]+'px';
+				  	id.style.height = '295px';
+				  	id.style.position = 'absolute';
+				  	id.style.backgroundColor = '#f7f4ec';
+				  	var id2 = document.getElementById('searchmore');
+				  	if (id2)
+				  	{
+				  	 	id2.style.display = 'none';
+				  	}
+				  	var id3 = document.getElementById('contactlegislatordiv');
+				  	if (id3)
+				  	{
+				  	 	id3.style.display = 'none';
+				  	}
+				}
+			}
+		
+			function closemore()
+			{
+			 	var id = document.getElementById('quicksearch');
+			 	if (id)
+			 	{
+				  	id.style.height = '135px';
+				  	id.style.position = '';
+				  	id.style.backgroundColor = 'transparent';
+				  	var id2 = document.getElementById('searchmore');
+				  	if (id2)
+				  	{
+				  	 	id2.style.display = 'block';
+				  	}
+				  	var id3 = document.getElementById('contactlegislatordiv');
+				  	if (id3)
+				  	{
+				  	 	id3.style.display = '';
+				  	}
+				}		 	
+			}
+		
+		<!-- This script and many more are available free online at -->
+		<!-- The JavaScript Source!! http://javascript.internet.com -->
+		
+		<!-- Begin
+		function right(e) {
+		var msg = "Use of this image is strictly prohibited unless express written permission is given to the user by South Carolina Legislative Services Agency.";
+		if (navigator.appName == 'Netscape' && e.which == 3) {
+		alert(msg);
+		return false;
+		stopEvent(e);
+		}
+		if (navigator.appName == 'Microsoft Internet Explorer' && event.button==2) {
+		alert(msg);
+		return false;
+			stopEvent(event);
+		}
+		else return true;
+		}
+		
+	function trap() 
+	{
+		if(document.images)
+		{
+			for(i=0;i<document.images.length;i++)
+			{
+				if(document.images[i].className == 'allowcontextmenu')
+				{
+					// this should have no scripting
+				}
+				else
+				{
+				 	document.images[i].onmousedown = right;
+					document.images[i].oncontextmenu = function(){ return false; };
+					//document.images[i].onmouseup = right;
+				}
+			}
+		}
+	}
+
+	function findfwtext(texttofind) 
+	{
+	 	var fwtextele = document.getElementById('fwtext');
+		if(fwtextele)
+		{
+			fwtextele.value = texttofind;
+		}
+	}	
+		// End -->
+		</script>
+
+		<!-- ADDED FOR V4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJY6FMNQKH"></script>
+
+
+<script type="text/javascript">
+
+//ADDED FOR V4
+//Google tag (gtag.js) 
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LJY6FMNQKH');
+
+ 
+ /* COMMENTING OUT UPGRADING TO V4 -A
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36207109-1']);
+  _gaq.push(['_setDomainName', 'scstatehouse.gov']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+  
+      $(document).ready(function(){
+        // COMMENTING THIS OUT NO LONGER BEING ACTIVELY USED TO MONITOR FOR TRAFFIC TO SPECIFIC LINKS - A
+        /*
+          var anchors = $('div#contentsection a');
+
+          //console.log('anchors...'+anchors.length);
+          if(anchors.length > 0){
+            //console.log('setting up event handler...');
+            anchors.click(function(){
+              var a = $(this).attr('href');
+              if(_gaq && (a.substr(-3) == 'htm' || a.substr(-4) == 'html' || a.substr(-3) == 'doc' || a.substr(-4) == 'docx' || a.substr(-3) == 'pdf' || a.substr(-3) == 'xls' || a.substr(-4) == 'xlsx')) {
+                //console.log(a);
+                _gaq.push(['_trackPageview', $(this).attr('href')]);
+              }
+              
+              var aText = $(this).text().toLowerCase();
+              if (a.indexOf('getfile.php') > -1 && aText === 'word'){
+                    _gaq.push(['_trackEvent', 'Word Doc', 'Download', ('from page: ' + document.location + ' - href: ' + a)]);
+              }
+
+            });
+          }
+          */
+      });
+
+</script>
+	</head>
+	
+		
+	<body class="home"  onload="init(); trap();">
+	<noscript>Your browser does not support JavaScript!  This page will not render correctly.</noscript> 
+
+
+	
+	<div id="adobebox" style="position:absolute; width:400px; height:150px; border:2px solid #555555; background-color:#cccccc; display:none;"></div>
+	<div id="container" >	
+				<div id="header" class="nodisplay" style="text-align:center; height:100px;" >
+									<img id="headerimg" class="nodisplay" alt="South Carolina Legislature" title="South Carolina Legislature" src="/images/header8.png" />
+								
+							<!--	<div class="award"><span style="color:#831224; font-weight:bold; font-size:1.5em;">*</span> Recipient of<br>the Notable State Documents Award<br>by the<br>South Carolina<br>State Library.</div>-->
+				
+				
+			</div>
+			<div class="printdisplay"><img border="0" src="/images/titleprint.jpg" alt="South Carolina Legislature" title="South Carolina Legislature" alt="South Carolina Legislature" title="South Carolina State Legislature" /><br /><hr /><br /></div>
+	
+			<div id="pagebody" >
+	
+	
+<!--<div id="topmessage">
+<br style="display:block; margin-top:10px;">
+Searches and data queries will be unavailable beginning Friday, August 19, 2016, from 8:00 PM until Saturday, August 20th at 8:00 AM<br>due to scheduled maintenance.</div>-->
+				<!-- Prompt IE 8/7/6 users to upgrade to a newer browser. -->
+				<!--[if lte IE 8]>
+				<div class="oldframe">In order to improve your experience using this website, please <a href="http://browsehappy.com/">upgrade your browser</a>.</div>
+				<![endif]-->
+			
+			
+			
+			<div id="menu" class="nodisplay">
+				<ul class="nodisplay">
+				<li><a href="/index.php">Home</a></li>
+<li><a href="/senate.php">Senate</a></li>
+<li><a href="/house.php">House</a></li>
+<li><a href="/committeeinfo.php">Committee&nbsp;Postings&nbsp;and&nbsp;Reports</a></li>
+<li><a href="/council.php">Legislative Council</a></li>
+<li><a href="/citizens.php">Citizens&#39; Interest</a></li>
+<li><a href="/publications.php">Publications</a></li>
+		    	</ul>
+			</div>
+			<div id="search" class="nodisplay" style="height: 28px;"><div class="nodisplay" style="float:right; margin:6px 20px 0px 0;">
+							<!--<a style="color:#f7f4ec; height:15px;" href="#" onClick="rsswindow();"><img border=0 src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a>-->
+<!--				<a style="color:#f7f4ec; height:15px;" href="/splashpage/splashpage.html"><img border=0 src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a> -->
+				<a style="color:#f7f4ec; height:15px;" href="/onlineservices/index.php"><img border="0" src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a>
+			<!--	<a style="color:#f7f4ec; height:15px;" href="/maintenance_portal.php"><img border=0 src="/images/lock.png" style="vertical-align: middle; width: 15px; height: 15px;">&nbsp;Staff&nbsp;Portal</a>-->
+						</div></div>
+			
+	
+					<div id="sidebar" class="nodisplay">
+	<div id="vidlinks" style="height: 50px;">
+						<!--<img src="/images/videobutton12d.png">-->
+											<ul id="vidsidemenu">
+	<li id="vidinnermenu" style="font-size:16px; margin: 0 0 5px 0;">Chamber Video</li>
+<li id="sbroadcast" style="float: left; width:50%;">
+<a id="liveS" style="width: 100%; text-decoration:underline;" href="javascript:void(0);" onClick="live_stream('S', false, false, '0')">Senate</a><br><a id="liveaudioS" style="margin:-3px 0 0 0; text-decoration:underline; width: 100%; font-size: 8px;" href="javascript:void(0);" onClick="live_stream('S', false, false, '1');">(Audio Only)</a>
+</li>
+<li id="hbroadcast" style="float: left; width:50%;">
+<a id="liveH" style="width: 100%; text-decoration:underline;" href="javascript:void(0);" onClick="live_stream('H', false, false, '0')">House</a><br><a id="liveaudioH" style="margin:-3px 0 0 0; text-decoration:underline; width: 100%; font-size: 8px;" href="javascript:void(0);" onClick="live_stream('H', false, false, '1');">(Audio Only)</a>
+</li>
+						</ul>
+					</div>
+					<div id="commvidlinks"><a href="/video/schedule.php">Video&nbsp;Schedule</a><a style="border-top:1px solid #fff; padding-top:12px;" href="/video/archives.php">Video Archives</a></div>
+										<div id="sidemenu">
+						<ul id="innermenu">
+		
+							<li><a href="/howdoi.php">How do I...</a></li>
+										
+							
+								<li class="nolink" onMouseOver="var ele=document.getElementById('sidesearch'); if(ele){ele.style.display='block'; document.sidesearchform.searchtext.focus();}" onMouseOut="var ele=document.getElementById('sidesearch'); if(ele){ele.style.display='none';}"><div class="nolinkdiv">Quick Search</div>
+								<div id="sidesearch" class="sidesubmenu">
+									<form id="sidesearchform" name="sidesearchform" method="POST" action="/search.php">
+									<input type="hidden" name="search" value="side" />
+									<div class="topelement"><label for="searchtext"><span class="label">Search for:</span></label><input id="searchtext" name="searchtext" type="text"/><a id="searchlink2" href="javascript:void(0);" onClick="document.sidesearchform.submit();"><img id="searchicon" src="/images/searchbutton.png" alt="Search" title="Search"/></a></div>
+			<!--						<div><input type="checkbox" id="searchchoice_all" name="searchchoice_all" value="all" /><label for="searchchoice_all">All</label></div>-->
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_fullsite" name="category" value="FULLSITE" /><label for="searchchoice_fullsite">&nbsp;Full Site Search</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_billnumber" name="category" value="BILL" /><label for="searchchoice_billnumber">&nbsp;Bill Number</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_legislation" name="category" value="LEGISLATION" CHECKED /><label for="searchchoice_legislation">&nbsp;Legislation</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_budget" name="category" value="BUDGET" /><label for="searchchoice_budget">&nbsp;Budget</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_codeoflaws" name="category" value="CODEOFLAWS" /><label for="searchchoice_codeoflaws">&nbsp;Code of Laws</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_codeofregs" name="category" value="CODEOFREGS" /><label for="searchchoice_codeofregs">&nbsp;Code of Regulations</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_constitution" name="category" value="CONSTITUTION" /><label for="searchchoice_constitution">&nbsp;Constitution</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_housejournals" name="category" value="HOUSEJOURNALS" /><label for="searchchoice_housejournals">&nbsp;House Journals</label></div>
+									<div style="padding-left:20px;"><input type="radio" id="searchchoice_senatejournals" name="category" value="SENATEJOURNALS" /><label for="searchchoice_senatejournals">&nbsp;Senate Journals</label></div>
+									<div class="bottomelement" style="padding-left:20px;"><input type="radio" id="searchchoice_billsummary" name="category" value="SUMMARY" /><label for="searchchoice_billsummary">&nbsp;LSA Bill Summary</label></div>
+								</form>
+									
+								</div>
+							</li>
+							<li><a href="/legislatorssearch.php">Find Your Legislators</a></li>
+							<li id="contactLegislatorLink"><a href="/email.php?chamber=B">Contact Your Legislator</a></li>
+									
+							<li><a href="/legislation.php">Legislation</a></li>
+							<li><a href="/listtracking/main.php" target="LTS">Track Legislation</a></li>
+							<li><a href="/multicriteria2/search.php" target="MCS">Multi-Criteria Search</a></li>
+									<!--<li><a href="#" onclick="multisearchwindow('INTROBOTH');">Multi-Criteria Search</a></li>-->
+									<!--<li><a href="#" onclick="multisearchwindow('INTROMANUAL');">Multi-Criteria Search</a></li>-->
+									<li><a href="/research.php">Research</a></li>
+	
+								<li class="nolink" onMouseOver="var ele=document.getElementById('law'); if(ele){ele.style.display='block';}" onMouseOut="var ele=document.getElementById('law'); if(ele){ele.style.display='none';}"><div class="nolinkdiv">South Carolina Law</div> 
+								<div id="law" class="sidesubmenu">
+									<div class="sidediv topelement"><a href="/newlaws.php">Ratifications &amp; Acts</a></div>
+									<div class="sidediv"><a href="/code/statmast.php">Code of Laws</a></div>
+									<div class="sidediv"><a href="/coderegs/statmast.php">Code of Regulations</a></div>
+									<div class="sidediv"><a href="/scconstitution/scconst.php">Constitution</a></div>
+									<div class="sidediv bottomelement"><a href="/state_register.php">State Register</a></div>
+								</div>
+							</li>
+										<li class="nolink" onMouseOver="var ele=document.getElementById('manual'); if(ele){ele.style.display='block';}" onMouseOut="var ele=document.getElementById('manual'); if(ele){ele.style.display='none';}"><div class="nolinkdiv">Legislative Manual</div>
+								<div id="manual" class="sidesubmenu">
+								
+<!--									<div class="sidediv topelement"><a href="https://web.sc.gov/LSAShoppingcart/Default.aspx" target="_blank">Purchase Manual</a></div>-->
+								
+<!--									<div class="sidediv topelement"><a href="https://secure.scstatehouse.gov/cgi-bin/webstore.exe" target="_blank">Purchase Manual</a></div>-->
+									<div class="sidediv topelement"><a href="javascript:#" onClick="alert('We are sorry, but we are unable to process online transactions at this time.\n\nIf you would still like to make a purchase, please contact us directly at (803) 212-4490 during normal business hours (8:30am - 5:00pm EST).');">Purchase Manual</a></div>
+									<div class="sidediv bottomelement"><a href="/man25/manual25.php">View Manual Online</a></div>
+								</div>
+							</li>
+							<li><a href="http://www.studentconnection.scstatehouse.gov">Student Connection</a></li>
+							<li><a href="/visit.php">Visiting the State House</a></li>
+							<li><a href="/archives.php">Archives</a></li>
+							<li><a href="http://www.sc.gov/Agency-Listing" target="_blank">State Agency Websites</a></li>
+							<!--<li><a href="/stateagencysites.php">State Agency Websites</a></li>-->
+							<li><a href="/citizensinterestpage/media.php">Media Links</a></li>
+				 		</ul>
+			    	</div>
+	
+					<div id="side_ad">
+						<A href="http://www.sc.gov/" target="_blank"><img border=0 src="/images/scgov3.jpg" alt="SC.gov" title="SC.gov" /></a>
+													<A href="http://www.statelibrary.sc.gov" target="_blank"><img border=0 src="/images/scsl_logo_rgb_web.png" alt="StateLibrary.SC.gov" title="StateLibrary.SC.gov" /></a>
+											</div>	    	
+			</div>
+
+	
+	<script type="text/javascript"> 
+		if ( '' === '1'){
+		 	
+			var link = document.getElementById('contactLegislatorLink');
+			if (link != 'undefined' && link != null){
+				link.style.display = 'none'; 
+				link.style.visibility = 'hidden';
+			}
+		}
+		if ( '' === '1'){
+		 	setTimeout(function(){
+				var link2 = document.getElementById('sendMsgLink');
+				if (link2 != 'undefined' && link2 != null){
+					link2.style.display = 'none'; 
+					link2.style.visibility = 'hidden';
+				};
+			}, 20);
+			
+		}  
+	</script>
+<div class="mainwidepanel">
+<script type="text/javascript">
+<!--
+var highlightColor = '#ffff99';
+var trackrow = false;
+var trackcell = false;
+var current_highlight = false;
+var oldcolor = -1;;
+function highlight_row(cancel)
+{
+	if (current_highlight)
+		current_highlight.style.backgroundColor=oldcolor;
+	if (!cancel)
+	{
+		current_highlight = trackrow;
+		oldcolor = current_highlight.style.backgroundColor;
+		current_highlight.style.backgroundColor=highlightColor;
+	}
+	else
+		current_highlight = false;
+}
+ function check_session(session)
+	{
+		var el=document.getElementById('summarychoice');
+		if (el)
+		{
+			if (session > 112)
+			{
+				el.style.display = 'block';
+			}
+			else
+			{
+				el.style.display = 'none';
+			}
+		}
+		var el2=document.getElementById('summaryinst');
+		if (el2)
+		{
+			if (session > 112)
+			{
+				el2.style.display = 'block';
+			}
+			else
+			{
+				el2.style.display = 'none';
+			}
+		}
+		el=document.getElementById('firstsession');
+		el2=document.getElementById('allsession');
+		if (el && el2)
+		{
+			if (session == 101)
+			{
+				el.style.display = 'block';
+				el2.style.display = 'none';
+			}
+			else
+			{
+				el.style.display = 'none';
+				el2.style.display = 'block';
+			}
+		}
+	}
+ function submitform(form)
+	{
+		if (form.billnumbers.value == '')
+		{
+			alert('You must provide bill numbers for your search.');
+			return false;
+		}
+		var el=document.getElementById('submitting');
+		if (el)
+		{
+			el.style.display = '';
+		}
+		return true;
+	}
+	function checkKey(evt)
+	{
+		var charCode = (evt.which) ? evt.which : event.keyCode
+		if (charCode > 31 && charCode != 32 && charCode != 44 && charCode != 65 && charCode != 97 && charCode != 82 && charCode != 114 && (charCode < 48 || charCode > 57))
+			return false;
+		return true;
+	}
+	window.onunload = function(){}; 
+-->
+</script>
+<div id="breadcrumbs" class="nodisplay">
+<span><a href="/legislation.php">Legislation</a> &gt; Search Legislation by Bill, Act or Rat Number</span>
+</div>
+<div id="formheader" class="barheadercolor nodisplay" style="font-size:11px;">
+<form name="inputform" method=POST action="/billsearch.php" onSubmit="return submitform(this);">
+<div style="width:225px;"><label  for="session">Select Session:</label>  <select id="session" name="session" size=1 alt="Select Session" title="Select Session" onChange="check_session(this.options[this.selectedIndex].value);">
+<option value="126" selected>126 - (2025-2026)<option value="125" >125 - (2023-2024)<option value="124" >124 - (2021-2022)<option value="123" >123 - (2019-2020)<option value="122" >122 - (2017-2018)<option value="121" >121 - (2015-2016)<option value="120" >120 - (2013-2014)<option value="119" >119 - (2011-2012)<option value="118" >118 - (2009-2010)<option value="117" >117 - (2007-2008)<option value="116" >116 - (2005-2006)<option value="115" >115 - (2003-2004)<option value="114" >114 - (2001-2002)<option value="113" >113 - (1999-2000)<option value="112" >112 - (1997-1998)<option value="111" >111 - (1995-1996)<option value="110" >110 - (1993-1994)<option value="109" >109 - (1991-1992)<option value="108" >108 - (1989-1990)<option value="107" >107 - (1987-1988)<option value="106" >106 - (1985-1986)<option value="105" >105 - (1983-1984)<option value="104" >104 - (1981-1982)<option value="103" >103 - (1979-1980)<option value="102" >102 - (1977-1978)<option value="101" >101 - (1975-1976)</select>
+<br><br><a href="/billsearch.php">Instructions</a></div><div style="width:380px;"><label  for="billnumbers">Bill Numbers:</label>  <input id="billnumbers" type="text" name="billnumbers" value="3431" alt="Enter Bill Numbers" title="Enter Bill Numbers" onkeypress="this.value=this.value.toUpperCase(); return checkKey(event)" oncontextmenu="stopEvent(event);"></br>
+<div id="summarychoice" style="text-align:left; margin:0 0 0 75px; ">
+<input id="titleradio" style="margin:0 0 0 0;" type="radio" name="summary" value="T" > <label for="titleradio">Bill Title</label>
+<input id="summaryradio" style="margin:0 0 0 20px;" type="radio" name="summary" value="S" > <label for="summaryradio">Legislative Summary</label>
+<input id="bothradio" style="margin:0 0 0 20px;" type="radio" name="summary" CHECKED value="B"> <label for="bothradio">Both</label>
+</div>
+</div>
+<input type=hidden name="headerfooter" size=1 value="1">
+<div style="width:130px; text-align:center;"><input  type=submit value="Submit" alt="SUBMIT"><br><input  type=reset value="Reset" alt="RESET"></div>
+</form>
+</div>
+<div style="font-size:10px;">&nbsp;</div><div id="loading" style="position:absolute; width:200px; height:20px; border:2px solid #555555; margin:-25px 0 0 100px; background-color:#cccccc; text-align:center; font-size:16px; position:fixed;">Loading...<img src="/images/throbber.gif"></div>
+<div id="submitting" style="position:absolute; width:200px; height:20px; border:2px solid #555555; margin:-25px 0 0 100px; background-color:#cccccc; text-align:center; font-size:16px; position:fixed; display:none;">Submitting...<img src="/images/throbber.gif"></div>
+<div id="resultsbox" style="background-color:white; padding:5px; border:1px solid #666;" oncontextmenu="stopEvent(event);">
+<div style="margin:0 0 20px 0; font-weight:bold;">Session 126 - (2025-2026)<a class="nodisplay" style="float:right; text-decoration:underline;" href="/billsearch.php?billnumbers=3431&session=126&summary=B&PRINT=1" target="_blank" onClick="return checkreader('');">Printer Friendly</a></br><div class="nodisplay" style="float:right; font-size:9px;">(pdf format)</div>
+</div>
+<script>
+	
+	var billStatusJsonArray = [];
+
+
+
+</script>
+<div style="margin:0 0 40px 0;" class="bill-list-item" data-bhmastkey="1263431"><a name="3431"></a><span style="font-weight:bold;">H*3431 (Rat #0100, Act #0096 of 2026)  General Bill, By <a href="/member.php?code=1418749830&chamber=H">W. Newton</a>, <a href="/member.php?code=1978408854&chamber=H">Wooten</a>, <a href="/member.php?code=1484090731&chamber=H">Pope</a>, <a href="/member.php?code=1157954407&chamber=H">Martin</a>, <a href="/member.php?code=1453408917&chamber=H">Pedalino</a>, <a href="/member.php?code=1217045309&chamber=H">McCravy</a>, <a href="/member.php?code=141477256&chamber=H">Bernstein</a>, <a href="/member.php?code=730681731&chamber=H">Guffey</a>, <a href="/member.php?code=702272643&chamber=H">Govan</a>, <a href="/member.php?code=1365908927&chamber=H">T. Moore</a>, <a href="/member.php?code=539772663&chamber=H">Erickson</a>, <a href="/member.php?code=171590889&chamber=H">Bradley</a>, <a href="/member.php?code=1565340722&chamber=H">Robbins</a>, <a href="/member.php?code=293181783&chamber=H">Calhoon</a>, <a href="/member.php?code=1724999793&chamber=H">M.M. Smith</a> and <a href="/member.php?code=428977222&chamber=H">Crawford</a><br></span><b>Summary:</b> South Carolina Social Media Regulation Act<br>&nbsp;&nbsp;&nbsp;&nbsp;AN ACT TO AMEND THE SOUTH CAROLINA CODE OF LAWS BY ADDING CHAPTER 80 TO TITLE 39 SO AS TO PROVIDE THAT A COVERED ONLINE SERVICE SHALL EXERCISE REASONABLE CARE IN THE USE OF MINORS' PERSONAL DATA, TO PROVIDE FOR CERTAIN REQUIREMENTS FOR COVERED ONLINE SERVICES, TO RESTRICT THE AMOUNT OF PERSONAL DATA OF A MINOR THAT MAY BE COLLECTED, TO PROVIDE FOR PARENTAL CONTROLS, TO PROVIDE FOR AN ANNUAL REPORT, AND TO PROVIDE FOR ENFORCEMENT. - RATIFIED TITLE<br><A class="nodisplay" HREF="/sess126_2025-2026/bills/3431.htm">View full text</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A class="nodisplay" HREF="/votehistory.php?type=BILL&session=126&bill_number=3431">View Vote History</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A class="nodisplay" HREF="/fiscalimpact.php?type=BILL&session=126&bill_number=3431">View Fiscal Impact</A><br class="nodisplay" /><table cellpadding="0" cellspacing="0"; border="0"; style="margin:5px 0 0 0; width:100%;"><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">12/05/24</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Prefiled</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">12/05/24</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Referred to Committee on Judiciary</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/14/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Introduced and read first time (<a href="/sess126_2025-2026/hj25/20250114.htm#p199">House Journal-page 199</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/14/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Referred to Committee on Judiciary (<a href="/sess126_2025-2026/hj25/20250114.htm#p199">House Journal-page 199</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/29/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name added as sponsor: Bernstein, Guffey, Govan</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/04/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name added as sponsor: T.Moore, Erickson, Bradley</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/11/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name added as sponsor: Robbins</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/13/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Committee report: Favorable with amendment Judiciary (<a href="/sess126_2025-2026/hj25/20250213.htm#p25">House Journal-page 25</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/18/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name added as sponsor: Oremus, Hartz, Calhoon, M.M.Smith</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/18/25</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Scrivener's error corrected</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/19/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name removed as sponsor: Oremus</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/18/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name removed as sponsor: Hartz</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/19/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Requests for debate-Rep(s). Bamberg, Cromer, Gilreath, Edgerton, Magnuson, Morgan, King, Hart, Gilliaard, Rivers, White</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/19/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Member(s) request name added as sponsor: Crawford</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/19/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Amended (<a href="/sess126_2025-2026/hj25/20250219.htm#p29">House Journal-page 29</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/19/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Read second time (<a href="/sess126_2025-2026/hj25/20250219.htm#p29">House Journal-page 29</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/19/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Roll call <a href="/votehistory.php?KEY=25226">Yeas-90  Nays-17</a> (<a href="/sess126_2025-2026/hj25/20250219.htm#p56">House Journal-page 56</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/20/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Read third time and sent to Senate (<a href="/sess126_2025-2026/hj25/20250220.htm#p32">House Journal-page 32</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/20/25</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Roll call <a href="/votehistory.php?KEY=25239">Yeas-89  Nays-14</a> (<a href="/sess126_2025-2026/hj25/20250220.htm#p32">House Journal-page 32</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/21/25</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Scrivener's error corrected</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/26/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Introduced and read first time (<a href="/sess126_2025-2026/sj25/20250226.htm#p10">Senate Journal-page 10</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/26/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Referred to Committee on Labor, Commerce and Industry (<a href="/sess126_2025-2026/sj25/20250226.htm#p10">Senate Journal-page 10</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">04/24/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Committee report: Favorable with amendment Labor, Commerce and Industry (<a href="/sess126_2025-2026/sj25/20250424.htm#p11">Senate Journal-page 11</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/01/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Committee Amendment Adopted</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/01/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Amended</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/01/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Read second time</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/01/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Roll call <a href="/votehistory.php?KEY=26057">Ayes-39  Nays-0</a></td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/05/25</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Scrivener's error corrected</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/06/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Amended (<a href="/sess126_2025-2026/sj25/20250506.htm#p36">Senate Journal-page 36</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/06/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Read third time and returned to House with amendments (<a href="/sess126_2025-2026/sj25/20250506.htm#p36">Senate Journal-page 36</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/06/25</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Roll call <a href="/votehistory.php?KEY=26118">Ayes-45  Nays-0</a> (<a href="/sess126_2025-2026/sj25/20250506.htm#p36">Senate Journal-page 36</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">05/12/25</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Scrivener's error corrected</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/14/26</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Senate amendment amended (<a href="/sess126_2025-2026/hj26/20260114.htm#p105">House Journal-page 105</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/14/26</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Returned to Senate with amendments (<a href="/sess126_2025-2026/hj26/20260114.htm#p105">House Journal-page 105</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/14/26</td><td style="width:70px; vertical-align:top;">House</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">  Roll call <a href="/votehistory.php?KEY=26340">Yeas-112  Nays-0</a> (<a href="/sess126_2025-2026/hj26/20260114.htm#p116">House Journal-page 116</a>)</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">01/21/26</td><td style="width:70px; vertical-align:top;">Senate</td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;"> Concurred in House amendment and enrolled (<a href="/sess126_2025-2026/sj26/20260121.htm#p29">Senate Journal-page 29</a>)</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/03/26</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Ratified R 100</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/05/26</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Signed By Governor</td><tr style="background-color:#EEEEEE;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/06/26</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Effective date 02/05/26</td><tr style="background-color:#DDDDDD;" onMouseOver="trackrow=this; highlight_row(false); return false;"><td style="width:75px; vertical-align:top;">02/06/26</td><td style="width:70px; vertical-align:top;"></td><td style="padding-left: 10px; vertical-align:top; text-indent:-10px;">   Act No. 96</td></table></div>
+<script>billStatusJsonArray.push([{"text":"Prefile","date":"20241205","display":true,"chamber":"H","level":0},{"text":"Introduced","date":"20250226","display":true,"chamber":"S","level":1,"checked":true},{"text":"Introduced","date":"20250114","display":true,"chamber":"H","level":1,"checked":true},{"text":"Out Committee - Senate Labor, Commerce and Industry                                             ","date":"20250424","display":true,"chamber":"S","level":2,"checked":true},{"text":"Out Committee -  House Judiciary                                                                ","date":"20250424","display":true,"chamber":"H","level":2,"checked":true},{"text":"Passed","date":"","display":true,"chamber":"S","level":3,"checked":true},{"text":"Passed","date":"","display":true,"chamber":"H","level":3,"checked":true},{"text":"Ratified - 100","date":"","display":true,"chamber":"B","level":4,"checked":true},{"text":"Signed by Governor","date":"","display":true,"chamber":"B","level":5,"checked":true},{"text":"Act - 96","date":"","display":true,"chamber":"B","level":6,"checked":true}]); /*console.table([{"text":"Prefile","date":"20241205","display":true,"chamber":"H","level":0},{"text":"Introduced","date":"20250226","display":true,"chamber":"S","level":1,"checked":true},{"text":"Introduced","date":"20250114","display":true,"chamber":"H","level":1,"checked":true},{"text":"Out Committee - Senate Labor, Commerce and Industry                                             ","date":"20250424","display":true,"chamber":"S","level":2,"checked":true},{"text":"Out Committee -  House Judiciary                                                                ","date":"20250424","display":true,"chamber":"H","level":2,"checked":true},{"text":"Passed","date":"","display":true,"chamber":"S","level":3,"checked":true},{"text":"Passed","date":"","display":true,"chamber":"H","level":3,"checked":true},{"text":"Ratified - 100","date":"","display":true,"chamber":"B","level":4,"checked":true},{"text":"Signed by Governor","date":"","display":true,"chamber":"B","level":5,"checked":true},{"text":"Act - 96","date":"","display":true,"chamber":"B","level":6,"checked":true}]);*/</script><script>
+	$('.bill-list-item').each(function(i, val){
+		//console.log($('.bill-list-item').eq(i).find('a[class="nodisplay"]:eq(0)').length);
+			
+			$('.bill-list-item').eq(i).css('border-bottom: 2px solid black !important;')
+			if ($('.bill-list-item').eq(i).find('a[class="nodisplay"]:eq(0)').length){
+					$('.bill-list-item').eq(i).find('a[class="nodisplay"]:eq(0)').before('<span class="disclaimer-text">The following graphic is a general description of the legislation&apos;s status.   Users must reference the bill history and the respective journals of the House and Senate for detailed status information.</span><div class="billstatusholder" style="display: none;-webkit-print-color-adjust: exact; " ></div>');
+			} else {
+				$('.bill-list-item').eq(i).find('table:eq(0)').before('<span class="disclaimer-text">The following graphic is a general description of the legislation&apos;s status.   Users must reference the bill history and the respective journals of the House and Senate for detailed status information.</span><div class="billstatusholder" style="display: none;-webkit-print-color-adjust: exact; " ></div>');
+			}
+			$('.billstatusholder').eq(i).load('billstatusvisualization.php', function(){
+
+			});
+			
+	});
+
+	setTimeout(function(){
+		applystatusdata();
+		$('.disclaimer-text').css('display', 'block')
+
+	}, 1500)
+
+
+	
+
+	
+	function applystatusdata(){
+
+			
+			$('.splitBlock').eq(0).css('border-radius', '0px !important').css('border-left', '0px');
+			console.log(billStatusJsonArray);
+			$.each(billStatusJsonArray, function(i, val) {
+				
+			    var bodyH = false;
+			    var bodyS = false;
+			    var passedOrAdopted = false;
+			    var senatePassAction = '';
+				var housePassAction = '';
+				var concurrentResolutionType = '';
+				var govTextString = '';
+				var sustainedOrVetoedCheck_Senate = false;
+				var sustainedOrVetoedCheck_House = false;
+				 
+
+
+
+				$.each(val, function(i2, val2){
+					if (val2.chamber === 'S'){
+						bodyS = true;
+					}
+					if (val2.chamber === 'H'){
+						bodyH = true;
+					}
+					if (val2.text === 'Passed' || val2.text === 'Adopted'){
+							passedOrAdopted = true;
+					}
+
+					if (val2.text === 'Adopted' && (val2.level == 1 || val2.level == 2 || val2.level == 3)){
+					//if (val2.text === 'Adopted' && (val2.level == 2 || val2.level == 3)){
+							console.log('adopted level ' + val2.level)
+							concurrentResolutionType = 'true';
+					}
+					//if (val2.text === 'Adopted' && val2.level == 3){
+					//	concurrentResolutionType = 'true';	
+					//}
+
+
+			    // PREFILED CHECK
+			    if (i2 == 0 && val2.text === 'Prefile' && val2.display == true) {
+			        $('.billstatusholder').eq(i).find('.section-block-1 .circle-item')
+			            .show()
+			            .text(val2.chamber)
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .css('color', 'white')
+			            .attr('title', val2.text + 'd in the ' + val2.chamber + ' on ' + val2.date.substr(4, 2) + '/' + val2.date.substr(6, 2) + '/' + val2.date.substr(0, 4));
+			            if (val2.display == true){
+			            		//$('.billstatusholder').eq(i).find('.billTrackBody'+val2.chamber).append('<span style="font-weight:normal;">-Prefiled ').css('bottom', '-7px')
+			            		$('.billstatusholder').eq(i).find('.billTrackBody'+val2.chamber).append('<span style="font-weight:normal;"> Prefiled ').css('bottom', '-7px')
+			            }
+			            
+			    } else if (i2 == 0 && val2.text === 'Prefile' && val2.display == false || i2 == 0 && val2.text !== 'Prefile') {
+			        $('.billstatusholder').eq(i).find('.section-block-1').css('opacity', '0');
+			    };
+
+
+
+			    // INTRO CHECK
+			    // SENATE INTRO
+			    if (val2.text === 'Introduced' && val2.chamber === 'S' && val2.display == true && val2.checked == true) {
+			        $('.billstatusholder').eq(i).find('.section-block-2 .splitBlock-circle-s')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .css('color', 'white')
+			            .attr('title', val2.text)
+
+			            if (val2.date.length){
+			            		 $('.billstatusholder').eq(i).find('.section-block-2 .splitBlock-circle-s').attr('title', val2.text + ' in ' + val2.chamber + ' on ' + val2.date.substr(4, 2) + '/' + val2.date.substr(6, 2) + '/' + val2.date.substr(0, 4))
+			            }
+			    };
+			    // HOUSE INTRO
+			    if (val2.text === 'Introduced' && val2.chamber === 'H' && val2.display == true && val2.checked == true) {
+			        $('.billstatusholder').eq(i).find('.section-block-2 .splitBlock-circle-h')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .css('color', 'white')
+			            .attr('title', val2.text)
+
+			            if (val2.date.length){
+			            		 $('.billstatusholder').eq(i).find('.section-block-2 .splitBlock-circle-h').attr('title', val2.text + ' in ' + val2.chamber + ' on ' + val2.date.substr(4, 2) + '/' + val2.date.substr(6, 2) + '/' + val2.date.substr(0, 4))
+			            }
+			    }
+
+
+
+			    // IN COMMITTEE CHECK
+			    // CAN ONLY BE IN ONE COMMITTEE AT A TIME, CORRECT?
+			    if (val2.text.indexOf('In Committee') > -1 || val2.text.indexOf('Out Committee') > -1 && val2.display == true) {
+			        $('.billstatusholder').eq(i).find('.section-block-3 .splitBlock-circle-' + val2.chamber.toLowerCase())
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .css('color', 'white')
+			            .attr('title', val2.text)
+					
+					//console.log(val2.chamber)
+			        //$('.billstatusholder').eq(i).find('.circleLabel-' + val2.chamber +':eq(0)').text('test')
+			        $('.billstatusholder').eq(i).find('.section-block-3 .circleLabel-' + val2.chamber).html(val2.text.substring(0, val2.text.indexOf(' - ')).replace('Out ', 'Out of<br>').replace('In ', 'In<br>'))
+			        
+
+
+			    } else if (val2.text.indexOf('In Committee') > -1 || val2.text.indexOf('Out Committee') > -1 && val2.display == false) {
+			        //$('.billstatusholder').eq(i).find('.section-block-3').css('opacity', '0');
+			    };
+
+
+
+
+			    // PASSED OR ADOPTED BODY CHECK
+			    // SENATE PASSED OR ADOPTED
+			    if (val2.checked == true && val2.text === 'Passed' && val2.chamber === 'S' || val2.text === 'Adopted' && val2.chamber === 'S' && val2.display == true && val2.checked == true) {
+			    	
+			    	//console.log(val2)
+			        $('.billstatusholder').eq(i).find('.section-block-4 .splitBlock3 .splitBlock-circle-s')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .css('color', 'white')
+			            .attr('title', val2.chamber + ' ' + val2.text)
+			        $('.billstatusholder').eq(i).find('.section-block-4').find('.circleLabel-S').text(val2.text)
+			        senatePassAction = val2.text;
+			    };
+			    // HOUSE PASSED OR ADOPTED
+			    if (val2.checked == true && val2.text === 'Passed' && val2.chamber === 'H'|| val2.text === 'Adopted' && val2.chamber === 'H' && val2.display == true && val2.checked == true) {
+
+			        $('.billstatusholder').eq(i).find('.section-block-4 .splitBlock3 .splitBlock-circle-h')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .css('color', 'white')
+			            .attr('title', val2.chamber + ' ' + val2.text)
+			        $('.billstatusholder').eq(i).find('.section-block-4').find('.circleLabel-H').text(val2.text)
+			        housePassAction = val2.text;
+			    }
+
+
+
+
+			    // RATIFIED CHECK
+			    if (val2.text.indexOf('Ratified') > -1 && val2.checked == true && val2.display == true) {
+			        $('.billstatusholder').eq(i).find('.section-block-5 .circle-item')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .attr('title', val2.text)
+			    } else if (i == 0 && val2.text !== 'Prefile') {
+			        $('.billstatusholder').eq(i).find('.section-block-5 .circle-item').text();
+			    };
+
+
+
+
+			    // GOVERNOR CHECK
+			    if (val2.text.indexOf('Vetoed by Governor') > -1 && val2.checked == true && val2.display == true) {
+			        $('.billstatusholder').eq(i).find('.section-block-6 .circle-item')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .attr('title', val2.text)
+			            $('.billstatusholder').eq(i).find('.section-block-6').find('.circleLabel-gov').html(val2.text).css('top', '23px')
+			            $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '1 !important');
+			            $('.billstatusholder').eq(i).find('.section-block-7').css('opacity', '1 !important');
+
+			    }  else if (val2.text === 'Governor' && val2.display == true && val2.checked == false){
+			    	$('.billstatusholder').eq(i).find('.section-block-7').hide();
+
+			    } else if (val2.text === 'Signed by Governor' && val2.display == true && val2.checked == true){
+			    	
+			    	$('.billstatusholder').eq(i).find('.section-block-6 .circle-item')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .attr('title', val2.text)
+			            $('.billstatusholder').eq(i).find('.section-block-6').find('.circleLabel-gov').html(val2.text).css('top', '23px')
+			            $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '1 !important');
+			            $('.billstatusholder').eq(i).find('.section-block-7').hide()
+
+			    } else if (val2.text.indexOf('Became Law Without Signature') > -1 && val2.display == true && val2.checked == true){
+			    	
+					govTextString = val2.text.replace('Without', 'w/o Gov. ');
+					//  9/15/20 - ADDING CODE TO MAKE CIRCLE ACTIVE / GREEN - PREVIOUSLY ONLY CHANGED LABEL TEXT
+					$('.billstatusholder').eq(i).find('.section-block-6 .circle-item')
+			            .css('background-color', 'green')
+			            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            /*.css('cursor', 'pointer')*/
+			            .attr('title', val2.text)
+
+			    };
+
+			    
+
+			    
+			    // OVERRIDE OR SUSTAINED VETO CHECK
+			    // SENATE 
+			    if (val2.chamber === 'S' && sustainedOrVetoedCheck_Senate == false && (val2.text.indexOf('Veto Overrid') > -1 || val2.text.indexOf('Veto Sustain') > -1 || val2.text.indexOf('Veto Pending') > -1) && val2.display == true ) {
+					
+			    	if (val2.checked == true){
+				    	
+				        $('.billstatusholder').eq(i).find('.section-block-7 .splitBlock4 .splitBlock-circle-s')
+				            .css('background-color', 'green')
+				            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            	/*.css('cursor', 'pointer')*/
+				            .css('color', 'white')
+				            .attr('title', val2.chamber + ' ' + val2.text)
+				        $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '1');
+			        } else {
+				    	$('.billstatusholder').eq(i).find('.section-block-7 .splitBlock4 .splitBlock-circle-s')
+				            .css('background-color', 'white')
+				            .css('color', 'black')
+				            .attr('title', val2.chamber + ' ' + val2.text)
+				        $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '1');
+				    }
+			            //.parent().parent().find('.circleLabel-S').text(val2.chamber + ' ' + val2.text)
+			        $('.billstatusholder').eq(i).find('.section-block-7').find('.circleLabel-S').text(val2.chamber + ' ' + val2.text)
+			        //console.log(val2)
+			        //console.log(i + ' ' + i2 + '  ' + val2.chamber + ' ' + val2.text)
+			        sustainedOrVetoedCheck_Senate = true;
+			    }  
+			    // HOUSE
+			    if (val2.chamber === 'H' && sustainedOrVetoedCheck_House == false && (val2.text.indexOf('Veto Overrid') > -1 || val2.text.indexOf('Veto Sustain') > -1 || val2.text.indexOf('Veto Pending') > -1) && val2.display == true ) {
+			    	
+		    		if (val2.checked == true){
+				        $('.billstatusholder').eq(i).find('.section-block-7 .splitBlock4 .splitBlock-circle-h')
+				            .css('background-color', 'green')
+				            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            	/*.css('cursor', 'pointer')*/
+				            .css('color', 'white')
+				            .attr('title', val2.chamber + ' ' + val2.text)
+				        $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '1');
+				    } else {
+				    	$('.billstatusholder').eq(i).find('.section-block-7 .splitBlock4 .splitBlock-circle-h')
+				            .css('background-color', 'white')
+				            .css('color', 'black')
+				            .attr('title', val2.chamber + ' ' + val2.text)
+				        $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '1');
+				    }
+			            //.parent().parent().find('.circleLabel-H').text(val2.chamber + ' ' + val2.text);
+			        $('.billstatusholder').eq(i).find('.section-block-7').find('.circleLabel-H').text(val2.chamber + ' ' + val2.text)
+			        //console.log(val2)
+			        //console.log(i + ' ' + i2 + '  ' + val2.chamber + ' ' + val2.text)
+			        sustainedOrVetoedCheck_House = true;
+			    } 
+
+
+
+
+			    // ACT CHECK
+			    if (val2.text.indexOf('Act') > -1 && val2.display == true && $('.billstatusholder').eq(i).find('.section-block-6').find('.circleLabel-gov').text() !== 'Governor' ) {
+			    	if ( val2.checked == true ){
+				    		$('.billstatusholder').eq(i).find('.section-block-8 .circle-item')
+				            .css('background-color', 'green')
+				            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            	/*.css('cursor', 'pointer')*/
+				            .attr('title', val2.text)
+			    	}
+			    	
+			        
+			    } else if (val2.text.indexOf('Act') > -1 && val2.display == false ){
+			        $('.billstatusholder').eq(i).find('.section-block-8').css('opacity', '0');
+		   			
+			    } else if (val2.text.indexOf('Act') > -1 && val2.display == true && val2.checked == true && $('.billstatusholder').eq(i).find('.section-block-6').find('.circleLabel-gov').text() === 'Governor' ){
+			        $('.billstatusholder').eq(i).find('.section-block-7').hide();
+			        $('.billstatusholder').eq(i).find('.section-block-6').find('.circleLabel-gov').text(govTextString).css('top', '20px')
+		   			$('.billstatusholder').eq(i).find('.section-block-8 .circle-item')
+				            .css('background-color', 'green')
+				            .html('<img src="/images/blank_green.png" style="border: 0px solid red; width: 100%; height: 100%; border-radius: 50%;">')
+			            	/*.css('cursor', 'pointer')*/
+				            .attr('title', val2.text)
+		   		};
+
+			    $('.billstatusholder').eq(i).show()
+		    });
+			
+			if (passedOrAdopted == true && bodyS == false || bodyH == false){
+				// SENATE RESOLUTION
+				if (bodyS == true){
+						//alert(i + 'senate resolution');
+						transformResolution(i, 'Senate', 'Adopted');
+						$('.billstatusholder').eq(i).attr('data-infotext', (i + ' senate resolution'));
+				}
+				// HOUSE RESOLUTION
+				if (bodyH == true){
+						//alert(i + 'house resolution');
+						transformResolution(i, 'House', 'Adopted');
+						$('.billstatusholder').eq(i).attr('data-infotext', (i + 'house resolution'));
+				}
+
+			
+				
+			// CONCURRENT RESOLUTION	
+			//} else if (senatePassAction === 'Adopted' && housePassAction === 'Adopted' && concurrentResolutionType === 'true' && bodyS == true && bodyH == true){
+			// March 23, 2020 - attempting to fix concurrent resolution structure issue
+			}  else if (concurrentResolutionType === 'true' && bodyS == true && bodyH == true){
+							$('.billstatusholder').eq(i).attr('data-infotext', (i + ' concurrent resolution'));
+							transformConcurrentResolution(i);
+			} else {
+					$('.billstatusholder').eq(i).attr('data-infotext', (i + ' general bill'));
+			}
+			// March 23, 2020 - attempting to fix concurrent resolution structure issue
+			 //console.log(concurrentResolutionType)
+			 //console.log(housePassAction);
+			 //console.log(senatePassAction);
+		});	
+
+
+	
+
+
+		
+
+
+
+
+
+
+		// OTHER TRANSFORMATION ROUTINES...
+
+		function transformResolution(transformElementIdx, body, action){
+			//alert('resolution transformation')
+			var billStatusElementTransforming = $('.billstatusholder').eq(transformElementIdx);
+			//console.log(billStatusElementTransforming);
+			// REMOVE BOX BORDERS AND BORDER-RADIUS
+			$(billStatusElementTransforming).find('.splitBlock').css({
+					'border-radius': '0px'
+				});
+			if (body === 'Senate'){
+				$(billStatusElementTransforming).find('.splitBlock').css({
+						'border-bottom': '0px',
+						'border-left': '0px',
+						'border-right': '0px'
+					})
+				$(billStatusElementTransforming).find('.circleLabel-H, .splitBlock-circle-h, .billTrackBodyH').css('opacity', '0');
+				$('.billstatusholder').eq(transformElementIdx).find('#billstatusWrapper').css('height', '50px');
+			}
+			if (body === 'House'){
+				$(billStatusElementTransforming).find('.splitBlock').css({
+						'border-top': '0px',
+						'border-left': '0px',
+						'border-right': '0px'
+					})
+				$(billStatusElementTransforming).find('.circleLabel-S, .splitBlock-circle-s, .billTrackBodyS').css('opacity', '0');
+
+			}
+			$(billStatusElementTransforming).find('.section-block-5, .section-block-6, .section-block-7, .section-block-8').css('opacity', '0');
+
+			// HANDLE CAPPING OF THE ENDS OF SINGLE LINE STATUS VISUALIZATIONS
+			$(billStatusElementTransforming).find('.section-block-2 .circleLabels:visible').css('left', '-38%');
+			$(billStatusElementTransforming).find('.section-block-2 .splitBlock-circle:visible').css('left', '-0%');
+
+			$(billStatusElementTransforming).find('.section-block-4 .circleLabels:visible').css('margin-left', '28%');
+			$(billStatusElementTransforming).find('.section-block-4 .splitBlock-circle:visible').css('margin-left', '40%');
+
+			// NO NEED FOR THIS, WAS REMOVING / HIDING THE COMMITTEE CIRCLE AND LABEL
+			 //if ($(billStatusElementTransforming).find('.section-block-3 .splitBlock-circle').css('opacity')==='1'){
+			 		//$(billStatusElementTransforming).find('.section-block-3 .splitBlock-circle:visible').hide();
+			 		//$(billStatusElementTransforming).find('.section-block-3 .circleLabels:visible').hide();
+			 //}
+
+
+			$(billStatusElementTransforming).find('.billStatus-section-blocks').css('height', '57px').css('width', '15%')
+			$(billStatusElementTransforming).find('.section-block-1 #midline').css('height', '2px')
+			$(billStatusElementTransforming).find('.circleLabel-prefile').css('left', '-39%')
+			//$(billStatusElementTransforming).find('.billTrackBody').hide();
+			$(billStatusElementTransforming).find('.section-block-1').find('.circle-item').css('top', '47px')
+			$(billStatusElementTransforming ).find('.section-block-4 .circleLabels').text(action).css('left', '10%')
+
+			// ATTEMPTING TO FIX TIGHT ALIGNMENT WHERE RESOLUTION AND PREFILED -- I.E. SESS 122, BILL 3007
+			if ( $(billStatusElementTransforming ).find('.section-block-1').is(':visible')){
+					//$(billStatusElementTransforming).find('.billTrackBody').css('border', '0px solid')
+			}
+		}
+
+
+
+		function transformConcurrentResolution(transformElementIdx){
+			//console.log('concurrent resolution');
+			var billStatusElementTransforming = $('.billstatusholder').eq(transformElementIdx);
+			//console.log(billStatusElementTransforming);
+			
+			$(billStatusElementTransforming).find('.splitBlock').css({
+						'border-radius': '0px 0px 0px 0px',
+						'border-right': '0px'
+					})
+			$(billStatusElementTransforming).find('.splitBlock').eq(0).css({
+						/*'border-radius': '.8em 0px 0px .8em',*/
+						'border-right': '0px'
+					})
+			$(billStatusElementTransforming).find('.section-block-5, .section-block-6, .section-block-7, .section-block-8').css('opacity', '0');
+
+			$(billStatusElementTransforming).find('.splitBlock3 .circle-item').css('left', '70%');
+			$(billStatusElementTransforming).find('.splitBlock3').parent().find('.circleLabels').css('left', '38%');
+
+			$(billStatusElementTransforming).find('.splitBlock2 .circle-item').css('left', '50%');
+			$(billStatusElementTransforming).find('.splitBlock2').parent().find('.circleLabels').css('left', '18%');
+
+			// March 23, 2020 - fixing failed concurrent resolution display structure
+			$(billStatusElementTransforming ).find('.section-block-4 .circleLabels').text('Adopted').css('left', '38%');
+			
+		}
+
+
+
+	
+	}
+
+
+
+	
+	
+
+</script></div>					</div>		 <!-- mainwidepanel -->
+					
+				</div>		 <!-- pagebody -->
+				
+				<div id="footer" class="nodisplay" style="height: 30px;" onContextMenu="return false;">
+			<div id="footerdiv" style="margin:0;">
+				South Carolina Legislative Services Agency * 223 Blatt Building * 1105 Pendleton Street * Columbia, SC 29201<!-- * 803-212-4420--><br>
+				
+								<a href="/disclaimer.php">Disclaimer</a> * <a href="/policies.php">Policies</a> * <a href="/credits.php">Photo Credits</a> * <a href="/contact.php">Contact Us</a>
+							</div>
+		</div>
+		<div id="printfooter" class="printdisplay serifNormal" align=center style="font-size: 8pt;">
+			<br>
+			<br>
+			<hr>
+			Legislative Services Agency
+			<br>
+			h t t p : / / w w w . s c s t a t e h o u s e . g o v
+		</div>
+	
+		</div>	<!-- container or main in mobile page-->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"565410926b6c467d84cc32520b0caede","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+

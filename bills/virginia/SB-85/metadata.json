@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 85",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "Virginia Social Graph Data, AI Model Operator Context, and Social Media Interoperability",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/virginia/SB-85",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1082242.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed Senate 40-0",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/virginia/SB-85/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

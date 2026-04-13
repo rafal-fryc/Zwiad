@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 110",
+  "state": "South Dakota",
+  "state_abbrev": "SD",
+  "session": "2026",
+  "title": "ISP Privacy",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "consumer-data",
+    "isp-privacy"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/south-dakota/SB-110",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mylrc.sdlegislature.gov/api/Documents/304412.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed Senate 28-6",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/south-dakota/SB-110/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

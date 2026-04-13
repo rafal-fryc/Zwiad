@@ -1,0 +1,50 @@
+{
+  "bill_identifier": "SB 796",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "Virginia Chatbot Duty of Loyalty and Mental Health Detection",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "health",
+    "minors",
+    "liability"
+  ],
+  "sponsors": [
+    "Sen. Durant (R)"
+  ],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/virginia/SB-796",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1150659.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed first chamber",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/virginia/SB-796/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

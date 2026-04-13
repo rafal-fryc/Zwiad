@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 161",
+  "state": "Alabama",
+  "state_abbrev": "AL",
+  "session": "2026",
+  "title": "App Store Accountability Act",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "age-assurance",
+    "app-store"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/alabama/HB-161",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB161-int.pdf",
+  "status_history": [
+    {
+      "date": "2026-01-22",
+      "status": "passed-first-chamber",
+      "detail": "Passed Alabama House unanimously on January 22, 2026; sent to Senate",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/alabama/HB-161/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

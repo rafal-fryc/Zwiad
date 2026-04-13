@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "SB 499",
+  "state": "Kansas",
+  "state_abbrev": "KS",
+  "session": "2026",
+  "title": "Kansas Children's Online Safety and Chatbot Protections for Minors",
+  "category": [
+    "ai-law",
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "chatbots"
+  ],
+  "sponsors": [
+    "Kansas Senate Committee on Federal and State Affairs"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/kansas/SB-499",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.kslegislature.gov/li/b2025_26/measures/documents/sb499_00_0000.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/kansas/SB-499/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

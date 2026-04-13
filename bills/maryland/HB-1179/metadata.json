@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 1179",
+  "state": "Maryland",
+  "state_abbrev": "MD",
+  "session": "2026",
+  "title": "App Store Accountability Act Age Assurance Framework",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "age-verification",
+    "youth-privacy"
+  ],
+  "sponsors": [
+    "Del. Nkongolo (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/maryland/HB-1179",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mgaleg.maryland.gov/2026RS/bills/hb/hb1179f.pdf",
+  "status_history": [
+    {
+      "date": "2026-02-11",
+      "status": "introduced",
+      "detail": "Introduced by Del. Nkongolo (R) on February 11, 2026",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/maryland/HB-1179/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

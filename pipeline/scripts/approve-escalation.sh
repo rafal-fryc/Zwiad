@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+# LEGACY: This script is the standalone CLI alternative for resolving
+# escalations. The production runtime handles escalations via Discord +
+# orchestrator Mode 2. Kept for ad-hoc CLI use and pytest fixtures.
+#
 # Approve escalated reviewer findings after human resolution
 # Usage: approve-escalation.sh <run-id> <finding-id>
 # Reads: pipeline/runs/<run-id>/reviewer-escalation-<finding-id>.md

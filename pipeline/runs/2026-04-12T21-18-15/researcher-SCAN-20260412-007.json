@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:45:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-007",
+    "title": "CalPrivacy Opens Preliminary Comment Period on Data Broker DROP Audits (Comments Due May 7, 2026)",
+    "report_path": "reports/privacy/cppa-drop-audit-rulemaking-2026-04-12.md",
+    "verification_status": "verified",
+    "sources_count": 10,
+    "sources": [
+      {"url": "https://cppa.ca.gov/regulations/drop.html", "title": "CalPrivacy — DROP System Requirements", "accessed": "2026-04-12", "key_facts": "Official Agency page for DROP rulemaking; hosts Invitation for Preliminary Comments."},
+      {"url": "https://cppa.ca.gov/data_brokers/", "title": "CalPrivacy — Information for Data Brokers", "accessed": "2026-04-12", "key_facts": "Confirms triennial audit requirement beginning Jan 1, 2028."},
+      {"url": "https://cppa.ca.gov/data_broker_registry/", "title": "CalPrivacy — Data Broker Registry", "accessed": "2026-04-12", "key_facts": "Identifies entities subject to DROP audits."},
+      {"url": "https://cppa.ca.gov/announcements/", "title": "CalPrivacy — Latest News & Announcements", "accessed": "2026-04-12", "key_facts": "Agency channel for rulemaking notices."},
+      {"url": "https://natlawreview.com/article/hot-press-calprivacy-inviting-preliminary-comments-delete-request-and-opt-out", "title": "National Law Review — CalPrivacy Inviting Preliminary Comments on DROP Audits", "accessed": "2026-04-12", "key_facts": "Confirms April 7, 2026 opening and May 7, 2026 5:00 p.m. PT deadline; quotes Agency language on pre-rulemaking purpose."},
+      {"url": "https://cppa.ca.gov/regulations/ccpa_updates.html", "title": "CalPrivacy — CCPA Updates, Cybersecurity Audits, Risk Assessments, ADMT", "accessed": "2026-04-12", "key_facts": "Companion rulemakings relevant to audit scope."},
+      {"url": "https://www.cslawreport.com/21398736/calprivacy-director-discusses-new-audits-division-and-other-2026actions-to-come.thtml", "title": "Cybersecurity Law Report — CalPrivacy New Audits Division", "accessed": "2026-04-12", "key_facts": "Confirms establishment of Audits Division and Chief Privacy Auditor Sabrina Boyce Ross."},
+      {"url": "https://www.privacyworld.blog/2026/03/calprivacy-update-shifting-to-structural-compliance-and-auditing/", "title": "Privacy World — CalPrivacy Shifting to Structural Compliance and Auditing", "accessed": "2026-04-12", "key_facts": "Independent analysis of audit-driven enforcement posture."},
+      {"url": "https://www.ropesgray.com/en/insights/alerts/2026/01/californias-ccpa-cybersecurity-audit-rule-takes-effect-what-businesses-need-to-know", "title": "Ropes & Gray — CCPA Cybersecurity Audit Rule Takes Effect", "accessed": "2026-04-12", "key_facts": "Context on the parallel cybersecurity audit rule."},
+      {"url": "https://www.crowell.com/en/insights/client-alerts/california-privacy-agency-launches-data-broker-strike-force-amid-delete-act-crackdown", "title": "Crowell & Moring — Data Broker Strike Force", "accessed": "2026-04-12", "key_facts": "Context on enforcement posture toward data brokers."}
+    ]
+  }
+}

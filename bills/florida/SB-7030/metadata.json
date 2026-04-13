@@ -1,0 +1,49 @@
+{
+  "bill_identifier": "SB 7030",
+  "state": "Florida",
+  "state_abbrev": "FL",
+  "session": "2026",
+  "title": "Chatbot Litigation Confidentiality",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "liability",
+    "chatbots",
+    "litigation"
+  ],
+  "sponsors": [
+    "Commerce Committee"
+  ],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/florida/SB-7030",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://flsenate.gov/Session/Bill/2026/7030/Vote/SenateVote_s07030c1028.PDF",
+  "status_history": [
+    {
+      "date": "2026-01-21",
+      "status": "passed-committee",
+      "detail": "Reported favorably out of committee on January 21, 2026",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed Committee",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/florida/SB-7030/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

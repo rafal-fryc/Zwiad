@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <!-- THIS IS THE META TITLE -->
+    <title>Current Legislation Search</title>
+    <link href="css/large.css" rel="stylesheet" type="text/css" media="screen and (min-width: 601px)"/>
+    <link href="css/small.css" rel="stylesheet" type="text/css"  media="screen and (max-width: 600px)"/>
+    <style>
+        .groupedby{
+            font-size:20px;
+            font-weight:bold;
+            width:100%;
+            text-align:center;
+            margin-top:15px;
+            margin-bottom:-10px;
+            border-top:5px solid #475982;
+        }
+                .dvRepHdr{
+            font-size:20px;
+            font-weight:bold;
+            width:100%;
+            text-align:center;
+            margin-top:15px;
+            margin-bottom:-10px;
+            border-top:5px solid #475982;
+        }
+    </style>
+    <!-- THIS IS THE META TITLE -->
+<meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Google Fonts -->
+    <link href="/css/googleFonts.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" /><title>
+
+</title></head>
+<body>
+<div class="NoPrint">
+    <header>
+        <!-- top menu for pages that need it -->
+        
+        <div class="header-logo-wrapper">
+            <a href='/'>
+                <img src='/img/gcnh-logo.jpg' alt="GCNH Logo" class="img-fluid" />
+            </a>
+        </div>
+        <button class="navbar-toggler-gcnh collapsed d-md-none" type="button" data-trigger="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+
+
+
+
+        <!-- included on the aspx page (pick from the includes folder) -->       
+        
+    <!-- CHOOSE YOUR SUBMENU SYSTEM FROM THE INCLUDES FOLDER -->
+    <nav class="navbar bg-primary navbar-expand-md mobile-offcanvas p-0" id="navbarNavDropdown">
+    <div class="gcnh-mobile-header d-md-none">
+        <!--img src='/bill_status/img/nhseal.png' class="mobile-nav-seal mx-1" /-->
+        <div>
+            <p class="small-title">
+                THE GENERAL COURT OF
+            </p>
+            <p class="large-title">
+                New Hampshire
+            </p>
+        </div>
+        <button class="navbar-toggler-internal" type="button" data-trigger="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+    </div>
+    <div class="container-lg justify-content-center">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="HouseDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">House</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="HouseDropdown">
+                    <a class="dropdown-item py-2" href="/house/">House Home</a>
+                    <a class="dropdown-item py-2" href="/house/members/">House Roster</a>
+                    <a class="dropdown-item py-2" href="/nhgcrollcalls/">Voting Records</a>
+                    <a class="dropdown-item py-2" href="/lsr_search/">LSR Search</a>
+                    <a class="dropdown-item py-2" href="/house/committees/standingcommittees.aspx">Standing Committees</a>
+                    <a class="dropdown-item py-2" href="/statstudcomm/">Statutory &amp; Study Committees</a>
+                    <a class="dropdown-item py-2" href="/house/schedule/dailyschedule.aspx">House Meeting Schedule</a>
+                    <a class="dropdown-item py-2" href="/house/aboutthehouse/houseRules.pdf">House Rules</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="SenateDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Senate</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="SenateDropdown">
+                    <a class="dropdown-item py-2" href="/senate/">Senate Home</a>
+                    <a class="dropdown-item py-2" href="/senate/members/senate_roster.aspx">Senate Roster</a>
+                    <a class="dropdown-item py-2" href="/senate/members/wml.aspx">Who's My Senator</a>
+                    <a class="dropdown-item py-2" href="/nhgcrollcalls/">Voting Records</a>
+                    <a class="dropdown-item py-2" href="/senate/members/leadership.aspx">Senate Leadership</a>
+                    <a class="dropdown-item py-2" href="/senate/members/DistrictMap.aspx">District Maps</a>
+                    <a class="dropdown-item py-2" href="/senate/committees/senate_committees.aspx">Standing Committees</a>
+                    <a class="dropdown-item py-2" href="/statstudcomm/">Statutory &amp; Study Committees</a>
+                    <a class="dropdown-item py-2" href="/senate/schedule/dailyschedule.aspx">Senate Meeting Schedule</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="LawsDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Laws (RSAs)</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="LawsDropdown">
+                    <a class="dropdown-item py-2" href="/rsa/html/indexes/default.aspx">Laws Home</a>
+                    <a class="dropdown-item py-2" href="/rsa/search/default.aspx">Revised Statutes Search</a>
+                    <a class="dropdown-item py-2" href="/rsa/html/nhtoc.htm">Browse Index of Titles</a>
+                    <a class="dropdown-item py-2" href="https://www.nh.gov/glance/state-constitution">NH Constitution</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="BudgetDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">LBA</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="BudgetDropdown">
+                    <a class="dropdown-item py-2" href="/lba/">LBA Budget/Audit Home</a>
+                    <a class="dropdown-item py-2" href="/lba/budget/about_division.aspx">About Budget</a>
+                    <a class="dropdown-item py-2" href="/lba/audit/about_audit.aspx">About Audit</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="AdministrativeRulesDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Administrative Rules</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="AdministrativeRulesDropdown">
+                    <a class="dropdown-item py-2" href="/rules/">Rules Home</a>
+                    <a class="dropdown-item py-2" href="/rules/whoweare.aspx">Duties and Function</a>
+                    <a class="dropdown-item py-2" href="/rules/register/default.aspx">Rulemaking Register</a>
+                    <a class="dropdown-item py-2" href="/rules/about_rules/listagencies.aspx">Rules Listed by Agency</a>
+                    <a class="dropdown-item py-2" href="/rules/jlcar/description_members.aspx">JLCAR</a>
+                    <a class="dropdown-item py-2" href="/nholsrulesdbsearch">Rulemaking Search</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="VisitorCenterDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Visitor Center</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="VisitorCenterDropdown">
+                    <a class="dropdown-item py-2" href="/nh_visitorcenter/">Visitor Center Home</a>
+                    <a class="dropdown-item py-2" href="https://nh-state-house-visitor-center.square.site/">Online Gift Shop</a>
+                    <a class="dropdown-item py-2" href="/NH_VisitorCenter/book_tour/">Book a Tour</a>
+                    <a class="dropdown-item py-2" href="https://www.youtube.com/watch?v=nn8mRoOlgxU">State House Student Video Tour</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="CareersDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Careers</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="CareersDropdown">
+                    <a class="dropdown-item py-2" href="/careers/">Careers Home</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="senate-gcnh-section pt-3 d-md-none">
+        <a href="/" class="d-inline-flex">
+            <img src="/img/nhseal.png" class="mobile-nav-seal mx-1" alt="NH State Seal" />
+            <p class="senate-gcnh-title px-1">
+                THE GENERAL COURT OF NEW <br /> HAMPSHIRE
+            </p>
+        </a>
+    </div>
+</nav>
+    <!-- CHOOSE YOUR SUBMENU SYSTEM FROM THE INCLUDES FOLDER -->
+    <div class="mb-4 bg-light py-4">
+        <h3 class="text-center text-uppercase">Search Current Legislation</h3>
+    </div>
+
+    </header>
+</div>
+        <!-- code from legacy app inserted from the aspx file in the pageBody section -->
+        <div>
+            
+
+     
+
+
+
+                                <!-- YOUR CODE HERE -->
+    <form method="post" action="./results.aspx?adv=2&amp;txtbillno=HB1124" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTk1MzA1MjY0MQ9kFgJmD2QWAgIDD2QWAgIBD2QWCgIBDxYCHgRUZXh0BQg8Yj4xPC9iPmQCBA8WAh8ABVM8YSBocmVmPSdxdWlja1NlYXJjaC5hc3B4JyBzdHlsZT0nY29sb3I6ICNGRkZGRkY7IGZvbnQtd2VpZ2h0OiBib2xkJz5OZXcgU2VhcmNoPC9hPmQCBg8WAh8AZWQCCA8WAh4LXyFJdGVtQ291bnQCARYCZg9kFgRmDxUCAAQxNTgyZAIBDxUIBkhCMTEyNAQyMDI2IXJlbGF0aXZlIHRvIHRoZSByaWdodCB0byBjb21wdXRlLgZTRU5BVEUOUEFTU0VEL0FET1BURUQMSU4gQ09NTUlUVEVFEFNlbmF0ZSBKdWRpY2lhcnlsMS8yOS8yMDI2Jm5ic3A7YXQmbmJzcDsxMDozMCBhLm0uJm5ic3A7PGI+TG9jYXRpb246PC9iPiZuYnNwO0dyYW5pdGUgUGxhY2UmbmJzcDs8Yj5UaW1lOjwvYj4mbmJzcDsxMDozMCBhLm0uZAIODxYCHwAFFCwnYm4nIGFzICdzb3J0RmllbGQnZGQ6rdzLNlhDQpDdVjVhiumFlRzgOpmsiDI1u5OnkcICTg==" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="702EB976" />
+</div>
+        <div id="dvAll" style="position: relative; width: 100%">
+        <div id="dvMainContent" style="padding-bottom: 50px">
+            <div id="dvHdrWrap">
+                <div id="dvHdr" style="position: relative;text-align: center; font-size: 16pt; font-weight: bold;background-color:#475982;color:white;padding:5px">
+                Bill Search Results
+                </div>
+                <div style="background-color:#475982;color:white;position: relative; height:100%;overflow:hidden;padding:5px;">
+                <div id="dvCount" style="float: left; width: 70%;">
+                    Search Results Found:&nbsp;<b>1</b>
+                </div>
+                <div style="float: right; position: relative; width: 25%; text-align: right; margin-right: 10px;">
+                    <a href='quickSearch.aspx' style='color: #FFFFFF; font-weight: bold'>New Search</a>
+                </div>
+                </div>
+
+            </div>
+            <div id="dvResultsWrap">
+
+                <div style="clear: both;">
+                     
+                    
+                            <div>
+                                
+                                <div style="clear: both">
+                                    <hr style="height:4px;border-width:0;color:#475982;background-color:#475982;" />
+
+                                </div>
+                                    <div  style="background-color: #EBEBEB;height:100%; overflow:hidden;">
+                                        <!--style="padding: 5px; width: 15%; position: relative; float: left; font-weight: bold; font-size: 15pt;  -->
+                                        <div  class="BS-ResultsCol1BN">
+                                        <a href="billinfo.aspx?id=1582&inflect=2" target="_blank">
+                                            HB1124
+                                        </a><br />
+                                          Year: 2026
+                                        </div>
+                                        <!-- style="padding: 5px; max-width: 1110px;width:73%;position: relative; float: left; font-size: 15pt; " -->
+                                        <div  class="BS-ResultsCol2">
+                                            <b>Title:</b>&nbsp;&nbsp;
+                                           <span style="font-weight: normal">relative to the right to compute.</span> 
+                                        </div>
+                                    <div style="clear: both">
+                                        <div class="BS-ResultsCol1">
+                                            General Status:
+                                        </div>
+                                        <div  class="BS-ResultsCol2">
+                                            SENATE
+                                        </div>
+
+                                    </div>
+                                    <div style="clear: both">
+                                        <div class="BS-ResultsCol1">
+                                            House Status
+                                        </a>
+                                        </div>
+                                        <div class="BS-ResultsCol2">
+                                            PASSED/ADOPTED
+                                        </div>
+                                    </div>
+                                    <div style="clear: both">
+                                        <div class="BS-ResultsCol1">
+                                            Senate Status:
+                                        </a>
+                                        </div>
+                                        <div class="BS-ResultsCol2">
+                                            IN COMMITTEE
+                                        </div>
+                                    </div>
+                                    <div style="clear: both">
+                                        <div class="BS-ResultsCol1">
+                                            Next/Last Hearing:
+                                        </div>
+                                        <div class="BS-ResultsCol2">
+                                            Senate Judiciary<br />
+
+                                             1/29/2026&nbsp;at&nbsp;10:30 a.m.&nbsp;<b>Location:</b>&nbsp;Granite Place&nbsp;<b>Time:</b>&nbsp;10:30 a.m.
+                                        </div>
+                                    </div>
+                
+                                </div>
+                            </div>
+                                      
+
+
+  <!-- alternate rows -->
+                
+                
+            
+        </div>
+        </div>
+            
+            
+            
+            
+            
+            </div>
+            </div>
+        
+    </form>
+                                <!-- END YOUR CODE HERE -->
+
+
+
+
+
+        </div>
+        <!-- end legacy code -->
+
+<div class="NoPrint">
+    <footer>
+        <div class="container desktop-footer d-print-none">
+    <div class="row justify-content-center pt-4">
+        <div class="col-sm-3">
+            <ul>
+                <li>
+                    <lh><p>HELPFUL LINKS</p></lh>
+                </li>
+                <!--li><a class="footer-link" href="/committee_of_conference/">Committees of Conference</a></-->
+                <li><a class="footer-link" href="/redistricting/">Redistricting Information</a></li>
+                <li><a class="footer-link" href="/ethics/">Ethics Committee</a></li>
+                <li><a class="footer-link" href="/statstudcomm/">Statutory/Study Committees</a></li>
+                <li><a class="footer-link" href="/nhgcrollcalls/">Voting Records</a></li>
+                <li><a class="footer-link" href="/bill_Status/byAnyMember.aspx">Past Member Legislation</a></li>
+                <li><a class="footer-link" href="https://www.google.com/maps/place/New+Hampshire+State+House/@43.2069998,-71.5403886,17z/data=!4m5!3m4!1s0x89e2136e9b8c52cf:0x100610ccbefbf3da!8m2!3d43.2067707!4d-71.5380374">Driving Directions</a>                </li>
+                <li><a class="footer-link" href="mailto:help@gc.nh.gov">IT Help Desk</a></li>
+                <li><a class="footer-link" href="/misc/State House Complex Public Conduct Policy 2023.pdf">Public Code of Conduct</a></li>
+            </ul>
+            <br />
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <ul>
+                <li><lh><p>DOCUMENTS &AMP; MEDIA</p></lh></li>
+                <li><a class="footer-link" href="https://www.youtube.com/channel/UCxqjz56akoWRL_5vyaQDtvQ/videos">House Streaming </a></li>
+                <li><a class="footer-link" href="https://www.youtube.com/channel/UCjBZdtrjRnQdmg-2MPMiWrA/videos">Senate Streaming</a></li>
+                <li><a class="footer-link" href="/downloads/">Downloads</a></li>
+                <li><a class="footer-link" href="/misc/ADAnotice3.pdf">ADA Compliance Notice </a></li>
+                <li><a class="footer-link" href="/misc/General%20Court%20Harassment%20Policy%20and%20Addendum-1%202020.pdf">Sexual Harassment Policy </a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/policy/accessibility.htm">Accessibility Policy</a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/policy/index.htm">Privacy Policy </a></li>
+            </ul>
+            <br />
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <ul>
+                <li><lh><p>OTHER RESOURCES</p></lh></li>
+                <li><a class="footer-link" href="https://www.sos.nh.gov/lobbyists">Registered Lobbyists </a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/">nh.gov </a></li>
+                <li><a class="footer-link" href="https://www.courts.state.nh.us/">Judicial Branch </a></li>
+                <li><a class="footer-link" href="https://www.governor.nh.gov/">Governor </a></li>
+                <li><a class="footer-link" href="https://www.council.nh.gov/">Executive Council </a></li>
+                <li><a class="footer-link" href="http://sos.nh.gov/">Secretary of State </a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/glance/state-constitution">NH Constitution </a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="desktop-copyright">
+        <div class="row justify-content-center">
+            <p class="m-0 footer-title">The General Court of New Hampshire | 107 North Main Street | Concord, NH 03301</p>
+        </div>
+        <div class="row justify-content-center">
+            <p>&#169; Copyright 2026 State Of New Hampshire</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mobile-footer pt-3 d-print-none">
+    <div class="row justify-content-center">
+        <p class="m-0">The General Court of New Hampshire</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="m-0">107 North Main Street</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="m-0">Concord, NH 03301</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="my-2">&#169; Copyright 2026</p>
+    </div>
+</div>
+
+    </footer>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src='/js/main.js'></script>
+    <script src='/bill_status/js/sk.js'></script>
+    <!-- For adding extra scripts to the bottom of the page below the js decs -->
+    
+
+</body>
+</html>

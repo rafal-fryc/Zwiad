@@ -1,0 +1,36 @@
+{
+  "finding_id": "SCAN-20260412-002",
+  "report_path": "reports/privacy/maine-ld1822-privacy-bill-failed-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 14,
+  "issues": [
+    {
+      "claim": "Alabama enacted its Personal Data Protection Act the same week per the IAPP digest",
+      "section": "Significance and Outlook",
+      "source_url": "https://iapp.org/news/",
+      "issue": "Citation points to IAPP news homepage (generic), not a specific article. Claim about Alabama enactment and the '21 state tally' is not independently corroborated and the URL is not a stable source for this specific claim.",
+      "severity": "minor",
+      "suggested_fix": "Replace with a specific article URL confirming Alabama's enactment and current state count, or remove the parenthetical.",
+      "status": "open"
+    },
+    {
+      "claim": "133rd Legislature convening in December 2026",
+      "section": "Significance and Outlook / Action Items",
+      "source_url": null,
+      "issue": "Specific convening month (December 2026) for the 133rd Maine Legislature is unsourced in the report.",
+      "severity": "minor",
+      "suggested_fix": "Add a citation to Maine Legislature schedule or remove the specific month.",
+      "status": "open"
+    },
+    {
+      "claim": "132nd Legislature adjourns on April 15",
+      "section": "Executive Summary / What Happened",
+      "source_url": null,
+      "issue": "Specific April 15 statutory adjournment date is stated without an inline citation.",
+      "severity": "minor",
+      "suggested_fix": "Add citation to Maine Legislature calendar or Maine Constitution Art. IV Pt. 3 Sec. 1.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

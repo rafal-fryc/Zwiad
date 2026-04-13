@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 1090",
+  "state": "Pennsylvania",
+  "state_abbrev": "PA",
+  "session": "2026",
+  "title": "Pennsylvania Companion Chatbot Minor Access Regulation",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/pennsylvania/SB-1090",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.palegis.us/legislation/bills/text/PDF/2025/0/SB1090/PN1423",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed through committee",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/pennsylvania/SB-1090/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

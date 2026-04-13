@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 2311",
+  "state": "Arizona",
+  "state_abbrev": "AZ",
+  "session": "2026",
+  "title": "Chatbot Disclosures for Minor Users",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "minors"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/arizona/HB-2311",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/bills/HB2311P.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed committee",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/arizona/HB-2311/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

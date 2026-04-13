@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "AI Guardrails Act",
+  "state": "Federal",
+  "state_abbrev": "US",
+  "session": "2026",
+  "title": "AI Guardrails Act \u2014 Pentagon AI Use Restrictions",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "government-use",
+    "military"
+  ],
+  "sponsors": [
+    "Sen. Slotkin (D-MI)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/federal/AI-Guardrails",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.slotkin.senate.gov/wp-content/uploads/2026/03/DAV26485.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Slotkin (D-MI)",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/federal/AI-Guardrails/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "LB 1175",
+  "state": "Nebraska",
+  "state_abbrev": "NE",
+  "session": "2026",
+  "title": "Social Media Platform Product Liability Amendment",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "youth-privacy",
+    "social-media",
+    "liability"
+  ],
+  "sponsors": [
+    "Sen. DeBoer"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/nebraska/LB-1175",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://nebraskalegislature.gov/FloorDocs/109/PDF/Intro/LB1175.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. DeBoer",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/nebraska/LB-1175/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

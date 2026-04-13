@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "SB 1790",
+  "state": "Arizona",
+  "state_abbrev": "AZ",
+  "session": "2026",
+  "title": "Arizona Data Broker Registry and Security Requirements",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "data-broker"
+  ],
+  "sponsors": [
+    "Sen. Kuby (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/arizona/SB-1790",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/bills/SB1790P.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/arizona/SB-1790/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

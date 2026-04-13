@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:45:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-023",
+    "title": "Proposed State Privacy Law Update: Week of April 6, 2026 (Troutman Pepper Locke)",
+    "report_path": "reports/privacy/state-privacy-roundup-ky-ny-me-april-2026.md",
+    "verification_status": "verified",
+    "sources_count": 10,
+    "sources": [
+      {"url": "https://www.troutmanprivacy.com/2026/04/proposed-state-privacy-law-update-april-6-2026/", "title": "Troutman Pepper Locke — Proposed State Privacy Law Update: April 6, 2026", "accessed": "2026-04-12", "key_facts": "Primary source; weekly roundup covering Maine LD 1822, Kentucky HB 692 ACR amendment, NY SOPA, and session deadlines."},
+      {"url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/", "title": "JD Supra syndication of the Troutman update", "accessed": "2026-04-12", "key_facts": "Confirms headline items from the primary source via mirror publication."},
+      {"url": "https://legiscan.com/KY/bill/HB692/2026", "title": "LegiScan — Kentucky HB 692", "accessed": "2026-04-12", "key_facts": "House 92-0 on March 16, 2026; Senate 38-0 on March 31, 2026."},
+      {"url": "https://apps.legislature.ky.gov/record/26rs/hb692.html", "title": "Kentucky Legislature — HB 692 record", "accessed": "2026-04-12", "key_facts": "Official bill history; sponsor Rep. Branscum."},
+      {"url": "https://apps.legislature.ky.gov/recorddocuments/bill/26RS/hb692/bill.pdf", "title": "Kentucky HB 692 enrolled bill text", "accessed": "2026-04-12", "key_facts": "Definitions of 'automatic content recognition' and 'smart monitor'; inclusion of ACR in sensitive data."},
+      {"url": "https://www.nysenate.gov/legislation/bills/2025/S4609/amendment/A", "title": "NY State Senate Bill S4609A (SOPA)", "accessed": "2026-04-12", "key_facts": "Official bill page; sponsor Sen. Gounardes; age-assurance and default-privacy provisions."},
+      {"url": "https://legiscan.com/NY/text/S04609/id/3304245", "title": "LegiScan — NY S04609", "accessed": "2026-04-12", "key_facts": "Bill text and legislative history."},
+      {"url": "https://www.nysenate.gov/newsroom/press-releases/2026/andrew-gounardes/sen-gounardes-am-rozic-applaud-gov-hochul-including", "title": "NY Senate press release — Hochul budget inclusion", "accessed": "2026-04-12", "key_facts": "Governor Hochul incorporating SOPA into 2026 State Budget."},
+      {"url": "https://www.nysenate.gov/newsroom/press-releases/2026/andrew-gounardes/senate-one-house-resolution-includes-sen-gounardes", "title": "NY Senate One-House resolution", "accessed": "2026-04-12", "key_facts": "Senate budget resolution incorporates SOPA in March 2026."},
+      {"url": "https://www.commonsensemedia.org/sites/default/files/featured-content/files/ny-stop-online-predators-act-sopa-fact-sheet-modified-jan-9-2026.pdf", "title": "Common Sense Media — SOPA Fact Sheet", "accessed": "2026-04-12", "key_facts": "Summary of SOPA provisions; $5,000 per violation enforcement by NY AG."}
+    ]
+  }
+}

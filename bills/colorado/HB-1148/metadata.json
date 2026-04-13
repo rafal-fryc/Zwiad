@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 1148",
+  "state": "Colorado",
+  "state_abbrev": "CO",
+  "session": "2026",
+  "title": "AADC-Style Minor Online Privacy and Safety Framework",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "youth-privacy",
+    "childrens-privacy",
+    "online-safety"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/colorado/HB-1148",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://content.leg.colorado.gov/sites/default/files/how_a_bill_becomes_a_law_accessible.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/colorado/HB-1148/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

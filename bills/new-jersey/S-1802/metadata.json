@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "S 1802",
+  "state": "New Jersey",
+  "state_abbrev": "NJ",
+  "session": "2026",
+  "title": "AI Safety Testing and Reporting Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "genai-transparency"
+  ],
+  "sponsors": [
+    "Sen. Singleton (D)",
+    "Sen. McKnight (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/new-jersey/S-1802",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Singleton (D) and Sen. McKnight (D)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/new-jersey/S-1802/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

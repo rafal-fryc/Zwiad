@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:40:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-010",
+    "title": "HHS OCR Releases Risk Management Guidance Video Under HIPAA Security Rule",
+    "report_path": "reports/privacy/hhs-ocr-hipaa-risk-management-video-2026-04-12.md",
+    "verification_status": "verified",
+    "sources_count": 6,
+    "sources": [
+      {
+        "url": "https://www.hipaajournal.com/ocr-risk-management-guidance-video/",
+        "title": "OCR Releases Video on HIPAA Security Rule Risk Management Requirements",
+        "accessed": "2026-04-12",
+        "key_facts": "Confirms April 2026 release of OCR video on HIPAA Security Rule Risk Management; presenter Nicholas Heesters, Senior Advisor for Cybersecurity; topics covered; YouTube channel hosting; December 2025 solicitation of questions."
+      },
+      {
+        "url": "https://databreaches.net/2026/04/08/ocr-releases-risk-management-video/",
+        "title": "OCR Releases Risk Management Video",
+        "accessed": "2026-04-12",
+        "key_facts": "Independent confirmation of April 8, 2026 release date."
+      },
+      {
+        "url": "https://www.hhs.gov/hipaa/for-professionals/security/guidance/index.html",
+        "title": "Security Rule Guidance Material - HHS.gov",
+        "accessed": "2026-04-12",
+        "key_facts": "Official HHS landing page for Security Rule guidance."
+      },
+      {
+        "url": "https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/administrative/securityrule/rafinalguidancepdf.pdf",
+        "title": "Guidance on Risk Analysis Requirements under the HIPAA Security Rule",
+        "accessed": "2026-04-12",
+        "key_facts": "Official HHS guidance on Risk Analysis, companion to Risk Management standard."
+      },
+      {
+        "url": "https://www.accountablehq.com/post/hhs-ocr-enforcement-priorities-for-2026-hipaa-risk-analysis-in-focus",
+        "title": "HHS OCR Enforcement Priorities for 2026",
+        "accessed": "2026-04-12",
+        "key_facts": "Reports statements by OCR Director Paula M. Stannard that 2026 enforcement initiative will expand from risk analysis to include risk management noncompliance."
+      },
+      {
+        "url": "https://www.hhs.gov/hipaa/for-professionals/security/hipaa-security-rule-nprm/factsheet/index.html",
+        "title": "HIPAA Security Rule NPRM Fact Sheet",
+        "accessed": "2026-04-12",
+        "key_facts": "Official HHS fact sheet summarizing proposed strengthening of Security Rule risk analysis and risk management obligations."
+      }
+    ]
+  }
+}

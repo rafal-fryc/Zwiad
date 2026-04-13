@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 546",
+  "state": "Oklahoma",
+  "state_abbrev": "OK",
+  "session": "2026",
+  "title": "Oklahoma Comprehensive Privacy Bill (Virginia-style)",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy",
+    "consumer-data"
+  ],
+  "sponsors": [],
+  "current_status": "passed-second-chamber",
+  "bill_dir": "bills/oklahoma/SB-546",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB546%20INT.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-second-chamber",
+      "detail": "House voted to amend and pass; bill returns to Senate for concurrence vote",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/oklahoma/SB-546/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

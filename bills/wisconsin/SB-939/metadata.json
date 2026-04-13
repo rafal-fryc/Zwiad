@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "SB 939",
+  "state": "Wisconsin",
+  "state_abbrev": "WI",
+  "session": "2026",
+  "title": "Wisconsin AI Companion Chatbot Safety for Children",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "childrens-privacy"
+  ],
+  "sponsors": [
+    "Sen. Jacque (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/wisconsin/SB-939",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://docs.legis.wisconsin.gov/document/proposaltext/2025/REG/SB939.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/wisconsin/SB-939/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

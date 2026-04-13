@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 633",
+  "state": "Kentucky",
+  "state_abbrev": "KY",
+  "session": "2026",
+  "title": "Kentucky Kids Code Amendment to Comprehensive Privacy Law",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "minors",
+    "aadc"
+  ],
+  "sponsors": [
+    "Rep. Grossl (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/kentucky/HB-633",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://apps.legislature.ky.gov/recorddocuments/bill/26RS/hb633/orig_bill.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced on February 12, 2026",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/kentucky/HB-633/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

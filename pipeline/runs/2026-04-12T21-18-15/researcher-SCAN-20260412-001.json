@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T21:25:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-001",
+    "title": "Alabama Becomes 21st State to Enact Comprehensive Privacy Law (HB 351)",
+    "report_path": "reports/privacy/state-comprehensive-laws/alabama-hb351-pdpa-2026-04-12.md",
+    "verification_status": "partial",
+    "sources_count": 7,
+    "sources": [
+      {"url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf", "title": "HB 351 Enrolled Text — Alabama Legislature", "accessed": "2026-04-12", "key_facts": "Official enrolled bill text (URL verified via search; content not directly fetched)."},
+      {"url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-eng.pdf", "title": "HB 351 Engrossed Text", "accessed": "2026-04-12", "key_facts": "Official engrossed bill text (URL verified via search)."},
+      {"url": "https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/", "title": "DLA Piper — Alabama Becomes 21st State", "accessed": "2026-04-12", "key_facts": "Effective date May 1, 2027; AG-only enforcement; non-sunsetting 45-day cure; applicability thresholds."},
+      {"url": "https://iapp.org/news/a/alabama-set-to-add-variation-to-us-state-privacy-patchwork", "title": "IAPP — Alabama set to add variation to US state privacy patchwork", "accessed": "2026-04-12", "key_facts": "Unique narrow 'sale' definition; analytics/marketing sale-exclusions; 500-employee and political-organization exemptions; threshold comparison."},
+      {"url": "https://www.maynardnexsen.com/publication-alabama-legislature-passes-comprehensive-data-privacy-bill", "title": "Maynard Nexsen — Alabama Legislature Passes Comprehensive Data Privacy Bill", "accessed": "2026-04-12", "key_facts": "Local Alabama firm confirmation of passage and provisions."},
+      {"url": "https://privacy-daily.com/article/2026/02/25/alabama-house-passes-comprehensive-privacy-bill-with-no-mention-of-ai-2602250016", "title": "Privacy Daily — No 'Mention of AI'", "accessed": "2026-04-12", "key_facts": "Absence of AI/automated decision-making provisions in the bill."},
+      {"url": "https://legiscan.com/AL/text/HB351/id/3413399", "title": "LegiScan — Alabama HB 351", "accessed": "2026-04-12", "key_facts": "Bill tracking and vote counts (House 104-0, Senate 34-0)."}
+    ]
+  }
+}

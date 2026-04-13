@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reports Index",
+  "description": "Persistent index of regulatory reports keyed by topic_key. Owned by the categorizer; read by the dedup stage and researcher.",
+  "type": "object",
+  "required": ["schema_version", "reports", "url_index"],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["1.0"] },
+    "last_updated": { "type": ["string", "null"] },
+    "reports": {
+      "type": "object",
+      "description": "Map of topic_key -> report entry",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "topic_key",
+          "topic_type",
+          "report_path",
+          "title",
+          "category",
+          "first_reported",
+          "last_updated"
+        ],
+        "properties": {
+          "topic_key": { "type": "string" },
+          "topic_type": {
+            "type": "string",
+            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+          },
+          "topic_key_confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "report_path": { "type": "string" },
+          "title": { "type": "string" },
+          "jurisdiction": { "type": ["string", "null"] },
+          "category": {
+            "type": "string",
+            "enum": ["privacy", "cybersecurity", "ai-law"]
+          },
+          "subcategory": { "type": ["string", "null"] },
+          "source_urls": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "first_reported": { "type": "string" },
+          "last_updated": { "type": "string" },
+          "current_status": { "type": ["string", "null"] },
+          "status_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["date", "status"],
+              "properties": {
+                "date": { "type": "string" },
+                "status": { "type": "string" },
+                "finding_id": { "type": ["string", "null"] },
+                "run_id": { "type": ["string", "null"] },
+                "detail": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "finding_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "update_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "url_index": {
+      "type": "object",
+      "description": "Normalized URL -> topic_key reverse lookup",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

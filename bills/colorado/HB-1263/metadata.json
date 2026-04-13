@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "HB 1263",
+  "state": "Colorado",
+  "state_abbrev": "CO",
+  "session": "2026",
+  "title": "Chatbot Regulation",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [],
+  "current_status": "in-committee",
+  "bill_dir": "bills/colorado/HB-1263",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://content.leg.colorado.gov/sites/default/files/how_a_bill_becomes_a_law_accessible.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "in-committee",
+      "detail": "Set to be heard March 19 in House Business Affairs & Labor Committee",
+      "source_email_date": "2026-03-12",
+      "source_run_id": "fpf-chronological-week-08-Mar-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/colorado/HB-1263/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-08-Mar-12-13",
+  "last_updated_run": "fpf-chronological-week-08-Mar-12-13"
+}

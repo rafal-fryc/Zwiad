@@ -1,0 +1,45 @@
+{
+  "finding_id": "SCAN-20260412-003",
+  "report_path": "reports/cybersecurity/anthropic-claude-mythos-cyberattack-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "a 17-year-old FreeBSD remote code execution vulnerability designated CVE-2026-4747",
+      "section": "Executive Summary",
+      "source_url": "https://thehackernews.com/2026/04/anthropics-claude-mythos-finds.html",
+      "issue": "CVE-2026-4747 is a FreeBSD RPCSEC_GSS kernel RCE, but does not appear to be '17-year-old.' The '27-year-old' long-lived vulnerability highlighted by Anthropic was in OpenBSD, not FreeBSD. The report conflates the FreeBSD CVE with the OpenBSD longevity claim.",
+      "severity": "critical",
+      "suggested_fix": "Separate: (a) CVE-2026-4747 is a FreeBSD RPCSEC_GSS kernel RCE discovered via Mythos (FreeBSD advisory March 26, 2026); (b) Mythos separately found a 27-year-old vulnerability in OpenBSD. Remove the '17-year-old' age attribution from the FreeBSD CVE.",
+      "status": "open"
+    },
+    {
+      "claim": "Project Glasswing founding participants: Amazon, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, The Linux Foundation, Microsoft, Palo Alto Networks",
+      "section": "Project Glasswing",
+      "source_url": "https://www.anthropic.com/glasswing",
+      "issue": "Multiple independent sources (VentureBeat, CNBC, Motley Fool, CyberScoop) list additional major partners including Google, Nvidia, and JPMorganChase. Additionally, listing 'Anthropic' as a founding partner is misleading since Anthropic is the organizer/convener.",
+      "severity": "major",
+      "suggested_fix": "Update founding partners list to include Google, Nvidia, and JPMorganChase. Remove 'Anthropic' from participant bullet or reframe as 'convened by Anthropic with partners including...'",
+      "status": "open"
+    },
+    {
+      "claim": "Anthropic is limiting initial access to roughly 40 vetted organizations",
+      "section": "Controlled Release Posture",
+      "source_url": "https://www.cnbc.com/2026/04/07/anthropic-claude-mythos-ai-hackers-cyberattacks.html",
+      "issue": "The ~40 organizations are additional orgs beyond core Glasswing partners. Missing context: Anthropic committed $100M in model usage credits and $4M in open-source security donations.",
+      "severity": "minor",
+      "suggested_fix": "Clarify 'more than 40 additional organizations beyond core partners.' Add $100M credit commitment as context.",
+      "status": "open"
+    },
+    {
+      "claim": "No binding regulation has yet been issued in direct response to Mythos",
+      "section": "Regulatory and Compliance Implications",
+      "source_url": null,
+      "issue": "Claim is unsourced but accurate as of April 12, 2026.",
+      "severity": "minor",
+      "suggested_fix": "Add 'as of April 12, 2026, no formal regulatory action identified.'",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

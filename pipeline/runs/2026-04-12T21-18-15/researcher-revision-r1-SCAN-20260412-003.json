@@ -1,0 +1,30 @@
+{
+  "finding_id": "SCAN-20260412-003",
+  "round": 1,
+  "changes_made": [
+    {
+      "issue_claim": "a 17-year-old FreeBSD remote code execution vulnerability designated CVE-2026-4747",
+      "action": "fixed",
+      "new_content": "Removed the '17-year-old' age attribution from CVE-2026-4747. The Executive Summary and Model Capabilities sections now correctly describe CVE-2026-4747 as a FreeBSD RPCSEC_GSS kernel RCE (stack buffer overflow in svc_rpc_gss_validate()) addressed by a FreeBSD advisory on March 26, 2026. The '27-year-old' longevity claim is now separately attributed to a distinct finding: a denial-of-service vulnerability in OpenBSD's TCP SACK implementation (code dating to 1998), sourced to SC Media and VentureBeat.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "Project Glasswing founding participants: Amazon, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, The Linux Foundation, Microsoft, Palo Alto Networks",
+      "action": "fixed",
+      "new_content": "Removed Anthropic from the partner list (reframed Project Glasswing as 'convened by Anthropic'). Added Google, JPMorganChase, and NVIDIA. Updated Amazon to 'Amazon Web Services' per Anthropic's page. Full launch partner list now reads: AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, The Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks. Corroborated via anthropic.com/glasswing, VentureBeat, and The Motley Fool.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "Anthropic is limiting initial access to roughly 40 vetted organizations",
+      "action": "fixed",
+      "new_content": "Clarified that the 40+ organizations are IN ADDITION to the Glasswing launch partners (not a total cap). Added the $100M Mythos usage-credit commitment and $4M donation commitment to open-source security organizations ($2.5M to Alpha-Omega/OpenSSF via Linux Foundation, $1.5M to Apache Software Foundation) in both the Executive Summary and the Project Glasswing / Controlled Release Posture sections.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "No binding regulation has yet been issued in direct response to Mythos",
+      "action": "fixed",
+      "new_content": "Added temporal qualifier 'As of April 12, 2026, no binding regulation has been issued in direct response to Mythos and no formal regulatory action has been identified.'",
+      "status": "fixed"
+    }
+  ]
+}

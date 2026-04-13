@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 2040",
+  "state": "Hawaii",
+  "state_abbrev": "HI",
+  "session": "2026",
+  "title": "Social Media Age Verification and Teen Privacy Protections",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "youth-privacy",
+    "age-verification",
+    "social-media"
+  ],
+  "sponsors": [
+    "Rep. Shimizu (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/hawaii/HB-2040",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2040_.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Rep. Shimizu (R)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/hawaii/HB-2040/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

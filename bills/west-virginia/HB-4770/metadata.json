@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 4770",
+  "state": "West Virginia",
+  "state_abbrev": "WV",
+  "session": "2026",
+  "title": "West Virginia AI in Health Care (Illinois HB 1806-style)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "mental-health"
+  ],
+  "sponsors": [
+    "Del. Worrell (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/west-virginia/HB-4770",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.wvlegislature.gov/Bill_Text_HTML/2026_SESSIONS/RS/bills/hb4770%20intr.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/west-virginia/HB-4770/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

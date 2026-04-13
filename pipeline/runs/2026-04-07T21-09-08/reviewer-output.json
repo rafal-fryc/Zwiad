@@ -1,0 +1,436 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-08T19:56:35.030130+00:00",
+  "stage": "reviewer",
+  "status": "complete",
+  "data": {
+    "reviews": [
+      {
+        "finding_id": "SCAN-20260407-001",
+        "report_path": "reports/privacy/illinois-bipa-retroactive-damages-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 17,
+        "issues_found": [
+          {
+            "claim": "The ruling caps damages at one recovery per person per statutory subsection",
+            "issue": "The phrase 'per statutory subsection' is an imprecise simplification. The actual amendment language (Public Act 103-0769) limits recovery for violations of Sections 15(b) and 15(d) involving 'the same biometric identifier or biometric information from the same person using the same method of collection.' The 'per statutory subsection' framing omits the 'same method of collection' and 'same biometric identifier' qualifiers, which could matter in cases involving multiple biometric types or collection methods.",
+            "severity": "minor"
+          },
+          {
+            "claim": "The court distinguished the Cothron per-scan accrual rule as addressing statute-of-limitations timing under Section 15",
+            "issue": "Characterizing Cothron as addressing 'statute-of-limitations timing' is a simplification. Cothron's holding was about claim accrual \u2014 specifically, that a separate claim accrues each time a biometric identifier is scanned or transmitted in violation of Sections 15(b) and 15(d). While accrual has statute-of-limitations implications (it determines when the limitations clock starts), the primary holding was about when separate violations arise, not statute-of-limitations timing per se. The Clay court distinguished accrual (Section 15) from damages calculation (Section 20), which is accurately captured, but the 'statute-of-limitations timing' characterization slightly misrepresents Cothron's focus.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-002",
+        "report_path": "reports/ai-law/washington-ai-chatbot-provenance-bills-2026-04-07.md",
+        "status": "needs-human-review",
+        "iteration_count": 2,
+        "claims_checked": 20,
+        "issues_found": [
+          {
+            "claim": "HB 1170 requires AI content provenance data from providers with over one million monthly users, effective January 1, 2028",
+            "issue": "The Round 1 revision changed the effective date to January 1, 2028, but independent verification of the enrolled bill text (E2SHB 1170, Section 9) and multiple authoritative sources confirms the final effective date is FEBRUARY 1, 2027. The January 1, 2028 date appeared in earlier versions of the bill (pre-Senate Ways & Means amendment S5869.1, adopted March 4, 2026), but the enrolled bill \u2014 the definitive legal text \u2014 specifies February 1, 2027. The Pearl Cohen analysis cited by the researcher may have been based on a pre-amendment version or conflated versions. The House Bill Report 'As Passed Legislature', the enrolled bill certification (lawfilesext.leg.wa.gov), FastDemocracy tracking, and the Washington Legislature bill summary page all indicate February 1, 2027. The report's note stating 'some secondary sources report an effective date of February 1, 2027' has it backwards \u2014 February 1, 2027 is the enrolled bill date, not a secondary source anomaly.",
+            "severity": "critical"
+          },
+          {
+            "claim": "Generative AI providers with 1M+ monthly users must implement provenance data embedding before January 1, 2028",
+            "issue": "Same effective date error as in the Summary. The Action Items compliance deadline states January 1, 2028, but the enrolled bill effective date is February 1, 2027. This means the actual compliance deadline is approximately 10 months earlier than stated, which is materially misleading for client action planning.",
+            "severity": "critical"
+          },
+          {
+            "claim": "Minor edits such as resizing, cropping, or color adjustments are excluded from the 'material alteration' definition",
+            "issue": "Fixed in revision. The report now correctly lists exclusions as 'systems used solely for upscaling, noise reduction, or compression; business-to-business uses, sales, licensing, or distribution of AI systems; and content exclusively for video games or interactive experiences.' This matches the Senate bill report and independent verification.",
+            "severity": "major"
+          },
+          {
+            "claim": "Violations constitute unfair or deceptive acts under Washington's Consumer Protection Act (RCW 19.86), exposing operators to statutory damages and private lawsuits",
+            "issue": "Fixed in revision. The report now correctly states 'actual damages, with discretionary treble damages up to $25,000, plus costs and reasonable attorney's fees' per RCW 19.86.090. This accurately reflects the CPA remedy structure.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Operators must implement reasonable measures to prevent sexually explicit content, prohibit manipulative engagement techniques, and direct users expressing self-harm thoughts to crisis resources",
+            "issue": "Fixed in revision. The specific examples have been expanded with detailed language corroborated by independent search results from multiple law firm analyses: simulating emotional distress/loneliness/guilt/abandonment, promoting isolation, encouraging withholding information from parents, discouraging breaks. Fisher Phillips added as second citation.",
+            "severity": "minor"
+          },
+          {
+            "claim": "HB 1170 enforcement is AG-only with no private right of action",
+            "issue": "Fixed in revision. The report now explicitly states AG-only enforcement and uses bold text to note HB 1170 does NOT include a private right of action, with clear contrast to HB 2225.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-003",
+        "report_path": "reports/ai-law/oregon-ai-companion-chatbot-sb1546-2026-04-07.md",
+        "status": "needs-human-review",
+        "iteration_count": 1,
+        "claims_checked": 23,
+        "issues_found": [
+          {
+            "claim": "SB 1546 passed the Oregon Senate 26-1 and the House 52-0 on March 5, 2026",
+            "issue": "The report implies both the Senate and House votes occurred on March 5, 2026. However, the Oregon Senate Majority Office press release announcing passage of SB 1546 through the Senate is dated February 19, 2026. March 5, 2026 was the date of the final House vote (52-0) that gave the bill its final legislative approval. The Senate vote (26-1) occurred earlier, likely around February 19, 2026. The current phrasing misleadingly groups both votes under a single date.",
+            "severity": "critical"
+          },
+          {
+            "claim": "making Oregon the first state to enact an AI companion chatbot safety law with a private right of action and statutory damages",
+            "issue": "California SB 243, signed by Governor Newsom on October 13, 2025 (effective January 1, 2026), also includes a private right of action with $1,000-per-violation statutory damages and attorney fees. Oregon is therefore NOT the first state to enact a chatbot safety law with a private right of action and statutory damages \u2014 California was. Oregon's distinction is that it relies EXCLUSIVELY on private litigation (no AG enforcement), which is what Baker Botts characterizes as 'real teeth.' The summary conflates these two distinct claims.",
+            "severity": "critical"
+          },
+          {
+            "claim": "Unlike California's SB 243 and Washington's HB 2225, which include AG enforcement, Oregon's SB 1546 relies exclusively on private litigation",
+            "issue": "The claim that California's SB 243 includes AG enforcement is incorrect. California SB 243 uses a private right of action, similar to Oregon \u2014 it does NOT include Attorney General enforcement. Multiple sources (Morrison Foerster, Jones Walker, National Law Review) confirm that California SB 243 authorizes private lawsuits, not AG enforcement. In contrast, New York's companion chatbot law is the one that relies on AG enforcement. Washington HB 2225 does include AG-adjacent enforcement by deeming violations to be unfair or deceptive acts under Washington's Consumer Protection Act. The report should only attribute AG enforcement to Washington, not California.",
+            "severity": "critical"
+          },
+          {
+            "claim": "Oregon's law is part of a broader West Coast trend... both build on California's SB 243 framework",
+            "issue": "The Future of Privacy Forum source describes important differences between the three laws that are not reflected in the report. Specifically, FPF notes that California and Washington take a broader, capability-based approach to define companion chatbots, while Oregon uses a narrower, behavior-based definition. Also, Oregon lacks a severability clause that both California and Washington include. The 'build on' framing, while supported by the cited source, omits these significant divergences.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Monitor related state laws: Track Washington HB 2225 (effective date TBD)",
+            "issue": "Washington HB 2225's effective date is not TBD \u2014 it is January 1, 2027, the same as Oregon SB 1546. Multiple sources confirm this, including the Transparency Coalition, Hunton Andrews Kurth, and Fisher Phillips analyses.",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-005",
+        "report_path": "reports/privacy/ftc-match-okcupid-clarifai-enforcement-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 27,
+        "issues_found": []
+      },
+      {
+        "finding_id": "SCAN-20260407-006",
+        "report_path": "reports/privacy/california-disney-ccpa-settlement-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 17,
+        "issues_found": [
+          {
+            "claim": "Section 1798.135 link points to california-ccpa.org rather than official California legislature site",
+            "issue": "The report links Section 1798.135 to a third-party website (california-ccpa.org) rather than the official California Legislative Information site (leginfo.legislature.ca.gov), unlike Section 1798.120 which correctly links to the official source. The content is accurate but the source is not authoritative.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-007",
+        "report_path": "reports/privacy/cppa-playon-sports-ccpa-enforcement-2026-04-07.md",
+        "status": "needs-human-review",
+        "iteration_count": 2,
+        "claims_checked": 22,
+        "issues_found": [
+          {
+            "claim": "PlayOn violated the CCPA's prohibition on selling or sharing personal information of consumers aged 13-16 without affirmative opt-in consent",
+            "issue": "Round 1 critical issue. Researcher revised to clarify the settlement requires future compliance but the decision did not make a specific finding of a minor-specific violation. Multiple independent sources (Loeb & Loeb, Inside Privacy, CPPA press release) confirm the revised language is accurate.",
+            "severity": "critical"
+          },
+          {
+            "claim": "PlayOn's privacy notice had not been updated since July 2022 \u2014 over two and a half years",
+            "issue": "Round 1 major issue. Researcher revised to specify July 2022 and 'over two and a half years.' Independent search confirms privacy policy was last updated July 2022. The duration characterization is accurate for the violation period (July 2022 to December 2024 endpoint).",
+            "severity": "major"
+          },
+          {
+            "claim": "the CPPA ruled this does not satisfy CCPA requirements under Cal. Civ. Code Section 1798.120 and Section 1798.135",
+            "issue": "Round 1 minor issue. Researcher updated to reference both Section 1798.120 (consumer right to opt out of sale/sharing) and Section 1798.135 (business opt-out mechanism obligations) with correct URLs for each. Independent verification confirms Section 1798.120 covers consumer opt-out rights and Section 1798.135 covers business obligations. Both are relevant to the NAI/DAA opt-out deficiency finding.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Loeb & Loeb Analysis cited at https://www.loeb.com/en/insights/publications/2026/03/calprivacy-playon-sports-enforcement",
+            "issue": "The Loeb & Loeb URL used in the report (/en/insights/publications/2026/03/calprivacy-playon-sports-enforcement) does not match the URL found via independent web search (/en/insights/passle/2026/03/california-privacy-protection-agency-issues-first-decision-involving-violation-of-ccpa-and-minor-stu). The report URL uses the '/publications/' path while the actual article appears to be under '/passle/' with a different slug. The report URL may be a broken link. Unable to verify via WebFetch (tool unavailable) but the content attribution to Loeb & Loeb is substantively correct based on search results confirming Loeb & Loeb published analysis of the PlayOn enforcement action.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-008",
+        "report_path": "reports/ai-law/federal-white-house-ai-policy-framework-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 20,
+        "issues_found": [
+          {
+            "claim": "Congress has so far declined to enact comprehensive federal preemption, including rejecting such provisions in the One Big Beautiful Bill Act",
+            "issue": "Minor imprecision in characterization. The One Big Beautiful Bill Act contained a moratorium on state AI enforcement (initially a 10-year moratorium, later narrowed to 5 years tied to BEAD funding), not a 'preemption' provision per se. The Senate voted 99-1 to strip the moratorium. Multiple authoritative sources (Center for American Progress, McDermott Will & Emery, Goodwin) distinguish between 'moratorium' and 'preemption' as related but legally distinct concepts. The report's phrasing 'rejecting such provisions' (referring to 'comprehensive federal preemption') conflates the two. The practical effect is similar, but the legal mechanism differs.",
+            "severity": "minor"
+          },
+          {
+            "claim": "The Framework proposes targeted federal standards for child safety, unauthorized digital replicas, and workforce development",
+            "issue": "Unable to verify the specific three-part list (child safety, unauthorized digital replicas, workforce development) against the cited Cooley source because WebFetch was unavailable. The 'no new federal AI regulatory agency' portion of this claim was independently confirmed via multiple search results. The child safety component is corroborated by other sources. The 'unauthorized digital replicas' and 'workforce development' components could not be independently verified or refuted.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-009",
+        "report_path": "reports/privacy/kentucky-hb692-acr-sensitive-data-2026-04-07.md",
+        "status": "needs-human-review",
+        "iteration_count": 1,
+        "claims_checked": 18,
+        "issues_found": [
+          {
+            "claim": "passed the Senate by consent on March 31, 2026",
+            "issue": "The Senate passed HB 692 on March 27, 2026 (vote 38-0 with Committee Substitute 1), not March 31. On March 31, the House concurred in the Senate Committee Substitute by a vote of 88-0. The report conflates the Senate passage date with the House concurrence date.",
+            "severity": "critical"
+          },
+          {
+            "claim": "passed the House unanimously on March 13, 2026, with a vote of 92-0",
+            "issue": "The initial House vote of 92-0 on March 13 is confirmed. However, the report omits the subsequent House concurrence vote of 88-0 on March 31, 2026, which was the final legislative action. The Senate also adopted a Committee Substitute, meaning the bill text changed between the initial House vote and final passage. This is a material omission in the legislative history.",
+            "severity": "major"
+          },
+          {
+            "claim": "Kentucky enacted HB 692 on March 31, 2026",
+            "issue": "March 31, 2026 is the date the House concurred in the Senate Committee Substitute, completing legislative passage. The report uses 'enacted' which implies governor signature or becoming law. Search results confirm the bill 'became law' but the specific mechanism (governor signature vs. becoming law without signature) and exact date of enactment are not distinguished from the legislative passage date. The word 'enacted' should be clarified or the distinction noted.",
+            "severity": "minor"
+          },
+          {
+            "claim": "The law takes effect July 1, 2027",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "smart TVs can capture screenshots as frequently as every 10 milliseconds and transmit viewing data to manufacturer servers every 15 to 60 seconds",
+            "issue": "The 10ms figure specifically applies to LG smart TVs. Samsung TVs captured screenshots every 500ms (half second). The report's phrasing 'as frequently as every 10 milliseconds' is technically accurate as a maximum frequency but could mislead readers into thinking this is typical across all manufacturers. The '15 to 60 seconds' transmission claim could not be independently verified from search results about the paper.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Kentucky enacted its comprehensive consumer data privacy law (HB 15) in 2024",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "The KCDPA took effect January 1, 2026",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "HB 692, sponsored by Representative Josh Branscum (R-Russell Springs) with co-sponsors Steve Bratcher and William Lawrence",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "The bill was introduced on February 23, 2026",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "Kentucky is the first state to specifically target ACR surveillance technology",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "2017 Vizio settlement",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "The KCDPA is enforced exclusively by the Kentucky Attorney General, with no private right of action",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "Companies have a 30-day cure period before enforcement action",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "Violations are treated as unfair or deceptive trade practices under KRS Chapter 367",
+            "issue": "This claim has no inline citation. While consistent with the KCDPA enforcement framework, it should be sourced.",
+            "severity": "minor"
+          },
+          {
+            "claim": "sensitive data includes personal data revealing racial or ethnic origin, religious beliefs, mental or physical health diagnoses, sexual orientation, citizenship or immigration status, genetic or biometric data processed for unique identification, data collected from a known child, and precise geolocation data",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "enrolled into law",
+            "issue": null,
+            "severity": null
+          },
+          {
+            "claim": "some companies generating more revenue from data than from hardware sales",
+            "issue": "This is a strong claim that could not be independently verified from search results. The State of Surveillance source is not an authoritative industry analysis. The claim may be true for some manufacturers but is presented without qualification.",
+            "severity": "minor"
+          },
+          {
+            "claim": "TV manufacturers have built significant revenue streams from ACR data",
+            "issue": null,
+            "severity": null
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-010",
+        "report_path": "reports/privacy/state-privacy-tracker-april-2026-04-07.md",
+        "status": "needs-human-review",
+        "iteration_count": 1,
+        "claims_checked": 22,
+        "issues_found": [
+          {
+            "claim": "Five Democratic legislators reversed their positions on a procedural House vote, potentially killing one of the most protective state privacy proposals in the country",
+            "issue": "The characterization of the bill as 'potentially killed' is outdated and misleading as of the report date (April 7). On April 6, 2026 -- one day before the report -- the Maine Senate voted 18-14 to send LD 1822 back to the House for reconsideration, keeping the bill alive. Multiple sources (Central Maine, News Center Maine, LegiScan) confirm this Senate revival vote. The report omits this critical development entirely, leaving readers with the false impression that the bill is effectively dead.",
+            "severity": "critical"
+          },
+          {
+            "claim": "The bill had faced strong opposition from Maine businesses, and the vote reversal came during a return to the House for concurrence on Senate amendments",
+            "issue": "The report describes the House vote as a 'procedural motion' throughout but does not provide the actual vote count. Independent sources confirm the House defeated the bill 80-68. Including the vote count would provide important context about the margin of defeat and the significance of the five Democratic defections.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Maine's LD 1822 suffered a significant setback when five Democratic legislators reversed their positions",
+            "issue": "The five Democratic defectors are identified in independent sources (Maine Morning Star, Central Maine) as Dave Rollins of Augusta, Wayne Farrin of Jefferson, Mike Lajoie of Lewiston, Holly Sargent and Gerry Runte of York. Additionally, House Majority Leader Matt Moonen of Portland cast an opposing vote as a procedural move to enable bringing the bill back later. The report omits this tactical detail, which is relevant to understanding the bill's actual prospects.",
+            "severity": "minor"
+          },
+          {
+            "claim": "20 states have comprehensive privacy laws in effect",
+            "issue": "The count of 20 is confirmed by MultiState and other sources, but some analysts note this count includes Florida's Digital Bill of Rights, which has a narrower scope than other state comprehensive privacy laws. The report should note this caveat for precision.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Ohio HB 807 introduced on March 31, 2026",
+            "issue": "No issue found. Introduction date of March 31, 2026 confirmed by official Ohio Legislature website and LegiScan.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Ohio HB 807 would amend Ohio Revised Code sections 1347.01, 1347.10, and 1347.99 and enact new section 1347.072",
+            "issue": "No issue found. ORC section references confirmed by LegiScan and official Ohio Legislature records.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Alabama consumer data privacy bill passed the House unanimously (104-0) on February 25, 2026",
+            "issue": "No issue found. Vote count of 104-0 and date of February 25, 2026 independently confirmed by Privacy Daily, Bama Politics, and LegiScan.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Alabama session closes April 16",
+            "issue": "No issue found. April 16, 2026 adjournment confirmed by Ballotpedia and MultiState session calendar.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Kansas session closes April 10",
+            "issue": "No issue found. April 10, 2026 confirmed by Kansas Legislature website and MultiState.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Kentucky session closes April 15",
+            "issue": "No issue found. April 15, 2026 confirmed by Ballotpedia and Kentucky Legislature calendar.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Nebraska session closes April 17",
+            "issue": "No issue found. April 17, 2026 confirmed by Ballotpedia and Nebraska Legislature calendar.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Tennessee session closes April 24",
+            "issue": "No issue found. April 24, 2026 confirmed by Ballotpedia.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "LD 1822 titled 'An Act to Enact the Maine Online Data Privacy Act'",
+            "issue": "No issue found. Title confirmed by Maine Legislature website and Fox Bangor.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Sponsored by Rep. Amy Kuhn (D-Falmouth)",
+            "issue": "No issue found. Sponsor confirmed by Maine House Democrats website, Central Maine, News Center Maine.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Effective date of September 1, 2027 (delayed from an earlier July 2026 date via House amendment)",
+            "issue": "No issue found. House amendment struck 'July 1, 2026' and replaced with 'September 1, 2027' confirmed by Maine Legislature amendment text and Maine Morning Star.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "Indiana, Kentucky, and Rhode Island joining the ranks on January 1, 2026",
+            "issue": "No issue found. January 1, 2026 effective dates for all three states confirmed by IAPP, MultiState, Koley Jessen, and other sources.",
+            "severity": "confirmed"
+          },
+          {
+            "claim": "The right to know the actual names of every third party to which a controller sells their personal data -- a right no other state provides",
+            "issue": "Source URL could not be independently fetched (WebFetch unavailable). The claim is attributed to Verrill law firm analysis. Independent search results reference data minimization and third-party disclosure provisions but do not specifically confirm the 'actual names' unique right claim.",
+            "severity": "unverifiable"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-011",
+        "report_path": "reports/cybersecurity/federal-circia-final-rule-delay-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 22,
+        "issues_found": [
+          {
+            "claim": "the March 2026 DHS appropriations lapse likely pushing the timeline further",
+            "issue": "The DHS appropriations lapse began on February 14, 2026, not in March 2026. The phrasing 'the March 2026 DHS appropriations lapse' mischaracterizes when the lapse started. While the lapse was ongoing during March (when it affected the CIRCIA town halls), calling it a 'March 2026' lapse is inaccurate. Multiple sources (CNN, Wikipedia, Envoy Global) confirm the DHS partial shutdown began February 14, 2026 after DHS funding expired on February 13.",
+            "severity": "minor"
+          },
+          {
+            "claim": "a lapse in DHS appropriations in March 2026 forced CISA to cancel all scheduled town halls",
+            "issue": "Same issue as above: the DHS appropriations lapse began February 14, 2026, not 'in March 2026'. The cancellations were announced in March because the town halls were scheduled to start March 9, but the underlying lapse began in February. The phrase 'in March 2026' implies the lapse started in March.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-013",
+        "report_path": "reports/privacy/federal-coppa-final-rule-2025-2026-04-07.md",
+        "status": "needs-human-review",
+        "iteration_count": 1,
+        "claims_checked": 15,
+        "issues_found": [
+          {
+            "claim": "Civil penalties up to $53,088 per violation",
+            "issue": "The $53,088 figure is the 2025 inflation-adjusted civil penalty amount (effective January 17, 2025, per 16 CFR 1.98). However, this report is dated April 7, 2026. The FTC publishes annual inflation adjustments in January each year. A Federal Register document 'Civil Monetary Penalties-2026 Adjustment' was published on January 14, 2026 (FR Doc 2026-00535), indicating the 2026 adjusted amount is now in effect and would supersede the $53,088 figure. The report should reference the current 2026 penalty amount, not the 2025 amount.",
+            "severity": "major"
+          },
+          {
+            "claim": "Courts can impose penalties based on factors including the egregiousness of violations, number of children affected, type of information collected, and company size",
+            "issue": "The report lists four penalty factors (egregiousness, number of children, type of information, company size). Independent verification shows additional factors that the FTC considers: prior breaches of the Rule by the operator, the utilization of the collected information, and any sharing with third parties. While the report does not claim to be exhaustive, the omission of 'prior breaches' as a factor is notable since recidivism is a key enforcement consideration.",
+            "severity": "minor"
+          },
+          {
+            "claim": "The amended rule expands the definition of 'personal information' to include biometric identifiers such as fingerprints, retina patterns, iris patterns, genetic data (including DNA sequences), voiceprints, gait patterns, facial templates, and faceprints",
+            "issue": "The report's list of biometric identifiers omits 'handprints' which is explicitly included in the rule's definition alongside fingerprints. The eCFR and multiple law firm analyses list 'fingerprints, handprints, retina patterns, iris patterns, genetic data, including DNA sequences, voiceprints, gait patterns, facial templates, or faceprints.'",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-015",
+        "report_path": "reports/ai-law/federal-nist-ai-agent-standards-initiative-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 21,
+        "issues_found": [
+          {
+            "claim": "IR 8596 maps AI-specific cybersecurity risks to CSF 2.0 functions across three focus areas: securing AI systems, conducting AI-enabled cyber defense, and thwarting adversarial AI cyberattacks",
+            "issue": "The third focus area is described by NIST as 'Thwarting AI-enabled cyberattacks', not 'thwarting adversarial AI cyberattacks'. The report uses 'adversarial AI' which subtly changes the meaning -- 'AI-enabled cyberattacks' refers to cyberattacks that leverage AI capabilities, while 'adversarial AI cyberattacks' could be interpreted as attacks against AI systems.",
+            "severity": "minor"
+          },
+          {
+            "claim": "Cloud Security Alliance analysis available at https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-caisi-ai-agent-standards-federal-framework/",
+            "issue": "The URL in the report includes 'caisi-' in the path (csa-research-note-nist-caisi-ai-agent-standards-federal-framework), but independent search results show the actual CSA page URL as https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-ai-agent-standards-federal-framework/ (without 'caisi-'). The report URL may be a broken link. Unable to confirm via WebFetch as the tool was unavailable.",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260407-016",
+        "report_path": "reports/ai-law/colorado-ai-act-delay-hb1263-2026-04-07.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 23,
+        "issues_found": []
+      }
+    ]
+  }
+}

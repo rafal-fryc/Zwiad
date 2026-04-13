@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 6284",
+  "state": "Washington",
+  "state_abbrev": "WA",
+  "session": "2026",
+  "title": "High-Risk AI Systems Requirements (CAIA-style)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "high-risk-ai",
+    "admt"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/washington/SB-6284",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/Senate%20Bills/6284-S.pdf#page=1",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/washington/SB-6284/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

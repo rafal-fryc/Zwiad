@@ -1,0 +1,27 @@
+{
+  "finding_id": "SCAN-20260412-010",
+  "report_path": "reports/privacy/hhs-ocr-hipaa-risk-management-video-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 11,
+  "issues": [
+    {
+      "claim": "OCR solicited questions from regulated entities in December 2025",
+      "section": "Executive Summary / The April 2026 Video Release",
+      "source_url": "https://www.hipaajournal.com/ocr-seeks-hipaa-risk-management-questions/",
+      "issue": "December 2025 solicitation date not independently confirmed. Citation exists but the specific month should be tied to the original solicitation article.",
+      "severity": "minor",
+      "suggested_fix": "Either cite the original OCR solicitation article directly, or soften to 'late 2025.'",
+      "status": "open"
+    },
+    {
+      "claim": "OCR's Risk Analysis Enforcement Initiative was launched in late 2024",
+      "section": "Enforcement Context",
+      "source_url": "https://www.accountablehq.com/post/hhs-ocr-enforcement-priorities-for-2026-hipaa-risk-analysis-in-focus",
+      "issue": "'Late 2024' launch date is asserted but not tied to a primary OCR source.",
+      "severity": "minor",
+      "suggested_fix": "Add a direct citation (e.g., OCR initiative announcement on HHS.gov) to anchor the launch date.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

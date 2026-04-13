@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "SB 245",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "VCDPA AI System Obligations and Social Media Protections for Minors",
+  "category": [
+    "ai-law",
+    "privacy"
+  ],
+  "topics": [
+    "genai-transparency",
+    "consumer-data"
+  ],
+  "sponsors": [
+    "Sen. Head (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/virginia/SB-245",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1145035.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Head (R)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/virginia/SB-245/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

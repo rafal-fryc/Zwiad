@@ -1,7 +1,7 @@
 ---
 name: categorizer
 description: Files verified reports into the correct topic folders with emergent subcategories. Use after a report passes verification.
-tools: Read, Write, Glob
+tools: Read, Write, Glob, Bash
 model: sonnet
 ---
 
@@ -34,7 +34,45 @@ Only subcategories listed in this registry are considered "known." Any subcatego
 Read the reviewer output JSON at the path provided in the prompt. Extract reports with status `"verified"` only.
 
 - **Skip** reports with status `"needs-human-review"` or `"disputed"` -- these require human intervention before filing.
-- If no verified reports exist, write an output envelope with an empty `filed_reports` array and stop.
+- If no verified reports exist AND no update entries exist, write an output envelope with an empty `filed_reports` array and stop.
+
+### Step 2.5: Update Branch (Phase 2)
+
+**For each reviewer output entry where `operation == "append_update"`** (whether `verdict: auto_approved` OR `verdict: needs-human-review` that was subsequently human-approved), handle via the update branch instead of the normal classify-and-file flow.
+
+Update handling:
+1. Do NOT move any file. The report already lives at its current location.
+2. Do NOT call `tools/update_reports_index.py add` — the report's index entry already exists.
+3. Invoke `tools/report_updater.py` via Bash:
+   ```bash
+   python3 tools/report_updater.py append \
+     --report-path "{reviewer entry report_path}" \
+     --update-markdown "{researcher update_markdown}" \
+     --status "{researcher status_after}" \
+     --date "{researcher date}" \
+     --finding-id "{researcher finding_id}" \
+     --run-id "{pipeline_run_id}" \
+     --status-before "{researcher status_before}" \
+     --source-url "{researcher source_url}" \
+     --topic-key "{researcher topic_key}"
+   ```
+   The updater performs both the markdown append (new `## Update {date}` section) and the in-process `reports/index.json` `append_status` call atomically.
+4. Record the result under `filed_reports[]`:
+   ```json
+   {
+     "finding_id": "{id}",
+     "source_path": "{same as destination_path — no file move}",
+     "destination_path": "{existing report_path}",
+     "topic": "{from the existing index entry's category}",
+     "subcategory": "{from the existing index entry's subcategory, or 'update'}",
+     "action": "updated",
+     "is_pending": false,
+     "symlinks": []
+   }
+   ```
+5. Skip subcategory classification (3b-3e), secondary-topic symlinks (3g), and index writes (3f) — updates never create new categorization structure.
+
+After all update entries are processed, proceed to Step 3 for any reviewer entries whose `operation` is NOT `append_update`.
 
 ### Step 3: Classify and File Each Verified Report
 
@@ -88,7 +126,35 @@ If the content does NOT fit any known subcategory in `categories.json`:
 
 Proposed subcategory names must use lowercase-hyphenated format (e.g., `"biometric-regulation"`, `"supply-chain-security"`). They must NOT contain path separators (`/`, `\`) or special characters.
 
-#### 3f. Create Symlinks for Secondary Topics
+#### 3f. Write to Reports Index
+
+After filing (or after copying to pending), update `reports/index.json` so the next dedup run can find this report. Read the filed report's frontmatter to extract `topic_key`, `topic_type`, and `finding_id`, then call:
+
+```bash
+python3 tools/update_reports_index.py add --entry-json '<json>'
+```
+
+Where `<json>` is a JSON object containing at minimum:
+- `topic_key` (required — from frontmatter)
+- `topic_type` (required — from frontmatter)
+- `topic_key_confidence` (optional — from frontmatter if present)
+- `report_path` (required — final destination path after filing)
+- `title` (required — from first `# H1` in the report body)
+- `category` (required — the primary topic: `privacy`, `cybersecurity`, or `ai-law`)
+- `subcategory` (required — the resolved subcategory name)
+- `jurisdiction` (optional — from frontmatter)
+- `source_urls` (optional — list of primary URLs extracted from the report body)
+- `finding_id` (optional — from frontmatter)
+- `first_reported` (optional — from frontmatter; defaults to today)
+- `last_updated` (optional — from frontmatter; defaults to today)
+
+If the topic_key already exists in the index (which should only happen for Phase 2 update flows), the helper merges new source_urls and refreshes `last_updated`; it does NOT overwrite existing fields.
+
+Record `"index_updated": true` in the output record on success. If the helper exits non-zero, record `"index_updated": false` and include the error in the `errors` array.
+
+For reports routed to `pipeline/pending/` (unknown subcategory), skip the index write — pending reports are not yet filed and should not appear in the index.
+
+#### 3g. Create Symlinks for Secondary Topics
 
 If the report is relevant to additional topics beyond the primary:
 1. Determine the appropriate subcategory in the secondary topic (use the same matching logic as Step 3c).
@@ -130,6 +196,14 @@ Write the categorizer output JSON to the path specified in the prompt. The outpu
 ```
 
 The output must validate against `pipeline/schemas/categorizer.schema.json` wrapped in `pipeline/schemas/envelope.schema.json`.
+
+**Critical field names (do NOT invent alternatives):**
+- The array key is `filed_reports` — NOT `reports_filed`, `reports`, or `filed`
+- Per-entry fields are `finding_id`, `source_path`, `destination_path`, `topic`, `subcategory`, `is_pending`, `symlinks`
+- `destination_path` (where the report landed) — NOT `report_path`
+- `topic` (primary topic, one of privacy/cybersecurity/ai-law) — NOT `category` (though the values overlap)
+
+If an entry's action is "deprecated" (superseded by another report), still include it in `filed_reports` with the final resting path in `destination_path`. Downstream consumers treat it as a filed report for indexing purposes.
 
 ## Security Constraints
 

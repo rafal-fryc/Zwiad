@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "H.211",
+  "state": "Vermont",
+  "state_abbrev": "VT",
+  "session": "2026",
+  "title": "Vermont Data Broker Registry Update and Accessible Deletion Mechanism",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "data-brokers"
+  ],
+  "sponsors": [],
+  "current_status": "amended",
+  "bill_dir": "bills/vermont/H211",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0211/H-0211%20As%20Introduced.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-17",
+      "status": "amended",
+      "detail": "House Committee on Commerce and Economic Development reported substitute on March 17, 2026; re-referred to Ways & Means Committee",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/vermont/H211/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

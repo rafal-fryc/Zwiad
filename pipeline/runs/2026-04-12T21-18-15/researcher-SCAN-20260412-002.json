@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:35:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-002",
+    "title": "Maine's Comprehensive Privacy Bill (LD 1822) Fails on Final House Vote",
+    "report_path": "reports/privacy/maine-ld1822-privacy-bill-failed-2026-04-12.md",
+    "verification_status": "verified",
+    "sources_count": 10,
+    "sources": [
+      {"url": "https://mainemorningstar.com/2026/04/09/maine-rejects-comprehensive-data-privacy-law-again/", "title": "Maine rejects comprehensive data privacy law, again", "accessed": "2026-04-12", "key_facts": "Second House vote rejecting LD 1822; session ends April 15; business pushback."},
+      {"url": "https://www.centralmaine.com/2026/04/06/maine-senate-votes-to-keep-controversial-data-privacy-bill-alive/", "title": "Maine Senate votes to keep controversial data privacy bill alive", "accessed": "2026-04-12", "key_facts": "Senate 18-14 vote on April 6, 2026 to send LD 1822 back to House."},
+      {"url": "https://mainemorningstar.com/2026/03/26/data-privacy-deja-vu-as-bill-bounces-between-chambers-over-exemption-confusion/", "title": "Data privacy déjà vu as bill bounces between chambers", "accessed": "2026-04-12", "key_facts": "Political-org exemption dispute caused ping-pong between chambers."},
+      {"url": "https://mainemorningstar.com/2026/03/05/new-political-group-exemption-in-data-privacy-proposal-narrows-support/", "title": "New political group exemption narrows support", "accessed": "2026-04-12", "key_facts": "Exemption for political organizations was late-added and controversial."},
+      {"url": "https://mainemorningstar.com/2026/04/03/fear-of-the-unknown-toll-on-businesses-again-likely-to-sink-data-privacy-bill/", "title": "Fear of the unknown toll on businesses likely to sink data privacy bill", "accessed": "2026-04-12", "key_facts": "Business groups lobbied against bill; House Democrats flipping."},
+      {"url": "https://legislature.maine.gov/legis/bills/display_ps.asp?LD=1822&snum=132", "title": "LD 1822, HP 1220 — Text and Status (Maine Legislature)", "accessed": "2026-04-12", "key_facts": "Official bill page: sponsor Rep. Amy Kuhn, 132nd Legislature, Maine Online Data Privacy Act."},
+      {"url": "https://www.maine.gov/housedems/news/house-approves-kuhn-bill-strengthen-maines-data-privacy-laws", "title": "House approves Kuhn bill to strengthen Maine's data privacy laws", "accessed": "2026-04-12", "key_facts": "Substantive provisions: data minimization, consumer rights, minor protections, biometric limits, July 1 2026 effective date."},
+      {"url": "https://www.troutmanprivacy.com/2026/04/proposed-state-privacy-law-update-april-6-2026/", "title": "Proposed State Privacy Law Update: April 6, 2026", "accessed": "2026-04-12", "key_facts": "Confirms LD 1822 stalling on procedural House vote; April 15 session deadline."},
+      {"url": "https://epic.org/documents/maine-testimony-in-support-of-ld-1822-the-maine-online-data-privacy-act/", "title": "EPIC Testimony in Support of LD 1822", "accessed": "2026-04-12", "key_facts": "Advocacy testimony outlining consumer-protective provisions."},
+      {"url": "https://www.aclumaine.org/press-releases/maine-house-passes-landmark-privacy-bill/", "title": "Maine House Passes Landmark Privacy Bill — ACLU of Maine", "accessed": "2026-04-12", "key_facts": "Corroborates initial House passage and substantive scope of LD 1822."}
+    ]
+  }
+}

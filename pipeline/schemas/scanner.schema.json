@@ -16,10 +16,20 @@
           "source": { "type": "string" },
           "source_url": { "type": "string" },
           "summary": { "type": "string" },
+          "date": { "type": "string" },
           "relevance": { "type": "string", "enum": ["high", "medium", "low"] },
           "jurisdiction": { "type": "string" },
           "development_type": { "type": "string", "enum": ["legislation", "regulation", "enforcement", "guidance", "court-decision", "other"] },
-          "category": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] }
+          "category": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] },
+          "topic_key": { "type": "string" },
+          "topic_type": {
+            "type": "string",
+            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+          },
+          "topic_key_confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
         },
         "additionalProperties": false
       }

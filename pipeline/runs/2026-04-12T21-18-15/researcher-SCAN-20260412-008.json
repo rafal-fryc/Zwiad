@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:30:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-008",
+    "title": "Seventh Circuit Holds 2024 BIPA Damages Amendment Applies Retroactively to Pending Cases",
+    "report_path": "reports/privacy/illinois-bipa-7th-circuit-retroactivity-2026-04-12.md",
+    "verification_status": "verified",
+    "sources_count": 8,
+    "sources": [
+      {"url": "https://www.paulhastings.com/insights/ph-privacy/7th-circuit-confirms-bipa-amendment-has-retroactive-application", "title": "7th Circuit Confirms BIPA Amendment Has Retroactive Application", "accessed": "2026-04-12", "key_facts": "Case name Clay v. Union Pacific, April 1 2026 decision date, unanimous panel"},
+      {"url": "https://www.insideprivacy.com/data-privacy/seventh-circuit-holds-that-bipa-amendment-applies-retroactively/", "title": "Seventh Circuit Holds that BIPA Amendment Applies Retroactively", "accessed": "2026-04-12", "key_facts": "Illinois retroactivity framework, Section 15 vs Section 20 analysis"},
+      {"url": "https://www.jacksonlewis.com/insights/bipa-cases-7th-circuit-rules-change-illinois-laws-damages-provision-retroactively-limits-defendant-exposure", "title": "Jackson Lewis — BIPA Cases: 7th Circuit Rules Change Retroactive", "accessed": "2026-04-12", "key_facts": "SB 2979 legislative history, signed August 2024, Cothron response"},
+      {"url": "https://datamatters.sidley.com/2026/04/08/seventh-circuit-limits-potential-damages-under-bipa-holds-2024-amendment-applies-retroactively/", "title": "Sidley — Seventh Circuit Limits Potential Damages Under BIPA", "accessed": "2026-04-12", "key_facts": "Vested-rights analysis, per-scan damages foreclosure"},
+      {"url": "https://blogs.duanemorris.com/classactiondefense/2026/04/03/seventh-circuit-holds-bipa-amendment-applies-retroactively-reversing-three-illinois-federal-court-decisions/", "title": "Duane Morris — Seventh Circuit Reverses Three Illinois Federal Court Decisions", "accessed": "2026-04-12", "key_facts": "Consolidated cases: Clay, Gregg v. Central Transport, Willis v. Universal Intermodal"},
+      {"url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/illinois-damages-limitation-for-biometric-privacy-violations-applies-retroactively", "title": "Hunton — Illinois' Damages Limitation Applies Retroactively", "accessed": "2026-04-12", "key_facts": "Impact on pending class actions"},
+      {"url": "https://www.afslaw.com/perspectives/privacy-counsel/damages-limiting-amendment-bipa-applies-retroactively", "title": "ArentFox Schiff — Damages-Limiting Amendment to BIPA Applies Retroactively", "accessed": "2026-04-12", "key_facts": "CAFA jurisdiction and standing consequences"},
+      {"url": "https://www.passwordprotectedlaw.com/2026/04/seventh-circuit-delivers-major-win-for-businesses-by-holding-bipa-damages-amendment-applies-retroactively/", "title": "Password Protected — Seventh Circuit Delivers Major Win for Businesses", "accessed": "2026-04-12", "key_facts": "Corroborating firm coverage"}
+    ]
+  }
+}

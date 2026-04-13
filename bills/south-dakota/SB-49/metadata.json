@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 49",
+  "state": "South Dakota",
+  "state_abbrev": "SD",
+  "session": "2026",
+  "title": "South Dakota Direct-to-Consumer Genetic Privacy Act",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "genetic-privacy"
+  ],
+  "sponsors": [],
+  "current_status": "passed-second-chamber",
+  "bill_dir": "bills/south-dakota/SB-49",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mylrc.sdlegislature.gov/api/Documents/306539.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-04",
+      "status": "passed-second-chamber",
+      "detail": "House passed on March 4, 2026; requires Senate concurrence vote on House amendment",
+      "source_email_date": "2026-03-05",
+      "source_run_id": "fpf-chronological-week-07-Mar-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/south-dakota/SB-49/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-07-Mar-5-6",
+  "last_updated_run": "fpf-chronological-week-07-Mar-5-6"
+}

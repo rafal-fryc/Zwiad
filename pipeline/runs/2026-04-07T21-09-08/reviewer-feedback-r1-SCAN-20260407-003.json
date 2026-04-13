@@ -1,0 +1,54 @@
+{
+  "finding_id": "SCAN-20260407-003",
+  "report_path": "reports/ai-law/oregon-ai-companion-chatbot-sb1546-2026-04-07.md",
+  "round": 1,
+  "claims_checked": 23,
+  "issues": [
+    {
+      "claim": "SB 1546 passed the Oregon Senate 26-1 and the House 52-0 on March 5, 2026",
+      "section": "Key Facts",
+      "source_url": "https://www.transparencycoalition.ai/news/oregon-lawmakers-pass-major-chatbot-bill-in-significant-win-for-kids-and-ai-safety",
+      "issue": "The report implies both the Senate and House votes occurred on March 5, 2026. However, the Oregon Senate Majority Office press release announcing passage of SB 1546 through the Senate is dated February 19, 2026. March 5, 2026 was the date of the final House vote (52-0) that gave the bill its final legislative approval. The Senate vote (26-1) occurred earlier, likely around February 19, 2026. The current phrasing misleadingly groups both votes under a single date.",
+      "severity": "critical",
+      "suggested_fix": "Separate the vote dates: 'SB 1546 passed the Oregon Senate 26-1 on approximately February 19, 2026, and the House 52-0 on March 5, 2026' or restructure to 'SB 1546 received final legislative approval on March 5, 2026, when the House voted 52-0 (the Senate had previously passed it 26-1).'",
+      "status": "open"
+    },
+    {
+      "claim": "making Oregon the first state to enact an AI companion chatbot safety law with a private right of action and statutory damages",
+      "section": "Summary",
+      "source_url": null,
+      "issue": "California SB 243, signed by Governor Newsom on October 13, 2025 (effective January 1, 2026), also includes a private right of action with $1,000-per-violation statutory damages and attorney fees. Oregon is therefore NOT the first state to enact a chatbot safety law with a private right of action and statutory damages — California was. Oregon's distinction is that it relies EXCLUSIVELY on private litigation (no AG enforcement), which is what Baker Botts characterizes as 'real teeth.' The summary conflates these two distinct claims.",
+      "severity": "critical",
+      "suggested_fix": "Revise to: 'making Oregon the first state to enact an AI companion chatbot safety law that relies exclusively on private litigation for enforcement, with statutory damages of $1,000 per violation' or 'making Oregon the first state to enact a chatbot safety law enforceable solely through private right of action without attorney general oversight.'",
+      "status": "open"
+    },
+    {
+      "claim": "Unlike California's SB 243 and Washington's HB 2225, which include AG enforcement, Oregon's SB 1546 relies exclusively on private litigation",
+      "section": "Key Facts",
+      "source_url": "https://ourtake.bakerbotts.com/post/102mmmi/oregon-sb-1546-the-first-chatbot-law-with-real-teeth",
+      "issue": "The claim that California's SB 243 includes AG enforcement is incorrect. California SB 243 uses a private right of action, similar to Oregon — it does NOT include Attorney General enforcement. Multiple sources (Morrison Foerster, Jones Walker, National Law Review) confirm that California SB 243 authorizes private lawsuits, not AG enforcement. In contrast, New York's companion chatbot law is the one that relies on AG enforcement. Washington HB 2225 does include AG-adjacent enforcement by deeming violations to be unfair or deceptive acts under Washington's Consumer Protection Act. The report should only attribute AG enforcement to Washington, not California.",
+      "severity": "critical",
+      "suggested_fix": "Revise to: 'Unlike Washington's HB 2225, which deems violations to be unfair or deceptive acts under the state Consumer Protection Act (enabling AG enforcement), Oregon's SB 1546 and California's SB 243 rely on private litigation. However, Oregon's law is unique in providing ONLY a private right of action with no alternative government enforcement pathway.' Alternatively, note that California SB 243 also provides private right of action but may have additional enforcement mechanisms under existing California consumer protection law.",
+      "status": "open"
+    },
+    {
+      "claim": "Oregon's law is part of a broader West Coast trend... both build on California's SB 243 framework",
+      "section": "Key Facts",
+      "source_url": "https://fpf.org/resource/the-rest-of-the-west-oregon-and-washington-build-on-california-chatbot-law/",
+      "issue": "The Future of Privacy Forum source describes important differences between the three laws that are not reflected in the report. Specifically, FPF notes that California and Washington take a broader, capability-based approach to define companion chatbots, while Oregon uses a narrower, behavior-based definition. Also, Oregon lacks a severability clause that both California and Washington include. The 'build on' framing, while supported by the cited source, omits these significant divergences.",
+      "severity": "minor",
+      "suggested_fix": "Consider adding a brief note acknowledging that while Oregon builds on the California framework, it uses a narrower definition of AI companions and lacks a severability clause present in both California and Washington laws.",
+      "status": "open"
+    },
+    {
+      "claim": "Monitor related state laws: Track Washington HB 2225 (effective date TBD)",
+      "section": "Action Items",
+      "source_url": null,
+      "issue": "Washington HB 2225's effective date is not TBD — it is January 1, 2027, the same as Oregon SB 1546. Multiple sources confirm this, including the Transparency Coalition, Hunton Andrews Kurth, and Fisher Phillips analyses.",
+      "severity": "major",
+      "suggested_fix": "Replace '(effective date TBD)' with '(effective January 1, 2027).'",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

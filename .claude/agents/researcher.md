@@ -1,7 +1,7 @@
 ---
 name: researcher
 description: Researches approved regulatory findings in depth and produces structured markdown reports with citations. Use after human-approved findings are ready.
-tools: WebSearch, WebFetch, Read, Write
+tools: WebSearch, WebFetch, Read, Write, Glob, Bash
 model: opus
 ---
 
@@ -87,33 +87,86 @@ After writing the main report content:
    - A 1-sentence explanation of the connection
 5. If no existing reports are found or none are related, write: "No related reports found in the knowledge base."
 
+## Update Branch (Phase 2)
+
+**Check first**: if the input finding has `is_update: true`, use this branch and SKIP the normal "Report Writing Process" below.
+
+The dedup stage produces `candidate_updates` entries when a new finding's topic_key matches an already-indexed report. Each carries:
+- `previous_topic_key`, `previous_report_path` — where the existing report lives
+- `diff_signal` — one of `status_change`, `signed`, `vetoed`, `amendment`, `new_penalty`, `narrative_only`
+- `status_before`, `status_after` — the derived status transition
+
+**Steps:**
+1. Use the `Read` tool on `previous_report_path` to load the existing report.
+2. Do focused web research on the **delta only** — the single status change, penalty amount, amendment clause, or new development. Do NOT re-verify the whole topic. Use the finding's `source_url` as the primary source.
+3. Emit an output envelope with `operation: "append_update"` and these data fields:
+   ```json
+   {
+     "schema_version": "1.0",
+     "pipeline_run_id": "{from prompt}",
+     "timestamp": "{ISO 8601}",
+     "stage": "researcher",
+     "status": "complete",
+     "data": {
+       "operation": "append_update",
+       "finding_id": "{finding.id}",
+       "report_path": "{previous_report_path}",
+       "topic_key": "{previous_topic_key}",
+       "update_markdown": "{2-4 sentence summary of the new development}",
+       "status_before": "{finding.status_before}",
+       "status_after": "{finding.status_after}",
+       "diff_signal": "{finding.diff_signal}",
+       "date": "{today YYYY-MM-DD}",
+       "source_url": "{finding.source_url}",
+       "topic_key_confidence": "{from finding}"
+     }
+   }
+   ```
+4. Do NOT write a new markdown file. The categorizer stage invokes `tools/report_updater.py` using the fields above to append an `## Update {date}` section atomically and refresh `reports/index.json`.
+5. Do NOT perform the "Topic key invariant check" or "Collision guard" from the normal flow — those only apply to new reports.
+6. Output validates against `pipeline/schemas/researcher.schema.json`. The normal `reports[]` array fields (`format`, `jurisdiction_tags`, `confidence_summary`) are NOT required when `operation == append_update` — emit a `reports[]` array with a single entry whose required fields are `finding_id`, `report_path`, `topic_key`, `topic_type`, plus `operation: "append_update"` and the delta fields listed above.
+
 ## Report Writing Process
 
-Follow these steps in order:
+Follow these steps in order (for brand-new findings, NOT updates — see the Update Branch above):
 
-1. **Read the finding data** from the file path provided in the prompt. Parse the finding JSON to extract: id, title, source, source_url, summary, relevance, jurisdiction, development_type, category.
+1. **Read the finding data** from the file path provided in the prompt. Parse the finding JSON to extract: id, title, source, source_url, summary, relevance, jurisdiction, development_type, category. If the finding includes a `topic_key` and `topic_type` (supplied by the scanner via dedup), pass them through to the output and frontmatter. Otherwise, generate them yourself by invoking `tools/topic_keys.py`:
 
-2. **Determine format** from the `relevance` field (see Format Selection above).
+   ```bash
+   python3 tools/topic_keys.py --finding-json '<json-string>'
+   ```
+   This prints `{"topic_key": ..., "topic_type": ..., "confidence": ...}`.
 
-3. **Read the appropriate template** from `pipeline/templates/`.
+2. **Topic key invariant check**: after obtaining `topic_key`, look it up in the reports index:
 
-4. **Conduct web research** using WebSearch and WebFetch:
+   ```bash
+   python3 tools/update_reports_index.py lookup --topic-key <topic_key>
+   ```
+   If the lookup returns a non-empty entry, STOP and write an error envelope — this finding was supposed to be caught by dedup. Do not write a duplicate report. This is an invariant check.
+
+3. **Determine format** from the `relevance` field (see Format Selection above).
+
+4. **Read the appropriate template** from `pipeline/templates/`.
+
+5. **Conduct web research** using WebSearch and WebFetch:
    - Start with the finding's `source_url` to get the primary source
    - Search for official legal text (see Official Legal Text Requirement)
    - Search for additional sources per depth rules (see Research Depth)
    - If WebSearch or WebFetch fails for a source, note the failure in the report with LOW confidence. Never silently omit a failed source.
 
-5. **Write the report** to: `reports/{category}/{jurisdiction-slug}-{topic-slug}-{date}.md`
+6. **Determine the target file path** as `reports/{category}/{jurisdiction-slug}-{topic-slug}-{date}.md`:
    - Use lowercase, hyphen-separated filename components
    - `{jurisdiction-slug}`: e.g., "federal", "california", "new-york"
    - `{topic-slug}`: brief topic descriptor, e.g., "apra-privacy-act", "ccpa-enforcement"
    - `{date}`: ISO date, e.g., "2026-04-06"
-   - Fill in all template sections following the guidance comments
-   - Apply confidence tags to each applicable section heading
 
-6. **Scan for related reports** (see Related Reports Discovery).
+7. **Collision guard**: use Glob to check whether the target file path already exists on disk. If it does (due to slug collision between two distinct topic_keys), append a numeric suffix: `-2`, `-3`, … until the path is free. Never silently overwrite.
 
-7. **Write output JSON** to the path specified in the prompt (see Output JSON Format).
+8. **Write the report** to the final path, filling in all frontmatter fields (including `topic_key`, `topic_type`, `first_reported`, `last_updated: {date}`, `status_history: []`) and all template sections following the guidance comments. Apply confidence tags to each applicable section heading.
+
+9. **Scan for related reports** (see Related Reports Discovery).
+
+10. **Write output JSON** to the path specified in the prompt (see Output JSON Format). The output must include `topic_key`, `topic_type`, and `topic_key_confidence` for each report.
 
 ## Output JSON Format
 
@@ -133,6 +186,9 @@ Write a JSON file matching the pipeline envelope format:
         "report_path": "reports/{category}/{filename}.md",
         "format": "client-alert or research-memo",
         "jurisdiction_tags": ["tag1", "tag2"],
+        "topic_key": "{topic_key from topic_keys.py}",
+        "topic_type": "state_bill | federal_bill | enforcement | rulemaking | guidance | other",
+        "topic_key_confidence": "high | medium | low",
         "confidence_summary": {
           "high": 0,
           "medium": 0,

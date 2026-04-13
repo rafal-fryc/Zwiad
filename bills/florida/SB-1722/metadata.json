@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "SB 1722",
+  "state": "Florida",
+  "state_abbrev": "FL",
+  "session": "2026",
+  "title": "App Store Accountability Act Age Assurance Framework",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "age-verification",
+    "youth-privacy"
+  ],
+  "sponsors": [
+    "Sen. Calatayud (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/florida/SB-1722",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://flsenate.gov/Session/Bill/2026/1722/Vote/2026-02-04%201030AM~S01722%20Vote%20Record.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Calatayud (R) on January 9, 2026",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/florida/SB-1722/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

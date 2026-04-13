@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 166",
+  "state": "Wisconsin",
+  "state_abbrev": "WI",
+  "session": "2026",
+  "title": "Wisconsin Comprehensive Privacy Act (Connecticut-style) \u2014 Senate Bill",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy",
+    "consumer-data"
+  ],
+  "sponsors": [],
+  "current_status": "in-committee",
+  "bill_dir": "bills/wisconsin/SB-166",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://docs.legis.wisconsin.gov/document/proposaltext/2025/REG/SB166.pdf",
+  "status_history": [
+    {
+      "date": "2026-01-30",
+      "status": "in-committee",
+      "detail": "Senate bill had initial hearing",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/wisconsin/SB-166/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

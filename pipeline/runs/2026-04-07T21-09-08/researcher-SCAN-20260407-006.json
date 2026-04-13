@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-07T21:30:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260407-006",
+    "report_title": "California AG Announces Record $2.75 Million CCPA Settlement With Disney for Opt-Out Violations Across Streaming Services",
+    "report_path": "reports/privacy/california-disney-ccpa-settlement-2026-04-07.md",
+    "format": "client-alert",
+    "jurisdiction_tags": ["California"],
+    "confidence_summary": {
+      "high": 2,
+      "medium": 0,
+      "low": 0
+    },
+    "sources_verified": [
+      {
+        "url": "https://oag.ca.gov/news/press-releases/california-wont-let-it-go-attorney-general-bonta-announces-275-million",
+        "title": "California AG Press Release: $2.75 Million Settlement with Disney",
+        "verified": true,
+        "notes": "Primary source. Official AG press release confirmed via WebSearch. Settlement amount, violation details, and injunctive terms all extracted."
+      },
+      {
+        "url": "https://www.hklaw.com/en/insights/publications/2026/02/caught-in-a-mousetrap-disney-to-pay-for-consumer-opt-out-missteps",
+        "title": "Holland & Knight: Caught in a Mousetrap",
+        "verified": true,
+        "notes": "Law firm analysis corroborating AG findings on GPC signal handling and opt-out toggle failures."
+      },
+      {
+        "url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/california-ag-reaches-record-2-75-million-settlement-with-disney-for-violating-ccpas-opt-out-rights",
+        "title": "Hunton Andrews Kurth: Record $2.75 Million Settlement",
+        "verified": true,
+        "notes": "Law firm analysis confirming record-setting penalty and CCPA opt-out violation details."
+      },
+      {
+        "url": "https://www.dataprotectionreport.com/2026/02/partial-compliance-is-noncompliance-lessons-from-californias-2-75-million-settlement-with-disney/",
+        "title": "Norton Rose Fulbright / Data Protection Report: Partial Compliance Is Noncompliance",
+        "verified": true,
+        "notes": "Law firm analysis with cross-device opt-out failure details and compliance lessons."
+      },
+      {
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.120.",
+        "title": "Cal. Civ. Code Section 1798.120",
+        "verified": true,
+        "notes": "Official statutory text from California Legislature website. WebFetch failed but URL confirmed via WebSearch results pointing to official legislature site."
+      },
+      {
+        "url": "https://california-ccpa.org/section-1798-135-methods-of-limiting-sale-sharing-and-use-of-personal-information-and-use-of-sensitive-personal-information/",
+        "title": "Cal. Civ. Code Section 1798.135",
+        "verified": true,
+        "notes": "Statutory text for opt-out mechanism requirements. Third-party reference site reproducing official text."
+      }
+    ],
+    "confidence": "high",
+    "word_count": 560
+  }
+}

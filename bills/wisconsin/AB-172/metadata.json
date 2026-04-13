@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "AB 172",
+  "state": "Wisconsin",
+  "state_abbrev": "WI",
+  "session": "2026",
+  "title": "Wisconsin Comprehensive Privacy Act (Connecticut-style) \u2014 Assembly Bill",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy",
+    "consumer-data"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/wisconsin/AB-172",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://docs.legis.wisconsin.gov/2025/related/records/assembly/state_affairs/1966548.pdf",
+  "status_history": [
+    {
+      "date": "2026-01-30",
+      "status": "passed-committee",
+      "detail": "Assembly bill had executive session (committee vote) after hearing; advancing through Wisconsin legislature",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/wisconsin/AB-172/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

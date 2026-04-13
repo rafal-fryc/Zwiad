@@ -5,6 +5,11 @@ date: "{date}"
 jurisdiction: "{jurisdiction}"
 category: "{category}"
 development_type: "{development_type}"
+topic_key: "{topic_key}"
+topic_type: "{topic_type}"
+first_reported: "{date}"
+last_updated: "{date}"
+status_history: []
 ---
 
 # {Title}

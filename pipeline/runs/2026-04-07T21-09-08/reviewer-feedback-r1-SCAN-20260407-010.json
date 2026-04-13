@@ -1,0 +1,163 @@
+{
+  "finding_id": "SCAN-20260407-010",
+  "report_path": "reports/privacy/state-privacy-tracker-april-2026-04-07.md",
+  "round": 1,
+  "claims_checked": 22,
+  "issues": [
+    {
+      "claim": "Five Democratic legislators reversed their positions on a procedural House vote, potentially killing one of the most protective state privacy proposals in the country",
+      "section": "Executive Summary",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "The characterization of the bill as 'potentially killed' is outdated and misleading as of the report date (April 7). On April 6, 2026 -- one day before the report -- the Maine Senate voted 18-14 to send LD 1822 back to the House for reconsideration, keeping the bill alive. Multiple sources (Central Maine, News Center Maine, LegiScan) confirm this Senate revival vote. The report omits this critical development entirely, leaving readers with the false impression that the bill is effectively dead.",
+      "severity": "critical",
+      "suggested_fix": "Update the Executive Summary and Detailed Analysis to reflect that the Senate voted 18-14 on April 6 to send LD 1822 back to the House for reconsideration. Change framing from 'potentially killing' to accurately reflect that the bill suffered a House defeat (80-68) but was revived by the Senate and faces another House vote. Update the Action Items section accordingly.",
+      "status": "open"
+    },
+    {
+      "claim": "The bill had faced strong opposition from Maine businesses, and the vote reversal came during a return to the House for concurrence on Senate amendments",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "The report describes the House vote as a 'procedural motion' throughout but does not provide the actual vote count. Independent sources confirm the House defeated the bill 80-68. Including the vote count would provide important context about the margin of defeat and the significance of the five Democratic defections.",
+      "severity": "minor",
+      "suggested_fix": "Add the House vote count (80-68 against) to the Detailed Analysis section for completeness.",
+      "status": "open"
+    },
+    {
+      "claim": "Maine's LD 1822 suffered a significant setback when five Democratic legislators reversed their positions",
+      "section": "Executive Summary",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "The five Democratic defectors are identified in independent sources (Maine Morning Star, Central Maine) as Dave Rollins of Augusta, Wayne Farrin of Jefferson, Mike Lajoie of Lewiston, Holly Sargent and Gerry Runte of York. Additionally, House Majority Leader Matt Moonen of Portland cast an opposing vote as a procedural move to enable bringing the bill back later. The report omits this tactical detail, which is relevant to understanding the bill's actual prospects.",
+      "severity": "minor",
+      "suggested_fix": "Consider naming the five defecting legislators and noting that House Majority Leader Moonen's opposing vote was a procedural tactic to preserve the ability to bring the bill back.",
+      "status": "open"
+    },
+    {
+      "claim": "20 states have comprehensive privacy laws in effect",
+      "section": "Background",
+      "source_url": "https://www.multistate.us/insider/2026/2/4/all-of-the-comprehensive-privacy-laws-that-take-effect-in-2026",
+      "issue": "The count of 20 is confirmed by MultiState and other sources, but some analysts note this count includes Florida's Digital Bill of Rights, which has a narrower scope than other state comprehensive privacy laws. The report should note this caveat for precision.",
+      "severity": "minor",
+      "suggested_fix": "Add a parenthetical noting that the 20-state count includes Florida, whose Digital Bill of Rights has a narrower scope than other states' comprehensive privacy laws.",
+      "status": "open"
+    },
+    {
+      "claim": "Ohio HB 807 introduced on March 31, 2026",
+      "section": "Executive Summary",
+      "source_url": "https://www.legislature.ohio.gov/legislation/136/hb807",
+      "issue": "No issue found. Introduction date of March 31, 2026 confirmed by official Ohio Legislature website and LegiScan.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Ohio HB 807 would amend Ohio Revised Code sections 1347.01, 1347.10, and 1347.99 and enact new section 1347.072",
+      "section": "Detailed Analysis",
+      "source_url": "https://legiscan.com/OH/bill/HB807/2025?guid=7OmmWoER0iQrvZB0fx1pSU",
+      "issue": "No issue found. ORC section references confirmed by LegiScan and official Ohio Legislature records.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Alabama consumer data privacy bill passed the House unanimously (104-0) on February 25, 2026",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "No issue found. Vote count of 104-0 and date of February 25, 2026 independently confirmed by Privacy Daily, Bama Politics, and LegiScan.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Alabama session closes April 16",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "No issue found. April 16, 2026 adjournment confirmed by Ballotpedia and MultiState session calendar.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Kansas session closes April 10",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "No issue found. April 10, 2026 confirmed by Kansas Legislature website and MultiState.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Kentucky session closes April 15",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "No issue found. April 15, 2026 confirmed by Ballotpedia and Kentucky Legislature calendar.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Nebraska session closes April 17",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "No issue found. April 17, 2026 confirmed by Ballotpedia and Nebraska Legislature calendar.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Tennessee session closes April 24",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+      "issue": "No issue found. April 24, 2026 confirmed by Ballotpedia.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "LD 1822 titled 'An Act to Enact the Maine Online Data Privacy Act'",
+      "section": "Detailed Analysis",
+      "source_url": "https://legislature.maine.gov/legis/bills/display_ps.asp?LD=1822&snum=132",
+      "issue": "No issue found. Title confirmed by Maine Legislature website and Fox Bangor.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Sponsored by Rep. Amy Kuhn (D-Falmouth)",
+      "section": "Background",
+      "source_url": "https://www.verrill-law.com/news/maines-house-of-representatives-adopts-comprehensive-privacy-act/",
+      "issue": "No issue found. Sponsor confirmed by Maine House Democrats website, Central Maine, News Center Maine.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Effective date of September 1, 2027 (delayed from an earlier July 2026 date via House amendment)",
+      "section": "Detailed Analysis",
+      "source_url": "https://www.aclumaine.org/press-releases/maine-house-passes-landmark-privacy-bill/",
+      "issue": "No issue found. House amendment struck 'July 1, 2026' and replaced with 'September 1, 2027' confirmed by Maine Legislature amendment text and Maine Morning Star.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Indiana, Kentucky, and Rhode Island joining the ranks on January 1, 2026",
+      "section": "Background",
+      "source_url": "https://iapp.org/news/a/new-year-new-rules-us-state-privacy-requirements-coming-online-as-2026-begins",
+      "issue": "No issue found. January 1, 2026 effective dates for all three states confirmed by IAPP, MultiState, Koley Jessen, and other sources.",
+      "severity": "confirmed",
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "The right to know the actual names of every third party to which a controller sells their personal data -- a right no other state provides",
+      "section": "Background",
+      "source_url": "https://www.verrill-law.com/news/maines-house-of-representatives-adopts-comprehensive-privacy-act/",
+      "issue": "Source URL could not be independently fetched (WebFetch unavailable). The claim is attributed to Verrill law firm analysis. Independent search results reference data minimization and third-party disclosure provisions but do not specifically confirm the 'actual names' unique right claim.",
+      "severity": "unverifiable",
+      "suggested_fix": "Verify against the Verrill source that this specific characterization is accurate. If the source supports it, no change needed.",
+      "status": "open"
+    }
+  ],
+  "source_verification_note": "WebFetch was unavailable during this review session. All source URLs were verified indirectly through WebSearch cross-referencing. Claims attributed to specific sources were checked against independent search results covering the same topics. 10 source URLs cited in the report could not be directly fetched for content comparison.",
+  "resolution_status": "issues-found"
+}

@@ -1,0 +1,44 @@
+{
+  "bill_identifier": "H.R. Lofgren Privacy Bill",
+  "state": "Federal",
+  "state_abbrev": "US",
+  "session": "2026",
+  "title": "Comprehensive Federal Consumer Privacy Bill (Lofgren)",
+  "category": [
+    "privacy",
+    "ai-law"
+  ],
+  "topics": [
+    "comprehensive-privacy",
+    "automated-decision-making",
+    "data-minimization",
+    "digital-privacy-agency"
+  ],
+  "sponsors": [
+    "Rep. Lofgren (D-CA)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/federal/HR-Lofgren",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lofgren.house.gov/sites/evo-subsites/lofgren.house.gov/files/evo-media-document/26.03.17-opa-one-pager.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-19",
+      "status": "introduced",
+      "detail": "Discussion draft released by Rep. Lofgren (D-CA) on March 19, 2026",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/federal/HR-Lofgren/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

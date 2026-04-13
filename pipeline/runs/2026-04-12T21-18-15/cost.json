@@ -1,0 +1,28 @@
+{
+  "run_id": "2026-04-12T21-18-15",
+  "total_usd": 23.95112,
+  "stages": [
+    {
+      "stage": "scan",
+      "timestamp": "2026-04-12T21:36:13.044138+00:00",
+      "cost_usd": 2.816245,
+      "duration_ms": 1068715,
+      "num_turns": 16,
+      "input_tokens": 20,
+      "output_tokens": 3873,
+      "cache_read_tokens": 435513,
+      "cache_creation_tokens": 39099
+    },
+    {
+      "stage": "research",
+      "timestamp": "2026-04-12T23:56:08.442503+00:00",
+      "cost_usd": 21.134875,
+      "duration_ms": 5781438,
+      "num_turns": 104,
+      "input_tokens": 126,
+      "output_tokens": 60099,
+      "cache_read_tokens": 7692007,
+      "cache_creation_tokens": 125708
+    }
+  ]
+}

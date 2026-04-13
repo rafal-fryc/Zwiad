@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 2991",
+  "state": "Arizona",
+  "state_abbrev": "AZ",
+  "session": "2026",
+  "title": "Arizona App Store Accountability Act (Minor Age Verification)",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "minors"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/arizona/HB-2991",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/proposed/S.29910113.PDF",
+  "status_history": [
+    {
+      "date": "2026-03-25",
+      "status": "passed-committee",
+      "detail": "Passed Senate committee with amendment on March 25, 2026; had previously passed House on March 5, 2026",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/arizona/HB-2991/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

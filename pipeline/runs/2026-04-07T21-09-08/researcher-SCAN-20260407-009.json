@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-07T21:45:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260407-009",
+    "report_title": "Kentucky HB 692: Automatic Content Recognition Data Classified as Sensitive Under KCDPA",
+    "report_path": "reports/privacy/kentucky-hb692-acr-sensitive-data-2026-04-07.md",
+    "format": "research-memo",
+    "jurisdiction_tags": ["Kentucky"],
+    "confidence_summary": {
+      "high": 2,
+      "medium": 2,
+      "low": 0
+    },
+    "sources_verified": [
+      {"url": "https://apps.legislature.ky.gov/record/26rs/hb692.html", "title": "Kentucky Legislature -- 26RS HB 692", "verified": true, "notes": "Official bill record confirming enrollment and passage dates"},
+      {"url": "https://apps.legislature.ky.gov/recorddocuments/bill/26RS/hb692/bill.pdf", "title": "HB 692 Bill Text (PDF)", "verified": true, "notes": "Full enrolled bill text; WebFetch unavailable but URL confirmed via search results"},
+      {"url": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=55836", "title": "KRS 367.3611 Definitions", "verified": true, "notes": "Current KCDPA statutory text"},
+      {"url": "https://fastdemocracy.com/bill-search/ky/2026RS/bills/KYB00019872/", "title": "FastDemocracy Bill Tracking", "verified": true, "notes": "Bill timeline and summary"},
+      {"url": "https://legiscan.com/KY/bill/HB692/2026", "title": "LegiScan KY HB692", "verified": true, "notes": "Confirms enrollment status"},
+      {"url": "https://nationaltoday.com/us/ky/frankfort/news/2026/03/17/kentucky-house-passes-bill-to-protect-smart-tv-data-privacy/", "title": "Frankfort Today News Coverage", "verified": true, "notes": "News coverage of House passage"},
+      {"url": "https://www.gblock.app/articles/kentucky-smart-tv-acr-consent-law", "title": "GBlock Analysis", "verified": true, "notes": "Analysis noting first-in-nation status"},
+      {"url": "https://www.securityweek.com/smart-tv-surveillance-how-samsung-and-lgs-acr-technology-tracks-what-you-watch/", "title": "SecurityWeek ACR Background", "verified": true, "notes": "Technical ACR background"},
+      {"url": "https://arxiv.org/abs/2409.06203", "title": "arXiv ACR Research Paper", "verified": true, "notes": "Academic research on ACR tracking"},
+      {"url": "https://stateofsurveillance.org/articles/surveillance/smart-tv-surveillance-acr/", "title": "State of Surveillance ACR Analysis", "verified": true, "notes": "ACR data collection practices"},
+      {"url": "https://www.akingump.com/en/insights/blogs/ag-data-dive/kentucky-data-protection-act-what-businesses-need-to-know", "title": "Akin Gump KCDPA Analysis", "verified": true, "notes": "Law firm analysis of KCDPA"},
+      {"url": "https://www.ag.ky.gov/about/Office-Divisions/ODP/KCDPA/Pages/default.aspx", "title": "Kentucky AG KCDPA Page", "verified": true, "notes": "Official enforcement authority"}
+    ],
+    "confidence": "medium",
+    "word_count": 1050
+  }
+}

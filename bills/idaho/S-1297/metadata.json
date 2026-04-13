@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "S 1297",
+  "state": "Idaho",
+  "state_abbrev": "ID",
+  "session": "2026",
+  "title": "Idaho Conversational AI Minor Protections Act",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "minors"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/idaho/S-1297",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2026/legislation/S1297.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed first chamber",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/idaho/S-1297/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

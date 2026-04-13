@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 692",
+  "state": "Kentucky",
+  "state_abbrev": "KY",
+  "session": "2026",
+  "title": "KCDPA Amendment: Smart TV Automatic Content Recognition Data as Sensitive Data",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "consumer-data",
+    "biometric-data"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/kentucky/HB-692",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://apps.legislature.ky.gov/recorddocuments/bill/26RS/HB692/SCS1.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-11",
+      "status": "passed-committee",
+      "detail": "Favorably reported by committee on Small Business & Information Technology on March 11",
+      "source_email_date": "2026-03-12",
+      "source_run_id": "fpf-chronological-week-08-Mar-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/kentucky/HB-692/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-08-Mar-12-13",
+  "last_updated_run": "fpf-chronological-week-08-Mar-12-13"
+}

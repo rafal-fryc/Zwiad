@@ -24,6 +24,8 @@ The Python script manages the pause between phases (the human approval gate). Yo
 
 You are invoked with a prompt like: `"Scan phase for run {run_id}. {input_details}. Write output to pipeline/runs/{run_id}/"`
 
+**Execute exactly these 6 steps in order and then stop.** Do NOT inspect the reports index, dump debugging artifacts, write exploratory text files, grep for patterns, or do any work beyond what the 6 steps require. Every turn counts against a tight budget. If any step fails, stop immediately and write to `error.log` — do not try to diagnose or "explore" the failure.
+
 ### Step 1: Invoke Scanner
 
 Use the Agent tool to spawn the **scanner** subagent. Pass it a prompt containing:
@@ -48,6 +50,14 @@ bash pipeline/scripts/validate-handoff.sh scanner pipeline/runs/{run_id}/scanner
 ```
 
 If validation fails, write the error to `pipeline/runs/{run_id}/error.log` and stop immediately.
+
+### Step 2.5: Annotate Topic Keys
+
+```bash
+python3 tools/topic_keys.py annotate --input pipeline/runs/{run_id}/scanner-output.json
+```
+
+This walks every finding and populates `topic_key`, `topic_type`, and `topic_key_confidence` based on the finding's `title`, `summary`, `jurisdiction`, `development_type`, and `date`. Deterministic — two runs over the same findings always produce the same keys. Required for the dedup stage to do topic-level matching. Safe to re-run.
 
 ### Step 3: Deduplicate Findings
 
@@ -103,17 +113,25 @@ If zero approved findings, log `"No approved findings to process"` and write the
 
 ### Step 3: Research Each Finding
 
-For each approved finding, invoke the **researcher** subagent via the Agent tool. Pass it a prompt containing:
+The approved findings JSON at `pipeline/runs/{run_id}/scanner-approved.json` may contain a mix of:
+- **New findings** (normal research flow): entries without `operation` or with `operation != "append_update"`.
+- **Update findings** (Phase 2): entries with `is_update: true` and `operation: "append_update"` (set by dedup + carried through approval).
+
+For each approved finding, invoke the **researcher** subagent via the Agent tool. Pass the full finding JSON in the prompt so the researcher can see `is_update` and branch appropriately. Prompt includes:
 - The finding index and total count (e.g., "Finding 1 of 3")
 - Path to the approved findings file: `pipeline/runs/{run_id}/scanner-approved.json`
-- The finding ID
+- The finding ID (+ the full finding JSON inline so `is_update` is visible)
 - Pipeline run ID
 - Output path: `pipeline/runs/{run_id}/researcher-{finding_id}.json`
+
+The researcher agent's own instructions (see its "Update Branch") handle the split: `is_update: true` → emit `operation: "append_update"`; otherwise → full new report.
 
 After each researcher completes, validate the output:
 ```bash
 bash pipeline/scripts/validate-handoff.sh researcher pipeline/runs/{run_id}/researcher-{finding_id}.json
 ```
+
+**Invariant check**: if the input finding had `is_update: true` but the researcher output's `operation` is not `append_update`, fail loudly — write to `pipeline/runs/{run_id}/error.log` and stop. Do NOT allow a full-report fallback; that would file a duplicate.
 
 If validation fails for a finding, log the error to `pipeline/runs/{run_id}/error.log` and stop immediately. Do not continue with remaining findings.
 
@@ -127,6 +145,8 @@ bash pipeline/scripts/run-reviewer.sh {run_id}
 ```
 
 This script invokes the reviewer subagent for each report, handles iteration rounds (up to 3), and produces reviewer output files.
+
+**Phase 2 note**: Entries with `operation: "append_update"` skip the iteration loop entirely. The reviewer applies the `update-review-policy.json` rules once and emits either `verdict: auto_approved` or `verdict: needs-human-review` on a single pass. `run-reviewer.sh` must NOT re-invoke the researcher for update entries even if the verdict is negative; human review (not researcher revision) is the only next step for a failed update verdict.
 
 ### Step 5: Check for Escalations
 
@@ -229,7 +249,7 @@ Use the Agent tool to spawn the **fpf-scanner** subagent. Pass it a prompt conta
 
 Example prompt:
 ```
-Scan FPF legislative tracking emails. Pipeline run ID: {run_id}. Email files are in pipeline/runs/{run_id}/emails/. Only process files matching *.html that have .meta.json sidecars where the subject contains "FPF U.S.". Read the existing tracker at bills/tracker.json to check for existing bills. Write output to pipeline/runs/{run_id}/fpf-scanner-output.json
+Scan FPF legislative tracking emails. Pipeline run ID: {run_id}. Email files are in pipeline/runs/{run_id}/emails/. Only process files matching *.html that have .meta.json sidecars where the subject contains "FPF U.S." or "FPF Youth Privacy". Read the existing tracker at bills/tracker.json to check for existing bills. Write output to pipeline/runs/{run_id}/fpf-scanner-output.json
 ```
 
 After the scanner completes, verify the output file exists.

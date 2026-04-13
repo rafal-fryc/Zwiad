@@ -1,0 +1,43 @@
+{
+  "bill_identifier": "SB 2085",
+  "state": "Oklahoma",
+  "state_abbrev": "OK",
+  "session": "2026",
+  "title": "Oklahoma AI Bill of Rights",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "transparency",
+    "government-use",
+    "minors"
+  ],
+  "sponsors": [
+    "Sen. Hamilton (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/oklahoma/SB-2085",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB2085%20INT.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/oklahoma/SB-2085/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

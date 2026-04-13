@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SF 2414",
+  "state": "Iowa",
+  "state_abbrev": "IA",
+  "session": "2026",
+  "title": "ADMT Employment Protections",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "employment",
+    "admt"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/iowa/SF-2414",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.legis.iowa.gov/docs/publications/LGI/91/SF2414.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/iowa/SF-2414/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

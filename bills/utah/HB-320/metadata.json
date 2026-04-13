@@ -1,0 +1,55 @@
+{
+  "bill_identifier": "HB 320",
+  "state": "Utah",
+  "state_abbrev": "UT",
+  "session": "2026",
+  "title": "Utah AI Regulatory Sandbox and Mitigation Agreements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "regulatory-sandbox",
+    "miscellaneous"
+  ],
+  "sponsors": [
+    "Rep. Cutler (R)"
+  ],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/utah/HB-320",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://le.utah.gov/Session/2026/bills/introduced/HB0320.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed out of committee",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed out of the House and heads to the Senate",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/utah/HB-320/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

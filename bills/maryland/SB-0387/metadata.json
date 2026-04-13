@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "SB 0387",
+  "state": "Maryland",
+  "state_abbrev": "MD",
+  "session": "2026",
+  "title": "Maryland Food Retailer Surveillance Pricing Prohibition",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-driven-pricing",
+    "surveillance-pricing"
+  ],
+  "sponsors": [
+    "Group of 11 state Senators (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/maryland/SB-0387",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mgaleg.maryland.gov/2026RS/bills/sb/sb0387t.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/maryland/SB-0387/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

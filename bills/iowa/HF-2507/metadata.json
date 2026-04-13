@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "HF 2507",
+  "state": "Iowa",
+  "state_abbrev": "IA",
+  "session": "2026",
+  "title": "Iowa Chatbot Safety Bill",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/iowa/HF-2507",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.legis.iowa.gov/docs/publications/LGI/91/HF2507.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/iowa/HF-2507/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

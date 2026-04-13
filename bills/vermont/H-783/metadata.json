@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "H 783",
+  "state": "Vermont",
+  "state_abbrev": "VT",
+  "session": "2026",
+  "title": "Vermont Chatbot Safety Bill (H 783)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/vermont/H-783",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0783/H-0783%20As%20Introduced.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/vermont/H-783/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

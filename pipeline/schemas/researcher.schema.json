@@ -9,12 +9,21 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["finding_id", "report_path", "format", "jurisdiction_tags", "confidence_summary"],
+        "required": ["finding_id", "report_path", "format", "jurisdiction_tags", "confidence_summary", "topic_key", "topic_type"],
         "properties": {
           "finding_id": { "type": "string" },
           "report_path": { "type": "string" },
           "format": { "type": "string", "enum": ["client-alert", "research-memo"] },
           "jurisdiction_tags": { "type": "array", "items": { "type": "string" } },
+          "topic_key": { "type": "string" },
+          "topic_type": {
+            "type": "string",
+            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+          },
+          "topic_key_confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
           "confidence_summary": {
             "type": "object",
             "required": ["high", "medium", "low"],

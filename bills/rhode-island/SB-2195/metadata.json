@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "SB 2195",
+  "state": "Rhode Island",
+  "state_abbrev": "RI",
+  "session": "2026",
+  "title": "Rhode Island Chatbot Safety Protocols and Non-Human Disclosure",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "health"
+  ],
+  "sponsors": [
+    "Sen. Urso (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/rhode-island/SB-2195",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://webserver.rilegislature.gov/BillText/BillText26/SenateText26/S2195.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/rhode-island/SB-2195/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

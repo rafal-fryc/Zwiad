@@ -1,0 +1,56 @@
+{
+  "bill_identifier": "HB 1275",
+  "state": "South Dakota",
+  "state_abbrev": "SD",
+  "session": "2026",
+  "title": "South Dakota ASAA Age Assurance Framework",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "age-assurance",
+    "app-store"
+  ],
+  "sponsors": [
+    "Rep. Soye (R)"
+  ],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/south-dakota/HB-1275",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://mylrc.sdlegislature.gov/api/Documents/Amendment/303470.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    },
+    {
+      "date": "2026-02-18",
+      "status": "passed-committee",
+      "detail": "State Affairs committee passed with amendments on February 18, 2026",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed Senate committee as amended (February 20); scheduled for Senate hearing",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/south-dakota/HB-1275/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 2052",
+  "state": "Tennessee",
+  "state_abbrev": "TN",
+  "session": "2026",
+  "title": "Tennessee Food Retailer Algorithmic Pricing Prohibition (HB 2052)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-driven-pricing"
+  ],
+  "sponsors": [
+    "Rep. Camper (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/tennessee/HB-2052",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://capitol.tn.gov/Bills/114/Bill/HB2052.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/tennessee/HB-2052/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

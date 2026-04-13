@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 3567",
+  "state": "Illinois",
+  "state_abbrev": "IL",
+  "session": "2026",
+  "title": "Illinois Prohibition on Automated Decision Systems in Government Functions Without Human Review",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "automated-decision-making",
+    "government-use",
+    "employment"
+  ],
+  "sponsors": [
+    "Rep. Briel"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/illinois/HB-3567",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://ilga.gov/Documents/house/FOIA.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced; hearing set for March 20 in House Cybersecurity Committee",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/illinois/HB-3567/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

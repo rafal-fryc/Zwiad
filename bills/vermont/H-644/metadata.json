@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "H 644",
+  "state": "Vermont",
+  "state_abbrev": "VT",
+  "session": "2026",
+  "title": "AI Therapy Prohibition",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health"
+  ],
+  "sponsors": [
+    "Rep. Rachelson (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/vermont/H-644",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0644/H-0644%20As%20Introduced.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Rep. Rachelson (D)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/vermont/H-644/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

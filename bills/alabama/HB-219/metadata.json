@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 219",
+  "state": "Alabama",
+  "state_abbrev": "AL",
+  "session": "2026",
+  "title": "Alabama App Store Age Assurance Act",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "age-assurance",
+    "app-store"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/alabama/HB-219",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB219-int.pdf",
+  "status_history": [
+    {
+      "date": "2026-01-28",
+      "status": "passed-committee",
+      "detail": "Reported out of Senate Committee on Children and Youth Health on January 28, advancing to the Senate floor",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/alabama/HB-219/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

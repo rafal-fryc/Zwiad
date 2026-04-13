@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 227",
+  "state": "Kentucky",
+  "state_abbrev": "KY",
+  "session": "2026",
+  "title": "Kentucky AI Companion Platform Parental Consent and Obligations",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "minors"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/kentucky/HB-227",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://apps.legislature.ky.gov/recorddocuments/bill/26RS/HB227/HCS1.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed committee",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/kentucky/HB-227/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

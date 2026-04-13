@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 1815",
+  "state": "Tennessee",
+  "state_abbrev": "TN",
+  "session": "2026",
+  "title": "Coercive Suicide Offense (AI Provisions Removed)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "liability"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/tennessee/SB-1815",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://capitol.tn.gov/Bills/114/Bill/SB1815.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-12",
+      "status": "passed-first-chamber",
+      "detail": "Passed first chamber; amended to remove AI provisions",
+      "source_email_date": "2026-03-12",
+      "source_run_id": "fpf-chronological-week-08-Mar-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/tennessee/SB-1815/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-08-Mar-12-13",
+  "last_updated_run": "fpf-chronological-week-08-Mar-12-13"
+}

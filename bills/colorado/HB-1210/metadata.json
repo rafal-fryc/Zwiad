@@ -1,0 +1,49 @@
+{
+  "bill_identifier": "HB 1210",
+  "state": "Colorado",
+  "state_abbrev": "CO",
+  "session": "2026",
+  "title": "Surveillance Data and Automated Systems Pricing/Wage Prohibition",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-driven-pricing",
+    "employment",
+    "surveillance-pricing"
+  ],
+  "sponsors": [
+    "Rep. Bacon (D)"
+  ],
+  "current_status": "in-committee",
+  "bill_dir": "bills/colorado/HB-1210",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://content.leg.colorado.gov/sites/default/files/how_a_bill_becomes_a_law_accessible.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "in-committee",
+      "detail": "Upcoming Hearing - March 12 in House Business Affairs & Labor Committee",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/colorado/HB-1210/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

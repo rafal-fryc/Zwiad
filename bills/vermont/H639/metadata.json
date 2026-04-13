@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "H.639",
+  "state": "Vermont",
+  "state_abbrev": "VT",
+  "session": "2026",
+  "title": "Direct-to-Consumer Genetic Testing Privacy",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "health",
+    "genetic-privacy"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/vermont/H639",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0639/H-0639%20As%20Introduced.pdf",
+  "status_history": [
+    {
+      "date": "2026-02-25",
+      "status": "passed-first-chamber",
+      "detail": "Passed House (February 25)",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/vermont/H639/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

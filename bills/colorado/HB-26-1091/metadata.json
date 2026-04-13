@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 26-1091",
+  "state": "Colorado",
+  "state_abbrev": "CO",
+  "session": "2026",
+  "title": "Colorado Homeowner's Insurance Financial Privacy Bill",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "consumer-data",
+    "sensitive-data"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/colorado/HB-26-1091",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://content.leg.colorado.gov/sites/default/files/how_a_bill_becomes_a_law_accessible.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced; includes a private right of action",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/colorado/HB-26-1091/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

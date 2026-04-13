@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 2215",
+  "state": "Pennsylvania",
+  "state_abbrev": "PA",
+  "session": "2026",
+  "title": "Pennsylvania AI Chatbot Minor Protection and Safety Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "minors",
+    "age-verification"
+  ],
+  "sponsors": [
+    "Rep. McNeill (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/pennsylvania/HB-2215",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.palegis.us/legislation/bills/text/PDF/2025/0/HB2215/PN2909",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/pennsylvania/HB-2215/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

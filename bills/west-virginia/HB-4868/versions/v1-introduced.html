@@ -1,0 +1,1142 @@
+
+
+
+
+<!doctype html>
+<html>
+
+	
+    
+    	
+        
+        
+
+        
+
+    
+	
+
+    <head><script type="text/javascript" src="/cf_scripts/scripts/cfform.js"></script>
+<script type="text/javascript" src="/cf_scripts/scripts/masks.js"></script>
+
+	<meta charset="utf-8" />
+        <title>Bill Status - Complete Bill History</title>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <meta name="description" content="The West Virginia Legislature's Bill Status Page">
+        <meta name="keywords" content=" West Virginia Bills, legislation, house bills, senate bills, bill, bills, code affected, bill sponsors, bill summary, bill text, full bill text, law, wv legislation, West Virginia Bill, West Virginia Legislature, West Virginia, Legislature, WV">
+            
+        <link rel="STYLESHEET" type="text/css" href="../styletest1.css">
+        <link rel="SHORTCUT ICON" href="../images/home_link.gif">
+        
+        <style type="text/css">
+			#bhistcontent 
+			{
+				line-height:18px;
+				width:880px;
+				z-index: 100;
+			}
+			#pod-popup{
+				background-color:#fff;
+				border-radius:5px;
+				color:#000;
+				display:none; 
+				padding:20px;
+				max-width:250px;
+				min-height: 180px;
+			}
+			#pod-popup h3{padding: 0px 10px 10px 0px}
+			.pod-meta{width:300px;font-size:15px;background-color:#eee;padding:5px;margin:0 0 4px;float:left}
+			.b-close{
+				cursor:pointer;
+				position:absolute;
+				right:10px;
+				top:5px;
+			}
+			.b-close img{
+			width: 40px;
+			height: auto;
+			}
+			
+			th.nums, td.nums {
+	text-align: right;}
+	
+	table.bstat
+			{
+				margin-top: 30px;
+				border-top: 1px dotted #999;
+			}
+        </style>    
+		<script type="text/javascript" src="/comid.js"></script>
+   
+
+    	
+        
+	    <!--navigation-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://cse.google.com/cse.js?cx=5c3144a0752ec82d3"></script>
+<script type="text/javascript">
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+function _autoLayers() { //v1.4 by PVII
+ var g,b,k,f,args=_autoLayers.arguments;a=parseInt(args[0]);if(isNaN(a))a=0;
+ if(!document.setc){c=new Array();document.setc=true;for(var u=0;u<10;u++){
+ c[u]=new Array();}}for(k=0;k<c[a].length;k++){if((g=MM_findObj(c[a][k]))!=null){
+ b=(document.layers)?g:g.style;b.visibility="hidden";}}for(k=1;k<args.length;k++){
+ if((g=MM_findObj(args[k]))!=null){b=(document.layers)?g:g.style;b.visibility="visible";f=false;
+ for(var j=0;j<c[a].length;j++){if(args[k]==c[a][j]) {f=true;}}
+ if(!f){c[a][c[a].length++]=args[k];}}}
+}
+function _Snap() { //v2.65 by PVII
+ var x,y,ox,bx,oy,p,tx,a,b,k,d,da,e,el,tw,q0,xx,yy,w1,pa='px',args=_Snap.arguments;a=parseInt(a);
+ if(document.layers||window.opera){pa='';}for(k=0;k<(args.length);k+=4){
+ if((g=MM_findObj(args[k]))!=null){if((el=MM_findObj(args[k+1]))!=null){
+ a=parseInt(args[k+2]);b=parseInt(args[k+3]);x=0;y=0;ox=0;oy=0;p="";tx=1;
+ da="document.all['"+args[k]+"']";if(document.getElementById){
+ d="document.getElementsByName('"+args[k]+"')[0]";if(!eval(d)){
+ d="document.getElementById('"+args[k]+"')";if(!eval(d)){d=da;}}
+ }else if(document.all){d=da;}if(document.all||document.getElementById){while(tx==1){
+ p+=".offsetParent";if(eval(d+p)){x+=parseInt(eval(d+p+".offsetLeft"));y+=parseInt(eval(d+p+".offsetTop"));
+ }else{tx=0;}}ox=parseInt(g.offsetLeft);oy=parseInt(g.offsetTop);tw=x+ox+y+oy;
+ if(tw==0||(navigator.appVersion.indexOf("MSIE 4")>-1&&navigator.appVersion.indexOf("Mac")>-1)){
+  ox=0;oy=0;if(g.style.left){x=parseInt(g.style.left);y=parseInt(g.style.top);}else{
+  w1=parseInt(el.style.width);bx=(a<0)?-5-w1:-10;a=(Math.abs(a)<1000)?0:a;b=(Math.abs(b)<1000)?0:b;
+  x=document.body.scrollLeft+event.clientX+bx;y=document.body.scrollTop+event.clientY;}}
+ }else if(document.layers){x=g.x;y=g.y;q0=document.layers,dd="";for(var s=0;s<q0.length;s++){
+  dd='document.'+q0[s].name;if(eval(dd+'.document.'+args[k])){x+=eval(dd+'.left');y+=eval(dd+'.top');
+  break;}}}e=(document.layers)?el:el.style;xx=parseInt(x+ox+a),yy=parseInt(y+oy+b);
+ if(navigator.appVersion.indexOf("MSIE 5")>-1 && navigator.appVersion.indexOf("Mac")>-1){
+  xx+=parseInt(document.body.leftMargin);yy+=parseInt(document.body.topMargin);}
+ e.left=xx+pa;e.top=yy+pa;}}}
+}
+function _hideDiv(evt) { //v1.3 by PVII
+ var b,relT,mT=false; 
+ if(document.layers){b=evt.target;if(b.aHide){
+  b.visibility="hidden";}else{routeEvent(evt);}
+ }else if(document.all&&!window.opera){b=event.srcElement;
+  while(b!=null){if(b.tagName=="DIV" && b.ahD){mT=true;break;}b=b.parentElement;}
+  if(!b.contains(event.toElement)){b.style.visibility="hidden";}
+ }else if(document.getElementById){b=evt.currentTarget;relT=evt.relatedTarget;
+  while(relT!=null){if(b==relT){mT=true;break;}
+  relT=relT.parentNode;}if(!mT){b.style.visibility="hidden";}}
+}
+function _autoHide() { //v1.3 by PVII
+ var i,g,args=_autoHide.arguments;
+ for(i=0;i<args.length;i++){if((g=MM_findObj(args[i]))!=null){
+  g.aHide=true;if(document.layers){
+  g.captureEvents(Event.MOUSEOUT);}g.onmouseout=_hideDiv;g.ahD=true;}}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_preloadImages() { //v3.0
+ var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+   var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+   if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+ 
+//  function hov(loc,cls){
+//  if(loc.className)
+//  loc.className=cls;}
+//-->
+
+function init() {
+_autoHide('subs1','subs2','subs3','subs4','subs5','subs6','subs7','subs8')
+} 
+
+window.onload= init;
+</script>
+
+
+<!-- Google tag (gtag.js) edited 12-11-2023 JDT//DO NOT TOUCH-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EED2LTLF4G "></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EED2LTLF4G ');
+</script>
+<!-- edited 12-11-2023 JDT//DO NOT TOUCH-->
+
+<script type="text/javascript">
+<!--
+    _CF_checkform = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+<script type="text/javascript">
+<!--
+    _CF_checkform1 = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element INPUT 'INTEGER' validation checks
+        if (!_CF_checkinteger(_CF_this['INPUT'].value, false,true))
+        {
+            _CF_onError(_CF_this, "INPUT", _CF_this['INPUT'].value, "You must enter a bill number only '123' NOT 'SB123'!");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+</head>
+<body>
+<div id="navskip"><a href="#main" name="begin">skip navigation</a></div>
+
+<div id="mainsearch">
+	
+	
+		<div class="gcse-searchbox-only" data-resultsUrl="https://www.wvlegislature.gov/search.cfm" data-enableHistory="true"></div>
+	
+</div>
+
+
+<div id="logo"><img src="/images/header.png" usemap="#m_header" alt="header" name="header" width="878" height="80"  onMouseOver="_autoLayers(0)" >
+<map name="m_header"><area shape="rect" coords="126,10,515,53" href="/index.cfm" alt="header"></map></div>
+
+<div id="trigger1"><a href="#" onKeyPress="_autoLayers(0,'subs1');_Snap('mb1','subs1',1,22)" onMouseOver="_autoLayers(0,'subs1');_Snap('mb1','subs1',1,22)">SENATE</a></div>
+<div id="subs1" class="submenus">
+<a href="/Senate1/president.cfm">PRESIDENT</a>
+<a href="/Senate1/roster.cfm">SENATORS</a>
+<a href="/committees/senate/main.cfm">COMMITTEES</a>
+<a href="http://www.wvlegislature.gov/live.cfm">VIDEO/AUDIO</a>
+<a href="/redistricting.cfm">DISTRICT MAPS</a>
+<a href="/Senate1/clerk.cfm">SENATE CLERK</a>
+<a href="/Senate1/rules.cfm">SENATE RULES</a>
+</div>
+
+<div id="trigger2"><a href="#"  onKeyPress="_autoLayers(0,'subs2');_Snap('mb2','subs2',0,22)" onMouseOver="_autoLayers(0,'subs2');_Snap('mb2','subs2',0,22)">HOUSE</a></div>
+<div id="subs2" class="submenus">
+<a href="/House/speaker.cfm">SPEAKER</a>
+<a href="/House/roster.cfm">DELEGATES</a>
+<a href="/committees/house/main.cfm">COMMITTEES</a>
+<a href="http://www.wvlegislature.gov/live.cfm">VIDEO/AUDIO</a>
+<a href="/redistricting.cfm">DISTRICT MAPS</a>
+<a href="/House/clerk.cfm">HOUSE CLERK</a>
+<a href="/House/rules.cfm">HOUSE RULES</a>
+<a href="//house.wvlegislature.gov/">HOUSE STAFF</a>
+</div>
+
+<div id="trigger3"><a href="#"  onKeyPress="_autoLayers(0,'subs3');_Snap('mb3','subs3',1,22)" onMouseOver="_autoLayers(0,'subs3');_Snap('mb3','subs3',1,22)">JOINT</a></div>
+<div id="subs3" class="submenus">
+<a href="/committees/interims/interims.cfm">INTERIM COMMITTEES</a>
+<a href="/Joint/administrator.cfm">LEGISLATIVE ADMINISTRATOR</a>
+<a href="/Joint/legis_services.cfm">LEGISLATIVE SERVICES DIVISION</a>
+<a href="/Joint/legisinfo.cfm">PUBLIC INFORMATION</a>
+<a href="/Joint/computercenter.cfm">LEGISLATIVE AUTOMATED SYSTEMS DIVISION</a>
+<a href="/Joint/legislative-auditor.cfm">LEGISLATIVE AUDITOR'S OFFICE</a>
+<a href="/Joint/perd.cfm">PERFORMANCE EVALUATION & RESEARCH DIVISION</a>
+<a href="/Joint/postaudit.cfm">POST AUDIT DIVISION</a>
+<a href="/Joint/budget.cfm">BUDGET DIVISION</a>
+<a href="/Joint/fiscal-regulatory.cfm">REGULATORY AND FISCAL AFFAIRS DIVISION</a>
+<a href="//claims.wvlegislature.gov/">CLAIMS COMMISSION</a>
+<a href="/Joint/victims.cfm">CRIME VICTIMS</a>
+<a href="/Joint/rule_making.cfm">RULE-MAKING REVIEW</a>
+<a href="/Joint/csi.cfm">SPECIAL INVESTIGATIONS</a>
+<a href="/Interims/judicial_comp.cfm">JUDICIAL COMP. COMMISSION</a>
+<a href="/Joint/rules.cfm">JOINT RULES</a>
+<a href="//staff.wvlegislature.gov/"><strong>STAFF INFO</strong></a></div>
+
+
+<div id="trigger4"><a href="#" onKeyPress="_autoLayers(0,'subs4');_Snap('mb4','subs4',1,22)" onMouseOver="_autoLayers(0,'subs4');_Snap('mb4','subs4',1,22)">BILL STATUS</a></div>
+<div id="subs4" class="submenus">
+<a href="/Bill_Status/bill_status.cfm">BILL STATUS</a>
+<a href="/billstatus_personalized/persbills_login.cfm">BILL TRACKING</a></div>
+
+<div id="trigger5"><a href="#" onKeyPress="_autoLayers(0,'subs5');_Snap('mb5','subs5',1,22)" onMouseOver="_autoLayers(0,'subs5');_Snap('mb5','subs5',1,22)">STATE LAW</a></div>
+<div id="subs5" class="submenus">
+
+<a href="//code.wvlegislature.gov">WEST VIRGINIA CODE</a>
+<a href="/Educational/publications.cfm#acts">ACTS OF THE LEGISLATURE</a>
+<a href="/Educational/publications/WVCode1931.cfm">CODE OF 1931</a>
+<a href="/WVCODE/WV_CON.cfm">WV CONSTITUTION</a>
+<a href="/WVCODE/US_CON.cfm">US CONSTITUTION</a>
+</div>
+
+<div id="trigger6"><a href="#"   onKeyPress="_autoLayers(0,'subs6');_Snap('mb6','subs6',1,22)" onMouseOver="_autoLayers(0,'subs6');_Snap('mb6','subs6',1,22)">REPORTS</a></div>
+<div id="subs6" class="submenus">
+
+<a href="/Reports/Agency_Reports/agencylist_all.cfm">AGENCY REPORTS</a>
+<a href="/SAGA/Agency.cfm">AGENCY GRANT AWARDS</a>
+<a href="/Joint/PERD/reports.cfm">PERFORMANCE EVALUATIONS</a>
+<a href="/Joint/Postaudit/reports.cfm">POST AUDITS</a>
+
+</div>
+
+<div id="trigger7"><a href="#"  onKeyPress="_autoLayers(0,'subs7');_Snap('mb7','subs7',1,22)" onMouseOver="_autoLayers(0,'subs7');_Snap('mb7','subs7',1,22)">EDUCATIONAL</a></div>
+<div id="subs7" class="submenus">
+<a href="/Educational/citizens/guide.cfm">CITIZEN&#8217;S GUIDE</a>
+<a href="/Educational/internship.cfm">INTERNSHIP PROGRAM</a>
+<a href="//home.wvlegislature.gov/page-program/">PAGE PROGRAM</a>
+
+<a href="/Educational/publications.cfm">PUBLICATIONS</a>
+<a href="/photos" title="Visit the Legislature's Capitol Photo Gallery">PHOTO GALLERY</a>
+<a href="/Educational/Capitol_History/cap.cfm">CAPITOL HISTORY</a>
+<a href="/Educational/Bill_Becomes_Law/Bill_Becomes_Law.cfm">HOW A BILL BECOMES LAW</a>
+<!--<a href="/Educational/Kids_Page/kids.html">Kids&#8217; Page</a>--></div>
+
+<div id="trigger8"><a href="#"  onKeyPress="_autoLayers(0,'subs8');_Snap('mb8','subs8',1,22)" onMouseOver="_autoLayers(0,'subs8');_Snap('mb8','subs8',1,22)">CONTACT</a></div>
+<div id="subs8" class="submenus">
+<a href="/Senate1/roster.cfm">SENATE ROSTER</a>
+<a href="/House/roster.cfm">HOUSE ROSTER</a>
+<!--<a href="/Contact/capmail.cfm">All Members List</a>-->
+<a href="/Joint/legisinfo.cfm">PUBLIC INFO.</a>
+<a href="/News_release/news.cfm">NEWS RELEASES</a>
+<a href="/Contact/Links/links.cfm">HELPFUL LINKS</a></div>
+
+<div id="triggerhome">
+<img name="Home" src="/images/Home.gif" usemap="#m_Home" alt="home" height="21" width="26"></div>
+
+<map name="m_Home">
+<area shape="rect" coords="0,0,26,21" href="/index.cfm" alt="home" onMouseOut="MM_swapImage('Home','','/images/Home.gif',1);"  onMouseOver="MM_swapImage('Home','','/images/Home_f2.gif',1);_autoLayers(0)">
+</map>
+
+<a name="main" id="main"></a><!--force RS default-->
+
+<!--force RS default-->
+<!--force RS default-->
+
+
+
+<link rel="STYLESHEET" type="text/css" href="../stylebillstatus.css" media="screen">
+<link rel="STYLESHEET" type="text/css" href="../printbstat.css" media="print">
+
+
+
+<div id="wrapper">
+<form name="form" id="form" action="Bill_Status.cfm" method="post" onsubmit="return _CF_checkform(this)">
+<div id="selectsbill">
+<div class="style1">Select Bill Type</div> 
+<select name="btype" class="btn" onmouseover="this.className='btn btnhov'" onmouseout="this.className='btn'">
+<option value="Bill" selected="selected">Bill</option>  
+<option value="Res" >Resolution</option> 
+</select>
+</div>
+
+
+
+<div id="selectsyear">
+<div class="style1">Select Year</div> 
+
+<select class="btn" name="year" onmouseover="this.className='btn btnhov'" onmouseout="this.className='btn'">
+
+
+<option value="2027" >2027</option>
+
+<option value="2026" selected="selected">2026</option>
+
+<option value="2025" >2025</option>
+
+<option value="2024" >2024</option>
+
+<option value="2023" >2023</option>
+
+<option value="2022" >2022</option>
+
+<option value="2021" >2021</option>
+
+<option value="2020" >2020</option>
+
+<option value="2019" >2019</option>
+
+<option value="2018" >2018</option>
+
+<option value="2017" >2017</option>
+
+<option value="2016" >2016</option>
+
+<option value="2015" >2015</option>
+
+<option value="2014" >2014</option>
+
+<option value="2013" >2013</option>
+
+<option value="2012" >2012</option>
+
+<option value="2011" >2011</option>
+
+<option value="2010" >2010</option>
+
+<option value="2009" >2009</option>
+
+<option value="2008" >2008</option>
+
+<option value="2007" >2007</option>
+
+<option value="2006" >2006</option>
+
+<option value="2005" >2005</option>
+
+<option value="2004" >2004</option>
+
+<option value="2003" >2003</option>
+
+<option value="2002" >2002</option>
+
+<option value="2001" >2001</option>
+
+<option value="2000" >2000</option>
+
+<option value="1999" >1999</option>
+
+<option value="1998" >1998</option>
+
+<option value="1997" >1997</option>
+
+<option value="1996" >1996</option>
+
+<option value="1995" >1995</option>
+
+<option value="1994" >1994</option>
+
+<option value="1993" >1993</option>
+
+<option value="1992" >1992</option>
+
+<option value="1991" >1991</option>
+
+<option value="1990" >1990</option>
+
+<option value="1989" >1989</option>
+
+<option value="1988" >1988</option>
+
+<option value="1987" >1987</option>
+
+<option value="1986" >1986</option>
+
+<option value="1985" >1985</option>
+
+<option value="1984" >1984</option>
+
+<option value="1983" >1983</option>
+
+<option value="1982" >1982</option>
+
+<option value="1981" >1981</option>
+
+<option value="1980" >1980</option>
+
+<option value="1979" >1979</option>
+
+<option value="1978" >1978</option>
+
+<option value="1977" >1977</option>
+
+<option value="1976" >1976</option>
+
+<option value="1975" >1975</option>
+
+<option value="1974" >1974</option>
+
+<option value="1973" >1973</option>
+
+<option value="1972" >1972</option>
+
+<option value="1971" >1971</option>
+
+<option value="1970" >1970</option>
+
+<option value="1969" >1969</option>
+
+<option value="1968" >1968</option>
+
+<option value="1967" >1967</option>
+
+<option value="1966" >1966</option>
+
+<option value="1965" >1965</option>
+
+<option value="1964" >1964</option>
+
+<option value="1963" >1963</option>
+
+<option value="1962" >1962</option>
+
+<option value="1961" >1961</option>
+
+<option value="1960" >1960</option>
+
+<option value="1959" >1959</option>
+
+<option value="1958" >1958</option>
+
+<option value="1957" >1957</option>
+
+<option value="1956" >1956</option>
+
+<option value="1955" >1955</option>
+
+<option value="1953" >1953</option>
+
+<option value="1951" >1951</option>
+
+<option value="1949" >1949</option>
+
+<option value="1947" >1947</option>
+
+<option value="1946" >1946</option>
+
+<option value="1945" >1945</option>
+
+<option value="1944" >1944</option>
+
+<option value="1943" >1943</option>
+
+<option value="1941" >1941</option>
+
+<option value="1939" >1939</option>
+
+<option value="1937" >1937</option>
+
+<option value="1936" >1936</option>
+
+<option value="1935" >1935</option>
+
+<option value="1933" >1933</option>
+
+<option value="1932" >1932</option>
+
+<option value="1931" >1931</option>
+
+
+</select>
+
+
+
+</div>
+
+
+
+<div id="selectssession">
+<div class="style1">Select Session</div>
+<select name="sessiontype" class="btn" onmouseover="this.className='btn btnhov'" onmouseout="this.className='btn'">
+<option value="rs" selected="selected">Regular Session</option>
+<option value="1x" >First Special Session</option> 
+<option value="2x" >Second Special Session</option>  
+<option value="3x" >Third Special Session</option>  
+<option value="4x" >Fourth Special Session</option>  
+<option value="5x" >Fifth Special Session</option>  
+<option value="6x" >Sixth Special Session</option>  
+<option value="7x" >Seventh Special Session</option>  
+</select>
+</div>
+
+<div id="selectssubmit">
+
+<input type="submit" value="SUBMIT" name="SUBMIT" class="button" onmouseover="this.className='btn1hov'" onmouseout="this.className='button'"/>
+</div>
+</form>
+
+
+
+ <br>
+<h3>
+Bill Status - 2026 Regular Session
+</h3> 
+<div class="tabback1">
+<table width="866px" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="rsstab1" id="tabhead1" style="border:solid 1px #C5DEFE; background:#F2F8FF"><strong>Search Bills by:</strong></td>
+<td class="rsstab1" id="tabhead1" style="border:solid 1px #C5DEFE; background:#F2F8FF"><strong>Bill Quick Search:</strong></td>
+<td class="rsstab1" id="tabhead1" style="border:solid 1px #C5DEFE; background:#F2F8FF"><strong>Bill Tracking:</strong></td>
+</tr>
+
+
+    <tr>
+    <td class="rsstab1" width="190px" height="170px" valign="top">
+	
+    <a href="Bills_all_bills.cfm?year=2026&sessiontype=rs&btype=bill">All Bills	 </a> (<a href="Bills_all_bills.cfm?year=2026&sessiontype=rs&btype=bill&orig=h"><em>House</em></a> | <a href="Bills_all_bills.cfm?year=2026&sessiontype=rs&btype=bill&orig=s"><em>Senate</em></a>)  <br />
+    <a href="res_list.cfm?year=2026&sessiontype=rs&btype=res">All Resolutions	 </a><br />
+    <a href="Bills_Subjects.cfm?year=2026&sessiontype=rs&btype=bill">Subject	 </a>  <br />
+    <a href="Bills_short_title.cfm?year=2026&sessiontype=rs&btype=bill">Short Title	 </a>  <br />
+    <a href="Bills_Sponsors.cfm?year=2026&sessiontype=rs&btype=bill">Sponsor	 </a>  <br />
+    <a href="Bill_intro.cfm?year=2026&sessiontype=rs&btype=bill">Date Introduced	 </a>  <br />
+    <a href="Bills_Code_Affected.cfm?year=2026&sessiontype=rs&btype=bill">Code Affected	 </a>  <br />
+    <a href="Bills_sas_all.cfm?year=2026&sessiontype=rs&btype=bill">All Same As  </a>  <br />
+    <a href="Bills_Pend_com.cfm?year=2026&sessiontype=rs&btype=bill">Pending In Committee	 </a> <br />
+    <a href="Bills_reported_com.cfm?year=2026&sessiontype=rs&btype=bill">Reported From Committee	 </a>  <br />
+    <a href="bills_passed_chamber.cfm?year=2026&sessiontype=rs&btype=bill">Passed One Chamber	 </a>  <br />
+    <a href="bills_fiscal.cfm?year=2026&sessiontype=rs&btype=bill&note=fiscal"> Fiscal Notes	</a>  <br />
+    <span class="hotlink"><a href="Bills_all_pass.cfm?year=2026&sessiontype=rs&btype=bill">Completed Legislation	 </a>  </span><br />
+    <a href="ActionsbyGov.cfm?year=2026&sessiontype=rs&btype=bill"> Actions by Governor	</a>  <br />
+    <a href="https://home.wvlegislature.gov/house-committees/public-comments/2026/RS/ALL/">View Public Comments</a>  <br />
+    
+
+    
+    
+    
+    
+    </td>
+    <td class="rsstabbig" width="230px" height="170px" align="left" valign="top">
+    <form name="form1" id="form1" action="bills_history.cfm?year=2026&sessiontype=RS" method="get" onsubmit="return _CF_checkform1(this)">
+    <span style="font-size:10px">Enter Bill Number</span><br>
+    <input name="INPUT" id="INPUT"  type="text" maxlength="4"  onmouseout="this.className='btn'"  onmouseover="this.className='btn btnhov'"  class="btn"  size="5"  /> <input name="year" id="year"  type="hidden" value="2026" /> <input name="sessiontype" id="sessiontype"  type="hidden" value="RS" />
+    <input type="submit" value="SUBMIT" class="button"
+       onmouseover="this.className='btn1hov'" onmouseout="this.className='button'"/>
+       
+
+    </form>
+
+    </td>
+    <td class="rsstabbig" valign="top">
+    
+	
+    <!--<a href="../search_hints.cfm">Search Hints</a><br>-->
+    
+    <a href="../billstatus_personalized/persbills_login.cfm"><button>Bill Tracking</button></a>
+    
+    
+    </td>
+    
+    
+    </tr>
+
+</table>
+</div>
+
+
+</div><!--wrapper-->
+        
+		
+        <div id="wrapper"><!--wraps all except footer-->
+            <div data-year='2026' data-url='2026' id="bhistcontent"><!--wraps until before ACTIONS table-->
+            
+            
+            	
+                
+                <h3 style="float:left; margin:10px;">
+					House Bill 4868 
+                </h3>
+
+                
+                
+                
+            <div style="float:right; margin:25px 10px 10px 10px;">   
+			<input value="PRINT ENTIRE BILL HISTORY" class="printbill button" onMouseOver="this.className='btn1hov'" onMouseOut="this.className='button'" type="submit"><br><br>
+			<form id='theform' action='..\billhistory.php' method='post'>
+				<input type='hidden' name='bill' value='4868'>
+				<input type='hidden' name='chamber' value='House'>
+				<input type='hidden' name='year' value='2026'>
+				<input type='hidden' name='session' value='rs'>
+			</form>
+			</div>
+			 
+			
+			
+			 
+			 
+                
+                <br><br>
+                
+                <table width="880px" cellpadding="8" class="bstat">
+                               
+                
+                
+                
+                <tr>
+                    <td width="120px"></td>
+                    <td width="760px">
+						<strong>Legislative Session:</strong> 2026(RS)
+                    </td>
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                	<td valign="top" class="nums">
+                    	<strong>LAST ACTION:</strong>
+                    </td>
+                    
+                    <td>
+                        <i>
+                        H To House Judiciary 01/28/26                         
+                        </i>
+                    </td>
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                	<td valign="top" class="nums">
+                    	<strong>SUMMARY:</strong>
+                    </td>
+					<td>
+						West Virginia Consumer Privacy Act of 2026
+                    </td>
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>           
+                    <td valign="top" class="nums">
+                    	<strong>LEAD SPONSOR:</strong>
+                    </td>
+                    <td>
+                    
+                    	<a href="Bills_Sponsors.cfm?year=2026&sessiontype=rs&btype=bill&hsemem=Hite" title="View bills Delegate Hite sponsored during 2026 Regular Session.">Hite</a><br>
+                    
+                    </td>
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                    <td valign="top" class="nums">
+                    	<strong>SPONSORS:</strong>
+                    </td>
+                    <td>
+						
+                            <a href="Bills_Sponsors.cfm?year=2026&sessiontype=rs&btype=bill&hsemem=Howell, G." title="View bills Delegate Howell, G. sponsored during 2026 Regular Session.">Howell, G.</a>, 
+                            <a href="Bills_Sponsors.cfm?year=2026&sessiontype=rs&btype=bill&hsemem=Green" title="View bills Delegate Green sponsored during 2026 Regular Session.">Green</a>, 
+                            <a href="Bills_Sponsors.cfm?year=2026&sessiontype=rs&btype=bill&hsemem=Ward, G." title="View bills Delegate Ward, G. sponsored during 2026 Regular Session.">Ward, G.</a> 
+                    </td>
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                    <td valign="top" class="nums">
+                    	<strong>BILL TEXT:</strong>
+                    	<br>
+                    	<span class="smalltext"><a href="javascript:void(0)"onclick="window.open('BillDefinitions.cfm','','height=380, width=550, left = 100, top = 180, scrollbars=no')">Bill Definitions</a></span>
+                    </td>
+                    
+                        
+
+                   	
+                  
+                    
+                    <td valign="top">   
+
+                        
+
+                        
+						Introduced Version - 
+                            
+                            <a href="bills_text.cfm?billdoc=hb4868%20intr.htm&yr=2026&sesstype=RS&i=4868" title="HTML - Introduced Version - House Bill 4868"> html</a>  
+							
+							
+								| <a class='billbundle' data-type='pdf' href="/Bill_Text_HTML/2026_SESSIONS/RS/bills/hb4868 intr.pdf" title="PDF - Introduced Version - House Bill 4868"> pdf</a> 
+                            
+								| <a class='billbundle' data-type='docx' href="/Bill_Text_HTML/2026_SESSIONS/RS/bills/hb4868 intr.docx" title="DOCX - Introduced Version - House Bill 4868"> docx</a> 
+                                                
+                            <br>
+                            
+                                               
+                    </td>
+
+                
+                
+                
+                
+                <tr>
+                
+                
+                
+                    <td valign="top" class="nums">
+                    	<strong>CODE AFFECTED:</strong>
+                    </td>
+                    
+                    <td>
+						
+                            	&sect;46 A-  9  - 101   &nbsp;
+                             <span class="smalltext">(New Code)</span>
+                            
+                            <br>
+                        
+                            	&sect;46 A-  9  - 102   &nbsp;
+                             <span class="smalltext">(New Code)</span>
+                            
+                            <br>
+                        
+                            	&sect;46 A-  9  - 103   &nbsp;
+                             <span class="smalltext">(New Code)</span>
+                            
+                            <br>
+                        
+                    </td>
+                 
+                
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                    <td valign="top" class="nums">
+					
+
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                 <tr>
+                
+                </tr>               
+
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                </tr>
+                
+                
+                
+                
+                
+                
+                <tr>
+                
+                
+                    <td valign="top" class="nums">
+                    	<strong>SUBJECT(S):</strong>
+                    </td>
+                    
+                    <td>
+						
+                        	<a href="Bills_Subjects.cfm?year=2026&sessiontype=rs&btype=bill&billsub=Consumer Protection" title="View other bills with the subject &quot;Consumer Protection&quot; during 2026 Regular Session.">Consumer Protection</a><br>
+						
+                    </td>
+
+				
+                </tr>
+                
+                
+                           
+           		</table>
+            
+            </div><!--bhistcontent-->
+            
+            
+            
+            
+            
+            <br>
+
+			
+            
+            <strong>ACTIONS:</strong><br>
+            
+            <TABLE id='action-table' class="tabborder" border="0" width="880px" cellpadding="6" cellspacing="0">
+                <tr>
+                    <th class="thborder" width="7px"></th>
+                    <th class="thborder" width="520px"><b>Description</b></th>
+                    <th class="thborder" width="60px"><b>Date</b></th>
+                    <th class="thborder" width="110px"><b>Journal Page</b></th>
+                </tr>
+                
+                
+				
+                    <tr id="act-1" class='actionrows'>
+						 
+                                    
+                        <td class="tdborder act-chamber">H</td>
+                                      
+                        <td class="tdborder act-url" data-comid ='' data-com="JUD">  
+                            
+							
+                            	<a href="bills_pend_com.cfm?year=2026&sessiontype=RS&btype=bill&abbvar=JUD&chamvar=H" title="View bills pending for this committee."> To House Judiciary </a>                      
+                            
+                       
+                        
+                        </td>
+                        
+                        <td class="tdborder">01/28/26</td>
+                        
+                        <td class="tdborder"></td>
+                    </tr>
+                
+                    <tr id="act-2" class='actionrows'>
+						 
+                                    
+                        <td class="tdborder act-chamber">H</td>
+                                      
+                        <td class="tdborder act-url" data-comid ='' data-com="">  
+                            
+							Introduced in House 
+                       
+                        
+                        </td>
+                        
+                        <td class="tdborder">01/28/26</td>
+                        
+                        <td class="tdborder"></td>
+                    </tr>
+                
+                    <tr id="act-3" class='actionrows'>
+						 
+                                    
+                        <td class="tdborder act-chamber">H</td>
+                                      
+                        <td class="tdborder act-url" data-comid ='' data-com="JUD">  
+                            
+							
+                            	<a href="bills_pend_com.cfm?year=2026&sessiontype=RS&btype=bill&abbvar=JUD&chamvar=H" title="View bills pending for this committee."> To Judiciary </a>                      
+                            
+                       
+                        
+                        </td>
+                        
+                        <td class="tdborder">01/28/26</td>
+                        
+                        <td class="tdborder"></td>
+                    </tr>
+                
+                    <tr id="act-4" class='actionrows'>
+						 
+                                    
+                        <td class="tdborder act-chamber">H</td>
+                                      
+                        <td class="tdborder act-url" data-comid ='' data-com="">  
+                            
+							
+                            	<a href="bill_intro.cfm?year=2026&sessiontype=RS&btype=bill&chamvar=H&input=01/28/26" title="View other bills inroduced on 01/28/26"> Filed for introduction </a>                                
+                            
+                       
+                        
+                        </td>
+                        
+                        <td class="tdborder">01/28/26</td>
+                        
+                        <td class="tdborder"></td>
+                    </tr>
+                
+                
+			</TABLE>
+            
+            
+            
+            
+                
+                
+        </div><!--wrapper-->
+        
+        
+        
+        
+        
+        <!--footer-->
+        <div id="footer">
+
+<div class="footerlinks">
+<a href="/bill_status/bill_status.cfm">Bill Status</a>&nbsp;&nbsp;|&nbsp;
+<a href="/billstatus_personalized/persbills_login.cfm">Bill Tracking</a>&nbsp;&nbsp;|&nbsp;
+<a href="/wvcodeentire.htm">Legacy WV Code</a>&nbsp;&nbsp;|&nbsp;
+<a href="https://www.wvlegislature.gov/Bulletin_Board/Bulletin_Board_menu.cfm">Bulletin Board</a>&nbsp;&nbsp;|&nbsp;
+<a href="/redistricting.cfm">District Maps</a>&nbsp;&nbsp;|&nbsp;
+<a href="/Senate1/roster.cfm">Senate Roster</a>&nbsp;&nbsp;|&nbsp; 
+<a href="/House/roster.cfm">House Roster</a>&nbsp;&nbsp;|&nbsp;
+<a href="/live.cfm">Live</a>&nbsp;&nbsp;|&nbsp;
+<a href="//blog.wvlegislature.gov/">Blog</a>&nbsp;&nbsp;|&nbsp;
+<a href="//jobs.wvlegislature.gov/">Jobs</a>&nbsp;&nbsp;|&nbsp; 
+<a href="/Contact/Links/links.cfm">Links</a>&nbsp;&nbsp;|&nbsp;
+<!--<a href="/FAQs/FAQ.cfm">FAQ</a>&nbsp;&nbsp;|&nbsp;
+<a href="/site_map.cfm">Site Map</a>&nbsp;&nbsp;|&nbsp;-->
+<a href="/index.cfm">Home</a>
+</div>
+<div class="social">
+<span>
+</a>
+<a href="https://www.facebook.com/wvlegislature"><img src="/images/SOCIAL-ICON-SET/512x512/facebook.png" alt="Find on Facebook" width="24" height="24" align="absmiddle" title="Find on Facebook"></a>
+<a href="https://twitter.com/wvlegislature"><img src="/images/SOCIAL-ICON-SET/512x512/twitter.png" alt="Follow on Twitter" width="24" height="24" align="absmiddle" title="Follow on Twitter"></a>
+<a href="https://www.youtube.com/wvlegislature/"><img src="/images/SOCIAL-ICON-SET/512x512/utube.png" alt="Watch on YouTube" width="24" height="24" align="absmiddle" title="Watch on YouTube"></a>
+</span>
+</div>
+</div>
+<div class="baseline">This Web site is maintained by the <a href="/Joint/legisinfo.cfm">West Virginia Legislature's Office of Reference &amp; Information.</a> &nbsp;|&nbsp; <a href="/termsofuse.cfm"> Terms of Use</a>  &nbsp;| &nbsp; <a href="mailto:webmaster@wvlegislature.gov"> <img src="/images/mail_icon.png" alt="Email Webmaster" align="top" title="Email Webmaster">Webmaster</a> &nbsp;  | &nbsp;  &copy; 2026 West Virginia Legislature  ** 
+</div><br /><br />
+        
+        
+        <br>
+        
+		
+		
+		<script>
+			var y = Number($('#bhistcontent').attr('data-year'));
+			var u = Number($('#bhistcontent').attr('data-url'));
+			if (u==y){
+			
+				lasth = '';
+				$('#action-table tr.actionrows').each(function(){
+					x = $(this).find("td:eq(0)").text();
+					y = $(this).find("td:eq(1)").attr('data-com');
+					if (x=='S')return false;
+					if (y!=''){
+						lasth=y;
+						return false;
+					}
+				});
+				//lasth = 'EDU';
+				if(lasth!=''){
+					$('#act-form-container').show();
+					$('#act-abbrev').val(lasth);
+					$('#act-comid').val(comid[lasth]);
+				}
+			}
+		</script>
+		<script type="text/javascript" src="/js/bpopup-0.11.0.min.js"></script>
+		<script>
+			var n = '';
+			var p = [];
+			var r = [];
+			var q = '';
+			$('.billbundle').each(function(x){
+				var u = $(this).attr('href');
+				var t = u.slice(-3);
+				n = n + t + "<br>";
+				var z = u; //'https://www.wvlegislature.gov' + 
+				var y = btoa(z);
+				//p.push(y);
+				//r.push(z + "<br>");
+				q += '<input type="hidden" name="urls[]" value=' + y + '>';
+			});
+			$('#theform').append(q);
+			$('.printbill').on('click',function(e){
+				e.preventDefault();
+				//$('#debug').html(r)
+				$('#pod-popup').bPopup({
+					follow: [false, false], //x, y
+					position: [500, 200] //x, y
+				});
+				$('#theform').submit();
+			});
+		</script>
+		<div id='pod-popup' class='noprint'>
+			<h2>Building House Bill 4868 PDF</h2>
+			<div id='pod-content'>Please wait for the document to be created. This may take a few seconds.</div>
+			<div style="text-align:center;margin-top:15px"><img src="../images/gears.gif"></div>
+			<div id='debug'></div>
+		</div>
+    </body>
+</html>

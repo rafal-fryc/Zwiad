@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "H 792",
+  "state": "Vermont",
+  "state_abbrev": "VT",
+  "session": "2026",
+  "title": "Vermont AI Liability Standards and Safe Harbor",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "liability"
+  ],
+  "sponsors": [
+    "Rep. Priestley (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/vermont/H-792",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0792/H-0792%20As%20Introduced.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/vermont/H-792/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

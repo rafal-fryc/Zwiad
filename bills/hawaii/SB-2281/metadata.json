@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "SB 2281",
+  "state": "Hawaii",
+  "state_abbrev": "HI",
+  "session": "2026",
+  "title": "Healthcare AI Disclosure and Oversight",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "healthcare-ai",
+    "disclosure"
+  ],
+  "sponsors": [
+    "Sen. Buenaventura (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/hawaii/SB-2281",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.capitol.hawaii.gov/sessions/session2026/CommReports/SB2281_SD1_SSCR2357_.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/hawaii/SB-2281/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

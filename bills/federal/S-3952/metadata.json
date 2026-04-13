@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "S 3952",
+  "state": "Federal",
+  "state_abbrev": "US",
+  "session": "2026",
+  "title": "Future of AI Innovation Act",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "ai-standards",
+    "ai-innovation"
+  ],
+  "sponsors": [
+    "Sen. Young (R-IN)",
+    "Sen. Cantwell (D-WA)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/federal/S-3952",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.congress.gov/119/bills/s3952/BILLS-119s3952is.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Reintroduced by Senators Young (R-IN) and Cantwell (D-WA)",
+      "source_email_date": "2026-03-05",
+      "source_run_id": "fpf-chronological-week-07-Mar-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/federal/S-3952/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-07-Mar-5-6",
+  "last_updated_run": "fpf-chronological-week-07-Mar-5-6"
+}

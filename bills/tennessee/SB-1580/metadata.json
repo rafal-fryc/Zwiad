@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 1580",
+  "state": "Tennessee",
+  "state_abbrev": "TN",
+  "session": "2026",
+  "title": "Tennessee Prohibition on AI Advertising as Qualified Mental Health Professional",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health"
+  ],
+  "sponsors": [],
+  "current_status": "passed-second-chamber",
+  "bill_dir": "bills/tennessee/SB-1580",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://capitol.tn.gov/Bills/114/Bill/SB1580.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-19",
+      "status": "passed-second-chamber",
+      "detail": "Passed both chambers; awaiting transmission to Governor",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/tennessee/SB-1580/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-04-11T15:36:23.705368+00:00",
+  "total_reports_scanned": 13,
+  "total_indexed": 13,
+  "total_urls_indexed": 124,
+  "duplicates": [],
+  "low_confidence_entries": [
+    {
+      "report_path": "reports/cybersecurity/incident-reporting/federal-circia-final-rule-delay-2026-04-07.md",
+      "topic_key": "federal-3cf28fc9-2026",
+      "title": "CIRCIA Final Cyber Incident Reporting Rule Delayed Again -- Now Expected May 2026 at Earliest",
+      "reason": "Fallback hash key used \u2014 no rule matched"
+    },
+    {
+      "report_path": "reports/privacy/state-comprehensive-laws/illinois-bipa-retroactive-damages-2026-04-07.md",
+      "topic_key": "il-federal-seventh-c-3d1d40cb-2026",
+      "title": "Seventh Circuit Holds BIPA Damages Amendment Applies Retroactively, Reshaping Liability for Hundreds",
+      "reason": "Fallback hash key used \u2014 no rule matched"
+    },
+    {
+      "report_path": "reports/privacy/state-privacy-tracker-april-2026-04-07.md",
+      "topic_key": "federal-multi-state-46de3a99-2026",
+      "title": "State Privacy Law Tracker: Maine LD 1822 Stalls, Ohio HB 807 Targets Data Broker Sales, Multiple Sta",
+      "reason": "Fallback hash key used \u2014 no rule matched"
+    }
+  ],
+  "all_entries_audit": [
+    {
+      "report_path": "reports/ai-law/frameworks-guidance/federal-nist-ai-agent-standards-initiative-2026-04-07.md",
+      "topic_key": "NIST-AI-AGENT-STANDARDS-INITIATIVE-2026",
+      "topic_type": "guidance",
+      "confidence": "medium"
+    },
+    {
+      "report_path": "reports/ai-law/frameworks-guidance/federal-white-house-ai-policy-framework-2026-04-07.md",
+      "topic_key": "WH-NATIONAL-POLICY-FRAMEWORK-FOR-2026",
+      "topic_type": "guidance",
+      "confidence": "medium"
+    },
+    {
+      "report_path": "reports/ai-law/oregon-ai-companion-chatbot-sb1546-2026-04-07.md",
+      "topic_key": "OR-SB-1546-2026",
+      "topic_type": "state_bill",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/ai-law/state-legislation/colorado-ai-act-delay-hb1263-2026-04-07.md",
+      "topic_key": "CO-HB-1263-2026",
+      "topic_type": "state_bill",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/ai-law/washington-ai-chatbot-provenance-bills-2026-04-07.md",
+      "topic_key": "WA-HB-2225-2026",
+      "topic_type": "state_bill",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/cybersecurity/incident-reporting/federal-circia-final-rule-delay-2026-04-07.md",
+      "topic_key": "federal-3cf28fc9-2026",
+      "topic_type": "rulemaking",
+      "confidence": "low"
+    },
+    {
+      "report_path": "reports/privacy/cppa-playon-sports-ccpa-enforcement-2026-04-07.md",
+      "topic_key": "CPPA-AGAINST-PLAYON-SPORTS-2026",
+      "topic_type": "enforcement",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/privacy/enforcement-actions/california-disney-ccpa-settlement-2026-04-07.md",
+      "topic_key": "CAAG-DISNEY-2026",
+      "topic_type": "enforcement",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/privacy/enforcement-actions/ftc-match-okcupid-clarifai-enforcement-2026-04-07.md",
+      "topic_key": "FTC-ACTION-AGAINST-MATCH-GROUP-AND-2026",
+      "topic_type": "enforcement",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/privacy/federal-coppa-final-rule-2025-2026-04-07.md",
+      "topic_key": "FTC-312",
+      "topic_type": "rulemaking",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/privacy/kentucky-hb692-acr-sensitive-data-2026-04-07.md",
+      "topic_key": "KY-HB-692-2026",
+      "topic_type": "state_bill",
+      "confidence": "high"
+    },
+    {
+      "report_path": "reports/privacy/state-comprehensive-laws/illinois-bipa-retroactive-damages-2026-04-07.md",
+      "topic_key": "il-federal-seventh-c-3d1d40cb-2026",
+      "topic_type": "enforcement",
+      "confidence": "low"
+    },
+    {
+      "report_path": "reports/privacy/state-privacy-tracker-april-2026-04-07.md",
+      "topic_key": "federal-multi-state-46de3a99-2026",
+      "topic_type": "other",
+      "confidence": "low"
+    }
+  ]
+}

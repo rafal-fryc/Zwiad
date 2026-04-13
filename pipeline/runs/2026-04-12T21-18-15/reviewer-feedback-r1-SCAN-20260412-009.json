@@ -1,0 +1,45 @@
+{
+  "finding_id": "SCAN-20260412-009",
+  "report_path": "reports/privacy/take-it-down-act-first-conviction-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "The criminal provisions sit alongside existing Title 18 offenses; takedown-notice provisions are codified at 47 U.S.C. § 223a",
+      "section": "The TAKE IT DOWN Act",
+      "source_url": "https://www.congress.gov/crs-product/LSB11314",
+      "issue": "Codification is inaccurate. The TAKE IT DOWN Act amends 47 U.S.C. § 223 by adding subsection (h) containing BOTH the criminal prohibition AND related definitions. The criminal provision is in 47 U.S.C. § 223(h), NOT Title 18. § 223a covers the notice-and-removal platform obligation. The report inverts/conflates this.",
+      "severity": "critical",
+      "suggested_fix": "Revise to: 'The criminal prohibition is codified at 47 U.S.C. § 223(h) (added by the Act to the Communications Act), and the platform notice-and-removal obligation is codified at 47 U.S.C. § 223a. The Act supplements — but does not reside in — existing Title 18 offenses.'",
+      "status": "open"
+    },
+    {
+      "claim": "Platforms have until May 19, 2026 to comply, with FTC enforcement authority under the Federal Trade Commission Act",
+      "section": "The TAKE IT DOWN Act (item 2)",
+      "source_url": "https://www.law.cornell.edu/uscode/text/47/223a",
+      "issue": "Hyperlink/text mismatch. Anchor text says 'Federal Trade Commission Act' but URL points to 47 U.S.C. § 223a, not the FTC Act (15 U.S.C. § 41 et seq.).",
+      "severity": "major",
+      "suggested_fix": "Change URL to 15 U.S.C. § 45 (FTC Act Section 5) since the Act treats platform violations as unfair or deceptive acts under Section 5.",
+      "status": "open"
+    },
+    {
+      "claim": "The TAKE IT DOWN Act (S. 146, 119th Congress) was passed on April 28, 2025",
+      "section": "The TAKE IT DOWN Act",
+      "source_url": "https://en.wikipedia.org/wiki/TAKE_IT_DOWN_Act",
+      "issue": "April 28, 2025 is the House passage date; Senate passed S. 146 on February 13, 2025. 'Passed' without qualification is ambiguous.",
+      "severity": "minor",
+      "suggested_fix": "Clarify: 'passed the House on April 28, 2025 (after Senate passage on February 13, 2025) and was signed into law on May 19, 2025.'",
+      "status": "open"
+    },
+    {
+      "claim": "First-ever criminal conviction under the TAKE IT DOWN Act",
+      "section": "Executive Summary",
+      "source_url": "https://www.justice.gov/usao-sdoh/pr/columbus-man-pleads-guilty-cyberstalking-exes-creating-ai-generated-obscene-material",
+      "issue": "Supported by USAO quote. Optionally note sentencing is pending to avoid confusion between guilty plea and final sentence.",
+      "severity": "minor",
+      "suggested_fix": "Add '(conviction via guilty plea; sentencing pending)' on first use.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

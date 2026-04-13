@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HF 4131",
+  "state": "Minnesota",
+  "state_abbrev": "MN",
+  "session": "2026",
+  "title": "Prohibition on Surveillance-Based Data Pricing and Wage Decisions",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-pricing",
+    "employment",
+    "admt"
+  ],
+  "sponsors": [
+    "Rep. Greenman (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/minnesota/HF-4131",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.house.leg.state.mn.us/hinfo/leginfo/memroster.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced by Rep. Greenman (D)",
+      "source_email_date": "2026-03-12",
+      "source_run_id": "fpf-chronological-week-08-Mar-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/minnesota/HF-4131/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-08-Mar-12-13",
+  "last_updated_run": "fpf-chronological-week-08-Mar-12-13"
+}

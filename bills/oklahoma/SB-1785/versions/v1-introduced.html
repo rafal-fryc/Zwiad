@@ -1,0 +1,739 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	Bill Information
+</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js" ></script> 
+    
+    
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="/css/master.css" type="text/css" media="screen, print" /><link rel="stylesheet" href="/css/print.css" type="text/css" media="print" /><link rel="stylesheet" href="/css/okh_styles.css" type="text/css" /><link rel="Stylesheet" href="/css/SubjectIndex.css" type="text/css" /><meta name="Description" content="Oklahoma Legislature's Website where you can follow the introduction of bills, committee actions, and votes on the  bills." /><meta name="Keywords" content="Oklahoma Legislature, Oklahoma State Senate, Senate, Senators, House of Representatives, house, representatives, oklahoma, legislature, bills, committees, members, staff, leadership, speaker, pro tempore, press, calendar, information, schedule, meeting,
+            notices, majority, minority, membership, pictorial, directory, historic, subcommittees, legislation, amendments, district, maps, precedents, rules, internship, research,
+            publications, links, news, archives, audio, video, summary, pressroom, visitors, disabilities, information, comptroller, communications, appropriations, 
+            budget, chief" /><meta name="Author" content="webmaster@oklegislature.gov" /><meta name="generator" content="Microsoft Visual Studio 2010 Ultimate" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/css/ie8.css" type="text/css" media="screen" />
+        <![endif]-->
+    <!--[if lte IE 7]>
+        <link rel="stylesheet" href="/css/ie7.css" type="text/css" media="screen" />
+        <![endif]-->
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" href="/css/ie6.css" type="text/css" media="screen" />
+        <![endif]-->
+    <!--[if lt IE 7]>
+        <script defer type="text/javascript" src="/js/pngfix.js"></script>
+        <![endif]-->
+
+    <script type="text/javascript">
+        function onRequestStart(sender, args) {
+            if (args.get_eventTarget().indexOf("ExportToExcelButton") >= 0 ||
+                        args.get_eventTarget().indexOf("ExportToWordButton") >= 0 ||
+                        args.get_eventTarget().indexOf("ExportToPdfButton") >= 0 ||
+                        args.get_eventTarget().indexOf("ExportToCsvButton") >= 0) {
+                args.set_enableAjax(false);
+            }
+        }
+        $(document).ready(
+            function () {
+
+                if ($('.tblSI td').length <= 0) {
+                    return false;
+                }
+                var hValue = $('.tblSI').height();
+                var hTemp = 0;
+                var $i = 0
+                var tdCatCount = $('.tblSI td').each(function (i, r) {
+                    var $r = $(r);
+                    if (hTemp >= (hValue / 2)) { $i = i; return false; }
+                    hTemp += $r.height();
+                }, $i);
+                //if ($tempR.length > 0) { alert($tempR.length); }
+                var $t = $('.tblSI td').eq($i++);
+
+                while ($t.hasClass('Category') || $t.hasClass('SubCategory')) {
+                    $t = $('.tblSI td').eq($i++);
+                }
+                $i -= 1;
+                $r = $('.tblSI tr').slice($i);
+                var $mTable = $('.tblSI');
+                var sTop = $t.position().top;
+                var row = $mTable.find('tr').slice($i);
+                //var w = $mTable.width() + 19;
+                var tStyle = $mTable.position().top + 'px; left: 49.43%;';
+                var h = $mTable.height() + 'px';
+                var stringTable = '<table class="secondTable" id="secondTable" style="top: ' + tStyle + '" ><tbody></tbody></table>';
+                var $sTable = $('.tblSI').parent().append(stringTable);
+                $sTable.find('tbody').append($r);
+                $mTable.find('tr').slice($i).remove();
+                //$mTable.parent().equalHeights();
+                //alert('MTable: ' + $mTable.height() + ' | ' + 'STable ' + $sTable.height())
+                $t = $('.secondTable td:last');
+                if ($t.hasClass('Category'))
+                    $('.secondTable td:last').append('<td class="SubCategory"><br/><br/><br/></td>');
+                $('.secondTable').height(Math.ceil(sTop));
+                $mTable.height(Math.ceil(sTop));
+            });
+    </script>
+<link href="/WebResource.axd?d=O4voZrQqegywIuTGLWTz87ZMWMV3GV081OR7CSBXX3kHhr7QdPJlxl9VL4MM3MBnd9g_BVK3n5m6PFsmAng3L6Zm9GnK6TJ9M8WSw5l-D0irfjrPs5EB-TEgyXTbY0n5JmWxuw2&amp;t=634092594000000000" type="text/css" rel="stylesheet" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="BillInfo.aspx?Bill=SB1785&amp;Session=2600" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm" style="background-color: #cccccc">
+<div>
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="ctl00_ToolkitScriptManager1_HiddenField" id="ctl00_ToolkitScriptManager1_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="ctl00_ContentPlaceHolder1_TabContainer1_ClientState" id="ctl00_ContentPlaceHolder1_TabContainer1_ClientState" value="{&quot;ActiveTabIndex&quot;:0,&quot;TabState&quot;:[true,true,true,true,true,true,true]}" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTAwNzI3NjgzD2QWAmYPZBYCAgMPZBYCAl8PZBYYAgEPFgIeBUNsYXNzBQZzZW5hdGUWBAIBDw8WAh4EVGV4dAUHU0IgMTc4NWRkAgMPDxYEHwEFCSgyMDI1LTI2KR4HVmlzaWJsZWhkZAIDDw8WBB8BBQdTQiAxNzg1HgtOYXZpZ2F0ZVVybAVCaHR0cHM6Ly93d3cub2tsZWdpc2xhdHVyZS5nb3YvY2ZfcGRmLzIwMjUtMjYgaW50L3NiL1NCMTc4NSBpbnQucGRmZGQCBQ8PFgQfAQUESmV0dB8DBSxodHRwczovL3d3dy5va3NlbmF0ZS5nb3YvU2VuYXRvcnMvc2hhbmUtamV0dGRkAgkPDxYEHwFlHwNlZGQCCw8PFgIfAWVkZAINDxBkEBUzFVBsZWFzZSBzZWxlY3Qgc2Vzc2lvbhQyMDI2IFJlZ3VsYXIgU2Vzc2lvbhQyMDI1IFJlZ3VsYXIgU2Vzc2lvbhsyMDI0IEZvdXJ0aCBTcGVjaWFsIFNlc3Npb24bMjAyMyBTZWNvbmQgU3BlY2lhbCBTZXNzaW9uGjIwMjQgVGhpcmQgU3BlY2lhbCBTZXNzaW9uFDIwMjQgUmVndWxhciBTZXNzaW9uGjIwMjMgRmlyc3QgU3BlY2lhbCBTZXNzaW9uFDIwMjMgUmVndWxhciBTZXNzaW9uGjIwMjIgVGhpcmQgU3BlY2lhbCBTZXNzaW9uGzIwMjIgU2Vjb25kIFNwZWNpYWwgU2Vzc2lvbhQyMDIyIFJlZ3VsYXIgU2Vzc2lvbhoyMDIxIEZpcnN0IFNwZWNpYWwgU2Vzc2lvbhQyMDIxIFJlZ3VsYXIgU2Vzc2lvbhsyMDIwIFNlY29uZCBTcGVjaWFsIFNlc3Npb24UMjAyMCBSZWd1bGFyIFNlc3Npb24aMjAyMCBGaXJzdCBTcGVjaWFsIFNlc3Npb24UMjAxOSBSZWd1bGFyIFNlc3Npb24UMjAxOCBSZWd1bGFyIFNlc3Npb24bMjAxNyBTZWNvbmQgU3BlY2lhbCBTZXNzaW9uGjIwMTcgRmlyc3QgU3BlY2lhbCBTZXNzaW9uFDIwMTcgUmVndWxhciBTZXNzaW9uFDIwMTYgUmVndWxhciBTZXNzaW9uFDIwMTUgUmVndWxhciBTZXNzaW9uFDIwMTQgUmVndWxhciBTZXNzaW9uFDIwMTMgU3BlY2lhbCBTZXNzaW9uFDIwMTMgUmVndWxhciBTZXNzaW9uFDIwMTIgU3BlY2lhbCBTZXNzaW9uFDIwMTIgUmVndWxhciBTZXNzaW9uFDIwMTEgUmVndWxhciBTZXNzaW9uFDIwMTAgUmVndWxhciBTZXNzaW9uFDIwMDkgUmVndWxhciBTZXNzaW9uFDIwMDggUmVndWxhciBTZXNzaW9uFDIwMDcgUmVndWxhciBTZXNzaW9uGzIwMDYgU2Vjb25kIFNwZWNpYWwgU2Vzc2lvbhQyMDA2IFJlZ3VsYXIgU2Vzc2lvbhQyMDA1IFNwZWNpYWwgU2Vzc2lvbhQyMDA1IFJlZ3VsYXIgU2Vzc2lvbhQyMDA0IFNwZWNpYWwgU2Vzc2lvbhQyMDA0IFJlZ3VsYXIgU2Vzc2lvbhQyMDAzIFJlZ3VsYXIgU2Vzc2lvbhQyMDAyIFJlZ3VsYXIgU2Vzc2lvbhQyMDAxIFNwZWNpYWwgU2Vzc2lvbhQyMDAxIFJlZ3VsYXIgU2Vzc2lvbhQyMDAwIFJlZ3VsYXIgU2Vzc2lvbhQxOTk5IFNwZWNpYWwgU2Vzc2lvbhQxOTk5IFJlZ3VsYXIgU2Vzc2lvbhQxOTk4IFJlZ3VsYXIgU2Vzc2lvbhQxOTk3IFJlZ3VsYXIgU2Vzc2lvbhQxOTk2IFJlZ3VsYXIgU2Vzc2lvbhoxOTk1IFJlZ3VsYXIgU2Vzc2lvbiAod2ViKRUzAAQyNjAwBDI1MDAEMjQ0WAQyMzJYBDI0M1gEMjQwMAQyMzFYBDIzMDAEMjIzWAQyMjJYBDIyMDAEMjExWAQyMTAwBDIwMlgEMjAwMAQyMDFYBDE5MDAEMTgwMAQxNzJYBDE3MVgEMTcwMAQxNjAwBDE1MDAEMTQwMAQxMzFYBDEzMDAEMTIxWAQxMjAwBDExMDAEMTAwMAQwOTAwBDA4MDAEMDcwMAQwNjJYBDA2MDAEMDUxWAQwNTAwBDA0MVgEMDQwMAQwMzAwBDAyMDAEMDExWAQwMTAwBDAwMDAEOTkxWAQ5OTAwBDk4MDAEOTcwMAQ5NjAwBDk1MDAUKwMzZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnFgECAWQCFw8PFgIfAQUEMjYwMGRkAhkPDxYCHwFlZGQCHQ8PFgQfAwVRaHR0cHM6Ly93d3cub2tsZWdpc2xhdHVyZS5nb3YvRUJpbGxUcmFjay9FQmlsbFRyYWNrMi5hc3B4P0JpbGxUeXBlPVNCJkJpbGxObz0xNzg1HwJnZGQCHw8QZGQWAGQCIw8PFgIfAQVDU3RhdGUgZ292ZXJubWVudDsgY3JlYXRpbmcgdGhlIENpdGl6ZW4ncyBCaWxsIG9mIFJpZ2h0cy4gRW1lcmdlbmN5LmRkAiUPZBYEZg9kFgICAQ9kFgICAQ8WDB4HYmdjb2xvcgUFV2hpdGUeBmJvcmRlcgUBMB4LYm9yZGVyY29sb3IFBE5hdnkeC2NlbGxwYWRkaW5nBQEwHgtjZWxsc3BhY2luZwUBMB4FYWxpZ24FBkNlbnRlcmQCBg9kFgICAQ9kFgJmDxYCHgNzcmMFTGh0dHA6Ly9va2hvdXNlLmdyYW5pY3VzLmNvbS9WaWV3U2VhcmNoUmVzdWx0cy5waHA/a2V5d29yZHM9U0IxNzg1JnZpZXdfaWQ9MTRkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBSdjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGJ0bkJpbGxTZWFyY2gFJ2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkVGFiQ29udGFpbmVyMQUnY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRUYWJDb250YWluZXIxDw9kZmR3xZbY62k36iZ7gWfKiPcJFPbvPg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=4pqxUNTECNaMfFjw_zhlCLZaLLTkXwCs8I-gLMQXA7hO-G3wN0-S1feAwviK9Fl5C3Av_k3cZ0ogvH_uH6AIFyqu8201&amp;t=638313757380000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=Vurx5HaUUHVFlXILX4nFFuCH6aoqf2en711tdPd_DPYcb6TpitECOWiu2HQal2oGFslaHKrh39OBUHSmGDk86SHregBGQvMqmUuSehEIcAdtNVoiQ0ZBUMnWf8jARkljZX-H-w2&amp;t=ffffffffec54f2d7" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=41LNCTzujh9bMKyLhvBMiq26mxS5gJcu6Tu_52Zqqg3K7zCHu_qcW4iG6Z7eDzZDUUeJ_Pjtw9v_xk78bmZlWcH1Oi55Vkto7FRp1fA17BUnWql378tNiC7dAJ7BOJ5ZJBdjfQ2&amp;t=ffffffffec54f2d7" type="text/javascript"></script>
+<script src="/BillInfo.aspx?_TSM_HiddenField_=ctl00_ToolkitScriptManager1_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.40412.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a1547e793-5b7e-48fe-8490-03a375b13a33%3ade1feab2%3af9cec9bc%3aa0b0f951%3aa67c2700%3a35576c48" type="text/javascript"></script>
+<script src="/WebResource.axd?d=xg8c_aVT97EUHVTEnZzApQ0A1Ft0oCg1qaHyrTnVlGjsa4JV170g0qcXy3qlNr6XgH9fKeAbEecw6xSy6HYdGSSNre81&amp;t=638313757380000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+null;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5B98C450" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWOQK2oPflAQKY296ACQLkmJ22BQLkmJ22BQLMtqixBQLMtqSxBQLwy8nSBwK6mICMCwKd8av5DQLMtqCxBQKnj+KSAQLMttyxBQKd8aP5DQK6mLyMCwLMttixBQKnj5qTAQLMttSxBQK6mLSMCwLMttCxBQKnj5aTAQLNtvSxBQLNtvCxBQK7mJCMCwKgj/KSAQLNtqyxBQLNtqixBQLNtqSxBQLNtqCxBQKgj+KSAQLNttyxBQKgj56TAQLNttixBQLNttSxBQLNttCxBQLOtvSxBQLOtvCxBQLOtqyxBQKEmIyMCwLOtqixBQKhj+qSAQLOtqSxBQKhj+aSAQLOtqCxBQLOttyxBQLOttixBQKhj5qTAQLOttSxBQLOttCxBQKoj7qTAQLVtvSxBQLVtvCxBQLVtqyxBQLVtqixBQLVtqSxBQKx8+isDQLr0s3SAQLFw67BBa7YEtOdBrLfjqRl5xaAOKyxP8EA" />
+</div>
+      <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ToolkitScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+  
+        
+       <div id="wrapper">
+        <div id="container">
+            <div id="content">                
+                <div id="header" align="right">               
+                 
+
+                    <input type="hidden" name="ctl00$TBWE2_ClientState" id="ctl00_TBWE2_ClientState" />
+                    
+                        
+                    
+                        
+                 </div>
+                <div id="mainNav">
+                    <ul>
+                        <li><a href="#">Home</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_hlOkLegislature" title="View the Oklahoma Legislature's home page." href="https://www.oklegislature.gov/index.aspx">Legislature Home</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSenateHome" title="View the Senate's home page." href="https://www.oksenate.gov" target="_blank">Senate Home</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlHouseHome" title="View the House of Representatives home page." href="https://www.okhouse.gov/" target="_blank">House Home</a>
+                                </li>
+								<li>
+                                    <a id="ctl00_hlLoftHome" title="View the Legislative Office of Fiscal Transparency home page." href="https://www.okloft.gov/" target="_blank">LOFT Home</a>
+                                </li>
+								<li>
+                                    <a id="ctl00_hlPhotoHome" title="View the LSB Photo home page." href="https://photo.oklegislature.gov/" target="_blank">Photo Home</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Legislators</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_hlSenateMembers" title="View the Senate Member's page." href="https://oksenate.gov/senators" target="_blank">Senate Members</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlHouse_Members" title="View the House of Representatives home page." href="https://www.okhouse.gov/representatives" target="_blank">House Members</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlFindLegislator" title="View the Find My Legislator page." href="https://www.oklegislature.gov/FindMyLegislature.aspx">Find My Legislator</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Legislation</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_hlBillSearch" title="Current session, known bill number" href="https://www.oklegislature.gov/BasicSearchForm.aspx">Basic Bill Search</a>
+                                </li>
+
+                                <li>
+                                    <a id="ctl00_lnkABS" title="Historical and/or Unknown bill number" href="https://www.oklegislature.gov/AdvancedSearchForm.aspx">Advanced Bill Search</a>
+                                </li>
+                                
+                                <li>
+                                    <a id="ctl00_hlTrackBills" title="View the Track Bills (LENS) page." href="https://www.oklegislature.gov/EBillTrack/EBillTrack2.aspx">Track Bills (LENS)</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSearchText" title="View the Text of Measures Search page." href="https://www.oklegislature.gov/TextOfMeasures.aspx">Text of Measures</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_lnkSearchTOM" title="Search Current measures for keywords." href="https://oklegislature.gov/tsrs_measures.aspx">Search Text of Measures</a>
+                                </li>
+                                
+                                <li>
+                                    <a id="ctl00_hlOKConst" title="Browse the Oklahoma Constitution page." href="https://www.oklegislature.gov/ok_constitution.aspx">Browse Oklahoma Constitution</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlOKStatutes" title="Browse the Oklahoma Statutes page." href="https://www.oklegislature.gov/osStatuesTitle.aspx">Browse Oklahoma Statutes</a>
+                                </li>
+                               
+                                <li>
+                                    <a id="ctl00_hlOKStatutesConst" title="Oklahoma Statutes and Constitution Search page." href="https://oklegislature.gov/tsrs_measures.aspx">Search Oklahoma Statutes and Constitution</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Committees</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_hlSenateCommittees" title="View the Senate Committee's page." href="https://oksenate.gov/committees-list" target="_blank">Senate Committee</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSenateMeetingNotices" title="View the Senate Meeting Notices page." href="https://oksenate.gov/committees#l-meeting-notices" target="_blank">Senate Meeting Notices</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSenateInterim" title="View the Senate Interim Studies page." href="https://oksenate.gov/publications/senate-interim-studies" target="_blank">Senate Interim Studies</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlHouse_Committees" title="View the House Committee's page." href="https://www.okhouse.gov/committees" target="_blank">House Committee</a>
+                                </li>
+                                 <li>
+                                    <a id="ctl00_hlHouseMeetingNotices" title="View the House Meeting Notices page." href="https://former.okhouse.gov/Committees/MeetingNotices.aspx" target="_blank">House Meeting Notices</a>
+                                </li>
+                               <li>
+                                    <a id="ctl00_hlHouseInterim" title="View the House Interim Studies page." href="https://former.okhouse.gov/Committees/ShowInterimStudies.aspx" target="_blank">House Interim Studies</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlRRCMeetingNotice" title="Red River Commission" href="https://www.oklegislature.gov/RedRiverCommission.aspx">Red River Commission (Meeting Notice)</a>
+                                </li>         
+                                <li>
+                                    <a id="ctl00_hlRRCResolution" title="Red River Commission" href="https://www.oklegislature.gov/RedRiverCommissionResolution.aspx">Red River Commission (Draft Resolution)</a>
+                                </li>         
+                                <li>
+                                    <a id="ctl00_hlRRCPresentation" title="Red River Commission" href="https://www.oklegislature.gov/RedRiverCommissionPresentation.aspx">Red River Commission (Presentation)</a>
+                                </li>    
+                                  <li>
+                                    <a id="ctl00_hlRRCOctMeetingPackage" title="Red River Commission" href="https://www.oklegislature.gov/RedRiverCommissionOctMeetingPackage.aspx">Red River Commission Final Meeting Package (October 2024)</a>
+                                </li>         								
+								</ul>
+
+                      </li>
+                        <li><a href="#">Calendars</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_JointCalendars" title="View the Joint A&amp;B Calendar page." href="https://www.oklegislature.gov/JointAandBCalendar.aspx">Joint A&B Calendar</a>
+                                </li>
+                                
+                               <li>
+                                    <a id="ctl00_JointCCR" title="View the Joint Conference Calendar page." href="https://www.oklegislature.gov/JointCCR.aspx">Joint Conference Calendar</a>
+                                </li>
+                                
+				                <li>
+                                    <a id="ctl00_hlSenateCalendars" title="View the Senate Calendars page." href="https://oksenate.gov/floor-agenda" target="_blank">Senate Calendar</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSenateDeadlines" title="View the Senate Legislative Deadlines page." href="https://oksenate.gov/calendar" target="_blank">Senate Legislative Deadlines</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlHouseCalendars" title="View the House Calendars page." href="https://www.okhouse.gov/calendars" target="_blank">House Calendar</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlHouseDeadlines" title="View the House Legislative Deadlines page." href="https://www.okhouse.gov/leg_deadlines" target="_blank">House Legislative Deadlines</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Video</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_hlSenate_Video" title="View the Senate Video page." href="https://oksenate.gov/live-proceedings" target="_blank">Senate Video</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSenate_Audio" title="Listen to the Senate audio when the Senate is in session." href="mms://164.58.250.25/senate" target="_blank">Senate Audio</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlHouse_Video" title="View the House Video page." href="https://sg001-harmony.sliq.net/00283/Harmony/en/View/UpcomingEvents/" target="_blank">House Video</a>
+                                </li>
+								<!--
+                                <li>
+                                    <a id="ctl00_hlHouse_Audio" title="Listen to the House audio when the House is in session." href="mms://164.58.250.25/house" target="_blank">House Audio</a>
+                                </li>
+                                
+								
+                                 <li>
+                                        <a id="ctl00_HyperLink9" title="Listen to the House meeting room audio when the meeting is in progress." href="http://www.okhouse.gov/Video/MeetingRoomAudio.aspx" target="_blank">House Meetings Audio</a>
+                                 </li>
+
+                                -->
+                                
+<!--                                
+                                <li>
+                                    <a id="ctl00_hlJoint_Video" title="View the Joint Video page." href="http://www.okhouse.gov/Video/JointSession.aspx" target="_blank">Joint Video</a>
+                                    </li>
+-->                                    
+                                    
+                            </ul>
+                        </li>
+                        <li><a href="#">Directory</a>
+                            <ul>
+                                <li>
+                                    <a id="ctl00_hlSenate_Members" title="View the Senate Members page." href="https://oksenate.gov/senators" target="_blank">Senate Members</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hlSenateStaff" title="View the Senate Staff page." href="https://oksenate.gov/contacts/senate-staff" target="_blank">Senate Staff</a>
+                                </li>
+                                <li>
+                                    <a id="ctl00_hl_House_Members" title="View the House Members page." href="https://www.okhouse.gov/representatives" target="_blank">House Members</a>
+                                </li>
+								
+								  <li>
+                                    <a id="ctl00_hlHouse_Staff" title="View the House Staff's page." href="https://www.okhouse.gov/staff-directory" target="_blank">House Staff</a>
+                                </li>
+								
+                                <li>
+                                    <a id="ctl00_hlLSBStaff" title="View the LSB Staff's page." href="https://www.oklegislature.gov/lsb.aspx">LSB Staff</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="open">
+                    <div class="contentholder">
+                        
+
+
+        <h1 id="ctl00_ContentPlaceHolder1_mainH1" Class="senate">&nbsp;Bill Information for&nbsp;<span id="ctl00_ContentPlaceHolder1_lblBillDisplay">SB 1785</span>&nbsp;
+            
+        </h1>
+<table>
+<tr><td width="850" colspan="2">
+        <br>
+        <table> 
+            <tr><td width ="500" valign="top">
+                <a id="ctl00_ContentPlaceHolder1_lnkIntroduced" href="https://www.oklegislature.gov/cf_pdf/2025-26%20int/sb/SB1785%20int.pdf" style="font-size:Medium;font-weight:bold;">SB 1785</a>
+                by&nbsp;<a id="ctl00_ContentPlaceHolder1_lnkAuth" href="https://www.oksenate.gov/Senators/shane-jett" style="font-size:Medium;font-weight:bold;">Jett</a>
+                
+                
+                
+                
+                <br><br>
+                <h2>Select Session:&nbsp;&nbsp;<select name="ctl00$ContentPlaceHolder1$cbxSessionId" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$cbxSessionId\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_cbxSessionId" style="height:21px;width:255px;">
+	<option value="">Please select session</option>
+	<option selected="selected" value="2600">2026 Regular Session</option>
+	<option value="2500">2025 Regular Session</option>
+	<option value="244X">2024 Fourth Special Session</option>
+	<option value="232X">2023 Second Special Session</option>
+	<option value="243X">2024 Third Special Session</option>
+	<option value="2400">2024 Regular Session</option>
+	<option value="231X">2023 First Special Session</option>
+	<option value="2300">2023 Regular Session</option>
+	<option value="223X">2022 Third Special Session</option>
+	<option value="222X">2022 Second Special Session</option>
+	<option value="2200">2022 Regular Session</option>
+	<option value="211X">2021 First Special Session</option>
+	<option value="2100">2021 Regular Session</option>
+	<option value="202X">2020 Second Special Session</option>
+	<option value="2000">2020 Regular Session</option>
+	<option value="201X">2020 First Special Session</option>
+	<option value="1900">2019 Regular Session</option>
+	<option value="1800">2018 Regular Session</option>
+	<option value="172X">2017 Second Special Session</option>
+	<option value="171X">2017 First Special Session</option>
+	<option value="1700">2017 Regular Session</option>
+	<option value="1600">2016 Regular Session</option>
+	<option value="1500">2015 Regular Session</option>
+	<option value="1400">2014 Regular Session</option>
+	<option value="131X">2013 Special Session</option>
+	<option value="1300">2013 Regular Session</option>
+	<option value="121X">2012 Special Session</option>
+	<option value="1200">2012 Regular Session</option>
+	<option value="1100">2011 Regular Session</option>
+	<option value="1000">2010 Regular Session</option>
+	<option value="0900">2009 Regular Session</option>
+	<option value="0800">2008 Regular Session</option>
+	<option value="0700">2007 Regular Session</option>
+	<option value="062X">2006 Second Special Session</option>
+	<option value="0600">2006 Regular Session</option>
+	<option value="051X">2005 Special Session</option>
+	<option value="0500">2005 Regular Session</option>
+	<option value="041X">2004 Special Session</option>
+	<option value="0400">2004 Regular Session</option>
+	<option value="0300">2003 Regular Session</option>
+	<option value="0200">2002 Regular Session</option>
+	<option value="011X">2001 Special Session</option>
+	<option value="0100">2001 Regular Session</option>
+	<option value="0000">2000 Regular Session</option>
+	<option value="991X">1999 Special Session</option>
+	<option value="9900">1999 Regular Session</option>
+	<option value="9800">1998 Regular Session</option>
+	<option value="9700">1997 Regular Session</option>
+	<option value="9600">1996 Regular Session</option>
+	<option value="9500">1995 Regular Session (web)</option>
+
+</select>
+           <br/><br/>
+             Enter Bill #: &nbsp;&nbsp;&nbsp;&nbsp;<input type="hidden" name="ctl00$ContentPlaceHolder1$TBWE_ClientState" id="ctl00_ContentPlaceHolder1_TBWE_ClientState" />                                                        
+                <input name="ctl00$ContentPlaceHolder1$txtSearchAgain" type="text" id="ctl00_ContentPlaceHolder1_txtSearchAgain" style="height:15px;width:79px;" />
+                &nbsp;&nbsp;
+                <input type="image" name="ctl00$ContentPlaceHolder1$btnBillSearch" id="ctl00_ContentPlaceHolder1_btnBillSearch" src="images/search.png" alt="Find Bill" align="top" style="height:20px;width:61px;border-width:0px;" />
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br><br>
+                    <span id="ctl00_ContentPlaceHolder1_LabelMessage" style="font-size:Medium;"></span>
+                     
+            </h2>
+         <td width="350   </td>
+            " align="right">
+                <a id="ctl00_ContentPlaceHolder1_lnkLENS" href="https://www.oklegislature.gov/EBillTrack/EBillTrack2.aspx?BillType=SB&amp;BillNo=1785" style="font-size:Medium;">Receive 
+                Email Updates for this Measure (LENS)</a><br><br>
+               
+            </td></tr>
+    </table>        
+    <table>
+        <tr><td valign="top" align="left">
+             &nbsp;</td>                
+        <td align="left">
+            
+        
+            
+         
+            
+        </td></tr>
+    </table>                
+        
+    <br>    
+    <span id="ctl00_ContentPlaceHolder1_txtST" style="font-size:Medium;font-weight:normal;font-style:normal;">State government; creating the Citizen's Bill of Rights. Emergency.</span>
+    <br>    
+    <br>    
+</td></tr>
+</table>        
+        
+    <div id="ctl00_ContentPlaceHolder1_TabContainer1" class="ajax__tab_xp-theme" style="color:#053A80;font-family:Bell MT;font-size:X-Large;font-weight:bold;width:865px;visibility:hidden;">
+	<div id="ctl00_ContentPlaceHolder1_TabContainer1_header">
+		<span id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel1_tab"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel1">History<br><br><br><br><br>           
+    </span></span></span></span><span id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel2_tab"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel2">Amendments<br><br><br><br><br>
+    </span></span></span></span><span id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel3_tab"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel3">Bill Summaries<br><br><br><br><br>   
+           
+        
+           
+           
+        
+        
+        </span></span></span></span><span id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4_tab"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4">Versions<br><br><br><br><br>
+        </span></span></span></span><span id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel5_tab"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel5">Votes<br><br><br><br><br>
+        
+        
+        
+        
+        
+        
+        </span></span></span></span><span id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel6_tab"><span class="ajax__tab_outer"><span class="ajax__tab_inner"><span class="ajax__tab_tab" id="__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel6">Authors/Co Authors<br><br><br><br><br>
+    </span></span></span></span>
+	</div><div id="ctl00_ContentPlaceHolder1_TabContainer1_body" style="height:1900px;">
+		<div id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel1" class="ajax__tab_panel">
+			
+    <table>
+        <tr><td valign="top" align="left" width="860">
+            <table id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel1_tblHouseActions" style="width:850px;" bgcolor="White" border="0" bordercolor="Navy" cellpadding="0" cellspacing="0" align="Center">
+				<tr>
+					<td colspan="4" align="left" valign="bottom"><h1 class='senate'>History For SB 1785</h1></td>
+				</tr>
+				<tr>
+					<td valign="center" align="left"><br><font color=maroon size='15px'>Action<hr color=maroon><hr color=maroon></font></td>
+					<td valign="bottom" width="100px"><font color=maroon>Journal Page<hr color=maroon><hr color=maroon></font></td>
+					<td align="center" valign="bottom"><font color=maroon>Date<hr color=maroon><hr color=maroon></font></td>
+					<td valign="bottom" align="center"><font color=maroon>Chamber<hr color=maroon><hr color=maroon></font></td>
+				</tr>
+				<tr>
+					<td>First Reading</td>
+					<td align="center">119</td>
+					<td align="center">02/02/2026</td>
+					<td align="center">S</td>
+				</tr>
+				<tr>
+					<td colspan="4"><hr></td>
+				</tr>
+				<tr>
+					<td>Authored by Senator Jett</td>
+					<td align="center">119</td>
+					<td align="center">02/02/2026</td>
+					<td align="center">S</td>
+				</tr>
+				<tr>
+					<td colspan="4"><hr></td>
+				</tr>
+				<tr>
+					<td>Second Reading referred to Rules</td>
+					<td align="center">242</td>
+					<td align="center">02/03/2026</td>
+					<td align="center">S</td>
+				</tr>
+				<tr>
+					<td colspan="4"><hr></td>
+				</tr>
+			</table>
+			
+        </td></tr>
+    </table>    
+
+		</div><div id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel2" class="ajax__tab_panel" style="display:none;visibility:hidden;">
+			<table><tr><td valign="top" align="left" width="860"><table id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel2_tblAmendments" style="width:850px;">
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Floor Amendments (Senate)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Floor Amendments (House)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Committee Amendments (Senate)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Committee Amendments (House)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Sub Committee OR Policy Committee Recommendations (House)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+			</table>
+			</tr></td></table>
+        
+		</div><div id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel3" class="ajax__tab_panel" style="display:none;visibility:hidden;">
+			<table><tr><td valign="top" align="left" width="860"><table id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel3_tblBillSum" style="width:850px;">
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Bill Summaries/Fiscal Impact for SB 1785 (House)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Bill Summaries/Fiscal Impact for SB 1785 (Senate)</h1></td>
+				</tr>
+				<tr>
+					<td><a href='https://www.oklegislature.gov/cf_pdf/2025-26 SUPPORT DOCUMENTS/BILLSUM/Senate/SB1785 INT BILLSUM.PDF' target=_blank>Introduced</a></td>
+					<td>1/15/2026</td>
+				</tr>
+				<tr>
+					<td colspan="2"><hr></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>OPLAA Actuarial Statements For SB 1785 (House)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>OPLAA Actuarial Statements For SB 1785 (Senate)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Fiscal Impact Statements For SB 1785 (House)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Fiscal Impact Statements For SB 1785 (Senate)</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+			</table>
+			</tr></td></table>       
+           
+               
+           
+        
+               
+           
+               
+           
+        
+        
+        
+		</div><div id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4" class="ajax__tab_panel" style="display:none;visibility:hidden;">
+			
+        
+            <table><tr><td valign="top" align="left" width="860">
+                <table id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4_tblVersions" style="width:850px;">
+				<tr>
+					<td colspan="2" align="left"><h1 class='senate'>Versions of SB 1785</h1></td>
+				</tr>
+				<tr>
+					<td><a href='https://www.oklegislature.gov/cf_pdf/2025-26 INT/SB/SB1785 INT.PDF' target=_blank>Introduced</a></td>
+					<td>1/14/2026</td>
+				</tr>
+				<tr>
+					<td colspan="2"><hr></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="left"><h1 class='senate'>Committee Reports for SB 1785</h1></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="left"><h1 class='senate'>Conference Committee Reports for SB 1785</h1></td>
+				</tr>
+			</table>
+			
+            </td>
+            </tr></table>
+            
+<table border="1">
+<tr><td>
+    <iframe id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4_IframePDF" width="860" height="500" scrolling="yes"></iframe>                
+</td></tr>
+</table>       
+        
+    
+		</div><div id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel5" class="ajax__tab_panel" style="display:none;visibility:hidden;">
+			<table><tr><td valign="top" align="left" width="860"><table id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel5_tblVotes" style="width:850px;">
+				<tr>
+					<td colspan="3" align="left"><h1 class='senate'>Votes on SB 1785</h1></td>
+				</tr>
+				<tr>
+					<td>None</td>
+				</tr>
+			</table>
+			</tr></td></table>       
+            
+               
+            
+        
+               
+            
+               
+            
+        
+        
+        
+		</div><div id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel6" class="ajax__tab_panel" style="display:none;visibility:hidden;">
+			<table><tr><td valign="top" align="left" width="860"><table id="ctl00_ContentPlaceHolder1_TabContainer1_TabPanel6_tblCoAuth" style="width:850px;">
+				<tr>
+					<td align="left"><h1 class='senate'>Authors/Co Authors for SB 1785</h1></td>
+				</tr>
+				<tr>
+					<td align="left"></td>
+				</tr>
+				<tr>
+				</tr>
+				<tr>
+					<td align="left"><span style='color: red;'>***To be added when the next official action is taken on the measure.***<br /><br /></td>
+				</tr>
+			</table>
+			</tr></td></table>       
+        
+		</div>
+	</div>
+</div>
+     
+
+        
+
+                    </div>
+                </div>
+                <div class="SIList" id="contentpane2" style="background-color: #aeb8bf" >
+                    
+
+                </div>
+                <div id="secondaryFooter" align="center">    
+                         &nbsp;
+<!--                
+                            <a id="ctl00_hlLegislatureHome" title="Home" href="Index.aspx">Legislature Home</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;                                
+                            <a id="ctl00_hlHelp" title="View the About the Legislature page." href="#" target="_blank">Help</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;                                
+                            <a id="ctl00_hlFAQs" title="FAQs" href="#">FAQs</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;                                
+                            <a id="ctl00_HyperLink1" title="Site Map" href="#">Site Map</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;                                
+                            <a id="ctl00_HyperLink2" title="Policies" href="#">Website Policies</a>
+-->                    
+                </div>
+                <div id="mainFooter" class="bodytextcenterwhitesmall" >
+                        Address: 2300 N Lincoln Blvd., State Capitol Building, Oklahoma City, OK 73105                     </div>
+                        <br>
+                </div>
+            <div id="bottom">
+            </div>
+        </div>
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("ctl00_ToolkitScriptManager1_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();WebForm_AutoFocus('ctl00_ContentPlaceHolder1_txtSearchAgain');Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabPanel, {"headerTab":$get("__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel1"),"ownerID":"ctl00_ContentPlaceHolder1_TabContainer1"}, null, {"owner":"ctl00_ContentPlaceHolder1_TabContainer1"}, $get("ctl00_ContentPlaceHolder1_TabContainer1_TabPanel1"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabPanel, {"headerTab":$get("__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel2"),"ownerID":"ctl00_ContentPlaceHolder1_TabContainer1"}, null, {"owner":"ctl00_ContentPlaceHolder1_TabContainer1"}, $get("ctl00_ContentPlaceHolder1_TabContainer1_TabPanel2"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabPanel, {"headerTab":$get("__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel3"),"ownerID":"ctl00_ContentPlaceHolder1_TabContainer1"}, null, {"owner":"ctl00_ContentPlaceHolder1_TabContainer1"}, $get("ctl00_ContentPlaceHolder1_TabContainer1_TabPanel3"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabPanel, {"headerTab":$get("__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4"),"ownerID":"ctl00_ContentPlaceHolder1_TabContainer1"}, null, {"owner":"ctl00_ContentPlaceHolder1_TabContainer1"}, $get("ctl00_ContentPlaceHolder1_TabContainer1_TabPanel4"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabPanel, {"headerTab":$get("__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel5"),"ownerID":"ctl00_ContentPlaceHolder1_TabContainer1"}, null, {"owner":"ctl00_ContentPlaceHolder1_TabContainer1"}, $get("ctl00_ContentPlaceHolder1_TabContainer1_TabPanel5"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabPanel, {"headerTab":$get("__tab_ctl00_ContentPlaceHolder1_TabContainer1_TabPanel6"),"ownerID":"ctl00_ContentPlaceHolder1_TabContainer1"}, null, {"owner":"ctl00_ContentPlaceHolder1_TabContainer1"}, $get("ctl00_ContentPlaceHolder1_TabContainer1_TabPanel6"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.TabContainer, {"activeTabIndex":0,"clientStateField":$get("ctl00_ContentPlaceHolder1_TabContainer1_ClientState"),"scrollBars":1}, null, null, $get("ctl00_ContentPlaceHolder1_TabContainer1"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

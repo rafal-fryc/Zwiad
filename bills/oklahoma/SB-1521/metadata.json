@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "SB 1521",
+  "state": "Oklahoma",
+  "state_abbrev": "OK",
+  "session": "2026",
+  "title": "Companion Chatbot Age Verification Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [
+    "Sen. Hamilton (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/oklahoma/SB-1521",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB1521%20INT.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Hamilton (R)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-10",
+      "pdf_path": "bills/oklahoma/SB-1521/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

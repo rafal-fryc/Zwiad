@@ -11,10 +11,11 @@ Read `CLAUDE.md` for project context before proceeding.
 
 ## Input
 
-You receive paths to one or more FPF email HTML files saved in a pipeline run's `emails/` directory. FPF sends two types of weekly emails:
+You receive paths to one or more FPF email HTML files saved in a pipeline run's `emails/` directory. FPF sends three types of weekly emails:
 
 1. **"FPF U.S. AI Legislation Update"** — tracks AI-related bills across US states
 2. **"FPF U.S. Privacy Legislation Updates"** — tracks privacy-related bills across US states
+3. **"FPF Youth Privacy Legislation Updates"** (sometimes titled "FPF Youth Privacy & Safety Legislation Updates") — tracks youth-privacy / online-safety bills across US states
 
 ## FPF Email Structure
 
@@ -47,7 +48,7 @@ Extract whichever URL format is present. The bill_processor will resolve redirec
 ## Processing Steps
 
 1. Read each FPF email HTML file provided in the prompt
-2. Determine the email type from content (AI Legislation or Privacy Legislation)
+2. Determine the email type from content (AI Legislation, Privacy Legislation, or Youth Privacy)
 3. Parse the email to extract the date it covers
 4. For each bill entry found in the email:
    a. Extract the bill identifier (type + number, e.g., "SB 1546")
@@ -58,8 +59,8 @@ Extract whichever URL format is present. The bill_processor will resolve redirec
    f. Determine the current status from the description language (see Status Mapping below)
    g. Extract sponsor information if present
    h. Extract the bill text URL from the hyperlink on the bill identifier
-   i. Classify the bill category: `ai-law` (from AI Legislation emails), `privacy` (from Privacy emails), or both if it appears in both
-   j. Assign topic tags based on the category label (chatbots, health, liability, employment, data-pricing, genai-transparency, comprehensive-privacy, childrens-privacy, biometric-data, consumer-data, etc.)
+   i. Classify the bill category: `ai-law` (from AI Legislation emails), or `privacy` (from Privacy Legislation OR Youth Privacy emails). A bill may carry both `ai-law` and `privacy` if it appears in multiple email types.
+   j. Assign topic tags based on the category label (chatbots, health, liability, employment, data-pricing, genai-transparency, comprehensive-privacy, childrens-privacy, youth-privacy, online-safety, age-verification, social-media, biometric-data, consumer-data, etc.). For bills extracted from "FPF Youth Privacy" emails, always include `youth-privacy` in the topics array in addition to any category-label-derived topics.
 5. Read `bills/tracker.json` to determine which bills are new vs. status updates:
    - Look up each bill by its key format: `{STATE_ABBREV}-{BILL_TYPE}-{NUMBER}-{SESSION}` (e.g., `OR-SB-1546-2026`)
    - If found in tracker: set `is_new: false` and `previous_status` to the tracker's current_status

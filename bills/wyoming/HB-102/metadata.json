@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 102",
+  "state": "Wyoming",
+  "state_abbrev": "WY",
+  "session": "2026",
+  "title": "Wyoming AI Harm Prevention, CSAM Offenses, and Developer Liability Immunity",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "liability",
+    "genai-transparency"
+  ],
+  "sponsors": [
+    "Rep. Lien (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/wyoming/HB-102",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://wyoleg.gov/2026/Introduced/HB0102.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/wyoming/HB-102/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

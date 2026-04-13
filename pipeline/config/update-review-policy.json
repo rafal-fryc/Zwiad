@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "description": "Reviewer policy for Phase 2 update-existing-report flow. When a finding has operation=append_update, the reviewer consults these rules to decide between auto_approved (quiet append) and needs-human-review (Discord prompt). See docs/REVIEW-2026-04-10.md I1 and the Phase 2 plan.",
+  "auto_approve": {
+    "diff_signal": ["status_change"],
+    "require_confidence": "high"
+  },
+  "always_escalate": {
+    "diff_signal": ["amendment", "new_penalty", "signed", "vetoed"],
+    "topic_types_always_escalate": ["enforcement"],
+    "low_confidence_always_escalates": true
+  }
+}

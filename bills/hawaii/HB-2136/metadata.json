@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 2136",
+  "state": "Hawaii",
+  "state_abbrev": "HI",
+  "session": "2026",
+  "title": "Hawaii Surveillance Data Pricing Prohibition",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-driven-pricing",
+    "surveillance-pricing"
+  ],
+  "sponsors": [
+    "Sen. Lee (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/hawaii/HB-2136",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2136_.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/hawaii/HB-2136/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

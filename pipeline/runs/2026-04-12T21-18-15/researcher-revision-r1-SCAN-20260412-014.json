@@ -1,0 +1,36 @@
+{
+  "finding_id": "SCAN-20260412-014",
+  "round": 1,
+  "changes_made": [
+    {
+      "issue_claim": "Hearst prevailed at the district court level, which dismissed the case",
+      "action": "fixed",
+      "new_content": "Revised Background section to state that Judge Richard Stearns (D. Mass.) granted summary judgment to Hearst in April 2025, holding that plaintiff Therrien failed to present sufficient evidence that the disclosed data constituted PII under the VPPA. Noted that this is procedurally distinct from a Rule 12(b)(6) dismissal. Updated Source 5 annotation and Action Items to reference the summary-judgment posture.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "The plaintiff (Therrien) has appealed to the First Circuit (no docket number)",
+      "action": "fixed",
+      "new_content": "Added full appellate citation 'Therrien v. Hearst Television, Inc., No. 25-1487 (1st Cir., appeal filed May 21, 2025)' in the Executive Summary, Background, Official Legal Text, and Action Items sections.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "Hearst is pressing a constitutional argument (missing doctrinal theory)",
+      "action": "fixed",
+      "new_content": "Added a paragraph in Background explaining Hearst's First Amendment theory: the VPPA is both content-based (applies only to prerecorded video materials) and speaker-based (burdens only 'video tape service providers'), triggering strict scrutiny. Framed DOJ's content-neutrality argument as a direct rebuttal to this theory in the DOJ's Position section.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "Supreme Court case not named (VPPA 'consumer' circuit split)",
+      "action": "fixed",
+      "new_content": "Named the case as Salazar v. Paramount Global (6th Circuit), added cert-grant date of January 26, 2026, and noted expected OT2026-27 argument in the Why This Matters section. Updated Source 10 and 11 annotations to reference the case name.",
+      "status": "fixed"
+    },
+    {
+      "issue_claim": "Brief first reported by MediaPost on April 6, 2026",
+      "action": "fixed",
+      "new_content": "No change required; reviewer confirmed claim. Citation retained.",
+      "status": "fixed"
+    }
+  ]
+}

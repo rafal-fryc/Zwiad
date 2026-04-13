@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-07T21:30:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260407-005",
+    "report_title": "FTC Takes Enforcement Action Against Match Group and OkCupid for Sharing User Photos and Data With AI Startup Without Consent",
+    "report_path": "reports/privacy/ftc-match-okcupid-clarifai-enforcement-2026-04-07.md",
+    "format": "client-alert",
+    "jurisdiction_tags": ["Federal"],
+    "confidence_summary": {
+      "high": 2,
+      "medium": 0,
+      "low": 0
+    },
+    "sources_verified": [
+      {
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2026/03/ftc-takes-action-against-match-okcupid-deceiving-users-sharing-personal-data-third-party",
+        "title": "FTC Press Release",
+        "verified": true,
+        "notes": "Official FTC press release confirming complaint and settlement details"
+      },
+      {
+        "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/okcupidmatch",
+        "title": "FTC Case Page -- OkCupid/Match",
+        "verified": true,
+        "notes": "Official FTC case proceedings page with docket information"
+      },
+      {
+        "url": "https://natlawreview.com/article/ftc-enforcement-alert-match-group-okcupid-privacy-promises-have-consequences",
+        "title": "National Law Review -- FTC Enforcement Alert",
+        "verified": true,
+        "notes": "Law firm analysis corroborating settlement terms and compliance obligations"
+      },
+      {
+        "url": "https://www.biometricupdate.com/202603/ftc-order-bars-okcupid-from-misleading-users-about-biometric-data-sharing",
+        "title": "Biometric Update -- FTC Order Coverage",
+        "verified": true,
+        "notes": "Corroborates obstruction allegations and settlement provisions"
+      },
+      {
+        "url": "https://petapixel.com/2026/04/02/ftc-says-okcupid-shared-three-million-user-photos-with-facial-recognition-firm/",
+        "title": "PetaPixel -- OkCupid Photo Sharing",
+        "verified": true,
+        "notes": "Additional reporting on scope of data sharing"
+      }
+    ],
+    "confidence": "high",
+    "word_count": 580
+  }
+}

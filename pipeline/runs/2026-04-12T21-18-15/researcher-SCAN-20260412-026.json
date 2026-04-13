@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:45:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-026",
+    "title": "Trump Executive Order Establishes National AI Policy Framework Preempting State Laws",
+    "report_path": "reports/ai-law/trump-ai-executive-order-state-preemption-2026-04-12.md",
+    "verification_status": "verified",
+    "sources_count": 8,
+    "sources": [
+      {"url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/", "title": "White House — Ensuring a National Policy Framework for Artificial Intelligence", "accessed": "2026-04-12", "key_facts": "Official EO text; confirms December 11, 2025 signing and operative title."},
+      {"url": "https://www.paulhastings.com/insights/client-alerts/president-trump-signs-executive-order-challenging-state-ai-laws", "title": "Paul Hastings — President Trump Signs Executive Order Challenging State AI Laws", "accessed": "2026-04-12", "key_facts": "Originating client alert; summarizes DOJ Task Force, BEAD, FTC directives."},
+      {"url": "https://www.mayerbrown.com/en/insights/publications/2025/12/president-trump-issues-executive-order-on-ensuring-a-national-policy-framework-for-artificial-intelligence", "title": "Mayer Brown — President Trump Issues Executive Order on National AI Policy Framework", "accessed": "2026-04-12", "key_facts": "Context: 1,000+ state AI bills in 2025; agency actions sequencing."},
+      {"url": "https://datamatters.sidley.com/2025/12/23/unpacking-the-december-11-2025-executive-order-ensuring-a-national-policy-framework-for-artificial-intelligence/", "title": "Sidley Data Matters — Unpacking the December 11, 2025 EO", "accessed": "2026-04-12", "key_facts": "Confirms AG Bondi established DOJ AI Litigation Task Force January 9, 2026; BEAD 90-day deadline."},
+      {"url": "https://ourtake.bakerbotts.com/post/102mirs/march-2026-federal-deadlines-that-will-reshape-the-ai-regulatory-landscape", "title": "Baker Botts — March 2026 Federal AI Deadlines", "accessed": "2026-04-12", "key_facts": "FTC policy statement due March 11, 2026 on state bias-mitigation preemption."},
+      {"url": "https://www.wiley.law/alert-White-House-Issues-Executive-Order-to-Promote-National-AI-Policy-Framework-and-Challenge-Certain-State-AI-Laws", "title": "Wiley — White House Issues EO on National AI Policy Framework", "accessed": "2026-04-12", "key_facts": "FCC proceeding for federal AI reporting and disclosure standard."},
+      {"url": "https://www.ropesgray.com/en/insights/alerts/2026/03/examining-the-landscape-and-limitations-of-the-federal-push-to-override-state-ai-regulation", "title": "Ropes & Gray — Limitations of Federal Push to Override State AI Regulation", "accessed": "2026-04-12", "key_facts": "Legal limits on EO preemption; judicial review required."},
+      {"url": "https://www.americanprogress.org/article/president-trumps-ai-national-policy-executive-order-is-an-unambiguous-threat-to-states-beyond-just-ai/", "title": "Center for American Progress — Unambiguous Threat to States", "accessed": "2026-04-12", "key_facts": "Policy critique perspective."}
+    ]
+  }
+}

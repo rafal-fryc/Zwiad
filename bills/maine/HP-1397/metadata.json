@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "HP 1397",
+  "state": "Maine",
+  "state_abbrev": "ME",
+  "session": "2026",
+  "title": "Maine AI Health Regulation",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health"
+  ],
+  "sponsors": [],
+  "current_status": "in-committee",
+  "bill_dir": "bills/maine/HP-1397",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.maine.gov/backend/App/services/getDocument.aspx?documentId=123763",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "in-committee",
+      "detail": "Scheduled for hearing in House Health and Financial Services Committee on February 17, 2026",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/maine/HP-1397/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

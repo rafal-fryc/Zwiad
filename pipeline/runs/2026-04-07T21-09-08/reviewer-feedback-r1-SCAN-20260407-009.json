@@ -1,0 +1,171 @@
+{
+  "finding_id": "SCAN-20260407-009",
+  "report_path": "reports/privacy/kentucky-hb692-acr-sensitive-data-2026-04-07.md",
+  "round": 1,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "passed the Senate by consent on March 31, 2026",
+      "section": "Legislative History",
+      "source_url": "https://apps.legislature.ky.gov/record/26rs/hb692.html",
+      "issue": "The Senate passed HB 692 on March 27, 2026 (vote 38-0 with Committee Substitute 1), not March 31. On March 31, the House concurred in the Senate Committee Substitute by a vote of 88-0. The report conflates the Senate passage date with the House concurrence date.",
+      "severity": "critical",
+      "suggested_fix": "Update legislative history to: 'The Senate passed a Committee Substitute on March 27, 2026, by a vote of 38-0. The House concurred in the Committee Substitute on March 31, 2026, by a vote of 88-0.'",
+      "status": "open"
+    },
+    {
+      "claim": "passed the House unanimously on March 13, 2026, with a vote of 92-0",
+      "section": "Legislative History",
+      "source_url": "https://apps.legislature.ky.gov/record/26RS/hb692/vote_history.pdf",
+      "issue": "The initial House vote of 92-0 on March 13 is confirmed. However, the report omits the subsequent House concurrence vote of 88-0 on March 31, 2026, which was the final legislative action. The Senate also adopted a Committee Substitute, meaning the bill text changed between the initial House vote and final passage. This is a material omission in the legislative history.",
+      "severity": "major",
+      "suggested_fix": "Add: 'The Senate adopted a Committee Substitute on March 27, 2026, passing 38-0. The House concurred in the Committee Substitute on March 31, 2026, with a vote of 88-0, completing legislative action.'",
+      "status": "open"
+    },
+    {
+      "claim": "Kentucky enacted HB 692 on March 31, 2026",
+      "section": "Executive Summary",
+      "source_url": "https://apps.legislature.ky.gov/record/26rs/hb692.html",
+      "issue": "March 31, 2026 is the date the House concurred in the Senate Committee Substitute, completing legislative passage. The report uses 'enacted' which implies governor signature or becoming law. Search results confirm the bill 'became law' but the specific mechanism (governor signature vs. becoming law without signature) and exact date of enactment are not distinguished from the legislative passage date. The word 'enacted' should be clarified or the distinction noted.",
+      "severity": "minor",
+      "suggested_fix": "Consider clarifying: 'HB 692 completed legislative passage on March 31, 2026, and was subsequently enrolled into law' or verify the exact date of governor action.",
+      "status": "open"
+    },
+    {
+      "claim": "The law takes effect July 1, 2027",
+      "section": "Executive Summary",
+      "source_url": "https://apps.legislature.ky.gov/record/26rs/hb692.html",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "smart TVs can capture screenshots as frequently as every 10 milliseconds and transmit viewing data to manufacturer servers every 15 to 60 seconds",
+      "section": "Background - Automatic Content Recognition Technology",
+      "source_url": "https://arxiv.org/abs/2409.06203",
+      "issue": "The 10ms figure specifically applies to LG smart TVs. Samsung TVs captured screenshots every 500ms (half second). The report's phrasing 'as frequently as every 10 milliseconds' is technically accurate as a maximum frequency but could mislead readers into thinking this is typical across all manufacturers. The '15 to 60 seconds' transmission claim could not be independently verified from search results about the paper.",
+      "severity": "minor",
+      "suggested_fix": "Consider specifying: 'LG smart TVs capture screenshots as frequently as every 10 milliseconds, while Samsung captures every 500 milliseconds, per a 2024 study.'",
+      "status": "open"
+    },
+    {
+      "claim": "Kentucky enacted its comprehensive consumer data privacy law (HB 15) in 2024",
+      "section": "Background - KCDPA",
+      "source_url": "https://www.akingump.com/en/insights/blogs/ag-data-dive/kentucky-data-protection-act-what-businesses-need-to-know",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "The KCDPA took effect January 1, 2026",
+      "section": "Background - KCDPA",
+      "source_url": "https://www.akingump.com/en/insights/blogs/ag-data-dive/kentucky-data-protection-act-what-businesses-need-to-know",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "HB 692, sponsored by Representative Josh Branscum (R-Russell Springs) with co-sponsors Steve Bratcher and William Lawrence",
+      "section": "Detailed Analysis - Key Provisions",
+      "source_url": "https://apps.legislature.ky.gov/record/26rs/hb692.html",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "The bill was introduced on February 23, 2026",
+      "section": "Legislative History",
+      "source_url": "https://fastdemocracy.com/bill-search/ky/2026RS/bills/KYB00019872/",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Kentucky is the first state to specifically target ACR surveillance technology",
+      "section": "First-in-Nation Status",
+      "source_url": "https://www.gblock.app/articles/kentucky-smart-tv-acr-consent-law",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "2017 Vizio settlement",
+      "section": "First-in-Nation Status",
+      "source_url": "https://www.consumerreports.org/electronics/privacy/how-to-turn-off-smart-tv-snooping-features-a4840102036/",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "The KCDPA is enforced exclusively by the Kentucky Attorney General, with no private right of action",
+      "section": "Enforcement",
+      "source_url": "https://www.ag.ky.gov/about/Office-Divisions/ODP/KCDPA/Pages/default.aspx",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Companies have a 30-day cure period before enforcement action",
+      "section": "Enforcement",
+      "source_url": "https://www.ag.ky.gov/about/Office-Divisions/ODP/KCDPA/Pages/default.aspx",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "Violations are treated as unfair or deceptive trade practices under KRS Chapter 367",
+      "section": "Enforcement",
+      "source_url": null,
+      "issue": "This claim has no inline citation. While consistent with the KCDPA enforcement framework, it should be sourced.",
+      "severity": "minor",
+      "suggested_fix": "Add a citation to the KCDPA statute or an authoritative analysis confirming this characterization.",
+      "status": "open"
+    },
+    {
+      "claim": "sensitive data includes personal data revealing racial or ethnic origin, religious beliefs, mental or physical health diagnoses, sexual orientation, citizenship or immigration status, genetic or biometric data processed for unique identification, data collected from a known child, and precise geolocation data",
+      "section": "Background - KCDPA",
+      "source_url": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=55836",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "enrolled into law",
+      "section": "Legislative History",
+      "source_url": "https://legiscan.com/KY/bill/HB692/2026",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    },
+    {
+      "claim": "some companies generating more revenue from data than from hardware sales",
+      "section": "Impact Assessment - Affected Entities",
+      "source_url": "https://stateofsurveillance.org/articles/surveillance/smart-tv-surveillance-acr/",
+      "issue": "This is a strong claim that could not be independently verified from search results. The State of Surveillance source is not an authoritative industry analysis. The claim may be true for some manufacturers but is presented without qualification.",
+      "severity": "minor",
+      "suggested_fix": "Consider qualifying: 'with some reports suggesting manufacturers generate significant revenue from data, in some cases rivaling hardware margins.'",
+      "status": "open"
+    },
+    {
+      "claim": "TV manufacturers have built significant revenue streams from ACR data",
+      "section": "Background - Automatic Content Recognition Technology",
+      "source_url": "https://www.securityweek.com/smart-tv-surveillance-how-samsung-and-lgs-acr-technology-tracks-what-you-watch/",
+      "issue": null,
+      "severity": null,
+      "suggested_fix": null,
+      "status": "verified"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

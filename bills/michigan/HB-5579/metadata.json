@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 5579",
+  "state": "Michigan",
+  "state_abbrev": "MI",
+  "session": "2026",
+  "title": "Workplace AI and Electronic Monitoring Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "employment",
+    "admt"
+  ],
+  "sponsors": [
+    "Rep. Tsernoglou (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/michigan/HB-5579",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2026-HIB-5579.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/michigan/HB-5579/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

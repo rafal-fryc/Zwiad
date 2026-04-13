@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "description": "Email classification rules for discord_bot.py classify_emails. Each rule is evaluated in order against a message's metadata sidecar; the first matching rule wins. Add new sources by appending entries — no Python changes required.",
+  "sources": [
+    {
+      "bucket": "fpf",
+      "label": "FPF legislative tracking",
+      "sender_contains": ["fpf.org", "informz.net"],
+      "subject_contains": ["fpf u.s.", "fpf youth privacy"],
+      "match_mode": "sender_and_subject"
+    },
+    {
+      "bucket": "iapp",
+      "label": "IAPP newsletter (Daily Dashboard / U.S. Privacy Digest)",
+      "sender_contains": ["iapp.org"],
+      "subject_contains": [],
+      "match_mode": "sender_only"
+    },
+    {
+      "bucket": "lexology",
+      "label": "Lexology daily newsfeed",
+      "sender_contains": ["lexology"],
+      "subject_contains": [],
+      "match_mode": "sender_only"
+    }
+  ]
+}

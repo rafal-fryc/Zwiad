@@ -1,0 +1,54 @@
+{
+  "finding_id": "SCAN-20260412-014",
+  "report_path": "reports/privacy/doj-vppa-first-circuit-brief-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "Hearst prevailed at the district court level, which dismissed the case",
+      "section": "Background: The Hearst / Saunders / Therrien Litigation",
+      "source_url": "https://www.law360.com/articles/2330320/hearst-wins-toss-of-vppa-suit-over-news-app-data-sharing",
+      "issue": "The D. Mass. court granted Hearst SUMMARY JUDGMENT in April 2025 (Judge Richard Stearns), not a dismissal. Summary judgment was granted on the ground that plaintiff failed to show the disclosures constituted PII under the VPPA. This is procedurally distinct from dismissal and materially affects the appeal posture.",
+      "severity": "major",
+      "suggested_fix": "Revise to: 'Judge Richard Stearns (D. Mass.) granted summary judgment to Hearst in April 2025, holding that plaintiff Therrien failed to present sufficient evidence that the data Hearst disclosed constituted PII under the VPPA.'",
+      "status": "open"
+    },
+    {
+      "claim": "The plaintiff (Therrien) has appealed to the First Circuit",
+      "section": "Background",
+      "source_url": null,
+      "issue": "No First Circuit docket number or appeal filing date provided. The appeal is Therrien v. Hearst Television, Inc., No. 25-1487 (1st Cir.), filed May 21, 2025.",
+      "severity": "major",
+      "suggested_fix": "Add appellate citation: 'Therrien v. Hearst Television, Inc., No. 25-1487 (1st Cir., appeal filed May 21, 2025).'",
+      "status": "open"
+    },
+    {
+      "claim": "Hearst is pressing a constitutional argument [...] 'sweeping restriction on routine, non-public communications'",
+      "section": "Background",
+      "source_url": "https://www.mediapost.com/publications/article/414084/trump-admin-to-court-dont-strike-down-video-priv.html",
+      "issue": "Report omits the specific First Amendment doctrinal theory: Hearst argues the VPPA is BOTH content-based (applies only to prerecorded videos) AND speaker-based (applies only to video providers), therefore subject to strict scrutiny. This is the central theory the DOJ's 'content-neutral' rebuttal responds to.",
+      "severity": "major",
+      "suggested_fix": "Add that Hearst argues VPPA is a content-based and speaker-based restriction subject to strict scrutiny.",
+      "status": "open"
+    },
+    {
+      "claim": "Supreme Court agreed to resolve a circuit split over who qualifies as a 'consumer' under the VPPA",
+      "section": "Why This Matters",
+      "source_url": "https://www.privacyworld.blog/2026/02/supreme-court-agrees-to-resolve-vppa-circuit-split/",
+      "issue": "Cert grant was in Salazar v. Paramount Global (6th Circuit), granted January 26, 2026, expected OT2026-27. Report omits case name, circuit, and cert-grant date.",
+      "severity": "minor",
+      "suggested_fix": "Name the case (Salazar v. Paramount Global), note the 6th Circuit origin, and state cert-grant date (Jan. 26, 2026).",
+      "status": "open"
+    },
+    {
+      "claim": "Brief first reported by MediaPost on April 6, 2026",
+      "section": "Executive Summary",
+      "source_url": "https://www.mediapost.com/publications/article/414084/trump-admin-to-court-dont-strike-down-video-priv.html",
+      "issue": "Confirmed by independent search.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

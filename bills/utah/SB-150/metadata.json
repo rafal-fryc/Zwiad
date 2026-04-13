@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 150",
+  "state": "Utah",
+  "state_abbrev": "UT",
+  "session": "2026",
+  "title": "Expanding Healthcare Practitioners' AI Use",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "healthcare-ai"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/utah/SB-150",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://le.utah.gov/session/2026/bills/introduced/SB0150S01.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/utah/SB-150/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T23:55:00+00:00",
+  "stage": "reviewer",
+  "status": "complete",
+  "data": {
+    "reviews": [
+      {
+        "finding_id": "SCAN-20260412-001",
+        "report_path": "reports/privacy/state-comprehensive-laws/alabama-hb351-pdpa-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 18,
+        "issues_found": [
+          {
+            "claim": "DLA Piper and IAPP citations",
+            "issue": "WebFetch unavailable; claims corroborated via WebSearch",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-002",
+        "report_path": "reports/privacy/maine-ld1822-privacy-bill-failed-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "IAPP homepage citation for Alabama 21-state tally",
+            "issue": "Generic URL, not specific article",
+            "severity": "minor"
+          },
+          {
+            "claim": "133rd Legislature convening month",
+            "issue": "December 2026 date unsourced",
+            "severity": "minor"
+          },
+          {
+            "claim": "132nd Legislature adjourns April 15",
+            "issue": "No inline citation for adjournment date",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-003",
+        "report_path": "reports/cybersecurity/anthropic-claude-mythos-cyberattack-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 18,
+        "issues_found": [
+          {
+            "claim": "'17-year-old FreeBSD' age attribution conflated with 27-year-old OpenBSD finding",
+            "issue": "Critical factual error corrected in revision",
+            "severity": "critical"
+          },
+          {
+            "claim": "Project Glasswing partners list missing Google, NVIDIA, JPMorganChase",
+            "issue": "Major omission corrected in revision",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-006",
+        "report_path": "reports/privacy/financial-privacy/glba-reform-huizenga-discussion-draft-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "Discussion draft PDF not cited from docs.house.gov",
+            "issue": "Primary source URL found and added in revision",
+            "severity": "major"
+          },
+          {
+            "claim": "Missing §503A consumer access/deletion rights and expanded NPI definition",
+            "issue": "Key provisions added in revision",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-007",
+        "report_path": "reports/privacy/cppa-drop-audit-rulemaking-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "'Opt-Out' capitalization vs official 'Opt-out'",
+            "issue": "Stylistic discrepancy only",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-008",
+        "report_path": "reports/privacy/illinois-bipa-7th-circuit-retroactivity-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "'Same method of collection' qualifier omitted",
+            "issue": "Minor imprecision in amendment scope description",
+            "severity": "minor"
+          },
+          {
+            "claim": "Governor signing date 'August 2024' vs. specific August 2, 2024",
+            "issue": "Precise date would strengthen citation",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-009",
+        "report_path": "reports/privacy/take-it-down-act-first-conviction-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 18,
+        "issues_found": [
+          {
+            "claim": "Criminal provision 'in Title 18' — wrong codification",
+            "issue": "Critical error corrected: 47 U.S.C. § 223(h)",
+            "severity": "critical"
+          },
+          {
+            "claim": "FTC Act hyperlink pointed to 47 U.S.C. § 223a",
+            "issue": "Major error corrected: now links to 15 U.S.C. § 45",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-010",
+        "report_path": "reports/privacy/hhs-ocr-hipaa-risk-management-video-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 11,
+        "issues_found": [
+          {
+            "claim": "December 2025 solicitation date not pinned to primary source",
+            "issue": "Minor precision gap",
+            "severity": "minor"
+          },
+          {
+            "claim": "Risk Analysis Enforcement Initiative launch 'late 2024' unsourced",
+            "issue": "No primary OCR source cited for launch date",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-014",
+        "report_path": "reports/privacy/doj-vppa-first-circuit-brief-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 18,
+        "issues_found": [
+          {
+            "claim": "District court 'dismissed' case — actually granted summary judgment",
+            "issue": "Major procedural error corrected",
+            "severity": "major"
+          },
+          {
+            "claim": "First Circuit docket number missing",
+            "issue": "No. 25-1487 added in revision",
+            "severity": "major"
+          },
+          {
+            "claim": "Hearst's First Amendment theory incomplete",
+            "issue": "Content-based/speaker-based strict scrutiny theory added",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-022",
+        "report_path": "reports/privacy/state-comprehensive-laws/alabama-pdpa-hb351-analysis-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "Missing UOOM/GPC non-recognition in Unique Features",
+            "issue": "Major omission corrected: Senate removed universal opt-out requirement",
+            "severity": "major"
+          },
+          {
+            "claim": "Substantial overlap with SCAN-20260412-001",
+            "issue": "Reframed as compliance playbook companion with cross-reference",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-023",
+        "report_path": "reports/privacy/state-privacy-roundup-ky-ny-me-april-2026.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "KY HB 692 House passage date: March 16 vs. March 13",
+            "issue": "Date corrected to March 13, 2026 with KY Legislature record citation",
+            "severity": "major"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-026",
+        "report_path": "reports/ai-law/trump-ai-executive-order-state-preemption-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "EO dual title framing could confuse readers",
+            "issue": "Minor: public title vs. URL slug not clearly distinguished",
+            "severity": "minor"
+          },
+          {
+            "claim": "Sidley inline citation for DOJ Task Force date suboptimal",
+            "issue": "Underlying fact verified; citation points to wrong article",
+            "severity": "minor"
+          }
+        ]
+      },
+      {
+        "finding_id": "SCAN-20260412-028",
+        "report_path": "reports/privacy/take-it-down-act-strahler-conviction-2026-04-12.md",
+        "status": "verified",
+        "iteration_count": 2,
+        "claims_checked": 14,
+        "issues_found": [
+          {
+            "claim": "Frontmatter category 'ai-law' mismatches reports/privacy/ location",
+            "issue": "Category corrected to 'privacy'; cross-reference to 009 added",
+            "severity": "major"
+          }
+        ]
+      }
+    ]
+  }
+}

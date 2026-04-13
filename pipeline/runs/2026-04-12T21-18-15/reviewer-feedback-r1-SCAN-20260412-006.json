@@ -1,0 +1,45 @@
+{
+  "finding_id": "SCAN-20260412-006",
+  "report_path": "reports/privacy/financial-privacy/glba-reform-huizenga-discussion-draft-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 14,
+  "issues": [
+    {
+      "claim": "the discussion-draft PDF itself is distributed via the committee but is not yet indexed on the committee's public documents page at a stable URL",
+      "section": "Procedural Status / Verification Notes",
+      "source_url": null,
+      "issue": "The discussion draft PDF is publicly posted at a stable URL on docs.house.gov: https://docs.house.gov/meetings/BA/BA00/20260317/119049/BILLS-119pih-makesimprovementstoTitleVoftheGLBAt.pdf. The report should cite this primary source directly.",
+      "severity": "major",
+      "suggested_fix": "Add the docs.house.gov discussion draft PDF URL as a primary source. Update provision-level claims to cite the draft text directly where possible.",
+      "status": "open"
+    },
+    {
+      "claim": "Key Provisions coverage of data minimization, opt-out, aggregator coverage, preemption",
+      "section": "Key Provisions",
+      "source_url": "https://www.consumerfinancialserviceslawmonitor.com/2026/03/house-financial-services-committee-discussion-draft-to-amend-glba-and-preempt-state-regimes/",
+      "issue": "The draft also contains §503A consumer access/deletion rights and an expanded NPI definition (biometric, geolocation, access credentials) not mentioned in the report.",
+      "severity": "major",
+      "suggested_fix": "Add §503A consumer access/deletion rights and the expanded NPI definition to the Key Provisions section.",
+      "status": "open"
+    },
+    {
+      "claim": "Rep. Bill Huizenga (R-MI), chair of the House Financial Services Subcommittee on Oversight and Investigations",
+      "section": "Executive Summary",
+      "source_url": "https://iapp.org/news/a/a-view-from-dc-the-federal-plan-to-modernize-and-preempt-financial-privacy-rules",
+      "issue": "Verified — confirmed correct.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "open"
+    },
+    {
+      "claim": "This remains a discussion draft, not an introduced bill",
+      "section": "Procedural Status",
+      "source_url": "https://iapp.org/news/a/a-view-from-dc-the-federal-plan-to-modernize-and-preempt-financial-privacy-rules",
+      "issue": "Confirmed — docs.house.gov PDF headed 'H. R. ll' (placeholder number) confirms not formally introduced.",
+      "severity": "minor",
+      "suggested_fix": "None — confirmed.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

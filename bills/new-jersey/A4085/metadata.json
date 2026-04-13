@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "A4085",
+  "state": "New Jersey",
+  "state_abbrev": "NJ",
+  "session": "2026",
+  "title": "New Jersey Grocery Surveillance Pricing Prohibition",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-driven-pricing",
+    "surveillance-pricing"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/new-jersey/A4085",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed committee",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/new-jersey/A4085/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

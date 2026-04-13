@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "AB 962",
+  "state": "Wisconsin",
+  "state_abbrev": "WI",
+  "session": "2026",
+  "title": "Wisconsin ASAA Age Assurance Framework",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "age-assurance",
+    "app-store"
+  ],
+  "sponsors": [
+    "Rep. Goeben (R)"
+  ],
+  "current_status": "in-committee",
+  "bill_dir": "bills/wisconsin/AB-962",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://docs.legis.wisconsin.gov/2025/related/records/senate/utilities_technology_and_tourism/1986691.pdf",
+  "status_history": [
+    {
+      "date": "2026-02-05",
+      "status": "in-committee",
+      "detail": "Heard in the Committee on Children and Families on February 5, 2026.",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/wisconsin/AB-962/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

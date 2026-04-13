@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "SB 201",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "Virginia Verifiable Parental Consent for Minor Registration",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy"
+  ],
+  "sponsors": [],
+  "current_status": "dead",
+  "bill_dir": "bills/virginia/SB-201",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1083716.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "dead",
+      "detail": "Failed to advance or held for 2027.",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/virginia/SB-201/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

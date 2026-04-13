@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "HB 2318",
+  "state": "Missouri",
+  "state_abbrev": "MO",
+  "session": "2026",
+  "title": "Missouri Prohibition on Advertising AI as Mental Health Professional",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/missouri/HB-2318",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://documents.house.mo.gov/billtracking/bills261/sumpdf/HB2318I.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-19",
+      "status": "passed-committee",
+      "detail": "Passed committee",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/missouri/HB-2318/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

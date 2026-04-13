@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 5567",
+  "state": "West Virginia",
+  "state_abbrev": "WV",
+  "session": "2026",
+  "title": "West Virginia Biometric Information Privacy Act",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "biometric-data"
+  ],
+  "sponsors": [
+    "Del. Kimble (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/west-virginia/HB-5567",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.wvlegislature.gov/Bill_Text_HTML/2026_SESSIONS/RS/bills/hb5567%20intr.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced on February 16, 2026",
+      "source_email_date": "2026-02-19",
+      "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/west-virginia/HB-5567/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
+  "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+}

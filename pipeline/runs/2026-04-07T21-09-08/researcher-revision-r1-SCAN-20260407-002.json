@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-08T12:00:00Z",
+  "stage": "researcher",
+  "status": "revised",
+  "round": 1,
+  "finding_id": "SCAN-20260407-002",
+  "report_path": "reports/ai-law/washington-ai-chatbot-provenance-bills-2026-04-07.md",
+  "issues_addressed": [
+    {
+      "issue": "HB 1170 effective date ambiguity (February 2027 vs January 2028)",
+      "severity": "major",
+      "resolution": "Corrected primary effective date to January 1, 2028 based on multiple authoritative sources (Pearl Cohen law firm analysis, Washington Senate bill reports). Removed the phased 'February 1, 2027 with full compliance by January 1, 2028' framing. Added an explicit note acknowledging conflicting secondary sources and that the enrolled bill PDF could not be directly fetched for definitive confirmation. Downgraded Summary confidence from HIGH to MEDIUM due to the source conflict. Updated Action Items deadline accordingly.",
+      "status": "resolved"
+    },
+    {
+      "issue": "Material alteration exclusions inaccurately characterized as 'resizing, cropping, or color adjustments'",
+      "severity": "major",
+      "resolution": "Replaced incorrect exclusion language with verified exclusions from Washington Senate bill reports: systems used solely for upscaling, noise reduction, or compression; business-to-business uses; and content exclusively for video games or interactive experiences. Split enforcement and exclusions into separate bullet points for clarity. Added Washington Senate Bill Report as a new source.",
+      "status": "resolved"
+    },
+    {
+      "issue": "'Statutory damages' terminology imprecise for CPA remedies",
+      "severity": "minor",
+      "resolution": "Replaced 'statutory damages' with accurate CPA remedy language: 'actual damages, with discretionary treble damages up to $25,000, plus costs and reasonable attorney's fees' per RCW 19.86.090. Added direct link to the official RCW 19.86.090 statute text as a new source.",
+      "status": "resolved"
+    },
+    {
+      "issue": "HB 2225 manipulative engagement technique examples unverifiable against cited source",
+      "severity": "minor",
+      "resolution": "Updated the parenthetical examples to use more precise language corroborated by multiple law firm analyses (Fisher Phillips, Hunton Andrews Kurth): simulating emotional distress, loneliness, guilt, or abandonment; promoting isolation from family or friends or emotional dependence; encouraging minors to withhold information from parents or trusted adults; discouraging breaks. Added Fisher Phillips as a second citation for this bullet point.",
+      "status": "resolved"
+    },
+    {
+      "issue": "HB 1170 enforcement section does not clarify absence of private right of action",
+      "severity": "minor",
+      "resolution": "Added explicit 'AG-only' label to the HB 1170 enforcement bullet and bolded language stating HB 1170 does NOT include a private right of action, with a direct contrast to HB 2225. Cited Pearl Cohen analysis as the source for this distinction.",
+      "status": "resolved"
+    }
+  ],
+  "new_sources_added": [
+    "https://www.pearlcohen.com/washington-state-and-oregon-pass-key-ai-bills/",
+    "https://app.leg.wa.gov/rcw/default.aspx?cite=19.86.090",
+    "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bill%20Reports/Senate/1170-S2.E%20SBR%20APS%2026.pdf"
+  ],
+  "confidence_summary": {
+    "high": 1,
+    "medium": 1,
+    "low": 0
+  },
+  "notes": "Summary downgraded from HIGH to MEDIUM due to conflicting sources on HB 1170 effective date. WebFetch was unavailable (permission denied) throughout the revision process, so all verification relied on WebSearch results. The enrolled bill text PDF remains the definitive source for the effective date question and should be manually checked."
+}

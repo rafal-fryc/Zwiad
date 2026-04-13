@@ -1,0 +1,45 @@
+{
+  "bill_identifier": "TRUMP AMERICA AI Act (Discussion Draft)",
+  "state": "Federal",
+  "state_abbrev": "US",
+  "session": "2026",
+  "title": "TRUMP AMERICA AI Act \u2014 National AI Framework Discussion Draft",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "national-framework",
+    "childrens-safety",
+    "employment",
+    "genai-transparency",
+    "liability",
+    "ai-governance"
+  ],
+  "sponsors": [
+    "Sen. Blackburn (R-TN)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/federal/TRUMP-AMERICA",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.blackburn.senate.gov/services/files/15AAEA28-5403-480D-8720-5E4C2D6F2A9A",
+  "status_history": [
+    {
+      "date": "2026-03-18",
+      "status": "introduced",
+      "detail": "Discussion draft released by Sen. Blackburn (R-TN) on March 18, 2026",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/federal/TRUMP-AMERICA/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

@@ -100,23 +100,67 @@ A regulatory monitoring platform that tracks privacy, cybersecurity, and AI law 
 | Report format | Markdown | HTML / PDF | Markdown is human-readable, git-friendly, Claude's native output format, and trivially convertible to other formats later. |
 | State management | Flat JSON files per pipeline run | SQLite database | JSON files are simpler, debuggable with any text editor, and sufficient for batch processing. No query requirements yet. Consider SQLite if/when a knowledge base feature is added. |
 ## Installation & Setup
-# Claude Code is already installed (v2.1.92)
-# Verify:
-# Add Fetch MCP server (enhanced URL fetching, optional)
-# Add Playwright MCP server (only if JS-rendered sites are needed)
-# claude mcp add playwright -- npx @playwright/mcp@latest
-# Create project directory structure
-# No npm install needed — this is a pure Claude Code CLI project
-# No Python dependencies — agents use Claude Code's built-in tools
-# No external services — everything runs locally
+
+```bash
+# 1. Claude Code CLI (already installed; verify with `claude --version`)
+claude --version  # expect v2.1.92+
+
+# 2. Python deps (the project uses real packages despite the early "no deps" goal)
+pip install --user discord.py python-dotenv docling
+
+# 3. Optional MCP servers
+claude mcp add fetch -- uvx mcp-server-fetch                  # enhanced URL fetching
+claude mcp add playwright -- npx @playwright/mcp@latest       # JS-rendered scraping (used by tools/bill_processor.py)
+
+# 4. Secrets — create .env at the project root
+cat > .env <<'EOF'
+DISCORD_TOKEN=...
+DISCORD_GUILD_ID=...
+DISCORD_CHANNEL_ID=...
+IMAP_EMAIL=zwiad@example.com
+IMAP_PASSWORD=...                # Gmail App Password (NOT your account password)
+EOF
+chmod 600 .env
+
+# 5. Run the Discord bot
+python3 discord_bot.py
+```
+
 ## Runtime Environment
 | Component | Current | Required | Notes |
 |-----------|---------|----------|-------|
-| Claude Code | v2.1.92 | v2.1.63+ (subagents), v2.1.72+ (scheduled tasks) | Already exceeds requirements |
-| Node.js | v24.14.1 | Any recent LTS | Only needed if Playwright MCP is used (npx) |
-| Python | 3.10.12 | 3.8+ | Only needed if Fetch MCP server is used (uvx) |
-| Platform | Linux aarch64 (Tegra) | Any | Headless Linux means Desktop scheduled tasks won't work; use cron |
-| Shell | bash | bash | Pipeline entry point |
+| Claude Code CLI | v2.1.92 | v2.1.63+ (subagents), v2.1.72+ (scheduled tasks) | Already exceeds requirements |
+| Python | 3.10.12 | 3.10+ | discord.py, python-dotenv, docling required (see below) |
+| Node.js | v24.14.1 | Any recent LTS | Only needed if Playwright MCP is used |
+| Platform | Linux aarch64 (Tegra) | Any | Headless Linux: Desktop scheduled tasks unavailable; use cron |
+| Shell | bash | bash | Pipeline orchestration scripts |
+
+## Python Dependencies
+
+The "no Python dependencies" claim from the original PROJECT.md is no longer accurate. Current required packages:
+
+| Package | Used by | Purpose |
+|---------|---------|---------|
+| `discord.py` | `discord_bot.py` | Discord slash commands and bot integration |
+| `python-dotenv` | `discord_bot.py`, `tools/topic_keys.py` (via .env) | Loads `.env` config |
+| `docling` | `tools/bill_processor.py` | Converts downloaded bill PDFs to markdown (CPU-only on Tegra; set `CUDA_VISIBLE_DEVICES=""`) |
+| `imaplib`, `email`, `socket` | `discord_bot.py` (stdlib) | Gmail IMAP fetch for `/scan` |
+
+## Secrets
+
+Stored in `.env` (gitignored). Required keys: `DISCORD_TOKEN`, `DISCORD_GUILD_ID`, `DISCORD_CHANNEL_ID`, `IMAP_EMAIL`, `IMAP_PASSWORD`. The IMAP password must be a Gmail **App Password** (not the account login) — generate one at https://myaccount.google.com/apppasswords with 2FA enabled.
+
+The `.env` file lives in the project root with `chmod 600`. Do NOT commit it.
+
+## External Services in Use
+
+Despite the original "everything runs locally" goal, the following external services are now in play:
+
+- **Anthropic API (indirect)**: Scanner agent's WebSearch and WebFetch tools call Anthropic's hosted endpoints. No API key needed (auth is via the Claude Code CLI session).
+- **Gmail IMAP** (`imap.gmail.com:993`): Email digest ingestion for Lexology / FPF / IAPP.
+- **Discord API**: Slash commands + channel messages.
+- **GitHub API** (read-only, anonymous): `tools/fetch_fpf_emails.py` pulls `.eml` files from a public FileTransfer repo.
+- **Playwright** (if installed): JS rendering for state legislature bill text downloads in `bill_processor.py`.
 ## Token Cost Considerations
 | Agent | Expected Usage | Cost Strategy |
 |-------|---------------|---------------|

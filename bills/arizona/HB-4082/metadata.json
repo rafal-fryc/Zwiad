@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 4082",
+  "state": "Arizona",
+  "state_abbrev": "AZ",
+  "session": "2026",
+  "title": "Social Media Platform Minor Access Restrictions",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "youth-privacy",
+    "social-media",
+    "online-safety"
+  ],
+  "sponsors": [
+    "Rep. Marquez (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/arizona/HB-4082",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/bills/HB4082P.pdf",
+  "status_history": [
+    {
+      "date": "2026-02-09",
+      "status": "introduced",
+      "detail": "Introduced by Rep. Marquez (D) on February 9, 2026",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/arizona/HB-4082/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

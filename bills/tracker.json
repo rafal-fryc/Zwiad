@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-04-09T22:58:23.687488+00:00",
+  "last_updated": "2026-04-10T17:56:47.782285+00:00",
   "bills": {
     "AZ-HB-2410-2026": {
       "bill_identifier": "HB 2410",
@@ -396,7 +396,9 @@
         "chatbots",
         "minors"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Del. Runion (R)"
+      ],
       "current_status": "introduced",
       "bill_dir": "bills/virginia/HB-758",
       "current_version": "v2-version-2",
@@ -409,6 +411,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-01-22",
           "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Del. Runion (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -420,7 +429,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "MS-HB-1048-2026": {
       "bill_identifier": "HB 1048",
@@ -1262,6 +1271,13 @@
           "detail": "Signed into law by the Governor; takes effect February 1, 2027",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "signed",
+          "detail": "GenAI / Transparency Bill Signed into law",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -1561,6 +1577,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-01-22",
           "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Way (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -1572,7 +1595,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "AL-HB-263-2026": {
       "bill_identifier": "HB 263",
@@ -1670,6 +1693,27 @@
           "detail": "Signed by Governor Ivey on February 17, 2026; effective January 1, 2027",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "signed",
+          "detail": "Already passed the House and on track to pass the Senate",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "signed",
+          "detail": "Has already passed the House and on track to pass the Senate",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-02-17",
+          "status": "signed",
+          "detail": "Signed into law by Governor Ivey on February 17, 2026. Effective January 1, 2027.",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -1681,7 +1725,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "IL-SB-2875-2026": {
       "bill_identifier": "SB 2875",
@@ -1900,7 +1944,9 @@
         "data-driven-pricing",
         "surveillance-pricing"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Sen. Buereca (D)"
+      ],
       "current_status": "introduced",
       "bill_dir": "bills/nebraska/LB-1006",
       "current_version": null,
@@ -1913,6 +1959,13 @@
           "detail": "Cited as recently active data-driven pricing bill",
           "source_email_date": "2026-01-22",
           "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Buereca (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -1924,7 +1977,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "TN-SB-1807-2026": {
       "bill_identifier": "SB 1807",
@@ -1985,7 +2038,9 @@
         "data-driven-pricing",
         "surveillance-pricing"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Rep. Fosse (D)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/washington/HB-2481",
       "current_version": "v1-introduced",
@@ -2012,6 +2067,13 @@
           "detail": "Passed out of committee",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Rep. Fosse (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -2023,7 +2085,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "MS-HB-1051-2026": {
       "bill_identifier": "HB 1051",
@@ -2289,11 +2351,25 @@
           "detail": "Signed into law February 5, 2026. Went into effect immediately upon signature.",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "signed",
+          "detail": "Passed both chambers; in ratification process before Governor McMaster",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "signed",
+          "detail": "Passed both chambers with amendments; in ratification process before Governor McMaster",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-SB-232-2026": {
       "bill_identifier": "SB 232",
@@ -2329,6 +2405,13 @@
           "detail": "Failed to advance or held for 2027.",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "dead",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -2340,7 +2423,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-SB-338-2026": {
       "bill_identifier": "SB 338",
@@ -2576,7 +2659,9 @@
       "topics": [
         "chatbots"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Sen. Padilla (D)"
+      ],
       "current_status": "passed-first-chamber",
       "bill_dir": "bills/california/SB-300",
       "current_version": null,
@@ -2589,11 +2674,18 @@
           "detail": "Passed the Senate 38-Y 0-N and heads to the Assembly",
           "source_email_date": "2026-01-29",
           "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-first-chamber",
+          "detail": "Passed Senate Judiciary Committee 13-Y 0-N on January 13, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [],
       "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
-      "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "CA-SB-813-2026": {
       "bill_identifier": "SB 813",
@@ -3148,6 +3240,13 @@
           "date": "2026-04-09",
           "status": "passed-first-chamber",
           "detail": "Passed first chamber (companion bills SB 0387 and HB 895)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Data Driven Pricing Bills Pass First Chamber",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -4184,7 +4283,9 @@
         "health",
         "mental-health"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Sen. Favola (D)"
+      ],
       "current_status": "passed-first-chamber",
       "bill_dir": "bills/virginia/SB-269",
       "current_version": "v1-introduced",
@@ -4204,6 +4305,13 @@
           "detail": "Passed Senate",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-first-chamber",
+          "detail": "Introduced by Sen. Favola (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -4215,7 +4323,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-SB-796-2026": {
       "bill_identifier": "SB 796",
@@ -4489,6 +4597,13 @@
           "detail": "Signed into law by the Governor; takes effect January 1, 2027",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "signed",
+          "detail": "First Chatbot Law of the Year Signed",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -4599,7 +4714,9 @@
         "age-assurance",
         "app-store"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Rep. Shaw (R)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/alabama/HB-219",
       "current_version": "v1-introduced",
@@ -4612,6 +4729,20 @@
           "detail": "Reported out of Senate Committee on Children and Youth Health on January 28, advancing to the Senate floor",
           "source_email_date": "2026-01-29",
           "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Rep. Shaw (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Rep. Shaw (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -4623,7 +4754,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
-      "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "CA-SB-923-2026": {
       "bill_identifier": "SB 923",
@@ -4796,6 +4927,20 @@
           "detail": "Passed by the Senate on February 18, 2026 with amendments; moves to the House",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-first-chamber",
+          "detail": "Introduced by the Senate Judiciary Committee",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-02-17",
+          "status": "passed-first-chamber",
+          "detail": "Passed out of Senate Judiciary committee on February 17, 2026 with amendments",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -4807,7 +4952,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "NJ-A-1358-2026": {
       "bill_identifier": "A 1358",
@@ -5027,6 +5172,13 @@
           "date": "2026-03-19",
           "status": "signed",
           "detail": "Governor Cox signed on March 19, 2026",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-19",
+          "status": "signed",
+          "detail": "UCPA Amendment on Vehicle Privacy ENACTED - signed by Governor Cox on March 19, 2026",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -6257,6 +6409,13 @@
           "detail": "Passed first chamber",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Health / Chatbot Bill Passes First Chamber",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -7174,6 +7333,13 @@
           "detail": "Passed first chamber",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Health Bill Passes Chamber",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -7233,6 +7399,13 @@
           "date": "2026-04-09",
           "status": "passed-first-chamber",
           "detail": "Amended as a study bill and passed first chamber",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Health Bill Amended as a Study Bill and Passes Chamber",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -7347,7 +7520,9 @@
         "genai-transparency",
         "ai-safety"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Del. Hayes (D)"
+      ],
       "current_status": "passed-second-chamber",
       "bill_dir": "bills/virginia/HB-797",
       "current_version": "v1-introduced",
@@ -7381,6 +7556,13 @@
           "detail": "Amended on floor to require JCOTS study instead of direct IVO licensing framework; passed both chambers",
           "source_email_date": "2026-03-12",
           "source_run_id": "fpf-chronological-week-08-Mar-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-second-chamber",
+          "detail": "Introduced by Del. Hayes (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -7392,7 +7574,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-08-Mar-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "WA-HB-2144-2026": {
       "bill_identifier": "HB 2144",
@@ -7853,6 +8035,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -7864,7 +8053,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "IL-SB-3220-2026": {
       "bill_identifier": "SB 3220",
@@ -8219,6 +8408,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -8230,7 +8426,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "SD-HB-1275-2026": {
       "bill_identifier": "HB 1275",
@@ -8403,6 +8599,13 @@
           "detail": "Passed both chambers of the legislature; pending signature or veto by Governor Spanberger (D)",
           "source_email_date": "2026-03-05",
           "source_run_id": "fpf-chronological-week-07-Mar-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-second-chamber",
+          "detail": "Introduced; passed both chambers",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -8414,7 +8617,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-07-Mar-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-SB-201-2026": {
       "bill_identifier": "SB 201",
@@ -8441,6 +8644,20 @@
           "detail": "Failed to advance or held for 2027.",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "dead",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "dead",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -8452,7 +8669,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-HB-638-2026": {
       "bill_identifier": "HB 638",
@@ -8517,6 +8734,13 @@
           "detail": "Failed to advance or held for 2027.",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "dead",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -8528,7 +8752,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "WV-HB-5123-2026": {
       "bill_identifier": "HB 5123",
@@ -8599,6 +8823,13 @@
           "detail": "Heard in the Committee on Children and Families on February 5, 2026.",
           "source_email_date": "2026-02-05",
           "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "in-committee",
+          "detail": "Introduced by Rep. Goeben (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -8610,7 +8841,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
-      "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "AZ-HB-4098-2026": {
       "bill_identifier": "HB 4098",
@@ -9635,6 +9866,13 @@
           "detail": "Passed first chamber; set to be heard March 26 in the Senate Finance Committee",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Chatbot Bill Passes First Chamber",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -9938,7 +10176,9 @@
         "admt",
         "high-risk-ai"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Del. Cole (D)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/virginia/HB-999",
       "current_version": "v1-introduced",
@@ -9951,6 +10191,13 @@
           "detail": "Passed committee",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Del. Cole (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -9962,7 +10209,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-HB-669-2026": {
       "bill_identifier": "HB 669",
@@ -9976,7 +10223,9 @@
       "topics": [
         "chatbots"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Del. Maldonado (D)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/virginia/HB-669",
       "current_version": "v1-introduced",
@@ -9989,6 +10238,13 @@
           "detail": "Passed committee",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Del. Maldonado (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -10000,7 +10256,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-HB-713-2026": {
       "bill_identifier": "HB 713",
@@ -10014,7 +10270,9 @@
       "topics": [
         "transparency"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Del. Maldonado (D)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/virginia/HB-713",
       "current_version": "v1-introduced",
@@ -10027,6 +10285,13 @@
           "detail": "Passed committee",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Del. Maldonado (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -10038,7 +10303,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "WI-SB-939-2026": {
       "bill_identifier": "SB 939",
@@ -10135,7 +10400,9 @@
       "topics": [
         "chatbots"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Committee on Technology"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/iowa/SSB-3011",
       "current_version": "v1-introduced",
@@ -10155,6 +10422,13 @@
           "detail": "Passed through the Senate Technology Committee",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by the Committee on Technology",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -10166,7 +10440,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "ME-HP-1397-2026": {
       "bill_identifier": "HP 1397",
@@ -10238,6 +10512,13 @@
           "detail": "Passed first chamber (companion bills SB 0387 and HB 895)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Data Driven Pricing Bills Pass First Chamber",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -10263,7 +10544,9 @@
       "topics": [
         "chatbots"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Rep. Merman (R)"
+      ],
       "current_status": "in-committee",
       "bill_dir": "bills/nebraska/LB-939",
       "current_version": "v1-introduced",
@@ -10283,6 +10566,13 @@
           "detail": "Set to be heard Feb. 24 in the Banking and Commerce Committee",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "in-committee",
+          "detail": "Introduced by Rep. Merman (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -10294,7 +10584,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "CT-HB-5128-2026": {
       "bill_identifier": "HB 5128",
@@ -10357,11 +10647,18 @@
           "detail": "Introduced",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "GA-SB-467-2026": {
       "bill_identifier": "SB 467",
@@ -10634,6 +10931,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -10645,7 +10949,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "MD-SB-504-2026": {
       "bill_identifier": "SB 504",
@@ -10898,6 +11202,13 @@
           "detail": "Re-passed the House after amendment during concurrence process; awaiting Senate concurrence vote",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Comprehensive Privacy RE-PASSED HOUSE after amendment during concurrence process",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [],
@@ -11011,6 +11322,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -11022,7 +11340,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "VA-SB-85-2026": {
       "bill_identifier": "SB 85",
@@ -11089,11 +11407,18 @@
           "detail": "Introduced",
           "source_email_date": "2026-02-12",
           "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [],
       "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
-      "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "AZ-HB-2311-2026": {
       "bill_identifier": "HB 2311",
@@ -11108,7 +11433,9 @@
         "chatbots",
         "minors"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Rep. Rivero (R)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/arizona/HB-2311",
       "current_version": "v1-introduced",
@@ -11121,6 +11448,13 @@
           "detail": "Passed committee",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Rep. Rivero (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -11132,7 +11466,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "CA-AB-1988-2026": {
       "bill_identifier": "AB 1988",
@@ -11203,6 +11537,13 @@
           "date": "2026-04-09",
           "status": "passed-committee",
           "detail": "Passed committee",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-committee",
+          "detail": "ADMT/Employment Bill Passes Committee",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -12192,6 +12533,13 @@
           "detail": "Introduced on February 12, 2026",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -12203,7 +12551,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "KY-HB-632-2026": {
       "bill_identifier": "HB 632",
@@ -12234,6 +12582,13 @@
           "detail": "Introduced on February 12, 2026",
           "source_email_date": "2026-02-19",
           "source_run_id": "fpf-chronological-week-05-Feb-19-20"
+        },
+        {
+          "date": "2026-02-12",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Dietz (R) on February 12, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -12245,7 +12600,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-05-Feb-19-20",
-      "last_updated_run": "fpf-chronological-week-05-Feb-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "OK-SB-546-2026": {
       "bill_identifier": "SB 546",
@@ -12292,6 +12647,13 @@
           "date": "2026-03-20",
           "status": "signed",
           "detail": "Governor Stitt signed on March 20, 2026; takes effect January 1, 2027",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-20",
+          "status": "signed",
+          "detail": "Comprehensive Privacy Law ENACTED - signed by Governor Stitt on March 20, 2026",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -12702,7 +13064,9 @@
         "youth-safety",
         "age-verification"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Rep. Maynard (R)"
+      ],
       "current_status": "passed-committee",
       "bill_dir": "bills/oklahoma/HB-3544",
       "current_version": "v1-introduced",
@@ -12715,6 +13079,13 @@
           "detail": "Passed committee",
           "source_email_date": "2026-03-05",
           "source_run_id": "fpf-chronological-week-07-Mar-5-6"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-committee",
+          "detail": "Introduced by Rep. Maynard (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -12726,7 +13097,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-07-Mar-5-6",
-      "last_updated_run": "fpf-chronological-week-07-Mar-5-6"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "RI-HB-8052-2026": {
       "bill_identifier": "HB 8052",
@@ -12981,6 +13352,13 @@
           "date": "2026-03-23",
           "status": "signed",
           "detail": "Governor Rhoden signed on March 23, 2026",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-23",
+          "status": "signed",
+          "detail": "Genetic Privacy Law ENACTED - signed by Governor Rhoden on March 23, 2026",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -14060,6 +14438,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Employment (SF 4573/HF 4537)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -14357,7 +14742,9 @@
       "topics": [
         "health"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Sen. Walley (R)"
+      ],
       "current_status": "passed-second-chamber",
       "bill_dir": "bills/tennessee/SB-1580",
       "current_version": "v1-introduced",
@@ -14377,6 +14764,13 @@
           "detail": "Passed both chambers; awaiting Governor's signature",
           "source_email_date": "2026-03-19",
           "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "passed-second-chamber",
+          "detail": "Introduced by Sen. Walley (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [
@@ -14388,7 +14782,7 @@
         }
       ],
       "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
-      "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "CA-SB-867-2026": {
       "bill_identifier": "SB 867",
@@ -14402,7 +14796,9 @@
       "topics": [
         "chatbots"
       ],
-      "sponsors": [],
+      "sponsors": [
+        "Sen. Padilla (D)"
+      ],
       "current_status": "in-committee",
       "bill_dir": "bills/california/SB-867",
       "current_version": null,
@@ -14429,11 +14825,18 @@
           "detail": "Set to be heard April 6 in the Senate Privacy, Digital Technologies, and Consumer Protection Committee",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "in-committee",
+          "detail": "Introduced by Sen. Padilla (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
         }
       ],
       "versions": [],
       "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
-      "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+      "last_updated_run": "2026-04-09T23-07-50"
     },
     "CA-SB-1142-2026": {
       "bill_identifier": "SB 1142",
@@ -15005,6 +15408,13 @@
           "date": "2026-03-25",
           "status": "passed-first-chamber",
           "detail": "Passed the House on March 25, 2026",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-25",
+          "status": "passed-first-chamber",
+          "detail": "Data Broker Update PASSED HOUSE on March 25",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -15630,6 +16040,13 @@
           "detail": "Introduced by Asm. Wicks (D)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by Asm. Wicks (D)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [],
@@ -15651,7 +16068,7 @@
       "sponsors": [
         "Committee on Finance, Revenue, and Bonding"
       ],
-      "current_status": "in-committee",
+      "current_status": "introduced",
       "bill_dir": "bills/connecticut/SB-515",
       "current_version": null,
       "download_status": "pending-manual",
@@ -15661,6 +16078,13 @@
           "date": "2026-04-09",
           "status": "in-committee",
           "detail": "Introduced by Committee on Finance, Revenue, and Bonding; set to be heard March 27 in the Joint Finance, Revenue, and Bonding Committee",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Introduced by the Committee on Finance, Revenue, and Bonding",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -15693,6 +16117,13 @@
           "date": "2026-04-09",
           "status": "passed-first-chamber",
           "detail": "Passed first chamber",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Chatbot Bill Passes First Chamber",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -15732,6 +16163,13 @@
           "date": "2026-04-09",
           "status": "passed-committee",
           "detail": "Passed committee",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-committee",
+          "detail": "Health / Chatbot Bill Passes Committee",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -15775,6 +16213,13 @@
           "detail": "Introduced by Rep. Jones (D)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "AI Safety/Frontier Models bill introduced by Rep. Jones (D)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -15812,6 +16257,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: ADMT/Employment (SF 4689/HF 4445)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -15853,6 +16305,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: ADMT/Employment (SF 4689/HF 4445)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -15889,6 +16348,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Employment (SF 4686/HF 4451)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -15929,6 +16395,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Employment (SF 4686/HF 4451)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -15965,6 +16438,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Employment (SF 4573/HF 4537)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16005,6 +16485,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Data-Driven Pricing (SF 4711/HF 4454)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -16041,6 +16528,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Data-Driven Pricing (SF 4711/HF 4454)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16081,6 +16575,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: AI Safety (SF 4636/HF 4544)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -16117,6 +16618,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: AI Safety (SF 4636/HF 4544)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16157,6 +16665,13 @@
           "detail": "Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Bills were also introduced on: Chatbots (HF 4452)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -16194,6 +16709,13 @@
           "date": "2026-04-09",
           "status": "passed-committee",
           "detail": "Passed committee",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-committee",
+          "detail": "Data-Driven Pricing Bill Passes Committee",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16237,6 +16759,13 @@
           "detail": "Introduced by Sen. Kimbrell (R)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Chatbots - introduced by Sen. Kimbrell (R)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [],
@@ -16269,6 +16798,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced by Rep. Beyer (D-VA) with 33 Democratic co-sponsors",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Democrats Introduce Bill to Repeal AI Executive Order",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16305,6 +16841,13 @@
           "detail": "Introduced by Rep. Mullin (D-CA)",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Chatbot Bill Introduced by Rep. Mullin (D-CA)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [],
@@ -16338,6 +16881,13 @@
           "date": "2026-04-09",
           "status": "introduced",
           "detail": "Introduced by Sen. Sheehy (R-MT) and Sen. Rochester (D-DE)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Liability Bill Introduced",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16379,6 +16929,13 @@
           "detail": "Introduced; House companion to S 3982",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "introduced",
+          "detail": "Liability Bill Introduced (House companion to S 3982)",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [],
@@ -16409,6 +16966,13 @@
           "date": "2026-03-25",
           "status": "passed-committee",
           "detail": "Passed Senate committee with amendment on March 25, 2026; had previously passed House on March 5, 2026",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-25",
+          "status": "passed-committee",
+          "detail": "ASAA Bill PASSED COMMITTEE with amendment on March 25; previously passed House on March 5",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16449,6 +17013,13 @@
           "detail": "Committee reported a substitute replacing the comprehensive privacy bill with a tax credit bill; privacy bill appears dead",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "dead",
+          "detail": "Comprehensive Privacy Bill Gutted and Amended - committee substitute replaces it with a tax credit bill",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [],
@@ -16479,6 +17050,13 @@
           "date": "2026-04-09",
           "status": "passed-first-chamber",
           "detail": "Passed House",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-04-09",
+          "status": "passed-first-chamber",
+          "detail": "Privacy Amendment on Immigration Enforcement PASSED HOUSE",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16518,6 +17096,13 @@
           "date": "2026-03-25",
           "status": "passed-committee",
           "detail": "Passed committee on March 25, 2026; on third reading with no immediate vote expected; Senate adjourned until April 14",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-25",
+          "status": "passed-committee",
+          "detail": "Michigan Kids Code Passed Committee on March 25; now on third reading",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
@@ -16561,6 +17146,13 @@
           "detail": "Introduced by Rep. Sencer-Mura (D) on March 23, 2026",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-23",
+          "status": "introduced",
+          "detail": "Autonomous Vehicle Bill Introduced on March 23",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -16602,6 +17194,13 @@
           "detail": "Introduced by Sen. Vitale (D) on March 19, 2026",
           "source_email_date": "2026-03-26",
           "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+        },
+        {
+          "date": "2026-03-19",
+          "status": "introduced",
+          "detail": "Children's Data Protection Bill Introduced on March 19",
+          "source_email_date": "2026-03-26",
+          "source_run_id": "fpf-chronological-week-10-Mar-26-27"
         }
       ],
       "versions": [
@@ -16614,6 +17213,1714 @@
       ],
       "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
       "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+    },
+    "FL-HB-1517-2026": {
+      "bill_identifier": "HB 1517",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "session": "2026",
+      "title": "Data Center Transparency Act",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "data-centers"
+      ],
+      "sponsors": [
+        "Rep. Joseph (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/florida/HB-1517",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://flsenate.gov/Session/Bill/2026/1517/BillText/Filed/PDF#page=2",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Joseph (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/florida/HB-1517/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-S-735-2026": {
+      "bill_identifier": "S 735",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "Prohibition on Advertising AI as Mental Health Professional",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Sen. Burzichelli (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/S-735",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Burzichelli (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/S-735/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-S-680-2026": {
+      "bill_identifier": "S 680",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "Data Center Clean Energy Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "data-centers"
+      ],
+      "sponsors": [
+        "Sen. Smith (D)",
+        "Sen. McKeon (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/S-680",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Smith (D) and Sen. McKeon (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/S-680/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-S-1802-2026": {
+      "bill_identifier": "S 1802",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "AI Safety Testing and Reporting Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Sen. Singleton (D)",
+        "Sen. McKnight (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/S-1802",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Singleton (D) and Sen. McKnight (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/S-1802/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-SR-52-2026": {
+      "bill_identifier": "SR 52",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "GenAI Whistleblower Protection Resolution",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "liability"
+      ],
+      "sponsors": [
+        "Sen. Mukherji (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/SR-52",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Mukherji (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/SR-52/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NY-S-8874-2026": {
+      "bill_identifier": "S 8874",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "session": "2026",
+      "title": "AI Disclosure at Point of Customer Interaction",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots",
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Sen. Rhoads (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-york/S-8874",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NTk5ODA5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDQ1MDU0Mw/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Rhoads (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NY-S-8831-2026": {
+      "bill_identifier": "S 8831",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "session": "2026",
+      "title": "Automated Employment Decision Tool Disclosure for Government",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "employment"
+      ],
+      "sponsors": [
+        "Asm. Gonzalez (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-york/S-8831",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NTk5ODA5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDQ1MDU5OA/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Asm. Gonzalez (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "OK-SB-1521-2026": {
+      "bill_identifier": "SB 1521",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "Companion Chatbot Age Verification Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [
+        "Sen. Hamilton (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/SB-1521",
+      "current_version": "v2-version-2",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB1521%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Hamilton (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v2-version-2",
+          "date": "2026-04-10",
+          "pdf_path": "bills/oklahoma/SB-1521/versions/v2-version-2.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "SC-SB-788-2026": {
+      "bill_identifier": "SB 788",
+      "state": "South Carolina",
+      "state_abbrev": "SC",
+      "session": "2026",
+      "title": "AI Limitations for Mental Health Practitioners",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Sen. Blackmon (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/south-carolina/SB-788",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=788&session=126&summary=B",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Blackmon (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VT-H-644-2026": {
+      "bill_identifier": "H 644",
+      "state": "Vermont",
+      "state_abbrev": "VT",
+      "session": "2026",
+      "title": "AI Therapy Prohibition",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Rep. Rachelson (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/vermont/H-644",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0644/H-0644%20As%20Introduced.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Rachelson (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/vermont/H-644/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VT-S-241-2026": {
+      "bill_identifier": "S 241",
+      "state": "Vermont",
+      "state_abbrev": "VT",
+      "session": "2026",
+      "title": "AI Therapy Prohibition (Senate)",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Sen. Gulick (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/vermont/S-241",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/S-0241/S-0241%20As%20Introduced.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Gulick (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/vermont/S-241/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VA-HB-635-2026": {
+      "bill_identifier": "HB 635",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "session": "2026",
+      "title": "Companion Chatbot Safety and Privacy Requirements",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "chatbots"
+      ],
+      "sponsors": [
+        "Del. Maldonado (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/virginia/HB-635",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lis.blob.core.windows.net/files/1115796.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Del. Maldonado (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/virginia/HB-635/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VA-HB-668-2026": {
+      "bill_identifier": "HB 668",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "session": "2026",
+      "title": "AI Limitations for Mental Health Practitioners",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "health"
+      ],
+      "sponsors": [
+        "Del. Maldonado (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/virginia/HB-668",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lis.blob.core.windows.net/files/1115805.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Del. Maldonado (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/virginia/HB-668/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VA-HB-580-2026": {
+      "bill_identifier": "HB 580",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "session": "2026",
+      "title": "AI Fraud and Abuse Alert System",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Del. Glass (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/virginia/HB-580",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lis.blob.core.windows.net/files/1085049.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Del. Glass (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/virginia/HB-580/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VA-HB-1250-2026": {
+      "bill_identifier": "HB 1250",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "session": "2026",
+      "title": "Centralized AI Coordination Program in AG Office",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Del. Anthony (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/virginia/HB-1250",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lis.blob.core.windows.net/files/1087900.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Del. Anthony (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/virginia/HB-1250/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VA-SB-245-2026": {
+      "bill_identifier": "SB 245",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "session": "2026",
+      "title": "VCDPA AI System Obligations and Social Media Protections for Minors",
+      "category": [
+        "ai-law",
+        "privacy"
+      ],
+      "topics": [
+        "genai-transparency",
+        "consumer-data"
+      ],
+      "sponsors": [
+        "Sen. Head (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/virginia/SB-245",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lis.blob.core.windows.net/files/1145035.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Head (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/virginia/SB-245/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "WA-SB-6120-2026": {
+      "bill_identifier": "SB 6120",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "session": "2026",
+      "title": "High-Risk AI System Disclosure and Algorithmic Discrimination Protections",
+      "category": [
+        "ai-law"
+      ],
+      "topics": [
+        "genai-transparency"
+      ],
+      "sponsors": [
+        "Sen. Wellman (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/washington/SB-6120",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/Senate%20Bills/6120.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Wellman (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/washington/SB-6120/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "FL-SB-1722-2026": {
+      "bill_identifier": "SB 1722",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "session": "2026",
+      "title": "App Store Accountability Act Age Assurance Framework",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy"
+      ],
+      "sponsors": [
+        "Sen. Calatayud (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/florida/SB-1722",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://flsenate.gov/Session/Bill/2026/1722/Vote/2026-02-04%201030AM~S01722%20Vote%20Record.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Calatayud (R) on January 9, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Calatayud (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/florida/SB-1722/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "MS-HB-708-2026": {
+      "bill_identifier": "HB 708",
+      "state": "Mississippi",
+      "state_abbrev": "MS",
+      "session": "2026",
+      "title": "App Store Accountability Act Framework with Social Media Safety",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy",
+        "social-media"
+      ],
+      "sponsors": [
+        "Rep. Powell (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/mississippi/HB-708",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjAwMjI0JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDQ2NzI2MQ/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Powell (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-S-2602-2026": {
+      "bill_identifier": "S 2602",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "GDPR-Style Comprehensive Consumer Privacy Bill",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "comprehensive-privacy"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/S-2602",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced in the new legislative session",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/S-2602/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-S-1354-2026": {
+      "bill_identifier": "S 1354",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "Deidentification Requirement Prior to Personal Data Sale",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "consumer-data"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/S-1354",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced in the new legislative session",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/S-1354/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "VA-HB-757-2026": {
+      "bill_identifier": "HB 757",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "session": "2026",
+      "title": "App Store Accountability Act Age Assurance Framework with Data Broker Registry",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy",
+        "consumer-data"
+      ],
+      "sponsors": [
+        "Del. Runion (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/virginia/HB-757",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lis.blob.core.windows.net/files/1085786.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Del. Runion (R) and Del. Maldonado (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/virginia/HB-757/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "MS-HB-1576-2026": {
+      "bill_identifier": "HB 1576",
+      "state": "Mississippi",
+      "state_abbrev": "MS",
+      "session": "2026",
+      "title": "Interactive Computer Service Age Verification and Social Media Protections",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy",
+        "social-media",
+        "online-safety"
+      ],
+      "sponsors": [
+        "Rep. Hood (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/mississippi/HB-1576",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjEzNDU5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDc5OTA3OQ/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Hood (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NE-LB-1175-2026": {
+      "bill_identifier": "LB 1175",
+      "state": "Nebraska",
+      "state_abbrev": "NE",
+      "session": "2026",
+      "title": "Social Media Platform Product Liability Amendment",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "social-media",
+        "liability"
+      ],
+      "sponsors": [
+        "Sen. DeBoer"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/nebraska/LB-1175",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://nebraskalegislature.gov/FloorDocs/109/PDF/Intro/LB1175.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. DeBoer",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/nebraska/LB-1175/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NY-A10008A--2026": {
+      "bill_identifier": "A10008A",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "session": "2026",
+      "title": "Online Platform Minor Protections Budget Bill",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "childrens-privacy",
+        "youth-privacy",
+        "age-verification"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-york/A10008A",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://nyassembly.gov/leg/?bn=A10008&term=2025",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Included in the New York state budget bill",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "OK-SB-1871-2026": {
+      "bill_identifier": "SB 1871",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "Social Media Age Verification and Minor Account Restrictions",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy",
+        "social-media"
+      ],
+      "sponsors": [
+        "Sen. Jech (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/SB-1871",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB1871%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Jech (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/oklahoma/SB-1871/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "OK-SB-1972-2026": {
+      "bill_identifier": "SB 1972",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "session": "2026",
+      "title": "Interactive Computer Service Minor Account Protections",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy",
+        "social-media"
+      ],
+      "sponsors": [
+        "Sen. Grellner (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/oklahoma/SB-1972",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB1972%20INT.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Grellner (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/oklahoma/SB-1972/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NY-S-4600-2026": {
+      "bill_identifier": "S 4600",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "session": "2026",
+      "title": "NYCDPA Amendment for Enhanced Child Data Protections",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "childrens-privacy",
+        "youth-privacy"
+      ],
+      "sponsors": [
+        "Sen. Gounardes (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-york/S-4600",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://FPF.informz.net/z/cjUucD9taT00NjEzNDU5JnA9MSZ1PTQzNzQ4MjQ5NyZsaT01NDc5OTA4NQ/index.html",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Carryover bill; no significant movement yet",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "HI-HB-2040-2026": {
+      "bill_identifier": "HB 2040",
+      "state": "Hawaii",
+      "state_abbrev": "HI",
+      "session": "2026",
+      "title": "Social Media Age Verification and Teen Privacy Protections",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "age-verification",
+        "social-media"
+      ],
+      "sponsors": [
+        "Rep. Shimizu (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/hawaii/HB-2040",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.capitol.hawaii.gov/sessions/session2026/bills/HB2040_.PDF",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Shimizu (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/hawaii/HB-2040/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "HI-SB-2761-2026": {
+      "bill_identifier": "SB 2761",
+      "state": "Hawaii",
+      "state_abbrev": "HI",
+      "session": "2026",
+      "title": "Social Media Platform Prohibition on Minor Accounts",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "social-media",
+        "age-verification"
+      ],
+      "sponsors": [
+        "Sen. Keohokalole (D)"
+      ],
+      "current_status": "in-committee",
+      "bill_dir": "bills/hawaii/SB-2761",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.capitol.hawaii.gov/sessions/session2026/CommReports/SB2761_HD2_HSCR1534-26_.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Sen. Keohokalole (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        },
+        {
+          "date": "2026-02-11",
+          "status": "in-committee",
+          "detail": "Reported from Senate Labor and Technology committee on February 6, 2026; referred to Senate Consumer Protection committee on February 11, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/hawaii/SB-2761/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "ID-H-542-2026": {
+      "bill_identifier": "H 542",
+      "state": "Idaho",
+      "state_abbrev": "ID",
+      "session": "2026",
+      "title": "Social Media Age Verification and Parental Consent Requirements",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "age-verification",
+        "social-media"
+      ],
+      "sponsors": [
+        "House Committee on State Affairs"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/idaho/H-542",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2026/legislation/H0542.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by the House Committee on State Affairs",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/idaho/H-542/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "IN-HB-1178-2026": {
+      "bill_identifier": "HB 1178",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "session": "2026",
+      "title": "Social Media Age Verification and Parental Consent Requirements",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "age-verification",
+        "social-media"
+      ],
+      "sponsors": [
+        "Rep. King (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/indiana/HB-1178",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://iga.in.gov/legislative/2026/bills/house/1178/details",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. King (R)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "MO-HB-2392-2026": {
+      "bill_identifier": "HB 2392",
+      "state": "Missouri",
+      "state_abbrev": "MO",
+      "session": "2026",
+      "title": "Social Media Minor Account Restrictions and Addictive Design Prohibition",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "age-verification",
+        "social-media"
+      ],
+      "sponsors": [
+        "Rep. Murray (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/missouri/HB-2392",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://documents.house.mo.gov/billtracking/bills261/sumpdf/HB2392I.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Murray (D)",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/missouri/HB-2392/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "MD-HB-1179-2026": {
+      "bill_identifier": "HB 1179",
+      "state": "Maryland",
+      "state_abbrev": "MD",
+      "session": "2026",
+      "title": "App Store Accountability Act Age Assurance Framework",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "age-verification",
+        "youth-privacy"
+      ],
+      "sponsors": [
+        "Del. Nkongolo (R)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/maryland/HB-1179",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://mgaleg.maryland.gov/2026RS/bills/hb/hb1179f.pdf",
+      "status_history": [
+        {
+          "date": "2026-02-11",
+          "status": "introduced",
+          "detail": "Introduced by Del. Nkongolo (R) on February 11, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/maryland/HB-1179/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "AZ-HB-4082-2026": {
+      "bill_identifier": "HB 4082",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "session": "2026",
+      "title": "Social Media Platform Minor Access Restrictions",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "social-media",
+        "online-safety"
+      ],
+      "sponsors": [
+        "Rep. Marquez (D)"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/arizona/HB-4082",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.azleg.gov/legtext/57leg/2R/bills/HB4082P.pdf",
+      "status_history": [
+        {
+          "date": "2026-02-09",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Marquez (D) on February 9, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/arizona/HB-4082/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "IL-HB-5066-2026": {
+      "bill_identifier": "HB 5066",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "session": "2026",
+      "title": "Social Media Age Assurance and Minor Account Restrictions",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "social-media",
+        "age-verification"
+      ],
+      "sponsors": [
+        "Rep. Tarver"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/illinois/HB-5066",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://ilga.gov/Documents/house/FOIA.pdf",
+      "status_history": [
+        {
+          "date": "2026-02-04",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Tarver on February 4, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/illinois/HB-5066/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "IL-SB-3264-2026": {
+      "bill_identifier": "SB 3264",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "session": "2026",
+      "title": "Online Safety Centers and Minor Protections",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "online-safety",
+        "social-media"
+      ],
+      "sponsors": [
+        "Rep. Ventura"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/illinois/SB-3264",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://ilga.gov/Documents/house/FOIA.pdf",
+      "status_history": [
+        {
+          "date": "2026-02-03",
+          "status": "introduced",
+          "detail": "Introduced by Rep. Ventura on February 3, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/illinois/SB-3264/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "IN-SB-199-2026": {
+      "bill_identifier": "SB 199",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "session": "2026",
+      "title": "Social Media Age Assurance and Parental Controls",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "age-verification",
+        "social-media"
+      ],
+      "sponsors": [
+        "Sen. Raatz (R)"
+      ],
+      "current_status": "passed-first-chamber",
+      "bill_dir": "bills/indiana/SB-199",
+      "current_version": null,
+      "download_status": "pending-manual",
+      "bill_text_url": "https://iga.in.gov/legislative/2026/bills/senate/199/details",
+      "status_history": [
+        {
+          "date": "2026-02-17",
+          "status": "passed-first-chamber",
+          "detail": "Passed the House with amendments on February 17, 2026; returned to Senate for consideration",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "KS-HB-2657-2026": {
+      "bill_identifier": "HB 2657",
+      "state": "Kansas",
+      "state_abbrev": "KS",
+      "session": "2026",
+      "title": "Social Media Age Verification and Parental Consent Requirements",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "age-verification",
+        "social-media"
+      ],
+      "sponsors": [
+        "House Committee on Legislative Modernization"
+      ],
+      "current_status": "introduced",
+      "bill_dir": "bills/kansas/HB-2657",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://www.kslegislature.gov/li/b2025_26/measures/documents/hb2657_00_0000.pdf",
+      "status_history": [
+        {
+          "date": "2026-02-03",
+          "status": "introduced",
+          "detail": "Introduced by the House Committee on Legislative Modernization on February 3, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/kansas/HB-2657/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "WA-HB-1834-2026": {
+      "bill_identifier": "HB 1834",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "session": "2026",
+      "title": "Prohibition on Addictive Feeds for Minors",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "social-media",
+        "online-safety"
+      ],
+      "sponsors": [],
+      "current_status": "passed-committee",
+      "bill_dir": "bills/washington/HB-1834",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/House%20Bills/1834-S3.pdf#page=1",
+      "status_history": [
+        {
+          "date": "2026-02-10",
+          "status": "passed-committee",
+          "detail": "Passed out of committee and placed on second reading on February 10, 2026",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/washington/HB-1834/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "CO-HB-1148-2026": {
+      "bill_identifier": "HB 1148",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "session": "2026",
+      "title": "AADC-Style Minor Online Privacy and Safety Framework",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "childrens-privacy",
+        "online-safety"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/colorado/HB-1148",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://content.leg.colorado.gov/sites/default/files/how_a_bill_becomes_a_law_accessible.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/colorado/HB-1148/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-S-3413-2026": {
+      "bill_identifier": "S 3413",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "AADC-Style Minor Online Privacy and Safety Framework",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "childrens-privacy",
+        "online-safety"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/S-3413",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/S-3413/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
+    },
+    "NJ-A-4015-2026": {
+      "bill_identifier": "A 4015",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "session": "2026",
+      "title": "AADC-Style Minor Online Privacy and Safety Framework (Assembly)",
+      "category": [
+        "privacy"
+      ],
+      "topics": [
+        "youth-privacy",
+        "childrens-privacy",
+        "online-safety"
+      ],
+      "sponsors": [],
+      "current_status": "introduced",
+      "bill_dir": "bills/new-jersey/A-4015",
+      "current_version": "v1-introduced",
+      "download_status": "success",
+      "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+      "status_history": [
+        {
+          "date": "2026-04-10",
+          "status": "introduced",
+          "detail": "Introduced",
+          "source_email_date": "2026-01-15",
+          "source_run_id": "2026-04-09T23-07-50"
+        }
+      ],
+      "versions": [
+        {
+          "version_id": "v1-introduced",
+          "date": "2026-04-10",
+          "pdf_path": "bills/new-jersey/A-4015/versions/v1-introduced.pdf",
+          "md_path": null
+        }
+      ],
+      "first_seen_run": "2026-04-09T23-07-50",
+      "last_updated_run": "2026-04-09T23-07-50"
     }
   }
 }

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-07T22:15:00.000000+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260407-001",
+    "report_title": "Seventh Circuit Holds BIPA Damages Amendment Applies Retroactively, Reshaping Liability for Hundreds of Pending Cases",
+    "report_path": "reports/privacy/illinois-bipa-retroactive-damages-2026-04-07.md",
+    "format": "client-alert",
+    "jurisdiction_tags": ["Illinois", "Federal (Seventh Circuit)"],
+    "confidence_summary": {
+      "high": 2,
+      "medium": 0,
+      "low": 0
+    },
+    "sources_verified": [
+      {
+        "url": "https://law.justia.com/cases/federal/appellate-courts/ca7/25-2185/25-2185-2026-04-01.html",
+        "title": "Clay v. Union Pacific Railroad Co., No. 25-2185 (7th Cir. 2026)",
+        "verified": true,
+        "notes": "Full text of the Seventh Circuit opinion available on Justia"
+      },
+      {
+        "url": "https://blogs.duanemorris.com/classactiondefense/2026/04/03/seventh-circuit-holds-bipa-amendment-applies-retroactively-reversing-three-illinois-federal-court-decisions/",
+        "title": "Duane Morris Class Action Defense Blog",
+        "verified": true,
+        "notes": "Primary source from finding; law firm analysis confirmed via search results"
+      },
+      {
+        "url": "https://www.jacksonlewis.com/insights/bipa-cases-7th-circuit-rules-change-illinois-laws-damages-provision-retroactively-limits-defendant-exposure",
+        "title": "Jackson Lewis Client Alert",
+        "verified": true,
+        "notes": "Law firm analysis corroborating key holdings and reasoning"
+      },
+      {
+        "url": "https://www.fisherphillips.com/en/insights/insights/major-biometric-win-for-business-in-illinois",
+        "title": "Fisher Phillips Client Alert",
+        "verified": true,
+        "notes": "Employer-focused analysis with practical takeaways"
+      },
+      {
+        "url": "https://www.sgrlaw.com/client-alerts/seventh-circuit-holds-bipa-damages-amendment-applies-retroactively-reshaping-liability-for-hundreds-of-pending-cases/",
+        "title": "SGR Law Client Alert",
+        "verified": true,
+        "notes": "Additional law firm analysis with damages comparison"
+      },
+      {
+        "url": "https://natlawreview.com/article/seventh-circuit-court-appeals-holds-bipa-amendment-limiting-damages-applies",
+        "title": "National Law Review",
+        "verified": true,
+        "notes": "Legal publication coverage noting state court limitations"
+      },
+      {
+        "url": "https://www.ilga.gov/legislation/publicacts/103/103-0769.htm",
+        "title": "Illinois General Assembly - Public Act 103-0769",
+        "verified": true,
+        "notes": "Official text of the 2024 BIPA amendment on Illinois legislature website"
+      },
+      {
+        "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/074000140K20.htm",
+        "title": "740 ILCS 14/20 - BIPA Section 20",
+        "verified": true,
+        "notes": "Current statutory text on Illinois legislature website"
+      },
+      {
+        "url": "https://law.justia.com/cases/illinois/supreme-court/2023/128004.html",
+        "title": "Cothron v. White Castle System, Inc. (2023)",
+        "verified": true,
+        "notes": "Illinois Supreme Court per-scan accrual decision that prompted the amendment"
+      },
+      {
+        "url": "https://www.americanbar.org/groups/business_law/resources/business-law-today/2023-may/illinois-supreme-court-finds-white-castle-could-face-up-to-17b-in-damages/",
+        "title": "American Bar Association - Cothron Analysis",
+        "verified": true,
+        "notes": "ABA analysis of Cothron damages implications"
+      }
+    ],
+    "confidence": "high",
+    "word_count": 590
+  }
+}

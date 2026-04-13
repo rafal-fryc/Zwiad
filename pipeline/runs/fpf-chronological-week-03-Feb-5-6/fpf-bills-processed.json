@@ -1,0 +1,787 @@
+{
+  "run_id": "fpf-chronological-week-03-Feb-5-6",
+  "timestamp": "2026-04-09T21:17:35.268351+00:00",
+  "bills_processed": [
+    {
+      "bill_key": "AZ-SB-1786-2026",
+      "bill_identifier": "SB 1786",
+      "state": "Arizona",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "CA-SB-947-2026",
+      "bill_identifier": "SB 947",
+      "state": "California",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CA-SB-951-2026",
+      "bill_identifier": "SB 951",
+      "state": "California",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "HI-SB-2281-2026",
+      "bill_identifier": "SB 2281",
+      "state": "Hawaii",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "HI-HB-1782-2026",
+      "bill_identifier": "HB 1782",
+      "state": "Hawaii",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "HI-HB-2502-2026",
+      "bill_identifier": "HB 2502",
+      "state": "Hawaii",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "HI-HB-2500-2026",
+      "bill_identifier": "HB 2500",
+      "state": "Hawaii",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "HI-HB-2458-2026",
+      "bill_identifier": "HB 2458",
+      "state": "Hawaii",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3027-2026",
+      "bill_identifier": "SB 3027",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4717-2026",
+      "bill_identifier": "HB 4717",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-2993-2026",
+      "bill_identifier": "SB 2993",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4705-2026",
+      "bill_identifier": "HB 4705",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3261-2026",
+      "bill_identifier": "SB 3261",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-2995-2026",
+      "bill_identifier": "SB 2995",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4711-2026",
+      "bill_identifier": "HB 4711",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3262-2026",
+      "bill_identifier": "SB 3262",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3263-2026",
+      "bill_identifier": "SB 3263",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3312-2026",
+      "bill_identifier": "SB 3312",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4804-2026",
+      "bill_identifier": "HB 4804",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4799-2026",
+      "bill_identifier": "HB 4799",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3180-2026",
+      "bill_identifier": "SB 3180",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IA-H-2204-2026",
+      "bill_identifier": "H 2204",
+      "state": "Iowa",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "IA-H-647-2026",
+      "bill_identifier": "H 647",
+      "state": "Iowa",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "KS-HR-6023-2026",
+      "bill_identifier": "HR 6023",
+      "state": "Kansas",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "KS-SB-405-2026",
+      "bill_identifier": "SB 405",
+      "state": "Kansas",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "KS-HB-2671-2026",
+      "bill_identifier": "HB 2671",
+      "state": "Kansas",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MD-HB-883-2026",
+      "bill_identifier": "HB 883",
+      "state": "Maryland",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MD-HB-712-2026",
+      "bill_identifier": "HB 712",
+      "state": "Maryland",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MO-SB-1598-2026",
+      "bill_identifier": "SB 1598",
+      "state": "Missouri",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "NJ-A-3307-2026",
+      "bill_identifier": "A 3307",
+      "state": "New Jersey",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-A-2767-2026",
+      "bill_identifier": "A 2767",
+      "state": "New Jersey",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-A-2710-2026",
+      "bill_identifier": "A 2710",
+      "state": "New Jersey",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NJ-A-799-2026",
+      "bill_identifier": "A 799",
+      "state": "New Jersey",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NY-A-10047-2026",
+      "bill_identifier": "A 10047",
+      "state": "New York",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "NY-S-9089-2026",
+      "bill_identifier": "S 9089",
+      "state": "New York",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "OH-HB-665-2026",
+      "bill_identifier": "HB 665",
+      "state": "Ohio",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "OR-SB-1546-2026",
+      "bill_identifier": "SB 1546",
+      "state": "Oregon",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "PA-HB-2175-2026",
+      "bill_identifier": "HB 2175",
+      "state": "Pennsylvania",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "PA-SB-1090-2026",
+      "bill_identifier": "SB 1090",
+      "state": "Pennsylvania",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "RI-HB-7350-2026",
+      "bill_identifier": "HB 7350",
+      "state": "Rhode Island",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "RI-HB-7349-2026",
+      "bill_identifier": "HB 7349",
+      "state": "Rhode Island",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "SD-SB-170-2026",
+      "bill_identifier": "SB 170",
+      "state": "South Dakota",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "SD-SB-168-2026",
+      "bill_identifier": "SB 168",
+      "state": "South Dakota",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "UT-HB-320-2026",
+      "bill_identifier": "HB 320",
+      "state": "Utah",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "UT-SB-150-2026",
+      "bill_identifier": "SB 150",
+      "state": "Utah",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "UT-HB-286-2026",
+      "bill_identifier": "HB 286",
+      "state": "Utah",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "UT-HB-438-2026",
+      "bill_identifier": "HB 438",
+      "state": "Utah",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "UT-HB-450-2026",
+      "bill_identifier": "HB 450",
+      "state": "Utah",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H-822-2026",
+      "bill_identifier": "H 822",
+      "state": "Vermont",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H-821-2026",
+      "bill_identifier": "H 821",
+      "state": "Vermont",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H-816-2026",
+      "bill_identifier": "H 816",
+      "state": "Vermont",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H-814-2026",
+      "bill_identifier": "H 814",
+      "state": "Vermont",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VT-H-855-2026",
+      "bill_identifier": "H 855",
+      "state": "Vermont",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VA-SB-384-2026",
+      "bill_identifier": "SB 384",
+      "state": "Virginia",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-HB-797-2026",
+      "bill_identifier": "HB 797",
+      "state": "Virginia",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "WA-HB-1170-2026",
+      "bill_identifier": "HB 1170",
+      "state": "Washington",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WA-SB-6284-2026",
+      "bill_identifier": "SB 6284",
+      "state": "Washington",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WA-HB-2503-2026",
+      "bill_identifier": "HB 2503",
+      "state": "Washington",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WA-HB-2144-2026",
+      "bill_identifier": "HB 2144",
+      "state": "Washington",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WA-HB-2481-2026",
+      "bill_identifier": "HB 2481",
+      "state": "Washington",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WA-HB-2157-2026",
+      "bill_identifier": "HB 2157",
+      "state": "Washington",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WV-HB-4770-2026",
+      "bill_identifier": "HB 4770",
+      "state": "West Virginia",
+      "is_new": false,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WI-AB-965-2026",
+      "bill_identifier": "AB 965",
+      "state": "Wisconsin",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WI-AB-959-2026",
+      "bill_identifier": "AB 959",
+      "state": "Wisconsin",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "AL-HB-351-2026",
+      "bill_identifier": "HB 351",
+      "state": "Alabama",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "AL-HB-161-2026",
+      "bill_identifier": "HB 161",
+      "state": "Alabama",
+      "is_new": false,
+      "status": "passed-second-chamber",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "AZ-SB-1815-2026",
+      "bill_identifier": "SB 1815",
+      "state": "Arizona",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "AZ-SB-1790-2026",
+      "bill_identifier": "SB 1790",
+      "state": "Arizona",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "CA-SR-74-2026",
+      "bill_identifier": "SR 74",
+      "state": "California",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CO-HB-26-1091-2026",
+      "bill_identifier": "HB 26-1091",
+      "state": "Colorado",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "CT-SB-4-2026",
+      "bill_identifier": "SB 4",
+      "state": "Connecticut",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "HI-SB-1163-2026",
+      "bill_identifier": "SB 1163",
+      "state": "Hawaii",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3241-2026",
+      "bill_identifier": "SB 3241",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3220-2026",
+      "bill_identifier": "SB 3220",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-SB-3122-2026",
+      "bill_identifier": "SB 3122",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IL-HB-4809-2026",
+      "bill_identifier": "HB 4809",
+      "state": "Illinois",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "IA-SF-2197-2026",
+      "bill_identifier": "S.F. 2197",
+      "state": "Iowa",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MD-SB-564-2026",
+      "bill_identifier": "SB 564",
+      "state": "Maryland",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "MD-SB-569-2026",
+      "bill_identifier": "SB 569",
+      "state": "Maryland",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "NH-HB-1460-2026",
+      "bill_identifier": "HB 1460",
+      "state": "New Hampshire",
+      "is_new": true,
+      "status": "passed-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "PA-HB-78-2026",
+      "bill_identifier": "HB 78",
+      "state": "Pennsylvania",
+      "is_new": true,
+      "status": "in-committee",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "RI-SB-2406-2026",
+      "bill_identifier": "SB 2406",
+      "state": "Rhode Island",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "SC-HB-3431-2026",
+      "bill_identifier": "HB 3431",
+      "state": "South Carolina",
+      "is_new": false,
+      "status": "signed",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "SD-HB-1275-2026",
+      "bill_identifier": "HB 1275",
+      "state": "South Dakota",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "UT-SB-142-2026",
+      "bill_identifier": "SB 142",
+      "state": "Utah",
+      "is_new": true,
+      "status": "signed",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "UT-HB-498-2026",
+      "bill_identifier": "HB 498",
+      "state": "Utah",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "VA-SB-338-2026",
+      "bill_identifier": "SB 338",
+      "state": "Virginia",
+      "is_new": false,
+      "status": "passed-first-chamber",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-SB-177-2026",
+      "bill_identifier": "SB 177",
+      "state": "Virginia",
+      "is_new": true,
+      "status": "passed-first-chamber",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-SB-201-2026",
+      "bill_identifier": "SB 201",
+      "state": "Virginia",
+      "is_new": true,
+      "status": "dead",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-SB-232-2026",
+      "bill_identifier": "SB 232",
+      "state": "Virginia",
+      "is_new": false,
+      "status": "dead",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-SB-615-2026",
+      "bill_identifier": "SB 615",
+      "state": "Virginia",
+      "is_new": false,
+      "status": "dead",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-HB-638-2026",
+      "bill_identifier": "HB 638",
+      "state": "Virginia",
+      "is_new": true,
+      "status": "dead",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-HB-654-2026",
+      "bill_identifier": "HB 654",
+      "state": "Virginia",
+      "is_new": true,
+      "status": "dead",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "VA-HB-1368-2026",
+      "bill_identifier": "HB 1368",
+      "state": "Virginia",
+      "is_new": false,
+      "status": "dead",
+      "download_status": "pending-manual"
+    },
+    {
+      "bill_key": "WV-HB-5123-2026",
+      "bill_identifier": "HB 5123",
+      "state": "West Virginia",
+      "is_new": true,
+      "status": "introduced",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WI-AB-962-2026",
+      "bill_identifier": "AB 962",
+      "state": "Wisconsin",
+      "is_new": true,
+      "status": "in-committee",
+      "download_status": "success"
+    },
+    {
+      "bill_key": "WI-AB-172-2026",
+      "bill_identifier": "AB 172",
+      "state": "Wisconsin",
+      "is_new": false,
+      "status": "in-committee",
+      "download_status": "success"
+    }
+  ],
+  "new_bills": 80,
+  "status_updates": 17,
+  "downloads_success": 54,
+  "downloads_failed": 26,
+  "conversions_success": 0
+}

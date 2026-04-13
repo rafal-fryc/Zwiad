@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "H.814",
+  "state": "Vermont",
+  "state_abbrev": "VT",
+  "session": "2026",
+  "title": "Vermont Neural Data Consumer Rights Bill",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "neural-data",
+    "biometric-data"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/vermont/H814",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.vermont.gov/Documents/2026/Docs/BILLS/H-0814/H-0814%20As%20Introduced.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-18",
+      "status": "passed-first-chamber",
+      "detail": "Passed House on March 18, 2026",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/vermont/H814/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

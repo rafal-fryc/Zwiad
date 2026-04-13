@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 4556",
+  "state": "Illinois",
+  "state_abbrev": "IL",
+  "session": "2026",
+  "title": "Illinois Genetic Testing and Biomarker Privacy Bill",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "biometric-data",
+    "genetic-data"
+  ],
+  "sponsors": [],
+  "current_status": "in-committee",
+  "bill_dir": "bills/illinois/HB-4556",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://ilga.gov/Documents/house/FOIA.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-20",
+      "status": "in-committee",
+      "detail": "Hearing scheduled this week; notable activity after period of inactivity",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/illinois/HB-4556/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

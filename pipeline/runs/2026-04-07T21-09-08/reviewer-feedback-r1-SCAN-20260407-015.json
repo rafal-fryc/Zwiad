@@ -1,0 +1,47 @@
+{
+  "finding_id": "SCAN-20260407-015",
+  "report_path": "reports/ai-law/federal-nist-ai-agent-standards-initiative-2026-04-07.md",
+  "round": 1,
+  "claims_checked": 21,
+  "source_refetch_note": "WebFetch tool was unavailable (permissions not granted). Pass 1 (source re-fetch) could not be completed. All verification was performed via independent WebSearch (Pass 2).",
+  "issues": [
+    {
+      "claim": "IR 8596 maps AI-specific cybersecurity risks to CSF 2.0 functions across three focus areas: securing AI systems, conducting AI-enabled cyber defense, and thwarting adversarial AI cyberattacks",
+      "section": "Background",
+      "source_url": "https://csrc.nist.gov/pubs/ir/8596/iprd",
+      "issue": "The third focus area is described by NIST as 'Thwarting AI-enabled cyberattacks', not 'thwarting adversarial AI cyberattacks'. The report uses 'adversarial AI' which subtly changes the meaning -- 'AI-enabled cyberattacks' refers to cyberattacks that leverage AI capabilities, while 'adversarial AI cyberattacks' could be interpreted as attacks against AI systems.",
+      "severity": "minor",
+      "suggested_fix": "Change 'thwarting adversarial AI cyberattacks' to 'thwarting AI-enabled cyberattacks' to match NIST's official terminology.",
+      "status": "open"
+    },
+    {
+      "claim": "Cloud Security Alliance analysis available at https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-caisi-ai-agent-standards-federal-framework/",
+      "section": "Sources",
+      "source_url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-caisi-ai-agent-standards-federal-framework/",
+      "issue": "The URL in the report includes 'caisi-' in the path (csa-research-note-nist-caisi-ai-agent-standards-federal-framework), but independent search results show the actual CSA page URL as https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-ai-agent-standards-federal-framework/ (without 'caisi-'). The report URL may be a broken link. Unable to confirm via WebFetch as the tool was unavailable.",
+      "severity": "minor",
+      "suggested_fix": "Verify the CSA URL is accessible. If broken, update to https://labs.cloudsecurityalliance.org/research/csa-research-note-nist-ai-agent-standards-federal-framework/",
+      "status": "open"
+    }
+  ],
+  "verified_claims": [
+    "CAISI launched the AI Agent Standards Initiative in February 2026 -- confirmed via NIST announcement and multiple secondary sources",
+    "Initiative announced on February 17, 2026 -- confirmed via NIST and ANSI (2-18-26 coverage)",
+    "Three core objectives (widely adopted with confidence, function securely, interoperate smoothly) -- confirmed via NIST announcement",
+    "RFI on security considerations published January 8, 2026 in Federal Register -- confirmed via Federal Register (doc 2026-00206)",
+    "RFI comment period closed March 9, 2026 -- confirmed via Federal Register",
+    "NIST IR 8596 preliminary draft released December 2025 -- confirmed (December 16, 2025 per NIST CSRC)",
+    "IR 8596 comment period closed January 30, 2026 -- confirmed via NIST CSRC",
+    "Initial public draft of IR 8596 expected later in 2026 -- confirmed via NIST",
+    "NIST Cybersecurity Framework originally published in 2014 -- confirmed (February 12, 2014)",
+    "Listening sessions focused on healthcare, finance, and education -- confirmed via NIST announcement",
+    "Sessions are virtual -- confirmed via NIST announcement",
+    "Participation via caisi-events@nist.gov -- confirmed via NIST announcement",
+    "Submission deadline extended from March 20 to March 31, 2026 -- confirmed via NIST announcement",
+    "AI Agent Identity and Authorization Concept Paper due April 2, 2026 -- confirmed via NIST CSRC (published February 5, 2026 by NCCoE)",
+    "Pillsbury analysis suggests 18-24 months from guidance to procurement mandates/litigation standards -- confirmed via Pillsbury and JD Supra",
+    "CSA and MetricStream published analyses of the initiative -- confirmed via search results",
+    "Three participation channels (RFI, Concept Paper, listening sessions) -- confirmed via NIST announcement"
+  ],
+  "resolution_status": "resolved"
+}

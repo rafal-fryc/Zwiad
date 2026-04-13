@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+    <title>Bill Status Inquiry</title>
+
+    <link href="/Content/css/coreCss?v=ZEMQFXWiO16qKviLBSRguKI2gH2x2nqSoiEah_xvZW01" rel="stylesheet"/>
+
+    <script src="/Scripts/core?v=LUe7mtdJRTKEoh7tuVdR3JHmcZciwsIcDUnWbopRj6s1"></script>
+
+    <script src="/Scripts/signalr?v=gFrpFtSHty9pbOJAljr488nsxZknAfEvaV6dQenqszU1"></script>
+
+    <script src="/signalr/hubs" type="text/javascript"></script>
+    <script type="text/javascript" src="/Home/JavascriptConstants"></script>
+
+
+    
+    <link href="/Content/css/coreBsiCss?v=Gnluys-Mv5pxxgCaQCvVO914wE1t4ZQ2nefYU9SPM7o1" rel="stylesheet"/>
+
+    <script src="/Scripts/bsiCore?v=xKXMUdVWhFziCLjmsI4ZLeYA43i7wAWCLHuHpL24GGE1"></script>
+
+
+    <script src="/Scripts/ViewModel/BillStatusInquiry/LayoutViewModel.js"></script>
+    <script type="text/javascript">
+        //Set up view model for layout page
+        window.layoutViewModel = new LayoutViewModel(130);
+
+        $(function () {
+            ko.applyBindings(layoutViewModel, document.getElementById('topBar'));
+        });
+    </script>
+    
+    <script src="/Scripts/BillStatusOverviewBundle?v=Tuf5EiFALOXLwGklTZC2fxkoRRT55R-z6AGRM2cJjSE1"></script>
+
+    <script src="/Scripts/MyProgressBundle?v=enT6x92aZrg2xEwa8OJMOpaS_2JFHOc3GZRGBNvmW701"></script>
+
+
+    <script>
+        window.strHub = $.connection.syncBillCommentHub;
+
+        var viewModel = new BillOverviewViewModel(130, 'HB4098', 0, -1, -1);
+        $(function() {
+                ko.applyBindings(viewModel, document.getElementById('billStatusSearchDiv'));
+                    viewModel.searchForBill(false)
+            $('#printModal').on('click',
+                function() {
+                    printElement($('#printStandingCommitteeDetails'));
+                });
+
+            $('#printFloorModal').on('click',
+                function() {
+                    printElement($('#printFloorCommitteeDetails'));
+                });
+
+            $('#printOverview').on('click',
+                function () {
+                    document.getElementById("prtsponsor").style.display = "block";
+                    printElement($('#overviewTab'));
+                    document.getElementById("prtsponsor").style.display = "none";
+                });
+
+            var delay = (function() {
+                var timer = 0;
+                return function(callback, ms) {
+                    clearTimeout(timer);
+                    timer = setTimeout(callback, ms);
+                };
+            })();
+
+            $('#sbcComment').on('keyup',
+                function() {
+                });
+
+					
+//PR2022            strHub.client.clearsbcEditing = function(groupId) {
+//PR2022                viewModel.sbcIsBeingEditted(false);
+//PR2022            };
+
+            $(window).bind('beforeunload',
+                function() {
+                });
+
+            $('#commentModal').on('hidden.bs.modal',
+                function() {
+                    if (viewModel.commentsModalButtonClosedFlag() == false) {
+                        viewModel.hideCommentsNoSave();
+                    }
+                });
+
+            $("#commentModal").on('shown.bs.modal',
+                function() {
+                    $(this).find('#sbcComment').focus();
+                });
+
+//            $(window).load(function () {
+            $(window).on('load',
+                (function() {
+                    //alert('Committee Id = ' + viewModel.committeeId);
+                    //alert('Body=' + viewModel.filterStandingCommitteesByBody());
+                    if (viewModel.committeeId != -1 && viewModel.committeeId != null)
+                        $('#modalStandingCommitteeDetails').modal('show');
+                }));
+        });
+
+        //Moved this call inside signalR hub start "done" method above since searchForBill refernces SignalR stuff which should not execute until the hib has finished starting
+        
+
+        ko.bindingHandlers.returnAction = {
+            init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+                var value = ko.utils.unwrapObservable(valueAccessor());
+
+                $(element).keydown(function(e) {
+                    if (e.which === 13) {
+                        value(viewModel);
+                    }
+                });
+            }
+        };
+    </script>
+
+
+
+    <script id="sa" type="text/html">
+        <li data-bind="text: SectionNumber"></li>
+        <li data-bind="text: Action"></li>
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('table.footable').footable();
+        });
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        WebFontConfig = {
+            google: { families: ['Open+Sans:400,600,700:latin'] }
+        };
+
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+
+        //Kill signalR connection on page unload
+        $(window).bind('beforeunload', function () {
+            $.connection.hub.stop(false, true);
+        });
+
+    </script>
+
+    <!-- if(!Request.IsLocal)
+    {  -->
+    <script>
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments);
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m);
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                ga('create', 'UA-55272805-1', 'auto');
+                //ga('create', 'UA-55272805-1', 'auto');
+                ga('send', 'pageview');
+    </script>
+    <!-- } -->
+
+</head>
+
+<body>
+    <div class="menu-left">
+        <header class="navbar main hidden-print">
+            <nav>
+                <ul class="topnav pull-right settings-ul">
+                    <li><a target="_blank" href="https://www.azleg.gov/emailazleg"><span class="glyphicon color-bright glyphicon-question-sign innerR-sm"></span>Need Help</a></li>
+                        <li><a href="/Account/SignOn"><span class="glyphicon color-bright glyphicon-pencil innerR-sm"></span>Sign On</a></li>
+                        <!--li><span class="glyphicon color-bright glyphicon-user innerR-sm">
+                             Html.ActionLink("Sign On", "SignOn", "Account", new {ReturnUrl = Server.UrlEncode(Request.Path)}, new { class = "mainmenuheading" })
+                            </span>
+                        </li-->
+
+                    
+
+
+                        <li>
+                            <a data-toggle="dropdown" href="javascript:void()"><span class="glyphicon glyphicon-th-large color-bright innerR-sm"></span> Applications</a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="/RequestToSpeak">Request to Speak (RTS)</a>
+                                </li>
+                                <li>
+                                    <a href="/BillStatus">Bill Status Inquiry (BSI)</a>
+                                </li>
+                            </ul>
+                        </li>
+                </ul>
+            </nav>
+
+            
+
+            <div class="pull-right innerT-sm">
+                
+    <div id="topBar" class="innerR">
+        <ul class="topnav pull-right">
+
+            
+
+            <li>
+                <select id="sessions"
+                        class="form-control"
+                        name="selectedSessionId"
+                        data-bind="visible: showSessions, options: availableSessions, value: selectedSessionId, optionsText: 'Name', optionsValue: 'SessionId', event: { change: updateCurrentSession }"></select>
+            </li>
+        </ul>
+    </div>
+
+            </div>
+
+        </header>
+        <div id="wrapper">
+            <nav id="menu" class="hidden-print">
+                
+<ul class="pull-left appswitch">
+	<li>
+		<a href="/BillStatus" class="appswitch-title"><span class="glyphicon glyphicon-home pull-left"></span>Bill Status Inquiry</a>
+	</li>
+	<li>
+		<a href="https://www.azleg.gov/" class="appswitch-title"><span class="glyphicon glyphicon-home pull-left"></span>AZ Leg. Website</a>
+	</li>
+</ul>
+
+<div class="slim-scroll" data-scroll-height="800px">
+    <ul class="hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
+        <li class="active">
+            <a href="/BillStatus/BillOverview/85620"
+               data-toggle="popover"
+               data-content="Bill Overview"
+               data-trigger="hover"
+               data-html="true"
+               data-placement="right"
+               data-container="body">
+                <span class="azicons  i-bills">Bills</span>
+            </a>
+        </li>
+
+        <li >
+            <a href="/BillStatus/CalendarSearch"
+               data-toggle="popover"
+               data-content="Calendar Inquiry"
+               data-trigger="hover"
+               data-html="true"
+               data-placement="right"
+               data-container="body">
+                <span class="azicons i-calendar">Calendar</span>
+            </a>
+        </li>
+
+        <li >
+            <a href="/BillStatus/AgendaSearch"
+               data-toggle="popover"
+               data-content="Agenda Inquiry"
+               data-trigger="hover"
+               data-html="true"
+               data-placement="right"
+               data-container="body">
+                <span class="azicons i-agenda">Agendas</span>
+            </a>
+        </li>
+
+        <li >
+            <a href="/BillStatus/NomineeSearch"
+               data-toggle="popover"
+               data-content="Executive Nominee Inquiry"
+               data-trigger="hover"
+               data-html="true"
+               data-placement="right"
+               data-container="body">
+                <span class="azicons i-exnominees">Executive Nominees</span>
+            </a>
+        </li>
+
+        <li >
+            <a href="/BillStatus/ConferenceCommitteeSearch"
+               data-toggle="popover"
+               data-content="Conference Committee Inquiry"
+               data-trigger="hover"
+               data-html="true"
+               data-placement="right"
+               data-container="body">
+                <span class="azicons i-committees">Conference Committee</span>
+            </a>
+        </li>
+
+
+
+        <li  style="overflow: visible;">
+            <a id="dr-trigger" href="#"
+               data-toggle="popover"
+               data-content="Bill Status Searches"
+               data-trigger="hover"
+               data-html="true"
+               data-placement="right"
+               data-container="body">
+                <span class="azicons i-search">Search <span id="dr-icon" class="glyphicon glyphicon-forward innerL-sm dr-icon"></span></span>
+            </a>
+        </li>
+
+
+
+    </ul>
+    
+    <div class="dr-menu" id="dr-menu">
+        <ul>
+            
+            <li><a href="https://www.azleg.gov/arstitle/" target="_blank">ARS</a></li>
+            <li ><a href="/BillStatus/DocumentSearch/B">Blue Sheets / Concur</a></li>
+            <li><a href="https://www.azleg.gov/alispdfs/BSI_Manual_public.pdf" target="_blank">BSI Manual</a>
+            <li ><a href="/BillStatus/SearchChapteredTransmittedTo">Chaptered / Transmitted To</a></li>
+            <li ><a href="/BillStatus/SearchCommitteeBills">Committee Bills</a></li>
+            <li ><a href="/BillStatus/CommitteeMembers">Committee Members</a></li>
+            <li ><a href="/BillStatus/DocumentSearch/C">Committee Minutes</a></li>
+            <li ><a href="/BillStatus/CommitteeOverView">Committee Overview</a></li>
+            
+            <li><a href="https://www.azleg.gov/constitution/" target="_blank">Constitution</a></li>
+            <li ><a href="/BillStatus/DocumentSearch/T">Posting Sheets</a></li>
+            <li ><a href="/BillStatus/ExportToDocument">Export to Document</a></li>
+            <li ><a href="/BillStatus/FinalDisposition">Final Disposition</a></li>
+            
+            <li ><a href="/BillStatus/SearchKeywords">Keywords</a></li>
+            <li ><a href="/BillStatus/DocumentSearch/Z">Legislative Digest</a></li>
+            <li ><a href="/BillStatus/TitleSearch">Short / NOW / Pending Titles</a></li>
+            <li ><a href="/BillStatus/SearchSponsor">Sponsors</a></li>
+            <li ><a href="/BillStatus/StrikeEverything">Strike Everything Bills</a></li>
+            <li ><a href="/BillStatus/SearchTitleSection">Title Section</a></li>
+            <li ><a href="/BillStatus/VetoedBills">Veto Action</a></li>
+        </ul>
+	</div>    
+
+    <div class="clearfix"></div>
+</div>
+
+
+
+            </nav>
+            <section id="content">
+                
+
+
+
+
+
+
+<div class="innerLR innerT">
+    
+
+
+
+
+
+    <div id="billStatusSearchDiv">
+
+    <div id="wrapper">
+    <div class="container">
+        <div class="row innerL-sm topofPage">
+            <div class="widget col-md-5 innerR-sm">
+                <span class="innerR-sm">Bill Number:</span>
+                <input id="billNumberEntryId" class="billNumberEntry" type="text" style="max-width: 150px" placeholder="Enter bill number" data-bind="value: billNumber, valueUpdate: 'afterkeyup', returnAction: searchForBill" maxlength="10" style="text-transform: uppercase;" autofocus />
+                <button class="btn btn-default btn-primary" data-bind="click: function() { setCurTab(0);  searchForBill(true);}">Search</button>
+                <!-- ko if: billOverviewInfo() && billInfo() && billInfo().BillId-->
+                <div style="display: none;" data-bind="visible: billInfo() && billInfo() != ''">
+                    <br/>
+                    <span style="display: none"><a data-bind="text: billNumber, attr: { href:'https://apps.azleg.gov/BillStatus/BillOverview/' + billInfo().BillId }"></a></span>
+
+                    <a style="margin-left: 95px;" data-bind="click: URLButton" class="btn btn-primary btn-sm urlbtn">Copy Bill URL</a>
+                </div>
+                <!-- /ko -->
+            </div>
+            <!--div data-bind="visible: billInfo() != ''" style="display: none;"-->
+            <div class="innerB-sm col-md-7" data-bind="visible: billInfo() != ''" " style="display: none;">
+            </div>
+
+            <!--/div-->
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div data-bind="visible: billInfo()" style="display: none;">
+        <div class="row" data-bind="if: billInfo() != ''" style="margin-bottom: 20px">
+            <div class="col-md-12">
+                <table class="innerL">
+                    <tr style="height: 30px">
+                        <td class="innerR-sm strong highlight">Short Title:</td>
+                        <td data-bind="text: billInfo() ? billInfo().ShortTitle : ''"></td>
+                    </tr>
+                    <!-- ko if: billInfo() && billInfo().NOWTitle > ""-->
+                    <tr style="height: 30px">
+                        <td class="innerR-sm strong highlight">NOW Title:</td>
+                        <td data-bind="text: (billInfo() && billInfo().NOWTitle)  ? billInfo().NOWTitle : ''"></td>
+                    </tr>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().PreviousNOWTitle -->
+                    <tr style="height: 30px">
+                        <td class="innerR-sm strong highlight">Prev NOW Title:</td>
+                        <td data-bind="text: billInfo().PreviousNOWTitle"></td>
+                    </tr>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().SubstBill -->
+                    <tr style="height: 30px">
+                        <td class="innerR-sm strong highlight">Substitute Bill:</td>
+                        <td class="text-red strong" data-bind="text: billInfo().SubstBill + ' for ' + billInfo().SubstBill2"><</td>
+                    </tr>
+                    <!-- /ko -->
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" data-bind="visible: billInfo()" style="display: none;">
+
+    
+    <div class="col-md-12 hidden-print" data-bind="visible: billInfo() != ''">
+
+    <!--div class="tabsbar tabsbreakmobile">
+    <ul class="nav" id="navtab">
+        <li class="active"><a href="#tab1-1" data-toggle="tab" data-bind="click: function() { setCurTab(0); }">Overview</a></li>
+        <li><a href="#tab1-2" data-toggle="tab" data-bind="click: function() { setCurTab(1); }">Bill Status</a></li>
+        <li><a href="#tab1-3" data-toggle="tab" data-bind="click: function() { setCurTab(2); loadVideos(); }">Videos</a></li>
+        <li><a href="#tab1-4" data-toggle="tab" data-bind="click: function() { setCurTab(3); loadBillSKS(); }">Sponsor/Keyword/Sections</a></li>
+        <li><a href="#tab1-5" data-toggle="tab" data-bind="click: function() { setCurTab(4); loadBillPositions() }">RTS Current Bill Positions</a></li>
+        <li><a href="#tab1-6" data-toggle="tab" data-bind="click: function() { setCurTab(5); loadDocuments() }">Documents</a></li>
+    </ul>
+    </div-->
+
+    <div class="nav tabsbar tabsbreakmobile">
+        <ul class="nav nav-tabs" id="myTab"> <!--role="tablist">-->
+            <li class="nav-item active"><a id="tab1-1tab" data-toggle="tab" href="#tab1-1" role="tab" aria-controls="Overview" aria-selected="true" data-bind="click: function() { setCurTab(0); }">Overview</a></li>
+            <li class="nav-item"><a id="tab1-2tab" data-toggle="tab" href="#tab1-2" role="tab" aria-controls="Bill Status" aria-selected="false" data-bind="click: function() { setCurTab(1); }">BillStatus</a></li>
+            <li class="nav-item"><a id="tab1-3tab" data-toggle="tab" href="#tab1-3" role="tab" aria-controls="Videos" aria-selected="false" data-bind="click: function() { setCurTab(2); loadVideos(); }">Videos</a></li>
+            <li class="nav-item"><a id="tab1-4tab" data-toggle="tab" href="#tab1-4" role="tab" aria-controls="Sponsors Keywords Sections" aria-selected="false" data-bind="click: function() { setCurTab(3); loadBillSKS(); }">Sponsor/Keywords/Sections</a></li>
+            <li class="nav-item"><a id="tab1-5tab" data-toggle="tab" href="#tab1-5" role="tab" aria-controls="Bill Positions" aria-selected="false" data-bind="click: function() { setCurTab(4); loadBillPositions() }">RTS/Current Bill Positions</a></li>
+            <li class="nav-item"><a id="tab1-6tab" data-toggle="tab" href="#tab1-6" role="tab" aria-controls="Documents" aria-selected="false" data-bind="click: function() { setCurTab(5); loadDocuments() }">Documents</a></li>
+        </ul>
+    </div>
+    <div class="tab-content" id="myTabContent">
+    <!--div class="tab-content"-->
+    
+
+    <!--div class="tab-pane active" id="tab1-1"-->
+    <div class="tab-pane fade in active" id="tab1-1" role="tabpanel" aria-labelledby="overview-tab">
+    <div data-bind="visible: isLoadingOverview()" class="innerB">
+        <label>Loading ...</label><img src="/content/images/loader.gif" alt="Loading ..."/>
+    </div>
+    <div class="row" id="overviewTab">
+        <div class="col-md-12" data-bind="visible: !isLoadingOverview()" style="display: none;">
+            <!-- ko if: billOverviewInfo() && billInfo() -->
+            <div class="row">
+                <h2 class="col-md-5" data-bind="text: ( billOverviewInfo() ) ? 'Bill History for ' + ((billInfo().Number==undefined) ? '': billInfo().Number) : ''"></h2>
+                <label class="col-md-2 innerT-sm text-right hidden-print">Sponsors:</label>
+                <select id="slist" class="col-md-4 hidden-print" data-bind="foreach: sponsors, attr: { size: '(sponsors().length<5) ? sponsors().length : 5'}">
+                    <option data-bind="text: Legislator.MemberTopperName + ' (' + SponsorType + ')', attr: { title: Legislator.FullName }"></option>
+                </select>
+            </div>
+            <!-- ko if: billInfo() && billInfo().SubstBill -->
+            <div class="row">
+                <label class="col-md-3">Substitute Bill:</label>
+                <label class="col-md-3 text-red strong" data-bind="text: billInfo().SubstBill + ' for ' + billInfo().SubstBill2"></label>
+            </div>
+            <!-- /ko -->
+            <div class="row">
+                <label class="col-md-3">Short Title:</label>
+                <label class="col-md-8" data-bind="text: billInfo().ShortTitle"></label>
+            </div>
+            <div class="row" data-bind="if: billInfo().NOWTitle">
+                <label class="col-md-3">NOW Title:</label>
+                <label class="col-md-8" data-bind="text: 'NOW: ' + billInfo().NOWTitle"></label>
+            </div>
+            <div class="row" data-bind="if: billInfo().PreviousNOWTitle">
+                <label class="col-md-3">Previous NOW Title:</label>
+                <label class="col-md-8" data-bind="text: 'Previous NOW: ' + billInfo().PreviousNOWTitle"></label>
+            </div>
+            <div class="row" style="display:none" id="prtsponsor">
+                <label class="col-md-3">Primary Sponsor:</label>
+                <label class="col-md-8" data-bind="text: firstSponsor() "></label>
+            </div>
+            <div data-bind="foreach: billOverviewInfo()">
+                <!-- ko if: DateType == "FIRST" ||  DateType == "TRANSMIT" ||  DateType == "SECOND" -->
+                <div class="row">
+                    <!-- ko if: DateType == "FIRST" --><label class="col-md-3" data-bind="text: ((Body=='S') ? 'Senate First Read:' : 'House First Read:')"></label><!-- /ko -->
+                    <!-- ko if: DateType == "SECOND" --><label class="col-md-3" data-bind="text: ((Body=='S') ? 'Senate Second Read:' : 'House Second Read:')"></label><!-- /ko -->
+                    <!-- ko if: DateType == "TRANSMIT" --><label class="col-md-3" data-bind="text: ((Body=='S') ? 'Transmit to Senate: ' : 'Transmit to House: ' )"></label><!-- /ko -->
+                    <label class="col-md-9" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "MAJCAUCUS" || DateType == "MINCAUCUS" -->
+                <div class="row">
+                    <!-- ko if: DateType == "MAJCAUCUS" --><label class="col-md-3" data-bind="text: ((Body=='S') ? 'Senate Republican Caucus:' : 'House Majority Caucus:')"></label><!-- /ko -->
+                    <!-- ko if: DateType == "MINCAUCUS" --><label class="col-md-3" data-bind="text: ((Body=='S') ? 'Senate Democrat Caucus:' : 'House Minority Caucus:')"></label><!-- /ko -->
+                    <div class="col-md-9">
+                        <label data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>&nbsp;&nbsp;&nbsp;&nbsp;<label data-bind="text: (Other=='Y'?'Yes':(Other=='N'?'No':(Other=='H'?'Held':'')))"></label>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONSENT"  || DateType == "COWCONSENT" -->
+                <div class="row">
+                    <label class="col-md-3" data-bind="text: DateType == 'CONSENT' ? 'Consent Calendar:' : 'COW Consent Calendar'"></label>
+                    <label class="col-md-3" data-bind="text: moment(SortedDate).format('MM/DD/YYYY, h:mm a')"></label>
+                    <!-- k o i f: otherdate -->
+                    <label data-bind="text: '&nbsp;&nbsp;&nbsp;&nbsp;' + 'Object:'"></label>
+                    <!-- / k o -->
+                    <!-- working on assumption that when Other is "0" Object is NO, any other value Object is YES -->
+                    <!-- ko if: Other == "0" -->
+                    <label data-bind="text: '&nbsp;&nbsp;&nbsp;' + 'No'"></label>
+                    <!-- /ko -->
+                    <!-- ko ifnot: Other == "0" -->
+                    <label data-bind="text: '&nbsp;&nbsp;&nbsp;' + 'Yes'"></label>
+                    <!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "_STANDING" -->
+                <!-- ko if: Other == "1" -->
+                <div class="row content-large">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalStandingCommitteeDetails" data-bind="text: (Body=='S'?'Senate ':'House ') + 'Standing Details', click: function() { $parent.displayStandingCommitteesByBody(Body); }">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm" title="Click to see the Standing committees that have been assigned to the bill and any action that occured in committee."></span>
+                        </button>
+                    </div>
+                    <div class="col-md-2"><label>Assigned Date</label></div>
+                    <div class="col-md-2"><label>Committee</label></div>
+                    <div class="col-md-2"><label>Report Date</label></div>
+                    <div class="col-md-2"><label>Action</label></div>
+                    <div class="col-md-1"><label>Vote</label></div>
+                </div>
+                <div class="row content-small">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalStandingCommitteeDetails" data-bind="text: (Body=='S'?'Senate ':'House ') + 'Standing Details', click: function() { $parent.displayStandingCommitteesByBody(Body); }" UseSubmitBehavior="false">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm" title="Click to see the Standing committees that have been assigned to the bill and any action that occured in committee."></span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <div class="row content-large">
+                    <div class="col-md-3">&nbsp;</div>
+                    <!-- ko if: col2 == "" -->     <!--Added to hide the assigned date/committee name for the second action of the committee provided it is the same assigned date   -->
+                    <div class="col-md-2">&nbsp;</div>
+                    <div class="col-md-2">&nbsp;</div>
+                    <!-- /ko -->
+                    <!-- ko if: col2 > "" -->
+                    <div class="col-md-2"><label data-bind="text: col1"></label></div>
+                    <div class="col-md-2"><label data-bind="text: col2, attr: { title: col6 }"></label></div>
+                    <!-- /ko -->
+                    <div class="col-md-2"><label data-bind="text: col3"></label></div>
+                    <div class="col-md-2"><label data-bind="text: col4, attr: { title: col7 }"></label></div>
+                    <div class="col-md-1"><label data-bind="text: col5, attr: { title: (Body == 'H' ? 'Ayes/Nays/Present/Absent/Excused/NotVoting' : 'Ayes/Nays/Not Voting/Excused')}"></label></div>
+                </div>
+                <div class="row content-small">
+                    <table class="narrowTable">
+                        <tr><td class="col-md-4"><label>Assigned Date</label></td><td><label data-bind="text: col1"></label></td></tr>
+                        <tr><td class="col-md-4"><label>Committee</label></td><td><label data-bind="text: col2, attr: { title: col6 }"></label></td></tr>
+                        <tr><td class="col-md-4"><label>Report Date</label></td><td><label data-bind="text: col3"></label></td></tr>
+                        <tr><td class="col-md-4"><label>Action</label></td><td><label data-bind="text: col4, attr: { title: col7 }"></label></td></tr>
+                        <tr><td class="col-md-4"><label>Vote</label></td><td><label data-bind="text: col5"></label></td></tr>
+                    </table>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "COW" || DateType == "SCOW" || DateType == "MOTION" || DateType == "MISC" || DateType == "ADCOW" || DateType == "MOTIONADCOW"  || DateType == "ADMOTION"  || DateType == "MOTIONRETURN" -->
+                <table class='table table-bordered table-striped table-bsicondensed'>
+                    <thead>
+                        <tr>
+                            <th data-class='expand'></th>
+                            <th data-hide='break320'>Date</th>
+                            <th data-hide='break320'>Ayes</th>
+                            <th data-hide='break320'>Nays</th>
+                            <th data-hide='break320'>NV</th>
+                            <th data-hide='break320'>Exc</th>
+                            <th data-hide='break320'>Vac</th>
+                            <!-- ko if: col7 == 'Amendedxxx' && DateType == 'COW'-->
+                            <th data-hide='break320,break740'>&nbsp;</th>
+                            <!-- /ko -->
+                            <th data-hide='break320,break740,break1000'>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button"
+                                        class="btn btn-sm btn-primary"
+                                        data-toggle="modal"
+                                        data-target="#modalFloorCommitteeDetails"
+                                        data-bind="click: function(){ $parent.loadFloorCommDetails(DateType, Body, ReferralNumber); }, text: 'Show ' + (Body=='S'?'Senate ':'House ') + (DateType == 'SCOW' ? 'SIT COW': (DateType == 'ADCOW' ? 'Add. COW' : (DateType == 'MISC' ? 'Misc Motion' : (DateType =='MOTION' ? 'Motion to Amend' : (DateType == 'MOTIONADCOW' ? 'Motion Add. COW' : (DateType == 'MOTIONRETURN' ? 'Return Motion' : DateType)))))) + (ReferralNumber == 1 ? '' : ' #' + ReferralNumber)">
+
+                                    <span class='glyphicon glyphicon-zoom-in innerR-sm'></span>" + body;
+                                </button>
+                            </td>
+
+                            <td><label data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label></td>
+                            <td><label data-bind="text: col1"></label></td>
+                            <td><label data-bind="text: col2"></label></td>
+                            <td><label data-bind="text: col3"></label></td>
+                            <td><label data-bind="text: col4"></label></td>
+                            <td><label data-bind="text: col5"></label></td>
+                            <!-- ko if: col7 == 'Amendedxxx' && (DateType == 'COW' || DateType == 'COW') -->
+                            <td><label data-bind="text: col7"></label></td>
+                            <!-- /ko -->
+                            <!-- ko if: DateType == "COW" || DateType =="SCOW" || DateType =="ADCOW"  || DateType =="MOTIONRETURN" -->
+                            <td><label data-bind="text: col11"></label></td>
+                            <!-- /ko -->
+                            <!-- ko ifnot: (DateType=="COW" || DateType == "SCOW" || DateType =="ADCOW"  || DateType =="MOTIONRETURN" ) -->
+                            <td><label data-bind="text: Action"></label></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- ko if: Comments -->
+                <div class='row'>
+                    <label class="col-md-3" data-bind="text: (DateType == 'COW' || DateType == 'SCOW' || DateType == 'ADCOW' ? 'Amendment(s):' : 'Motion:')"></label>
+                    <textarea id="comments" rows='3' disabled style='border: none' class='col-md-8' data-bind="text: Comments "></textarea>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: DateType == "THIRD" || DateType == "FINAL" || DateType == "RECON_3RD" || DateType == "RECON_FNL" || DateType == "CONCUR" -->
+                <table class='table table-bordered table-striped table-bsicondensed'>
+                    <thead>
+                        <tr>
+                            <th data-class='expand'></th>
+                            <th data-hide='break320'>Date</th>
+                            <th data-hide='break320'>Ayes</th>
+                            <th data-hide='break320'>Nays</th>
+                            <th data-hide='break320'>NV</th>
+                            <th data-hide='break320'>Exc</th>
+                            <th data-hide='break320'>Vac</th>
+                            <th data-hide='break320'>Emer</th>
+                            <th data-hide='break320,break740'>Amend</th>
+                            <th data-hide='break320,break740,break1000'>RFE</th>
+                            <th data-hide='break320,break740,break1000'>RFEIR</th>
+                            <th data-hide='break320,break740,break1000'>2/3 Vote</th>
+                            <th data-hide='break320,break740,break1000'>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button"
+                                        class="btn btn-sm btn-primary"
+                                        data-toggle="modal"
+                                        data-target="#modalFloorCommitteeDetails"
+                                        data-bind="click: function(){ $parent.loadFloorCommDetails(DateType, Body, ReferralNumber); }, text: (DateType=='CONCUR'?'':'Show ') + (Body=='S'?'Senate ':'House ') + (DateType=='CONCUR'?'CONCUR MOTION':(DateType=='RECON_3rd'?'RECONSIDER THIRD':(DateType=='RECON_FNL'?'RECONSIDER FINAL':DateType))) + (ReferralNumber == 1 ? '' : ' #' + ReferralNumber)">
+                                    <span class='glyphicon glyphicon-zoom-in innerR-sm'></span>" + body;
+                                </button>
+                            </td>
+
+                            <td><label data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label></td>
+                            <td><label data-bind="text: col1"></label></td>
+                            <td><label data-bind="text: col2"></label></td>
+                            <td><label data-bind="text: col3"></label></td>
+                            <td><label data-bind="text: col4"></label></td>
+                            <td><label data-bind="text: col5"></label></td>
+                            <td><label data-bind="text: col6"></label></td>
+                            <td><label data-bind="text: col7"></label></td>
+                            <td><label data-bind="text: (col8==0?'':'Yes')"></label></td>
+                            <!--td><label data-bind="text: (Action=='Failed'?col9"></label><br /><label data-bind="    text: Comments"></label></td -->
+                            <td><label data-bind="text: col9"></label><br /><label data-bind="text: (col9!=''?Comments:'')"></label></td>
+                            <td><label data-bind="text: (col10==0?'':'Yes')"></label></td>
+                            <td><label data-bind="text: (Action=='UA'?Action:Action)"></label></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <!-- ko if: Comments &&  DateType != "THIRD" &&  DateType != "FINAL" -->
+                <div class='row'>
+                    <label class='col-md-3'>Amendment(s):</label>
+                    <textarea id="comments2" rows='3' disabled style='border: none' class='col-md-8' data-bind="text: Comments "></textarea>
+                </div>
+
+
+
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONCUR" -->
+                <!--div class="row">
+        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalConfCommitteeDetails" data-bind="click: function() { $parent.loadOverviewCC(Body); }, text: (Body=='S'?'Senate':'House') + ' Concur:'">
+            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>
+        </button>
+        <label class="col-md-3" data-bind="text: (Body=='S'?'Senate':'House') + ' Concur' + (ReferralNumber > 1 ? ' #' + ReferralNumber : '') + ':'"></label>
+        <label class="col-md-3" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+        </div-->
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFRECOMMEND" -->
+                <div class='row'>
+                    <label class='col-md-3' data-bind="text: ((Body=='S') ? 'Senate Republican Caucus:' : 'House Majority Caucus:')"></label>
+                    <label class='col-md-1' data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                    <label class='col-md-3' style='font-weight: bold;' data-bind="text: (Other=='H' ? 'Held' : (Other=='C' ? 'Concurrence Recommended' : (Other=='R' ? 'Conference Committee Recommended' : (Other != '' ? 'Referred To Committee' : ''))))"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONF" -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalConfCommitteeDetails" data-bind="click: function() { $parent.loadOverviewCC(Body); }, text: (Body=='S'?'Senate':'House') + ' Conf Committee:'">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>
+                        </button>
+                        <!--                                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalConfCommitteeDetails" data-bind="click: function() { $parent.loadOverviewCC(Body); }, text: (Body=='S'?'Senate':'House') + ' Conf Committee:'">
+                    <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>
+                </button>
+                --->
+                    </div>
+                    <label class="col-md-3" data-bind="text: 'Appointed Date ' + '&nbsp;&nbsp;&nbsp;' + moment(SortedDate).format('MM/DD/YYYY') + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + (Other=='S' ? 'Simple' : (Other=='F' ? 'Free' : ''))"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFMEM" -->
+                <div class="row"><label class="col-md-3">&nbsp;</label><label class="col-md-3" data-bind="text: (Body=='S' ? 'Senate' : 'House') + ' Members: ' + Other"></label></div>
+                <!-- ko if: Comments -->
+                <div class="row col-md-12"><label class="col-md-3">&nbsp;</label><textarea id="comments3" rows="3" class="col-md-4" style="border: none" data-bind="text: Comments"></textarea></div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFMEMCHANGE" -->
+                <div class="row">
+                    <label class="col-md-3" data-bind="text: (Body=='S'?'Senate':'House') + ' Member Change Date:'"></label>
+                    <label class="col-md-3" data-bind="text: moment(SortedDate).format('MM/DD/YYYY    ')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFTYPECHG" -->
+                <div class="row">
+                    <label class="col-md-3">&nbsp;</label>
+                    <label class='col-md-1' data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                    <label class="col-md-3" data-bind="text: Comments"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFCAUCUS" -->
+                <div class='row'>
+                    <label class='col-md-3' data-bind="text: (Body=='S'?'Senate':'House') + ' CC Rpt Caucus Date'"></label>
+                    <label class='col-md-1' data-bind="text:  moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFADOPTED" -->
+                <div class="row">
+                    <label class="col-md-3" data-bind="text: (Body=='S'?'Senate':'House') + ' CC Adopted Date'"></label>
+                    <label class="col-md-1" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "CONFREPORT" -->
+                <div class="row">
+                    <label class="col-md-3">Conf Committee Report Date</label>
+                    <label class="col-md-1" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- ko if: Comments -->
+                <div class="row">
+                    <label class="col-md-3">Conf Comm Recommendation</label>
+                    <label class="col-md-6" data-bind="text: Comments"></label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: DateType == "MINORITYREPORT" -->
+                <div class="row">
+                    <label class="col-md-3" data-bind="text: (Body=='S'?'Senate':'House') + ' Minority Report Date'"></label>
+                    <label class="col-md-1" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "DISCHARGE" -->
+                <div class="row">
+                    <label class="col-md-3" data-bind="text: (Body=='S'?'Senate':'House') + ' CC Discharge Date'"></label>
+                    <label class="col-md-1" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType == "GOVERNOR" -->
+                <div class="row">
+                    <label class="col-md-3">Transmit to Governor:</label>
+                    <label class="col-md-3" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <div class="row">
+                    <label class="col-md-3">Governor Action</label>
+
+                    <label class="col-md-1" data-bind="text: ($parent.billInfo().GovernorActionDate) ? moment($parent.billInfo().GovernorActionDate).format('MM/DD/YYYY') : ''"></label>&nbsp;&nbsp;&nbsp;
+                    <label style="font-weight: bold" data-bind="text: (Body=='V'?'Vetoed':(Body=='S'?'Signed':(Body=='W/S'?'Without Signature':(Body=='W/O S'?'Without Signature':(Body=='LIVS'?'Line Item Veto Signed':'')))))"></label>
+                </div>
+                <!-- ko if: $parent.billInfo().ChapterNumber -->
+                <div class='row'>
+                    <label class='col-md-3'>Chapter:</label>
+                    <label class="col-md-1" data-bind="text: $parent.billInfo().ChapterNumber"></label>&nbsp;&nbsp;&nbsp;
+                    <!-- ko if: $parent.billInfo() && $parent.billInfo().Emergency  > ""-->
+                    <label data-bind="text: ($parent.billInfo().Emergency ? ( $parent.billInfo().Emergency == 'W/O' ? 'W/O Emergency' : 'Emergency') : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.billInfo() && $parent.billInfo().VetoOverride > ""-->
+                    <label data-bind="text: ($parent.billInfo().VetoOverride > ''? $parent.billInfo().VetoOverride : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.billInfo() && $parent.billInfo().RequestforEnactment > ""-->
+                    <label data-bind="text: ($parent.billInfo().RequestforEnactment > ''? 'RFE' : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.billInfo() && $parent.billInfo().RFEIR > ""-->
+                    <label data-bind="text: ($parent.billInfo().RFEIR > '' ? ('RFEIR  -- ' + $parent.billInfo().RFEIRAction + ': ' + ($parent.billInfo().RFEIRSections > '' ? $parent.billInfo().RFEIRSections : '')) : '')"></label>
+                    <!-- /ko -->
+                </div>
+                <div class='row'>
+                    <label class='col-md-3'>Chapter Version:</label>
+                    <label class='col-md-5' data-bind="text: ($parent.billInfo().ChapteredVersion == 'S' ? 'Senate Engrossed' : ($parent.billInfo().ChapteredVersion == 'H' ? 'House Engrossed' : ($parent.billInfo().ChapteredVersion == 'C' ? 'Conference Engrossed' : '')))"></label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: DateType == "SEC OF STATE" -->
+                <div class="row col-md-12">
+                    <label class="col-md-3">Transmit to Sec. of State:</label>
+                    <label class="col-md-3" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+                </div>
+                <!-- /ko -->
+                <!-- ko if: DateType=="VETO" -->
+                <!--div class="row col-md-12">
+            <label class="col-md-3" data-bind="text: (Body=='S'?'Senate':'House') + ' Veto Override'"></label>
+            <label class="col-md-1" data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label>
+        </!div  -->
+                <table class='table table-bordered table-striped table-bsicondensed'>
+                    <thead>
+                        <tr>
+                            <th data-class='expand'></th>
+                            <th data-hide='break320'>Date</th>
+                            <th data-hide='break320'>Ayes</th>
+                            <th data-hide='break320'>Nays</th>
+                            <th data-hide='break320'>NV</th>
+                            <th data-hide='break320'>Exc</th>
+                            <th data-hide='break320'>Vac</th>
+                            <th data-hide='break320'>Emer</th>
+                            <th data-hide='break320,break740'>Amend</th>
+                            <th data-hide='break320,break740,break1000'>RFE</th>
+                            <th data-hide='break320,break740,break1000'>RFEIR</th>
+                            <th data-hide='break320,break740,break1000'>2/3 Vote</th>
+                            <th data-hide='break320,break740,break1000'>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button"
+                                        class="btn btn-sm btn-primary"
+                                        data-toggle="modal"
+                                        data-target="#modalFloorCommitteeDetails"
+                                        data-bind="click: function(){ $parent.loadFloorCommDetails(DateType, Body, ReferralNumber); }, text: (DateType=='CONCUR'?'':'Show ') + (Body=='S'?'Senate ':'House ') + (DateType=='CONCUR'?'CONCUR MOTION':(DateType=='RECON_3rd'?'RECONSIDER THIRD':(DateType=='RECON_FNL'?'RECONSIDER FINAL':DateType))) + (ReferralNumber == 1 ? '' : ' #' + ReferralNumber)">
+                                    <span class='glyphicon glyphicon-zoom-in innerR-sm'></span>" + body;
+                                </button>
+                            </td>
+
+                            <td><label data-bind="text: moment(SortedDate).format('MM/DD/YYYY')"></label></td>
+                            <td><label data-bind="text: col1"></label></td>
+                            <td><label data-bind="text: col2"></label></td>
+                            <td><label data-bind="text: col3"></label></td>
+                            <td><label data-bind="text: col4"></label></td>
+                            <td><label data-bind="text: col5"></label></td>
+                            <td><label data-bind="text: col6"></label></td>
+                            <td><label data-bind="text: col7"></label></td>
+                            <td><label data-bind="text: (col8==0?'':'Yes')"></label></td>
+                            <!--td><label data-bind="text: (Action=='Failed'?col9"></label><br /><label data-bind="    text: Comments"></label></td -->
+                            <td><label data-bind="text: col9"></label><br /><label data-bind="text: (col9!=''?Comments:'')"></label></td>
+                            <td><label data-bind="text: (col10==0?'':'Yes')"></label></td>
+                            <td><label data-bind="text: (Action=='UA'?Action:Action)"></label></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <!-- /ko -->
+                <div class="clearfix"></div>
+                <hr>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: billInfo() -->
+            <!-- ko if: billInfo().FinalDisposition != 'None' && billInfo().FinalDisposition > '' -->
+            <div class="divider margin-none"></div>
+            <div class="row col-md-12">
+                <label class="col-md-3" data-bind="text: 'Final Disposition:'"></label>
+                <label class="col-md-5" data-bind="text: billInfo().FinalDisposition"></label>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+
+        </div>
+    </div>
+    <br/>
+    <div class="clearfix pull-left innerB">
+        <button type="button" id="printOverview" class="btn btn-default btn-info">Print Overview</button>
+        <p/>
+        <button type="button" class="btn btn-primary btn-sm" data-bind="click: function(){printBillHistory();}"><span class="glyphicon glyphicon-download"></span> MS Word Report</button>
+    </div>
+    </div>
+
+    <div class="tab-pane fade in" id="tab1-2" role="tabpanel" aria-labelledby="status-tab">
+    <!--div class="tab-pane" id="tab1-2"-->
+    <div data-bind="visible: isLoading()" class="innerB">
+        <label>Loading ...</label><img src="/content/images/loader.gif" alt="Loading ..."/>
+    </div>
+    <div class="row" data-bind="visible: !isLoading()" style="display: none;">
+    <div class="col-md-12">
+    <div class="tabsbar">
+        <ul class="nav tabsbar" id="bodytab">
+            <li class="nav-item" data-bind="click: function(){setBodyTab('H');}"><a class="" href="#tab2-1" data-toggle="tab">House</a></li>
+            <li class="nav-item" data-bind="click: function(){setBodyTab('S');}"><a href="#tab2-2" data-toggle="tab">Senate</a></li>
+        </ul>
+    </div>
+
+    <div class="tab-content">
+    <div class="tab-pane fade in active" id="tab2-1">
+    <div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>First Read</td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().House1stRead != null && billInfo().House1stRead != '') ? moment(billInfo().House1stRead).format('MM/DD/YYYY') : '')"></label></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Second Read</td>
+                    <td>
+                        <label data-bind="text: ((billInfo() && billInfo().House2ndRead != null && billInfo().House2ndRead != '') ? moment(billInfo().House2ndRead).format('MM/DD/YYYY'): '')"></label>
+                    </td>
+                    <td data-bind="visible: houseStandingCommitteeCount() > 0">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalStandingCommitteeDetails" data-bind="click: function() { displayStandingCommitteesByBody('H'); }">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm" title="Click to see the Standing committees that have been assigned to the bill and any action that occured in committee."></span>Standing Details
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label class="checkbox">
+                            <div class="checker"><span><input type="checkbox" data-bind="checked: billInfo() ? (billInfo().HouseOfficial == null) ? false : billInfo().HouseOfficial : false" class="checkbox" /></span></div>
+                            Official
+                        </label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Majority Caucus</td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().HouseMajCaucusDate != null && billInfo().HouseMajCaucusDate != '') ? moment(billInfo().HouseMajCaucusDate).format('MM/DD/YYYY') : '')"></label></td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().HouseMajCaucusInd != null) ? billInfo().HouseMajCaucusInd : '')"></label></td>
+                </tr>
+                <tr>
+                    <td>Minority Caucus</td>
+                    <td><span><label data-bind="text: ((billInfo() && billInfo().HouseMinCaucusDate != null && billInfo().HouseMinCaucusDate != '') ? moment(billInfo().HouseMinCaucusDate).format('MM/DD/YYYY') : '')"></label></span></td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().HouseMinCaucusInd != null) ? billInfo().HouseMinCaucusInd : '')"></label></td>
+                </tr>
+                <tr>
+                    <td>Consent Calendar Date</td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().HouseConsentCalendarDate != null && billInfo().HouseConsentCalendarDate != '') ? moment(billInfo().HouseConsentCalendarDate).format('MM/DD/YYYY, h:mm a    ') : '')"></label></td>
+                    <td>
+                        <label data-bind="visible:  billInfo() ? billInfo().HouseConsentCalendarObject: false, text: 'Objected'"></label>
+                        
+                    </td>
+                </tr>
+                <tr data-bind="visible: (billInfo() && billInfo().HouseCOWConsentCalendarDate != null && billInfo().HouseConsentCOWCalendarDate != '') ">
+                    <td>COW Consent Calendar Date</td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().HouseCOWConsentCalendarDate != null && billInfo().HouseCOWConsentCalendarDate != '') ? moment(billInfo().HouseCOWConsentCalendarDate).format('MM/DD/YYYY, h:mm a    ') : '')"></label></td>
+                    <td>
+                        <label data-bind="visible:  billInfo() ? billInfo().HouseCOWConsentCalendarObject: false, text: 'Objected'"></label>
+                        
+                    </td>
+                </tr>
+                <tr data-bind="visible: (billInfo() && billInfo().SenateCOWConsentCalendarDate != null && billInfo().SenateConsentCOWCalendarDate != '') ">
+                    <td>COW Consent Calendar Date</td>
+                    <td><label data-bind="text: ((billInfo() && billInfo().SenateCOWConsentCalendarDate != null && billInfo().SenateCOWConsentCalendarDate != '') ? moment(billInfo().HouseCOWConsentCalendarDate).format('MM/DD/YYYY, h:mm a    ') : '')"></label></td>
+                    <td>
+                        <label data-bind="visible:  billInfo() ? billInfo().SenateCOWConsentCalendarObject: false, text: 'Objected'"></label>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>COW Action</td>
+                    
+                    <td><label data-bind="text: ((COWDate() != '') ? moment(COWDate()).format('MM/DD/YYYY    ') : '')"></label></td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: (COWDate() != ''), click: function(){loadFloorCommDetails('COW','H', 0);}">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                        </button>
+                    </td>
+                </tr>
+                <tr data-bind="visible: MOTIONADCOWDate() != null && MOTIONADCOWDate() != ''">
+                    <td>Motion to Reconsider COW</td>
+                    
+                    <td><label data-bind="text: ((MOTIONADCOWDate() != null && MOTIONADCOWDate() != '') ? moment(MOTIONADCOWDate()).format('MM/DD/YYYY    ') : '')"></label></td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: (MOTIONADCOWDate() != null && MOTIONADCOWDate() != ''), click: function(){loadFloorCommDetails('MOTIONADCOW','H', 0);}">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                        </button>
+                    </td>
+                </tr>
+                <tr data-bind="visible: ADCOWDate() != null && ADCOWDate() != ''">
+                    <td>AD COW Action</td>
+                    
+                    <td><label data-bind="text: ((ADCOWDate() != null && ADCOWDate() != '') ? moment(ADCOWDate()).format('MM/DD/YYYY    ') : '')"></label></td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: (ADCOWDate() != null && ADCOWDate() != ''), click: function(){loadFloorCommDetails('ADCOW','H', 0);}">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sit COW</td>
+                    <td><label data-bind="text: ((SitCOWDate() != null && SitCOWDate() != '') ? moment(SitCOWDate()).format('MM/DD/YYYY') : '')"></label></td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: (SitCOWDate() != ''), click: function(){loadFloorCommDetails('SCOW','H',0);}">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                        </button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Third Read</td>
+                    <td><label data-bind="text: ((ThirdDate() != null && ThirdDate() != '') ? moment(ThirdDate()).format('MM/DD/YYYY') : '')"></label></td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: (ThirdDate() != ''), click: function(){loadFloorCommDetails('THIRD','H',0);}">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Motion to Reconsider</td>
+                    <td><label data-bind="text: ((ReconThirdDate() != null && ReconThirdDate() != '') ? moment(ReconThirdDate()).format('MM/DD/YYYY') : '')"></label></td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: ReconThirdDate(), click: function(){loadFloorCommDetails('RECON_3RD','H',0);}">
+                            <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Transmit to Senate</td>
+                    <td><label data-bind="text: transmitToSenate1()"></label></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6">
+
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Majority Concur Refuse</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().HouseMajCaucusDate2 != null && billInfo().HouseMajCaucusDate2 != '') ? moment(billInfo().HouseMajCaucusDate2).format('MM/DD/YYYY') : '')"></label></td>
+                <td><label data-bind="text: ((billInfo() && billInfo().HouseMajCaucusInd2 != null) ? billInfo().HouseMajCaucusInd2 : '')"></label>&nbsp;&nbsp;&nbsp;<label data-bind="text: textConcurRefuse"></label></td>
+            </tr>
+            <tr>
+                <td>Minority Concur Refuse</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().HouseMinCaucusDate2 != null && billInfo().HouseMinCaucusDate2 != '') ? moment(billInfo().HouseMinCaucusDate2).format('MM/DD/YYYY') : '')"></label></td>
+                <td><label data-bind="text: ((billInfo() && billInfo().HouseMinCaucusInd2 != null) ? billInfo().HouseMinCaucusInd2 : '')"></label></td>
+            </tr>
+            <tr>
+                <td>Conference Committee</td>
+                <td><label data-bind="text: ((billInfo() && ConfCommDate() != null && ConfCommDate() != '') ? moment(ConfCommDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalConfCommitteeDetails" data-bind="visible: ConfCommDate(), click: function() { loadConfCommDetails(); }">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Committee Info
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Concurrence</td>
+                <td><label data-bind="text: ((billInfo() && ConcurrenceDate() != null && ConcurrenceDate() != '') ? moment(ConcurrenceDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: showConcurVD(), click: function(){loadFloorCommDetails('CONCUR','H',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Final Passage</td>
+                <td><label data-bind="text: ((FinalDate() != null && FinalDate() != '') ? moment(FinalDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: FinalDate(), click: function(){loadFloorCommDetails('FINAL','H',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Motion to Reconsider</td>
+                <td><label data-bind="text: ((ReconFinalDate() != null && ReconFinalDate() != '') ? moment(ReconFinalDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: ReconFinalDate(), click: function(){loadFloorCommDetails('RECON_FNL','H',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Transmit to Senate</td>
+                <td><label data-bind="text: transmitToSenate2()"></label></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold" data-bind="text: 'Transmit to ' + transmitToBody()"></label></td>
+                <td><label data-bind="text:  ((transmittedToDate() != null && transmittedToDate()!='') ? moment(transmittedToDate()).format('MM/DD/YYYY') : '')"></label> </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Governor Action</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().GovernorActionDate != null && billInfo().GovernorActionDate!='') ? moment(billInfo().GovernorActionDate).format('MM/DD/YYYY') : '')"></label> </td>
+                <td><label data-bind="text: billInfo() ? billInfo().GovernorAction : ''"></label></td>
+            </tr>
+            <tr>
+                <td>Chapter Assignment</td>
+                <td><label data-bind="text: billInfo() ? billInfo().ChapterNumber : ''"></label></td>
+                <td>
+                    <!-- ko if: billInfo() && billInfo().Emergency  > ""-->
+                    <label data-bind="text: (billInfo().Emergency ? ( billInfo().Emergency == 'W/O' ? 'W/O Emergency' : 'Emergency') : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().VetoOverride > ""-->
+                    <label data-bind="text: (billInfo().VetoOverride>''? billInfo().VetoOverride : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().RequestforEnactment > ""-->
+                    <label data-bind="text: (billInfo().RequestforEnactment >''? 'RFE' : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().RFEIR > ""-->
+                    <label data-bind="text: (billInfo().RFEIR > '' ? ('RFEIR  -- ' + billInfo().RFEIRAction + ': ' + (billInfo().RFEIRSections > '' ? billInfo().RFEIRSections : '')) : '')"></label>
+                    <!--label data-bind="text: (billInfo().RFEIR > '' ? 'RFEIR' : '')"></--label   chged 8/5/15-->
+                    <!-- /ko -->
+                </td>
+            </tr>
+            <tr>
+                <td>Misc Motion</td>
+                <td><label data-bind="text: ((MiscMotionDate() != null && MiscMotionDate() != '') ? moment(MiscMotionDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: MiscMotionDate(), click: function(){loadFloorCommDetails('MISC','H',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Veto Override</td>
+                <td><label data-bind="text: ((VetoDate() != null && VetoDate() != '') ? moment(VetoDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: VetoDate(), click: function(){loadFloorCommDetails('VETO','H',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="tab-pane fade in" id="tab2-2">
+    <div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            
+            <tbody>
+            <tr>
+                <td>First Read</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().Senate1stRead != null && billInfo().Senate1stRead != '') ? moment(billInfo().Senate1stRead).format('MM/DD/YYYY') : '')"></label></td>
+                <td data-bind="visible: senateStandingCommitteeCount() > 0">
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalStandingCommitteeDetails" data-bind="click: function () { displayStandingCommitteesByBody('S'); }">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm" title="Click to see the Standing committees that have been assigned to the bill and any action that occured in committee."></span>Standing Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Second Read</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().Senate2ndRead != null && billInfo().Senate2ndRead != '') ? moment(billInfo().Senate2ndRead).format('MM/DD/YYYY') : '')"></label></td>
+                <td></td>
+            </tr>
+            <!--tr>
+            <td></td>
+            <td>
+                <label class="checkbox">
+                    <div class="checker"><span><input type="checkbox" data-bind="checked: billInfo() ? billInfo().SenateOfficial : false" class="checkbox" /></span></div>
+                    Official
+                </label>
+            </td>
+            <td></td>
+            </tr-->
+            <tr>
+                <td>Majority Caucus</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().SenateMajCaucusDate != null && billInfo().SenateMajCaucusDate != '') ? moment(billInfo().SenateMajCaucusDate).format('MM/DD/YYYY') : '')"></label></td>
+                <td><label data-bind="text: billInfo() ? billInfo().SenateMajCaucusInd : ''"></label></td>
+            </tr>
+            <tr>
+                <td>Minority Caucus</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().SenateMinCaucusDate != null && billInfo().SenateMinCaucusDate != '') ? moment(billInfo().SenateMinCaucusDate).format('MM/DD/YYYY') : '')"></label></td>
+                <td><label data-bind="text: billInfo() ? billInfo().SenateMinCaucusInd : ''"></label></td>
+            </tr>
+            <tr>
+                <td>Consent Calendar Date</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().SenateConsentCalendarDate != null && billInfo().SenateConsentspan != '') ? moment(billInfo().SenateConsentCalendarDate).format('MM/DD/YYYY, h:mm a') : '')"></label></td>
+                <td>
+                    <!--label data-bind="visible:  billInfo() ? billInfo().SenateConsentCalendarObject : false, text: 'Objected'"></label-->
+                    <label data-bind="text: (billInfo() && billInfo().SenateConsentCalendarObject == null) ? 'Object: No' : (billInfo() && billInfo().SenateConsentCalendarObject) ? 'Object: Yes' : 'Object: No'"></label>
+
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>COW Action</td>
+                <td><label data-bind="text: ((COWDate() != null && COWDate() != '') ? moment(COWDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: COWDate(), click: function(){loadFloorCommDetails('COW','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Sit COW</td>
+                <td><label data-bind="text: ((SitCOWDate() != null && SitCOWDate() != '') ? moment(SitCOWDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: SitCOWDate(), click: function(){loadFloorCommDetails('SCOW','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Third Read</td>
+                <td><label data-bind="text: ((ThirdDate() != null && ThirdDate() != '') ? moment(ThirdDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: ThirdDate(), click: function(){loadFloorCommDetails('THIRD','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Motion to Reconsider</td>
+                <td><label data-bind="text: ((ReconThirdDate() != null && ReconThirdDate() != '') ? moment(ReconThirdDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: ReconThirdDate(), click: function(){loadFloorCommDetails('RECON_3RD','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Transmit to House</td>
+                <td><label data-bind="text: transmitToHouse1()"></label></td>
+                
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <table class="table table-striped">
+            
+            <tbody>
+            <tr>
+                <td>Majority Concur Refuse</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().SenateMajCaucusDate2 != null && billInfo().SenateMajCaucusDate2 != '') ? moment(billInfo().SenateMajCaucusDate2).format('MM/DD/YYYY') : '')"></label></td>
+                <td><label data-bind="text: billInfo() ? billInfo().SenateMajCaucusInd2 : ''"></label>&nbsp;&nbsp;&nbsp;<label data-bind="text: textConcurRefuse"></label></td>
+            </tr>
+            <tr>
+                <td>Minority Concur Refuse</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().SenateMinCaucusDate2 != null && billInfo().SenateMinCaucusDate2 != '') ? moment(billInfo().SenateMinCaucusDate2).format('MM/DD/YYYY') : '')"></label></td>
+                <td><label data-bind="text: billInfo() ? billInfo().SenateMinCaucusInd2 : ''"></label></td>
+            </tr>
+            <tr>
+                <td>Conference Committee</td>
+                <td><label data-bind="text: ((ConfCommDate() != null && ConfCommDate() != '') ? moment(ConfCommDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalConfCommitteeDetails" data-bind="visible: ConfCommDate(), click: function() { loadConfCommDetails(); }">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Committee Info
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Concurrence</td>
+                <td><label data-bind="text: ((ConcurrenceDate() != null && ConcurrenceDate() != '') ? moment(ConcurrenceDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: showConcurVD(), click: function(){loadFloorCommDetails('CONCUR','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Final Passage</td>
+                <td><label data-bind="text: ((FinalDate() != null && FinalDate() != '') ? moment(FinalDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: FinalDate(), click: function(){loadFloorCommDetails('FINAL','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Motion to Reconsider</td>
+                <td><label data-bind="text: ((ReconFinalDate() != null && ReconFinalDate() != '') ? moment(ReconFinalDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: ReconFinalDate(), click: function(){loadFloorCommDetails('RECON_FNL','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Transmit to House</td>
+                <td></td>
+                <td><label data-bind="text: transmitToHouse2()"></label></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold" data-bind="text: 'Transmit to ' + transmitToBody()"></label></td>
+                <td><label data-bind="text:  ((transmittedToDate() != null && transmittedToDate()!='') ? moment(transmittedToDate()).format('MM/DD/YYYY') : '')"></label> </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Governor Action</td>
+                <td><label data-bind="text: ((billInfo() && billInfo().GovernorActionDate != null && billInfo().GovernorActionDate!='') ? moment(billInfo().GovernorActionDate).format('MM/DD/YYYY') : '')"></label> </td>
+                <td><label data-bind="text: billInfo() ? billInfo().GovernorAction : ''"></label></td>
+            </tr>
+            <tr>
+                <td>Chapter Assignment</td>
+                <td><label data-bind="text: billInfo() ? billInfo().ChapterNumber : ''"></label></td>
+                <td>
+                    <!-- ko if: billInfo() && billInfo().Emergency > ""-->
+                    <label data-bind="text: (billInfo().Emergency>''? ( billInfo().Emergency == 'W/O' ? 'W/O Emergency' : 'Emergency') : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().VetoOverride > ""-->
+                    <label data-bind="text: (billInfo().VetoOverride>''? billInfo().VetoOverride : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().RequestforEnactment > ""-->
+                    <label data-bind="text: (billInfo().RequestforEnactment>''? 'RFE' : '')"></label>
+                    <!-- /ko -->
+                    <!-- ko if: billInfo() && billInfo().RFEIR > ""-->
+                    <label data-bind="text: (billInfo().RFEIR > '' ? ('RFEIR  -- ' + billInfo().RFEIRAction + ': ' + (billInfo().RFEIRSections > '' ? billInfo().RFEIRSections : '')) : '')"></label>
+                    <!--label data-bind="text: (billInfo().RFEIR > '' ? 'RFEIR' : '')"></--label   chged 8/5/15-->
+                    <!-- /ko -->
+                </td>
+            </tr>
+            <tr>
+                <td>Misc Motion</td>
+                <td><label data-bind="text: ((MiscMotionDate() != null && MiscMotionDate() != '') ? moment(MiscMotionDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: MiscMotionDate(), click: function(){loadFloorCommDetails('MISC','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Veto Override</td>
+                <td><label data-bind="text: ((VetoDate() != null && VetoDate() != '') ? moment(VetoDate()).format('MM/DD/YYYY') : '')"></label></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: VetoDate(), click: function(){loadFloorCommDetails('VETO','S',0);}">
+                        <span class="glyphicon glyphicon-zoom-in innerR-sm"></span>Vote Details
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="tab-pane fade in" id="tab1-3" role="tabpanel" aria-labelledby="video-tab">
+        <!--div class="tab-pane" id="tab1-3"-->
+        <div data-bind="visible: isLoadingVideo()" class="innerB">
+            <label>Loading ...</label><img src="/content/images/loader.gif" alt="Loading ..."/>
+        </div>
+        <div data-bind="visible: !isLoadingVideo()" style="display: none;">
+            <div data-bind="visible: videoList().length == 0">
+                <h6>No Videos links available for this bill.</h6>
+            </div>
+            <div data-bind="foreach: videoList" class="clearfix">
+                <p><span><a data-bind="text: CommitteeName, attr: { href: URL }" target="_blank"></a></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade in" id="tab1-4" role="tabpanel" aria-labelledby="sponsor-tab">
+        <!--div class="tab-pane" id="tab1-4"-->
+        <div data-bind="visible: isLoadingSpon()" class="innerB">
+            <label>Loading ...</label><img src="/content/images/loader.gif" alt="Loading ..."/>
+        </div>
+        <div class="row" data-bind="visible: !isLoadingSpon()" style="display: none;">
+            <div class="col-md-3">
+                <h4>Sponsor</h4>
+                <div class="well">
+                    <div data-bind="foreach: sponsorByType">
+                        <!-- ko if: letter == 'P' -->
+                        <h4 style="margin: 20px 0 10px">Introduced Version</h4><br/>
+                        <!-- /ko -->
+                        <!-- ko if: letter == 'H' -->
+                        <h4 style="margin: 20px 0 10px">House Engrossed</h4><br/>
+                        <!-- /ko -->
+                        <!-- ko if: letter == 'S'-->
+                        <h4 style="margin: 20px 0 10px">Senate Engrossed</h4><br/>
+                        <!-- /ko -->
+                        <table class="table">
+                            <tbody data-bind="foreach: contacts">
+                            <tr>
+                                <th data-bind="text: Legislator.MemberTopperName, attr: { title: Legislator.FullName }"></th>
+                                <td data-bind="text: SponsorType"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Keyword</h4>
+                <div class="well">
+                    <table class="table">
+                        <tbody data-bind="foreach: keywords">
+                            <tr>
+                                <td data-bind="text: Keyword"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- ko if: keywords().length > 0 -->
+                    <p style="background-color: white;padding:10px">(H) & (S) represents a keyword added by the opposite body.</p>
+                    <!-- /ko -->
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <h4>Sections Affected</h4>
+                <div class="well">
+                    <table class="table" data-bind="foreach: sectionsAffected">
+                        <thead data-bind="text: EngrossedType"></thead>
+                        <tbody data-bind="foreach: sections">
+                        <tr>
+                            <td data-bind="text: SectionNumber"></td>
+                            <td data-bind="text: Action"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade in" id="tab1-5" role="tabpanel" aria-labelledby="rts-tab">
+        <!--div class="tab-pane" id="tab1-5"-->
+        <div data-bind="visible: isLoading()" class="innerB">
+            <label>Loading ...</label><img src="/content/images/loader.gif" alt="Loading ..."/>
+        </div>
+	    <div data-bind="visible: !isLoading()" style="display: none;">
+		    <div id="printRTSArea">
+			    <div class="col-md-12">
+					    <div class="tab-content">
+						    <div class="tab-pane fade in active" id="tab5-1">
+							    <div class="row">
+								    <div class="col-md-12">
+
+									    <div class="alert alert-primary ma">
+										    <h4 style="padding-bottom: 10px;" data-bind="text: (billInfo() && billInfo().Description)  ? billInfo().Description : ''"></h4>
+										    <h4>This information is compiled both from the House and the Senate for the bill.</h4>
+										    <!--p>Only positions from the beginning of the Fifty-First Second Regular session are displayed.</p-->
+										    <p>For committee specific RTS info please go to Agenda Inquiry.</p>
+									    </div>
+									    <div class="innerB">
+										    <h4 data-bind="text: 'FOR&nbsp;&nbsp;(' + bpFor() + ')'"><span class="positionIcons for nohover active pull-left"></span></h4>
+										    <div class="well">
+											    <div data-bind="foreach: billPositions">
+												    <span data-bind="text: FullName + ', ' + Representing + '(' + moment(OpinionDate).format('MM/DD/YYYY') + ');&nbsp;&nbsp;&nbsp;', visible: (OpinionId==1)">,</span>
+											    </div>
+										    </div>
+										    <h4 data-bind="text: 'AGAINST&nbsp;&nbsp;(' + bpAgainst() + ')'"><span class="positionIcons against nohover active pull-left"></span>AGAINST</h4>
+										    <div class="well">
+											    <div data-bind="foreach: billPositions">
+												    <span data-bind="text: FullName + ', ' + Representing + '(' + moment(OpinionDate).format('MM/DD/YYYY') + ');', visible: (OpinionId==2)">,</span>
+											    </div>
+										    </div>
+										    <h4 data-bind="text: 'NEUTRAL&nbsp;&nbsp;(' + bpNeutral() + ')'"><span class="positionIcons neutral nohover active pull-left"></span>NEUTRAL</h4>
+										    <div class="well">
+											    <div data-bind="foreach: billPositions">
+												    <span data-bind="text: FullName + ', ' + Representing + '(' + moment(OpinionDate).format('MM/DD/YYYY') + ');', visible: (OpinionId==3)">,</span>
+											    </div>
+										    </div>
+									    </div>
+
+								    </div>
+							    </div>
+						    </div>
+					    </div>
+
+
+				    <div class="row" style="margin-top:20px;">
+					    <div class="col-md-3">
+						    <div class="innerB">
+							    <h5>Bill Positions Reports</h5>
+							    <button type="button" class="btn btn-default btn-info" style="width: 200px;" data-bind="click: function(){printRTSCurrentBillPositions();}"><span class="glyphicons print"><i></i> PRINT</span></button>
+
+							    <button type="button" class="btn btn-default btn-info" style="width: 200px; margin-top: 20px;" data-bind="click: function(){downloadRTSCurrentBillPositionsReport();}">Create Word Report</button>
+						    </div>
+					    </div>
+					    <div class="col-md-3">
+						    <div class="innerB">
+							    <h5>RTS Reports</h5>
+							    <input type="radio" id="withC" name="radioc" value="0" checked /><label style="padding-left: 15px;" for="withC">Only with Comments</label><br />
+							    <input type="radio" id="withoutC" name="radioc" value="1" style="padding-top: 20px;" /><label style="padding-left: 15px;" for="withoutC">All records</label><br /><br />
+
+							    <input type="radio" id="sort1" name="radios" value="1" checked /><label style="padding-left: 15px;" for="withC" checked>Sort by Committee</label><br />
+							    <input type="radio" id="sort2" name="radios" value="2" /><label style="padding-left: 15px;" for="withoutC">Sort by LastName</label><br />
+							    <button type="button" class="btn btn-default btn-info" style="margin-top: 10px;" data-bind="click: function(){downloadRTSCommentReport();}"><span class="glyphicons print"><i></i> PRINT</span></button>
+						    </div>
+					    </div>
+					    <div class="col-md-3">
+						    <div class="innerB">
+							    <h5>Download Information</h5>
+							    <button type="button" style="width: 215px; " class="btn btn-default btn-info" data-bind="click: function(){createRTSCSVfromData(1);}">Bill Position Data</button>
+							    <button type="button" style="width: 215px; margin-top: 20px;" class="btn btn-default btn-info" data-bind="click: function(){createRTSCSVfromData(2);}">Request to Speak Data</button>
+						    </div>
+					    </div>
+				    </div>
+				    <div class="clearfix innerB"></div>
+			    </div>
+		    </div> 
+	    </div>
+    </div>
+
+    <div class="tab-pane fade in" id="tab1-6" role="tabpanel" aria-labelledby="document-tab">
+        <!--div class="tab-pane" id="tab1-6"-->
+        <div data-bind="visible: isLoadingDocs()" class="innerB">
+            <label>Loading ...</label><img src="/content/images/loader.gif" alt="Loading ..."/>
+        </div>
+        <div data-bind="visible: !isLoadingDocs()" style="display: none;">
+            <div data-bind="foreach: docTypes()">
+	            <h4 style="margin-top: 20px" data-bind="text:DocumentGroupName"><span data-bind="visible:(if: DocumentGroupName=='Adopted Amendments')"><a style="font-size=10px;"  href="https:\\azleg.gov\alispdfs\BillandAmendmentInstructionKey.pdf">Legend'</a></span></h4>
+                <div class="innerL">
+                    <table class="table table-striped table-bordered">
+                        <colgroup>
+                            <col style="width: 70%">
+                            <col style="width: 10%">
+                            <col style="width: 10%">
+                            <col style="width: 10%">
+                        </colgroup>
+                        <tbody data-bind="foreach: Documents">
+                        <tr>
+                            <td class="col-md-8" data-bind="text: DocumentName"></td>
+                            <td><a href="#" data-bind="visible: PdfPath, html: 'PDF', attr: {href: PdfPath}" target="_blank"></a></td>
+                            <td><a href="#" data-bind="visible: HtmlPath, html: 'HTML', attr: {href: HtmlPath}" target="_blank"></a></td>
+                                <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div data-bind="visible: calendars().length > 0">
+                <h4 style="margin-top: 20px">Calendars</h4>
+                <div class="innerL">
+                    <table class="table table-striped table-bordered">
+                        <colgroup>
+                            <col style="width: 70%">
+                            <col style="width: 10%">
+                            <col style="width: 10%">
+                            <col style="width: 10%">
+                        </colgroup>
+                        <tbody data-bind="foreach: calendars ">
+                        <tr>
+                            <td class="col-md-8" data-bind="text: CalendarDisplayName"></td>
+                            <td><a href="#" data-bind="visible: PDFPath, html: 'PDF', attr: {href: 'https://www.azleg.gov' + '/getCurrentPDF?doctype=C&docid=' + CalendarId}" target="_blank"></a></td>
+                            <td><a href="#" data-bind="visible: HTMLPath, html: 'HTML', attr: {href: 'https://www.azleg.gov' + HTMLPath}" target="_blank"></a></td>
+                            <td><a href="#" data-bind="visible: WORDPath, html: 'WORD', attr: {href: 'https://www.azleg.gov' + '/calendar/' + $parent.sessionSubPath() + WORDPath}" target="_blank"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div data-bind="visible: agendas().length > 0">
+                <h4 style="margin-top: 20px">Agendas</h4>
+                <div class="innerL">
+                    <table class="table table-striped table-bordered">
+                        <colgroup>
+                            <col style="width: 70%">
+                            <col style="width: 10%">
+                            <col style="width: 10%">
+                            <col style="width: 10%">
+                        </colgroup>
+                        <tbody data-bind="foreach: agendas">
+                        <tr>
+                            <td class="col-md-8" data-bind="text: AgendaDisplayName"></td>
+                            <td><a href="#" data-bind="visible: PDFPath, html: 'PDF', attr: {href: 'https://www.azleg.gov' + '/getCurrentPDF?doctype=A&docid=' + AgendaId}" target="_blank"></a></td>
+                            <td><a href="#" data-bind="visible: HTMLPath, html: 'HTML', attr: {href: 'https://www.azleg.gov' + '/agendas/' + HTMLPath}" target="_blank"></a></td>
+                            <td><a href="#" data-bind="visible: WORDPath, html: 'WORD', attr: {href: 'https://www.azleg.gov' + '/agendas/' + $parent.sessionSubPath() + WORDPath}" target="_blank"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div data-bind="visible: calendars().length == 0 && agendas().length == 0 && docTypes().length == 0 ">
+                <h4>No Documents available.</h4>
+                <span data-bind="visible: selectedSessionId.HasValue && selectedSesssionId <= 38 ">Documents are not available online prior to the 43rd First Regular Session.</span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+    </div>
+
+    <!-- Modal for Comments -->
+    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog"> <!-- style="width: 600px;"-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Comments</h3>
+                </div>
+
+                <div class="modal-body" data-bind="if: billInfo(), visible: showBillInfo()">
+                    <h5>Comments for <span data-bind="text: billInfo().Number"></span></h5>
+                    <h6 style="color: hotpink" data-bind="visible: sbcIsBeingEditted, text: 'Currently being updated by ' + sbcEdittingUserName()"></h6>
+                    <textarea id="sbcComment" data-bind="value: commentValue" rows="7" style="width: 100%;" placeholder="Enter your comment here..." autofocus></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-primary pull-right" data-dismiss="modal" data-bind="click: hideCommentsNoSave">Close</button>
+                    <button type="button" class="btn btn-info btn-default" data-bind="click: saveComments">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalStandingCommitteeDetails" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog"> <!-- style="width: 760px;"-->
+            <div class="modal-content">
+                <div id="printStandingCommitteeDetails">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel" data-bind="text: detailStandingHeader"></h3>
+                    </div>
+                    <div class="modal-body" id="modelBody">
+                        <table class="footable table table-striped table-bordered table-condensed" data-bind="foreach: filteredBillStandingCommittees()">
+                            <thead>
+                            <tr>
+                                <th class="col-md-3">Committee</th>
+                                <th class="col-md-1">Ref #</th>
+                                <th class="col-md-1">Assign</th>
+                                <th class="col-md-2">Report</th>
+                                <th class="col-md-2">Action</th>
+                                <th class="col-md-1" data-bind="attr: { title: (Committee.LegislativeBody == 'H' ? 'Ayes/Nays/Not Voting/Absent/Present' : 'Ayes/Nays/Not Voting/Excused') }">Vote</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="col-md-3" data-bind="text: Committee.CommitteeShortName, attr: { title: Committee.CommitteeName }"></td>
+                                <td class="col-md-1" data-bind="text: ReferralNumber"></td>
+                                <td class="col-md-1" data-bind="text: ((AssignedDate != null && AssignedDate != '') ? moment(AssignedDate).format('MM/DD/YYYY') : '')"></td>
+                                <td class="col-md-2" data-bind="text: ((ReportDate != null && ReportDate != '') ? moment(ReportDate).format('MM/DD/YYYY') : '')"></td>
+                                <td class="col-md-2" data-bind="text: Action, attr: { title: ActionDescription }"></td>
+                                <td class="col-md-2" data-bind="text: (Committee.LegislativeBody == 'S' ? Ayes + '-' + Nays + '-' + NotVoting + '-' + Excused : Ayes + '-' + Nays + '-' + NotVoting + '-' + Absent + '-' + Present), attr: { title: (Committee.LegislativeBody == 'H' ? 'Ayes/Nays/Not Voting/Absent/Present' : 'Ayes/Nays/Not Voting/Excused')}"></td>
+                            </tr>
+                            <tr class="dontaddexpand">
+                                <td colspan="6" class="well well-special">
+                                    <div class="col-md-3" style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: Votes.slice(0, (Votes.length / 4) + ((Votes.length % 4)>0?1:0) )">
+                                            <tbody>
+                                            <tr>
+                                                <th data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td style="text-align: center;" data-bind="text: Vote"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3" style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: Votes.slice((Votes.length / 4) + ((Votes.length % 4)>0?1:0) , (2 * (Votes.length / 4)) + ((Votes.length % 4)!=0?1:0) )">
+                                            <tbody>
+                                            <tr>
+                                                <th data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td data-bind="text: Vote" style="text-align: center;"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3" style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: Votes.slice( (2 * (Votes.length / 4)) + ((Votes.length % 4)!=0?1:0), (3 * (Votes.length / 4)) + ((Votes.length % 4)>0?1:0) )">
+                                            <tbody>
+                                            <tr>
+                                                <th data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td data-bind="text: Vote" style="text-align: center"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3" style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: Votes.slice( (3 * (Votes.length / 4)) + ((Votes.length % 4)>0?1:0) , Votes.length)">
+                                            <tbody>
+                                            <tr>
+                                                <th data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td style="text-align: center" data-bind="text: Vote"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="dontaddexpand">
+                                <td colspan="99">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" id="printModal" class="btn btn-default btn-info">Print Report</button>
+                    <button type="button" id="printStandingReport" class="btn btn-default btn-info"
+                            data-dismiss="modal" data-bind="click: function(){downloadStandingCommitteeReport();}">Create Word Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalFloorCommitteeDetails" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog"><!-- style="width: 800px;"-->
+            <div class="modal-content">
+                <div id="printFloorCommitteeDetails">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="floorModalHeader" data-bind="text: detailFloorHeader"></h3>
+                    </div>
+                    <div id="floorModalContent1" style="font-size: 11px" class="modal-body">
+                        <table class="footable table table-striped table-bordered table-condensed" data-bind="foreach: floorCommDetails">
+                            <thead>
+                            <tr>
+                                <th data-class="expand">Action Date</th>
+                                <th>Action</th>
+                                <th title="Ayes/Nays/Not Voting/Absent/Present">Vote</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td data-bind="text: ((ReportDate != null && ReportDate != '') ? moment(ReportDate).format('MM/DD/YYYY') : '')"></td>
+                                <td data-bind="text: $parent.displayAction"></td>
+                                <td data-bind="text: (UnanimouslyAdopted ? 'Unanimously Adopted' : Ayes + '-' + Nays + '-' + NotVoting + '-' +  Excused + '-' + Vacant)"></td>
+                                <td><span data-bind="text: (UnanimouslyAdopted ? '' : $parent.voteAddOns)"></span>
+                                    <!-- ko if:  $parent.voteAddOns2 > '' -->
+                                    <br/><span data-bind="text: $parent.voteAddOns2"></span>
+                                    <!-- /ko -->
+                                    <!-- ko if:  $parent.voteAddOns3 > '' -->
+                                    <br/><span data-bind="text: $parent.voteAddOns3"></span>
+                                    <!-- /ko -->
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="footable table table-striped table-bordered table-condensed">
+                            <tbody>
+                            <tr class="dontaddexpand">
+                                <td colspan="4" class="well well-special">
+                                    <div class="col-md-3"style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: selectedVotesToDisplay().slice(0, (selectedVotesToDisplay().length / 4) + ((selectedVotesToDisplay().length % 4)>0?1:0) )">
+                                            <tbody>
+                                            <tr>
+                                                <th class="" data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td style="padding: 0px, 0px, 8px, 8px; text-align: center;" data-bind="text: Vote"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3"style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: selectedVotesToDisplay().slice((selectedVotesToDisplay().length / 4) + ((selectedVotesToDisplay().length % 4)>0?1:0), (2 * (selectedVotesToDisplay().length / 4)) + ((selectedVotesToDisplay().length % 4)!=0?1:0) )">
+                                            <tbody>
+                                            <tr>
+                                                <th class="" data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td style="padding: 0px, 0px, 8px, 8px; text-align: center" data-bind="text: Vote"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3"style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: selectedVotesToDisplay().slice( (2 * (selectedVotesToDisplay().length / 4)) + ((selectedVotesToDisplay().length % 4)!=0?1:0), (3 * (selectedVotesToDisplay().length / 4)) + ((selectedVotesToDisplay().length % 4)>0?1:0) )">
+                                            <tbody>
+                                            <tr>
+                                                <th class="" data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td style="padding: 0px, 0px, 8px, 8px; text-align: center" data-bind="text: Vote"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3"style="float: left; padding: 0">
+                                        <table class="table" data-bind="foreach: selectedVotesToDisplay().slice( (3 * (selectedVotesToDisplay().length / 4)) + ((selectedVotesToDisplay().length % 4)>0?1:0), selectedVotesToDisplay().length)">
+                                            <tbody>
+                                            <tr>
+                                                <th class="" data-bind="text: Legislator.MemberShortName, attr: { Title: Legislator.FullName }"></th>
+                                                <td style="padding: 0px, 0px, 8px, 8px; text-align: center" data-bind="text: Vote"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="well row" data-bind="if: voteComments()">
+                            <label data-bind="text: commentHeader()"></label>
+                            <div class="well well-lightest">
+                                <textarea id="voteComments" class="texteara80" cols="80%" rows="5" data-bind="text: voteComments(), attr: {rows: rowCt()} " disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <select id="qualList" class="col-md-3 " name="qualList"
+                            data-bind="visible: showQualifyVotes, options: qualifyOptions, value: selectedVoteOption, optionsValue: 'OptionVal', optionsText: 'Option', optionsCaption: 'Qualify Votes...'"></select>
+
+                    <button data-bind="visible: showPriorRef, click: function(){loadFloorCommDetails('',bodyTab(),(curRef()-1));}" class="btn btn-sm moveLeft" title="Prior Referral"><span class="glyphicon glyphicon-arrow-left"></span></button>
+                    <!-- ko if: showRef -->
+                    <label data-bind="text: referralText"></label>
+                    <!-- /ko -->
+                    <button data-bind="visible: showNextRef, click: function(){loadFloorCommDetails('',bodyTab(),(curRef()+1));}" class="btn btn-sm moveRight" title="Next Referral"><span class="glyphicon glyphicon-arrow-right"></span></button>
+
+                    <button type="button" class="btn btn-primary btn-default" data-toggle="modal" data-target="#modalFloorCommitteeDetails" data-bind="visible: showMotionButton, text: buttonLabel(), click: function(){loadFloorCommDetails(curOtherCommittee(),bodyTab(),0);}"></button>
+                    <button type="button" class="btn btn-primary btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="printFloorModal" class="btn btn-info btn-default">Print</button>
+                    <button type="button" id="printFloorReport" class="btn btn-default btn-info"
+                            data-dismiss="modal" data-bind="click: function(){downloadFloorCommitteeReport();}">Create Word Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalConfCommitteeDetails" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog"><!-- style="width: 800px;"-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="confModalHeader" data-bind="text: detailFloorHeader"></h3>
+                </div>
+                <div id="ConfModalContent1" style="font-size: 11px" class="modal-body">
+                    <table class="footable table table-striped table-bordered table-condensed" data-bind="foreach: ConfCommDetails">
+                        <thead>
+                        <tr>
+                            <th data-class="expand">Assigned Date</th>
+                            <th>Committee Type</th>
+                            <th>CC Caucus Date</th>
+                            <th>Report Date</th>
+                            <th>Adopted Date</th>
+                            <th>Discharge Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-bind="text: ((AssignedDate != null && AssignedDate != '') ? moment(AssignedDate).format('MM/DD/YYYY') : '')"></td>
+                            <td data-bind="text: ConferenceCommitteeType=='F' ? 'FREE' :  ConferenceCommitteeType == 'S' ? 'SIMPLE' : ''"></td>
+                            <td data-bind="text: ($parent.bodyTab()=='S') ? ((SenateCaucus != null) ? moment(SenateCaucus).format('MM/DD/YYYY') : '')
+																		           : ((HouseCaucus != null) ? moment(HouseCaucus).format('MM/DD/YYYY') : '')"></td>
+                            <td data-bind="text: ((ReportDate != null && ReportDate != '') ? moment(ReportDate).format('MM/DD/YYYY') : '')"></td>
+                            <td data-bind="text: ((AdoptedDate != null && AdoptedDate!= '') ? moment(AdoptedDate).format('MM/DD/YYYY') : '')"></td>
+                            <td data-bind="text: ((DischargeDate != null && DischargeDate != '') ? moment(DischargeDate).format('MM/DD/YYYY') : '')"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--ko if: ConfCommDetails() && ConfCommDetails().length>0  && (ConfCommDetails()[0].ConferenceCommitteeNewTypeDate || ConfCommDetails()[0].MemberChangeDate)-->
+                    <h5 style="padding-top: 20px">Committee Change Information</h5>
+                    <table class="table table-striped table-bordered table-condensed" data-bind="foreach: ConfCommDetails">
+                        <thead>
+                        <tr>
+                            <th>New Committee Type</th>
+                            <th>New Type Date</th>
+                            <th>Member Change Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-bind="text: (ConferenceCommitteeNewType=='F') ? 'FREE' : (ConferenceCommitteeNewType=='S') ? 'SIMPLE' : ''"></td>
+                            <td data-bind="text: ((ConferenceCommitteeNewTypeDate != null && ConferenceCommitteeNewTypeDate != '') ? moment(ConferenceCommitteeNewTypeDate).format('MM/DD/YYYY, h:mm a') : '')"></td>
+                            <td data-bind="text: ((MemberChangeDate != null && MemberChangeDate != '') ? moment(MemberChangeDate).format('MM/DD/YYYY, h:mm a') : '')"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--/ko-->
+
+                    <!--ko if: ConfCommDetails() && ConfCommDetails().length>0 -->
+                    <div>
+                        <label data-bind="visible: ConfCommDetails()[0].MinorityReport">Minority Report</label>
+                    </div>
+                    <!--/ko-->
+                    <!--ko if: ConfCommDetails() && ConfCommDetails().length>0 -->
+                    <div>
+                        <label style="font-weight: 300" data-bind="visible: ConfCommDetails()[0].CorrectedReport">Corrected Report</label>
+                    </div>
+                    <!--/ko-->
+                    <!--ko if: ConfCommDetails() && ConfCommDetails().length>0 -->
+                    <div>
+                        <label style="font-weight: 300" data-bind="visible: ConfCommDetails()[0].RevisedReport">Revised Report</label>
+                    </div>
+                    <!--/ko-->
+                    <hr/>
+                    <!--ko if: ConfCommDetails() && ConfCommDetails().length>0 -->
+                    <h5>Recommendation</h5>
+                    <label data-bind="text: ConfCommDetails()[0].Recommendation"></label>
+                    <!--/ko-->
+
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 data-bind="text: bodyConfMemmbersLabel"></h5>
+                            <ul data-bind="foreach: confMembers">
+                                <li data-bind="text: Legislator.FullName"></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6" data-bind="if: replacedMembers">
+                            <h5>Replaced Members</h5>
+                            <ul data-bind="foreach: replacedMembers">
+                                <li data-bind="text: Legislator.FullName"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <!--ko if: ConfCommDetails() && ConfCommDetails().length>0 -->
+                        <div class="col-md-12">
+                            <h5>Notes:</h5>
+                            <textarea id="ConfCommNotes" rows="3" cols="80%" data-bind="text: ConfCommNotes, attr: {rows: rowCt()} " disabled></textarea>
+                        </div>
+                        <!--/ko-->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" id="printConfModal" class="btn btn-default btn-primary">Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    </div>
+</div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

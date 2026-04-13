@@ -101,6 +101,10 @@ fi
 echo "Validating scanner output..."
 "$PROJECT_ROOT/pipeline/scripts/validate-handoff.sh" scanner "$OUTPUT_FILE"
 
+# Step 4.5: Annotate topic keys (deterministic post-process)
+echo "Annotating topic keys..."
+python3 "$PROJECT_ROOT/tools/topic_keys.py" annotate --input "$OUTPUT_FILE"
+
 # Step 5: Report results
 FINDING_COUNT=$(jq '.data.findings | length' "$OUTPUT_FILE")
 FAILURE_COUNT=$(jq '.data.source_failures // [] | length' "$OUTPUT_FILE")

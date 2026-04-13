@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "S 680",
+  "state": "New Jersey",
+  "state_abbrev": "NJ",
+  "session": "2026",
+  "title": "Data Center Clean Energy Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "data-centers"
+  ],
+  "sponsors": [
+    "Sen. Smith (D)",
+    "Sen. McKeon (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/new-jersey/S-680",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Smith (D) and Sen. McKeon (D)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/new-jersey/S-680/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

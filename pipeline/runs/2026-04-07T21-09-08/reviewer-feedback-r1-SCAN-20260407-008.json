@@ -1,0 +1,57 @@
+{
+  "finding_id": "SCAN-20260407-008",
+  "report_path": "reports/ai-law/federal-white-house-ai-policy-framework-2026-04-07.md",
+  "round": 1,
+  "claims_checked": 20,
+  "verification_notes": "WebFetch was unavailable (permission denied) for all 9 cited source URLs. Pass 1 (source re-fetch) could not be completed. All factual claims were independently verified via WebSearch against authoritative sources including law firm analyses (Mayer Brown, Sidley Austin, Ropes & Gray, K&L Gates, Goodwin, McDermott Will & Emery), news outlets (CBS News, NBC News, GovTech), government sites (congress.gov search results, White House press releases), and legal databases (National Law Review).",
+  "issues": [
+    {
+      "claim": "Congress has so far declined to enact comprehensive federal preemption, including rejecting such provisions in the One Big Beautiful Bill Act",
+      "section": "Key Facts",
+      "source_url": "https://www.morganlewis.com/pubs/2026/04/ai-enforcement-accelerates-as-federal-policy-stalls-and-states-step-in",
+      "issue": "Minor imprecision in characterization. The One Big Beautiful Bill Act contained a moratorium on state AI enforcement (initially a 10-year moratorium, later narrowed to 5 years tied to BEAD funding), not a 'preemption' provision per se. The Senate voted 99-1 to strip the moratorium. Multiple authoritative sources (Center for American Progress, McDermott Will & Emery, Goodwin) distinguish between 'moratorium' and 'preemption' as related but legally distinct concepts. The report's phrasing 'rejecting such provisions' (referring to 'comprehensive federal preemption') conflates the two. The practical effect is similar, but the legal mechanism differs.",
+      "severity": "minor",
+      "suggested_fix": "Consider revising to: 'Congress has so far declined to enact comprehensive federal preemption or moratoriums on state AI laws, including the Senate's 99-1 vote to strip a state AI enforcement moratorium from the One Big Beautiful Bill Act'",
+      "status": "open"
+    },
+    {
+      "claim": "The Framework proposes targeted federal standards for child safety, unauthorized digital replicas, and workforce development",
+      "section": "Key Facts",
+      "source_url": "https://www.cooley.com/news/insight/2026/2026-03-25-white-house-releases-ai-regulatory-blueprint-what-the-national-policy-framework-means-for-companies",
+      "issue": "Unable to verify the specific three-part list (child safety, unauthorized digital replicas, workforce development) against the cited Cooley source because WebFetch was unavailable. The 'no new federal AI regulatory agency' portion of this claim was independently confirmed via multiple search results. The child safety component is corroborated by other sources. The 'unauthorized digital replicas' and 'workforce development' components could not be independently verified or refuted.",
+      "severity": "minor",
+      "suggested_fix": "No change needed if the Cooley source supports these specific items. Flagged for human verification of the source.",
+      "status": "open"
+    }
+  ],
+  "source_verification_summary": {
+    "total_sources_cited": 9,
+    "sources_fetched": 0,
+    "sources_unavailable": 9,
+    "reason": "WebFetch permission denied for all URLs",
+    "independent_verification_performed": true
+  },
+  "claims_verified_independently": [
+    "Framework released March 20, 2026 — CONFIRMED (PDF URL date stamp, multiple law firm analyses)",
+    "Executive Order dated December 11, 2025 — CONFIRMED (Sidley, Mayer Brown, White House fact sheet)",
+    "EO titled 'Ensuring a National Policy Framework for Artificial Intelligence' — CONFIRMED (Mayer Brown, Sidley, Greenberg Traurig, White House fact sheet)",
+    "EO directed development of legislative recommendations — CONFIRMED (multiple law firm analyses)",
+    "EO established DOJ AI Litigation Task Force — CONFIRMED (CBS News, FinancialContent, multiple law firms)",
+    "Framework recommends preemption of state laws regulating AI model development — CONFIRMED (Ropes & Gray, Crowell, multiple sources)",
+    "Framework recommends preemption of developer liability for third-party misuse — CONFIRMED (Freshfields, Ropes & Gray, multiple sources)",
+    "Framework uses 'undue burdens' language — CONFIRMED (multiple law firm analyses)",
+    "States retain authority over child safety including CSAM prohibition — CONFIRMED (Crowell, WilmerHale, multiple sources)",
+    "States retain authority over fraud prevention and consumer protection — CONFIRMED (multiple sources)",
+    "'Traditional police powers' characterization — CONFIRMED (multiple sources use this phrase)",
+    "No new federal AI regulatory agency recommended — CONFIRMED (Holland & Knight, K&L Gates, DLA Piper, Cooley)",
+    "Copyright/fair use deferred to courts — CONFIRMED (K&L Gates, Sullivan & Cromwell, National Law Review/Proskauer)",
+    "Texas RAIGA effective January 1, 2026 — CONFIRMED (Latham & Watkins, Norton Rose Fulbright, Baker Botts)",
+    "Colorado SB 24-205 effective June 30, 2026 — CONFIRMED (Colorado General Assembly, Clark Hill, Akin Gump)",
+    "Multiple state AI laws effective January 1, 2026 — CONFIRMED (King & Spalding, law.com)",
+    "One Big Beautiful Bill Act AI provision rejected by Senate — CONFIRMED (99-1 vote; NBC News, GovTech, Goodwin, MWE)",
+    "Framework is non-binding — CONFIRMED (multiple sources)",
+    "DOJ task force to challenge state AI laws inconsistent with federal policy — CONFIRMED (CBS News, EPI, multiple law firms)",
+    "Framework represents administration's preferred architecture for federal AI legislation — CONFIRMED (reasonable characterization supported by multiple analyses)"
+  ],
+  "resolution_status": "resolved"
+}

@@ -1,0 +1,45 @@
+{
+  "finding_id": "SCAN-20260412-022",
+  "report_path": "reports/privacy/state-comprehensive-laws/alabama-pdpa-hb351-analysis-2026-04-12.md",
+  "round": 1,
+  "claims_checked": 14,
+  "issues": [
+    {
+      "claim": "Senate amendment removed universal opt-out preference signal (UOOM/GPC) recognition requirement",
+      "section": "Unique Features and Comparative Analysis",
+      "source_url": null,
+      "issue": "A Senate amendment removed the requirement for controllers to recognize universal opt-out preference signals (e.g., GPC). This is a materially notable departure from Connecticut, Colorado, California, and recent state laws, and is not mentioned in the 'Unique Features' section.",
+      "severity": "major",
+      "suggested_fix": "Add a bullet noting that the enrolled bill does NOT require recognition of universal opt-out preference signals (GPC), unlike Connecticut, Colorado, California, and several recent state laws.",
+      "status": "open"
+    },
+    {
+      "claim": "Report substantially overlaps with SCAN-20260412-001 on the same bill",
+      "section": "Whole report",
+      "source_url": null,
+      "issue": "SCAN-20260412-001 already covers Alabama HB 351 with the same key facts. Report 022 covers same provisions without clear differentiation. The unique value-add is the Compliance Action Items checklist and expanded exemption enumeration.",
+      "severity": "major",
+      "suggested_fix": "Reframe report explicitly as a compliance-playbook companion to SCAN-20260412-001 with a cross-reference in 'Related Reports'. Add introductory note: 'This report is a compliance companion to [link to 001]; for legislative background and analysis see that report.'",
+      "status": "open"
+    },
+    {
+      "claim": "Alabama becoming the 21st state to 'enact' a comprehensive consumer privacy law",
+      "section": "Executive Summary",
+      "source_url": "https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/",
+      "issue": "Inconsistent framing — some sections say 'enacted' while the Effective Date section correctly notes the Governor had not yet signed as of the report date.",
+      "severity": "minor",
+      "suggested_fix": "Consistently describe status as 'passed by legislature, awaiting gubernatorial signature' throughout.",
+      "status": "open"
+    },
+    {
+      "claim": "Civil penalties up to $15,000 per violation",
+      "section": "Enforcement and Penalties",
+      "source_url": "https://www.maynardnexsen.com/publication-alabama-legislature-passes-comprehensive-data-privacy-bill",
+      "issue": "Verified — $15,000 per-violation cap confirmed.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "issues-found"
+}

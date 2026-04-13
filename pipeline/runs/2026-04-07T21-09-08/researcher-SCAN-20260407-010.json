@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-07T21:45:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260407-010",
+    "report_title": "State Privacy Law Tracker: Maine LD 1822 Stalls, Ohio HB 807 Targets Data Broker Sales, Multiple States Face Session Deadlines",
+    "report_path": "reports/privacy/state-privacy-tracker-april-2026-04-07.md",
+    "format": "research-memo",
+    "jurisdiction_tags": ["Maine", "Ohio", "Alabama", "Kansas", "Kentucky", "Nebraska", "Tennessee"],
+    "confidence_summary": {
+      "high": 0,
+      "medium": 4,
+      "low": 0
+    },
+    "sources_verified": [
+      {
+        "url": "https://www.jdsupra.com/legalnews/proposed-state-privacy-law-update-april-5464708/",
+        "title": "Troutman Pepper Locke -- Proposed State Privacy Law Update: April 6, 2026 (via JD Supra)",
+        "verified": true,
+        "notes": "Primary source. Found via web search; content confirmed via search snippets. WebFetch unavailable for full page retrieval."
+      },
+      {
+        "url": "https://www.multistate.us/insider/2026/2/4/all-of-the-comprehensive-privacy-laws-that-take-effect-in-2026",
+        "title": "MultiState -- 20 State Privacy Laws in Effect in 2026",
+        "verified": true,
+        "notes": "Corroborates count of 20 states with comprehensive privacy laws in effect."
+      },
+      {
+        "url": "https://iapp.org/news/a/new-year-new-rules-us-state-privacy-requirements-coming-online-as-2026-begins",
+        "title": "IAPP -- New Year, New Rules: US State Privacy Requirements Coming Online as 2026 Begins",
+        "verified": true,
+        "notes": "Confirms Indiana, Kentucky, Rhode Island laws effective January 2026."
+      },
+      {
+        "url": "https://www.legislature.ohio.gov/legislation/136/hb807",
+        "title": "Ohio Legislature -- House Bill 807, 136th General Assembly",
+        "verified": true,
+        "notes": "Official Ohio Legislature page. Found via web search; confirms bill exists and sponsors."
+      },
+      {
+        "url": "https://legiscan.com/OH/bill/HB807/2025?guid=7OmmWoER0iQrvZB0fx1pSU",
+        "title": "LegiScan -- Ohio HB 807",
+        "verified": true,
+        "notes": "Bill tracking service confirming bill details and status."
+      },
+      {
+        "url": "https://legislature.maine.gov/legis/bills/display_ps.asp?LD=1822&snum=132",
+        "title": "Maine Legislature -- LD 1822 Text and Status",
+        "verified": true,
+        "notes": "Official Maine Legislature page for the bill. WebFetch unavailable but URL confirmed via search."
+      },
+      {
+        "url": "https://www.maine.gov/housedems/news/house-passes-amended-version-kuhn-data-privacy-bill",
+        "title": "Maine House Democrats -- House Passes Amended Version of Kuhn Data Privacy Bill",
+        "verified": true,
+        "notes": "Official Maine government page confirming House passage and amendment details."
+      },
+      {
+        "url": "https://www.aclumaine.org/press-releases/maine-house-passes-landmark-privacy-bill/",
+        "title": "ACLU of Maine -- Maine House Passes Landmark Privacy Bill",
+        "verified": true,
+        "notes": "Advocacy organization press release with bill provisions detail."
+      },
+      {
+        "url": "https://epic.org/maine-senate-passes-strong-privacy-bill/",
+        "title": "EPIC -- Maine Senate Passes Strong Privacy Bill",
+        "verified": true,
+        "notes": "Privacy advocacy organization analysis of Senate passage."
+      },
+      {
+        "url": "https://www.verrill-law.com/news/maines-house-of-representatives-adopts-comprehensive-privacy-act/",
+        "title": "Verrill -- Privacy in Maine: Key Features of LD 1822",
+        "verified": true,
+        "notes": "Law firm analysis highlighting unique provisions including third-party disclosure rights."
+      }
+    ],
+    "confidence": "medium",
+    "word_count": 890
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 1089",
+  "state": "Maryland",
+  "state_abbrev": "MD",
+  "session": "2026",
+  "title": "Maryland Data Broker Registration",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "data-brokers"
+  ],
+  "sponsors": [
+    "Del. Wu (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/maryland/HB-1089",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mgaleg.maryland.gov/2026RS/bills/hb/hb1089f.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/maryland/HB-1089/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-04-Feb-12-13",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

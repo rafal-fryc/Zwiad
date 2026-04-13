@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Download Bill PDF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <script language="JavaScript">
+    function  downLoadPDF() {
+
+      document.getElementById("pdf_link2").click();
+    }
+
+  </script><body onload="downLoadPDF()">
+<form id="downloadForm" name="downloadForm" method="post" action="/faces/billPdf.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="downloadForm" value="downloadForm" />
+<script type="text/javascript" src="/faces/javax.faces.resource/jsf.js?ln=javax.faces"></script><input id="pdf_link2" type="submit" name="pdf_link2" value="PDF2" style="margin-left: .8em; visibility:hidden" class="bill_nav_sub_mobile" onclick="mojarra.jsfcljs(document.getElementById('downloadForm'),{'pdf_link2':'pdf_link2','bill_id':'202520260SB923','version':'20250SB92398AMD'},'');return false" /><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="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" autocomplete="off" />
+</form></body>
+
+</html>

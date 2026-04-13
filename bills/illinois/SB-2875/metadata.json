@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "SB 2875",
+  "state": "Illinois",
+  "state_abbrev": "IL",
+  "session": "2026",
+  "title": "Illinois Comprehensive Privacy Act (Minnesota-style)",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy",
+    "consumer-data"
+  ],
+  "sponsors": [
+    "Sen. Murphy (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/illinois/SB-2875",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://ilga.gov/Documents/house/FOIA.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced on January 16, 2026",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/illinois/SB-2875/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

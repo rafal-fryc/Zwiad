@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HSB 611",
+  "state": "Iowa",
+  "state_abbrev": "IA",
+  "session": "2026",
+  "title": "Iowa Chatbot Safety, Disclosure, and Anti-Impersonation Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "health",
+    "minors"
+  ],
+  "sponsors": [
+    "House Committee on Health and Human Services"
+  ],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/iowa/HSB-611",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.legis.iowa.gov/docs/publications/LGI/91/HSB611.pdf",
+  "status_history": [
+    {
+      "date": "2026-01-29",
+      "status": "passed-committee",
+      "detail": "Passed out of House Committee on Health and Human Services",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/iowa/HSB-611/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

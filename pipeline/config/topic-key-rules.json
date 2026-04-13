@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "description": "Canonical aliases for regulators and agencies used by tools/topic_keys.py to produce deterministic topic keys across scan runs. Add entries as new sources appear. Changes to canonical codes require a backfill re-run.",
+  "regulator_aliases": {
+    "FTC": [
+      "Federal Trade Commission",
+      "F.T.C."
+    ],
+    "CPPA": [
+      "California Privacy Protection Agency"
+    ],
+    "CAAG": [
+      "California Attorney General",
+      "Attorney General Bonta",
+      "California AG",
+      "AG Bonta",
+      "California Department of Justice"
+    ],
+    "NYAG": [
+      "New York Attorney General",
+      "NY AG",
+      "NYS AG"
+    ],
+    "TXAG": [
+      "Texas Attorney General",
+      "Texas AG",
+      "Attorney General Paxton"
+    ],
+    "FCC": [
+      "Federal Communications Commission"
+    ],
+    "SEC": [
+      "Securities and Exchange Commission"
+    ],
+    "CFPB": [
+      "Consumer Financial Protection Bureau"
+    ],
+    "HHS-OCR": [
+      "HHS Office for Civil Rights",
+      "Office for Civil Rights",
+      "OCR"
+    ],
+    "DOJ": [
+      "Department of Justice",
+      "U.S. Department of Justice"
+    ],
+    "ICO": [
+      "Information Commissioner's Office",
+      "UK ICO"
+    ],
+    "CNIL": [
+      "Commission nationale de l'informatique et des libertes",
+      "French DPA"
+    ],
+    "EDPB": [
+      "European Data Protection Board"
+    ],
+    "IRISH-DPC": [
+      "Irish Data Protection Commission",
+      "DPC Ireland"
+    ]
+  },
+  "agency_aliases": {
+    "NIST": [
+      "National Institute of Standards and Technology"
+    ],
+    "CISA": [
+      "Cybersecurity and Infrastructure Security Agency"
+    ],
+    "FTC": [
+      "Federal Trade Commission"
+    ],
+    "WH": [
+      "White House",
+      "Executive Office of the President"
+    ],
+    "FDA": [
+      "Food and Drug Administration"
+    ],
+    "HHS": [
+      "Department of Health and Human Services"
+    ],
+    "CPPA": [
+      "California Privacy Protection Agency"
+    ],
+    "FCC": [
+      "Federal Communications Commission"
+    ],
+    "OMB": [
+      "Office of Management and Budget"
+    ],
+    "EEOC": [
+      "Equal Employment Opportunity Commission"
+    ],
+    "DOE": [
+      "Department of Energy"
+    ],
+    "CFPB": [
+      "Consumer Financial Protection Bureau"
+    ]
+  },
+  "topic_type_templates": {
+    "state_bill": "{STATE_ABBREV}-{BILL_TYPE}-{NUMBER}-{SESSION}",
+    "federal_bill": "{STATE_ABBREV}-{BILL_TYPE}-{NUMBER}-{SESSION}",
+    "enforcement": "{REGULATOR}-{TARGET}-{YEAR}",
+    "rulemaking": "{AGENCY}-{DOCKET_ID}",
+    "guidance": "{ORG}-{SHORT_SLUG}-{YEAR}",
+    "fallback": "{JURISDICTION}-{HASH8}-{YEAR}"
+  }
+}

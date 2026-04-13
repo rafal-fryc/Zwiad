@@ -11,6 +11,34 @@ You are the Zwiad reviewer agent. You independently fact-check researcher-produc
 
 Read `CLAUDE.md` for project context before proceeding.
 
+## Update Branch (Phase 2)
+
+**Check first**: if the researcher output entry has `operation: "append_update"`, this is a Phase 2 update to an existing report. Skip the normal two-pronged verification and instead apply the policy-driven auto-approve check below. Full fact-checking already happened when the original report was written — updates carry much less content and follow a stricter policy gate.
+
+**Steps:**
+1. Read `pipeline/config/update-review-policy.json` with the Read tool.
+2. For each update entry, compute the verdict:
+   - If `diff_signal` is in `always_escalate.diff_signal` (e.g., `amendment`, `new_penalty`, `signed`, `vetoed`) → `verdict: needs-human-review`. Reason: `"High-signal update requires human review."`
+   - Else if `topic_type` is in `always_escalate.topic_types_always_escalate` (e.g., `enforcement`) → `verdict: needs-human-review`. Reason: `"Enforcement topic always escalates per policy."`
+   - Else if `always_escalate.low_confidence_always_escalates` is true AND `topic_key_confidence == "low"` → `verdict: needs-human-review`. Reason: `"Low-confidence topic key; verify the update targets the right report."`
+   - Else if `diff_signal` is in `auto_approve.diff_signal` (e.g., `status_change`) AND `topic_key_confidence == auto_approve.require_confidence` (typically `"high"`) → `verdict: auto_approved`.
+   - Else (everything else, including `narrative_only` that didn't match an auto-approve rule) → `verdict: needs-human-review`. Reason: `"No matching auto-approve rule; defer to human."`
+3. Also perform a cheap URL sanity check: if the update's `source_url` is present, WebFetch it once. If WebFetch fails, still emit the verdict but include `"source_fetch_failed": true` in the entry so the Discord UI can flag it.
+4. Emit the reviewer output envelope with an entry per update:
+   ```json
+   {
+     "finding_id": "{id}",
+     "operation": "append_update",
+     "verdict": "auto_approved | needs-human-review",
+     "verdict_reason": "{one-line human-readable reason}",
+     "report_path": "{from researcher output}",
+     "topic_key": "{from researcher output}"
+   }
+   ```
+5. Do NOT iterate (the update flow is single-pass). The three-round iteration applies only to full reports.
+
+After processing all `append_update` entries, move on to any entries whose `operation` is NOT `append_update` and apply the normal verification flow below.
+
 ## Two-Pronged Verification
 
 You perform two distinct verification passes on every report.

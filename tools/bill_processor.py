@@ -487,8 +487,119 @@ def update_current_symlink(bill_directory: Path, md_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
+def _load_cross_index_helpers():
+    """Lazy-import update_reports_index helpers. Returns (add_entry_fn, load_fn, save_fn) or None."""
+    try:
+        if __package__ in (None, ""):
+            import sys as _sys
+            _sys.path.insert(0, str(PROJECT_ROOT))
+            from tools.update_reports_index import add_entry, load_index, save_index
+        else:
+            from .update_reports_index import add_entry, load_index, save_index  # type: ignore
+        return add_entry, load_index, save_index
+    except Exception:
+        return None
+
+
+def _cross_index_bill_to_reports(index: dict, entry: dict, key: str, bill: dict, run_id: str) -> None:
+    """Write a thin bill reference into reports/index.json so the dedup stage
+    can detect when a Lexology/IAPP story covers an already-tracked FPF bill.
+
+    The key matches the bill_key format used by topic_keys.py _state_bill_key,
+    so when the scanner later produces a finding for this bill, dedup catches
+    it via Pass 1a (topic_key match) with no further configuration.
+
+    If a non-FPF entry already exists at the same key (e.g., a Lexology report
+    was written first about the same bill), the existing report_path and
+    subcategory are preserved — we only merge source_urls and refresh
+    last_updated + current_status.
+    """
+    categories = bill.get("category") or ["privacy"]
+    primary_category = categories[0] if categories else "privacy"
+    # Schema requires one of privacy/cybersecurity/ai-law
+    if primary_category not in ("privacy", "cybersecurity", "ai-law"):
+        primary_category = "privacy"
+
+    state_abbrev = bill.get("state_abbrev", "")
+    topic_type = "federal_bill" if state_abbrev == "US" else "state_bill"
+
+    from datetime import datetime as _dt, timezone as _tz
+    today = _dt.now(_tz.utc).strftime("%Y-%m-%d")
+
+    # URLs: always merge the bill_text_url. The add_entry helper dedupes.
+    urls = []
+    if bill.get("bill_text_url"):
+        urls.append(bill["bill_text_url"])
+
+    existing = index.get("reports", {}).get(key)
+    if existing and existing.get("subcategory") != "fpf-tracked-bill":
+        # A real report (Lexology/IAPP) already exists at this key. Don't
+        # clobber its report_path or subcategory — just merge URLs, refresh
+        # status, and append the FPF finding_id for traceability.
+        existing.setdefault("source_urls", [])
+        for u in urls:
+            try:
+                if __package__ in (None, ""):
+                    from tools.url_norm import normalize_url
+                else:
+                    from .url_norm import normalize_url  # type: ignore
+                n = normalize_url(u)
+            except Exception:
+                n = u
+            if n and n not in existing["source_urls"]:
+                existing["source_urls"].append(n)
+                index.setdefault("url_index", {})[n] = key
+        existing["last_updated"] = today
+        new_status = bill.get("status")
+        if new_status and new_status != existing.get("current_status"):
+            existing["current_status"] = new_status
+        existing.setdefault("finding_ids", [])
+        fpf_id = f"FPF-{run_id}"
+        if fpf_id not in existing["finding_ids"]:
+            existing["finding_ids"].append(fpf_id)
+        return
+
+    # New FPF-originated entry OR existing FPF entry (safe to refresh)
+    bill_dir_rel = entry.get("bill_dir", "")
+    report_path = f"{bill_dir_rel}/current.md" if bill_dir_rel else "bills/tracker.json"
+
+    add_entry, _, _ = _load_cross_index_helpers() or (None, None, None)
+    if add_entry is None:
+        return
+    add_entry(index, {
+        "topic_key": key,
+        "topic_type": topic_type,
+        "topic_key_confidence": "high",
+        "report_path": report_path,
+        "title": bill.get("title", f"{bill.get('bill_identifier', key)}"),
+        "jurisdiction": bill.get("state", ""),
+        "category": primary_category,
+        "subcategory": "fpf-tracked-bill",
+        "source_urls": urls,
+        "first_reported": bill.get("last_action_date") or today,
+        "last_updated": today,
+        "current_status": bill.get("status", "introduced"),
+        "finding_id": f"FPF-{run_id}",
+    })
+
+
 def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False) -> dict:
     """Process all bills from FPF scanner output."""
+    # Attach per-run audit log so bill-download progress lands alongside
+    # the run's other artifacts (pipeline/runs/<run_id>/audit.log).
+    try:
+        if __package__ in (None, ""):
+            import sys as _sys
+            _sys.path.insert(0, str(PROJECT_ROOT))
+            from tools.logging_setup import get_logger, attach_run_file_handler
+        else:
+            from .logging_setup import get_logger, attach_run_file_handler
+        _log = get_logger("zwiad.bill_processor")
+        attach_run_file_handler(_log, run_id)
+        _log.info("bill_processor starting run_id=%s", run_id)
+    except Exception:
+        pass  # Logging is best-effort; never block bill processing
+
     with open(fpf_output_path) as f:
         fpf_output = json.load(f)
 
@@ -619,6 +730,28 @@ def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False)
 
     # Save tracker
     save_tracker(tracker)
+
+    # Cross-index bills into reports/index.json so the general dedup layer
+    # (Lexology/IAPP path) can detect when a Lexology story covers an
+    # already-tracked FPF bill. See I1 in docs/REVIEW-2026-04-10.md.
+    _helpers = _load_cross_index_helpers()
+    if _helpers is not None:
+        add_entry, load_index, save_index = _helpers
+        try:
+            reports_index = load_index()
+            cross_indexed = 0
+            for bill in bills:
+                state_abbrev = bill["state_abbrev"]
+                bill_id = bill["bill_identifier"]
+                session = bill.get("session", "2026")
+                key = bill_key(state_abbrev, bill_id, session)
+                entry = tracker["bills"].get(key, {})
+                _cross_index_bill_to_reports(reports_index, entry, key, bill, run_id)
+                cross_indexed += 1
+            save_index(reports_index)
+            print(f"Cross-indexed {cross_indexed} bills into reports/index.json")
+        except Exception as e:
+            print(f"Warning: cross-index write failed: {e}")
 
     # Write processing results
     results_path = PROJECT_ROOT / "pipeline" / "runs" / run_id / "fpf-bills-processed.json"

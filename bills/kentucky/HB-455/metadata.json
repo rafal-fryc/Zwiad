@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "HB 455",
+  "state": "Kentucky",
+  "state_abbrev": "KY",
+  "session": "2026",
+  "title": "Kentucky AI in Health Care (Illinois HB 1806-style)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "mental-health"
+  ],
+  "sponsors": [
+    "Rep. Banta (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/kentucky/HB-455",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://apps.legislature.ky.gov/recorddocuments/bill/26RS/HB455/HCS1.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/kentucky/HB-455/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

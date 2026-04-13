@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title> Oregon Legislative Information System</title>
+    <link href="/liz/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    
+
+
+
+<link href="https://apps.oregonlegislature.gov/cdn/bootstrap/3.2.0/css/bootstrap-bundle.min.css" rel="stylesheet"/>
+
+
+
+
+
+
+<link href="https://apps.oregonlegislature.gov/cdn/Leg/1.1.1/css/LegStandard.min.css" rel="stylesheet"/>
+
+<link href="https://apps.oregonlegislature.gov/cdn/jquery.dataTables/1.10.2/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
+
+<link href="https://apps.oregonlegislature.gov/cdn/toastr/2.0.3/css/toastr.min.css" rel="stylesheet"/>
+
+<link href="/liz/Content/Application.css" rel="stylesheet"/>
+<link href="/liz/Content/legFooter.css" rel="stylesheet"/>
+
+
+<link href=https://www.oregonlegislature.gov/olisnotification/olis-notification.css rel="stylesheet">
+
+    
+    <script src="//apps.oregonlegislature.gov/cdn/modernizr/2.8.3/modernizr-2.8.3.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/jquery-custom-bundle/1.1.2/jquery-bundle.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/jquery.dataTables/1.10.2/jquery.dataTables.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/typeahead.jquery/0.10.4/typeahead.jquery.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/bootstrap/3.2.0/js/bootstrap-bundle.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/jquery.cookie/1.4/jquery.cookie.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/Leg/1.1.2/js/leg-bundle.min.js"></script>
+
+
+<script>
+   var require = {
+      baseUrl: '/liz/Scripts'
+   };
+</script>
+
+
+<script src="//apps.oregonlegislature.gov/cdn/toastr/2.0.3/js/toastr.min.js"></script>
+
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW4JVLGNKY"></script>
+<script src="/liz/Scripts/googleAnalytics.js"></script>
+
+
+</head>
+<body translate="no">
+    <div id="mainWrapper" class="container-fluid">
+        <header class="row hidden-xs" style="margin-left: -20px">
+            <div class="top-menu">
+                <a href="http://www.oregonlegislature.gov/" class="oregon-leg-icon-link hidden-xs" target="_blank"></a>
+                <div class="col-sm-4 col-md-5" style="margin: 0px 0px 0px 180px; padding-left: 5px;">
+                    <h4 class="banner-header">
+                        <a href="http://www.oregonlegislature.gov/" target="_blank" class="visible-md visible-lg" style="line-height:20px; font-weight: 600">Oregon State Legislature</a>
+                    </h4>
+                    <a href="/liz/"><small class="banner-subheader"><span class="">Oregon Legislative Information</span></small></a>
+                    <div class="page-menu page-menu-text hidden-xs ">
+                        
+                        
+
+<a href="https://www.oregonlegislature.gov/OLIS_help/Pages/Home.aspx#Error" target="_blank">Help</a>
+     | <a href="/liz/2026R1/Account/Login">Staff Login</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mobile-nav visible-xs row">
+            <div class="col-xs-12" id="mobile-navbar">
+                
+
+
+<nav class="navbar navbar-default default-main-nav" style="">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            
+            <a id="mobile-nav-brand" 
+                class="navbar-brand visible-xs" 
+                data-toggle="collapse" 
+                data-target="#mobile-main-menu-bar-mobile-collapse" 
+                style="height: 35px !important">
+                Oregon Legislative Information
+            </a>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobile-main-menu-bar-mobile-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-main-menu-bar-mobile-collapse" class="navbar-collapse collapse">
+        <ul id="navigation-mobile">
+
+                <li id="navigation-1-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-1-mobile-collapse"
+                       data-icon-element="#navigation-1-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Session
+                        </span>
+                        <i id="navigation-1-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-1-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/SessionSelect?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-2-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-2-mobile-collapse"
+                       data-icon-element="#navigation-2-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Bills
+                        </span>
+                        <i id="navigation-2-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-2-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/BillSearchForm?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-3-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-3-mobile-collapse"
+                       data-icon-element="#navigation-3-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Committees
+                        </span>
+                        <i id="navigation-3-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-3-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/CommitteeMainNav?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-4-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-4-mobile-collapse"
+                       data-icon-element="#navigation-4-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Exec. Appts.
+                        </span>
+                        <i id="navigation-4-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-4-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/ExecApptNavigation?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-5-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-5-mobile-collapse"
+                       data-icon-element="#navigation-5-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            More
+                        </span>
+                        <i id="navigation-5-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-5-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/ReportsForm?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+
+        </ul>
+    </div>
+</nav>
+
+
+            </div>
+        </div>
+
+        <div class="visible-xs row mobile-page-menu">
+            
+            
+
+<a href="https://www.oregonlegislature.gov/OLIS_help/Pages/Home.aspx#Error" target="_blank">Help</a>
+     | <a href="/liz/2026R1/Account/Login">Staff Login</a>
+        </div>
+        
+        
+
+        
+        <section class="row">
+            <div id="center-content" class="center-content-padding container">
+                <div class="content-wrap">
+                    <div class="main-nav-wrapper hidden-xs" style="position: relative;">
+                        <div class="pull-right" style="margin-top: -129px;">
+                            
+
+
+<nav class="navbar navbar-default default-main-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand visible-xs" data-toggle="collapse" data-target="#main-menu-bar">
+                Oregon Legislative Information System
+            </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-bar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    </div>
+    <div id="main-menu-bar" class="navbar-collapse collapse">
+        <ul id="navigation" style="margin-top: 6px; margin-left: -15px">
+
+
+                <li id="navigation-1" class="button-group" data-action="/liz/2026R1/Navigation/SessionSelect" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Session</span>
+                    </a>
+                </li>
+                <li id="navigation-2" class="button-group" data-action="/liz/2026R1/Navigation/BillSearchForm" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Bill</span>
+                    </a>
+                </li>
+                <li id="navigation-3" class="button-group" data-action="/liz/2026R1/Navigation/CommitteeMainNav" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Committees</span>
+                    </a>
+                </li>
+                <li id="navigation-4" class="button-group" data-action="/liz/2026R1/Navigation/ExecApptNavigation" data-navigation="true">
+                    <a href="#" class="">
+                        <span>ExecutiveAppointments</span>
+                    </a>
+                </li>
+                <li id="navigation-5" class="button-group" data-action="/liz/2026R1/Navigation/ReportsForm" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Reports</span>
+                    </a>
+                </li>
+        </ul>
+    </div>
+</nav>
+
+
+                        </div>
+                        <div id="navigation-flyout"></div>
+                    </div>
+                    
+                    
+
+
+<hgroup class="title">
+    <h1 class="error">Error.</h1>
+	<h2 class="error">An error occurred while processing your request.</h2>
+</hgroup>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container-fluid" style="padding:0px">
+    <div class="row-fluid">
+        <footer class="span12">
+            <div class="right">
+                <span><b>Oregon State Legislature</b></span> <span><b>Building Hours:</b> Monday - Friday, 7:00 a.m. - 5:30 p.m.</span> <span>1-800-332-2313 | 900 Court St. NE, Salem Oregon 97301</span>
+            </div>
+            <div class="left">
+                <div class="social">
+                    <a href="https://www.facebook.com/OregonCapitol#!/OregonCapitol">
+                        <img src="/liz/Images/social-footer-fb.png" alt="Follow us on Facebook">
+                    </a>
+                    <a href="https://www.oregonlegislature.gov/Pages/pressrelease.aspx">
+                        <img src="/liz/Images/social-footer-rss.png" alt="Subscribe to our RSS">
+                    </a>
+                    <a href="https://www.oregonlegislature.gov/citizen_engagement/Pages/e-Subscribe.aspx">
+                        <img src="/liz/Images/social-footer-esub.png" alt="Subscribe to recieve email notifications">
+                    </a>
+                </div>
+                <div class="links">
+                    <a href="https://www.oregonlegislature.gov/Pages/disclaimer.aspx">Disclaimer</a>
+                    | <a href="https://www.oregonlegislature.gov/Pages/universalAccess.aspx">Universal Access</a>
+                    | <a href="https://www.oregonlegislature.gov/la/Pages/employment.aspx">Employment</a>
+                    | <a href="http://www.oregon.gov/Pages/index.aspx">Oregon.Gov</a>
+                    <!-- |
+                    <a href="/_layouts/authenticate.aspx" onclick="document.location='/_layouts/authenticate.aspx?Source='+document.location.href; return false;">
+                        Sign in
+                    </a> -->
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<form action="/liz/2026R1/Account/LogOff" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="Dd20KRM2xq7Fm80aINokm3r3p8F4PJJ9Z_N3bmiG07Ri7Tj_713Dil88EC6_y7SuHiDeQoCod0ypy5mlLqBUG6ARWEiHn8-AwT6IXep5YEE1" /></form>
+    <script>
+         var CSharpConstants = {
+            sponsorSearch: '/liz/2026R1/Navigation/BillSponsorSearch',
+            collapseStateSave: '/liz/2026R1/Home/SaveCollapseState'
+         };
+    </script>
+
+    
+    <script src="/liz/Scripts/Shared/_Layout.js"></script>
+
+    
+
+</body>
+</html>

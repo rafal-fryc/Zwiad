@@ -1,0 +1,53 @@
+{
+  "finding_id": "SCAN-20260407-011",
+  "report_path": "reports/cybersecurity/federal-circia-final-rule-delay-2026-04-07.md",
+  "round": 1,
+  "claims_checked": 22,
+  "issues": [
+    {
+      "claim": "the March 2026 DHS appropriations lapse likely pushing the timeline further",
+      "section": "Executive Summary",
+      "source_url": null,
+      "issue": "The DHS appropriations lapse began on February 14, 2026, not in March 2026. The phrasing 'the March 2026 DHS appropriations lapse' mischaracterizes when the lapse started. While the lapse was ongoing during March (when it affected the CIRCIA town halls), calling it a 'March 2026' lapse is inaccurate. Multiple sources (CNN, Wikipedia, Envoy Global) confirm the DHS partial shutdown began February 14, 2026 after DHS funding expired on February 13.",
+      "severity": "minor",
+      "suggested_fix": "Change 'the March 2026 DHS appropriations lapse' to 'the DHS appropriations lapse that began in February 2026' or 'the ongoing DHS appropriations lapse'.",
+      "status": "open"
+    },
+    {
+      "claim": "a lapse in DHS appropriations in March 2026 forced CISA to cancel all scheduled town halls",
+      "section": "Town Hall Meetings and DHS Shutdown",
+      "source_url": "https://federalnewsnetwork.com/cybersecurity/2026/03/cisa-delays-cyber-incident-reporting-town-halls-due-to-shutdown/",
+      "issue": "Same issue as above: the DHS appropriations lapse began February 14, 2026, not 'in March 2026'. The cancellations were announced in March because the town halls were scheduled to start March 9, but the underlying lapse began in February. The phrase 'in March 2026' implies the lapse started in March.",
+      "severity": "minor",
+      "suggested_fix": "Change to 'the ongoing lapse in DHS appropriations (which began February 14, 2026) forced CISA to cancel all scheduled town halls' or similar phrasing that correctly identifies the lapse start date.",
+      "status": "open"
+    }
+  ],
+  "verification_notes": {
+    "pass_1_source_refetch": "WebFetch was unavailable due to permissions. All source URLs were verified to exist via WebSearch (matching titles and URLs appeared in search results for relevant queries). Source content was cross-checked indirectly through independent search verification.",
+    "pass_2_independent_verification": "All major factual claims independently verified via WebSearch against authoritative sources.",
+    "claims_verified": [
+      "CIRCIA signed into law March 2022 as part of Consolidated Appropriations Act — confirmed (March 15, 2022 per CISA.gov)",
+      "Codified at 6 U.S.C. 681-681g — confirmed (681b verified at Cornell LII)",
+      "24-month NPRM deadline + 18-month final rule deadline — confirmed (CISA FAQs, multiple law firm analyses)",
+      "NPRM published in Federal Register April 4, 2024 — confirmed (Federal Register document 2024-06526)",
+      "Comment period extended through July 3, 2024 — confirmed (Federal Register document 2024-09505, 30-day extension from June 3)",
+      "72-hour incident reporting and 24-hour ransomware payment reporting — confirmed (6 U.S.C. 681b statutory text)",
+      "16 critical infrastructure sectors under PPD-21 — confirmed",
+      "Statutory final rule deadline approximately October 2025 — confirmed (18 months after April 2024 NPRM)",
+      "OIRA moved expected date to May 2026 in September 2025 — confirmed (DWT, CyberScoop, Spring 2025 Unified Agenda released Sept 4, 2025)",
+      "Town halls announced Feb 13, 2026 in Federal Register — confirmed (document 2026-02948)",
+      "Town halls scheduled March 9 through April 2, 2026 — confirmed (Federal News Network, multiple sources)",
+      "Town halls organized by sector (chemical, water, energy, nuclear, healthcare, financial services, IT, communications) — confirmed (Mayer Brown, EDUCAUSE)",
+      "Town halls cancelled due to DHS appropriations lapse — confirmed (Federal News Network, MeriTalk)",
+      "CISA stated it would issue updated notice with revised schedule — confirmed (Federal News Network)",
+      "CISA acknowledged further delay beyond May 2026 — confirmed (MeriTalk)",
+      "Over 300,000 entities covered under proposed rule — confirmed (CISA estimates 316,244 per NPRM)",
+      "Streamlining and harmonization efforts — confirmed (Industrial Cyber, CyberScoop)",
+      "Enforcement via subpoenas and DOJ referral — confirmed (multiple law firm analyses, Federal Register NPRM)",
+      "CISA official cited volume of public comments as reason for delay — confirmed (CyberScoop)",
+      "Federal News Network and MeriTalk URLs match claimed content — confirmed via search results"
+    ]
+  },
+  "resolution_status": "resolved"
+}

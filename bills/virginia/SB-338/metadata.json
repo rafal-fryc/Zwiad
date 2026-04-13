@@ -1,0 +1,47 @@
+{
+  "bill_identifier": "SB 338",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "VCDPA Amendment \u2014 Geolocation Data Sale Prohibition",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "geolocation",
+    "consumer-data",
+    "vcdpa"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/virginia/SB-338",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1089668.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    },
+    {
+      "date": "2026-02-03",
+      "status": "passed-first-chamber",
+      "detail": "Virginia Senate passed SB 338 by a vote of 39-0 on February 3, 2026.",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/virginia/SB-338/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

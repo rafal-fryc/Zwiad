@@ -3,12 +3,16 @@
 
 import asyncio
 import email as email_lib
+import hashlib
 import imaplib
 import json
+import logging
 import os
 import re
+import socket
 import subprocess
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -31,6 +35,12 @@ IMAP_PASSWORD = os.environ.get("IMAP_PASSWORD", "")
 PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
 
+# Use the shared Zwiad logging setup (tools/logging_setup.py). Writes to stderr
+# by default; per-run audit logs can be attached via attach_run_file_handler.
+sys.path.insert(0, str(PROJECT_ROOT))
+from tools.logging_setup import get_logger, attach_run_file_handler, detach_handler  # noqa: E402
+logger = get_logger("zwiad.bot")
+
 MY_GUILD = discord.Object(id=GUILD_ID)
 
 # In-memory approval state: {run_id: {finding_id: bool}}
@@ -44,17 +54,83 @@ latest_run_id: str | None = None
 # ---------------------------------------------------------------------------
 
 
+class IMAPFetchError(Exception):
+    """Raised when fetching new emails from IMAP fails for any reason."""
+
+
+# Persistent state: track which emails we've already processed by Message-ID so
+# we don't re-scan emails that were manually re-marked unread or surfaced after
+# a partial failure. See docs/REVIEW-2026-04-10.md and Phase 2 plan.
+STATE_DIR = PROJECT_ROOT / "pipeline" / "state"
+PROCESSED_EMAILS_PATH = STATE_DIR / "processed-emails.json"
+
+
+def _load_processed_emails() -> dict:
+    """Load the processed-emails state file. Returns empty structure on first run
+    or if the file is corrupt (with a warning log)."""
+    if not PROCESSED_EMAILS_PATH.exists():
+        return {"schema_version": "1.0", "processed": {}}
+    try:
+        data = json.loads(PROCESSED_EMAILS_PATH.read_text())
+        if "processed" not in data:
+            data["processed"] = {}
+        return data
+    except json.JSONDecodeError as e:
+        logger.warning("Corrupt %s; starting empty: %s", PROCESSED_EMAILS_PATH, e)
+        return {"schema_version": "1.0", "processed": {}}
+
+
+def _save_processed_emails(data: dict) -> None:
+    """Atomic write of the processed-emails state file."""
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=str(STATE_DIR), prefix=".pe-", suffix=".json.tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        os.replace(tmp, PROCESSED_EMAILS_PATH)
+    except Exception:
+        if os.path.exists(tmp):
+            try:
+                os.remove(tmp)
+            except OSError:
+                pass
+        raise
+
+
+def _extract_message_id(msg: email_lib.message.Message) -> str:
+    """Return a stable per-email ID. Prefer the RFC Message-ID header;
+    fall back to a hash of (From, Date, Subject) if missing or malformed."""
+    mid = (msg.get("Message-ID") or "").strip()
+    if mid:
+        return mid
+    raw = f"{msg.get('From','')}|{msg.get('Date','')}|{msg.get('Subject','')}"
+    return "synth-" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+
+
 def fetch_new_emails(run_id: str) -> list[Path]:
-    """Fetch unread emails via IMAP, save as HTML, mark as read. Returns saved file paths."""
+    """Fetch unread emails via IMAP, save as HTML, mark as read. Returns saved file paths.
+
+    Raises IMAPFetchError on network/auth/protocol failures so the caller can
+    surface a user-facing message instead of crashing the slash command.
+
+    Emails whose Message-ID is already in pipeline/state/processed-emails.json
+    are skipped (and marked \\Seen so they don't keep coming back). This makes
+    the bot robust against manual re-marking in Gmail and partial-failure
+    recovery.
+    """
     if not IMAP_EMAIL or not IMAP_PASSWORD:
         return []
 
     input_dir = RUNS_DIR / run_id / "emails"
     input_dir.mkdir(parents=True, exist_ok=True)
 
-    saved = []
-    mail = imaplib.IMAP4_SSL("imap.gmail.com")
+    processed_data = _load_processed_emails()
+    processed_dirty = False
+
+    saved: list[Path] = []
+    mail = None
     try:
+        mail = imaplib.IMAP4_SSL("imap.gmail.com", timeout=30)
         mail.login(IMAP_EMAIL, IMAP_PASSWORD)
         mail.select("INBOX")
         status, messages = mail.search(None, "UNSEEN")
@@ -63,64 +139,251 @@ def fetch_new_emails(run_id: str) -> list[Path]:
 
         msg_ids = messages[0].split()
         for i, msg_id in enumerate(msg_ids):
-            status, data = mail.fetch(msg_id, "(RFC822)")
-            if status != "OK":
+            try:
+                status, data = mail.fetch(msg_id, "(RFC822)")
+                if status != "OK" or not data or not data[0]:
+                    logger.warning("IMAP fetch returned non-OK for msg_id=%s", msg_id)
+                    continue
+
+                msg = email_lib.message_from_bytes(data[0][1])
+
+                # Phase 2: skip emails we've already processed, even if Gmail
+                # shows them UNSEEN (manual re-mark, partial-failure recovery).
+                mid = _extract_message_id(msg)
+                if mid in processed_data["processed"]:
+                    logger.info("Skipping already-processed email: %s", mid)
+                    mail.store(msg_id, "+FLAGS", "\\Seen")
+                    continue
+
+                html_body = None
+                if msg.is_multipart():
+                    for part in msg.walk():
+                        if part.get_content_type() == "text/html":
+                            html_body = part.get_payload(decode=True)
+                            break
+                elif msg.get_content_type() == "text/html":
+                    html_body = msg.get_payload(decode=True)
+
+                if not html_body:
+                    for part in msg.walk() if msg.is_multipart() else [msg]:
+                        if part.get_content_type() == "text/plain":
+                            text = part.get_payload(decode=True).decode("utf-8", errors="replace")
+                            html_body = f"<html><body><pre>{text}</pre></body></html>".encode()
+                            break
+
+                if html_body:
+                    subject = msg.get("Subject", f"email-{i}")
+                    safe_name = re.sub(r"[^\w\s-]", "", subject)[:50].strip().replace(" ", "-")
+                    filepath = input_dir / f"{safe_name}-{i}.html"
+                    filepath.write_bytes(html_body)
+                    saved.append(filepath)
+
+                    meta = {
+                        "subject": subject,
+                        "from": msg.get("From", ""),
+                        "date": msg.get("Date", ""),
+                    }
+                    meta_path = input_dir / f"{safe_name}-{i}.meta.json"
+                    with open(meta_path, "w") as mf:
+                        json.dump(meta, mf, indent=2)
+
+                    # Record as processed only after successful save
+                    processed_data["processed"][mid] = {
+                        "first_seen_run": run_id,
+                        "subject": subject,
+                        "from": msg.get("From", ""),
+                        "processed_at": datetime.now(timezone.utc).isoformat(),
+                    }
+                    processed_dirty = True
+
+                mail.store(msg_id, "+FLAGS", "\\Seen")
+            except (imaplib.IMAP4.error, OSError) as e:
+                logger.warning("Failed to process IMAP msg_id=%s: %s", msg_id, e)
                 continue
-
-            msg = email_lib.message_from_bytes(data[0][1])
-
-            # Extract HTML body
-            html_body = None
-            if msg.is_multipart():
-                for part in msg.walk():
-                    if part.get_content_type() == "text/html":
-                        html_body = part.get_payload(decode=True)
-                        break
-            elif msg.get_content_type() == "text/html":
-                html_body = msg.get_payload(decode=True)
-
-            if not html_body:
-                # Fall back to plain text wrapped in HTML
-                for part in msg.walk() if msg.is_multipart() else [msg]:
-                    if part.get_content_type() == "text/plain":
-                        text = part.get_payload(decode=True).decode("utf-8", errors="replace")
-                        html_body = f"<html><body><pre>{text}</pre></body></html>".encode()
-                        break
-
-            if html_body:
-                subject = msg.get("Subject", f"email-{i}")
-                safe_name = re.sub(r"[^\w\s-]", "", subject)[:50].strip().replace(" ", "-")
-                filepath = input_dir / f"{safe_name}-{i}.html"
-                filepath.write_bytes(html_body)
-                saved.append(filepath)
-
-                # Save metadata sidecar for email classification
-                meta = {
-                    "subject": subject,
-                    "from": msg.get("From", ""),
-                    "date": msg.get("Date", ""),
-                }
-                meta_path = input_dir / f"{safe_name}-{i}.meta.json"
-                with open(meta_path, "w") as mf:
-                    json.dump(meta, mf, indent=2)
-
-            # Mark as read
-            mail.store(msg_id, "+FLAGS", "\\Seen")
+    except imaplib.IMAP4.error as e:
+        raise IMAPFetchError(f"IMAP protocol error: {e}") from e
+    except (OSError, socket.error, socket.timeout) as e:
+        raise IMAPFetchError(f"IMAP network error: {e}") from e
+    except Exception as e:
+        raise IMAPFetchError(f"Unexpected IMAP failure: {e}") from e
     finally:
-        try:
-            mail.logout()
-        except Exception:
-            pass
+        if mail is not None:
+            try:
+                mail.logout()
+            except Exception:
+                pass
+        # Save processed-emails state even if the loop raised partway. Next
+        # /scan will skip emails we successfully stored this run.
+        if processed_dirty:
+            try:
+                _save_processed_emails(processed_data)
+            except Exception as e:
+                logger.warning("Could not save %s: %s", PROCESSED_EMAILS_PATH, e)
 
     return saved
+
+
+def run_subprocess_checked(cmd: list[str], cwd: Path | None = None, capture: bool = True) -> tuple[bool, str]:
+    """Run a subprocess and check its return code.
+
+    Returns (ok, stderr_tail). On success, stderr_tail is empty. On failure,
+    contains the last ~500 chars of stderr (or stdout if stderr is empty) for
+    user-facing error messages.
+    """
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=capture,
+            text=True,
+            cwd=str(cwd) if cwd else None,
+        )
+    except (FileNotFoundError, OSError) as e:
+        return False, f"Failed to launch {cmd[0]}: {e}"
+
+    if result.returncode != 0:
+        tail = (result.stderr or result.stdout or "").strip()
+        if len(tail) > 500:
+            tail = "..." + tail[-500:]
+        return False, f"exit code {result.returncode}: {tail or '(no output)'}"
+    return True, ""
+
+
+def run_claude_and_log_cost(
+    cmd: list[str],
+    run_id: str,
+    stage: str,
+    cwd: Path | None = None,
+) -> tuple[bool, str, float]:
+    """Run a `claude -p --output-format json ...` invocation, parse the
+    structured result for `total_cost_usd`, and append the entry to
+    pipeline/runs/<run_id>/cost.json.
+
+    Returns (ok, error_tail, cost_usd). cost_usd is 0.0 if parsing fails.
+    """
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            cwd=str(cwd) if cwd else None,
+        )
+    except (FileNotFoundError, OSError) as e:
+        return False, f"Failed to launch {cmd[0]}: {e}", 0.0
+
+    cost_usd = 0.0
+    parsed = None
+    if result.stdout:
+        try:
+            parsed = json.loads(result.stdout)
+            cost_usd = float(parsed.get("total_cost_usd") or 0.0)
+        except (json.JSONDecodeError, ValueError, TypeError) as e:
+            logger.debug("Could not parse claude JSON output for cost (%s)", e)
+
+    # Append cost entry regardless of success/failure so partial costs are logged
+    _append_cost_entry(run_id, stage, cost_usd, parsed)
+
+    if result.returncode != 0:
+        tail = (result.stderr or result.stdout or "").strip()
+        if len(tail) > 500:
+            tail = "..." + tail[-500:]
+        return False, f"exit code {result.returncode}: {tail or '(no output)'}", cost_usd
+    return True, "", cost_usd
+
+
+def _append_cost_entry(run_id: str, stage: str, cost_usd: float, parsed: dict | None) -> None:
+    """Append a cost entry to pipeline/runs/<run_id>/cost.json. Best effort —
+    never raises."""
+    try:
+        run_dir = RUNS_DIR / run_id
+        if not run_dir.exists():
+            return
+        cost_path = run_dir / "cost.json"
+        if cost_path.exists():
+            try:
+                data = json.loads(cost_path.read_text())
+            except json.JSONDecodeError:
+                data = {"run_id": run_id, "total_usd": 0.0, "stages": []}
+        else:
+            data = {"run_id": run_id, "total_usd": 0.0, "stages": []}
+
+        entry = {
+            "stage": stage,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "cost_usd": round(cost_usd, 6),
+        }
+        if parsed:
+            entry["duration_ms"] = parsed.get("duration_ms")
+            entry["num_turns"] = parsed.get("num_turns")
+            usage = parsed.get("usage") or {}
+            entry["input_tokens"] = usage.get("input_tokens")
+            entry["output_tokens"] = usage.get("output_tokens")
+            entry["cache_read_tokens"] = usage.get("cache_read_input_tokens")
+            entry["cache_creation_tokens"] = usage.get("cache_creation_input_tokens")
+
+        data.setdefault("stages", []).append(entry)
+        data["total_usd"] = round(data.get("total_usd", 0.0) + cost_usd, 6)
+        cost_path.write_text(json.dumps(data, indent=2))
+    except Exception as e:
+        logger.debug("Cost log write failed for %s: %s", run_id, e)
+
+
+# Rough per-finding cost estimate for research phase (researcher + reviewer iteration + categorizer)
+# Calibrated from run 2026-04-12T21-18-15: 13 findings = $21.13 => ~$1.63/finding
+# Reviewer iteration loop (up to 3 rounds per report) doubles/triples the per-finding cost
+# over a naive researcher-only estimate.
+RESEARCH_COST_PER_FINDING_USD = 1.65
+
+
+EMAIL_SOURCES_PATH = PROJECT_ROOT / "pipeline" / "config" / "email-sources.json"
+
+
+def _load_email_source_rules() -> list[dict]:
+    """Load the ordered list of email classification rules from config.
+
+    Returns a list of rule dicts. If the config file is missing or malformed,
+    falls back to the hardcoded v1 rules so the bot still functions.
+    """
+    try:
+        with open(EMAIL_SOURCES_PATH) as f:
+            config = json.load(f)
+        return config.get("sources", [])
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        logger.warning("Failed to load %s, using hardcoded fallback: %s", EMAIL_SOURCES_PATH, e)
+        return [
+            {"bucket": "fpf", "sender_contains": ["fpf.org", "informz.net"],
+             "subject_contains": ["fpf u.s.", "fpf youth privacy"],
+             "match_mode": "sender_and_subject"},
+            {"bucket": "iapp", "sender_contains": ["iapp.org"],
+             "subject_contains": [], "match_mode": "sender_only"},
+            {"bucket": "lexology", "sender_contains": ["lexology"],
+             "subject_contains": [], "match_mode": "sender_only"},
+        ]
+
+
+def _match_rule(rule: dict, sender: str, subject: str) -> bool:
+    """Return True if the given rule matches the message metadata."""
+    sender_hits = any(s.lower() in sender for s in rule.get("sender_contains", []))
+    subject_hits = any(s.lower() in subject for s in rule.get("subject_contains", []))
+    mode = rule.get("match_mode", "sender_only")
+    if mode == "sender_and_subject":
+        return sender_hits and subject_hits
+    if mode == "sender_or_subject":
+        return sender_hits or subject_hits
+    if mode == "subject_only":
+        return subject_hits
+    # Default: sender_only
+    return sender_hits
 
 
 def classify_emails(email_dir: Path) -> dict[str, list[Path]]:
     """Classify emails in a directory by type using metadata sidecars.
 
-    Returns dict mapping type ('fpf', 'lexology', 'unknown') to list of HTML file paths.
+    Reads rules from pipeline/config/email-sources.json — first matching rule wins.
+    Messages that don't match any rule land in the 'unknown' bucket.
     """
-    result: dict[str, list[Path]] = {"fpf": [], "lexology": [], "unknown": []}
+    rules = _load_email_source_rules()
+    buckets = {rule["bucket"] for rule in rules} | {"unknown"}
+    result: dict[str, list[Path]] = {bucket: [] for bucket in buckets}
 
     for html_file in sorted(email_dir.glob("*.html")):
         meta_path = html_file.with_suffix(".meta.json")
@@ -128,17 +391,24 @@ def classify_emails(email_dir: Path) -> dict[str, list[Path]]:
             result["unknown"].append(html_file)
             continue
 
-        with open(meta_path) as f:
-            meta = json.load(f)
+        try:
+            with open(meta_path) as f:
+                meta = json.load(f)
+        except json.JSONDecodeError as e:
+            logger.warning("Failed to parse %s: %s", meta_path, e)
+            result["unknown"].append(html_file)
+            continue
 
         sender = (meta.get("from") or "").lower()
         subject = (meta.get("subject") or "").lower()
 
-        if ("fpf.org" in sender or "informz.net" in sender) and "fpf u.s." in subject:
-            result["fpf"].append(html_file)
-        elif "lexology" in sender:
-            result["lexology"].append(html_file)
-        else:
+        matched = False
+        for rule in rules:
+            if _match_rule(rule, sender, subject):
+                result[rule["bucket"]].append(html_file)
+                matched = True
+                break
+        if not matched:
             result["unknown"].append(html_file)
 
     return result
@@ -153,7 +423,7 @@ def get_latest_run_id() -> str | None:
 
 
 def load_findings(run_id: str) -> list[dict]:
-    """Load findings from scanner-deduped.json (or scanner-output.json)."""
+    """Load new-topic findings from scanner-deduped.json (or scanner-output.json)."""
     for name in ("scanner-deduped.json", "scanner-output.json"):
         path = RUNS_DIR / run_id / name
         if path.exists():
@@ -161,6 +431,20 @@ def load_findings(run_id: str) -> list[dict]:
                 data = json.load(f)
             return data.get("data", {}).get("findings", [])
     return []
+
+
+def load_candidate_updates(run_id: str) -> list[dict]:
+    """Load Phase 2 candidate_updates from scanner-deduped.json.
+
+    Returns an empty list if dedup hasn't run yet (falls through to
+    scanner-output.json which may not carry the field).
+    """
+    path = RUNS_DIR / run_id / "scanner-deduped.json"
+    if not path.exists():
+        return []
+    with open(path) as f:
+        data = json.load(f)
+    return data.get("data", {}).get("candidate_updates", []) or []
 
 
 def relevance_color(relevance: str) -> discord.Color:
@@ -256,12 +540,38 @@ def extract_report_summary(filepath: Path) -> dict | None:
 
 
 def find_run_reports(run_id: str) -> list[dict]:
-    """Load filed report paths from categorizer-output.json, falling back to researcher outputs."""
+    """Load filed report paths from categorizer-output.json, falling back to researcher outputs.
+
+    Lenient reader: the canonical schema key is `filed_reports` but some
+    categorizer outputs have hallucinated `reports_filed` (reverse order) with
+    `report_path` instead of `destination_path`. Normalize both shapes so the
+    bot doesn't break when the agent drifts from the spec.
+    """
     cat_path = RUNS_DIR / run_id / "categorizer-output.json"
     if cat_path.exists():
         with open(cat_path) as f:
             data = json.load(f)
-        return data.get("data", {}).get("filed_reports", [])
+        raw = (
+            data.get("data", {}).get("filed_reports")
+            or data.get("data", {}).get("reports_filed")
+            or []
+        )
+        # Normalize each entry to the canonical shape
+        normalized = []
+        for e in raw:
+            normalized.append({
+                "finding_id": e.get("finding_id", ""),
+                "destination_path": e.get("destination_path") or e.get("report_path", ""),
+                "source_path": e.get("source_path", ""),
+                "topic": e.get("topic") or e.get("category", ""),
+                "subcategory": e.get("subcategory") or "",
+                "is_pending": e.get("is_pending", False),
+                "symlinks": e.get("symlinks", []),
+                # Preserve any extra fields so downstream UIs can show them
+                "action": e.get("action"),
+                "notes": e.get("notes"),
+            })
+        return normalized
 
     # Fallback: read researcher-*.json files for report_path
     run_dir = RUNS_DIR / run_id
@@ -283,8 +593,15 @@ def find_run_reports(run_id: str) -> list[dict]:
 
 
 def write_approved_json(run_id: str, approved_ids: set[str]) -> Path:
-    """Write scanner-approved.json from approved finding IDs."""
-    # Read source data
+    """Write scanner-approved.json from approved finding IDs.
+
+    Approved IDs may span both new findings and Phase 2 candidate_updates.
+    Auto-approved updates (from the reviewer policy matrix) are added to the
+    approved set automatically by cmd_scan — they don't require explicit user
+    action. Each entry preserves its original fields so the orchestrator's
+    Mode 2 branch can tell updates apart from new findings via `is_update`
+    and `operation`.
+    """
     source_path = RUNS_DIR / run_id / "scanner-deduped.json"
     if not source_path.exists():
         source_path = RUNS_DIR / run_id / "scanner-output.json"
@@ -292,9 +609,20 @@ def write_approved_json(run_id: str, approved_ids: set[str]) -> Path:
     with open(source_path) as f:
         source = json.load(f)
 
-    approved_findings = [
-        f for f in source.get("data", {}).get("findings", []) if f["id"] in approved_ids
-    ]
+    source_findings = source.get("data", {}).get("findings", []) or []
+    source_updates = source.get("data", {}).get("candidate_updates", []) or []
+
+    approved_findings = [f for f in source_findings if f["id"] in approved_ids]
+
+    # Ensure candidate_updates that the user approved AND auto-approved
+    # updates (pre-marked with operation=append_update) get captured. We mark
+    # updates with operation=append_update so downstream stages route them.
+    approved_updates = []
+    for u in source_updates:
+        if u["id"] in approved_ids:
+            entry = dict(u)
+            entry["operation"] = "append_update"
+            approved_updates.append(entry)
 
     envelope = {
         "schema_version": source.get("schema_version", "1.0"),
@@ -302,7 +630,9 @@ def write_approved_json(run_id: str, approved_ids: set[str]) -> Path:
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "stage": "human-review",
         "status": "complete",
-        "data": {"findings": approved_findings},
+        "data": {
+            "findings": approved_findings + approved_updates,
+        },
     }
 
     output_path = RUNS_DIR / run_id / "scanner-approved.json"
@@ -388,8 +718,21 @@ async def cmd_scan(interaction: discord.Interaction):
     run_dir = RUNS_DIR / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
 
+    # Attach per-run audit log — writes everything logged during this scan to
+    # pipeline/runs/<run_id>/audit.log alongside the other stage artifacts
+    audit_handler = attach_run_file_handler(logger, run_id)
+    logger.info("scan starting run_id=%s", run_id)
+
     # Fetch new emails
-    email_files = await asyncio.to_thread(fetch_new_emails, run_id)
+    try:
+        email_files = await asyncio.to_thread(fetch_new_emails, run_id)
+    except IMAPFetchError as e:
+        logger.exception("IMAP fetch failed for run %s", run_id)
+        await channel.send(
+            f"**IMAP fetch failed for `{run_id}`** — {e}\n"
+            f"Continuing with web sources only."
+        )
+        email_files = []
 
     if email_files:
         await channel.send(
@@ -400,15 +743,23 @@ async def cmd_scan(interaction: discord.Interaction):
 
     # Classify emails
     email_dir = run_dir / "emails"
-    classified = classify_emails(email_dir) if email_files else {"fpf": [], "lexology": [], "unknown": []}
+    classified = (
+        classify_emails(email_dir)
+        if email_files
+        else {"fpf": [], "lexology": [], "iapp": [], "unknown": []}
+    )
 
     fpf_emails = classified.get("fpf", [])
     lexology_emails = classified.get("lexology", [])
+    iapp_emails = classified.get("iapp", [])
+    digest_emails = lexology_emails + iapp_emails
 
     if fpf_emails:
         await channel.send(f"**{len(fpf_emails)} FPF legislative email(s)** detected. Processing bills...")
     if lexology_emails:
         await channel.send(f"**{len(lexology_emails)} Lexology digest(s)** detected.")
+    if iapp_emails:
+        await channel.send(f"**{len(iapp_emails)} IAPP newsletter(s)** detected.")
 
     # Run FPF scan if FPF emails found
     if fpf_emails:
@@ -426,9 +777,13 @@ async def cmd_scan(interaction: discord.Interaction):
                 "--max-turns", "20",
                 prompt,
             ]
-            subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
+            return run_claude_and_log_cost(cmd, run_id, "fpf-scan", cwd=PROJECT_ROOT)
 
-        await asyncio.to_thread(_run_fpf_scan)
+        ok, err, cost = await asyncio.to_thread(_run_fpf_scan)
+        if not ok:
+            await channel.send(f"FPF scan FAILED for `{run_id}` — {err}")
+        elif cost > 0:
+            logger.info("fpf-scan cost run_id=%s usd=%.4f", run_id, cost)
 
         # Post FPF results
         fpf_results_path = run_dir / "fpf-bills-processed.json"
@@ -450,13 +805,17 @@ async def cmd_scan(interaction: discord.Interaction):
             embed.set_footer(text=f"Run {run_id}")
             await channel.send(embed=embed)
 
-    # Run Lexology/web scan
+    # Run Lexology/IAPP/web scan
     def _run_scan():
-        if lexology_emails:
-            input_path = str(lexology_emails[0])
+        if digest_emails:
+            input_paths = "\n".join(f"  - {p}" for p in digest_emails)
             prompt = (
                 f"Scan phase for run {run_id}. "
-                f"Input digest file: {input_path}. "
+                f"Input digest files (each file has a .meta.json sidecar indicating source type — "
+                f"Lexology if sender contains 'lexology', IAPP if sender contains 'iapp.org'):\n"
+                f"{input_paths}\n"
+                f"Parse each digest according to its source type (see scanner agent instructions) and "
+                f"combine all findings into a single scanner-output.json. "
                 f"Write all output to pipeline/runs/{run_id}/."
             )
         else:
@@ -470,38 +829,181 @@ async def cmd_scan(interaction: discord.Interaction):
             "--agent", "orchestrator",
             "--output-format", "json",
             "--permission-mode", "acceptEdits",
-            "--max-turns", "30",
+            "--max-turns", "60",
             prompt,
         ]
 
-        subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
-        return run_id
+        ok, err, cost = run_claude_and_log_cost(cmd, run_id, "scan", cwd=PROJECT_ROOT)
+        return run_id, ok, err, cost
 
-    run_id = await asyncio.to_thread(_run_scan)
+    run_id, scan_ok, scan_err, scan_cost = await asyncio.to_thread(_run_scan)
+
+    # Recovery path: if the orchestrator failed (e.g. hit max-turns doing
+    # exploratory work) but the scanner still produced scanner-output.json,
+    # finish the deterministic steps (annotate + dedup + generate-review)
+    # ourselves so the run isn't stuck with un-deduped findings.
+    if not scan_ok:
+        scanner_output = run_dir / "scanner-output.json"
+        scanner_deduped = run_dir / "scanner-deduped.json"
+        if scanner_output.exists() and not scanner_deduped.exists():
+            logger.warning("scan orchestrator failed but scanner-output.json exists; running recovery")
+            await channel.send(
+                f"Orchestrator failed (`{scan_err[:100]}`). "
+                f"Scanner output exists — running recovery (annotate + dedup + review)..."
+            )
+            recovery_ok = True
+            for cmd_list, label in [
+                (["python3", "tools/topic_keys.py", "annotate", "--input", str(scanner_output)], "annotate"),
+                (["bash", "pipeline/scripts/dedup-findings.sh", run_id], "dedup"),
+                (["bash", "pipeline/scripts/generate-review.sh", run_id], "generate-review"),
+            ]:
+                rec_ok, rec_err = await asyncio.to_thread(
+                    run_subprocess_checked, cmd_list, PROJECT_ROOT
+                )
+                if not rec_ok:
+                    await channel.send(f"Recovery step `{label}` failed: {rec_err[:200]}")
+                    recovery_ok = False
+                    break
+            if recovery_ok:
+                (run_dir / "scan-complete.marker").write_text("SCAN_PHASE_COMPLETE\n")
+                await channel.send(f"Recovery complete. Scan can proceed.")
+                scan_ok = True  # Treat as recovered — continue to post findings
+        if not scan_ok:
+            await channel.send(f"Scan FAILED for `{run_id}` — {scan_err}")
+    elif scan_cost > 0:
+        logger.info("scan cost run_id=%s usd=%.4f", run_id, scan_cost)
+        await channel.send(f"Scan cost: **${scan_cost:.4f}**")
     latest_run_id = run_id
 
     findings = load_findings(run_id)
+    candidate_updates = load_candidate_updates(run_id)
     channel = bot.get_channel(CHANNEL_ID)
 
-    if not findings:
-        await channel.send(f"Scan `{run_id}` complete but no findings were produced. Check `pipeline/runs/{run_id}/` for errors.")
+    # Phase 2: classify each update via the reviewer policy so the UI can
+    # show "N auto-apply, M need review". Auto-approved updates are added to
+    # the approval set automatically so /research processes them without a
+    # button click.
+    auto_approved_updates, escalated_updates = _classify_updates(candidate_updates)
+
+    if not findings and not candidate_updates:
+        await channel.send(f"Scan `{run_id}` complete but no findings or updates were produced. Check `pipeline/runs/{run_id}/` for errors.")
+        logger.warning("scan produced no findings run_id=%s", run_id)
+        detach_handler(audit_handler)
         return
 
-    await channel.send(f"**Scan complete: `{run_id}`** — {len(findings)} findings. Posting for review...")
+    logger.info(
+        "scan complete run_id=%s findings=%d updates=%d auto=%d escalated=%d",
+        run_id, len(findings), len(candidate_updates),
+        len(auto_approved_updates), len(escalated_updates),
+    )
+    summary = (
+        f"**Scan complete: `{run_id}`** — "
+        f"**{len(findings)} new findings**, "
+        f"**{len(candidate_updates)} updates** "
+        f"({len(auto_approved_updates)} auto-apply, {len(escalated_updates)} need review)."
+    )
+    await channel.send(summary)
 
-    # Initialize approval state
-    approval_state[run_id] = {}
+    # Initialize approval state with auto-approved update IDs pre-checked
+    approval_state[run_id] = {u["id"]: True for u in auto_approved_updates}
 
     for i, finding in enumerate(findings, 1):
         embed = build_finding_embed(finding, i, len(findings), run_id)
         view = FindingView(run_id, finding["id"])
         await channel.send(embed=embed, view=view)
-        await asyncio.sleep(0.5)  # avoid rate limits
+        await asyncio.sleep(0.5)
+
+    # Post escalated updates with a distinct prefix so users see they're updates
+    if escalated_updates:
+        await channel.send(f"**— {len(escalated_updates)} updates need review —**")
+        for i, upd in enumerate(escalated_updates, 1):
+            embed = build_update_embed(upd, i, len(escalated_updates), run_id)
+            view = FindingView(run_id, upd["id"])
+            await channel.send(embed=embed, view=view)
+            await asyncio.sleep(0.5)
+
+    if auto_approved_updates:
+        await channel.send(
+            f"**{len(auto_approved_updates)} status-change updates** auto-approved "
+            f"(high-confidence bill status changes). They will apply automatically on `/research`."
+        )
 
     await channel.send(
-        f"**Review complete.** Click Approve/Reject on each finding above, "
+        f"**Review complete.** Click Approve/Reject on each item above, "
         f"then run `/approve` to finalize."
     )
+    detach_handler(audit_handler)
+
+
+def _classify_updates(candidate_updates: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Apply the update-review-policy rules in-process so the Discord UI can
+    pre-sort updates into auto-approved (quiet) vs escalated (need review).
+
+    Returns (auto_approved, escalated). Each list preserves the original entry
+    dicts (shallow). This mirrors the reviewer.md policy logic; the real
+    reviewer re-applies it on the research side so the bot's pre-sort is
+    purely cosmetic — it doesn't override the reviewer's verdict.
+    """
+    policy_path = PROJECT_ROOT / "pipeline" / "config" / "update-review-policy.json"
+    try:
+        policy = json.loads(policy_path.read_text())
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        logger.warning("Cannot read %s; escalating all updates: %s", policy_path, e)
+        return [], list(candidate_updates)
+
+    auto = policy.get("auto_approve", {})
+    esc = policy.get("always_escalate", {})
+    auto_signals = set(auto.get("diff_signal") or [])
+    auto_confidence = auto.get("require_confidence", "high")
+    esc_signals = set(esc.get("diff_signal") or [])
+    esc_topic_types = set(esc.get("topic_types_always_escalate") or [])
+    low_conf_escalates = bool(esc.get("low_confidence_always_escalates"))
+
+    auto_approved: list[dict] = []
+    escalated: list[dict] = []
+    for u in candidate_updates:
+        signal = u.get("diff_signal", "")
+        topic_type = u.get("topic_type", "")
+        confidence = u.get("topic_key_confidence", "")
+
+        if signal in esc_signals \
+                or topic_type in esc_topic_types \
+                or (low_conf_escalates and confidence == "low"):
+            escalated.append(u)
+        elif signal in auto_signals and confidence == auto_confidence:
+            auto_approved.append(u)
+        else:
+            escalated.append(u)
+    return auto_approved, escalated
+
+
+def build_update_embed(update: dict, index: int, total: int, run_id: str) -> discord.Embed:
+    """Discord embed for a Phase 2 candidate_update entry needing human review."""
+    title = f"[UPDATE {update['id']}] {update.get('title','')}"
+    if len(title) > 256:
+        title = title[:253] + "..."
+    signal = update.get("diff_signal", "unknown")
+    status_before = update.get("status_before", "")
+    status_after = update.get("status_after", "")
+    prev_key = update.get("previous_topic_key", "")
+    prev_path = update.get("previous_report_path", "")
+
+    color = {
+        "signed": discord.Color.green(),
+        "vetoed": discord.Color.red(),
+        "amendment": discord.Color.gold(),
+        "new_penalty": discord.Color.orange(),
+    }.get(signal, discord.Color.blurple())
+
+    embed = discord.Embed(title=title, color=color)
+    embed.description = (update.get("summary", "") or "")[:1024]
+    embed.add_field(name="Signal", value=signal, inline=True)
+    embed.add_field(name="Transition", value=f"{status_before or '?'} → {status_after or '?'}", inline=True)
+    embed.add_field(name="Existing report", value=f"`{prev_key}`\n`{prev_path}`", inline=False)
+    if update.get("source_url"):
+        embed.add_field(name="Source", value=update["source_url"][:200], inline=False)
+    embed.set_footer(text=f"{index}/{total} | run {run_id}")
+    return embed
 
 
 # ---------------------------------------------------------------------------
@@ -608,138 +1110,98 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         await interaction.response.send_message("No approved findings to research.")
         return
 
+    estimated_cost = len(findings) * RESEARCH_COST_PER_FINDING_USD
     await interaction.response.send_message(
-        f"**Starting full pipeline for `{run_id}`** — "
-        f"{len(findings)} finding(s) to research, review, and categorize."
+        f"**Starting research phase for `{run_id}`** — "
+        f"{len(findings)} finding(s). Estimated cost: **~${estimated_cost:.2f}** "
+        f"(~${RESEARCH_COST_PER_FINDING_USD:.2f}/finding). "
+        f"Delegating to orchestrator Mode 2."
     )
 
     channel = bot.get_channel(CHANNEL_ID)
     run_dir = RUNS_DIR / run_id
+    audit_handler = attach_run_file_handler(logger, run_id)
+    logger.info("research starting run_id=%s findings=%d estimated_usd=%.2f",
+                run_id, len(findings), estimated_cost)
 
-    # --- Stage 1: Researcher (one call per finding) ---
-
-    async def _research_finding(index, finding):
-        finding_id = finding["id"]
-        output_path = f"pipeline/runs/{run_id}/researcher-{finding_id}.json"
-
-        # Skip if already researched
-        if (PROJECT_ROOT / output_path).exists():
-            return True
-
-        finding_json = json.dumps(finding)
+    # Single call into the orchestrator — it handles researcher per finding,
+    # reviewer iteration, escalation detection, and categorizer invocation.
+    def _run_research_phase():
         prompt = (
-            f"Research this regulatory development. Finding {index + 1} of {len(findings)}. "
-            f"Pipeline run ID: {run_id}. "
-            f"Finding data: {finding_json}. "
-            f"Write your output to {output_path}."
+            f"Research phase for run {run_id}. Process approved findings from "
+            f"pipeline/runs/{run_id}/scanner-approved.json. "
+            f"Follow Mode 2 of the orchestrator instructions end-to-end: researcher "
+            f"per finding, reviewer iteration, escalation check, then categorizer if "
+            f"no escalations pending. Write the pipeline-complete.marker on success "
+            f"or has-escalations.marker if escalations block categorization."
         )
-
         cmd = [
             "claude", "-p",
-            "--agent", "researcher",
+            "--agent", "orchestrator",
             "--output-format", "json",
             "--permission-mode", "acceptEdits",
-            "--max-turns", "20",
+            "--max-turns", "120",
             prompt,
         ]
+        return run_claude_and_log_cost(cmd, run_id, "research", cwd=PROJECT_ROOT)
 
-        result = await asyncio.to_thread(
-            subprocess.run, cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT)
-        )
-        return (PROJECT_ROOT / output_path).exists()
-
-    await channel.send("**Stage 1/3: Researching findings...**")
-
-    for i, finding in enumerate(findings):
-        finding_id = finding["id"]
-        title = finding.get("title", "")[:60]
-
-        # Skip already-researched findings
-        if (run_dir / f"researcher-{finding_id}.json").exists():
-            await channel.send(f"`[{i+1}/{len(findings)}]` {title} — already researched, skipping")
-            continue
-
-        await channel.send(f"`[{i+1}/{len(findings)}]` Researching: {title}...")
-        success = await _research_finding(i, finding)
-        if not success:
-            await channel.send(f"  Warning: researcher did not produce output for {finding_id}")
-
-    await channel.send(f"**Research complete.** {len(findings)} findings processed.")
-
-    # --- Stage 2: Reviewer (uses existing shell script) ---
-
-    await channel.send("**Stage 2/3: Reviewing and fact-checking reports...**")
-
-    def _run_reviewer():
-        cmd = [
-            "bash", "pipeline/scripts/run-reviewer.sh", run_id,
-        ]
-        return subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
-
-    reviewer_result = await asyncio.to_thread(_run_reviewer)
-
-    reviewer_output = run_dir / "reviewer-output.json"
-    if reviewer_output.exists():
-        with open(reviewer_output) as f:
-            rev_data = json.load(f)
-        reviews = rev_data.get("data", {}).get("reviews", [])
-        verified = sum(1 for r in reviews if r.get("status") == "verified")
-        escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
+    ok, err, actual_cost = await asyncio.to_thread(_run_research_phase)
+    if not ok:
+        await channel.send(f"Research phase FAILED for `{run_id}` — {err}")
+        detach_handler(audit_handler)
+        return
+    if actual_cost > 0:
+        logger.info("research cost run_id=%s usd=%.4f", run_id, actual_cost)
         await channel.send(
-            f"**Review complete.** {verified} verified, {escalated} escalated."
-        )
-    else:
-        await channel.send(
-            "Warning: reviewer did not produce output. "
-            f"stderr: {reviewer_result.stderr[:300] if reviewer_result.stderr else 'none'}"
+            f"Research cost: **${actual_cost:.4f}** "
+            f"(estimated ${estimated_cost:.2f})"
         )
 
-    # --- Stage 3: Categorizer ---
-
-    # Check for escalations — skip categorizer if escalations pending
-    if (run_dir / "has-escalations.marker").exists() or any(
+    # Interpret result markers
+    pipeline_complete = (run_dir / "pipeline-complete.marker").exists()
+    has_escalations = (run_dir / "has-escalations.marker").exists() or any(
         run_dir.glob("escalation-*.json")
-    ):
-        (run_dir / "has-escalations.marker").write_text("ESCALATIONS_PENDING\n")
+    )
+    reviewer_output = run_dir / "reviewer-output.json"
+
+    # Review stats if available
+    if reviewer_output.exists():
+        try:
+            with open(reviewer_output) as f:
+                rev_data = json.load(f)
+            reviews = rev_data.get("data", {}).get("reviews", [])
+            verified = sum(1 for r in reviews if r.get("status") == "verified")
+            escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
+            await channel.send(
+                f"**Review stats:** {verified} verified, {escalated} escalated."
+            )
+        except json.JSONDecodeError as e:
+            logger.warning("Failed to parse reviewer-output.json for %s: %s", run_id, e)
+
+    if has_escalations and not pipeline_complete:
         await channel.send(
             f"**Pipeline paused for `{run_id}`** — escalations need human review. "
             "Resolve escalations, then run `/research` again."
         )
         return
 
-    await channel.send("**Stage 3/3: Categorizing reports...**")
-
-    def _run_categorizer():
-        prompt = (
-            f"Categorize verified reports. "
-            f"Reviewer output: pipeline/runs/{run_id}/reviewer-output.json. "
-            f"Pipeline run ID: {run_id}. "
-            f"Write output to pipeline/runs/{run_id}/categorizer-output.json"
-        )
-        cmd = [
-            "claude", "-p",
-            "--agent", "categorizer",
-            "--output-format", "json",
-            "--permission-mode", "acceptEdits",
-            "--max-turns", "10",
-            prompt,
-        ]
-        return subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
-
-    await asyncio.to_thread(_run_categorizer)
-
-    if (run_dir / "categorizer-output.json").exists():
-        (run_dir / "pipeline-complete.marker").write_text("PIPELINE_COMPLETE\n")
+    if pipeline_complete:
         filed = find_run_reports(run_id)
         await channel.send(
             f"**Pipeline complete for `{run_id}`!** "
             f"{len(filed)} report(s) filed. Use `/results` to view them."
         )
     else:
+        error_log = run_dir / "error.log"
+        tail = ""
+        if error_log.exists():
+            tail = error_log.read_text()[-500:]
         await channel.send(
-            "Warning: categorizer did not produce output. "
-            "Check the run directory for details."
+            f"Research phase ended without pipeline-complete.marker for `{run_id}`. "
+            f"Check pipeline/runs/{run_id}/ for details.\n"
+            + (f"```\n{tail}\n```" if tail else "")
         )
+    detach_handler(audit_handler)
 
 
 # ---------------------------------------------------------------------------
@@ -796,6 +1258,168 @@ async def cmd_status(interaction: discord.Interaction, run_id: str = None):
     embed.add_field(name="Approved", value=str(approved_count), inline=True)
     embed.add_field(name="Artifacts", value="\n".join(sorted(files)) or "none", inline=False)
 
+    await interaction.response.send_message(embed=embed)
+
+
+def _classify_run_state(run_dir: Path) -> str:
+    """Classify a run directory into a state bucket for /runs overview."""
+    if not run_dir.exists():
+        return "missing"
+    names = {f.name for f in run_dir.iterdir()}
+    if "pipeline-complete.marker" in names:
+        return "complete"
+    if "has-escalations.marker" in names or any(run_dir.glob("escalation-*.json")):
+        return "escalations"
+    if "fpf-complete.marker" in names:
+        return "fpf-complete"
+    if "scanner-approved.json" in names:
+        return "ready-to-research"
+    if "scan-complete.marker" in names:
+        return "awaiting-approval"
+    if "scanner-output.json" in names or "fpf-scanner-output.json" in names:
+        return "scanning"
+    return "in-progress"
+
+
+# ---------------------------------------------------------------------------
+# /runs — overview of all pipeline runs
+# ---------------------------------------------------------------------------
+
+
+@bot.tree.command(name="runs", description="Overview of all pipeline runs by state")
+async def cmd_runs(interaction: discord.Interaction):
+    if not RUNS_DIR.exists():
+        await interaction.response.send_message("No runs directory yet.")
+        return
+
+    run_dirs = sorted(
+        (p for p in RUNS_DIR.iterdir() if p.is_dir()),
+        key=lambda p: p.name,
+        reverse=True,
+    )
+    if not run_dirs:
+        await interaction.response.send_message("No pipeline runs yet.")
+        return
+
+    from collections import Counter
+    counts: Counter[str] = Counter()
+    by_state: dict[str, list[str]] = {}
+    for d in run_dirs:
+        state = _classify_run_state(d)
+        counts[state] += 1
+        by_state.setdefault(state, []).append(d.name)
+
+    state_order = [
+        ("awaiting-approval", discord.Color.gold(), "Awaiting approval"),
+        ("escalations", discord.Color.orange(), "Escalations pending"),
+        ("ready-to-research", discord.Color.blue(), "Ready to research"),
+        ("scanning", discord.Color.greyple(), "Scanning"),
+        ("in-progress", discord.Color.greyple(), "In progress"),
+        ("complete", discord.Color.green(), "Complete"),
+        ("fpf-complete", discord.Color.teal(), "FPF complete"),
+    ]
+
+    embed = discord.Embed(
+        title=f"Pipeline runs ({len(run_dirs)} total)",
+        color=discord.Color.blurple(),
+    )
+    for state, _color, label in state_order:
+        if counts.get(state, 0) == 0:
+            continue
+        runs = by_state[state][:5]
+        more = len(by_state[state]) - len(runs)
+        value = "\n".join(f"`{r}`" for r in runs)
+        if more > 0:
+            value += f"\n… +{more} more"
+        embed.add_field(
+            name=f"{label} ({counts[state]})",
+            value=value or "—",
+            inline=False,
+        )
+
+    embed.set_footer(text="Tip: /status <run_id> for details on a specific run")
+    await interaction.response.send_message(embed=embed)
+
+
+# ---------------------------------------------------------------------------
+# /health — pre-flight check for setup issues
+# ---------------------------------------------------------------------------
+
+
+@bot.tree.command(name="health", description="Verify bot setup: env vars, claude CLI, config files")
+async def cmd_health(interaction: discord.Interaction):
+    checks: list[tuple[str, bool, str]] = []
+
+    # 1. Required env vars
+    for key in ("DISCORD_TOKEN", "DISCORD_GUILD_ID", "DISCORD_CHANNEL_ID"):
+        checks.append((f"env {key}", bool(os.environ.get(key)), "set" if os.environ.get(key) else "missing"))
+    imap_ok = bool(IMAP_EMAIL and IMAP_PASSWORD)
+    checks.append(("env IMAP_EMAIL/IMAP_PASSWORD", imap_ok, "set" if imap_ok else "missing — /scan will skip email fetch"))
+
+    # 2. Claude CLI on PATH
+    ok, err = run_subprocess_checked(["claude", "--version"])
+    checks.append(("claude CLI", ok, err or "available"))
+
+    # 3. Config files
+    for rel in (
+        "pipeline/config/categories.json",
+        "pipeline/config/sources.json",
+        "pipeline/config/topic-key-rules.json",
+    ):
+        p = PROJECT_ROOT / rel
+        if p.exists():
+            try:
+                json.loads(p.read_text())
+                checks.append((rel, True, "valid json"))
+            except json.JSONDecodeError as e:
+                checks.append((rel, False, f"invalid json: {e}"))
+        else:
+            checks.append((rel, False, "missing"))
+
+    # 4. State files
+    for rel in ("reports/index.json", "bills/tracker.json"):
+        p = PROJECT_ROOT / rel
+        if p.exists():
+            try:
+                json.loads(p.read_text())
+                checks.append((rel, True, "valid json"))
+            except json.JSONDecodeError as e:
+                checks.append((rel, False, f"invalid json: {e}"))
+        else:
+            checks.append((rel, False, "missing (will be created on first run)"))
+
+    # 5. Python tools
+    for rel in (
+        "tools/topic_keys.py",
+        "tools/update_reports_index.py",
+        "tools/url_norm.py",
+        "tools/bill_processor.py",
+    ):
+        p = PROJECT_ROOT / rel
+        checks.append((rel, p.exists(), "present" if p.exists() else "missing"))
+
+    all_ok = all(ok for _, ok, _ in checks)
+    embed = discord.Embed(
+        title="Zwiad health check",
+        color=discord.Color.green() if all_ok else discord.Color.red(),
+    )
+    lines = []
+    for name, ok, detail in checks:
+        icon = "[OK]" if ok else "[FAIL]"
+        lines.append(f"`{icon}` {name}  —  {detail}")
+    # Discord field value limit is 1024 chars; split if needed
+    chunk = ""
+    idx = 1
+    for line in lines:
+        if len(chunk) + len(line) + 1 > 1000:
+            embed.add_field(name=f"Checks (part {idx})", value=chunk, inline=False)
+            chunk = line
+            idx += 1
+        else:
+            chunk = f"{chunk}\n{line}" if chunk else line
+    if chunk:
+        embed.add_field(name=f"Checks (part {idx})" if idx > 1 else "Checks", value=chunk, inline=False)
+    embed.set_footer(text="All green = ready to /scan")
     await interaction.response.send_message(embed=embed)
 
 

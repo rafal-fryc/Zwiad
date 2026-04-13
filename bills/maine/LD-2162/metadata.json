@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "LD 2162",
+  "state": "Maine",
+  "state_abbrev": "ME",
+  "session": "2026",
+  "title": "Chatbot Age Verification for Minors",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots",
+    "minors",
+    "age-verification"
+  ],
+  "sponsors": [
+    "Rep. Gramlich (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/maine/LD-2162",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.maine.gov/backend/App/services/getDocument.aspx?documentId=123831",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/maine/LD-2162/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

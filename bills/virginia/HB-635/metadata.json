@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 635",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "Companion Chatbot Safety and Privacy Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [
+    "Del. Maldonado (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/virginia/HB-635",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1115796.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Del. Maldonado (D)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/virginia/HB-635/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

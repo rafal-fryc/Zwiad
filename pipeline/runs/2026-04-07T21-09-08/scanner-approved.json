@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-07T21-09-08",
+  "timestamp": "2026-04-07T21:30:28.684248+00:00",
+  "stage": "human-review",
+  "status": "complete",
+  "data": {
+    "findings": [
+      {
+        "id": "SCAN-20260407-001",
+        "title": "Seventh Circuit Holds BIPA Damages Amendment Applies Retroactively, Reshaping Liability for Hundreds of Pending Cases",
+        "jurisdiction": "IL",
+        "category": "privacy",
+        "development_type": "court-decision",
+        "source": "Duane Morris Class Action Defense Blog",
+        "source_url": "https://blogs.duanemorris.com/classactiondefense/2026/04/03/seventh-circuit-holds-bipa-amendment-applies-retroactively-reversing-three-illinois-federal-court-decisions/",
+        "relevance": "high",
+        "summary": "On April 1, 2026, the U.S. Court of Appeals for the Seventh Circuit held that the August 2024 amendment to Illinois' Biometric Information Privacy Act (BIPA) applies retroactively to cases that were already pending when the amendment was enacted. The amendment limits BIPA damages so that repeated collection of the same biometric data using the same method counts as a single violation rather than a per-scan violation, capping recovery at $5,000 (intentional) or $1,000 (negligent) per person rather than per scan. The ruling reverses three federal district court decisions and significantly reduces potential liability exposure for employers and technology companies facing existing BIPA litigation.",
+        "raw_snippet": "The Seventh Circuit concluded that the amendment is remedial because it governs damages rather than liability and, therefore, applies retroactively under Illinois law. Plaintiffs may recover, at most, $5,000 in statutory damages for intentional violations or $1,000 for negligent violations per person, rather than on a per-scan basis that previously threatened astronomical liability."
+      },
+      {
+        "id": "SCAN-20260407-002",
+        "title": "Washington Governor Signs Two Major AI Safety Bills \u2014 AI Chatbot Safety and AI Content Provenance",
+        "jurisdiction": "WA",
+        "category": "ai-law",
+        "development_type": "legislation",
+        "source": "Hunton Andrews Kurth Privacy and Cybersecurity Law Blog",
+        "source_url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/washington-state-enacts-law-regulating-ai-companion-chatbots-with-private-right-of-action",
+        "relevance": "high",
+        "summary": "Washington Governor Bob Ferguson signed two AI-related bills into law around April 1, 2026. HB 2225 regulates AI companion chatbots, requiring that chatbots targeting minors include disclaimers that the chatbot is not human, prohibit manipulative engagement techniques, direct users expressing self-harm thoughts to crisis resources, and ban sexually suggestive content to minors. HB 1170 requires that video, photo, or audio recordings created or enhanced by AI include distinguishable provenance data to make AI-enhanced content identifiable. Chatbot safety rules take effect January 2027 and AI content labeling requirements take full effect February 2027.",
+        "raw_snippet": "Governor Bob Ferguson signed House Bill 2225, which regulates artificial intelligence companion chatbots. The legislation stipulates that AI chatbots targeted to minors include a disclaimer that the chatbot is not human and prohibits the chatbots from using manipulative engagement techniques, requires chatbots to direct users expressing thoughts of self-harm to crisis resources and bans the creation of sexually suggestive content to minors."
+      },
+      {
+        "id": "SCAN-20260407-003",
+        "title": "Oregon Legislature Passes AI Companion Chatbot Bill SB 1546 With Private Right of Action",
+        "jurisdiction": "OR",
+        "category": "ai-law",
+        "development_type": "legislation",
+        "source": "Troutman Pepper Locke Privacy Law Blog",
+        "source_url": "https://www.troutmanprivacy.com/2026/03/oregon-legislature-passes-bill-regulating-consumer-facing-interactive-ai-with-private-right-of-action/",
+        "relevance": "high",
+        "summary": "Oregon's legislature passed SB 1546 on March 5, 2026, in a near-unanimous vote (Senate 26-1, House 52-0), regulating operators of AI companion systems \u2014 AI that simulates sustained human-like relationships with users. Key requirements include mandatory disclosures that the system is not human, detection of suicidal ideation or self-harm with referrals to crisis resources, restrictions on emotionally manipulative engagement for minors, and prohibition on sexually explicit content to minors. Unlike similar laws, SB 1546 provides a private right of action for users who suffer ascertainable loss, enabling statutory damages of $1,000 per violation. The bill was pending the governor's signature as of early April 2026.",
+        "raw_snippet": "The law provides only a private right of action, where a user who suffers ascertainable loss can bring a civil action for damages (actual or statutory damages of $1,000 per violation), injunctive relief, and attorney fees."
+      },
+      {
+        "id": "SCAN-20260407-005",
+        "title": "FTC Takes Enforcement Action Against Match Group and OkCupid for Sharing User Photos and Data With AI Startup Without Consent",
+        "jurisdiction": "federal",
+        "category": "privacy",
+        "development_type": "enforcement",
+        "source": "FTC.gov",
+        "source_url": "https://www.ftc.gov/news-events/news/press-releases/2026/03/ftc-takes-action-against-match-okcupid-deceiving-users-sharing-personal-data-third-party",
+        "relevance": "high",
+        "summary": "The FTC filed a complaint and final order on March 30, 2026, against Match Group Americas and OkCupid (Humor Rainbow, Inc.) for sharing nearly three million user photos and related personal data \u2014 including location information \u2014 with AI startup Clarifai without user consent and contrary to OkCupid's privacy policy. The data was shared because OkCupid's founders were financial investors in Clarifai, despite no formal business relationship. The companies also attempted to conceal the data sharing and obstruct the FTC's investigation. The settlement permanently bars the companies from misrepresenting their data practices, with future violations carrying financial consequences; no monetary penalty was imposed in the current order.",
+        "raw_snippet": "OkCupid provided the third party with access to nearly three million OkCupid user photos as well as location and other information without placing any formal or contractual restrictions on how the information could be used. The third party was Clarifai, an AI firm with financial ties to OkCupid's founders."
+      },
+      {
+        "id": "SCAN-20260407-006",
+        "title": "California AG Announces Record $2.75 Million CCPA Settlement With Disney for Opt-Out Violations Across Streaming Services",
+        "jurisdiction": "CA",
+        "category": "privacy",
+        "development_type": "enforcement",
+        "source": "California Attorney General",
+        "source_url": "https://oag.ca.gov/news/press-releases/california-wont-let-it-go-attorney-general-bonta-announces-275-million",
+        "relevance": "high",
+        "summary": "California Attorney General Rob Bonta announced on February 11, 2026, a $2.75 million settlement with Walt Disney Company \u2014 the largest CCPA settlement in California history \u2014 for failing to honor consumers' opt-out of sale or sharing rights across Disney's suite of streaming services and devices. The AG's investigation, stemming from a January 2024 sweep of streaming services, found that Disney failed to effectuate opt-out requests across all devices and services associated with a consumer's Disney account. In addition to the penalty, Disney must implement opt-out methods that fully stop data sale or sharing and comply with CCPA opt-out requirements across its entire platform ecosystem.",
+        "raw_snippet": "This $2.75 million settlement is the largest settlement to date under the California Consumer Privacy Act (CCPA). The settlement resulted from an investigative sweep of streaming services for potential CCPA violations that began in January 2024."
+      },
+      {
+        "id": "SCAN-20260407-007",
+        "title": "California Privacy Protection Agency Issues $1.1 Million Fine Against PlayOn Sports for CCPA Student Privacy Violations",
+        "jurisdiction": "CA",
+        "category": "privacy",
+        "development_type": "enforcement",
+        "source": "California Privacy Protection Agency",
+        "source_url": "https://privacy.ca.gov/2026/03/youth-sports-media-company-to-pay-1-1-million-fine-change-practices-over-privacy-violations/",
+        "relevance": "high",
+        "summary": "The California Privacy Protection Agency (CPPA) announced on March 3, 2026, its first enforcement action involving student privacy, fining PlayOn Sports $1.1 million for CCPA violations. PlayOn Sports \u2014 which provides ticketing, streaming, and fundraising platforms to approximately 1,400 California schools \u2014 used tracking technologies to force users to consent to data collection and targeted advertising before accessing tickets or websites, failed to provide an effective opt-out mechanism, and did not honor opt-out preference signals. The CPPA also found that directing consumers to third-party industry opt-out tools (such as NAI or DAA) does not satisfy CCPA opt-out requirements. PlayOn must implement company-operated opt-out mechanisms and revise its privacy notices.",
+        "raw_snippet": "The CPPA's order makes clear that businesses cannot satisfy their CCPA opt-out obligations by directing consumers to third-party, industry-run tools such as those offered by the Network Advertising Initiative or the Digital Advertising Alliance."
+      },
+      {
+        "id": "SCAN-20260407-008",
+        "title": "White House Releases National Policy Framework for AI, Urges Congress to Preempt State AI Laws",
+        "jurisdiction": "federal",
+        "category": "ai-law",
+        "development_type": "guidance",
+        "source": "Ropes & Gray",
+        "source_url": "https://www.ropesgray.com/en/insights/alerts/2026/03/the-white-house-legislative-recommendations-national-policy-framework-for-artificial-intelligence-an",
+        "relevance": "high",
+        "summary": "On March 20, 2026, the White House released a National Policy Framework for Artificial Intelligence, constituting legislative recommendations to Congress pursuant to President Trump's December 2025 executive order. The Framework calls for broad federal preemption of state AI laws that impose 'undue burdens,' while preserving states' traditional police powers to protect children, prevent fraud, and safeguard consumers. It proposes targeted federal standards in areas such as child safety and digital replicas, and recommends precluding states from regulating AI model development or imposing liability on AI developers for third-party misuse. The Framework is non-binding and does not itself alter existing legal obligations.",
+        "raw_snippet": "The Framework urges Congress to adopt a federally unified, innovation-oriented regime centered on preemption of state AI laws and a 'light-touch' regulatory approach. More specifically, the Framework supports broad federal preemption of state AI laws that impose undue burdens, while preserving states' traditional police powers to enforce laws of general applicability."
+      },
+      {
+        "id": "SCAN-20260407-009",
+        "title": "Kentucky HB 692 Signed Into Law \u2014 Classifies Smart TV Automatic Content Recognition Data as Sensitive Under Privacy Law",
+        "jurisdiction": "KY",
+        "category": "privacy",
+        "development_type": "legislation",
+        "source": "Kentucky Legislature",
+        "source_url": "https://apps.legislature.ky.gov/record/26rs/hb692.html",
+        "relevance": "medium",
+        "summary": "Kentucky Governor signed HB 692 into law on March 31, 2026, amending the state's consumer data privacy law to classify automatic content recognition (ACR) data as sensitive personal data. ACR technology enables smart TVs and monitors to track what content users watch. Under the amended law, manufacturers must obtain explicit consumer consent before collecting ACR data. The bill passed the House unanimously and takes effect July 1, 2027.",
+        "raw_snippet": "HB 692 classifies automatic content recognition data as sensitive, meaning smart TV manufacturers need your explicit consent before tracking what you watch. According to one tracking source, HB 692 became law on March 31, 2026."
+      },
+      {
+        "id": "SCAN-20260407-010",
+        "title": "State Privacy Law Tracker Update: Maine LD 1822 Stalls, Ohio HB 807 Introduced to Ban Sale of Sensitive Data",
+        "jurisdiction": "federal",
+        "category": "privacy",
+        "development_type": "legislation",
+        "source": "Troutman Pepper Locke Privacy Law Blog",
+        "source_url": "https://www.troutmanprivacy.com/2026/04/proposed-state-privacy-law-update-april-6-2026/",
+        "relevance": "medium",
+        "summary": "The April 6, 2026, Troutman Pepper Locke state privacy law tracker reports that Maine's comprehensive consumer data privacy bill (LD 1822) stalled in the House after five key Democrats flipped their votes. Ohio introduced HB 807 on March 31, 2026, which would prohibit government and private entities from selling sensitive personal data to data brokers for profit, except for permitted purposes. Several state legislatures with active privacy bills \u2014 including Alabama, Kansas, Kentucky, Nebraska, and Tennessee \u2014 face April deadlines for advancing legislation before their sessions close.",
+        "raw_snippet": "Maine's consumer data privacy bill (LD 1822) stalled on a procedural vote in the House, with five key Democrats flipping their votes, while Kentucky's HB 692 passed the legislature and was delivered to the governor. Ohio lawmakers are now considering a bill (HB 807) that restricts the selling of sensitive data."
+      },
+      {
+        "id": "SCAN-20260407-011",
+        "title": "CIRCIA Final Cyber Incident Reporting Rule Delayed Again \u2014 Now Expected May 2026 at Earliest",
+        "jurisdiction": "federal",
+        "category": "cybersecurity",
+        "development_type": "regulation",
+        "source": "Davis Wright Tremaine Privacy and Security Law Blog",
+        "source_url": "https://www.dwt.com/blogs/privacy--security-law-blog/2025/09/cisa-delays-cyber-incident-reporting-rules-2026",
+        "relevance": "medium",
+        "summary": "CISA's final rule implementing the Cyber Incident Reporting for Critical Infrastructure Act (CIRCIA) has been delayed to May 2026 at the earliest, following a lapse in DHS appropriations that forced cancellation of stakeholder town hall meetings scheduled for March through early April 2026. The rule will require critical infrastructure operators to report covered cyber incidents to CISA within 72 hours and ransomware payments within 24 hours. CISA has also indicated it will use additional time to streamline the rule and reduce industry burden before finalizing. The original statutory deadline was October 2025.",
+        "raw_snippet": "Due to a lapse in appropriations for the United States Department of Homeland Security (DHS), CISA was unable to hold the CIRCIA town hall meetings as scheduled for March 9 through April 2, 2026, and the continued delays associated with federal appropriations lapses will likely result in a delay to the issuance of the final rule."
+      },
+      {
+        "id": "SCAN-20260407-013",
+        "title": "COPPA Final Rule Amendments Take Effect April 22, 2026 \u2014 Adds Biometric Data, Restricts AI Training Use of Children's Data",
+        "jurisdiction": "federal",
+        "category": "privacy",
+        "development_type": "regulation",
+        "source": "State of Surveillance",
+        "source_url": "https://stateofsurveillance.org/news/coppa-2026-new-rules-children-privacy-biometric-data/",
+        "relevance": "high",
+        "summary": "The FTC's 2025 COPPA Final Rule amendments, passed 5-0 in January 2025, have a compliance deadline of April 22, 2026. The updated rules add biometric data (fingerprints, face scans, voiceprints, DNA) to the list of protected children's information, require separate parental consent before sharing children's data with advertisers or for AI training, and ban indefinite data retention for children's data. Collecting children's data for AI training purposes is explicitly classified as never being part of a core service, meaning it always requires separate parental consent. Penalties for violations are up to $51,744 per incident per day.",
+        "raw_snippet": "The new rules add biometric data (fingerprints, face scans, voiceprints, DNA) to the list of protected information. Companies must get separate parental consent before sharing kids' data with advertisers or AI training systems. The new COPPA rules explicitly say that collecting children's data for AI training is never considered part of providing a service."
+      },
+      {
+        "id": "SCAN-20260407-015",
+        "title": "NIST AI Agent Standards Initiative Launches Sector-Specific Listening Sessions Starting April 2026",
+        "jurisdiction": "federal",
+        "category": "ai-law",
+        "development_type": "guidance",
+        "source": "NIST",
+        "source_url": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+        "relevance": "medium",
+        "summary": "NIST's Center for AI Standards and Innovation (CAISI) announced the AI Agent Standards Initiative in February 2026, aimed at developing standards for interoperable and secure AI agents. Beginning in April 2026, CAISI is conducting listening sessions on sector-specific barriers to AI adoption and deployment, with an initial focus on AI agents. The initiative is separate from, but related to, NIST's ongoing development of the Cybersecurity Framework Profile for AI (NIST IR 8596), whose initial public draft is expected later in 2026 after the preliminary draft's public comment period closed in January 2026.",
+        "raw_snippet": "NIST's Center for AI Standards and Innovation (CAISI) announced the launch of the AI Agent Standards Initiative, and beginning in April, CAISI will hold listening sessions on sector-specific barriers to AI adoption, with a focus on AI agents."
+      },
+      {
+        "id": "SCAN-20260407-016",
+        "title": "Colorado AI Act Enforcement Delayed Until June 30, 2026 \u2014 State Legislature Also Advancing Chatbot Safety Bill HB 1263",
+        "jurisdiction": "CO",
+        "category": "ai-law",
+        "development_type": "legislation",
+        "source": "Hunton Andrews Kurth Privacy and Information Security Law Blog",
+        "source_url": "https://www.hunton.com/privacy-and-information-security-law/enforcement-of-colorado-ai-act-delayed-until-june-2026",
+        "relevance": "medium",
+        "summary": "Colorado Governor Jared Polis signed SB 25B-004 into law, delaying enforcement of the Colorado Artificial Intelligence Act \u2014 the first comprehensive state AI law in the US \u2014 from February 1, 2026, to June 30, 2026. The Act requires deployers of high-risk AI systems to use reasonable care to avoid algorithmic discrimination, conduct impact assessments, and provide transparency disclosures. Separately, Colorado HB 1263, a chatbot safety bill adding parental access tools and restricting emotionally manipulative and sexually explicit content in chatbots, cleared the House Business Affairs & Labor Committee on March 26, 2026, and was scheduled for a full House floor hearing on April 2, 2026.",
+        "raw_snippet": "Colorado Governor Jared Polis recently signed Senate Bill 25B-004 into law, which delays the enforcement date of the Colorado Artificial Intelligence Act from February 1, 2026, to June 30, 2026."
+      }
+    ]
+  }
+}

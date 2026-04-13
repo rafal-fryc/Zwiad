@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 357",
+  "state": "Utah",
+  "state_abbrev": "UT",
+  "session": "2026",
+  "title": "Utah Motor Vehicle Data Privacy Rights Under UCPA",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "consumer-data",
+    "vehicle-privacy",
+    "consumer-rights"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/utah/HB-357",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://le.utah.gov/session/2026/bills/introduced/HB0357S01.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/utah/HB-357/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

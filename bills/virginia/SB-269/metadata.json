@@ -1,0 +1,46 @@
+{
+  "bill_identifier": "SB 269",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "Virginia AI in Mental Health Care (Illinois HB 1806-style, Amended)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "mental-health"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/virginia/SB-269",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1087048.PDF",
+  "status_history": [
+    {
+      "date": "2026-01-29",
+      "status": "passed-committee",
+      "detail": "Passed out of committee with amendments expanding scope of permissible AI use in therapy and counseling",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    },
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed Senate",
+      "source_email_date": "2026-02-12",
+      "source_run_id": "fpf-chronological-week-04-Feb-12-13"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/virginia/SB-269/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-04-Feb-12-13"
+}

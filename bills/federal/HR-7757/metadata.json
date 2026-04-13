@@ -1,0 +1,44 @@
+{
+  "bill_identifier": "H.R. 7757",
+  "state": "Federal",
+  "state_abbrev": "US",
+  "session": "2026",
+  "title": "Kids Internet and Digital Safety (KIDS) Act",
+  "category": [
+    "ai-law",
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "online-safety",
+    "chatbots",
+    "youth-safety"
+  ],
+  "sponsors": [
+    "Rep. Guthrie (R-KY)"
+  ],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/federal/HR-7757",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://d1dth6e84htgma.cloudfront.net/H_R_7757_Kids_Internet_and_Digital_Safety_Act_8850eda43f.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-05",
+      "status": "passed-committee",
+      "detail": "Amended and reported out of House Energy and Commerce Committee; amendment adopted as amendment in the nature of a substitute (AINS) from Rep. Guthrie (R-KY)",
+      "source_email_date": "2026-03-05",
+      "source_run_id": "fpf-chronological-week-07-Mar-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/federal/HR-7757/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-07-Mar-5-6",
+  "last_updated_run": "fpf-chronological-week-07-Mar-5-6"
+}

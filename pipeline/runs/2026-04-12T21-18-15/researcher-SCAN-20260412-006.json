@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:45:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-006",
+    "title": "House Discussion Draft Would Modernize GLBA Title V and Broadly Preempt State Financial Privacy Laws",
+    "report_path": "reports/privacy/financial-privacy/glba-reform-huizenga-discussion-draft-2026-04-12.md",
+    "verification_status": "verified",
+    "sources_count": 10,
+    "sources": [
+      {"url": "https://iapp.org/news/a/a-view-from-dc-the-federal-plan-to-modernize-and-preempt-financial-privacy-rules", "title": "A view from DC: The federal plan to modernize — and preempt — financial privacy rules", "accessed": "2026-04-12", "key_facts": "Primary source; April 10, 2026 IAPP analysis confirming March 17 hearing and preemption thrust of Huizenga draft."},
+      {"url": "https://www.consumerfinancialserviceslawmonitor.com/2026/03/house-financial-services-committee-discussion-draft-to-amend-glba-and-preempt-state-regimes/", "title": "House Financial Services Committee Discussion Draft to Amend GLBA and Preempt State Regimes", "accessed": "2026-04-12", "key_facts": "Provision-level analysis: data minimization, enhanced opt-out, express preemption, state insurance carve-out."},
+      {"url": "https://www.jdsupra.com/legalnews/house-financial-services-committee-3432533/", "title": "JD Supra republication of Troutman Pepper Locke analysis", "accessed": "2026-04-12", "key_facts": "Confirms Troutman analysis."},
+      {"url": "https://bankingjournal.aba.com/2026/03/lawmakers-consider-potential-changes-to-data-privacy-law/", "title": "Lawmakers consider potential changes to data privacy law", "accessed": "2026-04-12", "key_facts": "ABA position explicitly supporting preemption."},
+      {"url": "https://financialservices.house.gov/news/documentsingle.aspx?DocumentID=410833", "title": "House Financial Services Committee RFI on federal consumer financial data privacy", "accessed": "2026-04-12", "key_facts": "Official committee solicitation; proves procedural posture."},
+      {"url": "https://www.nclc.org/resources/coalition-letter-to-house-financial-services-modernize-gramm-leach-bliley-but-do-not-nullify-state-consumer-protections/", "title": "NCLC coalition letter opposing preemption", "accessed": "2026-04-12", "key_facts": "Consumer advocate position against preemption."},
+      {"url": "https://epic.org/epic-urges-house-financial-services-committee-to-protect-financial-privacy/", "title": "EPIC statement on House FSC financial privacy proposal", "accessed": "2026-04-12", "key_facts": "EPIC opposition to preemption without stronger substantive protections."},
+      {"url": "https://www.americascreditunions.org/news-media/news/draft-data-privacy-bill-includes-important-relief-needs-additional-updates", "title": "America's Credit Unions on draft data privacy bill", "accessed": "2026-04-12", "key_facts": "Credit union trade group support with caveats."},
+      {"url": "https://www.pymnts.com/credit-unions/2026/credit-unions-back-house-financial-privacy-bill/", "title": "Credit Unions Back House Financial Privacy Bill", "accessed": "2026-04-12", "key_facts": "Secondary confirmation of credit union support."},
+      {"url": "https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act", "title": "FTC — Gramm-Leach-Bliley Act overview", "accessed": "2026-04-12", "key_facts": "Official baseline description of existing GLBA framework."}
+    ]
+  }
+}

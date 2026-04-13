@@ -1,0 +1,43 @@
+{
+  "bill_identifier": "HB 4496",
+  "state": "West Virginia",
+  "state_abbrev": "WV",
+  "session": "2026",
+  "title": "AI-Generated Media Disclosure",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "genai",
+    "disclosure",
+    "media",
+    "genai-transparency"
+  ],
+  "sponsors": [
+    "Del. Flannigan (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/west-virginia/HB-4496",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.wvlegislature.gov/Bill_Text_HTML/2026_SESSIONS/RS/bills/hb4496%20intr.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-22",
+      "source_run_id": "fpf-chronological-week-01-Jan-22-23"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/west-virginia/HB-4496/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-01-Jan-22-23",
+  "last_updated_run": "fpf-chronological-week-01-Jan-22-23"
+}

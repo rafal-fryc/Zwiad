@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 2157",
+  "state": "Washington",
+  "state_abbrev": "WA",
+  "session": "2026",
+  "title": "Washington ADMT High-Risk AI Regulation",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "admt",
+    "high-risk-ai"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/washington/HB-2157",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/House%20Bills/2157-S.pdf#page=1",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed out of committee",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/washington/HB-2157/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

@@ -1,0 +1,45 @@
+{
+  "finding_id": "SCAN-20260412-009",
+  "report_path": "reports/privacy/take-it-down-act-first-conviction-2026-04-12.md",
+  "round": 2,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "The criminal prohibition is codified at 47 U.S.C. § 223(h)",
+      "section": "The TAKE IT DOWN Act",
+      "source_url": "https://www.law.cornell.edu/uscode/text/47/223",
+      "issue": "Round 1 critical issue resolved. Now correctly states criminal prohibition at 47 U.S.C. § 223(h), distinguished from Title 18.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    },
+    {
+      "claim": "FTC enforcement hyperlink mismatch",
+      "section": "The TAKE IT DOWN Act",
+      "source_url": "https://www.law.cornell.edu/uscode/text/15/45",
+      "issue": "Round 1 major issue resolved. Hyperlink now points to 15 U.S.C. § 45.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    },
+    {
+      "claim": "Ambiguous passage date 'April 28, 2025'",
+      "section": "The TAKE IT DOWN Act",
+      "source_url": null,
+      "issue": "Round 1 minor issue resolved. House/Senate dates now properly separated.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    },
+    {
+      "claim": "First-ever criminal conviction",
+      "section": "Executive Summary",
+      "source_url": "https://www.justice.gov/usao-sdoh/pr/columbus-man-pleads-guilty-cyberstalking-exes-creating-ai-generated-obscene-material",
+      "issue": "Round 1 minor issue resolved. Qualifier '(conviction via guilty plea; sentencing pending)' added.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    }
+  ],
+  "resolution_status": "resolved"
+}

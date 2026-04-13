@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+# LEGACY: This script is the standalone CLI alternative to the Discord
+# approval flow (/approve_all, /approve, /reject). The production runtime
+# bypasses this script. Kept for ad-hoc CLI use and pytest fixtures.
+#
 # Parse approved review markdown back to JSON for pipeline
 # Usage: approve-findings.sh <run-id>
 # Reads: pipeline/runs/<run-id>/scanner-review.md

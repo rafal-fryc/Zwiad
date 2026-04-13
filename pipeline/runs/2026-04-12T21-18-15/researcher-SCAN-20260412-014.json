@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T22:45:00+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "finding_id": "SCAN-20260412-014",
+    "title": "DOJ Urges First Circuit to Uphold VPPA Against First Amendment Challenge in Hearst Appeal",
+    "report_path": "reports/privacy/doj-vppa-first-circuit-brief-2026-04-12.md",
+    "verification_status": "partial",
+    "sources_count": 9,
+    "sources": [
+      {"url": "https://www.mediapost.com/publications/article/414084/trump-admin-to-court-dont-strike-down-video-priv.html", "title": "Trump Admin To Court: Don't Strike Down Video Privacy Act", "accessed": "2026-04-12", "key_facts": "Primary source on DOJ's April 2026 First Circuit brief; direct quotes from the filing."},
+      {"url": "https://www.mediapost.com/publications/article/404945/doj-sides-against-hearst-in-battle-over-video-priv.html", "title": "DOJ Sides Against Hearst In Battle Over Video Privacy Law", "accessed": "2026-04-12", "key_facts": "DOJ's prior district-court-stage position on VPPA constitutionality."},
+      {"url": "https://www.courtlistener.com/docket/67334038/saunders-v-hearst-television-inc/", "title": "Saunders v. Hearst Television, Inc. docket", "accessed": "2026-04-12", "key_facts": "Case number 1:23-cv-10998 (D. Mass.); confirms underlying litigation."},
+      {"url": "https://caselaw.findlaw.com/court/us-dis-crt-d-mas/115708870.html", "title": "Saunders v. Hearst Television (D. Mass. 2024)", "accessed": "2026-04-12", "key_facts": "District court opinion text."},
+      {"url": "https://www.law360.com/articles/2330320/hearst-wins-toss-of-vppa-suit-over-news-app-data-sharing", "title": "Hearst Wins Toss Of VPPA Suit Over News App Data Sharing", "accessed": "2026-04-12", "key_facts": "Confirms Hearst prevailed at district court, setting up plaintiff's First Circuit appeal."},
+      {"url": "https://www.law.cornell.edu/uscode/text/18/2710", "title": "18 U.S.C. § 2710 (VPPA)", "accessed": "2026-04-12", "key_facts": "Official statutory text of the VPPA."},
+      {"url": "https://www.privacyworld.blog/2026/02/supreme-court-agrees-to-resolve-vppa-circuit-split/", "title": "Supreme Court Agrees to Resolve VPPA Circuit Split", "accessed": "2026-04-12", "key_facts": "Parallel SCOTUS VPPA proceeding on 'consumer' definition."},
+      {"url": "https://www.ropesgray.com/en/insights/alerts/2026/02/supreme-court-to-consider-the-video-privacy-protection-act", "title": "Supreme Court to Consider the Video Privacy Protection Act", "accessed": "2026-04-12", "key_facts": "Confirms SCOTUS cert grant on VPPA consumer definition."},
+      {"url": "https://www.wilmerhale.com/en/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/20260123-2025-year-in-review-video-privacy-protection-act-litigation-trends", "title": "2025 Year In Review: VPPA Litigation Trends", "accessed": "2026-04-12", "key_facts": "Confirms breadth of VPPA class-action wave."}
+    ]
+  }
+}

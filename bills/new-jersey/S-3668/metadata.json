@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "S 3668",
+  "state": "New Jersey",
+  "state_abbrev": "NJ",
+  "session": "2026",
+  "title": "AI Transparency",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "transparency"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/new-jersey/S-3668",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://pub.njleg.gov/publications/pdf/New_Jersey_Legislature_Anti-Discrimination_Anti-Harassment_Policy.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/new-jersey/S-3668/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

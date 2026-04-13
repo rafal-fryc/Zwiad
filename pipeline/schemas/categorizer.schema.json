@@ -18,7 +18,13 @@
           "subcategory": { "type": "string" },
           "is_pending": { "type": "boolean" },
           "proposed_subcategory": { "type": "string" },
-          "symlinks": { "type": "array", "items": { "type": "string" } }
+          "symlinks": { "type": "array", "items": { "type": "string" } },
+          "topic_key": { "type": "string" },
+          "topic_type": {
+            "type": "string",
+            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+          },
+          "index_updated": { "type": "boolean" }
         }
       }
     }

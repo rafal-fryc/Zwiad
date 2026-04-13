@@ -1,0 +1,54 @@
+{
+  "finding_id": "SCAN-20260412-014",
+  "report_path": "reports/privacy/doj-vppa-first-circuit-brief-2026-04-12.md",
+  "round": 2,
+  "claims_checked": 18,
+  "issues": [
+    {
+      "claim": "Hearst prevailed at the district court level, which dismissed the case",
+      "section": "Background",
+      "source_url": null,
+      "issue": "Fixed: summary judgment by Judge Stearns (D. Mass., April 2025) now correctly stated.",
+      "severity": "major",
+      "suggested_fix": "N/A.",
+      "status": "fixed"
+    },
+    {
+      "claim": "First Circuit docket number missing",
+      "section": "Background",
+      "source_url": null,
+      "issue": "Fixed: No. 25-1487 (1st Cir., filed May 21, 2025) now cited throughout.",
+      "severity": "major",
+      "suggested_fix": "N/A.",
+      "status": "fixed"
+    },
+    {
+      "claim": "Hearst's First Amendment theory missing content-based/speaker-based framing",
+      "section": "Background",
+      "source_url": null,
+      "issue": "Fixed: content-based and speaker-based theory with strict scrutiny now described; DOJ rebuttal framed as content-neutrality argument.",
+      "severity": "major",
+      "suggested_fix": "N/A.",
+      "status": "fixed"
+    },
+    {
+      "claim": "SCOTUS case unnamed",
+      "section": "Why This Matters",
+      "source_url": null,
+      "issue": "Fixed: Salazar v. Paramount Global (6th Cir.), cert granted Jan. 26, 2026, OT2026-27 argument now named.",
+      "severity": "minor",
+      "suggested_fix": "N/A.",
+      "status": "fixed"
+    },
+    {
+      "claim": "Brief first reported by MediaPost on April 6, 2026",
+      "section": "Executive Summary",
+      "source_url": "https://www.mediapost.com/publications/article/414084/trump-admin-to-court-dont-strike-down-video-priv.html",
+      "issue": "Confirmed.",
+      "severity": "minor",
+      "suggested_fix": "N/A.",
+      "status": "fixed"
+    }
+  ],
+  "resolution_status": "resolved"
+}

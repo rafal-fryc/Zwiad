@@ -1,6 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
+# LEGACY: This script is the standalone CLI alternative to invoking the
+# researcher via Discord. The production runtime (discord_bot.py /research +
+# orchestrator Mode 2) bypasses this script entirely. Kept for ad-hoc CLI use
+# and legacy pytest fixtures (tests/test-approval-gate.sh).
+#
 # Researcher pipeline orchestration script
 # Usage: run-researcher.sh <run-id>
 # Reads approved findings from pipeline/runs/<run-id>/scanner-approved.json

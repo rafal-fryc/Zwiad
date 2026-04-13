@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HF 3893",
+  "state": "Minnesota",
+  "state_abbrev": "MN",
+  "session": "2026",
+  "title": "Minnesota AI Mental Health Services and Ambient Listening Regulation",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "health",
+    "chatbots"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/minnesota/HF-3893",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.house.leg.state.mn.us/hinfo/leginfo/memroster.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-committee",
+      "detail": "Passed committee",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/minnesota/HF-3893/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

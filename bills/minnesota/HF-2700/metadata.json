@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "HF 2700",
+  "state": "Minnesota",
+  "state_abbrev": "MN",
+  "session": "2026",
+  "title": "Consumer Health Data Protections (MNCDPA Amendment)",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "health"
+  ],
+  "sponsors": [],
+  "current_status": "in-committee",
+  "bill_dir": "bills/minnesota/HF-2700",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.house.leg.state.mn.us/hinfo/leginfo/memroster.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "in-committee",
+      "detail": "Active after hiatus; received committee hearing",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/minnesota/HF-2700/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

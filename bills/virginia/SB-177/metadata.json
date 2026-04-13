@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 177",
+  "state": "Virginia",
+  "state_abbrev": "VA",
+  "session": "2026",
+  "title": "Virginia VCDPA Reproductive and Sexual Health Information Amendment",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "health-data",
+    "sensitive-data"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/virginia/SB-177",
+  "current_version": "v2-version-2",
+  "download_status": "success",
+  "bill_text_url": "https://lis.blob.core.windows.net/files/1083662.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Senate voted 39-0 to pass the bill.",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v2-version-2",
+      "date": "2026-04-09",
+      "pdf_path": "bills/virginia/SB-177/versions/v2-version-2.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

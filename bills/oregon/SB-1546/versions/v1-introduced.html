@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>SB1546 2026 Regular Session -  Oregon Legislative Information System</title>
+    <link href="/liz/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    
+
+
+
+<link href="https://apps.oregonlegislature.gov/cdn/bootstrap/3.2.0/css/bootstrap-bundle.min.css" rel="stylesheet"/>
+
+
+
+
+
+
+<link href="https://apps.oregonlegislature.gov/cdn/Leg/1.1.1/css/LegStandard.min.css" rel="stylesheet"/>
+
+<link href="https://apps.oregonlegislature.gov/cdn/jquery.dataTables/1.10.2/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
+
+<link href="https://apps.oregonlegislature.gov/cdn/toastr/2.0.3/css/toastr.min.css" rel="stylesheet"/>
+
+<link href="/liz/Content/Application.css" rel="stylesheet"/>
+<link href="/liz/Content/legFooter.css" rel="stylesheet"/>
+
+
+<link href=https://www.oregonlegislature.gov/olisnotification/olis-notification.css rel="stylesheet">
+
+    
+    <script src="//apps.oregonlegislature.gov/cdn/modernizr/2.8.3/modernizr-2.8.3.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/jquery-custom-bundle/1.1.2/jquery-bundle.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/jquery.dataTables/1.10.2/jquery.dataTables.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/typeahead.jquery/0.10.4/typeahead.jquery.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/bootstrap/3.2.0/js/bootstrap-bundle.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/jquery.cookie/1.4/jquery.cookie.min.js"></script>
+
+<script src="//apps.oregonlegislature.gov/cdn/Leg/1.1.2/js/leg-bundle.min.js"></script>
+
+
+<script>
+   var require = {
+      baseUrl: '/liz/Scripts'
+   };
+</script>
+
+
+<script src="//apps.oregonlegislature.gov/cdn/toastr/2.0.3/js/toastr.min.js"></script>
+
+
+    
+    <script src="/liz/Scripts/dataLoadAction.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DW4JVLGNKY"></script>
+<script src="/liz/Scripts/googleAnalytics.js"></script>
+
+
+</head>
+<body translate="no">
+    <div id="mainWrapper" class="container-fluid">
+        <header class="row hidden-xs" style="margin-left: -20px">
+            <div class="top-menu">
+                <a href="http://www.oregonlegislature.gov/" class="oregon-leg-icon-link hidden-xs" target="_blank"></a>
+                <div class="col-sm-4 col-md-5" style="margin: 0px 0px 0px 180px; padding-left: 5px;">
+                    <h4 class="banner-header">
+                        <a href="http://www.oregonlegislature.gov/" target="_blank" class="visible-md visible-lg" style="line-height:20px; font-weight: 600">Oregon State Legislature</a>
+                    </h4>
+                    <a href="/liz/"><small class="banner-subheader"><span class="">Oregon Legislative Information</span></small></a>
+                    <div class="page-menu page-menu-text hidden-xs ">
+                        
+                        
+
+<a href="https://www.oregonlegislature.gov/OLIS_help/Pages/Measures.aspx#Overview" target="_blank">Help</a>
+     | <a href="/liz/2026R1/Account/Login">Staff Login</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mobile-nav visible-xs row">
+            <div class="col-xs-12" id="mobile-navbar">
+                
+
+
+<nav class="navbar navbar-default default-main-nav" style="">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            
+            <a id="mobile-nav-brand" 
+                class="navbar-brand visible-xs" 
+                data-toggle="collapse" 
+                data-target="#mobile-main-menu-bar-mobile-collapse" 
+                style="height: 35px !important">
+                Oregon Legislative Information
+            </a>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobile-main-menu-bar-mobile-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-main-menu-bar-mobile-collapse" class="navbar-collapse collapse">
+        <ul id="navigation-mobile">
+
+                <li id="navigation-1-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-1-mobile-collapse"
+                       data-icon-element="#navigation-1-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Session
+                        </span>
+                        <i id="navigation-1-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-1-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/SessionSelect?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-2-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class="current"
+                       data-toggle="collapse"
+                       data-target="#navigation-2-mobile-collapse"
+                       data-icon-element="#navigation-2-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Bills
+                        </span>
+                        <i id="navigation-2-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-2-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/BillSearchForm?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-3-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-3-mobile-collapse"
+                       data-icon-element="#navigation-3-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Committees
+                        </span>
+                        <i id="navigation-3-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-3-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/CommitteeMainNav?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-4-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-4-mobile-collapse"
+                       data-icon-element="#navigation-4-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            Exec. Appts.
+                        </span>
+                        <i id="navigation-4-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-4-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/ExecApptNavigation?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+                <li id="navigation-5-mobile" class="mobile-menu-li" style="display: block">
+                    <a href="#" class=""
+                       data-toggle="collapse"
+                       data-target="#navigation-5-mobile-collapse"
+                       data-icon-element="#navigation-5-mobile-icon"
+                       data-collapsed-icon="glyphicon-plus"
+                       data-expanded-icon="glyphicon-minus">
+
+                        <span style="text-indent: 0px" class="mobile-header-text">
+                            More
+                        </span>
+                        <i id="navigation-5-mobile-icon" class="mobile-nav-icon glyphicon glyphicon-plus"></i>
+                    </a>
+                    <div id="navigation-5-mobile-collapse" class="collapse" data-load-action="/liz/2026R1/Navigation/ReportsForm?mobile=True" style="background: rgb(218, 206, 191);">
+                    </div>
+                </li>
+
+        </ul>
+    </div>
+</nav>
+
+
+            </div>
+        </div>
+
+        <div class="visible-xs row mobile-page-menu">
+            
+            
+
+<a href="https://www.oregonlegislature.gov/OLIS_help/Pages/Measures.aspx#Overview" target="_blank">Help</a>
+     | <a href="/liz/2026R1/Account/Login">Staff Login</a>
+        </div>
+        
+        
+
+        
+        <section class="row">
+            <div id="center-content" class="center-content-padding container">
+                <div class="content-wrap">
+                    <div class="main-nav-wrapper hidden-xs" style="position: relative;">
+                        <div class="pull-right" style="margin-top: -109px;">
+                            
+
+
+<nav class="navbar navbar-default default-main-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand visible-xs" data-toggle="collapse" data-target="#main-menu-bar">
+                Oregon Legislative Information System
+            </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-bar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    </div>
+    <div id="main-menu-bar" class="navbar-collapse collapse">
+        <ul id="navigation" style="margin-top: 6px; margin-left: -15px">
+
+
+                <li id="navigation-1" class="button-group" data-action="/liz/2026R1/Navigation/SessionSelect" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Session</span>
+                    </a>
+                </li>
+                <li id="navigation-2" class="button-group" data-action="/liz/2026R1/Navigation/BillSearchForm" data-navigation="true">
+                    <a href="#" class="current">
+                        <span>Bill</span>
+                    </a>
+                </li>
+                <li id="navigation-3" class="button-group" data-action="/liz/2026R1/Navigation/CommitteeMainNav" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Committees</span>
+                    </a>
+                </li>
+                <li id="navigation-4" class="button-group" data-action="/liz/2026R1/Navigation/ExecApptNavigation" data-navigation="true">
+                    <a href="#" class="">
+                        <span>ExecutiveAppointments</span>
+                    </a>
+                </li>
+                <li id="navigation-5" class="button-group" data-action="/liz/2026R1/Navigation/ReportsForm" data-navigation="true">
+                    <a href="#" class="">
+                        <span>Reports</span>
+                    </a>
+                </li>
+        </ul>
+    </div>
+</nav>
+
+
+                        </div>
+                        <div id="navigation-flyout"></div>
+                    </div>
+                    
+                    
+
+
+<div class="session-full-name">2026 Regular Session</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+<a href="/liz/2026R1/Downloads/MeasureDocument/SB1546" target="_blank" title="Measure text PDF for the current version">SB 1546 Enrolled</a>
+            
+        
+    </div>
+
+    <div class="col-md-3">
+        <input type="hidden" id="hdnLockStatus" />
+        <div class="btn btn-default btn-custom hidden" id="lockbutton" onclick="SaveLockUnlock('52210')">
+            <span>Lock Sponsors</span>
+            <a class="glyphicon glyphicon-star-empty"></a>
+        </div>
+    </div>
+
+</div>
+
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand visible-xs" data-toggle="collapse" data-target="#menu-bar">
+                Navigation
+            </a>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-bar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+    </div>
+    <div id="menu-bar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/liz/2026R1/Measures/Overview/SB1546" target="_self" >Overview</a>
+                    </li>
+                    <li class="dropdown ">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Text <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                                    <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/Introduced" class=" menu-link padded-link" target="_blank">Introduced</a>
+                                                    <span class="link-icons ">
+                                                        <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/Introduced" class="inline-menu-link" title="Get the Pdf" target="_blank">
+                                                            <i class="pdf-link"></i>
+                                                        </a></span></li><li>
+                                                    <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/Senate%20Amendments%20to%20Introduced" class=" menu-link padded-link" target="_blank">Senate Amendments to Introduced</a>
+                                                    <span class="link-icons ">
+                                                        <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/Senate%20Amendments%20to%20Introduced" class="inline-menu-link" title="Get the Pdf" target="_blank">
+                                                            <i class="pdf-link"></i>
+                                                        </a></span></li><li>
+                                                    <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/A-Engrossed" class=" menu-link padded-link" target="_blank">A-Engrossed</a>
+                                                    <span class="link-icons ">
+                                                        <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/A-Engrossed" class="inline-menu-link" title="Get the Pdf" target="_blank">
+                                                            <i class="pdf-link"></i>
+                                                        </a></span></li><li>
+                                                    <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/House%20Amendments%20to%20A-Engrossed" class=" menu-link padded-link" target="_blank">House Amendments to A-Engrossed</a>
+                                                    <span class="link-icons ">
+                                                        <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/House%20Amendments%20to%20A-Engrossed" class="inline-menu-link" title="Get the Pdf" target="_blank">
+                                                            <i class="pdf-link"></i>
+                                                        </a></span></li><li>
+                                                    <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/B-Engrossed" class=" menu-link padded-link" target="_blank">B-Engrossed</a>
+                                                    <span class="link-icons ">
+                                                        <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/B-Engrossed" class="inline-menu-link" title="Get the Pdf" target="_blank">
+                                                            <i class="pdf-link"></i>
+                                                        </a></span></li><li>
+                                                    <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/Enrolled" class="current-measure-version menu-link padded-link" target="_blank">Enrolled</a>
+                                                    <span class="link-icons ">
+                                                        <a href="/liz/2026R1/Downloads/MeasureDocument/SB1546/Enrolled" class="inline-menu-link" title="Get the Pdf" target="_blank">
+                                                            <i class="pdf-link"></i>
+                                                        </a></span></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="/liz/2026R1/Measures/Analysis/SB1546" target="_self" >Analysis</a>
+                    </li>
+                    <li class="">
+                        <a href="/liz/2026R1/Measures/ProposedAmendments/SB1546" target="_self" >Amendments</a>
+                    </li>
+                    <li class="">
+                        <a href="/liz/2026R1/Measures/Testimony/SB1546" target="_self" >Testimony</a>
+                    </li>
+                    <li class="">
+                        <a target="_self"  onclick=showRegisterModal(&#39;overview&#39;)>Register to Testify</a>
+                    </li>
+                    <li class="">
+                        <a target="_self"  onclick=showUploadTestimony()>Submit Testimony</a>
+                    </li>
+        </ul>
+    </div>
+</nav>
+
+<script src="/liz/Areas/Measures/Scripts/Overview/testimonyReg.js"></script>
+<script src="/liz/Areas/Measures/Scripts/Overview/testimonyDsp.js"></script>
+
+
+
+<script>
+    // all properties of CommentedMeasureViewModel are copied to a javascript global variable, here
+    var Srv = {"ChiefSponsors":[],"RegularSponsors":[{"WebAddress":"","SponsorName":"Printed pursuant to Senate Interim Rule 213.28 by order of the President of the Senate in conformance with presession filing rules, indicating neither advocacy nor opposition on the part of the President.","DisplayName":" Printed pursuant to Senate Interim Rule 213.28 by order of the President of the Senate in conformance with presession filing rules, indicating neither advocacy nor opposition on the part of the President.","SponsorLevel":"Regular","PrintOrder":20,"Chamber":null,"SponsorType":"Presession","MemberTitle":null,"AdUsername":"","CommitteeName":null,"SponsorableFlag":"N","SponsorId":344,"StatusFlag":null}],"ChiefSponsorEnabled":false,"RegSponsorEnabled":false,"AddChiefVisible":false,"RequestAddChiefVisible":false,"RemoveChiefVisible":false,"RequestRemoveChiefVisible":false,"AddChiefRequestExists":false,"RemoveChiefRequestExists":false,"CheckChiefSponsorExists":false,"AddRegVisible":false,"RemoveRegVisible":false,"RequestRemoveRegVisible":false,"RemoveRegRequestExists":false,"ButtonsLocked":false,"ChiefToolTip":null,"RegularToolTip":null,"ApproverName":null,"DebugInfo":"User not logged in.","DisplayInfo":null};
+
+    // other properties are added here for use by javascript
+    Srv.Measure = {"MeasureId":52210,"SessionId":347,"MeasLcNumId":0,"MeasurePrefix":"SB","MeasureNumber":1546,"CurrentVersion":"Enrolled","CatchLine":"Requires operators of artificial intelligence companions and artificial intelligence companion platforms to provide notice to users that the users are interacting with artificial output if a reasonable person that interacts with the artificial intelligence companion or artificial intelligence companion platform would believe that the person was interacting with a natural person.","MinorityCatchline":null,"MeasureSummary":"\tDigest: Tells those who make AI software to tell users that the users are talking to software, not a human. Tells them they must try to prevent users from getting output that causes suicidal feelings or thoughts. (Flesch Readability Score: 71.0). \n\tRequires operators of artificial intelligence companions and artificial intelligence companion platforms to provide notice to users that the users are interacting with artificial output if a reasonable person that interacts with the artificial intelligence companion or artificial intelligence companion platform would believe that the person was interacting with a natural person. Requires the operators to have in place a protocol for detecting suicidal ideation or intent or self-harm ideation or intent and to prevent output that could cause such ideation or intent in users. Specifies minimum contents of the protocol\u003cb\u003e, including referral to an appropriate crisis lifeline and additional intervention informed by clinical best practices and expertise\u003c/b\u003e. Requires an operator to make certain statements and disclosures if the operator has reason to believe that a user that interacts with the operator\u0027s artificial intelligence companion or artificial intelligence platform is a minor. Requires the operator to take reasonable steps to prevent the artificial intelligence companion from generating statements that would lead a reasonable person to believe that the person was interacting with a natural person and to require the artificial intelligence companion to make certain other statements. Requires an operator to post a report each year on a publicly accessible website that discloses incidents in which the operator referred a user to resources to prevent suicidal ideation, suicide or self-harm. \n\tAllows a user that suffers ascertainable harm to bring an action for damages and injunctive relief.","RelatingTo":"Relating to artificial intelligence companions.","AtRequestOf":"(at the request of Senate Interim Committee on Early Childhood and Behavioral Health)","EmergencyClauseFlag":null,"EffectiveDate":null,"ChapterNumber":"85","ChapAssignDate":null,"Vetoed":null,"CurrentLocationId":361,"CurrentCommitteeId":null,"FiscalImpactId":null,"RevenueImpactId":null,"CurrentSubcommId":null,"RelatingToFull":null,"CurrentLocation":"Chapter Number Assigned","DrafterName":null,"PublishFlag":null,"HseSponsorLockDate":null,"FiscalImpactLookup":{"LookupId":0,"Domain":null,"Code":null,"Meaning":"Has minimal fiscal impact","AbbreviatedMeaning":null,"ActiveFlag":null,"SortOrder":null,"ReportHeader":null,"ExtraData":null,"DescColumn":null,"SortColumn":null,"IdColumn":null},"RevenueImpactLookup":{"LookupId":0,"Domain":null,"Code":null,"Meaning":"No revenue impact","AbbreviatedMeaning":null,"ActiveFlag":null,"SortOrder":null,"ReportHeader":null,"ExtraData":null,"DescColumn":null,"SortColumn":null,"IdColumn":null},"CommitteeActionDocuments":null,"CommitteeReports":null,"CurrentCommittee":{"CommitteeId":0,"SessionId":0,"CommTypeId":0,"CommitteeName":null,"ActiveFlag":null,"OfficeAddress":null,"OfficePhone":null,"ParentId":null,"CommitteeCode":null,"FaxNumber":null,"WebAddress":null,"EmailAddress":null,"ReleaseFlag":null,"SubSortOrder":null,"HideTypeFlag":null,"CcNumber":null,"CategoryId":null,"ShortName":null,"Meaning":null,"SessionName":null,"CommitteeWebsite":null,"TeamsConfLink":null,"TeamsConfId":null,"CommitteeActionDocuments":[],"CommitteeMeetings":[],"CommitteeReports":[],"CommitteeReports1":[],"CommitteeReports2":[],"CommitteeReports3":[],"CommitteeReports4":[],"CommitteeReports5":[],"CommitteeReports6":[],"LegislativeSession":null,"CommitteeReferrals":[],"CommitteeMembers":[],"CommitteeStaff":[],"CommitteeType":{"CommTypeId":0,"CommTypeCode":null,"HouseOfAction":null,"TypeDescription":null,"PubTypeDescription":null,"TsmGroupDescription":null,"MainCommFlag":null,"SortOrder":null},"CommitteeDefaultMeetings":[],"CommitteeAssignedMeasures":[],"ParentCommittee":null,"MeasureSponsors":[],"Category":null,"SubCommitteeAssignedMeasures":[],"Active":false},"CurrentSubCommittee":null,"LegislativeSession":{"SessionId":0,"SessionName":"2026 Regular Session","SessionType":null,"BeginDate":"\/Date(-62135568000000)\/","EndDate":null,"DefaultFlag":"N","SessionFullName":null,"SessionNumericName":null,"DisplayOnMenuFlag":null,"SessionKey":"2026R1","PresessionFiledMessages":[],"IsDefaultSession":false},"MeasureHistoryActions":null,"MeasureSponsors":null,"LcNumber":{"LcnumberId":0,"SessionId":0,"Number":282,"MeasLcNumId":0,"Suffix":null,"LcDrafts":[]},"AgendaSchedules":null,"DeskThirdReadReleaseds":null,"CommitteeAgendaItems":null,"UserAttachedDocuments":null,"FloorLetters":null,"UserComments":null,"UserAttachedDocumentInfoes":null,"CommitteeReferrals":null,"PrimaryEconomist":null,"FiscalAnalyst":null,"CommitteeExhibits":null,"SessionReadings":null,"MeasureBasicInfo":null,"MeasureVersions":null,"CommitteeAdministrators":null,"MeasureIdentifier":{"SessionKey":"2026R1","MeasureNumberWithPrefix":"SB1546","MeasureVersionId":null,"Prefix":"SB","MeasureNumber":1546,"HasReadableComments":false,"HasUploads":false,"UploadCount":0},"MeasureGroupNumber":15,"CurrentReferralInfo":{"CommReferId":0,"MeasureId":null,"ExecApptId":null,"CommreportId":null,"Chamber":null,"ListNumber":null,"ActionId":null,"CommitteeId":null,"SubsequentId":0,"Subsequent2Id":0,"ReferralDate":"\/Date(-62135568000000)\/","ReferralTime":"\/Date(-62135568000000)\/","AcceptFlag":null,"PostFlag":null,"Committee":null,"Measure":null,"SubsequentCommittee":null,"MeasureBasicInfo":null,"SecondSubSequentCommittee":null},"Published":false,"ChiefSponsors":null,"RegularSponsors":null,"VersionsMatch":true};
+    Srv.MeasurePrefix = 'SB';
+    Srv.MeasureNumber = '1546';
+    Srv.SessionKey = '2026R1';
+    Srv.UserName = '';
+
+    Srv.AddChiefUrl = '/liz/2026R1/Overview/AddChiefSponsor';
+    Srv.RemoveChiefUrl = '/liz/2026R1/Overview/RemoveChiefSponsor';
+    Srv.RequestRemoveChiefUrl = '/liz/2026R1/Overview/RequestRemoveChiefSponsor';
+    Srv.RequestChiefUrl = '/liz/2026R1/Overview/RequestChiefSponsor';
+    Srv.AddRegularUrl = '/liz/2026R1/Overview/AddRegularSponsor';
+    Srv.RemoveRegularUrl = '/liz/2026R1/Overview/RemoveRegularSponsor';
+    Srv.RequestRemoveRegularUrl = '/liz/2026R1/Overview/RequestRemoveRegularSponsor';
+    Srv.RefreshSponsorsUrl = '/liz/2026R1/Overview/SponsorInfo';
+
+    Srv.CheckChiefUrl = '/liz/2026R1/Overview/CheckChiefSponsorExists'; //AB:1930
+
+</script>
+
+<script>
+    function toggleSummary() {
+
+        $icon = $('#summaryCollapseIcon');
+        $icon.toggleClass("glyphicon-plus-sign");
+        $icon.toggleClass("glyphicon-minus-sign");
+
+        if ($icon.hasClass("glyphicon-minus-sign")) {
+            $('#summaryCollapseIcon').tooltip('toggleEnabled');
+            $('#Catchline').hide();
+            $('#MeasureSummary').show();
+        }
+        else {
+            $('#summaryCollapseIcon').tooltip('toggleEnabled');
+            $('#MeasureSummary').hide();
+            $('#Catchline').show();
+        }
+    }
+</script>
+
+<h5 class="header">
+    
+
+    
+    <a href="#measureOverview"
+       data-toggle="collapse"
+       data-icon-element="#overview-icon"
+       data-collapsed-icon="glyphicon-chevron-right"
+       data-expanded-icon="glyphicon-chevron-down"
+       data-ignore-children="false"
+       data-collapse-state="Open">
+        
+        <span class="link-header-text">Overview</span>
+        
+            <i id="overview-icon" class="glyphicon glyphicon-chevron-down"></i>
+    </a>
+</h5>
+<div id="measureOverview" class="collapse in">
+    <table class="table-striped col-md-12" id="measureOverviewTable">
+        <tr>
+            <td class="col-md-4 row-title">At the request of:</td>
+            <td>(at the request of Senate Interim Committee on Early Childhood and Behavioral Health)</td>
+        </tr>
+        <tr id="Sponsors">
+            <td class="row-title">
+                Chief Sponsors:
+                <div data-bind="visible: addChiefVisible, enable: enableChfBtn, click: clickAddChfBtn" class="btn btn-default btn-custom" style="display:none; margin-left:18px;" title="Click to add yourself as a chief sponsor.">
+                    <span>Add</span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+                <div data-bind="visible: removeChiefVisible, enable: enableChfBtn, click: clickRemoveChfBtn" class="btn btn-default btn-custom" style="display:none; margin-left:18px;" title="Click to remove yourself as a chief sponsor.">
+                    <span>Remove</span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+                <div data-bind="visible: requestAddChiefVisible, enable: enableChfBtn, click: clickRequestChfBtn" id="requestAddChiefBtn" class="btn btn-default btn-custom" style="display:none; margin-left:18px;" title="">
+                    <span></span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+                <div data-bind="visible: requestRemoveChiefVisible, enable: enableChfBtn, click: clickRequestRemoveChfBtn" id="requestRemoveChiefBtn" class="btn btn-default btn-custom" style="display:none; margin-left:18px;" title="">
+                    <span></span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+            </td>
+            <td data-bind="foreach: chiefSponsors" class="cSponsors">
+                <!--ko if: $data.WebAddress-->
+                <a data-bind="attr: { href: $data.WebAddress }"><!--ko text: $data.DisplayName--><!--/ko--></a>
+                <!--/ko-->
+                <!--ko ifnot: $data.WebAddress-->
+                <!--ko text: $data.DisplayName--><!--/ko-->
+                <!--/ko-->
+            </td>
+        </tr>
+        <tr>
+            <td class="row-title">
+                Regular Sponsors:
+                <div data-bind="visible: addRegVisible, enable: enableRegBtn, click: clickAddRegBtn" class="btn btn-default btn-custom" style="display:none" title="Click to add yourself as a regular sponsor.">
+                    <span>Add</span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+                <div data-bind="visible: removeRegVisible, enable: enableRegBtn, click: clickRemoveRegBtn" class="btn btn-default btn-custom" style="display:none" title="Click to remove yourself as a regular sponsor.">
+                    <span>Remove</span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+                <div data-bind="visible: requestRemoveRegVisible, enable: enableRegBtn, click: clickRequestRemoveRegBtn" id="requestRemoveRegBtn" class="btn btn-default btn-custom" style="display:none; margin-left:18px;" title="">
+                    <span></span><a class="glyphicon glyphicon-star-empty col-lg-push-1"></a>
+                </div>
+            </td>
+            <td data-bind="foreach: regularSponsors">
+                <!--ko if: $data.WebAddress-->
+                <a data-bind="attr: { href: $data.WebAddress }"><!--ko text: $data.DisplayName--><!--/ko--></a>
+                <!--/ko-->
+                <!--ko ifnot: $data.WebAddress-->
+                <!--ko text: $data.DisplayName--><!--/ko-->
+                <!--/ko-->
+            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Bill Title: </td>
+            <td> Relating to artificial intelligence companions.</td>
+        </tr>
+        <tr>
+            <td class="row-title">Catchline/Summary:</td>
+            <td>
+                <span id="Catchline" class="preserve-whitespace">Requires operators of artificial intelligence companions and artificial intelligence companion platforms to provide notice to users that the users are interacting with artificial output if a reasonable person that interacts with the artificial intelligence companion or artificial intelligence companion platform would believe that the person was interacting with a natural person.</span>
+                <span id="MeasureSummary" class="preserve-whitespace" style="display:none">	Digest: Tells those who make AI software to tell users that the users are talking to software, not a human. Tells them they must try to prevent users from getting output that causes suicidal feelings or thoughts. (Flesch Readability Score: 71.0). 
+	Requires operators of artificial intelligence companions and artificial intelligence companion platforms to provide notice to users that the users are interacting with artificial output if a reasonable person that interacts with the artificial intelligence companion or artificial intelligence companion platform would believe that the person was interacting with a natural person. Requires the operators to have in place a protocol for detecting suicidal ideation or intent or self-harm ideation or intent and to prevent output that could cause such ideation or intent in users. Specifies minimum contents of the protocol<b>, including referral to an appropriate crisis lifeline and additional intervention informed by clinical best practices and expertise</b>. Requires an operator to make certain statements and disclosures if the operator has reason to believe that a user that interacts with the operator's artificial intelligence companion or artificial intelligence platform is a minor. Requires the operator to take reasonable steps to prevent the artificial intelligence companion from generating statements that would lead a reasonable person to believe that the person was interacting with a natural person and to require the artificial intelligence companion to make certain other statements. Requires an operator to post a report each year on a publicly accessible website that discloses incidents in which the operator referred a user to resources to prevent suicidal ideation, suicide or self-harm. 
+	Allows a user that suffers ascertainable harm to bring an action for damages and injunctive relief.</span>
+                <a id="CollapseButton" onclick="toggleSummary()">
+                    <i id="summaryCollapseIcon" title="Click to expand summary" class="glyphicon glyphicon-plus-sign"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Chapter Number:</td>
+            <td>
+Chapter 85
+            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Fiscal Impact:</td>
+            <td>
+Has Minimal Fiscal Impact            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Revenue Impact:</td>
+            <td>
+No Revenue Impact            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Measure Analysis:</td>
+            <td>
+                <a href="/liz/2026R1/Measures/Analysis/SB1546">Staff Measure Summary / Impact Statements</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-4 row-title">Current Location: </td>
+            <td>Chapter Number Assigned</td>
+        </tr>
+        <tr>
+            <td class="row-title">Current Committee:  </td>
+            <td>
+
+
+<a href="" title="Committee Overview"> </a>            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Current Subcommittee: </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Subsequent Referral(s): </td>
+            <td>
+<div>
+   <ul class="no-list-style pending-subsequent-list">
+
+
+   </ul>
+</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row-title">Potential Conflicts of Interest/Vote Explanations: </td>
+            <td>
+                <a target="_blank" href="https://www.oregonlegislature.gov/pcive/Forms/Display.aspx?View={F16B1F7B-33C4-4EA7-AA10-9D3022EE155C}&amp;FilterField1=Session&amp;FilterValue1=2026R1&amp;FilterField2=Measure&amp;FilterValue2=SB1546">Potential Conflicts of Interest/Vote Explanation Documents</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="sponsorModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sponsorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="sponsorModalLabel">Sponsor Change Confirmation</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <span id="confirmText"></span>
+                    <div>
+                        <button type="button" class="btn btn-success" id="sponsorChangeButton">Yes</button>
+                        <button class="btn btn-danger" id="sponsorCancelButton" data-dismiss="modal" aria-hidden="true">No</button>
+                    </div>
+                </p>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<h5 class="header">
+    
+
+    
+    <a href="#MeasureHistory"
+       data-toggle="collapse"
+       data-icon-element="#measure-history-icon"
+       data-collapsed-icon="glyphicon-chevron-right"
+       data-expanded-icon="glyphicon-chevron-down"
+       data-ignore-children="true"
+       data-collapse-state="Closed">
+        
+        <span class="link-header-text">Measure History</span>
+        
+            <i id="measure-history-icon" class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+</h5>
+
+<div id="MeasureHistory" class="collapse" data-load-action="/liz/2026R1/Measures/Overview/GetHistory/SB1546"></div>
+
+<h5 class="header">
+    
+
+    
+    <a href="#ScheduledEvents"
+       data-toggle="collapse"
+       data-icon-element="#scheduled-events-icon"
+       data-collapsed-icon="glyphicon-chevron-right"
+       data-expanded-icon="glyphicon-chevron-down"
+       data-ignore-children="true"
+       data-collapse-state="Closed">
+        
+        <span class="link-header-text">Scheduled Events</span>
+        
+            <i id="scheduled-events-icon" class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+</h5>
+
+<div id="ScheduledEvents" class="collapse" data-load-action="/liz/2026R1/Measures/Overview/GetScheduledEvents/SB1546"></div>
+
+
+
+
+
+<div id="RegisterModal" translate="yes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="registerLabel" style="background-color: darkslategray; color: white; padding: 7px">Oregon Legislative Assembly - Public Testimony Registration Form</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>
+                            You are registering to speak about:
+                            <strong id="AgendaItemName">SB 1546</strong><br />
+                            <strong id="CommitteeNameDisplay"> </strong>
+                            <input id="CommitteeName" name="CommitteeName" type="hidden" value=" " />
+                        </p>
+                    </div>
+                    <div class="col-md-4 googletranslate">
+                        <div id="google_translate_element"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+                            }</script>
+                        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    </div>
+                </div>
+                <p>
+                    Registration Instructions / Language Access Services Information
+                    <a id="CollapseButton" onclick="toggleTestimonyInstructions()">
+                        <i id="testimonyCollapseIcon" title="Click to read the testimony registration instructions" class="glyphicon glyphicon-plus-sign"></i>
+                    </a>
+                </p>
+                <div id="TestimonyInstructionsDiv" style="display:none">
+                    <ul>
+                        <li>Submit the form below to testify or comment either in person or remotely by video or phone. After completing the required fields (<span style="color: red">*</span>), click the “Submit Registration to Testify” button.</li>
+                        <li>Email address and phone number are required for administrative purposes and will not be posted to OLIS. Your phone number will be displayed on the livestream of the committee meeting if you testify by phone.</li>
+                        <li><strong>Registration ends 30 minutes prior to the start of the meeting. After that time, the registration system will close.</strong></li>
+                        <li>After registering and seeing a confirmation screen, you will receive an email with meeting details. If you do not receive a confirmation email, check your email spam folder.</li>
+                        <li>Registration does not guarantee that you will have an opportunity to speak; the chair may determine that time for public testimony will be limited. Committee meetings are sometimes cancelled or rescheduled. You can receive email updates on selected bills or committee agendas by signing up for <a href="https://www.oregonlegislature.gov/citizen_engagement/Pages/e-Subscribe.aspx">Capitol e-Subscribe.</a></li>
+                        <li>If you would like to provide written testimony to the committee, see instructions to submit written testimony <a href="https://www.oregonlegislature.gov/citizen_engagement/Pages/Submit-Exhibits.aspx">here.</a></li>
+                        <li>To request spoken language interpretation, American Sign Language (ASL) interpretation, or Communication Access Realtime Translation (CART) services, please email <a href="mailto:languageaccess@oregonlegislature.gov?subject=Language Assistance Requested">languageaccess@oregonlegislature.gov</a> or call 503-986-1538 at least 3 days in advance.</li>
+                        <li>Para solicitar servicios de interpretación de lenguaje hablado, interpretación de lenguaje de señas americano (ASL) o traducción en tiempo real de acceso a la comunicación (CART), envíe un correo electrónico a <a href="mailto:languageaccess@oregonlegislature.gov?subject=Language Assistance Requested">languageaccess@oregonlegislature.gov</a> o llame al 503-986-1538 con 3 dias de anticipación.</li>
+                    </ul>
+                </div>
+
+
+                <div id="UserRegistrationFields">
+                    <div class="row" style="margin-top: 15px">
+                        <div class="col-md-6">
+                            <label>Select the Meeting Date:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                            <select Class="req2" id="AgendaDates" name="AgendaDates"><option value="0">Select...</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px">
+                        <div class="col-md-6">
+                            <label>First Name:</label><label style="color: red">*</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Last Name:</label><label style="color: red">*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input class="req" id="FirstName" maxlength="50" name="FirstName" style="width:100%" type="text" value="" />
+                        </div>
+                        <div class="col-md-6">
+                            <input class="req" id="LastName" maxlength="50" name="LastName" style="width:100%" type="text" value="" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px">
+                        <div class="col-md-6">
+                            <label>City of Residence:</label><label style="color: red">*</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Phone Number:</label><label style="color: red">*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input class="req" id="City" maxlength="100" name="City" style="width:100%" type="text" value="" />
+                        </div>
+                        <div class="col-md-6">
+                            <input class="req" id="Phone" maxlength="15" name="Phone" style="width:100%" type="text" value="" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px">
+                        <div class="col-md-6">
+                            <label>Location When You Testify: </label><label style="color: red">*</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email Address:</label><label style="color: red">*</label>
+                            <small><em>Confidential - Administrative Use Only</em></small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select class="req2" id="LocationSelect">
+                                <option id="None">Select...</option>
+                                <option id="loc1">In Person</option>
+                                <option id="loc2">Remotely</option>
+                            </select>
+                            <input id="TstLocation" name="TstLocation" type="hidden" value="" />
+                        </div>
+                        <div class="col-md-6">
+                            <input class="req" id="Email" maxlength="100" name="Email" style="width:100%" type="text" value="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div id="TravelDistance" class="location" style="display:none">
+                                Will you travel more than 100 miles to this meeting to testify?<br>
+                                <label for="yes100" class="loc-radio"> Yes</label>
+                                <input type="radio" id="yes100" name="traveldistance" value="yes">
+                                <label for="oppose" class="loc-radio">No</label>
+                                <input type="radio" id="no100" name="traveldistance" value="no">
+                            </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#LocationSelect').change(function () {
+                                        var i = $("#LocationSelect")[0].selectedIndex;
+                                        if (i === 1) {
+                                            $("#TravelDistance").show();
+                                        }
+                                        else {
+                                            $("#TravelDistance").hide();
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px">
+                        <div class="col-md-6">
+                            <label title="For example, Dr. Jones; Mx., Ms., Mr.; or a personal pronoun preference.">How do you wish to be addressed?</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="Salutation" maxlength="100" name="Salutation" style="width:100%" type="text" value="" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px">
+                        <div class="col-md-6">
+                            <label title="If you are testifying on behalf of an organization, please specify.">Organization:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label title="If you have a title within your organization that you would like to provide, please specify.">Organizational Title:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="Organization" maxlength="100" name="Organization" style="width:100%" type="text" value="" />
+                        </div>
+                        <div class="col-md-6">
+                            <input id="OrgTitle" maxlength="50" name="OrgTitle" style="width:100%" type="text" value="" />
+                        </div>
+                    </div>
+                    <div id="divCustomFields" hidden>
+                        <div class="row" style="margin-top: 12px">
+                            <div class="col-md-6">
+                                <label id="CustomFieldTitle"></label>
+                            </div>
+                            <div class="col-md-6 other-options" hidden>
+                                <label>Other:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select id="CustomFieldChoices" style="width: 100%; height: 25px"></select>
+                            </div>
+                            <div class="col-md-6 other-options" hidden>
+                                <input id="OtherOptionInput" type="text" style="width: 100%" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="PositionDiv">
+                        <div class="row" style="margin-top: 12px">
+                            <div class="col-md-6">
+                                <label id="PositionLabel"></label><label style="color: red">*</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select class="req2" div id="OpinionSelect">
+                                    <option id="None" value="None">Select...</option>
+                                        <option value="Neutral">Neutral</option>
+                                        <option value="Oppose">Oppose</option>
+                                        <option value="Support">Support</option>
+                                </select>
+                                <input id="PositionOnMeasureDisplay" name="PositionOnMeasureDisplay" type="hidden" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <input type="button" class="btn btn-default" style="color:dodgerblue" id="btnSubmitRegistration" value="Submit Registration to Testify" />
+                                <button id="CancelButton" class="btn btn-default" style="color:dodgerblue" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="RegisterSuccessModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="registerLabel" style="background-color: darkslategray; color: white; padding: 7px">You Have Successfully Registered to Testify</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 id="testRegH4"></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Testimony Details:</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="RegistrationList" class="col-md-12">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            You will receive an email soon with meeting details. If you registered to testify remotely, the
+                            email will include a link or phone number to join the committee meeting.
+                        </p>
+                        <p>
+                            If you do not receive a confirmation within 24 hours, have any questions, or need to cancel your registration,
+                            please call 1-833-588-4500 or email the committee assistant listed on the committee page on OLIS.
+                        </p>
+                        <p>
+                            Committee meetings are sometimes canceled or rescheduled. If you register to testify and the meeting is
+                            rescheduled, you will need to register for the new meeting date. To receive email updates on selected
+                            bills or committee agendas, sign up for Capitol E-Subscribe.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="SuccessWindowCloseBtn" class="btn btn-default pull-right" style="color:dodgerblue" data-dismiss="modal">Close this Window</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="RegisterFailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerFailLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="registerLabel" style="background-color: darkslategray; color: white; padding: 7px">SB 1546 Not Scheduled for Public Testimony</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Thank you for your interest in providing public testimony on <strong><span id="FailMeasureName"></span></strong>.</p>
+                        <p>
+                            Either this item is not currently scheduled for a public hearing, or the deadline to register to testify
+                            or to submit written testimony has passed.
+                        </p>
+                        <p>
+                            For questions about the legislature, legislative process, or other government agencies, please email
+                            <a href="mailto:help.leg@oregonlegislature.gov">help.leg@oregonlegislature.gov</a> or call 1-800-332-2313.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-default pull-right" style="color:dodgerblue" data-dismiss="modal">Close this Window</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="RegisterUploadFailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerFailLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="registerLabel" style="background-color: darkslategray; color: white; padding: 7px">SB 1546 Not Scheduled for Public Testimony</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Thank you for your interest in providing written testimony on <strong><span id="FailUploadMeasureName"></span></strong>.</p>
+                        <p>
+                            Either this item is not currently scheduled for a public hearing, or the deadline to register to testify
+                            or to submit written testimony has passed.
+                        </p>
+                        <p>
+                            For questions about the legislature, legislative process, or other government agencies, please email
+                            <a href="mailto:help.leg@oregonlegislature.gov">help.leg@oregonlegislature.gov</a> or call 1-800-332-2313.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-default pull-right" style="color:dodgerblue" data-dismiss="modal">Close this Window</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .error-modal-content {
+        background-color: red;
+        z-index: 4;
+        position: relative;
+        margin-top: 180px;
+        opacity: 0.8;
+        padding: 10px 10px 45px 25px;
+        border: 1px solid grey;
+        border-radius: 6px;
+        background-clip: padding-box;
+    }
+
+    .error-modal-cancel-btn {
+        background-color: pink;
+        color: black;
+        float: right !important;
+    }
+
+        .error-modal-cancel-btn:hover {
+            background-color: lightskyblue;
+        }
+</style>
+
+<div id="RegisterErrorModal" class="modal fade" aria-labelledby="registerErrorLabel">
+    <div class="modal-dialog" style="width: 400px">
+        <div class="error-modal-content">
+            <button class="btn error-modal-cancel-btn" data-dismiss="modal" style="padding: 1px 5px 1px 5px">×</button>
+            <h4 id="ErrMsg" style="color: white;"></h4>
+            <button class="btn error-modal-cancel-btn" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var SrvTestimony = {
+        SetCustomFieldsUrl: '/liz/2026R1/Overview/SetCustomFields',
+        GetCustomFieldsUrl: '/liz/2026R1/Overview/GetCustomFields',
+        RemoveCustomFieldsUrl: '/liz/2026R1/Overview/RemoveCustomFields',
+        TestimonyPortalUrl: '',
+
+        AllowsTestimonyUpload: 'False'
+    };
+</script>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container-fluid" style="padding:0px">
+    <div class="row-fluid">
+        <footer class="span12">
+            <div class="right">
+                <span><b>Oregon State Legislature</b></span> <span><b>Building Hours:</b> Monday - Friday, 7:00 a.m. - 5:30 p.m.</span> <span>1-800-332-2313 | 900 Court St. NE, Salem Oregon 97301</span>
+            </div>
+            <div class="left">
+                <div class="social">
+                    <a href="https://www.facebook.com/OregonCapitol#!/OregonCapitol">
+                        <img src="/liz/Images/social-footer-fb.png" alt="Follow us on Facebook">
+                    </a>
+                    <a href="https://www.oregonlegislature.gov/Pages/pressrelease.aspx">
+                        <img src="/liz/Images/social-footer-rss.png" alt="Subscribe to our RSS">
+                    </a>
+                    <a href="https://www.oregonlegislature.gov/citizen_engagement/Pages/e-Subscribe.aspx">
+                        <img src="/liz/Images/social-footer-esub.png" alt="Subscribe to recieve email notifications">
+                    </a>
+                </div>
+                <div class="links">
+                    <a href="https://www.oregonlegislature.gov/Pages/disclaimer.aspx">Disclaimer</a>
+                    | <a href="https://www.oregonlegislature.gov/Pages/universalAccess.aspx">Universal Access</a>
+                    | <a href="https://www.oregonlegislature.gov/la/Pages/employment.aspx">Employment</a>
+                    | <a href="http://www.oregon.gov/Pages/index.aspx">Oregon.Gov</a>
+                    <!-- |
+                    <a href="/_layouts/authenticate.aspx" onclick="document.location='/_layouts/authenticate.aspx?Source='+document.location.href; return false;">
+                        Sign in
+                    </a> -->
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<form action="/liz/2026R1/Account/LogOff" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="pnVIC5HxI8XxY57VZba2eU0dDhzmsvI3nkcaKUh5LAzltis2NRPdlUI9HXuRrYyV_TxGflPi6so1gKKzByOC1vWCbLzn8eSoYDbI2rYie9o1" /></form>
+    <script>
+         var CSharpConstants = {
+            sponsorSearch: '/liz/2026R1/Navigation/BillSponsorSearch',
+            collapseStateSave: '/liz/2026R1/Home/SaveCollapseState'
+         };
+    </script>
+
+    
+    <script src="/liz/Scripts/Shared/_Layout.js"></script>
+
+    
+    <script src="/liz/Scripts/knockout-3.4.2.js"></script>
+    <script src="/liz/Areas/Measures/Scripts/Overview/sponsors.js"></script>
+
+
+</body>
+</html>

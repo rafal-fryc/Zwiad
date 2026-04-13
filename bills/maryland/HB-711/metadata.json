@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "HB 711",
+  "state": "Maryland",
+  "state_abbrev": "MD",
+  "session": "2026",
+  "title": "Maryland Privacy Amendment on Immigration Enforcement Data Sales",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "consumer-data",
+    "geolocation"
+  ],
+  "sponsors": [],
+  "current_status": "passed-first-chamber",
+  "bill_dir": "bills/maryland/HB-711",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://mgaleg.maryland.gov/2026RS/bills/hb/hb0711t.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "passed-first-chamber",
+      "detail": "Passed House",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/maryland/HB-711/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

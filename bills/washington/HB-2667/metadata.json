@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "HB 2667",
+  "state": "Washington",
+  "state_abbrev": "WA",
+  "session": "2026",
+  "title": "Washington Algorithmic Discrimination Protection and AI Task Force Expansion",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "admt",
+    "high-risk-ai",
+    "transparency"
+  ],
+  "sponsors": [
+    "Rep. Shavers (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/washington/HB-2667",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/House%20Bills/2667.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/washington/HB-2667/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

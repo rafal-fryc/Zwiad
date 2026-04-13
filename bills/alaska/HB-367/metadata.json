@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 367",
+  "state": "Alaska",
+  "state_abbrev": "AK",
+  "session": "2026",
+  "title": "Comprehensive Privacy with Substantive Data Minimization",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy"
+  ],
+  "sponsors": [
+    "Rep. Story (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/alaska/HB-367",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.akleg.gov/PDF/34/Bills/HB0367A.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-26",
+      "source_run_id": "fpf-chronological-week-06-Feb-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/alaska/HB-367/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-06-Feb-26-27",
+  "last_updated_run": "fpf-chronological-week-06-Feb-26-27"
+}

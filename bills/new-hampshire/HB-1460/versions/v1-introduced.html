@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <!-- THIS IS THE META TITLE -->
+    <title>Current Legislation Search</title>
+    <link href="css/large.css" rel="stylesheet" type="text/css" media="screen and (min-width: 601px)"/>
+    <link href="css/small.css" rel="stylesheet" type="text/css"  media="screen and (max-width: 600px)"/>
+    <link href="css/print.css" rel="stylesheet" type="text/css"  media="print"/>
+
+    <!-- THIS IS THE META TITLE -->
+<meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Google Fonts -->
+    <link href="/css/googleFonts.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" /><title>
+
+</title></head>
+<body>
+<div class="NoPrint">
+    <header>
+        <!-- top menu for pages that need it -->
+        
+        <div class="header-logo-wrapper">
+            <a href='/'>
+                <img src='/img/gcnh-logo.jpg' alt="GCNH Logo" class="img-fluid" />
+            </a>
+        </div>
+        
+        <button class="navbar-toggler-gcnh collapsed d-md-none" type="button" data-trigger="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+
+
+
+
+        <!-- included on the aspx page (pick from the includes folder) -->       
+        
+    <!-- CHOOSE YOUR SUBMENU SYSTEM FROM THE INCLUDES FOLDER -->
+    <nav class="navbar bg-primary navbar-expand-md mobile-offcanvas p-0" id="navbarNavDropdown">
+    <div class="gcnh-mobile-header d-md-none">
+        <!--img src='/bill_status/img/nhseal.png' class="mobile-nav-seal mx-1" /-->
+        <div>
+            <p class="small-title">
+                THE GENERAL COURT OF
+            </p>
+            <p class="large-title">
+                New Hampshire
+            </p>
+        </div>
+        <button class="navbar-toggler-internal" type="button" data-trigger="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+    </div>
+    <div class="container-lg justify-content-center">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="HouseDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">House</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="HouseDropdown">
+                    <a class="dropdown-item py-2" href="/house/">House Home</a>
+                    <a class="dropdown-item py-2" href="/house/members/">House Roster</a>
+                    <a class="dropdown-item py-2" href="/nhgcrollcalls/">Voting Records</a>
+                    <a class="dropdown-item py-2" href="/lsr_search/">LSR Search</a>
+                    <a class="dropdown-item py-2" href="/house/committees/standingcommittees.aspx">Standing Committees</a>
+                    <a class="dropdown-item py-2" href="/statstudcomm/">Statutory &amp; Study Committees</a>
+                    <a class="dropdown-item py-2" href="/house/schedule/dailyschedule.aspx">House Meeting Schedule</a>
+                    <a class="dropdown-item py-2" href="/house/aboutthehouse/houseRules.pdf">House Rules</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="SenateDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Senate</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="SenateDropdown">
+                    <a class="dropdown-item py-2" href="/senate/">Senate Home</a>
+                    <a class="dropdown-item py-2" href="/senate/members/senate_roster.aspx">Senate Roster</a>
+                    <a class="dropdown-item py-2" href="/senate/members/wml.aspx">Who's My Senator</a>
+                    <a class="dropdown-item py-2" href="/nhgcrollcalls/">Voting Records</a>
+                    <a class="dropdown-item py-2" href="/senate/members/leadership.aspx">Senate Leadership</a>
+                    <a class="dropdown-item py-2" href="/senate/members/DistrictMap.aspx">District Maps</a>
+                    <a class="dropdown-item py-2" href="/senate/committees/senate_committees.aspx">Standing Committees</a>
+                    <a class="dropdown-item py-2" href="/statstudcomm/">Statutory &amp; Study Committees</a>
+                    <a class="dropdown-item py-2" href="/senate/schedule/dailyschedule.aspx">Senate Meeting Schedule</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="LawsDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Laws (RSAs)</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="LawsDropdown">
+                    <a class="dropdown-item py-2" href="/rsa/html/indexes/default.aspx">Laws Home</a>
+                    <a class="dropdown-item py-2" href="/rsa/search/default.aspx">Revised Statutes Search</a>
+                    <a class="dropdown-item py-2" href="/rsa/html/nhtoc.htm">Browse Index of Titles</a>
+                    <a class="dropdown-item py-2" href="https://www.nh.gov/glance/state-constitution">NH Constitution</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="BudgetDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">LBA</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="BudgetDropdown">
+                    <a class="dropdown-item py-2" href="/lba/">LBA Budget/Audit Home</a>
+                    <a class="dropdown-item py-2" href="/lba/budget/about_division.aspx">About Budget</a>
+                    <a class="dropdown-item py-2" href="/lba/audit/about_audit.aspx">About Audit</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="AdministrativeRulesDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Administrative Rules</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="AdministrativeRulesDropdown">
+                    <a class="dropdown-item py-2" href="/rules/">Rules Home</a>
+                    <a class="dropdown-item py-2" href="/rules/whoweare.aspx">Duties and Function</a>
+                    <a class="dropdown-item py-2" href="/rules/register/default.aspx">Rulemaking Register</a>
+                    <a class="dropdown-item py-2" href="/rules/about_rules/listagencies.aspx">Rules Listed by Agency</a>
+                    <a class="dropdown-item py-2" href="/rules/jlcar/description_members.aspx">JLCAR</a>
+                    <a class="dropdown-item py-2" href="/nholsrulesdbsearch">Rulemaking Search</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="VisitorCenterDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Visitor Center</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="VisitorCenterDropdown">
+                    <a class="dropdown-item py-2" href="/nh_visitorcenter/">Visitor Center Home</a>
+                    <a class="dropdown-item py-2" href="https://nh-state-house-visitor-center.square.site/">Online Gift Shop</a>
+                    <a class="dropdown-item py-2" href="/NH_VisitorCenter/book_tour/">Book a Tour</a>
+                    <a class="dropdown-item py-2" href="https://www.youtube.com/watch?v=nn8mRoOlgxU">State House Student Video Tour</a>
+                </div>
+            </li>
+
+            <li class="px-2 nav-item dropdown ">
+                <a class="nav-link d-inline-flex text-left mobile-flyout-classes"
+                   id="CareersDropdown"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   href="#">
+                    <p class="m-0 mr-auto">Careers</p>
+                    <i class="bi bi-chevron-down d-md-none"></i>
+                    <i class="bi bi-chevron-up d-none d-md-none"></i>
+                </a>
+
+                <div class="dropdown-menu p-0 mt-0" aria-labelledby="CareersDropdown">
+                    <a class="dropdown-item py-2" href="/careers/">Careers Home</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="senate-gcnh-section pt-3 d-md-none">
+        <a href="/" class="d-inline-flex">
+            <img src="/img/nhseal.png" class="mobile-nav-seal mx-1" alt="NH State Seal" />
+            <p class="senate-gcnh-title px-1">
+                THE GENERAL COURT OF NEW <br /> HAMPSHIRE
+            </p>
+        </a>
+    </div>
+</nav>
+    <!-- CHOOSE YOUR SUBMENU SYSTEM FROM THE INCLUDES FOLDER -->
+    <div class="NoPrint">
+    <div class="mb-4 bg-light py-4">
+        <h3 class="text-center text-uppercase">
+            Search Current Legislation
+        </h3>
+    </div>
+    </div>
+
+    </header>
+</div>
+        <!-- code from legacy app inserted from the aspx file in the pageBody section -->
+        <div>
+            
+
+          
+
+                                <!-- YOUR CODE HERE -->
+    <form method="post" action="./billinfo.aspx?id=2443&amp;inflect=2" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTMwMTQ3ODc1MA9kFgJmD2QWBAICD2QWAmYPFgIeBFRleHQFGlNlYXJjaCBDdXJyZW50IExlZ2lzbGF0aW9uZAIDD2QWAgIBD2QWFgIDDxYCHwAFCUhCMTQ2MC1GTmQCDA8WAh8ABTwoTmV3IFRpdGxlKSBwcm9oaWJpdGluZyB0aGUgc2FsZSBvZiBhIGNoaWxkJ3MgcGVyc29uYWwgZGF0YS5kAg4PFgIfAAW6CzxhIGhyZWY9J2h0dHA6Ly9nZW5jb3VydC5zdGF0ZS5uaC51cy9ob3VzZS9tZW1iZXJzL21lbWJlci5hc3B4P3BpZD05OTQwJw0KdGl0bGU9J1JlcC4gTWVsaXNzYSBMaXRjaGZpZWxkIChSKScgY2xhc3M9J0hzZU1lbWJlcic+PGk+PGI+KFByaW1lKTwvYj48L2k+IExpdGNoZmllbGQgKFIpPC9hPiwgPGEgaHJlZj0naHR0cDovL2dlbmNvdXJ0LnN0YXRlLm5oLnVzL2hvdXNlL21lbWJlcnMvbWVtYmVyLmFzcHg/cGlkPTExNDEzJw0KdGl0bGU9J1JlcC4gSmF5IE1hcmtlbGwgKFIpJyBjbGFzcz0nSHNlTWVtYmVyJz5NYXJrZWxsIChSKTwvYT4sIDxhIGhyZWY9J2h0dHA6Ly9nZW5jb3VydC5zdGF0ZS5uaC51cy9ob3VzZS9tZW1iZXJzL21lbWJlci5hc3B4P3BpZD04MzkyJw0KdGl0bGU9J1JlcC4gSmVzcyBFZHdhcmRzIChSKScgY2xhc3M9J0hzZU1lbWJlcic+RWR3YXJkcyAoUik8L2E+LCA8YSBocmVmPSdodHRwOi8vZ2VuY291cnQuc3RhdGUubmgudXMvaG91c2UvbWVtYmVycy9tZW1iZXIuYXNweD9waWQ9MTEzOTknDQp0aXRsZT0nUmVwLiBMYXVyZW5jZSBNaW5lciAoUiknIGNsYXNzPSdIc2VNZW1iZXInPk1pbmVyIChSKTwvYT4sIDxhIGhyZWY9J2h0dHA6Ly9nZW5jb3VydC5zdGF0ZS5uaC51cy9ob3VzZS9tZW1iZXJzL21lbWJlci5hc3B4P3BpZD0xMDcxNCcNCnRpdGxlPSdSZXAuIE1pY2hhZWwgR3JhbmdlciAoUiknIGNsYXNzPSdIc2VNZW1iZXInPkdyYW5nZXIgKFIpPC9hPiwgPGEgaHJlZj0naHR0cDovL2dlbmNvdXJ0LnN0YXRlLm5oLnVzL2hvdXNlL21lbWJlcnMvbWVtYmVyLmFzcHg/cGlkPTcxNDQnDQp0aXRsZT0nUmVwLiBNaWNoYWVsIE1vZmZldHQgKFIpJyBjbGFzcz0nSHNlTWVtYmVyJz5Nb2ZmZXR0IChSKTwvYT4sIDxhIGhyZWY9J2h0dHA6Ly9nZW5jb3VydC5zdGF0ZS5uaC51cy9zZW5hdGUvbWVtYmVycy93ZWJwYWdlcy9kaXN0cmljdDIzLmFzcHgnIA0KdGl0bGU9J1Nlbi4gQmlsbCBHYW5ub24gKFIpJyBjbGFzcz0nU2VuTWVtYmVyJz5HYW5ub24gKFIpPC9hPiwgPGEgaHJlZj0naHR0cDovL2dlbmNvdXJ0LnN0YXRlLm5oLnVzL3NlbmF0ZS9tZW1iZXJzL3dlYnBhZ2VzL2Rpc3RyaWN0MTYuYXNweCcgDQp0aXRsZT0nU2VuLiBLZWl0aCBNdXJwaHkgKFIpJyBjbGFzcz0nU2VuTWVtYmVyJz5LZWl0aCBNdXJwaHkgKFIpPC9hPiwgPGEgaHJlZj0naHR0cDovL2dlbmNvdXJ0LnN0YXRlLm5oLnVzL3NlbmF0ZS9tZW1iZXJzL3dlYnBhZ2VzL2Rpc3RyaWN0MDIuYXNweCcgDQp0aXRsZT0nU2VuLiBUaW1vdGh5IExhbmcgKFIpJyBjbGFzcz0nU2VuTWVtYmVyJz5MYW5nIChSKTwvYT4sIDxhIGhyZWY9J2h0dHA6Ly9nZW5jb3VydC5zdGF0ZS5uaC51cy9zZW5hdGUvbWVtYmVycy93ZWJwYWdlcy9kaXN0cmljdDE4LmFzcHgnIA0KdGl0bGU9J1Nlbi4gVmljdG9yaWEgU3VsbGl2YW4gKFIpJyBjbGFzcz0nU2VuTWVtYmVyJz5WaWN0b3JpYSBTdWxsaXZhbiAoUik8L2E+ZAIQDxYCHwAFH0xTUiBOdW1iZXI6Jm5ic3A7PGI+MjYtMzIzMTwvYj5kAhIPFgIfAAUiR2VuZXJhbCBTdGF0dXM6Jm5ic3A7PGI+U0VOQVRFPC9iPmQCFg9kFgYCAQ8WAh8ABQdGaW5hbmNlZAIDDxYCHwAFCTIvMTIvMjAyNmQCBQ8WAh8ABQ5QQVNTRUQvQURPUFRFRGQCGA9kFgYCAQ8WAh8ABRdDaGlsZHJlbiBhbmQgRmFtaWx5IExhd2QCAw8WAh8ABQg0LzkvMjAyNmQCBQ8WAh8ABR1QQVNTRUQvQURPUFRFRCBXSVRIIEFNRU5ETUVOVGQCGg9kFgJmD2QWHAIBDxAPFgIeC18hRGF0YUJvdW5kZ2QQFQAVABQrAwAWAGQCAw8PFgQfAAUWU3Vic2NyaWJlIFRvIEhCMTQ2MC1GTh4PQ29tbWFuZEFyZ3VtZW50BQZIQjE0NjBkZAIHDxAPFgYfAWceDURhdGFUZXh0RmllbGQFB3ZlcnNpb24eDkRhdGFWYWx1ZUZpZWxkBRFsZWdpc2xhdGlvblRleHRJRGQQFQMZU2VsZWN0IGEgQmlsbCBWZXJzaW9uIC0tPgpJbnRyb2R1Y2VkGEFzIEFtZW5kZWQgYnkgdGhlIFNlbmF0ZRUDGVNlbGVjdCBhIEJpbGwgVmVyc2lvbiAtLT4FMjM0ODAFMzA2NzIUKwMDZ2dnFgFmZAIJD2QWBAIBDxAPFgYfAWcfAwUJQW1lbmRtZW50HwQFAmlkZBAVAhpTZWxlY3QgQmlsbCBBbWVuZG1lbnRzIC0tPgoyMDI2LTEyNzNzFQIaU2VsZWN0IEJpbGwgQW1lbmRtZW50cyAtLT4FMzAwNjcUKwMCZ2cWAWZkAgMPEA8WBh8BZx8DBQ1jb21taXR0ZWV0eXBlHwQFEkNvbW1pdHRlZVN1cHBvcnRJRGQQFQMcU2VsZWN0IENvbW1pdHRlZSBSZXBvcnRzIC0tPgxTZW4gQ29tbSBScHQPU2VuIEhlYXJpbmcgUnB0FQMcU2VsZWN0IENvbW1pdHRlZSBSZXBvcnRzIC0tPgUxOTQ3OQUyMDc3MBQrAwNnZ2cWAWZkAgsPZBYEAgEPEA8WBh8BZx8DBQ9xdWVzdGlvbl9tb3Rpb24fBAUSdm90ZXNlcXVlbmNlbnVtYmVyZBAVAhpTZWxlY3QgSG91c2UgUm9sbCBDYWxsIC0tPgNPVFAVAhpTZWxlY3QgSG91c2UgUm9sbCBDYWxsIC0tPgI2NBQrAwJnZxYBZmQCAw8QDxYEHwFnHgdWaXNpYmxlaGQQFQEVTm8gU2VuYXRlIFJvbGwgQ2FsbHM6FQEVTm8gU2VuYXRlIFJvbGwgQ2FsbHM6FCsDAWcWAWZkAg8PDxYEHwAFHTxiPlN1YnNjcmliZSBUbyBIQjE0NjAtRk48L2I+HwIFBkhCMTQ2MGRkAhMPFgIeC18hSXRlbUNvdW50AgIWBGYPZBYEAgEPDxYCHwIFBTIzNDgwZBYCZg8VAQpJbnRyb2R1Y2VkZAIDDw8WAh8CBQUyMzQ4MGRkAgEPZBYEAgEPDxYCHwIFBTMwNjcyZBYCZg8VARhBcyBBbWVuZGVkIGJ5IHRoZSBTZW5hdGVkAgMPDxYCHwIFBTMwNjcyZGQCFw8WAh8FZxYCAgEPFgIfBgIBFgJmD2QWBAIBDw8WAh8CBQUzMDA2N2QWAmYPFQEKMjAyNi0xMjczc2QCAw8PFgIfAgUFMzAwNjdkZAIZDxYCHwVnFgICAQ8WAh8GAgIWBGYPZBYEAgEPDxYCHwIFBTE5NDc5ZBYCZg8VAgxTZW4gQ29tbSBScHQHMy8yMy8yNmQCAw8PFgIfAgUFMTk0NzlkZAIBD2QWBAIBDw8WAh8CBQUyMDc3MGQWAmYPFQIPU2VuIEhlYXJpbmcgUnB0BzMvMzEvMjZkAgMPDxYCHwIFBTIwNzcwZGQCGw9kFgYCAw8WAh8ABRBIb3VzZSBSb2xsIENhbGxzZAIFDxYCHwYCARYCZg9kFgICAQ8PFgQfAgUCNjQeB1Rvb2xUaXAFA09UUGQWAmYPFQMDT1RQAzIxNAMxNDVkAgcPZBYEAgEPFgIfAAUWTm8gU2VuYXRlIFJvbGwgQ2FsbHM6IGQCAw8WAh8GZmQCHw8WAh8ABQtCaWxsIERvY2tldGQCIQ9kFgICAQ8WAh8GAg4WHGYPZBYCZg8VAgFIrAEgIEludHJvZHVjZWQgMDEvMDcvMjAyNiBhbmQgcmVmZXJyZWQgdG8gQ2hpbGRyZW4gYW5kIEZhbWlseSBMYXcgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL2hvdXNlL2NhbGVuZGFyc19qb3VybmFscy8nIHRhcmdldD0nX2JsYW5rJz5ISiAxIDwvYT48L2I+IFAuIDIxZAIBD2QWAmYPFQIBSCpQdWJsaWMgSGVhcmluZzogMDEvMjAvMjAyNiAwMTowMCBwbSBHUCAyMzBkAgIPZBYCZg8VAgFILUV4ZWN1dGl2ZSBTZXNzaW9uOiAwMS8yNy8yMDI2IDEwOjAwIGFtIEdQIDIzMGQCAw9kFgJmDxUCAUiwAU1ham9yaXR5IENvbW1pdHRlZSBSZXBvcnQ6IE91Z2h0IHRvIFBhc3MgIDAxLzI3LzIwMjYgKFZvdGUgOS03OyBSQykgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL2hvdXNlL2NhbGVuZGFyc19qb3VybmFscy8nIHRhcmdldD0nX2JsYW5rJz5IQyA2IDwvYT48L2I+IFAuIDEwZAIED2QWAmYPFQIBSDJNaW5vcml0eSBDb21taXR0ZWUgUmVwb3J0OiBSZWZlciBmb3IgSW50ZXJpbSBTdHVkeWQCBQ9kFgJmDxUCAUiOAU91Z2h0IHRvIFBhc3M6IE1BIFJDIDIxNC0xNDUgMDIvMTIvMjAyNiAgPGI+PGEgaHJlZj0naHR0cHM6Ly93d3cuZ2VuY291cnQuc3RhdGUubmgudXMvaG91c2UvY2FsZW5kYXJzX2pvdXJuYWxzLycgdGFyZ2V0PSdfYmxhbmsnPkhKIDQgPC9hPjwvYj5kAgYPZBYCZg8VAgFIhQFSZWZlcnJlZCB0byBGaW5hbmNlIDAyLzEyLzIwMjYgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL2hvdXNlL2NhbGVuZGFyc19qb3VybmFscy8nIHRhcmdldD0nX2JsYW5rJz5ISiA0IDwvYT48L2I+ZAIHD2QWAmYPFQIBSKkBUmVmZXJyYWwgV2FpdmVkIGJ5IENvbW1pdHRlZSBDaGFpciBwZXIgSG91c2UgUnVsZSA0NyhmKSAwMi8xMi8yMDI2ICA8Yj48YSBocmVmPSdodHRwczovL3d3dy5nZW5jb3VydC5zdGF0ZS5uaC51cy9ob3VzZS9jYWxlbmRhcnNfam91cm5hbHMvJyB0YXJnZXQ9J19ibGFuayc+SEogNCA8L2E+PC9iPmQCCA9kFgJmDxUCAVOoASAgSW50cm9kdWNlZCAwMi8wNS8yMDI2IGFuZCBSZWZlcnJlZCB0byBDaGlsZHJlbiBhbmQgRmFtaWx5IExhdzsgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL3NlbmF0ZS9jYWxlbmRhcnNfam91cm5hbHMvJyB0YXJnZXQ9J19ibGFuayc+U0ogNCA8L2E+PC9iPmQCCQ9kFgJmDxUCAVO8ASAgSGVhcmluZzogMDMvMTkvMjAyNiwgUm9vbSAxMDAsIFNILCAxMDowMCBhbTsgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL1NlbmF0ZS9jYWxlbmRhcnNfam91cm5hbHMvY2FsZW5kYXJzLzIwMjYvTm8gMTAgTWFyY2ggMTIgMjAyNi5wZGYnIHRhcmdldD0nX2JsYW5rJz5TQyAxMDwvYT48L2I+ZAIKD2QWAmYPFQIBU8cBQ29tbWl0dGVlIFJlcG9ydDogT3VnaHQgdG8gUGFzcywgMDQvMDkvMjAyNjsgVm90ZSAzLTA7IENDOyAgPGI+PGEgaHJlZj0naHR0cHM6Ly93d3cuZ2VuY291cnQuc3RhdGUubmgudXMvU2VuYXRlL2NhbGVuZGFyc19qb3VybmFscy9jYWxlbmRhcnMvMjAyNi9ObyAxMyBBcHJpbCAyIDIwMjYucGRmJyB0YXJnZXQ9J19ibGFuayc+U0MgMTM8L2E+PC9iPmQCCw9kFgJmDxUCAVOiAUhCIDE0NjAgd2FzIFJlbW92ZWQgZnJvbSB0aGUgQ29uc2VudCBDYWxlbmRhcjsgMDQvMDkvMjAyNjsgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL3NlbmF0ZS9jYWxlbmRhcnNfam91cm5hbHMvJyB0YXJnZXQ9J19ibGFuayc+U0ogOCA8L2E+PC9iPmQCDA9kFgJmDxUCAVPrAVNlbi4gQWJiYXMgRmxvb3IgQW1lbmRtZW50IDxiPjxhIGhyZWY9J3BkZi5hc3B4P3E9YW1lbmRtZW50JmlkPTIwMjYtMTI3M1MnIHRhcmdldD0nX2JsYW5rJz4jMjAyNi0xMjczczwvYT48L2I+LCBBQSwgVlY7IDA0LzA5LzIwMjY7ICA8Yj48YSBocmVmPSdodHRwczovL3d3dy5nZW5jb3VydC5zdGF0ZS5uaC51cy9zZW5hdGUvY2FsZW5kYXJzX2pvdXJuYWxzLycgdGFyZ2V0PSdfYmxhbmsnPlNKIDggPC9hPjwvYj5kAg0PZBYCZg8VAgFT9QFPdWdodCB0byBQYXNzIHdpdGggQW1lbmRtZW50IDxiPjxhIGhyZWY9J3BkZi5hc3B4P3E9YW1lbmRtZW50JmlkPTIwMjYtMTI3M1MnIHRhcmdldD0nX2JsYW5rJz4jMjAyNi0xMjczczwvYT48L2I+LCBNQSwgVlY7IE9UM3JkZzsgMDQvMDkvMjAyNjsgIDxiPjxhIGhyZWY9J2h0dHBzOi8vd3d3LmdlbmNvdXJ0LnN0YXRlLm5oLnVzL3NlbmF0ZS9jYWxlbmRhcnNfam91cm5hbHMvJyB0YXJnZXQ9J19ibGFuayc+U0ogOCA8L2E+PC9iPmQCJw8PFgIfBWdkZAIrD2QWBAIfDw8WAh4NVmlld1N0YXRlRGF0YQWTAjw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi0xNiI/Pg0KPENoYXJ0IEVuYWJsZVZpZXdTdGF0ZT0iVHJ1ZSI+DQogIDxTZXJpZXM+DQogICAgPFNlcmllcyBOYW1lPSJTZXJpZXMxIiBDaGFydFR5cGU9IlBpZSIgQ2hhcnRBcmVhPSJDaGFydEFyZWExIj4NCiAgICA8L1Nlcmllcz4NCiAgPC9TZXJpZXM+DQogIDxDaGFydEFyZWFzPg0KICAgIDxDaGFydEFyZWEgTmFtZT0iQ2hhcnRBcmVhMSI+DQogICAgPC9DaGFydEFyZWE+DQogIDwvQ2hhcnRBcmVhcz4NCjwvQ2hhcnQ+ZGQCIQ8PFgIfCAWTAjw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi0xNiI/Pg0KPENoYXJ0IEVuYWJsZVZpZXdTdGF0ZT0iVHJ1ZSI+DQogIDxTZXJpZXM+DQogICAgPFNlcmllcyBOYW1lPSJTZXJpZXMxIiBDaGFydFR5cGU9IlBpZSIgQ2hhcnRBcmVhPSJDaGFydEFyZWExIj4NCiAgICA8L1Nlcmllcz4NCiAgPC9TZXJpZXM+DQogIDxDaGFydEFyZWFzPg0KICAgIDxDaGFydEFyZWEgTmFtZT0iQ2hhcnRBcmVhMSI+DQogICAgPC9DaGFydEFyZWE+DQogIDwvQ2hhcnRBcmVhcz4NCjwvQ2hhcnQ+ZGQCHA8WAh8ABQQyNDQzZAIhDxYCHwAFATFkAiMPFgIfAAU+MUY6XFdlYnNpdGVzXEdDTkhXZWJcbGVnaXNsYXRpb25cSG91c2VDb21tVm90ZVwyMDI2XEhCMTQ2MC5wZGZkZDnmM4C3ol/qU73CvfGtSeAodZfJ19fu26dRN8VQN+x7" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/bill_status/WebResource.axd?d=HZtf-Okgf3fS6pvfRPKZxOkMY_1ZvIfo3ix5AbqPfUSvnlT4Z4pa_-P7aO8b7R5NJrv-ksVJdwSn-yeT9ps57vqrANW2Wu0xk3UzmyXQAOs1&amp;t=638563127773552689" type="text/javascript"></script>
+
+
+<script src="/bill_status/ScriptResource.axd?d=MDfCVrpovEbi8_he-dCShOcS2QAk7PbXlxmt1l6gw1WCv4v6dfcpCzqt30Mxy4WPMXrGPSFrDcVqhz47shw7sCPm1SI_2PR6twVkBXXL6VDehYhQ1u_M3Tkz8DilkFMuhsA-2bvUnH9zvkWseGarFkqgs-zQrQIJzZv1aca-lcLrACJQMuAUdHSu7D6qS0aa0&amp;t=ffffffffc820c398" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/bill_status/ScriptResource.axd?d=AeVMjVNgblGXfZPVVAavUY4N_yUowzkp-IYyRb-5Gf1C_mdPMFuS8tPVY62gVrVUbqXeiWbCAvuImeUq4vy_vnDR0hMUfvJ0165MmIFXILqZ8aifSnzm2DZB6suZEzNNdWwFyyEvlEYHz7dCTylXgvvxlnsBGaqf_crJuIhRvHRuu5_jtxu1yiYIiuh9s1GB0&amp;t=ffffffffc820c398" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="68975F3D" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdACGZygJn44y98Mzv0t1Ey2CqnTHW/ETNOAfxPmUKxqnJ8y7TDeTaYxRmsnYnIRdt5IPLyo1XdkK3jRuQ5HHf92w+vZR4hy05S5NyDXW1uch87EAYMuMvqoKYPrm3akE7rv88KNDFuGPdEI9LMVm0PBqtFVqLedp3zGkAZG5MREyXD2ND+wkrVxrmAn9meLbMOLlT3EjxSPF7wjy9Ftt3t/XVkH5gSrFy8hSmPphPJOOlAlgU6UUnoXrC9iO8daZ+JTjBbIB/v0EXC09ofnmYEJCQXFRCBbHywrFparXImD/618oB5caAXXBVFcgkTpfaQIV4b4ZMKHwloe346FdgF/sFQiUE1DKJ/rhtI7oMPLdE8TqhlOTYnT3pMMt63dAiz7qy/vc2HqJAVB+i3q+fKXSfMGDzMqcetF5jk9hMbuYuIZRALWFrSGkE3WrhGzaysXmDV/E8E4jBZOeykLjS+xLg5wm+q7himi+EDnBjfUgrDWq2xApKdRufTZUxRo9gNn786xcq5e2HDUPYcI52BoYYS90J97+FpSl9ttCx6Wj3h98P90EvW7fvUUoI6rvAqkpHC4m/NR4joQoe+EGdOQJnAg2n7awwF8PdMABBOx54jedbCra3wEc6JerIVn+s7TEHyuFuSoTjX0rACEoIigyv0PfevElv/VBNnJfGrBHWYAZRZ9GnhjJ/OupaewEHMU0c4jeMtWfu8D3SkFyPfkW9d1adzN9KV+7RNzozRB+crg==" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$pageBody$ScriptManager1', 'form1', ['tctl00$pageBody$uPanel1','pageBody_uPanel1'], ['ctl00$pageBody$ddlBillVersions','pageBody_ddlBillVersions','ctl00$pageBody$ddlBillAmendments','pageBody_ddlBillAmendments','ctl00$pageBody$ddlCommitteeRpts','pageBody_ddlCommitteeRpts','ctl00$pageBody$ddlHseRC','pageBody_ddlHseRC','ctl00$pageBody$cmdDocket','pageBody_cmdDocket'], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+        <div id="dvAll">
+            <div id="dvMainContent"style="background-color: #EBEBEB;padding-bottom: 50px">
+                <div id="dvPageHdrWrap" style="background-color: #EBEBEB;padding-bottom:10px;width:100%;height:100%;overflow:hidden;">
+                        <div id="dvBillNo" style="padding: 10px; font-size: 22pt; font-weight: bold; text-align: center;position:relative;">
+                            HB1460-FN
+                            
+                            <div style="position: absolute; width: 200px; right: 0px; font-size: 14pt; top:0px;" class="NoPrint">
+                                <input type="submit" name="ctl00$pageBody$cmdPre" value="&lt;&lt;&lt;" id="pageBody_cmdPre" title="Previous Bill" style="color:White;background-color:#475982;font-weight:bold;" />
+                                &nbsp;&nbsp;
+                                <input type="submit" name="ctl00$pageBody$cmdNext" value=">>>" id="pageBody_cmdNext" title="Next Bill" style="color:White;background-color:#475982;font-weight:bold;" />
+                            </div>
+                        </div>
+                    <div id="dvBillDEtailsWrap"  style="padding:5px;height:100%;overflow:hidden;">
+
+                         <div id="dvHdr" style="text-align: center; font-size: 22pt; color:#475982">
+                        Bill Details
+                    </div>
+                        <div id="dvTitle" style="padding: 5px">
+                            <b>Title:</b>&nbsp;(New Title) prohibiting the sale of a child's personal data.
+                        </div>
+                        <div id="dvSponosrs" style="padding-bottom:10px;">
+                           <b>Sponsors:</b>&nbsp;<a href='http://gencourt.state.nh.us/house/members/member.aspx?pid=9940'
+title='Rep. Melissa Litchfield (R)' class='HseMember'><i><b>(Prime)</b></i> Litchfield (R)</a>, <a href='http://gencourt.state.nh.us/house/members/member.aspx?pid=11413'
+title='Rep. Jay Markell (R)' class='HseMember'>Markell (R)</a>, <a href='http://gencourt.state.nh.us/house/members/member.aspx?pid=8392'
+title='Rep. Jess Edwards (R)' class='HseMember'>Edwards (R)</a>, <a href='http://gencourt.state.nh.us/house/members/member.aspx?pid=11399'
+title='Rep. Laurence Miner (R)' class='HseMember'>Miner (R)</a>, <a href='http://gencourt.state.nh.us/house/members/member.aspx?pid=10714'
+title='Rep. Michael Granger (R)' class='HseMember'>Granger (R)</a>, <a href='http://gencourt.state.nh.us/house/members/member.aspx?pid=7144'
+title='Rep. Michael Moffett (R)' class='HseMember'>Moffett (R)</a>, <a href='http://gencourt.state.nh.us/senate/members/webpages/district23.aspx' 
+title='Sen. Bill Gannon (R)' class='SenMember'>Gannon (R)</a>, <a href='http://gencourt.state.nh.us/senate/members/webpages/district16.aspx' 
+title='Sen. Keith Murphy (R)' class='SenMember'>Keith Murphy (R)</a>, <a href='http://gencourt.state.nh.us/senate/members/webpages/district02.aspx' 
+title='Sen. Timothy Lang (R)' class='SenMember'>Lang (R)</a>, <a href='http://gencourt.state.nh.us/senate/members/webpages/district18.aspx' 
+title='Sen. Victoria Sullivan (R)' class='SenMember'>Victoria Sullivan (R)</a>
+                        </div>
+                        <div id="dvDetailBar" >
+                            <div>
+                                <div class="dBarDivs">
+                                    LSR Number:&nbsp;<b>26-3231</b>
+                                </div>
+        
+                                <div  class="dBarDivs">
+                                    General Status:&nbsp;<b>SENATE</b>
+                                </div>
+                            
+                                <div  class="dBarDivs">
+                                    
+                                </div>
+                            </div>
+                            <div id="pageBody_dvHouseStat" class="dHseStat">
+	
+                                <div class="dBarBodyHdr">House:</div>
+                                <div class="dBarBodyComm">
+                                    <b>Committee:</b>&nbsp;Finance
+                                </div>
+                                <div class="dBarBodyOut">
+                                    <b>Due Out:</b>&nbsp;2/12/2026
+                                </div>
+
+                                <div class="dBarBodyStatus">
+                                    <b>Status:</b>&nbsp;PASSED/ADOPTED
+                                </div>
+                            
+</div>
+                            <div id="pageBody_dvSenStat" class="dSenStat">
+	
+                                <div class="sdBarBodyHdr">Senate:</div>
+                                <div class="sdBarBodyComm">
+                                    <b>Committee:</b>&nbsp;Children and Family Law
+                                </div>
+                                <div class="sdBarBodyFloor">
+                                    <b>Floor Date:</b>&nbsp;4/9/2026
+                                </div>
+                                <div class="sdBarBodyStatus">
+                                    <b>Status:</b>&nbsp;PASSED/ADOPTED WITH AMENDMENT
+                                </div>
+                            
+</div>
+
+                        </div>
+                    </div>
+ </div>
+                
+                <div id="pageBody_uPanel1">
+	
+                        
+                    <div id="dvContentWrap" style="height:100%;overflow:hidden;">
+                        <div id="dvOptions" class="NoPrint">
+
+<!-- ***********************  Small layout for documemt Options ************************** -->
+                        <div id="dvOptionsSmall">
+                        <div id="dvOptionsHdr" style="color: #FFFFFF; font-weight: bold;" >
+                            Documents
+                        </div>
+                            <div id="dvOptR1" style="padding: 5px; position: relative; clear: both">
+                                <div style="position: relative;">
+                                    <input type="submit" name="ctl00$pageBody$cmdSubscribe" value="Subscribe To HB1460-FN" id="pageBody_cmdSubscribe" style="border-radius: 5px;" />
+                                    </div>
+                                <div style="position: relative; width: 225px; float: left">
+                                    <input type="submit" name="ctl00$pageBody$cmdDocket" value="View the Bill Docket" id="pageBody_cmdDocket" style="border-radius: 5px;" />
+                                </div>
+                                <div style="position: relative; width: 225px; float: left">
+                                    <select name="ctl00$pageBody$ddlBillVersions" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$pageBody$ddlBillVersions\&#39;,\&#39;\&#39;)&#39;, 0)" id="pageBody_ddlBillVersions">
+		<option selected="selected" value="Select a Bill Version -->">Select a Bill Version --&gt;</option>
+		<option value="23480">Introduced</option>
+		<option value="30672">As Amended by the Senate</option>
+
+	</select>
+                                </div>
+                            </div>
+                            <div id="pageBody_dvOptR2" style="padding: 5px; position: relative; clear: both">
+                                <div style="position: relative; width: 225px; float: left">
+                                    <select name="ctl00$pageBody$ddlBillAmendments" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$pageBody$ddlBillAmendments\&#39;,\&#39;\&#39;)&#39;, 0)" id="pageBody_ddlBillAmendments">
+		<option selected="selected" value="Select Bill Amendments -->">Select Bill Amendments --&gt;</option>
+		<option value="30067">2026-1273s</option>
+
+	</select>
+                                </div>
+                                <div style="position: relative; width: 225px; float: left">
+                                    <select name="ctl00$pageBody$ddlCommitteeRpts" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$pageBody$ddlCommitteeRpts\&#39;,\&#39;\&#39;)&#39;, 0)" id="pageBody_ddlCommitteeRpts">
+		<option selected="selected" value="Select Committee Reports -->">Select Committee Reports --&gt;</option>
+		<option value="19479">Sen Comm Rpt</option>
+		<option value="20770">Sen Hearing Rpt</option>
+
+	</select>
+                                </div>
+                            </div>
+                            <div id="pageBody_dvOptR3" style="padding: 5px; position: relative; clear: both">
+                                <div style="position: relative; width: 225px; float: left">
+                                    <select name="ctl00$pageBody$ddlHseRC" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$pageBody$ddlHseRC\&#39;,\&#39;\&#39;)&#39;, 0)" id="pageBody_ddlHseRC">
+		<option selected="selected" value="Select House Roll Call -->">Select House Roll Call --&gt;</option>
+		<option value="64">OTP</option>
+
+	</select>
+                                </div>
+                                <div style="position: relative; width: 225px; float: left">
+                                    
+                                </div>
+                            </div>
+                            <div id="pageBody_dvOptR4" style="padding: 5px; position: relative; clear: both">
+                                <div style="position: relative; width: 225px; float: left">
+                                    <select name="ctl00$pageBody$ddlHistory" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$pageBody$ddlHistory\&#39;,\&#39;\&#39;)&#39;, 0)" id="pageBody_ddlHistory">
+
+	</select>
+                                </div>
+                            </div>
+                        </div>
+<!-- ************************  Large layout for Document Options ************************** -->
+                        <div id="dvOptionsLarge" style="border: 5px solid #475982; height:100%; position: relative; padding: 10px;">
+                            <div id="dvSubscribe" style="position: relative; clear: both">
+                                <a id="pageBody_lnkLrgSubscribe" href="javascript:__doPostBack(&#39;ctl00$pageBody$lnkLrgSubscribe&#39;,&#39;&#39;)"><b>Subscribe To HB1460-FN</b></a>
+                            </div>
+                            <div id="dvDocketLink" style="position: relative; clear: both">
+                                <a id="pageBody_lnkDocket" href="javascript:__doPostBack(&#39;ctl00$pageBody$lnkDocket&#39;,&#39;&#39;)">Docket</a>
+                            </div>
+                            <div id="dvVersionLink" style="position: relative; clear: both; top: 0px; left: 0px;">
+                                <div style="font-weight: bold">Bill Versions</div>
+                                <div>
+                                    <!-- *************  bill versions **************** -->
+                                    
+                                        <div style="padding-left: 10px">
+                                        <a id="pageBody_rVersions_linkv_0" href="javascript:__doPostBack(&#39;ctl00$pageBody$rVersions$ctl00$linkv&#39;,&#39;&#39;)">Introduced</a>
+                                            &nbsp;
+                                        <a id="pageBody_rVersions_lnkShowBillPdf_0" href="javascript:__doPostBack(&#39;ctl00$pageBody$rVersions$ctl00$lnkShowBillPdf&#39;,&#39;&#39;)">
+                                                         [PDF]
+                                        </a>
+                                        </div>
+                                        
+                                        <div style="padding-left: 10px">
+                                        <a id="pageBody_rVersions_linkv_1" href="javascript:__doPostBack(&#39;ctl00$pageBody$rVersions$ctl01$linkv&#39;,&#39;&#39;)">As Amended by the Senate</a>
+                                            &nbsp;
+                                        <a id="pageBody_rVersions_lnkShowBillPdf_1" href="javascript:__doPostBack(&#39;ctl00$pageBody$rVersions$ctl01$lnkShowBillPdf&#39;,&#39;&#39;)">
+                                                         [PDF]
+                                        </a>
+                                        </div>
+                                        
+                                    <div style="padding-left: 10px">
+                                    
+                                        </div>
+                                </div>
+                            </div>
+                            <div id="pageBody_dvAmendmentsLink" style="position: relative; clear: both">
+                                <div style="font-weight: bold">Amendments</div>
+                                <div>
+                                    
+                                        <div style="padding-left: 10px">
+                                        <a id="pageBody_rAmendLinks_linkA_0" href="javascript:__doPostBack(&#39;ctl00$pageBody$rAmendLinks$ctl00$linkA&#39;,&#39;&#39;)">2026-1273s</a>     
+                                        <a id="pageBody_rAmendLinks_lnkShowAmendPdf_0" href="javascript:__doPostBack(&#39;ctl00$pageBody$rAmendLinks$ctl00$lnkShowAmendPdf&#39;,&#39;&#39;)">
+                                                         [PDF]
+                                        </a>
+                                            
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            <div id="pageBody_dvRptsLinks" style="position: relative; clear: both">
+                                <div style="font-weight: bold">Hearing Reports</div>
+                                <div>
+                                    
+                                        <div style="padding-left: 10px">
+                                        <a id="pageBody_rRptLinks_linkRpt_0" href="javascript:__doPostBack(&#39;ctl00$pageBody$rRptLinks$ctl00$linkRpt&#39;,&#39;&#39;)">Sen Comm Rpt&nbsp;<i>(3/23/26)</i>
+                                        </a>&nbsp;
+                                        <a id="pageBody_rRptLinks_lnkShowHearingPdf_0" href="javascript:__doPostBack(&#39;ctl00$pageBody$rRptLinks$ctl00$lnkShowHearingPdf&#39;,&#39;&#39;)">
+                                                         [PDF]
+                                        </a>
+                                        </div>
+                                        
+                                        <div style="padding-left: 10px">
+                                        <a id="pageBody_rRptLinks_linkRpt_1" href="javascript:__doPostBack(&#39;ctl00$pageBody$rRptLinks$ctl01$linkRpt&#39;,&#39;&#39;)">Sen Hearing Rpt&nbsp;<i>(3/31/26)</i>
+                                        </a>&nbsp;
+                                        <a id="pageBody_rRptLinks_lnkShowHearingPdf_1" href="javascript:__doPostBack(&#39;ctl00$pageBody$rRptLinks$ctl01$lnkShowHearingPdf&#39;,&#39;&#39;)">
+                                                         [PDF]
+                                        </a>
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            <div id="pageBody_dvRollCallsLinks">
+                                <div style="font-weight: bold">Roll Calls</div>
+                                <div style="padding-left: 10px">
+                                    
+                                </div>
+                                <div id="dvHseRC" style="padding-left: 10px">
+                                    House Roll Calls
+
+                                        
+                                            <div style="padding-left: 20px">
+                                            <a id="pageBody_rHseRC_linkHseRC_0" title="OTP" href="javascript:__doPostBack(&#39;ctl00$pageBody$rHseRC$ctl00$linkHseRC&#39;,&#39;&#39;)">OTP&nbsp;<i>(214-145)</i>
+                                            </a>                   
+                                            </div>
+                                            
+
+                                </div>
+                                <div id="pageBody_dvSenRC" style="padding-left: 10px">
+                                    No Senate Roll Calls: 
+                                    
+                                </div>
+                                <div>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                     </div>
+                        <div id="dvViewPanels" style=" margin-bottom: 0px;height:100%;overflow:hidden;">
+                            <div id="dvSelectedOption" style="text-align: center; font-size: 16pt; font-weight: bold">
+                                        Bill Docket
+                            </div>
+                            <div id="pageBody_pnlDocket">
+		
+                                <div style="background-color: #000066; color: #FFFFFF; font-weight: bold; text-align: center">
+                                    <div class="dvDocketC1">Body</div>
+                                    <div class="dvDocketC2">Description</div>
+                                </div>
+                                
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">  Introduced 01/07/2026 and referred to Children and Family Law  <b><a href='https://www.gencourt.state.nh.us/house/calendars_journals/' target='_blank'>HJ 1 </a></b> P. 21</div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Public Hearing: 01/20/2026 01:00 pm GP 230</div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Executive Session: 01/27/2026 10:00 am GP 230</div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Majority Committee Report: Ought to Pass  01/27/2026 (Vote 9-7; RC)  <b><a href='https://www.gencourt.state.nh.us/house/calendars_journals/' target='_blank'>HC 6 </a></b> P. 10</div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Minority Committee Report: Refer for Interim Study</div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Ought to Pass: MA RC 214-145 02/12/2026  <b><a href='https://www.gencourt.state.nh.us/house/calendars_journals/' target='_blank'>HJ 4 </a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Referred to Finance 02/12/2026  <b><a href='https://www.gencourt.state.nh.us/house/calendars_journals/' target='_blank'>HJ 4 </a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">H</div>
+                                            <div class="dvDocketC2">Referral Waived by Committee Chair per House Rule 47(f) 02/12/2026  <b><a href='https://www.gencourt.state.nh.us/house/calendars_journals/' target='_blank'>HJ 4 </a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">S</div>
+                                            <div class="dvDocketC2">  Introduced 02/05/2026 and Referred to Children and Family Law;  <b><a href='https://www.gencourt.state.nh.us/senate/calendars_journals/' target='_blank'>SJ 4 </a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">S</div>
+                                            <div class="dvDocketC2">  Hearing: 03/19/2026, Room 100, SH, 10:00 am;  <b><a href='https://www.gencourt.state.nh.us/Senate/calendars_journals/calendars/2026/No 10 March 12 2026.pdf' target='_blank'>SC 10</a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">S</div>
+                                            <div class="dvDocketC2">Committee Report: Ought to Pass, 04/09/2026; Vote 3-0; CC;  <b><a href='https://www.gencourt.state.nh.us/Senate/calendars_journals/calendars/2026/No 13 April 2 2026.pdf' target='_blank'>SC 13</a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">S</div>
+                                            <div class="dvDocketC2">HB 1460 was Removed from the Consent Calendar; 04/09/2026;  <b><a href='https://www.gencourt.state.nh.us/senate/calendars_journals/' target='_blank'>SJ 8 </a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">S</div>
+                                            <div class="dvDocketC2">Sen. Abbas Floor Amendment <b><a href='pdf.aspx?q=amendment&id=2026-1273S' target='_blank'>#2026-1273s</a></b>, AA, VV; 04/09/2026;  <b><a href='https://www.gencourt.state.nh.us/senate/calendars_journals/' target='_blank'>SJ 8 </a></b></div>
+                                        </div>
+
+                                    
+                                        <div style="clear:both">
+                                            <div class="dvDocketC1">S</div>
+                                            <div class="dvDocketC2">Ought to Pass with Amendment <b><a href='pdf.aspx?q=amendment&id=2026-1273S' target='_blank'>#2026-1273s</a></b>, MA, VV; OT3rdg; 04/09/2026;  <b><a href='https://www.gencourt.state.nh.us/senate/calendars_journals/' target='_blank'>SJ 8 </a></b></div>
+                                        </div>
+
+                                    
+                            
+	</div>
+                            
+                            
+                            <div id="pageBody_pnlRpt">
+		
+                                <div  class="viewArea">
+                                    
+                                </div>
+                          
+                            
+	</div>
+                            
+<!-- ************************************  House Roll Calls *************************************************************************************************** -->
+                            
+
+                        </div>
+
+                    </div>
+                    
+                    
+
+                    
+</div>
+
+            </div>
+        </div>
+        
+        
+        
+    </form>
+
+
+
+
+        </div>
+        <!-- end legacy code -->
+
+<div class="NoPrint">
+    <footer>
+        <div class="container desktop-footer d-print-none">
+    <div class="row justify-content-center pt-4">
+        <div class="col-sm-3">
+            <ul>
+                <li>
+                    <lh><p>HELPFUL LINKS</p></lh>
+                </li>
+                <!--li><a class="footer-link" href="/committee_of_conference/">Committees of Conference</a></-->
+                <li><a class="footer-link" href="/redistricting/">Redistricting Information</a></li>
+                <li><a class="footer-link" href="/ethics/">Ethics Committee</a></li>
+                <li><a class="footer-link" href="/statstudcomm/">Statutory/Study Committees</a></li>
+                <li><a class="footer-link" href="/nhgcrollcalls/">Voting Records</a></li>
+                <li><a class="footer-link" href="/bill_Status/byAnyMember.aspx">Past Member Legislation</a></li>
+                <li><a class="footer-link" href="https://www.google.com/maps/place/New+Hampshire+State+House/@43.2069998,-71.5403886,17z/data=!4m5!3m4!1s0x89e2136e9b8c52cf:0x100610ccbefbf3da!8m2!3d43.2067707!4d-71.5380374">Driving Directions</a>                </li>
+                <li><a class="footer-link" href="mailto:help@gc.nh.gov">IT Help Desk</a></li>
+                <li><a class="footer-link" href="/misc/State House Complex Public Conduct Policy 2023.pdf">Public Code of Conduct</a></li>
+            </ul>
+            <br />
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <ul>
+                <li><lh><p>DOCUMENTS &AMP; MEDIA</p></lh></li>
+                <li><a class="footer-link" href="https://www.youtube.com/channel/UCxqjz56akoWRL_5vyaQDtvQ/videos">House Streaming </a></li>
+                <li><a class="footer-link" href="https://www.youtube.com/channel/UCjBZdtrjRnQdmg-2MPMiWrA/videos">Senate Streaming</a></li>
+                <li><a class="footer-link" href="/downloads/">Downloads</a></li>
+                <li><a class="footer-link" href="/misc/ADAnotice3.pdf">ADA Compliance Notice </a></li>
+                <li><a class="footer-link" href="/misc/General%20Court%20Harassment%20Policy%20and%20Addendum-1%202020.pdf">Sexual Harassment Policy </a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/policy/accessibility.htm">Accessibility Policy</a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/policy/index.htm">Privacy Policy </a></li>
+            </ul>
+            <br />
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <ul>
+                <li><lh><p>OTHER RESOURCES</p></lh></li>
+                <li><a class="footer-link" href="https://www.sos.nh.gov/lobbyists">Registered Lobbyists </a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/">nh.gov </a></li>
+                <li><a class="footer-link" href="https://www.courts.state.nh.us/">Judicial Branch </a></li>
+                <li><a class="footer-link" href="https://www.governor.nh.gov/">Governor </a></li>
+                <li><a class="footer-link" href="https://www.council.nh.gov/">Executive Council </a></li>
+                <li><a class="footer-link" href="http://sos.nh.gov/">Secretary of State </a></li>
+                <li><a class="footer-link" href="https://www.nh.gov/glance/state-constitution">NH Constitution </a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="desktop-copyright">
+        <div class="row justify-content-center">
+            <p class="m-0 footer-title">The General Court of New Hampshire | 107 North Main Street | Concord, NH 03301</p>
+        </div>
+        <div class="row justify-content-center">
+            <p>&#169; Copyright 2026 State Of New Hampshire</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mobile-footer pt-3 d-print-none">
+    <div class="row justify-content-center">
+        <p class="m-0">The General Court of New Hampshire</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="m-0">107 North Main Street</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="m-0">Concord, NH 03301</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="my-2">&#169; Copyright 2026</p>
+    </div>
+</div>
+
+    </footer>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src='/js/main.js'></script>
+    <script src='/bill_status/js/sk.js'></script>
+    <!-- For adding extra scripts to the bottom of the page below the js decs -->
+    
+
+</body>
+</html>

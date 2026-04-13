@@ -1,0 +1,42 @@
+{
+  "bill_identifier": "SB 1972",
+  "state": "Oklahoma",
+  "state_abbrev": "OK",
+  "session": "2026",
+  "title": "Interactive Computer Service Minor Account Protections",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "age-verification",
+    "youth-privacy",
+    "social-media"
+  ],
+  "sponsors": [
+    "Sen. Grellner (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/oklahoma/SB-1972",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20INT/SB/SB1972%20INT.PDF",
+  "status_history": [
+    {
+      "date": "2026-04-10",
+      "status": "introduced",
+      "detail": "Introduced by Sen. Grellner (R)",
+      "source_email_date": "2026-01-15",
+      "source_run_id": "2026-04-09T23-07-50"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-10",
+      "pdf_path": "bills/oklahoma/SB-1972/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "2026-04-09T23-07-50",
+  "last_updated_run": "2026-04-09T23-07-50"
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-04-12T21-18-15",
+  "timestamp": "2026-04-12T23:59:00+00:00",
+  "stage": "categorizer",
+  "status": "complete",
+  "data": {
+    "reports_filed": [
+      {
+        "finding_id": "SCAN-20260412-001",
+        "report_path": "reports/privacy/state-comprehensive-laws/alabama-hb351-pdpa-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "state-comprehensive-laws",
+        "action": "filed",
+        "notes": "Alabama HB 351 legislative analysis. Already at correct final location."
+      },
+      {
+        "finding_id": "SCAN-20260412-002",
+        "report_path": "reports/privacy/maine-ld1822-privacy-bill-failed-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "state-comprehensive-laws",
+        "action": "filed",
+        "notes": "Maine LD 1822 failure report. Filed at privacy root; covers failed state comprehensive privacy legislation."
+      },
+      {
+        "finding_id": "SCAN-20260412-003",
+        "report_path": "reports/cybersecurity/anthropic-claude-mythos-cyberattack-2026-04-12.md",
+        "category": "cybersecurity",
+        "subcategory": null,
+        "action": "filed",
+        "notes": "Claude Mythos frontier AI zero-day discovery and Project Glasswing. Primary topic is cybersecurity (offensive/defensive capabilities, government engagement). Secondary relevance to AI governance. Filed at cybersecurity root; no matching known subcategory for frontier-AI-driven vulnerability research."
+      },
+      {
+        "finding_id": "SCAN-20260412-006",
+        "report_path": "reports/privacy/financial-privacy/glba-reform-huizenga-discussion-draft-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "financial-privacy",
+        "action": "filed",
+        "notes": "GLBA Title V modernization discussion draft. Already at correct final location in financial-privacy subcategory."
+      },
+      {
+        "finding_id": "SCAN-20260412-007",
+        "report_path": "reports/privacy/cppa-drop-audit-rulemaking-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "enforcement-actions",
+        "action": "filed",
+        "notes": "CalPrivacy DROP audit rulemaking. Closest subcategory is enforcement-actions (CPPA regulatory action); filed at privacy root as report covers pre-rulemaking comment period rather than a concluded enforcement action."
+      },
+      {
+        "finding_id": "SCAN-20260412-008",
+        "report_path": "reports/privacy/illinois-bipa-7th-circuit-retroactivity-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "enforcement-actions",
+        "action": "filed",
+        "notes": "Seventh Circuit BIPA retroactivity ruling. Court decision on biometric privacy enforcement. Filed at privacy root covering appellate court decision on state biometric law."
+      },
+      {
+        "finding_id": "SCAN-20260412-009",
+        "report_path": "reports/privacy/take-it-down-act-first-conviction-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "enforcement-actions",
+        "action": "deprecated",
+        "notes": "Superseded by SCAN-20260412-028 (take-it-down-act-strahler-conviction-2026-04-12.md), which is the more fully verified version. Deprecation notice added to top of report file pointing to SCAN-20260412-028 as authoritative. Frontmatter updated with deprecated: true and superseded_by: SCAN-20260412-028. Do not cite in client materials."
+      },
+      {
+        "finding_id": "SCAN-20260412-010",
+        "report_path": "reports/privacy/hhs-ocr-hipaa-risk-management-video-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "health-data",
+        "action": "filed",
+        "notes": "HHS OCR HIPAA Risk Management guidance video. Health data privacy; filed at privacy root as health-data subcategory directory does not yet exist under reports/privacy/."
+      },
+      {
+        "finding_id": "SCAN-20260412-014",
+        "report_path": "reports/privacy/doj-vppa-first-circuit-brief-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "enforcement-actions",
+        "action": "filed",
+        "notes": "DOJ VPPA First Circuit amicus brief. Federal enforcement/litigation; filed at privacy root covering DOJ intervention in appellate VPPA case."
+      },
+      {
+        "finding_id": "SCAN-20260412-022",
+        "report_path": "reports/privacy/state-comprehensive-laws/alabama-pdpa-hb351-analysis-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "state-comprehensive-laws",
+        "action": "filed",
+        "notes": "Alabama HB 351 compliance playbook companion to SCAN-20260412-001. Already at correct final location. Both reports share topic_key al-hb351-2026rs; this one is the practitioner action guide."
+      },
+      {
+        "finding_id": "SCAN-20260412-023",
+        "report_path": "reports/privacy/state-privacy-roundup-ky-ny-me-april-2026.md",
+        "category": "privacy",
+        "subcategory": "state-comprehensive-laws",
+        "action": "filed",
+        "notes": "Multi-state privacy roundup (KY HB 692, NY SOPA, ME LD 1822 session-end deadlines). Filed at privacy root as it spans multiple states and subcategories."
+      },
+      {
+        "finding_id": "SCAN-20260412-026",
+        "report_path": "reports/ai-law/trump-ai-executive-order-state-preemption-2026-04-12.md",
+        "category": "ai-law",
+        "subcategory": "executive-orders",
+        "action": "filed",
+        "notes": "Trump AI EO on national AI policy and state law preemption (signed Dec 11, 2025; reported Apr 12, 2026). Already at correct final location in ai-law directory."
+      },
+      {
+        "finding_id": "SCAN-20260412-028",
+        "report_path": "reports/privacy/take-it-down-act-strahler-conviction-2026-04-12.md",
+        "category": "privacy",
+        "subcategory": "enforcement-actions",
+        "action": "filed",
+        "notes": "Authoritative TAKE IT DOWN Act first conviction report (Strahler guilty plea). Supersedes SCAN-20260412-009. More fully verified: correct codification (47 U.S.C. § 223(h)), correct FTC Act citation (15 U.S.C. § 45), additional sources including NBC News and DOJ primary source."
+      }
+    ],
+    "total_filed": 12,
+    "total_superseded": 1
+  }
+}

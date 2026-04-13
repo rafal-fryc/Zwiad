@@ -1,0 +1,41 @@
+{
+  "bill_identifier": "SF 4509",
+  "state": "Minnesota",
+  "state_abbrev": "MN",
+  "session": "2026",
+  "title": "Minnesota AI Developer Safety, Transparency, and Disclosure Requirements",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "ai-safety",
+    "transparency"
+  ],
+  "sponsors": [
+    "Sen. Quade (D)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/minnesota/SF-4509",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://www.house.leg.state.mn.us/hinfo/leginfo/memroster.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-03-19",
+      "source_run_id": "fpf-chronological-week-09-Mar-19-20"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/minnesota/SF-4509/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-09-Mar-19-20",
+  "last_updated_run": "fpf-chronological-week-09-Mar-19-20"
+}

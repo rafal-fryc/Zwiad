@@ -1,0 +1,38 @@
+{
+  "bill_identifier": "HB 325",
+  "state": "Alabama",
+  "state_abbrev": "AL",
+  "session": "2026",
+  "title": "Alabama Chatbot Safety (HB 325)",
+  "category": [
+    "ai-law"
+  ],
+  "topics": [
+    "chatbots"
+  ],
+  "sponsors": [],
+  "current_status": "introduced",
+  "bill_dir": "bills/alabama/HB-325",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB325-int.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-01-29",
+      "source_run_id": "fpf-chronological-week-02-Jan-29-30"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/alabama/HB-325/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-02-Jan-29-30",
+  "last_updated_run": "fpf-chronological-week-02-Jan-29-30"
+}

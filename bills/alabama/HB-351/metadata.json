@@ -1,0 +1,40 @@
+{
+  "bill_identifier": "HB 351",
+  "state": "Alabama",
+  "state_abbrev": "AL",
+  "session": "2026",
+  "title": "Alabama Comprehensive Privacy Act (Connecticut-style)",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "comprehensive-privacy"
+  ],
+  "sponsors": [
+    "Rep. Shaw (R)"
+  ],
+  "current_status": "introduced",
+  "bill_dir": "bills/alabama/HB-351",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-int.pdf",
+  "status_history": [
+    {
+      "date": "2026-04-09",
+      "status": "introduced",
+      "detail": "Introduced",
+      "source_email_date": "2026-02-05",
+      "source_run_id": "fpf-chronological-week-03-Feb-5-6"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/alabama/HB-351/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-03-Feb-5-6",
+  "last_updated_run": "fpf-chronological-week-03-Feb-5-6"
+}

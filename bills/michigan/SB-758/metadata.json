@@ -1,0 +1,39 @@
+{
+  "bill_identifier": "SB 758",
+  "state": "Michigan",
+  "state_abbrev": "MI",
+  "session": "2026",
+  "title": "Michigan Kids Code",
+  "category": [
+    "privacy"
+  ],
+  "topics": [
+    "childrens-privacy",
+    "minors"
+  ],
+  "sponsors": [],
+  "current_status": "passed-committee",
+  "bill_dir": "bills/michigan/SB-758",
+  "current_version": "v1-introduced",
+  "download_status": "success",
+  "bill_text_url": "https://legislature.mi.gov/Home/GetObject?objectName=2025-SCVBS-0758-0D289.pdf",
+  "status_history": [
+    {
+      "date": "2026-03-25",
+      "status": "passed-committee",
+      "detail": "Passed committee on March 25, 2026; on third reading with no immediate vote expected; Senate adjourned until April 14",
+      "source_email_date": "2026-03-26",
+      "source_run_id": "fpf-chronological-week-10-Mar-26-27"
+    }
+  ],
+  "versions": [
+    {
+      "version_id": "v1-introduced",
+      "date": "2026-04-09",
+      "pdf_path": "bills/michigan/SB-758/versions/v1-introduced.pdf",
+      "md_path": null
+    }
+  ],
+  "first_seen_run": "fpf-chronological-week-10-Mar-26-27",
+  "last_updated_run": "fpf-chronological-week-10-Mar-26-27"
+}

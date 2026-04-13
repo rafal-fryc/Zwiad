@@ -1,0 +1,45 @@
+{
+  "finding_id": "SCAN-20260412-022",
+  "report_path": "reports/privacy/state-comprehensive-laws/alabama-pdpa-hb351-analysis-2026-04-12.md",
+  "round": 2,
+  "claims_checked": 4,
+  "issues": [
+    {
+      "claim": "Missing UOOM/GPC non-recognition bullet",
+      "section": "Unique Features and Comparative Analysis",
+      "source_url": "https://privacy-daily.com/news/2026/03/10/Alabama-Senators-Slash-Universal-OptOut-Rule-from-Comprehensive-Privacy-Bill-2603100063",
+      "issue": "Fixed: bullet #7 now contrasts Alabama's non-recognition with CT, CO, CA, with citations.",
+      "severity": "major",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    },
+    {
+      "claim": "Report substantially overlaps with SCAN-20260412-001",
+      "section": "Whole report",
+      "source_url": null,
+      "issue": "Fixed: reframed as Compliance Playbook companion with cross-reference note and Related Reports section.",
+      "severity": "major",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    },
+    {
+      "claim": "Alabama 'enacted' — inconsistent status framing",
+      "section": "Executive Summary, Effective Date",
+      "source_url": null,
+      "issue": "Fixed: body text now consistently uses 'passed by the legislature, awaiting gubernatorial signature.'",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    },
+    {
+      "claim": "Civil penalties up to $15,000 per violation",
+      "section": "Enforcement and Penalties",
+      "source_url": null,
+      "issue": "Verified and unchanged.",
+      "severity": "minor",
+      "suggested_fix": "None.",
+      "status": "fixed"
+    }
+  ],
+  "resolution_status": "resolved"
+}
