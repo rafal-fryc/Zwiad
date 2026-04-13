@@ -9,6 +9,8 @@ last_updated: 2026-04-12
 topic_key: ca-cppa-drop-audits-rulemaking-2026
 topic_type: rulemaking
 status_history: []
+cluster: "CalPrivacy DROP Program: Data Broker Audit Regulations"
+cluster_slug: "cppa-data-broker-drop-audits"
 ---
 
 # CalPrivacy Opens Preliminary Comment Period on Data Broker DROP Audits

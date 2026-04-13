@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Kentucky"
 category: "privacy"
 development_type: "legislation"
+cluster: "Kentucky HB 692: ACR Data Under KCDPA"
+cluster_slug: "kentucky-hb-692-acr-kcdpa"
 ---
 
 # Kentucky HB 692: Automatic Content Recognition Data Classified as Sensitive Under KCDPA

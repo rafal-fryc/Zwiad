@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Washington"
 category: "ai-law"
 development_type: "legislation"
+cluster: "Washington HB 2225 & HB 1170 (AI Chatbot Safety and Content Provenance)"
+cluster_slug: "washington-hb-2225-hb-1170-ai-safety"
 ---
 
 # Washington Governor Signs Two Major AI Safety Bills -- AI Chatbot Safety and AI Content Provenance

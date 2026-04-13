@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Oregon"
 category: "ai-law"
 development_type: "legislation"
+cluster: "Oregon SB 1546 (AI Companion Chatbot Safety)"
+cluster_slug: "oregon-sb-1546-ai-companion"
 ---
 
 # Oregon Enacts AI Companion Chatbot Law SB 1546 With Private Right of Action

@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "federal (multi-state)"
 category: "privacy"
 development_type: "legislation"
+cluster: "Maine LD 1822: Online Data Privacy Act (2026)"
+cluster_slug: "maine-ld-1822-online-data-privacy"
 ---
 
 # State Privacy Law Tracker: Maine LD 1822 Stalls, Ohio HB 807 Targets Data Broker Sales, Multiple States Face Session Deadlines

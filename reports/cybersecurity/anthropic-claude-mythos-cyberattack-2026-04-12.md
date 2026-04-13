@@ -1,3 +1,8 @@
+---
+cluster: "Anthropic Claude Mythos: AI-Driven Vulnerability Research"
+cluster_slug: "anthropic-claude-mythos-cybersecurity"
+---
+
 # Claude Mythos: Frontier AI Model Prompts Government Cybersecurity Alarm
 
 **Jurisdiction:** U.S. Federal (with international implications)  

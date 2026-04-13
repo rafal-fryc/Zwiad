@@ -11,6 +11,8 @@ topic_type: enforcement
 status_history: []
 supersedes: SCAN-20260412-009
 note: Covers the same event as SCAN-20260412-009 (reports/privacy/take-it-down-act-first-conviction-2026-04-12.md). This is the more source-verified version; categorizer should retire or merge the 009 report.
+cluster: "TAKE IT DOWN Act: Federal NCII Enforcement"
+cluster_slug: "take-it-down-act-enforcement"
 ---
 
 # First Conviction Under TAKE IT DOWN Act Sets Landmark Precedent for AI Deepfakes

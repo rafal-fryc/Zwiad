@@ -11,6 +11,8 @@ topic_type: enforcement
 status_history: []
 deprecated: true
 superseded_by: SCAN-20260412-028
+cluster: "TAKE IT DOWN Act: Federal NCII Enforcement"
+cluster_slug: "take-it-down-act-enforcement"
 ---
 
 > **DEPRECATED — This report (SCAN-20260412-009) has been superseded by a more fully verified version.**

@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "Federal"
 category: "privacy"
 development_type: "regulation"
+cluster: "FTC COPPA Rule Amendments (2025)"
+cluster_slug: "ftc-coppa-2025-amendments"
 ---
 
 # COPPA Final Rule Amendments Take Effect April 22, 2026 -- Biometric Data, AI Training Restrictions, and Data Retention Limits

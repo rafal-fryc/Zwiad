@@ -10,6 +10,8 @@ topic_key: federal-vppa-first-amendment-hearst-2026
 topic_type: other
 status_history: []
 format: client-alert
+cluster: "VPPA First Amendment Challenge: Therrien v. Hearst Television"
+cluster_slug: "vppa-first-amendment-hearst"
 ---
 
 # DOJ Urges First Circuit to Uphold VPPA Against First Amendment Challenge

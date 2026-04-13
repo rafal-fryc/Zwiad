@@ -10,6 +10,8 @@ last_updated: 2026-04-12
 status_history: []
 topic_key: 7th-cir-bipa-retroactivity-clay-2026
 topic_type: enforcement
+cluster: "Illinois BIPA Litigation and Amendments"
+cluster_slug: "illinois-bipa-litigation"
 ---
 
 # Seventh Circuit Holds 2024 BIPA Damages Amendment Applies Retroactively

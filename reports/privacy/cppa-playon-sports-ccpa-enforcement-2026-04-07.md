@@ -5,6 +5,8 @@ date: "2026-04-07"
 jurisdiction: "California"
 category: "privacy"
 development_type: "enforcement"
+cluster: "CPPA CCPA Enforcement Actions"
+cluster_slug: "cppa-ccpa-enforcement-actions"
 ---
 
 # California Privacy Protection Agency Issues $1.1 Million Fine Against PlayOn Sports for CCPA Student Privacy Violations

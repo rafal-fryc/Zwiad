@@ -10,6 +10,8 @@ topic_type: state_bill
 first_reported: 2026-04-10
 last_updated: 2026-04-12
 status_history: []
+cluster: "Maine LD 1822: Online Data Privacy Act (2026)"
+cluster_slug: "maine-ld-1822-online-data-privacy"
 ---
 
 # Maine's Comprehensive Privacy Bill (LD 1822) Fails on Final House Vote

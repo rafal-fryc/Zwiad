@@ -8,6 +8,8 @@ last_updated: 2026-04-12
 topic_key: federal-hhs-ocr-hipaa-risk-management-guidance-2026
 topic_type: guidance
 status_history: []
+cluster: "HHS OCR HIPAA Security Rule Enforcement Initiative (2026)"
+cluster_slug: "hhs-ocr-hipaa-security-rule-enforcement"
 ---
 
 # HHS OCR Releases Risk Management Guidance Video Under HIPAA Security Rule

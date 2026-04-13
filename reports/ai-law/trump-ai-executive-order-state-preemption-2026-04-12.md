@@ -9,6 +9,8 @@ last_updated: 2026-04-12
 topic_key: federal-eo-national-ai-policy-framework-2025
 topic_type: other
 status_history: []
+cluster: "Trump EO: National AI Policy Framework (Dec 2025)"
+cluster_slug: "trump-eo-national-ai-policy"
 ---
 
 # Trump Executive Order Establishes National AI Policy Framework Preempting State Laws
