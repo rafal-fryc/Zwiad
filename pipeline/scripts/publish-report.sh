@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 #
-# publish-memo.sh <path-to-memo.md>
+# publish-report.sh <path-to-memo.md>
 #
-# Copies a finalized research memo into the local zwiad-reports clone,
+# Copies a finalized research report into the local zwiad-reports clone,
 # regenerates index.json, commits, and pushes. The push triggers a GitHub
 # Action in zwiad-reports which fires the Vercel Deploy Hook, rebuilding
-# the sitehome site and publishing the memo at /reports/<slug>.
+# the sitehome site and publishing the report at /reports/<slug>.
 #
 # Prerequisites:
 #   - ~/projecty/zwiad-reports cloned with SSH remote and push access
-#   - Memo file has YAML frontmatter with: title, date (YYYY-MM-DD), topic, summary
+#   - Report file has YAML frontmatter with: title, date (YYYY-MM-DD), topic, summary
 #   - Filename MUST be <YYYY-MM-DD>-<slug>.md; the full filename minus .md is the slug
 #
 set -euo pipefail
@@ -23,7 +23,7 @@ fi
 
 MEMO_PATH="$1"
 if [ ! -f "$MEMO_PATH" ]; then
-  echo "Error: memo file not found: $MEMO_PATH" >&2
+  echo "Error: report file not found: $MEMO_PATH" >&2
   exit 2
 fi
 
@@ -63,7 +63,7 @@ PY
 
 DEST="$REPORTS_REPO/memos/$FILENAME"
 if [ -e "$DEST" ] && ! cmp -s "$MEMO_PATH" "$DEST"; then
-  echo "Note: overwriting existing memo $DEST"
+  echo "Note: overwriting existing report $DEST"
 fi
 
 mkdir -p "$REPORTS_REPO/memos"

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #
-# sync-memos-to-publish.sh
+# sync-reports-to-publish.sh
 #
-# Publishes every memo under ~/projecty/Zwiad/reports/{privacy,cybersecurity,ai-law}/
+# Publishes every report under ~/projecty/Zwiad/reports/{privacy,cybersecurity,ai-law}/
 # to the zwiad-reports publish repo, translating Zwiad's internal frontmatter
 # schema ({finding_id, category, ...}) into the site's expected schema
 # ({title, date, topic, summary}) and normalizing filenames to the
 # YYYY-MM-DD-<slug>.md convention.
 #
-# Idempotent — rerun anytime to publish new memos or update changed ones.
+# Idempotent — rerun anytime to publish new reports or update changed ones.
 #
 set -euo pipefail
 
@@ -152,7 +152,7 @@ for f in sorted(dst_memos.glob("*.md")):
     text = f.read_text()
     m = FM_RE.match(text)
     if not m:
-        raise SystemExit(f"Generated memo missing frontmatter: {f}")
+        raise SystemExit(f"Generated report missing frontmatter: {f}")
     meta = {}
     for line in m.group(1).splitlines():
         if ":" not in line:
@@ -172,13 +172,13 @@ entries.sort(key=lambda e: e["date"], reverse=True)
 out = {"generated": datetime.date.today().isoformat(), "memos": entries}
 (reports_root / "index.json").write_text(json.dumps(out, indent=2) + "\n")
 
-print(f"Source memos: {len(sources)}")
+print(f"Source reports: {len(sources)}")
 print(f"Changed/new:  {len(written)}")
 for s in written:
     print(f"  + {s}")
 for src, reason in skipped:
     print(f"  - SKIP {src}: {reason}", file=sys.stderr)
-print(f"Index lists {len(entries)} memo(s)")
+print(f"Index lists {len(entries)} report(s)")
 PY
 
 cd "$REPORTS_REPO"
@@ -188,6 +188,6 @@ if git diff --quiet && git diff --cached --quiet; then
 fi
 
 git add memos/ index.json
-git commit -m "Bulk sync memos from Zwiad pipeline"
+git commit -m "Bulk sync reports from Zwiad pipeline"
 git push
 echo "Published changes — Vercel rebuild should begin within seconds."
