@@ -65,6 +65,17 @@ This walks every finding and populates `topic_key`, `topic_type`, and `topic_key
 bash pipeline/scripts/dedup-findings.sh {run_id}
 ```
 
+### Step 3b: Route Findings (cluster-based augment decisions)
+
+```bash
+# Refresh the canonical cluster manifest first
+python3 pipeline/scripts/build-clusters-state.py
+# Then classify each finding and pick NEW_REPORT / MERGE / APPEND_SOURCE
+python3 pipeline/scripts/route-findings.py pipeline/runs/{run_id}
+```
+
+This writes `pipeline/runs/{run_id}/scanner-routing.json`. The `generate-review.sh` step in 4 surfaces these decisions so the human approver sees which findings would augment existing reports vs. create new ones.
+
 ### Step 4: Generate Human Review File
 
 ```bash
@@ -117,10 +128,27 @@ The approved findings JSON at `pipeline/runs/{run_id}/scanner-approved.json` may
 - **New findings** (normal research flow): entries without `operation` or with `operation != "append_update"`.
 - **Update findings** (Phase 2): entries with `is_update: true` and `operation: "append_update"` (set by dedup + carried through approval).
 
-For each approved finding, invoke the **researcher** subagent via the Agent tool. Pass the full finding JSON in the prompt so the researcher can see `is_update` and branch appropriately. Prompt includes:
+Additionally, the routing stage (Step 3b of the scan phase) produced `pipeline/runs/{run_id}/scanner-routing.json` with a decision per finding: `NEW_REPORT`, `MERGE`, or `APPEND_SOURCE`. Look up each finding's route before dispatching:
+
+- **NEW_REPORT** → invoke researcher normally with `mode: "new"` (current flow).
+- **MERGE** → invoke researcher with `mode: "merge"` and `target_report_path` = `reports/<path derived from target_report_slug>`. The researcher updates the existing file in place (see its "Augment Mode" section).
+- **APPEND_SOURCE** → do NOT invoke researcher. Instead run:
+  ```bash
+  python3 pipeline/scripts/append-source.py \
+      "<target_report_path>" \
+      "<finding.title>" \
+      "<finding.source_url>" \
+      "<finding.summary or gist>"
+  ```
+  and continue to the next finding.
+
+If scanner-routing.json is absent (older runs predating the router), default every finding to NEW_REPORT.
+
+For each approved finding routed to NEW_REPORT or MERGE, invoke the **researcher** subagent via the Agent tool. Pass the full finding JSON in the prompt so the researcher can see `is_update` and branch appropriately. Prompt includes:
 - The finding index and total count (e.g., "Finding 1 of 3")
 - Path to the approved findings file: `pipeline/runs/{run_id}/scanner-approved.json`
 - The finding ID (+ the full finding JSON inline so `is_update` is visible)
+- The routing `mode` and, for MERGE, the `target_report_path`
 - Pipeline run ID
 - Output path: `pipeline/runs/{run_id}/researcher-{finding_id}.json`
 
