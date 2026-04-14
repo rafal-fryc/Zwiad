@@ -7,154 +7,14 @@
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-13-alabama-apdpa-hb351",
-        "2026-04-12-alabama-pdpa-hb351-analysis",
-        "2026-04-12-alabama-hb351-pdpa"
+        "2026-04-13-alabama-apdpa-hb351"
       ],
       "dateRange": {
-        "first": "2026-04-10",
+        "first": "2026-04-13",
         "latest": "2026-04-13"
       },
       "jurisdictions": [
         "Alabama"
-      ]
-    },
-    {
-      "slug": "cppa-ccpa-enforcement-actions",
-      "name": "CPPA CCPA Enforcement Actions",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-07-cppa-playon-sports-ccpa-enforcement",
-        "2026-04-07-california-disney-ccpa-settlement"
-      ],
-      "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-07"
-      },
-      "jurisdictions": [
-        "California"
-      ]
-    },
-    {
-      "slug": "colorado-ai-act-sb-24-205-enforcement",
-      "name": "Colorado AI Act (SB 24-205): Enforcement and Amendments",
-      "topic": "ai-law",
-      "summary": "",
-      "reports": [
-        "2026-04-13-colorado-ai-act-enforcement-delayed",
-        "2026-04-07-colorado-ai-act-delay-hb1263"
-      ],
-      "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-13"
-      },
-      "jurisdictions": [
-        "Colorado"
-      ]
-    },
-    {
-      "slug": "ftc-coppa-2025-amendments",
-      "name": "FTC COPPA Rule Amendments (2025)",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-13-coppa-amendments-compliance-deadline",
-        "2026-04-07-federal-coppa-final-rule-2025"
-      ],
-      "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-13"
-      },
-      "jurisdictions": [
-        "Federal"
-      ]
-    },
-    {
-      "slug": "illinois-bipa-litigation",
-      "name": "Illinois BIPA Litigation and Amendments",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-12-illinois-bipa-7th-circuit-retroactivity",
-        "2026-04-07-illinois-bipa-retroactive-damages"
-      ],
-      "dateRange": {
-        "first": "2026-04-01",
-        "latest": "2026-04-07"
-      },
-      "jurisdictions": [
-        "IL, Federal (Seventh Circuit)",
-        "Illinois"
-      ]
-    },
-    {
-      "slug": "kentucky-hb-692-acr-kcdpa",
-      "name": "Kentucky HB 692: ACR Data Under KCDPA",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-13-kentucky-hb692-acr-sensitive-data",
-        "2026-04-07-kentucky-hb692-acr-sensitive-data"
-      ],
-      "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-13"
-      },
-      "jurisdictions": [
-        "Kentucky"
-      ]
-    },
-    {
-      "slug": "maine-ld-1822-online-data-privacy",
-      "name": "Maine LD 1822: Online Data Privacy Act (2026)",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-12-maine-ld1822-privacy-bill-failed",
-        "2026-04-07-state-privacy-tracker-april"
-      ],
-      "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-10"
-      },
-      "jurisdictions": [
-        "Maine",
-        "federal (multi-state)"
-      ]
-    },
-    {
-      "slug": "take-it-down-act-enforcement",
-      "name": "TAKE IT DOWN Act: Federal NCII Enforcement",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-12-take-it-down-act-strahler-conviction",
-        "2026-04-12-take-it-down-act-first-conviction"
-      ],
-      "dateRange": {
-        "first": "2026-04-08",
-        "latest": "2026-04-08"
-      },
-      "jurisdictions": [
-        "Federal"
-      ]
-    },
-    {
-      "slug": "trump-eo-national-ai-policy",
-      "name": "Trump EO: National AI Policy Framework (Dec 2025)",
-      "topic": "ai-law",
-      "summary": "",
-      "reports": [
-        "2026-04-12-trump-ai-executive-order-state-preemption",
-        "2026-04-07-federal-white-house-ai-policy-framework"
-      ],
-      "dateRange": {
-        "first": "2025-12-11",
-        "latest": "2026-04-07"
-      },
-      "jurisdictions": [
-        "Federal"
       ]
     },
     {
@@ -188,6 +48,22 @@
       ]
     },
     {
+      "slug": "cppa-ccpa-enforcement-actions",
+      "name": "CPPA CCPA Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-07-cppa-playon-sports-ccpa-enforcement"
+      ],
+      "dateRange": {
+        "first": "2026-04-07",
+        "latest": "2026-04-07"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
       "slug": "cppa-data-broker-drop-audits",
       "name": "CalPrivacy DROP Program: Data Broker Audit Regulations",
       "topic": "privacy",
@@ -204,6 +80,22 @@
       ]
     },
     {
+      "slug": "colorado-ai-act-sb-24-205-enforcement",
+      "name": "Colorado AI Act (SB 24-205): Enforcement and Amendments",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-13-colorado-ai-act-enforcement-delayed"
+      ],
+      "dateRange": {
+        "first": "2026-04-13",
+        "latest": "2026-04-13"
+      },
+      "jurisdictions": [
+        "Colorado"
+      ]
+    },
+    {
       "slug": "fisa-section-702-reauthorization",
       "name": "FISA Section 702 Reauthorization (2026)",
       "topic": "privacy",
@@ -216,6 +108,22 @@
         "latest": "2026-04-13"
       },
       "jurisdictions": []
+    },
+    {
+      "slug": "ftc-coppa-2025-amendments",
+      "name": "FTC COPPA Rule Amendments (2025)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-13-coppa-amendments-compliance-deadline"
+      ],
+      "dateRange": {
+        "first": "2026-04-13",
+        "latest": "2026-04-13"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
     },
     {
       "slug": "ftc-match-group-okcupid-clarifai-enforcement",
@@ -280,6 +188,54 @@
       ]
     },
     {
+      "slug": "illinois-bipa-litigation",
+      "name": "Illinois BIPA Litigation and Amendments",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-12-illinois-bipa-7th-circuit-retroactivity"
+      ],
+      "dateRange": {
+        "first": "2026-04-01",
+        "latest": "2026-04-01"
+      },
+      "jurisdictions": [
+        "Illinois, Federal (Seventh Circuit)"
+      ]
+    },
+    {
+      "slug": "kentucky-hb-692-acr-kcdpa",
+      "name": "Kentucky HB 692: ACR Data Under KCDPA",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-13-kentucky-hb692-acr-sensitive-data"
+      ],
+      "dateRange": {
+        "first": "2026-04-13",
+        "latest": "2026-04-13"
+      },
+      "jurisdictions": [
+        "Kentucky"
+      ]
+    },
+    {
+      "slug": "maine-ld-1822-online-data-privacy",
+      "name": "Maine LD 1822: Online Data Privacy Act (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-12-maine-ld1822-privacy-bill-failed"
+      ],
+      "dateRange": {
+        "first": "2026-04-12",
+        "latest": "2026-04-12"
+      },
+      "jurisdictions": [
+        "Maine"
+      ]
+    },
+    {
       "slug": "meta-addictive-design-minors-litigation",
       "name": "Meta Addictive Design for Minors: State AG Litigation",
       "topic": "privacy",
@@ -337,6 +293,38 @@
       },
       "jurisdictions": [
         "Oregon"
+      ]
+    },
+    {
+      "slug": "take-it-down-act-enforcement",
+      "name": "TAKE IT DOWN Act: Federal NCII Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-12-take-it-down-act-strahler-conviction"
+      ],
+      "dateRange": {
+        "first": "2026-04-08",
+        "latest": "2026-04-08"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "trump-eo-national-ai-policy",
+      "name": "Trump EO: National AI Policy Framework (Dec 2025)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-12-trump-ai-executive-order-state-preemption"
+      ],
+      "dateRange": {
+        "first": "2025-12-11",
+        "latest": "2025-12-11"
+      },
+      "jurisdictions": [
+        "Federal"
       ]
     },
     {

@@ -33,7 +33,8 @@ def main():
     previous: list[dict] = []
     if out_file.exists():
         try:
-            previous = json.loads(out_file.read_text())
+            raw = json.loads(out_file.read_text())
+            previous = raw["clusters"] if isinstance(raw, dict) and "clusters" in raw else raw
         except Exception:
             previous = []
 
