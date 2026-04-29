@@ -1087,7 +1087,7 @@ async def cmd_approve(
 # ---------------------------------------------------------------------------
 
 
-@bot.tree.command(name="research", description="Start full research pipeline for approved findings")
+@bot.tree.command(name="research", description="Run researcher on approved findings (no review/categorize)")
 @app_commands.describe(run_id="Run ID to research")
 async def cmd_research(interaction: discord.Interaction, run_id: str = None):
     run_id = run_id or latest_run_id or get_latest_run_id()
@@ -1110,37 +1110,40 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         await interaction.response.send_message("No approved findings to research.")
         return
 
-    estimated_cost = len(findings) * RESEARCH_COST_PER_FINDING_USD
+    run_dir = RUNS_DIR / run_id
+    already_done = sum(
+        1 for f_ in findings
+        if (run_dir / f"researcher-{f_.get('finding_id','')}.json").exists()
+    )
+    remaining = len(findings) - already_done
+
+    estimated_cost = remaining * RESEARCH_COST_PER_FINDING_USD
     await interaction.response.send_message(
         f"**Starting research phase for `{run_id}`** — "
-        f"{len(findings)} finding(s). Estimated cost: **~${estimated_cost:.2f}** "
-        f"(~${RESEARCH_COST_PER_FINDING_USD:.2f}/finding). "
-        f"Delegating to orchestrator Mode 2."
+        f"{remaining} new / {already_done} already done / {len(findings)} total. "
+        f"Estimated cost: **~${estimated_cost:.2f}**. Delegating to orchestrator Mode 2 "
+        f"(research only — run `/review` after this completes)."
     )
 
     channel = bot.get_channel(CHANNEL_ID)
-    run_dir = RUNS_DIR / run_id
     audit_handler = attach_run_file_handler(logger, run_id)
-    logger.info("research starting run_id=%s findings=%d estimated_usd=%.2f",
-                run_id, len(findings), estimated_cost)
+    logger.info("research starting run_id=%s findings=%d remaining=%d estimated_usd=%.2f",
+                run_id, len(findings), remaining, estimated_cost)
 
-    # Single call into the orchestrator — it handles researcher per finding,
-    # reviewer iteration, escalation detection, and categorizer invocation.
     def _run_research_phase():
         prompt = (
             f"Research phase for run {run_id}. Process approved findings from "
             f"pipeline/runs/{run_id}/scanner-approved.json. "
-            f"Follow Mode 2 of the orchestrator instructions end-to-end: researcher "
-            f"per finding, reviewer iteration, escalation check, then categorizer if "
-            f"no escalations pending. Write the pipeline-complete.marker on success "
-            f"or has-escalations.marker if escalations block categorization."
+            f"Follow Mode 2 (research-only) of the orchestrator instructions: researcher "
+            f"per finding (skip findings whose researcher-{{id}}.json already exists), "
+            f"then write research-complete.marker. Do NOT invoke reviewer or categorizer."
         )
         cmd = [
             "claude", "-p",
             "--agent", "orchestrator",
             "--output-format", "json",
             "--permission-mode", "acceptEdits",
-            "--max-turns", "120",
+            "--max-turns", "200",
             prompt,
         ]
         return run_claude_and_log_cost(cmd, run_id, "research", cwd=PROJECT_ROOT)
@@ -1157,14 +1160,100 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
             f"(estimated ${estimated_cost:.2f})"
         )
 
-    # Interpret result markers
+    research_complete = (run_dir / "research-complete.marker").exists()
+    researcher_files = sorted(run_dir.glob("researcher-*.json"))
+
+    if research_complete:
+        await channel.send(
+            f"**Research complete for `{run_id}`** — {len(researcher_files)} researcher "
+            f"output(s) written. Run `/review run_id:{run_id}` to verify and categorize."
+        )
+    else:
+        error_log = run_dir / "error.log"
+        tail = ""
+        if error_log.exists():
+            tail = error_log.read_text()[-500:]
+        await channel.send(
+            f"Research phase ended without research-complete.marker for `{run_id}`. "
+            f"{len(researcher_files)} researcher output(s) on disk. "
+            f"You can re-run `/research` (idempotent — skips done findings).\n"
+            + (f"```\n{tail}\n```" if tail else "")
+        )
+    detach_handler(audit_handler)
+
+
+# ---------------------------------------------------------------------------
+# /review
+# ---------------------------------------------------------------------------
+
+
+@bot.tree.command(name="review", description="Run reviewer + categorizer on researched findings")
+@app_commands.describe(run_id="Run ID to review")
+async def cmd_review(interaction: discord.Interaction, run_id: str = None):
+    run_id = run_id or latest_run_id or get_latest_run_id()
+    if not run_id:
+        await interaction.response.send_message("No runs found.")
+        return
+
+    run_dir = RUNS_DIR / run_id
+    research_marker = run_dir / "research-complete.marker"
+    researcher_files = sorted(run_dir.glob("researcher-*.json"))
+
+    if not research_marker.exists() and not researcher_files:
+        await interaction.response.send_message(
+            f"No researcher outputs for `{run_id}`. Run `/research` first."
+        )
+        return
+    if not research_marker.exists():
+        # Tolerant fallback: legacy runs may have researcher files but no marker.
+        await interaction.response.send_message(
+            f"`research-complete.marker` missing for `{run_id}` but {len(researcher_files)} "
+            f"researcher output(s) exist — proceeding with review anyway. "
+            f"Writing marker now."
+        )
+        research_marker.write_text("RESEARCH_COMPLETE\n")
+    else:
+        await interaction.response.send_message(
+            f"**Starting review phase for `{run_id}`** — "
+            f"{len(researcher_files)} report(s) to verify. Delegating to orchestrator Mode 4."
+        )
+
+    channel = bot.get_channel(CHANNEL_ID)
+    audit_handler = attach_run_file_handler(logger, run_id)
+    logger.info("review starting run_id=%s reports=%d", run_id, len(researcher_files))
+
+    def _run_review_phase():
+        prompt = (
+            f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
+            f"verify research-complete.marker exists, run reviewer (Step 4), check "
+            f"escalations (Step 5), run categorizer if no escalations (Step 6), and "
+            f"write pipeline-complete.marker (Step 7). Do NOT re-invoke researcher."
+        )
+        cmd = [
+            "claude", "-p",
+            "--agent", "orchestrator",
+            "--output-format", "json",
+            "--permission-mode", "acceptEdits",
+            "--max-turns", "200",
+            prompt,
+        ]
+        return run_claude_and_log_cost(cmd, run_id, "review", cwd=PROJECT_ROOT)
+
+    ok, err, actual_cost = await asyncio.to_thread(_run_review_phase)
+    if not ok:
+        await channel.send(f"Review phase FAILED for `{run_id}` — {err}")
+        detach_handler(audit_handler)
+        return
+    if actual_cost > 0:
+        logger.info("review cost run_id=%s usd=%.4f", run_id, actual_cost)
+        await channel.send(f"Review cost: **${actual_cost:.4f}**")
+
     pipeline_complete = (run_dir / "pipeline-complete.marker").exists()
     has_escalations = (run_dir / "has-escalations.marker").exists() or any(
         run_dir.glob("escalation-*.json")
     )
     reviewer_output = run_dir / "reviewer-output.json"
 
-    # Review stats if available
     if reviewer_output.exists():
         try:
             with open(reviewer_output) as f:
@@ -1181,8 +1270,9 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
     if has_escalations and not pipeline_complete:
         await channel.send(
             f"**Pipeline paused for `{run_id}`** — escalations need human review. "
-            "Resolve escalations, then run `/research` again."
+            "Resolve escalations, then run `/review` again."
         )
+        detach_handler(audit_handler)
         return
 
     if pipeline_complete:
@@ -1197,7 +1287,7 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         if error_log.exists():
             tail = error_log.read_text()[-500:]
         await channel.send(
-            f"Research phase ended without pipeline-complete.marker for `{run_id}`. "
+            f"Review phase ended without pipeline-complete.marker for `{run_id}`. "
             f"Check pipeline/runs/{run_id}/ for details.\n"
             + (f"```\n{tail}\n```" if tail else "")
         )
@@ -1231,6 +1321,9 @@ async def cmd_status(interaction: discord.Interaction, run_id: str = None):
     elif "has-escalations.marker" in files:
         status = "Escalations Pending"
         color = discord.Color.orange()
+    elif "research-complete.marker" in files:
+        status = "Research complete — ready for /review"
+        color = discord.Color.blue()
     elif "scanner-approved.json" in files:
         status = "Approved — ready for research"
         color = discord.Color.blue()
@@ -1272,6 +1365,8 @@ def _classify_run_state(run_dir: Path) -> str:
         return "escalations"
     if "fpf-complete.marker" in names:
         return "fpf-complete"
+    if "research-complete.marker" in names:
+        return "ready-to-review"
     if "scanner-approved.json" in names:
         return "ready-to-research"
     if "scan-complete.marker" in names:
@@ -1313,6 +1408,7 @@ async def cmd_runs(interaction: discord.Interaction):
         ("awaiting-approval", discord.Color.gold(), "Awaiting approval"),
         ("escalations", discord.Color.orange(), "Escalations pending"),
         ("ready-to-research", discord.Color.blue(), "Ready to research"),
+        ("ready-to-review", discord.Color.blue(), "Ready to review"),
         ("scanning", discord.Color.greyple(), "Scanning"),
         ("in-progress", discord.Color.greyple(), "In progress"),
         ("complete", discord.Color.green(), "Complete"),

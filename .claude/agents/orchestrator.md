@@ -95,9 +95,13 @@ Log a message: `"Scan phase complete for run {run_id}. Human review file generat
 
 Do NOT proceed to the research phase. The Python script handles the approval gate pause.
 
-## Mode 2: Research Phase
+## Mode 2: Research Phase (research-only)
 
 You are invoked with a prompt like: `"Research phase for run {run_id}. Process approved findings."`
+
+This mode runs Steps 1–3 only (verify approval, read findings, run researcher per finding) and ends by writing `research-complete.marker`. The reviewer + categorizer stages are a separate invocation — see Mode 4. Do **not** invoke the reviewer or categorizer in this mode.
+
+**Idempotency**: before invoking the researcher for a finding, check whether `pipeline/runs/{run_id}/researcher-{finding_id}.json` already exists and passes `validate-handoff.sh researcher`. If it does, log `"Skipping {finding_id} — already researched"` and move to the next finding. This makes /research safely re-runnable after a partial failure.
 
 ### Step 1: Verify Approval Gate
 
@@ -120,7 +124,7 @@ Read `pipeline/runs/{run_id}/scanner-approved.json` and count the approved findi
 jq '.data.findings | length' pipeline/runs/{run_id}/scanner-approved.json
 ```
 
-If zero approved findings, log `"No approved findings to process"` and write the pipeline-complete marker (skip to Step 7).
+If zero approved findings, log `"No approved findings to process"`, write `pipeline/runs/{run_id}/research-complete.marker` with content `RESEARCH_COMPLETE`, and stop.
 
 ### Step 3: Research Each Finding
 
@@ -165,9 +169,35 @@ If validation fails for a finding, log the error to `pipeline/runs/{run_id}/erro
 
 Process findings sequentially (one at a time) to manage token usage.
 
+### End of Mode 2: Write Research-Complete Marker
+
+After all approved findings have been processed (researched, merged, or appended) without errors, write `pipeline/runs/{run_id}/research-complete.marker` with content:
+```
+RESEARCH_COMPLETE
+```
+
+Log: `"Research phase complete for run {run_id}. {N} researcher outputs written. Awaiting /review."`
+
+Then stop. Do **not** invoke the reviewer or categorizer in this mode — those run in Mode 4 under a separate turn budget.
+
+## Mode 4: Review & Categorize Phase
+
+You are invoked with a prompt like: `"Review phase for run {run_id}. Run reviewer + categorizer on already-researched findings."`
+
+This mode picks up after Mode 2 has written `research-complete.marker`. It runs Steps 4–7 below.
+
+### Mode 4 Gate: Verify Research-Complete Marker
+
+Check that `pipeline/runs/{run_id}/research-complete.marker` exists. If missing, write to `pipeline/runs/{run_id}/error.log`:
+```
+ERROR: Cannot start review phase -- research-complete.marker not found.
+Run /research first.
+```
+Then stop immediately.
+
 ### Step 4: Run Reviewer
 
-After all findings are researched, run the reviewer stage:
+Run the reviewer stage:
 ```bash
 bash pipeline/scripts/run-reviewer.sh {run_id}
 ```
