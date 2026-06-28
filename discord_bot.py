@@ -283,6 +283,20 @@ def run_claude_and_log_cost(
     _append_cost_entry(run_id, stage, cost_usd, parsed)
 
     if result.returncode != 0:
+        # Claude CLI sometimes exits non-zero even though the session itself
+        # finished cleanly (terminal_reason == "completed", no permission
+        # denials). Trust the parsed JSON over the exit code in that case.
+        if (
+            parsed
+            and parsed.get("terminal_reason") == "completed"
+            and not parsed.get("permission_denials")
+            and not parsed.get("is_error")
+        ):
+            logger.warning(
+                "claude exit=%d but terminal_reason=completed for stage=%s run_id=%s; treating as success",
+                result.returncode, stage, run_id,
+            )
+            return True, "", cost_usd
         tail = (result.stderr or result.stdout or "").strip()
         if len(tail) > 500:
             tail = "..." + tail[-500:]
@@ -422,14 +436,67 @@ def get_latest_run_id() -> str | None:
     return runs[0].name if runs else None
 
 
-def load_findings(run_id: str) -> list[dict]:
-    """Load new-topic findings from scanner-deduped.json (or scanner-output.json)."""
+# US jurisdictions: federal + 50 states + DC + territories. Findings whose
+# jurisdiction is not in this set (e.g. EU, UK, Canada, Asia) are auto-rejected
+# so they never reach the Discord approval phase or the research stage.
+US_JURISDICTIONS = {
+    "federal", "us", "u.s.", "usa", "united states", "united states of america",
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho",
+    "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
+    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
+    "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey",
+    "new mexico", "new york", "north carolina", "north dakota", "ohio",
+    "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina",
+    "south dakota", "tennessee", "texas", "utah", "vermont", "virginia",
+    "washington", "west virginia", "wisconsin", "wyoming",
+    "district of columbia", "dc", "washington dc", "washington, dc",
+    "puerto rico", "guam", "u.s. virgin islands", "us virgin islands",
+    "american samoa", "northern mariana islands",
+}
+
+# Ambiguous jurisdictions kept for human review (may carry US relevance).
+AMBIGUOUS_JURISDICTIONS = {"global", "multistate", "multi-state"}
+
+
+def is_us_jurisdiction(juris: str) -> bool:
+    """True if a finding should be shown for review.
+
+    Returns True for US jurisdictions (federal, the 50 states, DC, territories)
+    and for ambiguous values ("Global", blank/missing) that may carry US
+    relevance. Returns False for clearly non-US jurisdictions (EU, UK, Canada,
+    Asia, etc.), which are auto-rejected. Match is case-insensitive on the
+    trimmed value (scanner data uses clean values like "California", "EU").
+    """
+    j = (juris or "").strip().lower()
+    if not j or j in AMBIGUOUS_JURISDICTIONS:
+        return True
+    return j in US_JURISDICTIONS
+
+
+def load_findings(run_id: str, *, us_only: bool = True) -> list[dict]:
+    """Load new-topic findings from scanner-deduped.json (or scanner-output.json).
+
+    By default non-US-jurisdiction findings are filtered out (auto-rejected) so
+    they never reach the approval UI, the `/approve all_findings` path, or
+    `/research`. The raw scanner-deduped.json file is left untouched. Pass
+    ``us_only=False`` to get the unfiltered list (e.g. to count what was dropped).
+    """
     for name in ("scanner-deduped.json", "scanner-output.json"):
         path = RUNS_DIR / run_id / name
         if path.exists():
             with open(path) as f:
                 data = json.load(f)
-            return data.get("data", {}).get("findings", [])
+            findings = data.get("data", {}).get("findings", [])
+            if not us_only:
+                return findings
+            us = [f for f in findings if is_us_jurisdiction(f.get("jurisdiction"))]
+            dropped = len(findings) - len(us)
+            if dropped:
+                logger.info(
+                    "auto-rejected %d non-US findings run_id=%s", dropped, run_id
+                )
+            return us
     return []
 
 
@@ -845,7 +912,17 @@ async def cmd_scan(interaction: discord.Interaction):
     if not scan_ok:
         scanner_output = run_dir / "scanner-output.json"
         scanner_deduped = run_dir / "scanner-deduped.json"
-        if scanner_output.exists() and not scanner_deduped.exists():
+        scanner_routing = run_dir / "scanner-routing.json"
+        # If the orchestrator already produced both deduped findings and the
+        # routing review file before exiting non-zero, recovery is unnecessary
+        # — the deterministic steps are done. Just treat the scan as ok.
+        if scanner_deduped.exists() and scanner_routing.exists():
+            logger.warning(
+                "scan exited with error but deduped+routing already exist; treating as recovered run_id=%s",
+                run_id,
+            )
+            scan_ok = True
+        elif scanner_output.exists() and not scanner_deduped.exists():
             logger.warning("scan orchestrator failed but scanner-output.json exists; running recovery")
             await channel.send(
                 f"Orchestrator failed (`{scan_err[:100]}`). "
@@ -876,6 +953,7 @@ async def cmd_scan(interaction: discord.Interaction):
     latest_run_id = run_id
 
     findings = load_findings(run_id)
+    non_us_rejected = len(load_findings(run_id, us_only=False)) - len(findings)
     candidate_updates = load_candidate_updates(run_id)
     channel = bot.get_channel(CHANNEL_ID)
 
@@ -902,6 +980,8 @@ async def cmd_scan(interaction: discord.Interaction):
         f"**{len(candidate_updates)} updates** "
         f"({len(auto_approved_updates)} auto-apply, {len(escalated_updates)} need review)."
     )
+    if non_us_rejected:
+        summary += f"\n_{non_us_rejected} non-US findings auto-rejected (not shown)._"
     await channel.send(summary)
 
     # Initialize approval state with auto-approved update IDs pre-checked
@@ -1113,7 +1193,7 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
     run_dir = RUNS_DIR / run_id
     already_done = sum(
         1 for f_ in findings
-        if (run_dir / f"researcher-{f_.get('finding_id','')}.json").exists()
+        if (run_dir / f"researcher-{f_.get('id','')}.json").exists()
     )
     remaining = len(findings) - already_done
 
