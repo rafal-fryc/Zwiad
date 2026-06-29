@@ -223,6 +223,62 @@ def fetch_new_emails(run_id: str) -> list[Path]:
     return saved
 
 
+# Substrings (case-insensitive) that indicate the claude CLI session hit an
+# Anthropic usage/rate limit rather than a genuine pipeline error.
+_RATE_LIMIT_MARKERS = (
+    "rate limit",
+    "rate_limit",
+    "usage limit",
+    "usage_limit",
+    "429",
+    "too many requests",
+    "overloaded",
+    "quota",
+    "exceeded your",
+    "you've reached your",
+    "claude usage limit reached",
+)
+
+
+def _looks_rate_limited(text: str, parsed: dict | None) -> bool:
+    """Heuristic: does this failed claude run look like a usage/rate limit?
+
+    Scans the raw output and the parsed JSON's error-ish fields for known
+    Anthropic rate/usage-limit phrasing.
+    """
+    haystack = (text or "").lower()
+    if parsed:
+        for key in ("terminal_reason", "subtype", "result", "error"):
+            val = parsed.get(key)
+            if isinstance(val, str):
+                haystack += " " + val.lower()
+    return any(marker in haystack for marker in _RATE_LIMIT_MARKERS)
+
+
+def _persist_stage_error(run_id: str, stage: str, returncode: int, stdout: str, stderr: str) -> Path | None:
+    """Write the full stdout/stderr of a failed claude run to
+    pipeline/runs/<run_id>/<stage>-error.log so failures can be diagnosed after
+    the fact (the Discord message only carries a truncated tail). Best effort —
+    returns the path on success, None on failure, never raises."""
+    try:
+        run_dir = RUNS_DIR / run_id
+        if not run_dir.exists():
+            return None
+        log_path = run_dir / f"{stage}-error.log"
+        ts = datetime.now(timezone.utc).isoformat()
+        log_path.write_text(
+            f"# {stage} failed for run {run_id}\n"
+            f"# timestamp: {ts}\n"
+            f"# exit code: {returncode}\n\n"
+            f"===== STDERR =====\n{stderr or '(empty)'}\n\n"
+            f"===== STDOUT =====\n{stdout or '(empty)'}\n"
+        )
+        return log_path
+    except Exception as e:
+        logger.debug("Could not persist %s error log for %s: %s", stage, run_id, e)
+        return None
+
+
 def run_subprocess_checked(cmd: list[str], cwd: Path | None = None, capture: bool = True) -> tuple[bool, str]:
     """Run a subprocess and check its return code.
 
@@ -297,10 +353,33 @@ def run_claude_and_log_cost(
                 result.returncode, stage, run_id,
             )
             return True, "", cost_usd
+
+        # Genuine failure: persist the full output for post-mortem and detect
+        # the common usage/rate-limit case so the user gets an actionable message
+        # instead of a raw JSON dump.
+        log_path = _persist_stage_error(
+            run_id, stage, result.returncode, result.stdout or "", result.stderr or ""
+        )
+        log_hint = f" Full output saved to `{log_path.name}`." if log_path else ""
+        combined = (result.stderr or "") + "\n" + (result.stdout or "")
+
+        if _looks_rate_limited(combined, parsed):
+            logger.warning(
+                "claude hit a usage/rate limit during stage=%s run_id=%s (exit=%d)",
+                stage, run_id, result.returncode,
+            )
+            return (
+                False,
+                f"hit an Anthropic usage/rate limit during {stage} (exit {result.returncode}). "
+                f"Nothing was corrupted — re-run `/{stage}` once the limit resets."
+                f"{log_hint}",
+                cost_usd,
+            )
+
         tail = (result.stderr or result.stdout or "").strip()
         if len(tail) > 500:
             tail = "..." + tail[-500:]
-        return False, f"exit code {result.returncode}: {tail or '(no output)'}", cost_usd
+        return False, f"exit code {result.returncode}: {tail or '(no output)'}{log_hint}", cost_usd
     return True, "", cost_usd
 
 
