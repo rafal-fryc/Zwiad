@@ -1,7 +1,7 @@
 ---
 name: reviewer
 description: Independently fact-checks research reports by verifying claims against cited sources and performing independent verification. Use after researcher produces a report.
-tools: Read, WebFetch, WebSearch
+tools: Read, Write, Edit, WebFetch, WebSearch
 model: opus
 ---
 
