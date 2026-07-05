@@ -180,118 +180,6 @@ Log: `"Research phase complete for run {run_id}. {N} researcher outputs written.
 
 Then stop. Do **not** invoke the reviewer or categorizer in this mode — those run in Mode 4 under a separate turn budget.
 
-## Mode 4: Review & Categorize Phase
-
-You are invoked with a prompt like: `"Review phase for run {run_id}. Run reviewer + categorizer on already-researched findings."`
-
-This mode picks up after Mode 2 has written `research-complete.marker`. It runs Steps 4–7 below.
-
-### Mode 4 Gate: Verify Research-Complete Marker
-
-Check that `pipeline/runs/{run_id}/research-complete.marker` exists. If missing, write to `pipeline/runs/{run_id}/error.log`:
-```
-ERROR: Cannot start review phase -- research-complete.marker not found.
-Run /research first.
-```
-Then stop immediately.
-
-### Step 4: Run Reviewer
-
-Run the reviewer stage:
-```bash
-bash pipeline/scripts/run-reviewer.sh {run_id}
-```
-
-This script invokes the reviewer subagent for each report, handles iteration rounds (up to 3), and produces reviewer output files.
-
-**Phase 2 note**: Entries with `operation: "append_update"` skip the iteration loop entirely. The reviewer applies the `update-review-policy.json` rules once and emits either `verdict: auto_approved` or `verdict: needs-human-review` on a single pass. `run-reviewer.sh` must NOT re-invoke the researcher for update entries even if the verdict is negative; human review (not researcher revision) is the only next step for a failed update verdict.
-
-### Step 5: Check for Escalations
-
-After the reviewer completes, check if any reports were escalated:
-```bash
-ls pipeline/runs/{run_id}/escalation-*.json 2>/dev/null | wc -l
-```
-
-If escalation files exist:
-1. Write the marker file `pipeline/runs/{run_id}/has-escalations.marker` with content:
-   ```
-   ESCALATIONS_PENDING
-   ```
-2. Log: `"Escalations pending for run {run_id}. Human review required before categorization."`
-3. Stop. The Python script will handle the escalation review gate.
-
-If no escalations, continue to Step 6.
-
-### Step 6: Run Categorizer
-
-Invoke the **categorizer** subagent via the Agent tool. Pass it a prompt containing:
-- Path to the reviewer output: `pipeline/runs/{run_id}/reviewer-output.json`
-- Pipeline run ID
-- Output path: `pipeline/runs/{run_id}/categorizer-output.json`
-
-Example prompt to categorizer:
-```
-Categorize verified reports. Reviewer output: pipeline/runs/{run_id}/reviewer-output.json. Pipeline run ID: {run_id}. Write output to pipeline/runs/{run_id}/categorizer-output.json
-```
-
-After the categorizer completes, validate the output:
-```bash
-bash pipeline/scripts/validate-handoff.sh categorizer pipeline/runs/{run_id}/categorizer-output.json
-```
-
-If validation fails, write the error to `pipeline/runs/{run_id}/error.log` and stop.
-
-### Step 7: Write Pipeline-Complete Marker
-
-Write the file `pipeline/runs/{run_id}/pipeline-complete.marker` with content:
-```
-PIPELINE_COMPLETE
-```
-
-Log: `"Pipeline complete for run {run_id}. Reports filed and categorized."`
-
-## Error Handling (Fail-Fast)
-
-On ANY error during execution:
-
-1. Write the error details to `pipeline/runs/{run_id}/error.log` with a timestamp and description:
-   ```
-   [{ISO 8601 timestamp}] ERROR at stage {stage}: {description}
-   ```
-2. Do NOT attempt to recover or skip the failed stage.
-3. Do NOT proceed to the next stage.
-4. Stop immediately after logging the error.
-
-Common error scenarios:
-- **Subagent produces no output file:** Log missing file path and stop.
-- **Handoff validation fails:** Log the validation error output and stop.
-- **Approval file missing:** Log and stop (research phase cannot proceed without approval).
-- **Script execution failure:** Log the script's stderr output and stop.
-
-## Progress Logging
-
-Log progress messages to stdout at each stage transition so the Python entry point can capture them for the audit log:
-
-```
-[{run_id}] Starting scan phase...
-[{run_id}] Scanner complete. Found N findings.
-[{run_id}] Deduplication complete.
-[{run_id}] Human review file generated.
-[{run_id}] Scan phase complete.
-```
-
-```
-[{run_id}] Starting research phase...
-[{run_id}] Researching finding 1 of N: {finding_id}
-[{run_id}] Research complete for {finding_id}.
-[{run_id}] Running reviewer...
-[{run_id}] Review complete. Escalations: N
-[{run_id}] Running categorizer...
-[{run_id}] Categorization complete. Filed N reports.
-[{run_id}] Pipeline complete.
-```
-
 ## Mode 3: FPF Legislative Scan
 
 You are invoked with a prompt like: `"FPF scan for run {run_id}. Process FPF emails in pipeline/runs/{run_id}/emails/."`
@@ -335,6 +223,123 @@ Read `pipeline/runs/{run_id}/fpf-bills-processed.json` and log a summary:
 ```
 
 Do NOT proceed to research or categorization. FPF bills are auto-processed without approval gates.
+
+## Mode 4: Review & Categorize Phase
+
+You are invoked with a prompt like: `"Review phase for run {run_id}. Run reviewer + categorizer on already-researched findings."`
+
+This mode picks up after Mode 2 has written `research-complete.marker`.
+
+### Step 1: Mode 4 Gate: Verify Research-Complete Marker
+
+Check that `pipeline/runs/{run_id}/research-complete.marker` exists. If missing, write to `pipeline/runs/{run_id}/error.log`:
+```
+ERROR: Cannot start review phase -- research-complete.marker not found.
+Run /research first.
+```
+Then stop immediately.
+
+### Step 2: Run Reviewer
+
+Run the reviewer stage:
+```bash
+bash pipeline/scripts/run-reviewer.sh {run_id}
+```
+
+This script invokes the reviewer subagent for each report, handles iteration rounds (up to 3), and produces reviewer output files.
+
+**Phase 2 note**: Entries with `operation: "append_update"` skip the iteration loop entirely. The reviewer applies the `update-review-policy.json` rules once and emits either `verdict: auto_approved` or `verdict: needs-human-review` on a single pass. `run-reviewer.sh` must NOT re-invoke the researcher for update entries even if the verdict is negative; human review (not researcher revision) is the only next step for a failed update verdict.
+
+### Step 3: Check for Escalations
+
+After the reviewer completes, check if any reports were escalated:
+```bash
+ls pipeline/runs/{run_id}/escalation-*.json 2>/dev/null | wc -l
+```
+
+If escalation files exist:
+1. Write the marker file `pipeline/runs/{run_id}/has-escalations.marker` with content:
+   ```
+   ESCALATIONS_PENDING
+   ```
+2. Log: `"Escalations pending for run {run_id}. Human review required before categorization."`
+3. Stop. The Python script will handle the escalation review gate.
+
+If no escalations, continue to Step 4.
+
+### Step 4: Run Categorizer
+
+Invoke the **categorizer** subagent via the Agent tool. Pass it a prompt containing:
+- Path to the reviewer output: `pipeline/runs/{run_id}/reviewer-output.json`
+- Pipeline run ID
+- Output path: `pipeline/runs/{run_id}/categorizer-output.json`
+
+Example prompt to categorizer:
+```
+Categorize verified reports. Reviewer output: pipeline/runs/{run_id}/reviewer-output.json. Pipeline run ID: {run_id}. Write output to pipeline/runs/{run_id}/categorizer-output.json
+```
+
+After the categorizer completes, validate the output:
+```bash
+bash pipeline/scripts/validate-handoff.sh categorizer pipeline/runs/{run_id}/categorizer-output.json
+```
+
+If validation fails, write the error to `pipeline/runs/{run_id}/error.log` and stop.
+
+### Step 5: Write Pipeline-Complete Marker
+
+Write the file `pipeline/runs/{run_id}/pipeline-complete.marker` with content:
+```
+PIPELINE_COMPLETE
+```
+
+Log: `"Pipeline complete for run {run_id}. Reports filed and categorized."`
+
+## Error Handling (Fail-Fast)
+
+On ANY error during execution:
+
+1. Write the error details to `pipeline/runs/{run_id}/error.log` with a timestamp and description:
+   ```
+   [{ISO 8601 timestamp}] ERROR at stage {stage}: {description}
+   ```
+2. Do NOT attempt to recover or skip the failed stage.
+3. Do NOT proceed to the next stage.
+4. Stop immediately after logging the error.
+
+Common error scenarios:
+- **Subagent produces no output file:** Log missing file path and stop.
+- **Handoff validation fails:** Log the validation error output and stop.
+- **Approval file missing:** Log and stop (research phase cannot proceed without approval).
+- **Script execution failure:** Log the script's stderr output and stop.
+
+## Progress Logging
+
+Log progress messages to stdout at each stage transition so the Python entry point can capture them for the audit log:
+
+```
+[{run_id}] Starting scan phase...
+[{run_id}] Scanner complete. Found N findings.
+[{run_id}] Deduplication complete.
+[{run_id}] Human review file generated.
+[{run_id}] Scan phase complete.
+```
+
+```
+[{run_id}] Starting research phase...
+[{run_id}] Researching finding 1 of N: {finding_id}
+[{run_id}] Research complete for {finding_id}.
+[{run_id}] Research phase complete.
+```
+
+```
+[{run_id}] Starting review phase...
+[{run_id}] Running reviewer...
+[{run_id}] Review complete. Escalations: N
+[{run_id}] Running categorizer...
+[{run_id}] Categorization complete. Filed N reports.
+[{run_id}] Pipeline complete.
+```
 
 ## Important
 

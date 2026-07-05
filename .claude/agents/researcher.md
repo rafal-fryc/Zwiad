@@ -22,7 +22,7 @@ category: "<privacy | cybersecurity | ai-law>"
 development_type: "<legislation | rulemaking | enforcement | guidance | litigation | ...>"
 finding_id: "<SCAN-YYYYMMDD-NNN from input>"
 topic_key: "<provided or generated>"
-topic_type: "<state_bill | federal_rule | enforcement_action | ...>"
+topic_type: "<state_bill | federal_bill | enforcement | rulemaking | guidance | other>"
 first_reported: <YYYY-MM-DD>
 last_updated: <YYYY-MM-DD>
 status_history: []

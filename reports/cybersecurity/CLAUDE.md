@@ -2,20 +2,26 @@
 
 This directory contains verified regulatory intelligence reports on cybersecurity law, policy, and enforcement developments across US state and federal jurisdictions.
 
+This file lists directory structure only. The authoritative report index is reports/index.json; do not maintain report tables here.
+
 ## Directory Structure
 
+Subcategories in `pipeline/config/categories.json`:
+- `federal-frameworks/` — Federal cybersecurity frameworks, strategies, and policy
 - `incident-reporting/` — Federal and state cyber incident reporting requirements
-- `standards-guidance/` — NIST frameworks, CISA guidance, security standards
 - `enforcement-actions/` — FTC, CISA, and sector-specific cybersecurity enforcement
+- `critical-infrastructure/` — Critical infrastructure protection and sector-specific rules
+- `standards-guidance/` — NIST frameworks, CISA guidance, security standards
 
-## Reports Index (pipeline run 2026-04-12T21-18-15)
+Additional directories on disk (not yet in categories.json):
+- `ai-threat-response/` — AI-specific threat response and security matters
+- `state/` — State-level cybersecurity laws and enforcement
 
-### Root-level
-
-| Finding ID | File | Title | Jurisdiction | Date | Notes |
-|---|---|---|---|---|---|
-| SCAN-20260412-003 | [anthropic-claude-mythos-cyberattack-2026-04-12.md](anthropic-claude-mythos-cyberattack-2026-04-12.md) | Claude Mythos: Frontier AI Model Prompts Government Cybersecurity Alarm | Federal / Industry | 2026-04-12 | Covers Anthropic Claude Mythos zero-day discovery and Project Glasswing; has secondary relevance to AI governance |
+Reports at the root of this directory cover topics that span subcategories or do not fit neatly into a single subdirectory.
 
 ## Cross-References
 
 - SCAN-20260412-003 (Claude Mythos) has secondary relevance to AI law and governance. See `reports/ai-law/` for related AI regulation reports including SCAN-20260412-026 (Trump AI EO).
+- SCAN-20260601-010 (AI Cybersecurity EO draft/postponement) has direct secondary relevance to AI law frontier model policy — see `reports/ai-law/frontier-models/`.
+- SCAN-20260601-014 (CYBERCOM/NSA AI task force) has secondary relevance to AI governance and frontier model security.
+- SCAN-20260601-018 (HHS OCR cybersecurity reorganization) has secondary relevance to health data privacy — see `reports/privacy/health-data/`.

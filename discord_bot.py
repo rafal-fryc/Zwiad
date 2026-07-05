@@ -1400,9 +1400,9 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
         def _run_review_phase():
             prompt = (
                 f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
-                f"verify research-complete.marker exists, run reviewer (Step 4), check "
-                f"escalations (Step 5), run categorizer if no escalations (Step 6), and "
-                f"write pipeline-complete.marker (Step 7). Do NOT re-invoke researcher."
+                f"verify research-complete.marker exists, run reviewer, check escalations, "
+                f"run categorizer if no escalations, and write pipeline-complete.marker. "
+                f"Do NOT re-invoke researcher."
             )
             cmd = [
                 "claude", "-p",
