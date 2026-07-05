@@ -30,6 +30,7 @@ GUILD_ID = int(os.environ["DISCORD_GUILD_ID"])
 CHANNEL_ID = int(os.environ["DISCORD_CHANNEL_ID"])
 IMAP_EMAIL = os.environ.get("IMAP_EMAIL", "")
 IMAP_PASSWORD = os.environ.get("IMAP_PASSWORD", "")
+OWNER_ID = int(os.environ.get("DISCORD_OWNER_ID", "0"))
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
@@ -59,6 +60,11 @@ _RUN_ID_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}$")
 def _valid_run_id(run_id: str) -> bool:
     """run_id is used as a path component — accept only the timestamp shape."""
     return bool(_RUN_ID_RE.match(run_id or ""))
+
+
+def _authorized(interaction: discord.Interaction) -> bool:
+    """If DISCORD_OWNER_ID is set, only that user may run cost-incurring commands."""
+    return not OWNER_ID or interaction.user.id == OWNER_ID
 
 
 def _acquire_run(run_id: str) -> bool:
@@ -250,6 +256,18 @@ def fetch_new_emails(run_id: str) -> list[Path]:
                         "subject": subject,
                         "from": msg.get("From", ""),
                         "processed_at": datetime.now(timezone.utc).isoformat(),
+                    }
+                    processed_dirty = True
+
+                else:
+                    logger.warning("Email has no extractable body; recording as skipped: %r",
+                                   msg.get("Subject", ""))
+                    processed_data["processed"][mid] = {
+                        "first_seen_run": run_id,
+                        "subject": msg.get("Subject", ""),
+                        "from": msg.get("From", ""),
+                        "processed_at": datetime.now(timezone.utc).isoformat(),
+                        "skipped": "no-body",
                     }
                     processed_dirty = True
 
@@ -778,6 +796,10 @@ async def on_ready():
 
 @bot.tree.command(name="scan", description="Start a pipeline scan")
 async def cmd_scan(interaction: discord.Interaction):
+    if not _authorized(interaction):
+        await interaction.response.send_message("Not authorized.", ephemeral=True)
+        return
+
     global latest_run_id
 
     run_id = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%S")
@@ -1156,6 +1178,10 @@ async def cmd_approve(
     run_id: str = None,
     all_findings: bool = False,
 ):
+    if not _authorized(interaction):
+        await interaction.response.send_message("Not authorized.", ephemeral=True)
+        return
+
     run_id = run_id or latest_run_id or get_latest_run_id()
     if not run_id:
         await interaction.response.send_message("No runs found.")
@@ -1201,6 +1227,10 @@ async def cmd_approve(
 @bot.tree.command(name="research", description="Run researcher on approved findings (no review/categorize)")
 @app_commands.describe(run_id="Run ID to research")
 async def cmd_research(interaction: discord.Interaction, run_id: str = None):
+    if not _authorized(interaction):
+        await interaction.response.send_message("Not authorized.", ephemeral=True)
+        return
+
     run_id = run_id or latest_run_id or get_latest_run_id()
     if not run_id:
         await interaction.response.send_message("No runs found.")
@@ -1271,6 +1301,7 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
                 "--output-format", "json",
                 "--permission-mode", "acceptEdits",
                 "--max-turns", "200",
+                "--max-budget-usd", f"{max(5.0, remaining * 3.0):.2f}",
                 prompt,
             ]
             return run_claude_and_log_cost(cmd, run_id, "research", cwd=PROJECT_ROOT, timeout=5400)
@@ -1318,6 +1349,10 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
 @bot.tree.command(name="review", description="Run reviewer + categorizer on researched findings")
 @app_commands.describe(run_id="Run ID to review")
 async def cmd_review(interaction: discord.Interaction, run_id: str = None):
+    if not _authorized(interaction):
+        await interaction.response.send_message("Not authorized.", ephemeral=True)
+        return
+
     run_id = run_id or latest_run_id or get_latest_run_id()
     if not run_id:
         await interaction.response.send_message("No runs found.")
@@ -1375,6 +1410,7 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
                 "--output-format", "json",
                 "--permission-mode", "acceptEdits",
                 "--max-turns", "200",
+                "--max-budget-usd", f"{max(5.0, len(researcher_files) * 2.0):.2f}",
                 prompt,
             ]
             return run_claude_and_log_cost(cmd, run_id, "review", cwd=PROJECT_ROOT, timeout=5400)
