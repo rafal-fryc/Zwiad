@@ -8,34 +8,55 @@
     "reports": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": ["finding_id", "report_path", "format", "jurisdiction_tags", "confidence_summary", "topic_key", "topic_type"],
-        "properties": {
-          "finding_id": { "type": "string" },
-          "report_path": { "type": "string" },
-          "format": { "type": "string", "enum": ["client-alert", "research-memo"] },
-          "jurisdiction_tags": { "type": "array", "items": { "type": "string" } },
-          "topic_key": { "type": "string" },
-          "topic_type": {
-            "type": "string",
-            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
-          },
-          "topic_key_confidence": {
-            "type": "string",
-            "enum": ["high", "medium", "low"]
-          },
-          "confidence_summary": {
+        "oneOf": [
+          {
             "type": "object",
-            "required": ["high", "medium", "low"],
+            "required": ["finding_id", "report_path", "format", "jurisdiction_tags", "confidence_summary", "topic_key", "topic_type"],
+            "not": { "required": ["operation"] },
             "properties": {
-              "high": { "type": "integer" },
-              "medium": { "type": "integer" },
-              "low": { "type": "integer" }
+              "finding_id": { "type": "string" },
+              "report_path": { "type": "string" },
+              "format": { "type": "string", "enum": ["client-alert", "research-memo"] },
+              "jurisdiction_tags": { "type": "array", "items": { "type": "string" } },
+              "topic_key": { "type": "string" },
+              "topic_type": {
+                "type": "string",
+                "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+              },
+              "topic_key_confidence": {
+                "type": "string",
+                "enum": ["high", "medium", "low"]
+              },
+              "confidence_summary": {
+                "type": "object",
+                "required": ["high", "medium", "low"],
+                "properties": {
+                  "high": { "type": "integer" },
+                  "medium": { "type": "integer" },
+                  "low": { "type": "integer" }
+                },
+                "additionalProperties": false
+              }
             },
             "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": ["finding_id", "report_path", "topic_key", "topic_type", "operation"],
+            "properties": {
+              "finding_id": { "type": "string" },
+              "report_path": { "type": "string" },
+              "topic_key": { "type": "string" },
+              "topic_type": { "type": "string", "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"] },
+              "operation": { "const": "append_update" },
+              "update_markdown": { "type": "string" },
+              "status_after": { "type": "string" },
+              "diff_signal": { "type": "string" },
+              "source_url": { "type": "string" }
+            },
+            "additionalProperties": true
           }
-        },
-        "additionalProperties": false
+        ]
       }
     }
   },
