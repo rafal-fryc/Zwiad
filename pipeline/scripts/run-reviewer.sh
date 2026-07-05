@@ -85,6 +85,8 @@ for i in $(seq 0 $((REPORT_COUNT - 1))); do
 
   if [ "$OPERATION" = "append_update" ]; then
     echo "Reviewing UPDATE $((i+1))/$REPORT_COUNT: $FINDING_ID (single-pass)"
+    # A fresh verdict supersedes any stale escalation gate from a prior run
+    rm -f "$RUN_DIR/escalation-${FINDING_ID}.json"
     FEEDBACK_FILE="$RUN_DIR/reviewer-feedback-r1-${FINDING_ID}.json"
     PROMPT="Single-pass update review for finding $FINDING_ID (operation append_update)."
     PROMPT="$PROMPT Review the appended update in $REPORT_PATH."
@@ -166,6 +168,8 @@ for i in $(seq 0 $((REPORT_COUNT - 1))); do
   fi
 
   echo "Reviewing finding $((i+1))/$REPORT_COUNT: $FINDING_ID"
+  # A fresh verdict supersedes any stale escalation gate from a prior run
+  rm -f "$RUN_DIR/escalation-${FINDING_ID}.json"
   echo "  Report: $REPORT_PATH"
 
   ROUND=1
