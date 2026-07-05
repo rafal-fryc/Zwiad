@@ -38,7 +38,7 @@ RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
 # by default; per-run audit logs can be attached via attach_run_file_handler.
 sys.path.insert(0, str(PROJECT_ROOT))
 from tools.logging_setup import get_logger, attach_run_file_handler, detach_handler  # noqa: E402
-from tools.claude_stage import run_claude_and_log_cost, run_subprocess_checked  # noqa: E402
+from tools.claude_stage import run_claude_and_log_cost, run_subprocess_checked, _atomic_write_json  # noqa: E402
 logger = get_logger("zwiad.bot")
 
 MY_GUILD = discord.Object(id=GUILD_ID)
@@ -70,6 +70,17 @@ def _acquire_run(run_id: str) -> bool:
 
 def _release_run(run_id: str) -> None:
     _active_runs.discard(run_id)
+
+
+def _read_run_json(path: Path) -> dict | None:
+    """Read agent-produced JSON defensively. Agents drift; malformed JSON is a
+    routine failure mode, not an exception. Returns None on any read error."""
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, OSError) as e:
+        logger.warning("Unreadable run JSON %s: %s", path, e)
+        return None
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -393,8 +404,9 @@ def load_findings(run_id: str, *, us_only: bool = True) -> list[dict]:
     for name in ("scanner-deduped.json", "scanner-output.json"):
         path = RUNS_DIR / run_id / name
         if path.exists():
-            with open(path) as f:
-                data = json.load(f)
+            data = _read_run_json(path)
+            if data is None:
+                continue
             findings = data.get("data", {}).get("findings", [])
             if not us_only:
                 return findings
@@ -417,8 +429,9 @@ def load_candidate_updates(run_id: str) -> list[dict]:
     path = RUNS_DIR / run_id / "scanner-deduped.json"
     if not path.exists():
         return []
-    with open(path) as f:
-        data = json.load(f)
+    data = _read_run_json(path)
+    if data is None:
+        return []
     return data.get("data", {}).get("candidate_updates", []) or []
 
 
@@ -524,8 +537,9 @@ def find_run_reports(run_id: str) -> list[dict]:
     """
     cat_path = RUNS_DIR / run_id / "categorizer-output.json"
     if cat_path.exists():
-        with open(cat_path) as f:
-            data = json.load(f)
+        data = _read_run_json(cat_path)
+        if data is None:
+            return []
         raw = (
             data.get("data", {}).get("filed_reports")
             or data.get("data", {}).get("reports_filed")
@@ -554,8 +568,9 @@ def find_run_reports(run_id: str) -> list[dict]:
         return []
     reports = []
     for rfile in sorted(run_dir.glob("researcher-*.json")):
-        with open(rfile) as f:
-            rdata = json.load(f)
+        rdata = _read_run_json(rfile)
+        if rdata is None:
+            continue
         rd = rdata.get("data", rdata)
         if rd.get("report_path"):
             reports.append({
@@ -581,20 +596,30 @@ def write_approved_json(run_id: str, approved_ids: set[str]) -> Path:
     if not source_path.exists():
         source_path = RUNS_DIR / run_id / "scanner-output.json"
 
-    with open(source_path) as f:
-        source = json.load(f)
+    source = _read_run_json(source_path)
+    if source is None:
+        raise RuntimeError(f"Cannot read {source_path.name}")
 
     source_findings = source.get("data", {}).get("findings", []) or []
     source_updates = source.get("data", {}).get("candidate_updates", []) or []
 
-    approved_findings = [f for f in source_findings if f["id"] in approved_ids]
+    approved_findings = []
+    for f in source_findings:
+        fid = f.get("id")
+        if not fid:
+            continue
+        if fid in approved_ids:
+            approved_findings.append(f)
 
     # Ensure candidate_updates that the user approved AND auto-approved
     # updates (pre-marked with operation=append_update) get captured. We mark
     # updates with operation=append_update so downstream stages route them.
     approved_updates = []
     for u in source_updates:
-        if u["id"] in approved_ids:
+        uid = u.get("id")
+        if not uid:
+            continue
+        if uid in approved_ids:
             entry = dict(u)
             entry["operation"] = "append_update"
             approved_updates.append(entry)
@@ -611,8 +636,7 @@ def write_approved_json(run_id: str, approved_ids: set[str]) -> Path:
     }
 
     output_path = RUNS_DIR / run_id / "scanner-approved.json"
-    with open(output_path, "w") as f:
-        json.dump(envelope, f, indent=2)
+    _atomic_write_json(output_path, envelope)
 
     return output_path
 
@@ -691,18 +715,16 @@ async def cmd_scan(interaction: discord.Interaction):
         )
         return
 
+    run_dir = RUNS_DIR / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    # Attach per-run audit log before the try so the finally can always detach it
+    audit_handler = attach_run_file_handler(logger, run_id)
     try:
         await interaction.response.send_message(
             "Checking for new emails and starting scan..."
         )
 
         channel = bot.get_channel(CHANNEL_ID)
-        run_dir = RUNS_DIR / run_id
-        run_dir.mkdir(parents=True, exist_ok=True)
-
-        # Attach per-run audit log — writes everything logged during this scan to
-        # pipeline/runs/<run_id>/audit.log alongside the other stage artifacts
-        audit_handler = attach_run_file_handler(logger, run_id)
         logger.info("scan starting run_id=%s", run_id)
 
         # Fetch new emails
@@ -770,22 +792,24 @@ async def cmd_scan(interaction: discord.Interaction):
             # Post FPF results
             fpf_results_path = run_dir / "fpf-bills-processed.json"
             if fpf_results_path.exists():
-                with open(fpf_results_path) as f:
-                    fpf_results = json.load(f)
-                new_bills = fpf_results.get("new_bills", 0)
-                status_updates = fpf_results.get("status_updates", 0)
-                dl_success = fpf_results.get("downloads_success", 0)
-                dl_failed = fpf_results.get("downloads_failed", 0)
+                fpf_results = _read_run_json(fpf_results_path)
+                if fpf_results is None:
+                    await channel.send(f"Warning: could not read FPF results for `{run_id}` — skipping summary.")
+                else:
+                    new_bills = fpf_results.get("new_bills", 0)
+                    status_updates = fpf_results.get("status_updates", 0)
+                    dl_success = fpf_results.get("downloads_success", 0)
+                    dl_failed = fpf_results.get("downloads_failed", 0)
 
-                embed = discord.Embed(
-                    title="FPF Legislative Scan Results",
-                    color=discord.Color.teal(),
-                )
-                embed.add_field(name="New Bills", value=str(new_bills), inline=True)
-                embed.add_field(name="Status Updates", value=str(status_updates), inline=True)
-                embed.add_field(name="PDFs Downloaded", value=f"{dl_success} success, {dl_failed} pending", inline=False)
-                embed.set_footer(text=f"Run {run_id}")
-                await channel.send(embed=embed)
+                    embed = discord.Embed(
+                        title="FPF Legislative Scan Results",
+                        color=discord.Color.teal(),
+                    )
+                    embed.add_field(name="New Bills", value=str(new_bills), inline=True)
+                    embed.add_field(name="Status Updates", value=str(status_updates), inline=True)
+                    embed.add_field(name="PDFs Downloaded", value=f"{dl_success} success, {dl_failed} pending", inline=False)
+                    embed.set_footer(text=f"Run {run_id}")
+                    await channel.send(embed=embed)
 
         # Run Lexology/IAPP/web scan
         def _run_scan():
@@ -862,15 +886,15 @@ async def cmd_scan(interaction: discord.Interaction):
                     scan_ok = True  # Treat as recovered — continue to post findings
             if not scan_ok:
                 await channel.send(f"Scan FAILED for `{run_id}` — {scan_err}")
-                detach_handler(audit_handler)
                 return
         elif scan_cost > 0:
             logger.info("scan cost run_id=%s usd=%.4f", run_id, scan_cost)
             await channel.send(f"Scan cost: **${scan_cost:.4f}**")
         latest_run_id = run_id
 
-        findings = load_findings(run_id)
-        non_us_rejected = len(load_findings(run_id, us_only=False)) - len(findings)
+        all_findings = load_findings(run_id, us_only=False)
+        findings = [f for f in all_findings if is_us_jurisdiction(f.get("jurisdiction"))]
+        non_us_rejected = len(all_findings) - len(findings)
         candidate_updates = load_candidate_updates(run_id)
         channel = bot.get_channel(CHANNEL_ID)
 
@@ -883,7 +907,6 @@ async def cmd_scan(interaction: discord.Interaction):
         if not findings and not candidate_updates:
             await channel.send(f"Scan `{run_id}` complete but no findings or updates were produced. Check `pipeline/runs/{run_id}/` for errors.")
             logger.warning("scan produced no findings run_id=%s", run_id)
-            detach_handler(audit_handler)
             return
 
         logger.info(
@@ -929,8 +952,8 @@ async def cmd_scan(interaction: discord.Interaction):
             f"**Review complete.** Click Approve/Reject on each item above, "
             f"then run `/approve` to finalize."
         )
-        detach_handler(audit_handler)
     finally:
+        detach_handler(audit_handler)
         _release_run(run_id)
 
 
@@ -1081,7 +1104,13 @@ async def cmd_approve(
         )
         return
 
-    output_path = write_approved_json(run_id, approved_ids)
+    try:
+        output_path = write_approved_json(run_id, approved_ids)
+    except RuntimeError as e:
+        await interaction.response.send_message(
+            f"**Failed to write approved findings for `{run_id}`** — {e}"
+        )
+        return
     await interaction.response.send_message(
         f"**{len(approved_ids)} finding(s) approved** for run `{run_id}`.\n"
         f"Written to `{output_path.name}`.\n"
@@ -1112,6 +1141,8 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         )
         return
 
+    # Attach audit handler before try so the finally can always detach it
+    audit_handler = attach_run_file_handler(logger, run_id)
     try:
         approved_path = RUNS_DIR / run_id / "scanner-approved.json"
         if not approved_path.exists():
@@ -1120,8 +1151,12 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
             )
             return
 
-        with open(approved_path) as f:
-            approved = json.load(f)
+        approved = _read_run_json(approved_path)
+        if approved is None:
+            await interaction.response.send_message(
+                f"Could not read approved findings for `{run_id}` — file may be corrupt."
+            )
+            return
         findings = approved.get("data", {}).get("findings", [])
 
         if not findings:
@@ -1144,7 +1179,6 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         )
 
         channel = bot.get_channel(CHANNEL_ID)
-        audit_handler = attach_run_file_handler(logger, run_id)
         logger.info("research starting run_id=%s findings=%d remaining=%d estimated_usd=%.2f",
                     run_id, len(findings), remaining, estimated_cost)
 
@@ -1169,7 +1203,6 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         ok, err, actual_cost = await asyncio.to_thread(_run_research_phase)
         if not ok:
             await channel.send(f"Research phase FAILED for `{run_id}` — {err}")
-            detach_handler(audit_handler)
             return
         if actual_cost > 0:
             logger.info("research cost run_id=%s usd=%.4f", run_id, actual_cost)
@@ -1197,8 +1230,8 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
                 f"You can re-run `/research` (idempotent — skips done findings).\n"
                 + (f"```\n{tail}\n```" if tail else "")
             )
-        detach_handler(audit_handler)
     finally:
+        detach_handler(audit_handler)
         _release_run(run_id)
 
 
@@ -1225,6 +1258,8 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
         )
         return
 
+    # Attach audit handler before try so the finally can always detach it
+    audit_handler = attach_run_file_handler(logger, run_id)
     try:
         run_dir = RUNS_DIR / run_id
         research_marker = run_dir / "research-complete.marker"
@@ -1250,7 +1285,6 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
             )
 
         channel = bot.get_channel(CHANNEL_ID)
-        audit_handler = attach_run_file_handler(logger, run_id)
         logger.info("review starting run_id=%s reports=%d", run_id, len(researcher_files))
 
         def _run_review_phase():
@@ -1273,7 +1307,6 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
         ok, err, actual_cost = await asyncio.to_thread(_run_review_phase)
         if not ok:
             await channel.send(f"Review phase FAILED for `{run_id}` — {err}")
-            detach_handler(audit_handler)
             return
         if actual_cost > 0:
             logger.info("review cost run_id=%s usd=%.4f", run_id, actual_cost)
@@ -1286,24 +1319,22 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
         reviewer_output = run_dir / "reviewer-output.json"
 
         if reviewer_output.exists():
-            try:
-                with open(reviewer_output) as f:
-                    rev_data = json.load(f)
+            rev_data = _read_run_json(reviewer_output)
+            if rev_data is None:
+                logger.warning("Could not read reviewer-output.json for %s", run_id)
+            else:
                 reviews = rev_data.get("data", {}).get("reviews", [])
                 verified = sum(1 for r in reviews if r.get("status") == "verified")
                 escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
                 await channel.send(
                     f"**Review stats:** {verified} verified, {escalated} escalated."
                 )
-            except json.JSONDecodeError as e:
-                logger.warning("Failed to parse reviewer-output.json for %s: %s", run_id, e)
 
         if has_escalations and not pipeline_complete:
             await channel.send(
                 f"**Pipeline paused for `{run_id}`** — escalations need human review. "
                 "Resolve escalations, then run `/review` again."
             )
-            detach_handler(audit_handler)
             return
 
         if pipeline_complete:
@@ -1322,8 +1353,8 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
                 f"Check pipeline/runs/{run_id}/ for details.\n"
                 + (f"```\n{tail}\n```" if tail else "")
             )
-        detach_handler(audit_handler)
     finally:
+        detach_handler(audit_handler)
         _release_run(run_id)
 
 
@@ -1378,9 +1409,9 @@ async def cmd_status(interaction: discord.Interaction, run_id: str = None):
     findings = load_findings(run_id)
     approved_count = 0
     if "scanner-approved.json" in files:
-        with open(run_dir / "scanner-approved.json") as f:
-            approved_data = json.load(f)
-        approved_count = len(approved_data.get("data", {}).get("findings", []))
+        approved_data = _read_run_json(run_dir / "scanner-approved.json")
+        if approved_data is not None:
+            approved_count = len(approved_data.get("data", {}).get("findings", []))
 
     embed = discord.Embed(title=f"Run {run_id}", color=color)
     embed.add_field(name="Status", value=status, inline=False)
@@ -1693,8 +1724,9 @@ TRACKER_PATH = BILLS_DIR / "tracker.json"
 
 def load_tracker() -> dict:
     if TRACKER_PATH.exists():
-        with open(TRACKER_PATH) as f:
-            return json.load(f)
+        data = _read_run_json(TRACKER_PATH)
+        if data is not None:
+            return data
     return {"schema_version": "1.0", "bills": {}}
 
 

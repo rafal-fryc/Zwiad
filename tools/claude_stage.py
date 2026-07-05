@@ -11,6 +11,7 @@ import json
 import os
 import signal
 import subprocess
+import tempfile
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -23,6 +24,28 @@ logger = get_logger("zwiad.stage")
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
+
+
+# ---------------------------------------------------------------------------
+# Atomic JSON writer
+# ---------------------------------------------------------------------------
+
+def _atomic_write_json(path: Path, data) -> None:
+    """Write *data* as JSON to *path* atomically via a temp file + os.replace.
+
+    Prevents corrupt state files if the process dies mid-write. Never raises
+    (callers that want propagation should not catch the exception themselves).
+    """
+    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=f".{path.stem}-", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        os.replace(tmp, path)
+    except Exception:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        raise
+
 
 # ---------------------------------------------------------------------------
 # Rate-limit detection
@@ -278,6 +301,6 @@ def _append_cost_entry(run_id: str, stage: str, cost_usd: float, parsed: dict | 
 
         data.setdefault("stages", []).append(entry)
         data["total_usd"] = round(data.get("total_usd", 0.0) + cost_usd, 6)
-        cost_path.write_text(json.dumps(data, indent=2))
+        _atomic_write_json(cost_path, data)
     except Exception as e:
         logger.debug("Cost log write failed for %s: %s", run_id, e)
