@@ -28,16 +28,35 @@ Usage:
 """
 
 import argparse
+import fcntl
 import json
 import os
 import re
 import sys
 import tempfile
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = PROJECT_ROOT / "reports" / "index.json"
+LOCK_PATH = INDEX_PATH.with_suffix(".json.lock")
+
+@contextmanager
+def index_lock():
+    """Advisory lock around load->mutate->save of reports/index.json.
+
+    Atomic replace prevents corruption but not lost updates; the bot,
+    pipeline stages, and bill_processor all read-modify-write this file.
+    """
+    LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(LOCK_PATH, "w") as lf:
+        fcntl.flock(lf, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lf, fcntl.LOCK_UN)
+
 
 # Single source of truth for URL normalization — see tools/url_norm.py
 if __package__ in (None, ""):
@@ -86,6 +105,11 @@ def add_entry(index: dict, entry: dict) -> dict:
     existing = index["reports"].get(key)
     if existing:
         existing.setdefault("source_urls", [])
+        existing["source_urls"] = [normalize_url(u) or u for u in existing["source_urls"]]
+        # Ensure url_index reflects any newly-normalized existing URLs
+        for u in existing["source_urls"]:
+            if u:
+                index.setdefault("url_index", {})[u] = key
         for url in entry.get("source_urls", []):
             normalized = normalize_url(url)
             if normalized and normalized not in existing["source_urls"]:
@@ -167,29 +191,31 @@ def cmd_add(args) -> int:
     if "topic_key" not in entry or "report_path" not in entry or "category" not in entry:
         print("ERROR: entry must contain topic_key, report_path, category", file=sys.stderr)
         return 2
-    index = load_index()
-    add_entry(index, entry)
-    save_index(index)
+    with index_lock():
+        index = load_index()
+        add_entry(index, entry)
+        save_index(index)
     print(json.dumps({"ok": True, "topic_key": entry["topic_key"]}))
     return 0
 
 
 def cmd_append_status(args) -> int:
-    index = load_index()
-    try:
-        append_status(
-            index,
-            key=args.topic_key,
-            status=args.status,
-            date=args.date,
-            finding_id=args.finding_id,
-            run_id=args.run_id,
-            detail=args.detail,
-        )
-    except KeyError as e:
-        print(f"ERROR: {e}", file=sys.stderr)
-        return 2
-    save_index(index)
+    with index_lock():
+        index = load_index()
+        try:
+            append_status(
+                index,
+                key=args.topic_key,
+                status=args.status,
+                date=args.date,
+                finding_id=args.finding_id,
+                run_id=args.run_id,
+                detail=args.detail,
+            )
+        except KeyError as e:
+            print(f"ERROR: {e}", file=sys.stderr)
+            return 2
+        save_index(index)
     print(json.dumps({"ok": True, "topic_key": args.topic_key}))
     return 0
 

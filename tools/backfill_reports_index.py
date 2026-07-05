@@ -23,6 +23,7 @@ Output files:
 
 import argparse
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -139,6 +140,11 @@ def main() -> int:
         action="store_true",
         help="After writing .backfill file, promote it to the live reports/index.json",
     )
+    p.add_argument(
+        "--force",
+        action="store_true",
+        help="Promote even with low-confidence entries",
+    )
     args = p.parse_args()
 
     if not REPORTS_DIR.exists():
@@ -164,7 +170,10 @@ def main() -> int:
         "url_index": {},
     }
 
-    report_files = sorted(REPORTS_DIR.rglob("*.md"))
+    report_files = sorted(
+        p for p in REPORTS_DIR.rglob("*.md")
+        if p.name not in ("CLAUDE.md", "README.md")
+    )
     audit: list[dict] = []
     duplicates: list[dict] = []
     low_confidence: list[dict] = []
@@ -259,11 +268,11 @@ def main() -> int:
     print(f"Review report:    {REPORT_PATH}")
 
     if args.promote:
-        if low_confidence and not args.promote:
-            print("\nRefusing to auto-promote with low-confidence entries present.")
+        if low_confidence and not args.force:
+            print("\nRefusing to auto-promote with low-confidence entries present."
+                  " Re-run with --force to override.")
             return 1
-        import shutil
-        shutil.copy2(BACKFILL_PATH, LIVE_INDEX_PATH)
+        os.replace(BACKFILL_PATH, LIVE_INDEX_PATH)
         print(f"\nPromoted to {LIVE_INDEX_PATH}")
 
     return 0

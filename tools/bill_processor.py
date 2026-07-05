@@ -491,15 +491,15 @@ def update_current_symlink(bill_directory: Path, md_path: Path) -> None:
 
 
 def _load_cross_index_helpers():
-    """Lazy-import update_reports_index helpers. Returns (add_entry_fn, load_fn, save_fn) or None."""
+    """Lazy-import update_reports_index helpers. Returns (add_entry_fn, load_fn, save_fn, index_lock) or None."""
     try:
         if __package__ in (None, ""):
             import sys as _sys
             _sys.path.insert(0, str(PROJECT_ROOT))
-            from tools.update_reports_index import add_entry, load_index, save_index
+            from tools.update_reports_index import add_entry, load_index, save_index, index_lock
         else:
-            from .update_reports_index import add_entry, load_index, save_index  # type: ignore
-        return add_entry, load_index, save_index
+            from .update_reports_index import add_entry, load_index, save_index, index_lock  # type: ignore
+        return add_entry, load_index, save_index, index_lock
     except Exception:
         return None
 
@@ -569,7 +569,7 @@ def _cross_index_bill_to_reports(index: dict, entry: dict, key: str, bill: dict,
     bill_dir_rel = entry.get("bill_dir", "")
     report_path = f"{bill_dir_rel}/current.md" if bill_dir_rel else "bills/tracker.json"
 
-    add_entry, _, _ = _load_cross_index_helpers() or (None, None, None)
+    add_entry, _, _, _ = _load_cross_index_helpers() or (None, None, None, None)
     if add_entry is None:
         return
     add_entry(index, {
@@ -764,19 +764,20 @@ def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False)
     # already-tracked FPF bill. See I1 in docs/REVIEW-2026-04-10.md.
     _helpers = _load_cross_index_helpers()
     if _helpers is not None:
-        add_entry, load_index, save_index = _helpers
+        add_entry, load_index, save_index, index_lock = _helpers
         try:
-            reports_index = load_index()
-            cross_indexed = 0
-            for bill in bills:
-                state_abbrev = bill["state_abbrev"]
-                bill_id = bill["bill_identifier"]
-                session = bill.get("session", "2026")
-                key = bill_key(state_abbrev, bill_id, session)
-                entry = tracker["bills"].get(key, {})
-                _cross_index_bill_to_reports(reports_index, entry, key, bill, run_id)
-                cross_indexed += 1
-            save_index(reports_index)
+            with index_lock():
+                reports_index = load_index()
+                cross_indexed = 0
+                for bill in bills:
+                    state_abbrev = bill["state_abbrev"]
+                    bill_id = bill["bill_identifier"]
+                    session = bill.get("session", "2026")
+                    key = bill_key(state_abbrev, bill_id, session)
+                    entry = tracker["bills"].get(key, {})
+                    _cross_index_bill_to_reports(reports_index, entry, key, bill, run_id)
+                    cross_indexed += 1
+                save_index(reports_index)
             print(f"Cross-indexed {cross_indexed} bills into reports/index.json")
         except Exception as e:
             print(f"Warning: cross-index write failed: {e}")
