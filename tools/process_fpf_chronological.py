@@ -133,9 +133,15 @@ def run_fpf_scanner(run_id: str) -> bool:
     output_path.unlink(missing_ok=True)
     result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
 
+    # The claude CLI sometimes exits nonzero even though the session completed
+    # and wrote its output. The stale file was deleted above, so a present
+    # output file is a fresh, trustworthy success signal — warn but accept.
     if result.returncode != 0:
-        print(f"  Scanner: FAILED — exit {result.returncode}")
-        return False
+        if output_path.exists():
+            print(f"  Scanner: exit {result.returncode} but fresh output exists — continuing")
+        else:
+            print(f"  Scanner: FAILED — exit {result.returncode}")
+            return False
     if output_path.exists():
         with open(output_path) as f:
             data = json.load(f)
