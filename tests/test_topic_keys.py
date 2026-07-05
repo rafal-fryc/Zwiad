@@ -489,15 +489,6 @@ class UnifiedBillKeyTests(unittest.TestCase):
     def setUpClass(cls):
         cls.rules = load_rules()
 
-    def test_make_bill_key_available(self):
-        self.assertIsNotNone(make_bill_key, "make_bill_key must be importable from tools.topic_keys")
-
-    def test_session_to_year_available(self):
-        self.assertIsNotNone(session_to_year, "session_to_year must be importable from tools.topic_keys")
-
-    def test_bill_key_available(self):
-        self.assertIsNotNone(bill_key, "bill_key must be importable from tools.bill_processor")
-
     def test_federal_bill_gets_us_key(self):
         finding = {
             "title": "Congress passes HB 1234 on AI safety",

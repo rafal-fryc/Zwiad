@@ -312,8 +312,8 @@ def write_audit_log(
     if reviewer and isinstance(reviewer, dict):
         data = reviewer.get("data", reviewer)
         reviews = data.get("reviews", [])
-        verified = sum(1 for r in reviews if r.get("verdict") == "verified")
-        escalated = sum(1 for r in reviews if r.get("verdict") == "escalate")
+        verified = sum(1 for r in reviews if r.get("status") == "verified")
+        escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
         lines.append(f"- **Reviewer verified:** {verified}")
         lines.append(f"- **Reviewer escalated:** {escalated}")
 

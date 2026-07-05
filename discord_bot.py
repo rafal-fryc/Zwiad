@@ -6,7 +6,6 @@ import email as email_lib
 import hashlib
 import imaplib
 import json
-import logging
 import os
 import re
 import socket
@@ -712,8 +711,13 @@ class FindingView(discord.ui.View):
 
     def _make_callback(self, approved: bool, this_btn: discord.ui.Button, other_btn: discord.ui.Button):
         async def callback(interaction: discord.Interaction):
-            approval_state.setdefault(self.run_id, {})[self.finding_id] = approved
-            _save_approval_state(self.run_id)
+            if self.run_id not in approval_state:
+                approval_state[self.run_id] = _load_approval_state(self.run_id)
+            approval_state[self.run_id][self.finding_id] = approved
+            try:
+                _save_approval_state(self.run_id)
+            except Exception as exc:
+                logger.warning("Failed to persist approval state run_id=%s: %s", self.run_id, exc)
             this_btn.label = "Approved" if approved else "Rejected"
             this_btn.disabled = True
             other_btn.disabled = True
@@ -1018,9 +1022,15 @@ async def cmd_scan(interaction: discord.Interaction):
             summary += f"\n_{non_us_rejected} non-US findings auto-rejected (not shown)._"
         await channel.send(summary)
 
-        # Initialize approval state with auto-approved update IDs pre-checked
-        approval_state[run_id] = {u["id"]: True for u in auto_approved_updates}
-        _save_approval_state(run_id)
+        # Initialize approval state — seed from disk first (may carry prior approvals),
+        # then layer in auto-approved updates so they don't overwrite existing decisions.
+        disk_state = _load_approval_state(run_id)
+        merged = {**disk_state, **{u["id"]: True for u in auto_approved_updates}}
+        approval_state[run_id] = merged
+        try:
+            _save_approval_state(run_id)
+        except Exception as exc:
+            logger.warning("Failed to persist initial approval state run_id=%s: %s", run_id, exc)
 
         for i, finding in enumerate(findings, 1):
             embed = build_finding_embed(finding, i, len(findings), run_id)
@@ -1274,6 +1284,16 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
             if (run_dir / f"researcher-{f_.get('id','')}.json").exists()
         )
         remaining = len(findings) - already_done
+
+        if remaining == 0:
+            marker_path = run_dir / "research-complete.marker"
+            if not marker_path.exists():
+                marker_path.write_text("RESEARCH_COMPLETE\n")
+            await interaction.response.send_message(
+                f"All {already_done} approved findings already have researcher outputs — "
+                f"writing research-complete.marker. Run `/review run_id:{run_id}` to proceed."
+            )
+            return
 
         estimated_cost = remaining * RESEARCH_COST_PER_FINDING_USD
         await interaction.response.send_message(

@@ -9,7 +9,6 @@ Usage:
 import argparse
 import json
 import os
-import subprocess
 import sys
 import urllib.request
 import urllib.error
