@@ -16,6 +16,8 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+from tools.claude_stage import run_claude_and_log_cost
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -48,6 +50,8 @@ def notify(title: str, message: str) -> None:
     Falls back to stdout if notify-send is unavailable or times out.
     """
     print(f"[NOTIFY] Zwiad: {title} -- {message}")
+    if os.environ.get("ZWIAD_QUIET") == "1":
+        return  # suppress desktop notifications (used for bulk backfills)
     try:
         subprocess.run(
             ["notify-send", "--urgency=normal", f"Zwiad: {title}", message],
@@ -66,46 +70,44 @@ def run_stage(
     run_id: str,
     run_dir: Path,
     audit_entries: list,
-) -> subprocess.CompletedProcess:
-    """Execute a pipeline stage, record audit info, and handle errors."""
+    timeout: int = 3600,
+) -> None:
+    """Execute a pipeline stage via the shared runner, record audit info, and handle errors."""
     start = time.monotonic()
     start_wall = datetime.now(timezone.utc).isoformat()
 
     print(f"[STAGE] {name} -- starting at {start_wall}")
 
-    result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
+    ok, err, cost = run_claude_and_log_cost(cmd, run_id, name, cwd=PROJECT_ROOT, timeout=timeout)
 
     end = time.monotonic()
     duration = round(end - start, 1)
-    stdout_lines = (result.stdout or "").strip().splitlines()
 
-    if result.returncode != 0:
-        error_msg = (result.stderr or "").strip() or "(no stderr)"
+    if not ok:
         # Write error.log
         error_log = run_dir / "error.log"
         with open(error_log, "a") as f:
-            f.write(f"[{name}] exit={result.returncode}  duration={duration}s\n")
-            f.write(f"stderr:\n{error_msg}\n\n")
+            f.write(f"[{name}] duration={duration}s\n")
+            f.write(f"error:\n{err}\n\n")
 
         audit_entries.append({
             "name": name,
             "duration_seconds": duration,
             "status": "error",
-            "error": error_msg[:500],
+            "error": err[:500],
         })
 
         notify("Pipeline Failure", f"Stage {name} failed for run {run_id}")
-        raise RuntimeError(f"Stage {name} failed (exit {result.returncode}): {error_msg[:200]}")
+        raise RuntimeError(f"Stage {name} failed: {err[:200]}")
 
     audit_entries.append({
         "name": name,
         "duration_seconds": duration,
-        "stdout_tail": stdout_lines[-20:] if stdout_lines else [],
         "status": "complete",
+        "cost_usd": cost,
     })
 
     print(f"[STAGE] {name} -- completed in {duration}s")
-    return result
 
 
 # ---------------------------------------------------------------------------
@@ -186,39 +188,53 @@ def run_research_phase(
             "Create a new run instead."
         )
 
-    prompt = (
-        f"Research phase for run {run_id}. "
-        f"Process approved findings from pipeline/runs/{run_id}/scanner-approved.json."
+    research_prompt = (
+        f"Research phase for run {run_id}. Process approved findings from "
+        f"pipeline/runs/{run_id}/scanner-approved.json. "
+        f"Follow Mode 2 (research-only): researcher per finding (skip findings whose "
+        f"researcher-{{id}}.json already exists), then write research-complete.marker. "
+        f"Do NOT invoke reviewer or categorizer."
     )
-
     cmd = [
-        "claude", "-p",
-        "--agent", "orchestrator",
-        "--output-format", "json",
-        "--permission-mode", "acceptEdits",
-        "--max-turns", "50",
-        prompt,
+        "claude", "-p", "--agent", "orchestrator",
+        "--output-format", "json", "--permission-mode", "acceptEdits",
+        "--max-turns", "200", research_prompt,
     ]
+    run_stage("orchestrator-research", cmd, run_id, run_dir, audit_entries, timeout=5400)
 
-    run_stage("orchestrator-research", cmd, run_id, run_dir, audit_entries)
+    if not (run_dir / "research-complete.marker").exists():
+        audit_entries.append({
+            "name": "research-marker-check", "duration_seconds": 0, "status": "warning",
+            "error": "research-complete.marker not found -- re-run resume to retry (idempotent)",
+        })
+        print("[WARN] research-complete.marker not found; stopping before review phase")
+        return audit_entries
 
-    # Check for completion markers
+    review_prompt = (
+        f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
+        f"verify research-complete.marker exists, run reviewer, check escalations, "
+        f"run categorizer if no escalations, and write pipeline-complete.marker. "
+        f"Do NOT re-invoke researcher."
+    )
+    cmd = [
+        "claude", "-p", "--agent", "orchestrator",
+        "--output-format", "json", "--permission-mode", "acceptEdits",
+        "--max-turns", "200", review_prompt,
+    ]
+    run_stage("orchestrator-review", cmd, run_id, run_dir, audit_entries, timeout=5400)
+
     complete_marker = run_dir / "pipeline-complete.marker"
     escalation_marker = run_dir / "has-escalations.marker"
-
-    if escalation_marker.exists():
+    if escalation_marker.exists() or any(run_dir.glob("escalation-*.json")):
         notify("Escalations Pending", f"Run {run_id}: Review escalations")
     elif complete_marker.exists():
         notify("Pipeline Complete", f"Run {run_id}: Reports filed")
     else:
         audit_entries.append({
-            "name": "research-marker-check",
-            "duration_seconds": 0,
-            "status": "warning",
-            "error": "Neither pipeline-complete.marker nor has-escalations.marker found",
+            "name": "review-marker-check", "duration_seconds": 0, "status": "warning",
+            "error": "Neither pipeline-complete.marker nor escalations found",
         })
         print("[WARN] No completion marker found in run directory")
-
     return audit_entries
 
 
