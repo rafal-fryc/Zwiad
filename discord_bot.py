@@ -49,6 +49,28 @@ approval_state: dict[str, dict[str, bool]] = {}
 # Track the latest run_id for convenience
 latest_run_id: str | None = None
 
+# In-flight pipeline stages: run_ids with a claude subprocess currently running.
+# Prevents overlapping /scan//research//review invocations from corrupting a run.
+_active_runs: set[str] = set()
+
+_RUN_ID_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}$")
+
+
+def _valid_run_id(run_id: str) -> bool:
+    """run_id is used as a path component — accept only the timestamp shape."""
+    return bool(_RUN_ID_RE.match(run_id or ""))
+
+
+def _acquire_run(run_id: str) -> bool:
+    if run_id in _active_runs:
+        return False
+    _active_runs.add(run_id)
+    return True
+
+
+def _release_run(run_id: str) -> None:
+    _active_runs.discard(run_id)
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -311,10 +333,14 @@ def classify_emails(email_dir: Path) -> dict[str, list[Path]]:
 
 
 def get_latest_run_id() -> str | None:
-    """Return the most recent run_id by directory modification time."""
+    """Return the most recent run_id by name (run ids are sortable timestamps)."""
     if not RUNS_DIR.exists():
         return None
-    runs = sorted(RUNS_DIR.iterdir(), key=lambda p: p.stat().st_mtime, reverse=True)
+    runs = sorted(
+        (p for p in RUNS_DIR.iterdir() if p.is_dir() and _valid_run_id(p.name)),
+        key=lambda p: p.name,
+        reverse=True,
+    )
     return runs[0].name if runs else None
 
 
@@ -658,243 +684,254 @@ async def on_ready():
 async def cmd_scan(interaction: discord.Interaction):
     global latest_run_id
 
-    await interaction.response.send_message(
-        "Checking for new emails and starting scan..."
-    )
-
-    channel = bot.get_channel(CHANNEL_ID)
     run_id = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%S")
-    run_dir = RUNS_DIR / run_id
-    run_dir.mkdir(parents=True, exist_ok=True)
+    if not _acquire_run(run_id):
+        await interaction.response.send_message(
+            f"Run `{run_id}` already has a stage in progress — wait for it to finish."
+        )
+        return
 
-    # Attach per-run audit log — writes everything logged during this scan to
-    # pipeline/runs/<run_id>/audit.log alongside the other stage artifacts
-    audit_handler = attach_run_file_handler(logger, run_id)
-    logger.info("scan starting run_id=%s", run_id)
-
-    # Fetch new emails
     try:
-        email_files = await asyncio.to_thread(fetch_new_emails, run_id)
-    except IMAPFetchError as e:
-        logger.exception("IMAP fetch failed for run %s", run_id)
-        await channel.send(
-            f"**IMAP fetch failed for `{run_id}`** — {e}\n"
-            f"Continuing with web sources only."
+        await interaction.response.send_message(
+            "Checking for new emails and starting scan..."
         )
-        email_files = []
 
-    if email_files:
-        await channel.send(
-            f"**Found {len(email_files)} new email(s).** Classifying..."
-        )
-    else:
-        await channel.send("No new emails. Scanning web sources only...")
+        channel = bot.get_channel(CHANNEL_ID)
+        run_dir = RUNS_DIR / run_id
+        run_dir.mkdir(parents=True, exist_ok=True)
 
-    # Classify emails
-    email_dir = run_dir / "emails"
-    classified = (
-        classify_emails(email_dir)
-        if email_files
-        else {"fpf": [], "lexology": [], "iapp": [], "unknown": []}
-    )
+        # Attach per-run audit log — writes everything logged during this scan to
+        # pipeline/runs/<run_id>/audit.log alongside the other stage artifacts
+        audit_handler = attach_run_file_handler(logger, run_id)
+        logger.info("scan starting run_id=%s", run_id)
 
-    fpf_emails = classified.get("fpf", [])
-    lexology_emails = classified.get("lexology", [])
-    iapp_emails = classified.get("iapp", [])
-    digest_emails = lexology_emails + iapp_emails
-
-    if fpf_emails:
-        await channel.send(f"**{len(fpf_emails)} FPF legislative email(s)** detected. Processing bills...")
-    if lexology_emails:
-        await channel.send(f"**{len(lexology_emails)} Lexology digest(s)** detected.")
-    if iapp_emails:
-        await channel.send(f"**{len(iapp_emails)} IAPP newsletter(s)** detected.")
-
-    # Run FPF scan if FPF emails found
-    if fpf_emails:
-        def _run_fpf_scan():
-            prompt = (
-                f"FPF scan for run {run_id}. "
-                f"Process FPF emails in pipeline/runs/{run_id}/emails/. "
-                f"Write output to pipeline/runs/{run_id}/."
+        # Fetch new emails
+        try:
+            email_files = await asyncio.to_thread(fetch_new_emails, run_id)
+        except IMAPFetchError as e:
+            logger.exception("IMAP fetch failed for run %s", run_id)
+            await channel.send(
+                f"**IMAP fetch failed for `{run_id}`** — {e}\n"
+                f"Continuing with web sources only."
             )
+            email_files = []
+
+        if email_files:
+            await channel.send(
+                f"**Found {len(email_files)} new email(s).** Classifying..."
+            )
+        else:
+            await channel.send("No new emails. Scanning web sources only...")
+
+        # Classify emails
+        email_dir = run_dir / "emails"
+        classified = (
+            classify_emails(email_dir)
+            if email_files
+            else {"fpf": [], "lexology": [], "iapp": [], "unknown": []}
+        )
+
+        fpf_emails = classified.get("fpf", [])
+        lexology_emails = classified.get("lexology", [])
+        iapp_emails = classified.get("iapp", [])
+        digest_emails = lexology_emails + iapp_emails
+
+        if fpf_emails:
+            await channel.send(f"**{len(fpf_emails)} FPF legislative email(s)** detected. Processing bills...")
+        if lexology_emails:
+            await channel.send(f"**{len(lexology_emails)} Lexology digest(s)** detected.")
+        if iapp_emails:
+            await channel.send(f"**{len(iapp_emails)} IAPP newsletter(s)** detected.")
+
+        # Run FPF scan if FPF emails found
+        if fpf_emails:
+            def _run_fpf_scan():
+                prompt = (
+                    f"FPF scan for run {run_id}. "
+                    f"Process FPF emails in pipeline/runs/{run_id}/emails/. "
+                    f"Write output to pipeline/runs/{run_id}/."
+                )
+                cmd = [
+                    "claude", "-p",
+                    "--agent", "orchestrator",
+                    "--output-format", "json",
+                    "--permission-mode", "acceptEdits",
+                    "--max-turns", "20",
+                    prompt,
+                ]
+                return run_claude_and_log_cost(cmd, run_id, "fpf-scan", cwd=PROJECT_ROOT)
+
+            ok, err, cost = await asyncio.to_thread(_run_fpf_scan)
+            if not ok:
+                await channel.send(f"FPF scan FAILED for `{run_id}` — {err}")
+            elif cost > 0:
+                logger.info("fpf-scan cost run_id=%s usd=%.4f", run_id, cost)
+
+            # Post FPF results
+            fpf_results_path = run_dir / "fpf-bills-processed.json"
+            if fpf_results_path.exists():
+                with open(fpf_results_path) as f:
+                    fpf_results = json.load(f)
+                new_bills = fpf_results.get("new_bills", 0)
+                status_updates = fpf_results.get("status_updates", 0)
+                dl_success = fpf_results.get("downloads_success", 0)
+                dl_failed = fpf_results.get("downloads_failed", 0)
+
+                embed = discord.Embed(
+                    title="FPF Legislative Scan Results",
+                    color=discord.Color.teal(),
+                )
+                embed.add_field(name="New Bills", value=str(new_bills), inline=True)
+                embed.add_field(name="Status Updates", value=str(status_updates), inline=True)
+                embed.add_field(name="PDFs Downloaded", value=f"{dl_success} success, {dl_failed} pending", inline=False)
+                embed.set_footer(text=f"Run {run_id}")
+                await channel.send(embed=embed)
+
+        # Run Lexology/IAPP/web scan
+        def _run_scan():
+            if digest_emails:
+                input_paths = "\n".join(f"  - {p}" for p in digest_emails)
+                prompt = (
+                    f"Scan phase for run {run_id}. "
+                    f"Input digest files (each file has a .meta.json sidecar indicating source type — "
+                    f"Lexology if sender contains 'lexology', IAPP if sender contains 'iapp.org'):\n"
+                    f"{input_paths}\n"
+                    f"Parse each digest according to its source type (see scanner agent instructions) and "
+                    f"combine all findings into a single scanner-output.json. "
+                    f"Write all output to pipeline/runs/{run_id}/."
+                )
+            else:
+                prompt = (
+                    f"Scan phase for run {run_id}. Web sources only (--sources-only). "
+                    f"No email digest. Write all output to pipeline/runs/{run_id}/."
+                )
+
             cmd = [
                 "claude", "-p",
                 "--agent", "orchestrator",
                 "--output-format", "json",
                 "--permission-mode", "acceptEdits",
-                "--max-turns", "20",
+                "--max-turns", "60",
                 prompt,
             ]
-            return run_claude_and_log_cost(cmd, run_id, "fpf-scan", cwd=PROJECT_ROOT)
 
-        ok, err, cost = await asyncio.to_thread(_run_fpf_scan)
-        if not ok:
-            await channel.send(f"FPF scan FAILED for `{run_id}` — {err}")
-        elif cost > 0:
-            logger.info("fpf-scan cost run_id=%s usd=%.4f", run_id, cost)
+            ok, err, cost = run_claude_and_log_cost(cmd, run_id, "scan", cwd=PROJECT_ROOT)
+            return run_id, ok, err, cost
 
-        # Post FPF results
-        fpf_results_path = run_dir / "fpf-bills-processed.json"
-        if fpf_results_path.exists():
-            with open(fpf_results_path) as f:
-                fpf_results = json.load(f)
-            new_bills = fpf_results.get("new_bills", 0)
-            status_updates = fpf_results.get("status_updates", 0)
-            dl_success = fpf_results.get("downloads_success", 0)
-            dl_failed = fpf_results.get("downloads_failed", 0)
+        run_id, scan_ok, scan_err, scan_cost = await asyncio.to_thread(_run_scan)
 
-            embed = discord.Embed(
-                title="FPF Legislative Scan Results",
-                color=discord.Color.teal(),
-            )
-            embed.add_field(name="New Bills", value=str(new_bills), inline=True)
-            embed.add_field(name="Status Updates", value=str(status_updates), inline=True)
-            embed.add_field(name="PDFs Downloaded", value=f"{dl_success} success, {dl_failed} pending", inline=False)
-            embed.set_footer(text=f"Run {run_id}")
-            await channel.send(embed=embed)
-
-    # Run Lexology/IAPP/web scan
-    def _run_scan():
-        if digest_emails:
-            input_paths = "\n".join(f"  - {p}" for p in digest_emails)
-            prompt = (
-                f"Scan phase for run {run_id}. "
-                f"Input digest files (each file has a .meta.json sidecar indicating source type — "
-                f"Lexology if sender contains 'lexology', IAPP if sender contains 'iapp.org'):\n"
-                f"{input_paths}\n"
-                f"Parse each digest according to its source type (see scanner agent instructions) and "
-                f"combine all findings into a single scanner-output.json. "
-                f"Write all output to pipeline/runs/{run_id}/."
-            )
-        else:
-            prompt = (
-                f"Scan phase for run {run_id}. Web sources only (--sources-only). "
-                f"No email digest. Write all output to pipeline/runs/{run_id}/."
-            )
-
-        cmd = [
-            "claude", "-p",
-            "--agent", "orchestrator",
-            "--output-format", "json",
-            "--permission-mode", "acceptEdits",
-            "--max-turns", "60",
-            prompt,
-        ]
-
-        ok, err, cost = run_claude_and_log_cost(cmd, run_id, "scan", cwd=PROJECT_ROOT)
-        return run_id, ok, err, cost
-
-    run_id, scan_ok, scan_err, scan_cost = await asyncio.to_thread(_run_scan)
-
-    # Recovery path: if the orchestrator failed (e.g. hit max-turns doing
-    # exploratory work) but the scanner still produced scanner-output.json,
-    # finish the deterministic steps (annotate + dedup + generate-review)
-    # ourselves so the run isn't stuck with un-deduped findings.
-    if not scan_ok:
-        scanner_output = run_dir / "scanner-output.json"
-        scanner_deduped = run_dir / "scanner-deduped.json"
-        scanner_routing = run_dir / "scanner-routing.json"
-        # If the orchestrator already produced both deduped findings and the
-        # routing review file before exiting non-zero, recovery is unnecessary
-        # — the deterministic steps are done. Just treat the scan as ok.
-        if scanner_deduped.exists() and scanner_routing.exists():
-            logger.warning(
-                "scan exited with error but deduped+routing already exist; treating as recovered run_id=%s",
-                run_id,
-            )
-            scan_ok = True
-        elif scanner_output.exists() and not scanner_deduped.exists():
-            logger.warning("scan orchestrator failed but scanner-output.json exists; running recovery")
-            await channel.send(
-                f"Orchestrator failed (`{scan_err[:100]}`). "
-                f"Scanner output exists — running recovery (annotate + dedup + review)..."
-            )
-            recovery_ok = True
-            for cmd_list, label in [
-                (["python3", "tools/topic_keys.py", "annotate", "--input", str(scanner_output)], "annotate"),
-                (["bash", "pipeline/scripts/dedup-findings.sh", run_id], "dedup"),
-                (["bash", "pipeline/scripts/generate-review.sh", run_id], "generate-review"),
-            ]:
-                rec_ok, rec_err = await asyncio.to_thread(
-                    run_subprocess_checked, cmd_list, PROJECT_ROOT
-                )
-                if not rec_ok:
-                    await channel.send(f"Recovery step `{label}` failed: {rec_err[:200]}")
-                    recovery_ok = False
-                    break
-            if recovery_ok:
-                (run_dir / "scan-complete.marker").write_text("SCAN_PHASE_COMPLETE\n")
-                await channel.send(f"Recovery complete. Scan can proceed.")
-                scan_ok = True  # Treat as recovered — continue to post findings
+        # Recovery path: if the orchestrator failed (e.g. hit max-turns doing
+        # exploratory work) but the scanner still produced scanner-output.json,
+        # finish the deterministic steps (annotate + dedup + generate-review)
+        # ourselves so the run isn't stuck with un-deduped findings.
         if not scan_ok:
-            await channel.send(f"Scan FAILED for `{run_id}` — {scan_err}")
-    elif scan_cost > 0:
-        logger.info("scan cost run_id=%s usd=%.4f", run_id, scan_cost)
-        await channel.send(f"Scan cost: **${scan_cost:.4f}**")
-    latest_run_id = run_id
+            scanner_output = run_dir / "scanner-output.json"
+            scanner_deduped = run_dir / "scanner-deduped.json"
+            scanner_routing = run_dir / "scanner-routing.json"
+            # If the orchestrator already produced both deduped findings and the
+            # routing review file before exiting non-zero, recovery is unnecessary
+            # — the deterministic steps are done. Just treat the scan as ok.
+            if scanner_deduped.exists() and scanner_routing.exists():
+                logger.warning(
+                    "scan exited with error but deduped+routing already exist; treating as recovered run_id=%s",
+                    run_id,
+                )
+                scan_ok = True
+            elif scanner_output.exists() and not scanner_deduped.exists():
+                logger.warning("scan orchestrator failed but scanner-output.json exists; running recovery")
+                await channel.send(
+                    f"Orchestrator failed (`{scan_err[:100]}`). "
+                    f"Scanner output exists — running recovery (annotate + dedup + review)..."
+                )
+                recovery_ok = True
+                for cmd_list, label in [
+                    (["python3", "tools/topic_keys.py", "annotate", "--input", str(scanner_output)], "annotate"),
+                    (["bash", "pipeline/scripts/dedup-findings.sh", run_id], "dedup"),
+                    (["bash", "pipeline/scripts/generate-review.sh", run_id], "generate-review"),
+                ]:
+                    rec_ok, rec_err = await asyncio.to_thread(
+                        run_subprocess_checked, cmd_list, PROJECT_ROOT
+                    )
+                    if not rec_ok:
+                        await channel.send(f"Recovery step `{label}` failed: {rec_err[:200]}")
+                        recovery_ok = False
+                        break
+                if recovery_ok:
+                    (run_dir / "scan-complete.marker").write_text("SCAN_PHASE_COMPLETE\n")
+                    await channel.send(f"Recovery complete. Scan can proceed.")
+                    scan_ok = True  # Treat as recovered — continue to post findings
+            if not scan_ok:
+                await channel.send(f"Scan FAILED for `{run_id}` — {scan_err}")
+                detach_handler(audit_handler)
+                return
+        elif scan_cost > 0:
+            logger.info("scan cost run_id=%s usd=%.4f", run_id, scan_cost)
+            await channel.send(f"Scan cost: **${scan_cost:.4f}**")
+        latest_run_id = run_id
 
-    findings = load_findings(run_id)
-    non_us_rejected = len(load_findings(run_id, us_only=False)) - len(findings)
-    candidate_updates = load_candidate_updates(run_id)
-    channel = bot.get_channel(CHANNEL_ID)
+        findings = load_findings(run_id)
+        non_us_rejected = len(load_findings(run_id, us_only=False)) - len(findings)
+        candidate_updates = load_candidate_updates(run_id)
+        channel = bot.get_channel(CHANNEL_ID)
 
-    # Phase 2: classify each update via the reviewer policy so the UI can
-    # show "N auto-apply, M need review". Auto-approved updates are added to
-    # the approval set automatically so /research processes them without a
-    # button click.
-    auto_approved_updates, escalated_updates = _classify_updates(candidate_updates)
+        # Phase 2: classify each update via the reviewer policy so the UI can
+        # show "N auto-apply, M need review". Auto-approved updates are added to
+        # the approval set automatically so /research processes them without a
+        # button click.
+        auto_approved_updates, escalated_updates = _classify_updates(candidate_updates)
 
-    if not findings and not candidate_updates:
-        await channel.send(f"Scan `{run_id}` complete but no findings or updates were produced. Check `pipeline/runs/{run_id}/` for errors.")
-        logger.warning("scan produced no findings run_id=%s", run_id)
-        detach_handler(audit_handler)
-        return
+        if not findings and not candidate_updates:
+            await channel.send(f"Scan `{run_id}` complete but no findings or updates were produced. Check `pipeline/runs/{run_id}/` for errors.")
+            logger.warning("scan produced no findings run_id=%s", run_id)
+            detach_handler(audit_handler)
+            return
 
-    logger.info(
-        "scan complete run_id=%s findings=%d updates=%d auto=%d escalated=%d",
-        run_id, len(findings), len(candidate_updates),
-        len(auto_approved_updates), len(escalated_updates),
-    )
-    summary = (
-        f"**Scan complete: `{run_id}`** — "
-        f"**{len(findings)} new findings**, "
-        f"**{len(candidate_updates)} updates** "
-        f"({len(auto_approved_updates)} auto-apply, {len(escalated_updates)} need review)."
-    )
-    if non_us_rejected:
-        summary += f"\n_{non_us_rejected} non-US findings auto-rejected (not shown)._"
-    await channel.send(summary)
+        logger.info(
+            "scan complete run_id=%s findings=%d updates=%d auto=%d escalated=%d",
+            run_id, len(findings), len(candidate_updates),
+            len(auto_approved_updates), len(escalated_updates),
+        )
+        summary = (
+            f"**Scan complete: `{run_id}`** — "
+            f"**{len(findings)} new findings**, "
+            f"**{len(candidate_updates)} updates** "
+            f"({len(auto_approved_updates)} auto-apply, {len(escalated_updates)} need review)."
+        )
+        if non_us_rejected:
+            summary += f"\n_{non_us_rejected} non-US findings auto-rejected (not shown)._"
+        await channel.send(summary)
 
-    # Initialize approval state with auto-approved update IDs pre-checked
-    approval_state[run_id] = {u["id"]: True for u in auto_approved_updates}
+        # Initialize approval state with auto-approved update IDs pre-checked
+        approval_state[run_id] = {u["id"]: True for u in auto_approved_updates}
 
-    for i, finding in enumerate(findings, 1):
-        embed = build_finding_embed(finding, i, len(findings), run_id)
-        view = FindingView(run_id, finding["id"])
-        await channel.send(embed=embed, view=view)
-        await asyncio.sleep(0.5)
-
-    # Post escalated updates with a distinct prefix so users see they're updates
-    if escalated_updates:
-        await channel.send(f"**— {len(escalated_updates)} updates need review —**")
-        for i, upd in enumerate(escalated_updates, 1):
-            embed = build_update_embed(upd, i, len(escalated_updates), run_id)
-            view = FindingView(run_id, upd["id"])
+        for i, finding in enumerate(findings, 1):
+            embed = build_finding_embed(finding, i, len(findings), run_id)
+            view = FindingView(run_id, finding["id"])
             await channel.send(embed=embed, view=view)
             await asyncio.sleep(0.5)
 
-    if auto_approved_updates:
-        await channel.send(
-            f"**{len(auto_approved_updates)} status-change updates** auto-approved "
-            f"(high-confidence bill status changes). They will apply automatically on `/research`."
-        )
+        # Post escalated updates with a distinct prefix so users see they're updates
+        if escalated_updates:
+            await channel.send(f"**— {len(escalated_updates)} updates need review —**")
+            for i, upd in enumerate(escalated_updates, 1):
+                embed = build_update_embed(upd, i, len(escalated_updates), run_id)
+                view = FindingView(run_id, upd["id"])
+                await channel.send(embed=embed, view=view)
+                await asyncio.sleep(0.5)
 
-    await channel.send(
-        f"**Review complete.** Click Approve/Reject on each item above, "
-        f"then run `/approve` to finalize."
-    )
-    detach_handler(audit_handler)
+        if auto_approved_updates:
+            await channel.send(
+                f"**{len(auto_approved_updates)} status-change updates** auto-approved "
+                f"(high-confidence bill status changes). They will apply automatically on `/research`."
+            )
+
+        await channel.send(
+            f"**Review complete.** Click Approve/Reject on each item above, "
+            f"then run `/approve` to finalize."
+        )
+        detach_handler(audit_handler)
+    finally:
+        _release_run(run_id)
 
 
 def _classify_updates(candidate_updates: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -981,6 +1018,10 @@ async def cmd_findings(interaction: discord.Interaction, run_id: str = None):
         await interaction.response.send_message("No runs found.")
         return
 
+    if not _valid_run_id(run_id):
+        await interaction.response.send_message(f"Invalid run id: `{run_id}`")
+        return
+
     findings = load_findings(run_id)
     if not findings:
         await interaction.response.send_message(f"No findings for run `{run_id}`.")
@@ -1022,6 +1063,10 @@ async def cmd_approve(
         await interaction.response.send_message("No runs found.")
         return
 
+    if not _valid_run_id(run_id):
+        await interaction.response.send_message(f"Invalid run id: `{run_id}`")
+        return
+
     if all_findings:
         findings = load_findings(run_id)
         approved_ids = {f["id"] for f in findings}
@@ -1057,91 +1102,104 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         await interaction.response.send_message("No runs found.")
         return
 
-    approved_path = RUNS_DIR / run_id / "scanner-approved.json"
-    if not approved_path.exists():
+    if not _valid_run_id(run_id):
+        await interaction.response.send_message(f"Invalid run id: `{run_id}`")
+        return
+
+    if not _acquire_run(run_id):
         await interaction.response.send_message(
-            f"No approved findings for `{run_id}`. Run `/approve` first."
+            f"Run `{run_id}` already has a stage in progress — wait for it to finish."
         )
         return
 
-    with open(approved_path) as f:
-        approved = json.load(f)
-    findings = approved.get("data", {}).get("findings", [])
+    try:
+        approved_path = RUNS_DIR / run_id / "scanner-approved.json"
+        if not approved_path.exists():
+            await interaction.response.send_message(
+                f"No approved findings for `{run_id}`. Run `/approve` first."
+            )
+            return
 
-    if not findings:
-        await interaction.response.send_message("No approved findings to research.")
-        return
+        with open(approved_path) as f:
+            approved = json.load(f)
+        findings = approved.get("data", {}).get("findings", [])
 
-    run_dir = RUNS_DIR / run_id
-    already_done = sum(
-        1 for f_ in findings
-        if (run_dir / f"researcher-{f_.get('id','')}.json").exists()
-    )
-    remaining = len(findings) - already_done
+        if not findings:
+            await interaction.response.send_message("No approved findings to research.")
+            return
 
-    estimated_cost = remaining * RESEARCH_COST_PER_FINDING_USD
-    await interaction.response.send_message(
-        f"**Starting research phase for `{run_id}`** — "
-        f"{remaining} new / {already_done} already done / {len(findings)} total. "
-        f"Estimated cost: **~${estimated_cost:.2f}**. Delegating to orchestrator Mode 2 "
-        f"(research only — run `/review` after this completes)."
-    )
-
-    channel = bot.get_channel(CHANNEL_ID)
-    audit_handler = attach_run_file_handler(logger, run_id)
-    logger.info("research starting run_id=%s findings=%d remaining=%d estimated_usd=%.2f",
-                run_id, len(findings), remaining, estimated_cost)
-
-    def _run_research_phase():
-        prompt = (
-            f"Research phase for run {run_id}. Process approved findings from "
-            f"pipeline/runs/{run_id}/scanner-approved.json. "
-            f"Follow Mode 2 (research-only) of the orchestrator instructions: researcher "
-            f"per finding (skip findings whose researcher-{{id}}.json already exists), "
-            f"then write research-complete.marker. Do NOT invoke reviewer or categorizer."
+        run_dir = RUNS_DIR / run_id
+        already_done = sum(
+            1 for f_ in findings
+            if (run_dir / f"researcher-{f_.get('id','')}.json").exists()
         )
-        cmd = [
-            "claude", "-p",
-            "--agent", "orchestrator",
-            "--output-format", "json",
-            "--permission-mode", "acceptEdits",
-            "--max-turns", "200",
-            prompt,
-        ]
-        return run_claude_and_log_cost(cmd, run_id, "research", cwd=PROJECT_ROOT, timeout=5400)
+        remaining = len(findings) - already_done
 
-    ok, err, actual_cost = await asyncio.to_thread(_run_research_phase)
-    if not ok:
-        await channel.send(f"Research phase FAILED for `{run_id}` — {err}")
+        estimated_cost = remaining * RESEARCH_COST_PER_FINDING_USD
+        await interaction.response.send_message(
+            f"**Starting research phase for `{run_id}`** — "
+            f"{remaining} new / {already_done} already done / {len(findings)} total. "
+            f"Estimated cost: **~${estimated_cost:.2f}**. Delegating to orchestrator Mode 2 "
+            f"(research only — run `/review` after this completes)."
+        )
+
+        channel = bot.get_channel(CHANNEL_ID)
+        audit_handler = attach_run_file_handler(logger, run_id)
+        logger.info("research starting run_id=%s findings=%d remaining=%d estimated_usd=%.2f",
+                    run_id, len(findings), remaining, estimated_cost)
+
+        def _run_research_phase():
+            prompt = (
+                f"Research phase for run {run_id}. Process approved findings from "
+                f"pipeline/runs/{run_id}/scanner-approved.json. "
+                f"Follow Mode 2 (research-only) of the orchestrator instructions: researcher "
+                f"per finding (skip findings whose researcher-{{id}}.json already exists), "
+                f"then write research-complete.marker. Do NOT invoke reviewer or categorizer."
+            )
+            cmd = [
+                "claude", "-p",
+                "--agent", "orchestrator",
+                "--output-format", "json",
+                "--permission-mode", "acceptEdits",
+                "--max-turns", "200",
+                prompt,
+            ]
+            return run_claude_and_log_cost(cmd, run_id, "research", cwd=PROJECT_ROOT, timeout=5400)
+
+        ok, err, actual_cost = await asyncio.to_thread(_run_research_phase)
+        if not ok:
+            await channel.send(f"Research phase FAILED for `{run_id}` — {err}")
+            detach_handler(audit_handler)
+            return
+        if actual_cost > 0:
+            logger.info("research cost run_id=%s usd=%.4f", run_id, actual_cost)
+            await channel.send(
+                f"Research cost: **${actual_cost:.4f}** "
+                f"(estimated ${estimated_cost:.2f})"
+            )
+
+        research_complete = (run_dir / "research-complete.marker").exists()
+        researcher_files = sorted(run_dir.glob("researcher-*.json"))
+
+        if research_complete:
+            await channel.send(
+                f"**Research complete for `{run_id}`** — {len(researcher_files)} researcher "
+                f"output(s) written. Run `/review run_id:{run_id}` to verify and categorize."
+            )
+        else:
+            error_log = run_dir / "error.log"
+            tail = ""
+            if error_log.exists():
+                tail = error_log.read_text()[-500:]
+            await channel.send(
+                f"Research phase ended without research-complete.marker for `{run_id}`. "
+                f"{len(researcher_files)} researcher output(s) on disk. "
+                f"You can re-run `/research` (idempotent — skips done findings).\n"
+                + (f"```\n{tail}\n```" if tail else "")
+            )
         detach_handler(audit_handler)
-        return
-    if actual_cost > 0:
-        logger.info("research cost run_id=%s usd=%.4f", run_id, actual_cost)
-        await channel.send(
-            f"Research cost: **${actual_cost:.4f}** "
-            f"(estimated ${estimated_cost:.2f})"
-        )
-
-    research_complete = (run_dir / "research-complete.marker").exists()
-    researcher_files = sorted(run_dir.glob("researcher-*.json"))
-
-    if research_complete:
-        await channel.send(
-            f"**Research complete for `{run_id}`** — {len(researcher_files)} researcher "
-            f"output(s) written. Run `/review run_id:{run_id}` to verify and categorize."
-        )
-    else:
-        error_log = run_dir / "error.log"
-        tail = ""
-        if error_log.exists():
-            tail = error_log.read_text()[-500:]
-        await channel.send(
-            f"Research phase ended without research-complete.marker for `{run_id}`. "
-            f"{len(researcher_files)} researcher output(s) on disk. "
-            f"You can re-run `/research` (idempotent — skips done findings).\n"
-            + (f"```\n{tail}\n```" if tail else "")
-        )
-    detach_handler(audit_handler)
+    finally:
+        _release_run(run_id)
 
 
 # ---------------------------------------------------------------------------
@@ -1157,103 +1215,116 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
         await interaction.response.send_message("No runs found.")
         return
 
-    run_dir = RUNS_DIR / run_id
-    research_marker = run_dir / "research-complete.marker"
-    researcher_files = sorted(run_dir.glob("researcher-*.json"))
+    if not _valid_run_id(run_id):
+        await interaction.response.send_message(f"Invalid run id: `{run_id}`")
+        return
 
-    if not research_marker.exists() and not researcher_files:
+    if not _acquire_run(run_id):
         await interaction.response.send_message(
-            f"No researcher outputs for `{run_id}`. Run `/research` first."
+            f"Run `{run_id}` already has a stage in progress — wait for it to finish."
         )
         return
-    if not research_marker.exists():
-        # Tolerant fallback: legacy runs may have researcher files but no marker.
-        await interaction.response.send_message(
-            f"`research-complete.marker` missing for `{run_id}` but {len(researcher_files)} "
-            f"researcher output(s) exist — proceeding with review anyway. "
-            f"Writing marker now."
-        )
-        research_marker.write_text("RESEARCH_COMPLETE\n")
-    else:
-        await interaction.response.send_message(
-            f"**Starting review phase for `{run_id}`** — "
-            f"{len(researcher_files)} report(s) to verify. Delegating to orchestrator Mode 4."
-        )
 
-    channel = bot.get_channel(CHANNEL_ID)
-    audit_handler = attach_run_file_handler(logger, run_id)
-    logger.info("review starting run_id=%s reports=%d", run_id, len(researcher_files))
+    try:
+        run_dir = RUNS_DIR / run_id
+        research_marker = run_dir / "research-complete.marker"
+        researcher_files = sorted(run_dir.glob("researcher-*.json"))
 
-    def _run_review_phase():
-        prompt = (
-            f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
-            f"verify research-complete.marker exists, run reviewer (Step 4), check "
-            f"escalations (Step 5), run categorizer if no escalations (Step 6), and "
-            f"write pipeline-complete.marker (Step 7). Do NOT re-invoke researcher."
-        )
-        cmd = [
-            "claude", "-p",
-            "--agent", "orchestrator",
-            "--output-format", "json",
-            "--permission-mode", "acceptEdits",
-            "--max-turns", "200",
-            prompt,
-        ]
-        return run_claude_and_log_cost(cmd, run_id, "review", cwd=PROJECT_ROOT, timeout=5400)
-
-    ok, err, actual_cost = await asyncio.to_thread(_run_review_phase)
-    if not ok:
-        await channel.send(f"Review phase FAILED for `{run_id}` — {err}")
-        detach_handler(audit_handler)
-        return
-    if actual_cost > 0:
-        logger.info("review cost run_id=%s usd=%.4f", run_id, actual_cost)
-        await channel.send(f"Review cost: **${actual_cost:.4f}**")
-
-    pipeline_complete = (run_dir / "pipeline-complete.marker").exists()
-    has_escalations = (run_dir / "has-escalations.marker").exists() or any(
-        run_dir.glob("escalation-*.json")
-    )
-    reviewer_output = run_dir / "reviewer-output.json"
-
-    if reviewer_output.exists():
-        try:
-            with open(reviewer_output) as f:
-                rev_data = json.load(f)
-            reviews = rev_data.get("data", {}).get("reviews", [])
-            verified = sum(1 for r in reviews if r.get("status") == "verified")
-            escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
-            await channel.send(
-                f"**Review stats:** {verified} verified, {escalated} escalated."
+        if not research_marker.exists() and not researcher_files:
+            await interaction.response.send_message(
+                f"No researcher outputs for `{run_id}`. Run `/research` first."
             )
-        except json.JSONDecodeError as e:
-            logger.warning("Failed to parse reviewer-output.json for %s: %s", run_id, e)
+            return
+        if not research_marker.exists():
+            # Tolerant fallback: legacy runs may have researcher files but no marker.
+            await interaction.response.send_message(
+                f"`research-complete.marker` missing for `{run_id}` but {len(researcher_files)} "
+                f"researcher output(s) exist — proceeding with review anyway. "
+                f"Writing marker now."
+            )
+            research_marker.write_text("RESEARCH_COMPLETE\n")
+        else:
+            await interaction.response.send_message(
+                f"**Starting review phase for `{run_id}`** — "
+                f"{len(researcher_files)} report(s) to verify. Delegating to orchestrator Mode 4."
+            )
 
-    if has_escalations and not pipeline_complete:
-        await channel.send(
-            f"**Pipeline paused for `{run_id}`** — escalations need human review. "
-            "Resolve escalations, then run `/review` again."
+        channel = bot.get_channel(CHANNEL_ID)
+        audit_handler = attach_run_file_handler(logger, run_id)
+        logger.info("review starting run_id=%s reports=%d", run_id, len(researcher_files))
+
+        def _run_review_phase():
+            prompt = (
+                f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
+                f"verify research-complete.marker exists, run reviewer (Step 4), check "
+                f"escalations (Step 5), run categorizer if no escalations (Step 6), and "
+                f"write pipeline-complete.marker (Step 7). Do NOT re-invoke researcher."
+            )
+            cmd = [
+                "claude", "-p",
+                "--agent", "orchestrator",
+                "--output-format", "json",
+                "--permission-mode", "acceptEdits",
+                "--max-turns", "200",
+                prompt,
+            ]
+            return run_claude_and_log_cost(cmd, run_id, "review", cwd=PROJECT_ROOT, timeout=5400)
+
+        ok, err, actual_cost = await asyncio.to_thread(_run_review_phase)
+        if not ok:
+            await channel.send(f"Review phase FAILED for `{run_id}` — {err}")
+            detach_handler(audit_handler)
+            return
+        if actual_cost > 0:
+            logger.info("review cost run_id=%s usd=%.4f", run_id, actual_cost)
+            await channel.send(f"Review cost: **${actual_cost:.4f}**")
+
+        pipeline_complete = (run_dir / "pipeline-complete.marker").exists()
+        has_escalations = (run_dir / "has-escalations.marker").exists() or any(
+            run_dir.glob("escalation-*.json")
         )
+        reviewer_output = run_dir / "reviewer-output.json"
+
+        if reviewer_output.exists():
+            try:
+                with open(reviewer_output) as f:
+                    rev_data = json.load(f)
+                reviews = rev_data.get("data", {}).get("reviews", [])
+                verified = sum(1 for r in reviews if r.get("status") == "verified")
+                escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
+                await channel.send(
+                    f"**Review stats:** {verified} verified, {escalated} escalated."
+                )
+            except json.JSONDecodeError as e:
+                logger.warning("Failed to parse reviewer-output.json for %s: %s", run_id, e)
+
+        if has_escalations and not pipeline_complete:
+            await channel.send(
+                f"**Pipeline paused for `{run_id}`** — escalations need human review. "
+                "Resolve escalations, then run `/review` again."
+            )
+            detach_handler(audit_handler)
+            return
+
+        if pipeline_complete:
+            filed = find_run_reports(run_id)
+            await channel.send(
+                f"**Pipeline complete for `{run_id}`!** "
+                f"{len(filed)} report(s) filed. Use `/results` to view them."
+            )
+        else:
+            error_log = run_dir / "error.log"
+            tail = ""
+            if error_log.exists():
+                tail = error_log.read_text()[-500:]
+            await channel.send(
+                f"Review phase ended without pipeline-complete.marker for `{run_id}`. "
+                f"Check pipeline/runs/{run_id}/ for details.\n"
+                + (f"```\n{tail}\n```" if tail else "")
+            )
         detach_handler(audit_handler)
-        return
-
-    if pipeline_complete:
-        filed = find_run_reports(run_id)
-        await channel.send(
-            f"**Pipeline complete for `{run_id}`!** "
-            f"{len(filed)} report(s) filed. Use `/results` to view them."
-        )
-    else:
-        error_log = run_dir / "error.log"
-        tail = ""
-        if error_log.exists():
-            tail = error_log.read_text()[-500:]
-        await channel.send(
-            f"Review phase ended without pipeline-complete.marker for `{run_id}`. "
-            f"Check pipeline/runs/{run_id}/ for details.\n"
-            + (f"```\n{tail}\n```" if tail else "")
-        )
-    detach_handler(audit_handler)
+    finally:
+        _release_run(run_id)
 
 
 # ---------------------------------------------------------------------------
@@ -1267,6 +1338,10 @@ async def cmd_status(interaction: discord.Interaction, run_id: str = None):
     run_id = run_id or latest_run_id or get_latest_run_id()
     if not run_id:
         await interaction.response.send_message("No runs found.")
+        return
+
+    if not _valid_run_id(run_id):
+        await interaction.response.send_message(f"Invalid run id: `{run_id}`")
         return
 
     run_dir = RUNS_DIR / run_id
@@ -1538,6 +1613,10 @@ async def cmd_results(interaction: discord.Interaction, run_id: str = None):
     run_id = run_id or latest_run_id or get_latest_run_id()
     if not run_id:
         await interaction.response.send_message("No runs found.")
+        return
+
+    if not _valid_run_id(run_id):
+        await interaction.response.send_message(f"Invalid run id: `{run_id}`")
         return
 
     filed = find_run_reports(run_id)
