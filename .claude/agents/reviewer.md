@@ -37,7 +37,7 @@ Read `CLAUDE.md` for project context before proceeding.
    ```
 5. Do NOT iterate (the update flow is single-pass). The three-round iteration applies only to full reports.
 
-After processing all `append_update` entries, move on to any entries whose `operation` is NOT `append_update` and apply the normal verification flow below.
+You are invoked once per report. If the prompt says the entry is an append_update, apply only the single-pass flow above; otherwise apply the normal verification flow below.
 
 ## Two-Pronged Verification
 

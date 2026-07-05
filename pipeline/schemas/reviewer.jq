@@ -14,5 +14,10 @@
     (.issue | type == "string") and
     (.severity | type == "string") and
     (.severity | IN("critical", "major", "minor"))
-  ))
+  )) and
+  (if has("operation") then
+    (.operation == "append_update") and
+    (.verdict | type == "string") and
+    (.verdict | IN("auto_approved", "needs-human-review"))
+  else true end)
 ))

@@ -60,6 +60,7 @@ REVIEWS_JSON="[]"
 for i in $(seq 0 $((REPORT_COUNT - 1))); do
   FINDING_ID=$(echo "$REPORTS_JSON" | jq -r ".[$i].finding_id")
   REPORT_PATH=$(echo "$REPORTS_JSON" | jq -r ".[$i].report_path")
+  OPERATION=$(echo "$REPORTS_JSON" | jq -r ".[$i].operation // \"\"")
 
   # T-04-05: Validate finding_id matches strict pattern
   if [[ ! "$FINDING_ID" =~ ^[A-Za-z]+-[0-9A-Za-z-]+$ ]]; then
@@ -68,10 +69,69 @@ for i in $(seq 0 $((REPORT_COUNT - 1))); do
     continue
   fi
 
-  # T-04-02: Validate report_path starts with reports/(privacy|cybersecurity|ai-law)/
-  if [[ ! "$REPORT_PATH" =~ ^reports/(privacy|cybersecurity|ai-law)/ ]]; then
+  # T-04-02: full reports must live under reports/{privacy,cybersecurity,ai-law}/.
+  # Update entries (append_update) may also target tracked-bill files under bills/.
+  if [ "$OPERATION" = "append_update" ]; then
+    if [[ ! "$REPORT_PATH" =~ ^(reports/(privacy|cybersecurity|ai-law)|bills)/ ]]; then
+      echo "ERROR: Invalid update report path: $REPORT_PATH" >&2
+      FAILED=$((FAILED + 1))
+      continue
+    fi
+  elif [[ ! "$REPORT_PATH" =~ ^reports/(privacy|cybersecurity|ai-law)/ ]]; then
     echo "ERROR: Invalid report path: $REPORT_PATH" >&2
     FAILED=$((FAILED + 1))
+    continue
+  fi
+
+  if [ "$OPERATION" = "append_update" ]; then
+    echo "Reviewing UPDATE $((i+1))/$REPORT_COUNT: $FINDING_ID (single-pass)"
+    FEEDBACK_FILE="$RUN_DIR/reviewer-feedback-r1-${FINDING_ID}.json"
+    PROMPT="Single-pass update review for finding $FINDING_ID (operation append_update)."
+    PROMPT="$PROMPT Review the appended update in $REPORT_PATH."
+    PROMPT="$PROMPT Pipeline run: $RUN_ID. Round: 1. This is an append_update entry:"
+    PROMPT="$PROMPT do NOT iterate; apply pipeline/config/update-review-policy.json once."
+    PROMPT="$PROMPT Write your feedback to: $FEEDBACK_FILE."
+
+    claude -p --agent reviewer \
+      --output-format json \
+      --permission-mode acceptEdits \
+      --max-turns 15 \
+      "$PROMPT"
+
+    VERDICT="needs-human-review"
+    VERDICT_REASON="Reviewer produced no valid feedback"
+    UPDATE_ISSUES="[]"
+    UPDATE_CLAIMS=0
+    if [ -f "$FEEDBACK_FILE" ] && jq -e -f "$PROJECT_ROOT/pipeline/schemas/reviewer-feedback.jq" "$FEEDBACK_FILE" >/dev/null 2>&1; then
+      UPDATE_CLAIMS=$(jq '.claims_checked' "$FEEDBACK_FILE")
+      CRITICAL_MAJOR=$(jq '[.issues[] | select(.severity == "critical" or .severity == "major")] | length' "$FEEDBACK_FILE")
+      if [ "$CRITICAL_MAJOR" -eq 0 ]; then
+        VERDICT="auto_approved"
+        VERDICT_REASON="No critical/major issues in single-pass update review"
+        STATUS="verified"
+        VERIFIED=$((VERIFIED + 1))
+      else
+        VERDICT_REASON="$CRITICAL_MAJOR critical/major issue(s) in update review"
+        STATUS="needs-human-review"
+        ESCALATED=$((ESCALATED + 1))
+      fi
+      UPDATE_ISSUES=$(jq '[.issues[] | {claim: .claim, issue: .issue, severity: .severity}]' "$FEEDBACK_FILE")
+    else
+      STATUS="needs-human-review"
+      ESCALATED=$((ESCALATED + 1))
+    fi
+
+    REVIEW_ENTRY=$(jq -n \
+      --arg fid "$FINDING_ID" --arg rp "$REPORT_PATH" --arg st "$STATUS" \
+      --arg v "$VERDICT" --arg vr "$VERDICT_REASON" \
+      --argjson cc "$UPDATE_CLAIMS" --argjson iss "$UPDATE_ISSUES" \
+      '{
+        finding_id: $fid, report_path: $rp, status: $st,
+        operation: "append_update", verdict: $v, verdict_reason: $vr,
+        iteration_count: 1, claims_checked: $cc, issues_found: $iss
+      }')
+    REVIEWS_JSON=$(echo "$REVIEWS_JSON" | jq --argjson entry "$REVIEW_ENTRY" '. + [$entry]')
+    echo ""
     continue
   fi
 
