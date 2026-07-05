@@ -3,35 +3,42 @@
   "topics": {
     "privacy": {
       "subcategories": [
-        "state-comprehensive-laws",
-        "federal-legislation",
-        "enforcement-actions",
-        "data-breach",
+        "california",
         "childrens-privacy",
+        "data-breach",
+        "enforcement-actions",
+        "federal-legislation",
+        "financial-privacy",
         "health-data",
-        "financial-privacy"
+        "litigation",
+        "state-comprehensive-laws"
       ]
     },
     "cybersecurity": {
       "subcategories": [
+        "ai-threat-response",
+        "critical-infrastructure",
+        "enforcement-actions",
         "federal-frameworks",
         "incident-reporting",
-        "enforcement-actions",
-        "critical-infrastructure",
-        "standards-guidance"
+        "standards-guidance",
+        "state"
       ]
     },
     "ai-law": {
       "subcategories": [
-        "federal-regulation",
-        "state-legislation",
-        "executive-orders",
-        "enforcement-actions",
-        "frameworks-guidance",
-        "health",
+        "california",
         "chatbots",
+        "employment-ai",
+        "enforcement-actions",
+        "executive-orders",
+        "federal-regulation",
+        "frameworks-guidance",
+        "frontier-models",
+        "health",
         "liability",
-        "frontier-models"
+        "state",
+        "state-legislation"
       ]
     }
   }
