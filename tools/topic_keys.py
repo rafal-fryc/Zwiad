@@ -61,6 +61,32 @@ BILL_TYPE_LONG_FORMS = [
 ]
 
 
+FEDERAL_JURISDICTIONS = {"federal", "us federal", "united states", "us", "u.s.", "usa"}
+
+
+def make_bill_key(state_abbrev: str, bill_type: str, bill_number: str, session_year: str) -> str:
+    """Single source of truth for bill topic keys, shared with bill_processor.
+
+    The cross-index dedup design (bill_processor <-> scanner findings) hinges
+    on both producing byte-identical keys.
+
+    bill_type and bill_number case is PRESERVED (only dots/spaces stripped):
+    the scanner path (_find_bill_reference) already uppercases both before they
+    reach here, while bill tracker entries with name-slug identifiers (e.g.
+    "US-Lofgren-Comprehensive-2026", "US-AI-Guardrails-2026") rely on their
+    persisted mixed-case form staying stable.
+    """
+    bill_type = re.sub(r"[.\s]", "", (bill_type or ""))
+    bill_number = re.sub(r"[.\s]", "", (bill_number or ""))
+    return f"{state_abbrev.upper()}-{bill_type}-{bill_number}-{session_year}"
+
+
+def session_to_year(session: str) -> str:
+    """Extract the closing 4-digit year from a session string ('2025-2026' -> '2026')."""
+    years = re.findall(r"\d{4}", session or "")
+    return years[-1] if years else ""
+
+
 def _find_bill_reference(text: str) -> tuple[str, str] | None:
     """Search text for a bill identifier in either short or long form.
     Returns (bill_type, bill_number) or None."""
@@ -137,7 +163,9 @@ def _state_bill_key(finding: dict) -> Tuple[str, str] | None:
 
     state_abbrev = None
     low = jurisdiction.lower()
-    if len(jurisdiction) == 2 and jurisdiction.isupper():
+    if low in FEDERAL_JURISDICTIONS:
+        state_abbrev = "US"
+    elif len(jurisdiction) == 2 and jurisdiction.isupper():
         state_abbrev = jurisdiction
     elif low in US_STATE_ABBREV:
         state_abbrev = US_STATE_ABBREV[low]
@@ -152,7 +180,7 @@ def _state_bill_key(finding: dict) -> Tuple[str, str] | None:
     bill_type, bill_number = ref
     session = _extract_year(finding)
 
-    key = f"{state_abbrev}-{bill_type}-{bill_number}-{session}"
+    key = make_bill_key(state_abbrev, bill_type, bill_number, session)
     return key, "high"
 
 

@@ -21,6 +21,15 @@ sys.path.insert(0, str(PROJECT_ROOT / "tools"))
 
 from tools import topic_keys  # noqa: E402
 from tools.topic_keys import topic_key, load_rules, annotate_envelope  # noqa: E402
+try:
+    from tools.topic_keys import make_bill_key, session_to_year  # noqa: E402
+except ImportError:
+    make_bill_key = None
+    session_to_year = None
+try:
+    from tools.bill_processor import bill_key  # noqa: E402
+except ImportError:
+    bill_key = None
 from tools.url_norm import normalize_url  # noqa: E402
 from tools import update_reports_index as uri  # noqa: E402
 
@@ -471,6 +480,87 @@ class ReportsIndexAtomicWriteTests(unittest.TestCase):
         self.assertEqual(entry["update_count"], 1)
         self.assertEqual(entry["current_status"], "passed-committee")
         self.assertEqual(len(entry["status_history"]), 1)
+
+
+class UnifiedBillKeyTests(unittest.TestCase):
+    """Task 11: unified bill key builder — make_bill_key, session_to_year, federal bills as US-*."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.rules = load_rules()
+
+    def test_make_bill_key_available(self):
+        self.assertIsNotNone(make_bill_key, "make_bill_key must be importable from tools.topic_keys")
+
+    def test_session_to_year_available(self):
+        self.assertIsNotNone(session_to_year, "session_to_year must be importable from tools.topic_keys")
+
+    def test_bill_key_available(self):
+        self.assertIsNotNone(bill_key, "bill_key must be importable from tools.bill_processor")
+
+    def test_federal_bill_gets_us_key(self):
+        finding = {
+            "title": "Congress passes HB 1234 on AI safety",
+            "jurisdiction": "Federal",
+            "development_type": "legislation",
+            "date": "2026-03-01",
+        }
+        key, confidence, topic_type = topic_key(finding, self.rules)
+        self.assertEqual(topic_type, "federal_bill")
+        self.assertEqual(key, "US-HB-1234-2026")
+        self.assertEqual(confidence, "high")
+
+    def test_state_bill_key_unchanged(self):
+        finding = {
+            "title": "Virginia SB 338 advances",
+            "jurisdiction": "Virginia",
+            "development_type": "legislation",
+            "date": "2026-02-01",
+        }
+        key, _, _ = topic_key(finding, self.rules)
+        self.assertEqual(key, "VA-SB-338-2026")
+
+    def test_session_to_year_plain(self):
+        self.assertEqual(session_to_year("2026"), "2026")
+
+    def test_session_to_year_range(self):
+        self.assertEqual(session_to_year("2025-2026"), "2026")
+
+    def test_session_to_year_empty(self):
+        self.assertEqual(session_to_year(""), "")
+
+    def test_bill_processor_and_topic_keys_agree_state(self):
+        self.assertEqual(bill_key("VA", "SB 338", "2026"), "VA-SB-338-2026")
+
+    def test_bill_processor_and_topic_keys_agree_federal(self):
+        self.assertEqual(bill_key("US", "HB 1234", "2025-2026"), "US-HB-1234-2026")
+
+    def test_make_bill_key_dot_forms(self):
+        self.assertEqual(make_bill_key("VA", "S.B.", "338", "2026"), "VA-SB-338-2026")
+
+    def test_make_bill_key_preserves_bill_number_case(self):
+        # Name-slug tracker entries (e.g. "US-AI-Guardrails-2026") depend on
+        # bill_number keeping its persisted mixed case.
+        self.assertEqual(
+            make_bill_key("US", "HR", "AI-Guardrails", "2026"),
+            "US-HR-AI-Guardrails-2026",
+        )
+        # state_abbrev is always uppercased.
+        self.assertEqual(make_bill_key("us", "HB", "1234", "2026"), "US-HB-1234-2026")
+
+    def test_make_bill_key_preserves_bill_type_case(self):
+        # Name-slug tracker entries where parts[0] is a mixed-case word
+        # (e.g. "Lofgren Comprehensive Privacy Bill" -> "US-Lofgren-Comprehensive-2026")
+        # depend on bill_type case being preserved too. Genuine bill types are
+        # already uppercased by the scanner path before reaching make_bill_key.
+        self.assertEqual(
+            bill_key("US", "Lofgren Comprehensive Privacy Bill (Discussion Draft)", "2026"),
+            "US-Lofgren-Comprehensive-2026",
+        )
+        self.assertEqual(
+            bill_key("US", "The GUARD Act", "2026"),
+            "US-The-GUARD-2026",
+        )
 
 
 if __name__ == "__main__":

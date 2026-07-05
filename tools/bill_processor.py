@@ -51,15 +51,19 @@ def load_states_config() -> dict:
 
 
 def bill_key(state_abbrev: str, bill_identifier: str, session: str) -> str:
-    """Generate a tracker key like OR-SB-1546-2026."""
+    """Generate a tracker key like OR-SB-1546-2026 (shared with topic_keys)."""
+    if __package__ in (None, ""):
+        sys.path.insert(0, str(PROJECT_ROOT))
+        from tools.topic_keys import make_bill_key, session_to_year
+    else:
+        from .topic_keys import make_bill_key, session_to_year  # type: ignore
     parts = bill_identifier.strip().split()
     if len(parts) >= 2:
-        bill_type = parts[0].replace(".", "")
-        bill_number = parts[1].replace(".", "")
+        bill_type, bill_number = parts[0], parts[1]
     else:
-        bill_type = bill_identifier.replace(" ", "-").replace(".", "")
-        bill_number = ""
-    return f"{state_abbrev}-{bill_type}-{bill_number}-{session}"
+        bill_type, bill_number = bill_identifier.replace(" ", "-"), ""
+    return make_bill_key(state_abbrev, bill_type, bill_number,
+                         session_to_year(session) or session)
 
 
 def bill_dir_name(state: str, bill_identifier: str) -> Path:
