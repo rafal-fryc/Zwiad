@@ -81,5 +81,20 @@ else
   echo "Remaining reviews needing approval: $REMAINING"
 fi
 
+# Clear the machine-readable escalation gate for this finding.
+# The human-readable reviewer-escalation-*.md file is kept as an artifact.
+GATE_FILE="$RUN_DIR/escalation-${FINDING_ID}.json"
+if [ -f "$GATE_FILE" ]; then
+  rm -f "$GATE_FILE"
+  echo "Escalation gate cleared: $GATE_FILE"
+fi
+
+# If no escalation-*.json files remain, clear the has-escalations marker.
+REMAINING_GATES=$(find "$RUN_DIR" -maxdepth 1 -name "escalation-*.json" | wc -l)
+if [ "$REMAINING_GATES" -eq 0 ]; then
+  rm -f "$RUN_DIR/has-escalations.marker"
+  echo "All escalations resolved — has-escalations.marker removed."
+fi
+
 # Re-validate updated output
 "$PROJECT_ROOT/pipeline/scripts/validate-handoff.sh" reviewer "$OUTPUT"

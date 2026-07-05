@@ -114,11 +114,41 @@ for i in $(seq 0 $((REPORT_COUNT - 1))); do
         VERDICT_REASON="$CRITICAL_MAJOR critical/major issue(s) in update review"
         STATUS="needs-human-review"
         ESCALATED=$((ESCALATED + 1))
+        UPDATE_ISSUES=$(jq '[.issues[] | {claim: .claim, issue: .issue, severity: .severity}]' "$FEEDBACK_FILE")
+        jq -n \
+          --arg run_id "$RUN_ID" \
+          --arg finding_id "$FINDING_ID" \
+          --arg report_path "$REPORT_PATH" \
+          --argjson unresolved "$UPDATE_ISSUES" \
+          '{
+            run_id: $run_id,
+            finding_id: $finding_id,
+            report_path: $report_path,
+            escalation_md: "",
+            rounds_completed: 1,
+            unresolved_issues: $unresolved,
+            resolved: false
+          }' > "$RUN_DIR/escalation-${FINDING_ID}.json"
+        touch "$RUN_DIR/has-escalations.marker"
       fi
       UPDATE_ISSUES=$(jq '[.issues[] | {claim: .claim, issue: .issue, severity: .severity}]' "$FEEDBACK_FILE")
     else
       STATUS="needs-human-review"
       ESCALATED=$((ESCALATED + 1))
+      jq -n \
+        --arg run_id "$RUN_ID" \
+        --arg finding_id "$FINDING_ID" \
+        --arg report_path "$REPORT_PATH" \
+        '{
+          run_id: $run_id,
+          finding_id: $finding_id,
+          report_path: $report_path,
+          escalation_md: "",
+          rounds_completed: 1,
+          unresolved_issues: [],
+          resolved: false
+        }' > "$RUN_DIR/escalation-${FINDING_ID}.json"
+      touch "$RUN_DIR/has-escalations.marker"
     fi
 
     REVIEW_ENTRY=$(jq -n \
