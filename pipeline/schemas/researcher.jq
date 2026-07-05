@@ -6,6 +6,7 @@
     (.topic_key | type == "string") and
     (.topic_type | type == "string")
   else
+    (has("operation") | not) and
     (.format | type == "string") and
     (.format | IN("client-alert", "research-memo")) and
     (.jurisdiction_tags | type == "array") and
