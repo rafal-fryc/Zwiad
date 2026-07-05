@@ -27,7 +27,8 @@ import sys
 from typing import Any
 
 
-# Order matters — first match wins. Each entry: (regex, diff_signal, derived_status_after).
+# Order matters — first match wins. Bill-progress verbs outrank penalty nouns because
+# bill summaries routinely mention penalty provisions. Each entry: (regex, diff_signal, derived_status_after).
 # The derived status_after is a best-effort mapping; downstream can override.
 PATTERNS: list[tuple[re.Pattern, str, str]] = [
     (re.compile(r"\bvetoed\b", re.IGNORECASE), "vetoed", "vetoed"),
@@ -42,16 +43,16 @@ PATTERNS: list[tuple[re.Pattern, str, str]] = [
     (re.compile(r"\bsubstitute\s+(adopted|passed)\b", re.IGNORECASE), "amendment", "amended"),
     (re.compile(r"\bamended\b", re.IGNORECASE), "amendment", "amended"),
     (re.compile(r"\bamendment\s+adopted\b", re.IGNORECASE), "amendment", "amended"),
-    (re.compile(r"\b(?:civil\s+)?penalt(?:y|ies)\b", re.IGNORECASE), "new_penalty", "penalty-imposed"),
-    (re.compile(r"\bconsent\s+order\b", re.IGNORECASE), "new_penalty", "consent-order"),
-    (re.compile(r"\bsettlement\b", re.IGNORECASE), "new_penalty", "settled"),
-    (re.compile(r"\benforcement\s+action\b", re.IGNORECASE), "new_penalty", "enforcement"),
-    (re.compile(r"\bfine(?:d|s)?\b", re.IGNORECASE), "new_penalty", "penalty-imposed"),
     (re.compile(r"\bpassed\s+(?:the\s+)?(?:house|senate|committee|chamber)\b", re.IGNORECASE), "status_change", "passed-first-chamber"),
     (re.compile(r"\bpassed\s+both\s+chambers\b", re.IGNORECASE), "status_change", "passed-second-chamber"),
     (re.compile(r"\bcleared\s+committee\b", re.IGNORECASE), "status_change", "passed-committee"),
     (re.compile(r"\breported\s+favorably\b", re.IGNORECASE), "status_change", "passed-committee"),
     (re.compile(r"\badvanced\s+from\s+committee\b", re.IGNORECASE), "status_change", "passed-committee"),
+    (re.compile(r"\b(?:civil\s+)?penalt(?:y|ies)\b", re.IGNORECASE), "new_penalty", "penalty-imposed"),
+    (re.compile(r"\bconsent\s+order\b", re.IGNORECASE), "new_penalty", "consent-order"),
+    (re.compile(r"\bsettlement\b", re.IGNORECASE), "new_penalty", "settled"),
+    (re.compile(r"\benforcement\s+action\b", re.IGNORECASE), "new_penalty", "enforcement"),
+    (re.compile(r"\bfine(?:d|s)?\b", re.IGNORECASE), "new_penalty", "penalty-imposed"),
     (re.compile(r"\bdied\b|\bfailed\b|\bstalled\b", re.IGNORECASE), "status_change", "dead"),
     (re.compile(r"\btabled\b", re.IGNORECASE), "status_change", "tabled"),
 ]
