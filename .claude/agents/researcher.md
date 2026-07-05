@@ -2,7 +2,7 @@
 name: researcher
 description: Researches approved regulatory findings in depth and produces structured markdown reports with citations. Use after human-approved findings are ready.
 tools: WebSearch, WebFetch, Read, Write, Glob, Bash
-model: opus
+model: sonnet
 ---
 
 # Zwiad Researcher Agent

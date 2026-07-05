@@ -63,8 +63,8 @@ A regulatory monitoring platform that tracks privacy, cybersecurity, and AI law 
 |-------|-------------------|-----|------------|
 | Orchestrator | `sonnet` | Coordination logic, not deep analysis. Cost-efficient. | HIGH |
 | Scanner | `sonnet` | Web search + initial triage. Good balance of capability and speed. | HIGH |
-| Researcher | `opus` | Deep analysis, report writing, source verification. Needs highest capability. | MEDIUM |
-| Reviewer | `opus` | Independent fact-checking requires strong reasoning. | MEDIUM |
+| Researcher | `sonnet` | Deep analysis, report writing, source verification. Downgraded from opus 2026-07: cost/rate-limit tradeoff; revisit if verification quality drops. | MEDIUM |
+| Reviewer | `sonnet` | Independent fact-checking requires strong reasoning. Downgraded from opus 2026-07: cost/rate-limit tradeoff; revisit if verification quality drops. | MEDIUM |
 | Categorizer | `sonnet` | File organization is straightforward. Haiku could work but sonnet is safer for taxonomy decisions. | HIGH |
 ## Architecture Pattern: Subagent Pipeline
 ### Key CLI Invocation Patterns
@@ -165,8 +165,8 @@ Despite the original "everything runs locally" goal, the following external serv
 | Agent | Expected Usage | Cost Strategy |
 |-------|---------------|---------------|
 | Scanner | Medium (web searches + initial analysis) | Use sonnet, set `--max-turns 20` |
-| Researcher | High (deep web research + report writing) | Use opus for quality, set `--max-budget-usd 3.00` per finding |
-| Reviewer | Medium (read report + verify sources) | Use opus, set `--max-turns 15` |
+| Researcher | High (deep web research + report writing) | Use sonnet, set `--max-budget-usd 3.00` per finding |
+| Reviewer | Medium (read report + verify sources) | Use sonnet, set `--max-turns 15` |
 | Categorizer | Low (read report + file organization) | Use sonnet, set `--max-turns 5` |
 | Orchestrator | Low (coordination only) | Use sonnet, set `--max-turns 30` for full pipeline |
 ## Sources
