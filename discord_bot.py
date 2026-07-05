@@ -82,6 +82,30 @@ def _read_run_json(path: Path) -> dict | None:
         logger.warning("Unreadable run JSON %s: %s", path, e)
         return None
 
+
+# ---------------------------------------------------------------------------
+# Approval persistence — approvals survive bot restarts (see FindingView and
+# ZwiadBot.on_interaction).
+# ---------------------------------------------------------------------------
+
+
+def _approval_path(run_id: str) -> Path:
+    return RUNS_DIR / run_id / "approval-state.json"
+
+
+def _load_approval_state(run_id: str) -> dict[str, bool]:
+    data = _read_run_json(_approval_path(run_id))
+    return data.get("approvals", {}) if isinstance(data, dict) else {}
+
+
+def _save_approval_state(run_id: str) -> None:
+    _atomic_write_json(_approval_path(run_id), {
+        "run_id": run_id,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "approvals": approval_state.get(run_id, {}),
+    })
+
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -647,28 +671,36 @@ def write_approved_json(run_id: str, approved_ids: set[str]) -> Path:
 
 
 class FindingView(discord.ui.View):
-    """Approve/Reject buttons for a single finding."""
+    """Approve/Reject buttons for a single finding.
+
+    custom_ids are deterministic (`zwiad:<run_id>:<finding_id>:<action>`) so a
+    click on a message posted before a bot restart still carries enough data to
+    resolve — ZwiadBot.on_interaction handles those stale clicks."""
 
     def __init__(self, run_id: str, finding_id: str):
         super().__init__(timeout=None)
         self.run_id = run_id
         self.finding_id = finding_id
+        approve = discord.ui.Button(
+            label="Approve", style=discord.ButtonStyle.green,
+            custom_id=f"zwiad:{run_id}:{finding_id}:approve")
+        reject = discord.ui.Button(
+            label="Reject", style=discord.ButtonStyle.red,
+            custom_id=f"zwiad:{run_id}:{finding_id}:reject")
+        approve.callback = self._make_callback(True, approve, reject)
+        reject.callback = self._make_callback(False, reject, approve)
+        self.add_item(approve)
+        self.add_item(reject)
 
-    @discord.ui.button(label="Approve", style=discord.ButtonStyle.green)
-    async def approve(self, interaction: discord.Interaction, button: discord.ui.Button):
-        approval_state.setdefault(self.run_id, {})[self.finding_id] = True
-        button.label = "Approved"
-        button.disabled = True
-        self.children[1].disabled = True  # disable Reject too
-        await interaction.response.edit_message(view=self)
-
-    @discord.ui.button(label="Reject", style=discord.ButtonStyle.red)
-    async def reject(self, interaction: discord.Interaction, button: discord.ui.Button):
-        approval_state.setdefault(self.run_id, {})[self.finding_id] = False
-        button.label = "Rejected"
-        button.disabled = True
-        self.children[0].disabled = True  # disable Approve too
-        await interaction.response.edit_message(view=self)
+    def _make_callback(self, approved: bool, this_btn: discord.ui.Button, other_btn: discord.ui.Button):
+        async def callback(interaction: discord.Interaction):
+            approval_state.setdefault(self.run_id, {})[self.finding_id] = approved
+            _save_approval_state(self.run_id)
+            this_btn.label = "Approved" if approved else "Rejected"
+            this_btn.disabled = True
+            other_btn.disabled = True
+            await interaction.response.edit_message(view=self)
+        return callback
 
 
 # ---------------------------------------------------------------------------
@@ -686,6 +718,46 @@ class ZwiadBot(discord.Client):
     async def setup_hook(self):
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
+
+    async def on_interaction(self, interaction: discord.Interaction):
+        """Fallback for Approve/Reject clicks on messages posted before a bot
+        restart, when the live FindingView no longer exists.
+
+        Dispatch order (discord.py 2.7.1, ConnectionState.parse_interaction_create):
+        ``_view_store.dispatch_view`` schedules the live view's callback task
+        first, then ``dispatch('interaction', ...)`` schedules this handler.
+        ``is_done()`` alone is NOT a safe guard — the view callback flips
+        ``_response_type`` only AFTER its HTTP await completes, so this task can
+        observe ``is_done() == False`` while the live view is mid-response.
+        Therefore: skip any interaction whose message is tracked by the view
+        store (a live view will handle it); handle only untracked (stale) ones."""
+        if interaction.type != discord.InteractionType.component:
+            return
+        cid = (interaction.data or {}).get("custom_id", "")
+        if not cid.startswith("zwiad:") or interaction.response.is_done():
+            return
+        # Conservative guard: if a live view is registered for this message,
+        # its callback owns this click.
+        store = getattr(self._connection, "_view_store", None)
+        tracked = getattr(store, "_views", {}) if store is not None else {}
+        if interaction.message is not None and interaction.message.id in tracked:
+            return
+        try:
+            _, run_id, finding_id, action = cid.split(":", 3)
+        except ValueError:
+            return
+        if not _valid_run_id(run_id):
+            return
+        approved = action == "approve"
+        if run_id not in approval_state:
+            # Seed from disk so this save doesn't clobber pre-restart approvals.
+            approval_state[run_id] = _load_approval_state(run_id)
+        approval_state[run_id][finding_id] = approved
+        _save_approval_state(run_id)
+        await interaction.response.send_message(
+            f"`{finding_id}` {'approved' if approved else 'rejected'} (recorded after bot restart).",
+            ephemeral=True,
+        )
 
 
 bot = ZwiadBot()
@@ -926,6 +998,7 @@ async def cmd_scan(interaction: discord.Interaction):
 
         # Initialize approval state with auto-approved update IDs pre-checked
         approval_state[run_id] = {u["id"]: True for u in auto_approved_updates}
+        _save_approval_state(run_id)
 
         for i, finding in enumerate(findings, 1):
             embed = build_finding_embed(finding, i, len(findings), run_id)
@@ -1054,7 +1127,9 @@ async def cmd_findings(interaction: discord.Interaction, run_id: str = None):
         f"**Run `{run_id}`** — {len(findings)} findings:"
     )
 
-    approval_state.setdefault(run_id, {})
+    if run_id not in approval_state:
+        # Seed from disk so re-posted views don't clobber pre-restart approvals.
+        approval_state[run_id] = _load_approval_state(run_id)
     channel = interaction.channel
 
     for i, finding in enumerate(findings, 1):
@@ -1094,7 +1169,7 @@ async def cmd_approve(
         findings = load_findings(run_id)
         approved_ids = {f["id"] for f in findings}
     else:
-        state = approval_state.get(run_id, {})
+        state = approval_state.get(run_id) or _load_approval_state(run_id)
         approved_ids = {fid for fid, approved in state.items() if approved}
 
     if not approved_ids:
