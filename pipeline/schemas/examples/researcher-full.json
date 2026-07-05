@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-07-05T10-00-00",
+  "timestamp": "2026-07-05T10:00:00Z",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260705-001",
+        "report_path": "reports/privacy/state-comprehensive-laws/example-hb123-2026-07-05.md",
+        "format": "client-alert",
+        "jurisdiction_tags": ["US-CA"],
+        "confidence_summary": {
+          "high": 3,
+          "medium": 1,
+          "low": 0
+        }
+      }
+    ]
+  }
+}

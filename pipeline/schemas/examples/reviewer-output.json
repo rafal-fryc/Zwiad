@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-07-05T10-00-00",
+  "timestamp": "2026-07-05T10:10:00Z",
+  "stage": "reviewer",
+  "status": "complete",
+  "data": {
+    "reviews": [
+      {
+        "finding_id": "SCAN-20260705-001",
+        "report_path": "reports/privacy/state-comprehensive-laws/example-hb123-2026-07-05.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 5,
+        "issues_found": []
+      },
+      {
+        "finding_id": "SCAN-20260705-001",
+        "report_path": "reports/privacy/state-comprehensive-laws/example-hb123-2026-07-05.md",
+        "status": "verified",
+        "iteration_count": 1,
+        "claims_checked": 5,
+        "issues_found": [],
+        "operation": "append_update",
+        "verdict": "auto_approved",
+        "verdict_reason": "All claims verified against cited sources; no critical or major issues found."
+      }
+    ]
+  }
+}

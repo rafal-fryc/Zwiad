@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-07-05T10-00-00",
+  "timestamp": "2026-07-05T10:15:00Z",
+  "stage": "fpf-scanner",
+  "status": "complete",
+  "data": {
+    "email_files_processed": [],
+    "bills": []
+  }
+}
