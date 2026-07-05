@@ -92,7 +92,8 @@ def resolve_redirect(url: str, max_redirects: int = 10) -> str:
             return resp.url
         except urllib.error.HTTPError as e:
             if e.code in (301, 302, 303, 307, 308) and e.headers.get("Location"):
-                url = e.headers["Location"]
+                from urllib.parse import urljoin
+                url = urljoin(url, e.headers["Location"])
             else:
                 return url
         except Exception:
@@ -324,7 +325,7 @@ def try_state_config(state_abbrev: str, bill_identifier: str, session: str,
         return None
 
     # Determine chamber from bill type
-    is_senate = bill_type.upper() in ("S", "SB", "SF", "SB", "SJR")
+    is_senate = bill_type.upper() in ("S", "SB", "SF", "SJR", "SR")
 
     # Build template variables for state-specific URL patterns
     template_vars = {
@@ -356,14 +357,12 @@ def try_state_config(state_abbrev: str, bill_identifier: str, session: str,
 
 def download_bill(state_abbrev: str, state_name: str, bill_identifier: str,
                   session: str, fpf_url: str | None, states_config: dict,
-                  bill_directory: Path) -> dict:
+                  bill_directory: Path, version_num: int = 1) -> dict:
     """Three-tier bill download. Returns result dict."""
     versions_dir = bill_directory / "versions"
     versions_dir.mkdir(parents=True, exist_ok=True)
 
     # Determine version label
-    existing_versions = list(versions_dir.glob("v*-*.pdf")) + list(versions_dir.glob("v*-*.html"))
-    version_num = len(existing_versions) // 2 + 1  # rough count
     if version_num == 1:
         version_label = "introduced"
     else:
@@ -536,6 +535,13 @@ def _cross_index_bill_to_reports(index: dict, entry: dict, key: str, bill: dict,
         urls.append(bill["bill_text_url"])
 
     existing = index.get("reports", {}).get(key)
+    try:
+        if __package__ in (None, ""):
+            from tools.url_norm import normalize_url
+        else:
+            from .url_norm import normalize_url  # type: ignore
+    except Exception:
+        normalize_url = None  # type: ignore
     if existing and existing.get("subcategory") != "fpf-tracked-bill":
         # A real report (Lexology/IAPP) already exists at this key. Don't
         # clobber its report_path or subcategory — just merge URLs, refresh
@@ -543,11 +549,7 @@ def _cross_index_bill_to_reports(index: dict, entry: dict, key: str, bill: dict,
         existing.setdefault("source_urls", [])
         for u in urls:
             try:
-                if __package__ in (None, ""):
-                    from tools.url_norm import normalize_url
-                else:
-                    from .url_norm import normalize_url  # type: ignore
-                n = normalize_url(u)
+                n = normalize_url(u) if normalize_url else u
             except Exception:
                 n = u
             if n and n not in existing["source_urls"]:
@@ -585,6 +587,18 @@ def _cross_index_bill_to_reports(index: dict, entry: dict, key: str, bill: dict,
         "current_status": bill.get("status", "introduced"),
         "finding_id": f"FPF-{run_id}",
     })
+
+
+def should_append_history(hist: list, new_hist: dict) -> bool:
+    """Return True if new_hist should be appended to hist (not a duplicate of last entry)."""
+    if not hist:
+        return True
+    last = hist[-1]
+    return not (
+        last.get("date") == new_hist["date"]
+        and last.get("status") == new_hist["status"]
+        and last.get("detail") == new_hist["detail"]
+    )
 
 
 def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False) -> dict:
@@ -636,6 +650,7 @@ def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False)
         is_new = key not in tracker["bills"]
 
         if is_new:
+            prev_status = None
             results["new_bills"] += 1
             # Create new tracker entry
             tracker["bills"][key] = {
@@ -660,6 +675,7 @@ def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False)
         else:
             results["status_updates"] += 1
             existing = tracker["bills"][key]
+            prev_status = existing["current_status"]
             # Update status if changed
             if bill.get("status") and bill["status"] != existing["current_status"]:
                 existing["current_status"] = bill["status"]
@@ -670,22 +686,30 @@ def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False)
             if bill.get("sponsors") and not existing.get("sponsors"):
                 existing["sponsors"] = bill["sponsors"]
 
-        # Add status history entry
-        tracker["bills"][key]["status_history"].append({
+        # Add status history entry (deduplicated)
+        new_hist = {
             "date": bill.get("last_action_date") or datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             "status": bill.get("status", "introduced"),
             "detail": bill.get("status_detail", ""),
             "source_email_date": fpf_output.get("data", {}).get("email_dates", [""])[0] if fpf_output.get("data", {}).get("email_dates") else "",
             "source_run_id": run_id,
-        })
+        }
+        hist = tracker["bills"][key]["status_history"]
+        if should_append_history(hist, new_hist):
+            hist.append(new_hist)
 
-        # Download bill text (only for new bills or if we don't have it yet)
+        # Download bill text (new, failed, or status-changed bills)
         entry = tracker["bills"][key]
-        if entry["download_status"] in ("pending", "failed"):
+        status_changed = (not is_new) and bill.get("status") \
+            and bill["status"] != prev_status
+        needs_download = entry["download_status"] in ("pending", "failed") or status_changed
+        if needs_download:
+            version_num = len(entry.get("versions", [])) + 1
             dl_result = download_bill(
                 state_abbrev, state, bill_id, session,
                 bill.get("bill_text_url"),
                 states_config, bill_dir,
+                version_num=version_num,
             )
 
             entry["download_status"] = dl_result["download_status"]
@@ -759,6 +783,7 @@ def process_bills(fpf_output_path: str, run_id: str, skip_convert: bool = False)
 
     # Write processing results
     results_path = PROJECT_ROOT / "pipeline" / "runs" / run_id / "fpf-bills-processed.json"
+    results_path.parent.mkdir(parents=True, exist_ok=True)
     with open(results_path, "w") as f:
         json.dump(results, f, indent=2)
 
