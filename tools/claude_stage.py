@@ -33,8 +33,8 @@ RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
 def _atomic_write_json(path: Path, data) -> None:
     """Write *data* as JSON to *path* atomically via a temp file + os.replace.
 
-    Prevents corrupt state files if the process dies mid-write. Never raises
-    (callers that want propagation should not catch the exception themselves).
+    Prevents corrupt state files if the process dies mid-write. Write errors
+    propagate to the caller after the temp file is cleaned up.
     """
     fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=f".{path.stem}-", suffix=".tmp")
     try:
