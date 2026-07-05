@@ -106,7 +106,7 @@ def _rewrite_frontmatter(
     # We'll use block-style for readability + reserve flow for the inline entry dict.
     status_entry_flow = (
         "{"
-        + ", ".join(f'{k}: "{v}"' for k, v in status_entry.items() if v)
+        + ", ".join(f'{k}: "{str(v).replace(chr(34), chr(39))}"' for k, v in status_entry.items() if v)
         + "}"
     )
 
@@ -199,6 +199,12 @@ def append_update(
         return False, f"report not found: {report_path}"
 
     original = report_path.read_text(encoding="utf-8")
+
+    # Idempotency guard: skip if this finding_id is already present in the file
+    if re.search(rf'finding_id:\s*"?{re.escape(finding_id)}"?', original):
+        print(f"SKIP: {finding_id} already applied to {report_path}")
+        return True, ""
+
     fm_block, body = _split_frontmatter(original)
 
     if fm_block is not None:

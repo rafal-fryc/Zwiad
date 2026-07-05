@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch FPF email .eml files from GitHub repo and extract HTML bodies.
 
-Usage: python3 tools/fetch_fpf_emails.py [--output-dir DIR]
+Usage: python3 tools/fetch_fpf_emails.py [OUTPUT_DIR]
 """
 
 import email

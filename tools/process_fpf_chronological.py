@@ -129,9 +129,13 @@ def run_fpf_scanner(run_id: str) -> bool:
         prompt,
     ]
 
+    output_path = RUNS_DIR / run_id / "fpf-scanner-output.json"
+    output_path.unlink(missing_ok=True)
     result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
 
-    output_path = RUNS_DIR / run_id / "fpf-scanner-output.json"
+    if result.returncode != 0:
+        print(f"  Scanner: FAILED — exit {result.returncode}")
+        return False
     if output_path.exists():
         with open(output_path) as f:
             data = json.load(f)
