@@ -144,5 +144,25 @@ fi
 
 } > "$OUTPUT"
 
+# Machine-readable companion — the orchestrator/bot escalation gates glob
+# escalation-*.json, so this file is what actually pauses the pipeline.
+JSON_OUTPUT="$RUN_DIR/escalation-${FINDING_ID}.json"
+jq -n \
+  --arg run_id "$RUN_ID" \
+  --arg finding_id "$FINDING_ID" \
+  --arg report_path "$REPORT_PATH" \
+  --arg md_path "$(basename "$OUTPUT")" \
+  --argjson unresolved "$UNRESOLVED" \
+  '{
+    run_id: $run_id,
+    finding_id: $finding_id,
+    report_path: $report_path,
+    escalation_md: $md_path,
+    rounds_completed: 3,
+    unresolved_issues: $unresolved,
+    resolved: false
+  }' > "$JSON_OUTPUT"
+echo "Escalation JSON written to: $JSON_OUTPUT"
+
 echo "Escalation written to: $OUTPUT"
 echo "  Unresolved issues: $UNRESOLVED_COUNT"

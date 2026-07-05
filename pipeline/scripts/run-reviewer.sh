@@ -238,6 +238,6 @@ echo ""
 if [ "$OVERALL_STATUS" = "complete" ]; then
   echo "Next: Run categorizer agent."
 else
-  echo "Next: Resolve escalations in $RUN_DIR/reviewer-escalation-*.md"
+  echo "Next: Resolve escalations in $RUN_DIR/reviewer-escalation-*.md (JSON gate files: escalation-*.json)"
   echo "Then run: approve-escalation.sh $RUN_ID <finding-id>"
 fi
