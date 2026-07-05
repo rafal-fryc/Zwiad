@@ -16,29 +16,39 @@ Library:
     norm = normalize_url("http://example.com/foo?utm_source=x")
 """
 
-import re
 import sys
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+
+_STRIP_PARAMS_PREFIXES = ("utm_",)
+_STRIP_PARAMS_EXACT = {"g"}  # Lexology tracking param
 
 
 def normalize_url(url: str) -> str:
     """Strip tracking params and canonicalize a URL.
 
     Rules:
-    - http:// → https:// (force scheme)
-    - Strip ?utm_*=... and &utm_*=... params
-    - Strip Lexology-style ?g=... and &g=... tracking params
-    - Drop trailing ? and trailing /
-    - Whitespace trim
+    - http:// -> https:// (force scheme)
+    - lowercase host, strip leading www.
+    - drop utm_* params and the Lexology g= param (order-insensitive)
+    - drop fragments, empty query strings, and trailing / on the path
+    - whitespace trim
     """
     if not url:
         return ""
     url = url.strip()
-    url = re.sub(r"^http://", "https://", url)
-    url = re.sub(r"[?&]utm_[^&]*", "", url)
-    url = re.sub(r"[?&]g=[^&]*", "", url)
-    url = re.sub(r"\?$", "", url)
-    url = re.sub(r"/$", "", url)
-    return url
+    parts = urlsplit(url)
+    if parts.scheme not in ("http", "https"):
+        return url  # not a web URL; leave untouched
+    host = parts.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    kept = [
+        (k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+        if not k.lower().startswith(_STRIP_PARAMS_PREFIXES)
+        and k.lower() not in _STRIP_PARAMS_EXACT
+    ]
+    path = parts.path.rstrip("/") if parts.path != "/" else ""
+    return urlunsplit(("https", host, path, urlencode(kept), ""))
 
 
 def main() -> int:
