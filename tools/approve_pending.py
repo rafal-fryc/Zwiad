@@ -22,6 +22,7 @@ Usage:
 """
 import argparse
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -76,6 +77,10 @@ def cmd_approve(args) -> int:
         return 2
     topic = it["proposed_topic"]
     sub = args.subcategory or it["proposed_subcategory"]
+    if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", sub):
+        print(f"ERROR: invalid subcategory name: {sub!r} "
+              "(lowercase letters, digits, hyphens only)", file=sys.stderr)
+        return 2
     report_path = PROJECT_ROOT / it["original_path"]
 
     # Add subcategory to categories.json if missing
@@ -99,6 +104,7 @@ def cmd_approve(args) -> int:
     # Update index entries
     new_rel = str(dest.relative_to(PROJECT_ROOT))
     old_rel = it["original_path"]
+    updated = 0
     with index_lock():
         index = load_index()
         for key, entry in index.get("reports", {}).items():
@@ -106,10 +112,15 @@ def cmd_approve(args) -> int:
             if args.finding_id in fids or entry.get("finding_id") == args.finding_id:
                 entry["subcategory"] = sub
                 entry["report_path"] = new_rel
+                updated += 1
             elif entry.get("report_path") == old_rel:
                 entry["subcategory"] = sub
                 entry["report_path"] = new_rel
+                updated += 1
         save_index(index)
+    if not updated:
+        print(f"WARN: {args.finding_id} not found in reports/index.json; "
+              "update the index entry manually")
 
     _cleanup(it)
     print(f"Approved {args.finding_id} -> {topic}/{sub}")
