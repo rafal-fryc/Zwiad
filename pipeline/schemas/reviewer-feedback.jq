@@ -9,7 +9,7 @@
 (.issues | all(
   (.claim | type == "string") and
   (.section | type == "string") and
-  (.source_url | type == "string") and
+  (.source_url == null or (.source_url | type == "string")) and
   (.issue | type == "string") and
   (.severity | type == "string") and
   (.severity | IN("critical", "major", "minor")) and

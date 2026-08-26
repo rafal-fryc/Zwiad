@@ -1,0 +1,18 @@
+{
+  "finding_id": "SCAN-20260717-007",
+  "report_path": "reports/privacy/enforcement-actions/florida-ag-roku-fdbr-children-settlement-2026-06-29.md",
+  "round": 1,
+  "claims_checked": 11,
+  "issues": [
+    {
+      "claim": "Track whether other state AGs bring parallel actions following the Michigan and Florida precedent.",
+      "section": "Action Items",
+      "source_url": null,
+      "issue": "Unsourced action-item claim; the Michigan matter is pending litigation, not a resolved precedent, so it should be sourced and clarified.",
+      "severity": "minor",
+      "suggested_fix": "Add a citation and clarify that the Michigan action is still pending.",
+      "status": "open"
+    }
+  ],
+  "resolution_status": "resolved"
+}

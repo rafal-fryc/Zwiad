@@ -17,44 +17,83 @@ from typing import Any
 
 
 def call_claude(prompt: str, timeout_sec: int = 120, model: str = "sonnet") -> str | None:
-    """Call `claude -p`. Return stdout text or None on error."""
+    """Call `claude -p --output-format json`. Return the session's result text
+    (the assistant's answer, without the CLI envelope) or None on error."""
     try:
         res = subprocess.run(
-            ["claude", "-p", "--model", model, prompt],
+            ["claude", "-p", "--model", model, "--output-format", "json", prompt],
             capture_output=True,
             text=True,
             timeout=timeout_sec,
         )
-        if res.returncode != 0:
-            print(
-                f"  claude rc={res.returncode}: {res.stderr[:200]}",
-                file=sys.stderr,
-            )
-            return None
-        return res.stdout.strip()
     except FileNotFoundError:
         return None
     except subprocess.TimeoutExpired:
         print("  claude timed out", file=sys.stderr)
         return None
 
+    # The CLI envelope is authoritative over the exit code (the CLI can exit
+    # nonzero after a session that completed cleanly) — parse it first.
+    try:
+        envelope = json.loads(res.stdout)
+    except Exception:
+        envelope = None
+    if isinstance(envelope, dict):
+        if envelope.get("is_error"):
+            print(f"  claude error: {str(envelope.get('result'))[:200]}", file=sys.stderr)
+            return None
+        result = envelope.get("result")
+        if isinstance(result, str):
+            return result.strip()
+
+    if res.returncode != 0:
+        print(f"  claude rc={res.returncode}: {res.stderr[:200]}", file=sys.stderr)
+        return None
+    return res.stdout.strip()
+
 
 def extract_json(text: str | None) -> Any | None:
-    """Pull the first JSON object out of a claude response (may include prose)."""
+    """Pull the first JSON object out of a claude response (may include prose
+    or a code fence). Handles nested objects — the old single-level regex
+    returned truncated garbage for any object containing another object."""
     if not text:
         return None
+    text = text.strip()
+    fence = re.match(r"^```(?:json)?\s*(.*?)\s*```\s*$", text, re.DOTALL)
+    if fence:
+        text = fence.group(1)
     try:
         return json.loads(text)
     except Exception:
         pass
-    # Find first {...} block (greedy enough for single-level objects)
-    m = re.search(r"\{.*?\}", text, re.DOTALL)
-    if not m:
-        return None
-    try:
-        return json.loads(m.group(0))
-    except Exception:
-        return None
+    # Balanced-brace scan for the first complete top-level object.
+    start = text.find("{")
+    while start != -1:
+        depth = 0
+        in_str = False
+        esc = False
+        for i in range(start, len(text)):
+            ch = text[i]
+            if in_str:
+                if esc:
+                    esc = False
+                elif ch == "\\":
+                    esc = True
+                elif ch == '"':
+                    in_str = False
+            elif ch == '"':
+                in_str = True
+            elif ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start : i + 1])
+                    except Exception:
+                        break  # malformed — try the next opening brace
+        start = text.find("{", start + 1)
+    return None
 
 
 def classify_report(

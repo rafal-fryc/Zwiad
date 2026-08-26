@@ -3,29 +3,95 @@
   "title": "Categorizer Stage Data",
   "description": "Schema for categorizer agent output data field",
   "type": "object",
-  "required": ["filed_reports"],
+  "required": [
+    "filed_reports"
+  ],
   "properties": {
     "filed_reports": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["finding_id", "source_path", "destination_path", "topic", "subcategory"],
+        "required": [
+          "finding_id",
+          "source_path",
+          "destination_path",
+          "topic",
+          "subcategory"
+        ],
         "properties": {
-          "finding_id": { "type": "string" },
-          "source_path": { "type": "string" },
-          "destination_path": { "type": "string" },
-          "topic": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] },
-          "subcategory": { "type": "string" },
-          "is_pending": { "type": "boolean" },
-          "proposed_subcategory": { "type": "string" },
-          "symlinks": { "type": "array", "items": { "type": "string" } },
-          "topic_key": { "type": "string" },
+          "finding_id": {
+            "type": "string"
+          },
+          "source_path": {
+            "type": "string"
+          },
+          "destination_path": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string",
+            "enum": [
+              "privacy",
+              "cybersecurity",
+              "ai-law"
+            ]
+          },
+          "subcategory": {
+            "type": "string"
+          },
+          "is_pending": {
+            "type": "boolean"
+          },
+          "proposed_subcategory": {
+            "type": "string"
+          },
+          "symlinks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topic_key": {
+            "type": "string"
+          },
           "topic_type": {
             "type": "string",
-            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+            "enum": [
+              "state_bill",
+              "federal_bill",
+              "enforcement",
+              "rulemaking",
+              "guidance",
+              "other"
+            ]
           },
-          "index_updated": { "type": "boolean" }
+          "index_updated": {
+            "type": "boolean"
+          }
         }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "description": "Per-report errors (e.g. missing report file), per categorizer.md Error Handling",
+      "items": {
+        "type": "object",
+        "required": [
+          "finding_id",
+          "error"
+        ],
+        "properties": {
+          "finding_id": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          },
+          "report_path": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       }
     }
   },

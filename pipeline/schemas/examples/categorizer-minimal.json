@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-08-19T10-00-00",
+  "timestamp": "2026-08-19T11:00:00Z",
+  "stage": "categorizer",
+  "status": "complete",
+  "data": {
+    "filed_reports": [
+      {
+        "finding_id": "SCAN-20260819-001",
+        "source_path": "reports/privacy/example-state-privacy-act-2026-08-18.md",
+        "destination_path": "reports/privacy/state-laws/example-state-privacy-act-2026-08-18.md",
+        "topic": "privacy",
+        "subcategory": "state-laws",
+        "symlinks": []
+      }
+    ]
+  }
+}

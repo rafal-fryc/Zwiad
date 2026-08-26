@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-08-19T10-00-00",
+  "timestamp": "2026-08-19T10:15:00Z",
+  "stage": "scanner",
+  "status": "complete",
+  "data": {
+    "findings": [
+      {
+        "id": "SCAN-20260819-001",
+        "title": "Example State Enacts Comprehensive Privacy Act",
+        "source": "Lexology digest",
+        "source_url": "https://example.com/alert",
+        "summary": "Example State enacted a comprehensive consumer privacy law effective 2027-01-01.",
+        "date": "2026-08-18",
+        "relevance": "high",
+        "jurisdiction": "Example State",
+        "development_type": "legislation",
+        "category": "privacy"
+      }
+    ],
+    "source_failures": []
+  }
+}

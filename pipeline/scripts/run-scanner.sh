@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+# LEGACY: standalone CLI alternative to the production path (discord_bot.py
+# /scan + orchestrator Mode 1). Kept for ad-hoc CLI use and tests.
+#
 # Scanner pipeline orchestration script
 # Usage: run-scanner.sh [--eml <file.eml>] [--html <file.html>] [--sources-only]
 # At least one of --eml, --html, or --sources-only must be provided.
@@ -85,11 +88,15 @@ fi
 SCANNER_PROMPT="$SCANNER_PROMPT Write your output JSON to: $RUN_DIR/scanner-output.json"
 SCANNER_PROMPT="$SCANNER_PROMPT The output must be a valid envelope (schema_version 1.0, stage scanner, status complete or error) with a data object containing a findings array and optional source_failures array."
 
-# Step 3: Invoke scanner agent
+# Step 3: Invoke scanner agent.
+# Guard against `set -e`: the claude CLI sometimes exits nonzero even when the
+# session completed cleanly — the output-file existence + schema check below is
+# the real success signal (same guard as run-reviewer.sh). timeout(1) bounds a
+# hung session; the production path gets this from claude_stage.py.
 echo "Invoking scanner agent..."
-claude -p --agent scanner --output-format json \
+timeout 3600 claude -p --agent scanner --output-format json \
   --max-turns 25 \
-  "$SCANNER_PROMPT"
+  "$SCANNER_PROMPT" || true
 
 # Step 4: Validate output
 OUTPUT_FILE="$RUN_DIR/scanner-output.json"

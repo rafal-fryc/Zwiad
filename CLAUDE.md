@@ -64,7 +64,7 @@ A regulatory monitoring platform that tracks privacy, cybersecurity, and AI law 
 | Orchestrator | `sonnet` | Coordination logic, not deep analysis. Cost-efficient. | HIGH |
 | Scanner | `sonnet` | Web search + initial triage. Good balance of capability and speed. | HIGH |
 | Researcher | `sonnet` | Deep analysis, report writing, source verification. Downgraded from opus 2026-07: cost/rate-limit tradeoff; revisit if verification quality drops. | MEDIUM |
-| Reviewer | `sonnet` | Independent fact-checking requires strong reasoning. Downgraded from opus 2026-07: cost/rate-limit tradeoff; revisit if verification quality drops. | MEDIUM |
+| Reviewer | `opus` | Independent fact-checking is the pipeline's quality gate and the main escalation source. Re-upgraded to opus (Opus 5) 2026-08 after rate-limit handling gained auto-wait-and-resume; Opus 5 review has high precision AND recall. Other stages stay on sonnet to conserve usage limits. | MEDIUM |
 | Categorizer | `sonnet` | File organization is straightforward. Haiku could work but sonnet is safer for taxonomy decisions. | HIGH |
 ## Architecture Pattern: Subagent Pipeline
 ### Key CLI Invocation Patterns
@@ -162,13 +162,14 @@ Despite the original "everything runs locally" goal, the following external serv
 - **GitHub API** (read-only, anonymous): `tools/fetch_fpf_emails.py` pulls `.eml` files from a public FileTransfer repo.
 - **Playwright** (if installed): JS rendering for state legislature bill text downloads in `bill_processor.py`.
 ## Token Cost Considerations
-| Agent | Expected Usage | Cost Strategy |
+Actual values as wired in the code (keep this table in sync with the call sites named below):
+| Agent | Expected Usage | Cost Strategy (actual) |
 |-------|---------------|---------------|
-| Scanner | Medium (web searches + initial analysis) | Use sonnet, set `--max-turns 20` |
-| Researcher | High (deep web research + report writing) | Use sonnet, set `--max-budget-usd 3.00` per finding |
-| Reviewer | Medium (read report + verify sources) | Use sonnet, set `--max-turns 15` |
-| Categorizer | Low (read report + file organization) | Use sonnet, set `--max-turns 5` |
-| Orchestrator | Low (coordination only) | Use sonnet, set `--max-turns 30` for full pipeline |
+| Scanner | Medium (web searches + initial analysis) | sonnet; legacy `run-scanner.sh` uses `--max-turns 25`; production scan runs via orchestrator (`--max-turns 60`, `discord_bot.py`) |
+| Researcher | High (deep web research + report writing) | sonnet; research legs use `--max-turns 200` + `--max-budget-usd max(5, todo*3)` (`discord_bot.py`); revision calls `--max-turns 20` (`run-reviewer.sh`) |
+| Reviewer | High (source re-fetch + independent search, on opus) | opus; `--max-turns 15` for update reviews, `--max-turns 40` for full reviews (`run-reviewer.sh`) |
+| Categorizer | Medium (index updates + file organization) | sonnet; `--max-turns 80`, `--max-budget-usd 10.00` (`discord_bot.py`) |
+| Orchestrator | Coordination + validation | sonnet; `--max-turns 60` scan / `--max-turns 200` research (`discord_bot.py`, `run_pipeline.py`) |
 ## Sources
 - [Claude Code CLI Reference](https://code.claude.com/docs/en/cli-reference) — Official docs, verified 2026-04-06 (HIGH confidence)
 - [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents) — Official docs, verified 2026-04-06 (HIGH confidence)
@@ -211,6 +212,8 @@ Use these entry points:
 - `/gsd-execute-phase` for planned phase work
 
 Do not make direct repo edits outside a GSD workflow unless the user explicitly asks to bypass it.
+
+**Exemption — pipeline agents:** this rule applies to development work on the repo, not to pipeline execution. The scanner, researcher, reviewer, categorizer, fpf-scanner, and orchestrator agents Write/Edit reports, run artifacts, and state files as their core job — they do not need a GSD command to do so.
 <!-- GSD:workflow-end -->
 
 

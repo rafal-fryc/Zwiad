@@ -3,32 +3,123 @@
   "title": "Scanner Stage Data",
   "description": "Schema for scanner agent output data field",
   "type": "object",
-  "required": ["findings"],
+  "required": [
+    "findings"
+  ],
   "properties": {
     "findings": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "title", "source", "source_url", "summary", "relevance", "jurisdiction", "development_type", "category"],
+        "required": [
+          "id",
+          "title",
+          "source",
+          "source_url",
+          "summary",
+          "relevance",
+          "jurisdiction",
+          "development_type",
+          "category"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "source": { "type": "string" },
-          "source_url": { "type": "string" },
-          "summary": { "type": "string" },
-          "date": { "type": "string" },
-          "relevance": { "type": "string", "enum": ["high", "medium", "low"] },
-          "jurisdiction": { "type": "string" },
-          "development_type": { "type": "string", "enum": ["legislation", "regulation", "enforcement", "guidance", "court-decision", "other"] },
-          "category": { "type": "string", "enum": ["privacy", "cybersecurity", "ai-law"] },
-          "topic_key": { "type": "string" },
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "relevance": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "jurisdiction": {
+            "type": "string"
+          },
+          "development_type": {
+            "type": "string",
+            "enum": [
+              "legislation",
+              "regulation",
+              "enforcement",
+              "guidance",
+              "court-decision",
+              "other"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "privacy",
+              "cybersecurity",
+              "ai-law"
+            ]
+          },
+          "topic_key": {
+            "type": "string"
+          },
           "topic_type": {
             "type": "string",
-            "enum": ["state_bill", "federal_bill", "enforcement", "rulemaking", "guidance", "other"]
+            "enum": [
+              "state_bill",
+              "federal_bill",
+              "enforcement",
+              "rulemaking",
+              "guidance",
+              "other"
+            ]
           },
           "topic_key_confidence": {
             "type": "string",
-            "enum": ["high", "medium", "low"]
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "is_update": {
+            "type": "boolean",
+            "description": "Set by dedup: finding updates an existing report"
+          },
+          "previous_topic_key": {
+            "type": "string",
+            "description": "Set by dedup"
+          },
+          "previous_report_path": {
+            "type": "string",
+            "description": "Set by dedup"
+          },
+          "diff_signal": {
+            "type": "string",
+            "description": "Set by dedup"
+          },
+          "status_before": {
+            "type": "string",
+            "description": "Set by dedup"
+          },
+          "status_after": {
+            "type": "string",
+            "description": "Set by dedup"
+          },
+          "operation": {
+            "type": "string",
+            "description": "Set by dedup/approval for append_update entries"
           }
         },
         "additionalProperties": false
@@ -38,11 +129,20 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["source_id", "error"],
+        "required": [
+          "source_id",
+          "error"
+        ],
         "properties": {
-          "source_id": { "type": "string" },
-          "source_name": { "type": "string" },
-          "error": { "type": "string" }
+          "source_id": {
+            "type": "string"
+          },
+          "source_name": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          }
         }
       }
     }

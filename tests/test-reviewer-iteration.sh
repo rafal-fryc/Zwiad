@@ -108,6 +108,43 @@ else
   run_test "Reviewer output iteration_count is 1-3 for all reviews (invalid: $INVALID_IC)" 1
 fi
 
+# ---------------------------------------------------------------------------
+# VERF-04: Escalation counts UNRESOLVED issues only (run 2026-07-17 bug)
+# A report whose critical/major issues are all status=fixed/resolved must
+# verify, not escalate. run-reviewer.sh must count only status open/upheld.
+# ---------------------------------------------------------------------------
+echo ""
+echo "--- VERF-04: Unresolved-only escalation counting ---"
+
+ALL_FIXED='{"issues":[
+  {"severity":"critical","status":"fixed"},
+  {"severity":"major","status":"fixed"}
+]}'
+CM_FIXED=$(echo "$ALL_FIXED" | jq '[.issues[] | select((.severity=="critical" or .severity=="major") and (.status=="open" or .status=="upheld"))] | length')
+run_test "All-fixed critical/major issues count as 0 blocking (report verifies)" $([ "$CM_FIXED" -eq 0 ] && echo 0 || echo 1)
+
+OPEN_MIX='{"issues":[
+  {"severity":"critical","status":"open"},
+  {"severity":"major","status":"fixed"},
+  {"severity":"minor","status":"open"}
+]}'
+CM_OPEN=$(echo "$OPEN_MIX" | jq '[.issues[] | select((.severity=="critical" or .severity=="major") and (.status=="open" or .status=="upheld"))] | length')
+run_test "One open critical issue counts as 1 blocking (report escalates)" $([ "$CM_OPEN" -eq 1 ] && echo 0 || echo 1)
+
+# run-reviewer.sh must use the status-filtered count, not severity-only
+if grep -qE 'select\(\(\.severity == "critical" or \.severity == "major"\) and \(\.status == "open" or \.status == "upheld"\)\)' "$PROJECT_ROOT/pipeline/scripts/run-reviewer.sh"; then
+  run_test "run-reviewer.sh counts only unresolved (open/upheld) critical/major" 0
+else
+  run_test "run-reviewer.sh counts only unresolved (open/upheld) critical/major" 1
+fi
+
+# every needs-human-review outcome must be backed by an escalation gate file
+if grep -q 'Guarantee an escalation gate file' "$PROJECT_ROOT/pipeline/scripts/run-reviewer.sh"; then
+  run_test "run-reviewer.sh guarantees a gate file for needs-human-review outcomes" 0
+else
+  run_test "run-reviewer.sh guarantees a gate file for needs-human-review outcomes" 1
+fi
+
 echo ""
 echo "=== Results: Passed $PASS / Total $((PASS + FAIL)) ==="
 [ "$FAIL" -eq 0 ] && exit 0 || exit 1

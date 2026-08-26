@@ -164,5 +164,53 @@ else
 fi
 
 echo ""
+
+# ---------------------------------------------------------------------------
+# REPT-05: Graceful duplicate handling (regression guard for run 2026-07-17)
+#
+# When the researcher discovers that a finding duplicates an already-published
+# report (either via the topic_key invariant lookup OR during web research), it
+# MUST emit a schema-valid envelope so the research phase continues, NOT a
+# status:error envelope with a bare data.error payload (which fails the
+# researcher schema and fail-fast-aborts every remaining finding — the bug that
+# halted run 2026-07-17T13-54-18 at finding 9 of 58).
+# ---------------------------------------------------------------------------
+echo "--- REPT-05: Graceful duplicate handling ---"
+
+# Test 16: duplicate-skip envelope (no new development) validates -> run continues
+bash "$PROJECT_ROOT/pipeline/scripts/validate-handoff.sh" researcher "$PROJECT_ROOT/tests/fixtures/sample-researcher-duplicate-skip.json" > /dev/null 2>&1
+run_test "Duplicate-skip envelope (empty reports[] + skipped_duplicate) validates" $?
+
+# Test 17: duplicate skip envelope carries a skipped_duplicate audit block
+jq -e '.data.skipped_duplicate.existing_topic_key | type == "string"' "$PROJECT_ROOT/tests/fixtures/sample-researcher-duplicate-skip.json" > /dev/null 2>&1
+run_test "Duplicate-skip envelope records existing_topic_key for audit" $?
+
+# Test 18: duplicate-with-new-development routes as a valid append_update envelope
+bash "$PROJECT_ROOT/pipeline/scripts/validate-handoff.sh" researcher "$PROJECT_ROOT/tests/fixtures/sample-researcher-duplicate-appendupdate.json" > /dev/null 2>&1
+run_test "Duplicate append_update envelope validates" $?
+
+# Test 19: a status:error envelope (data.error present) is now VALID.
+# Contract change 2026-08: the shape that halted run 2026-07-17 halted it
+# because the schema rejected every error envelope, turning one bad finding
+# into a batch abort. Error envelopes are now schema-valid and handled by
+# per-finding isolation (quarantine + continue) in the orchestrator instead.
+# Duplicates should still be reported as status:complete (test 20), but an
+# error envelope must not fail validation and kill the rest of the run.
+if bash "$PROJECT_ROOT/pipeline/scripts/validate-handoff.sh" researcher "$PROJECT_ROOT/tests/fixtures/sample-researcher-duplicate-error-LEGACY.json" > /dev/null 2>&1; then
+  run_test "status:error envelope with data.error validates (per-finding isolation)" 0
+else
+  run_test "status:error envelope with data.error validates (per-finding isolation)" 1
+fi
+
+# Test 20: researcher.md no longer tells the agent to emit an error envelope on
+# a topic_key invariant match (the instruction that produced the bad shape).
+if grep -qi 'invariant' "$PROJECT_ROOT/.claude/agents/researcher.md" && \
+   grep -A3 -i 'lookup returns a non-empty entry' "$PROJECT_ROOT/.claude/agents/researcher.md" | grep -qi 'error envelope'; then
+  run_test "researcher.md invariant check does not emit an error envelope on duplicate" 1
+else
+  run_test "researcher.md invariant check does not emit an error envelope on duplicate" 0
+fi
+
+echo ""
 echo "=== Results: Passed $PASS / Total $((PASS + FAIL)) ==="
 [ "$FAIL" -eq 0 ] && exit 0 || exit 1

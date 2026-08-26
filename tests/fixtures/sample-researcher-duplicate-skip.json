@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-07-17T13-54-18",
+  "timestamp": "2026-07-17T14:43:32+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [],
+    "skipped_duplicate": {
+      "finding_id": "SCAN-20260717-009",
+      "existing_topic_key": "federal-0d790fa9-2026",
+      "existing_report_path": "reports/ai-law/frontier-models/federal-openai-gpt56-release-limit-2026-06-26.md",
+      "reason": "Duplicate of an already-published report discovered during research; no new development to append."
+    }
+  }
+}

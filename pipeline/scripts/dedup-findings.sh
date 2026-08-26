@@ -96,7 +96,7 @@ jq -c '.data.findings[]' "$INPUT" | while IFS= read -r finding; do
     fi
   fi
 
-  if [ -n "$topic_key" ] && grep -qxF "$topic_key" "$INDEX_KEYS" 2>/dev/null; then
+  if [ -n "$topic_key" ] && grep -qxF -- "$topic_key" "$INDEX_KEYS" 2>/dev/null; then
     # Phase 2: topic_key match → run diff_signal classifier against the
     # existing index entry. Pure noise drops silently; everything else
     # becomes a candidate_update for the researcher to append to the
@@ -161,8 +161,8 @@ if [ -s "$PASS1B_KEEP" ] && [ -s "$INDEX_TITLES" ]; then
     if [ ${#title} -gt 20 ]; then
       while IFS= read -r existing_title; do
         if [ ${#existing_title} -gt 20 ]; then
-          if echo "$existing_title" | grep -qiF "$title" 2>/dev/null || \
-             echo "$title" | grep -qiF "$existing_title" 2>/dev/null; then
+          if echo "$existing_title" | grep -qiF -- "$title" 2>/dev/null || \
+             echo "$title" | grep -qiF -- "$existing_title" 2>/dev/null; then
             is_dupe=true
             break
           fi

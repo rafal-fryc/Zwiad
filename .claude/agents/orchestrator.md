@@ -24,7 +24,7 @@ The Python script manages the pause between phases (the human approval gate). Yo
 
 You are invoked with a prompt like: `"Scan phase for run {run_id}. {input_details}. Write output to pipeline/runs/{run_id}/"`
 
-**Execute exactly these 6 steps in order and then stop.** Do NOT inspect the reports index, dump debugging artifacts, write exploratory text files, grep for patterns, or do any work beyond what the 6 steps require. Every turn counts against a tight budget. If any step fails, stop immediately and write to `error.log` — do not try to diagnose or "explore" the failure.
+**Execute exactly the steps below in order and then stop.** Do NOT inspect the reports index, dump debugging artifacts, write exploratory text files, grep for patterns, or do any work beyond what the steps require. Every turn counts against a tight budget. If any step fails, stop immediately and write to `error.log` — do not try to diagnose or "explore" the failure.
 
 ### Step 1: Invoke Scanner
 
@@ -65,18 +65,9 @@ This walks every finding and populates `topic_key`, `topic_type`, and `topic_key
 bash pipeline/scripts/dedup-findings.sh {run_id}
 ```
 
-### Step 3b: Route Findings (cluster-based augment decisions)
-
-```bash
-# Refresh the canonical cluster manifest first
-python3 pipeline/scripts/build-clusters-state.py
-# Then classify each finding and pick NEW_REPORT / MERGE / APPEND_SOURCE
-python3 pipeline/scripts/route-findings.py pipeline/runs/{run_id}
-```
-
-This writes `pipeline/runs/{run_id}/scanner-routing.json`. The `generate-review.sh` step in 4 surfaces these decisions so the human approver sees which findings would augment existing reports vs. create new ones.
-
 ### Step 4: Generate Human Review File
+
+(Routing — `build-clusters-state.py` + `route-findings.py` — is run by the driver script after this phase, NOT by you. Those scripts spawn their own `claude` subprocesses, which cannot run from inside your Bash tool: a non-interactive session cannot self-approve the recursive invocation and silently stalls.)
 
 ```bash
 bash pipeline/scripts/generate-review.sh {run_id}
@@ -132,7 +123,7 @@ The approved findings JSON at `pipeline/runs/{run_id}/scanner-approved.json` may
 - **New findings** (normal research flow): entries without `operation` or with `operation != "append_update"`.
 - **Update findings** (Phase 2): entries with `is_update: true` and `operation: "append_update"` (set by dedup + carried through approval).
 
-Additionally, the routing stage (Step 3b of the scan phase) produced `pipeline/runs/{run_id}/scanner-routing.json` with a decision per finding: `NEW_REPORT`, `MERGE`, or `APPEND_SOURCE`. Look up each finding's route before dispatching:
+Additionally, the routing stage (run by the driver script after the scan phase) produced `pipeline/runs/{run_id}/scanner-routing.json` with a decision per finding: `NEW_REPORT`, `MERGE`, or `APPEND_SOURCE`. Look up each finding's route before dispatching:
 
 - **NEW_REPORT** → invoke researcher normally with `mode: "new"` (current flow).
 - **MERGE** → invoke researcher with `mode: "merge"` and `target_report_path` = `reports/<path derived from target_report_slug>`. The researcher updates the existing file in place (see its "Augment Mode" section).
@@ -163,20 +154,28 @@ After each researcher completes, validate the output:
 bash pipeline/scripts/validate-handoff.sh researcher pipeline/runs/{run_id}/researcher-{finding_id}.json
 ```
 
-**Invariant check**: if the input finding had `is_update: true` but the researcher output's `operation` is not `append_update`, fail loudly — write to `pipeline/runs/{run_id}/error.log` and stop. Do NOT allow a full-report fallback; that would file a duplicate.
+**Invariant check**: if the input finding had `is_update: true` but the researcher output's `operation` is not `append_update`, that output must not be used — a full-report fallback would file a duplicate. Treat it as a failed finding (below).
 
-If validation fails for a finding, log the error to `pipeline/runs/{run_id}/error.log` and stop immediately. Do not continue with remaining findings.
+**Per-finding failure isolation.** A validation failure or invariant violation on one finding must not cost the rest of the batch (one bad envelope once halted a 58-finding run at finding 9). When a finding's researcher output is missing, fails `validate-handoff.sh researcher`, or violates the invariant check:
+
+1. Quarantine any invalid output so it is retried on the next run and never consumed downstream: `mv pipeline/runs/{run_id}/researcher-{finding_id}.json pipeline/runs/{run_id}/researcher-{finding_id}.json.rejected` (skip if the file doesn't exist).
+2. Append one line to `pipeline/runs/{run_id}/error.log`: `[{ISO 8601 timestamp}] FINDING-FAILED {finding_id}: {one-line reason}`.
+3. Continue with the next finding.
+
+Stop the phase early only for infrastructure errors that make every remaining finding pointless: missing run directory, missing/unreadable `scanner-approved.json`, or `validate-handoff.sh` itself failing to execute.
 
 Process findings sequentially (one at a time) to manage token usage.
 
 ### End of Mode 2: Write Research-Complete Marker
 
-After all approved findings have been processed (researched, merged, or appended) without errors, write `pipeline/runs/{run_id}/research-complete.marker` with content:
+When every approved finding has been processed and none failed, write `pipeline/runs/{run_id}/research-complete.marker` with content:
 ```
 RESEARCH_COMPLETE
 ```
 
-Log: `"Research phase complete for run {run_id}. {N} researcher outputs written. Awaiting /review."`
+If any findings failed, do NOT write the marker — a `/research` re-run retries just the failed ones (their outputs were quarantined, so the idempotency skip won't match them).
+
+End with a summary log either way: `"Research phase: {S} succeeded, {F} failed of {N}. Failed: {comma-separated finding IDs, or 'none'}."`
 
 Then stop. Do **not** invoke the reviewer or categorizer in this mode — those run in Mode 4 under a separate turn budget.
 
@@ -295,9 +294,13 @@ PIPELINE_COMPLETE
 
 Log: `"Pipeline complete for run {run_id}. Reports filed and categorized."`
 
-## Error Handling (Fail-Fast)
+## Error Handling
 
-On ANY error during execution:
+Two classes of error, handled differently:
+
+**Per-item errors (Mode 2 findings only) — isolate and continue.** One finding's bad output must not cost the rest of the batch. Follow the "Per-finding failure isolation" steps in Mode 2: quarantine the invalid output as `.rejected`, log a `FINDING-FAILED` line to `error.log`, and continue with the next finding.
+
+**Stage/infrastructure errors — fail fast.** For everything else (missing run directory, missing approval file, a validation or helper script that cannot execute, a subagent that produces no output outside Mode 2's per-finding loop):
 
 1. Write the error details to `pipeline/runs/{run_id}/error.log` with a timestamp and description:
    ```
@@ -306,12 +309,6 @@ On ANY error during execution:
 2. Do NOT attempt to recover or skip the failed stage.
 3. Do NOT proceed to the next stage.
 4. Stop immediately after logging the error.
-
-Common error scenarios:
-- **Subagent produces no output file:** Log missing file path and stop.
-- **Handoff validation fails:** Log the validation error output and stop.
-- **Approval file missing:** Log and stop (research phase cannot proceed without approval).
-- **Script execution failure:** Log the script's stderr output and stop.
 
 ## Progress Logging
 

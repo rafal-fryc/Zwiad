@@ -110,5 +110,30 @@ else
 fi
 
 echo ""
+
+# ---------------------------------------------------------------------------
+# VERF-05: Robustness regressions from run 2026-07-17T13-54-18
+# ---------------------------------------------------------------------------
+echo "--- VERF-05: Reviewer robustness ---"
+
+# Test: feedback whose issue has source_url=null (a genuinely UNSOURCED claim)
+# must validate. A reviewer legitimately reports null source_url when the issue
+# IS that the claim lacks a source; the old schema required a string and
+# silently dropped these valid reviews (finding SCAN-20260717-007).
+jq -e -f "$PROJECT_ROOT/pipeline/schemas/reviewer-feedback.jq" "$PROJECT_ROOT/tests/fixtures/sample-reviewer-feedback-null-source.json" > /dev/null 2>&1
+run_test "Feedback with null source_url (unsourced-claim issue) validates" $?
+
+# Test: run-reviewer.sh must guard its nested `claude -p` calls so a single
+# nonzero exit (incl. claude's benign 'completed-but-nonzero' quirk) cannot
+# abort the whole batch under 'set -e' (what killed the run at finding 009).
+CLAUDE_CALLS=$(grep -cE '^\s*claude -p --agent (reviewer|researcher)' "$PROJECT_ROOT/pipeline/scripts/run-reviewer.sh")
+GUARDED_CALLS=$(grep -cE '\|\| true' "$PROJECT_ROOT/pipeline/scripts/run-reviewer.sh")
+if [ "$CLAUDE_CALLS" -ge 1 ] && [ "$GUARDED_CALLS" -ge "$CLAUDE_CALLS" ]; then
+  run_test "run-reviewer.sh guards its claude calls against set -e abort" 0
+else
+  run_test "run-reviewer.sh guards its claude calls against set -e abort (claude=$CLAUDE_CALLS guarded=$GUARDED_CALLS)" 1
+fi
+
+echo ""
 echo "=== Results: Passed $PASS / Total $((PASS + FAIL)) ==="
 [ "$FAIL" -eq 0 ] && exit 0 || exit 1

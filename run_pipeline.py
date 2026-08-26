@@ -16,7 +16,15 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-from tools.claude_stage import run_claude_and_log_cost
+from tools.claude_stage import (
+    RATE_LIMIT_MAX_WAITS,
+    count_reviewable_reports,
+    looks_rate_limited_err,
+    rate_limit_wait_seconds,
+    research_timeout,
+    review_timeout,
+    run_claude_and_log_cost,
+)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -72,13 +80,37 @@ def run_stage(
     audit_entries: list,
     timeout: int = 3600,
 ) -> None:
-    """Execute a pipeline stage via the shared runner, record audit info, and handle errors."""
+    """Execute a pipeline stage via the shared runner, record audit info, and handle errors.
+
+    Usage/session rate limits are waited out and retried automatically (up to
+    RATE_LIMIT_MAX_WAITS sleeps, each bounded by the shared wait policy) —
+    stage outputs are per-item and idempotent, so a retry simply continues.
+    """
     start = time.monotonic()
     start_wall = datetime.now(timezone.utc).isoformat()
 
     print(f"[STAGE] {name} -- starting at {start_wall}")
 
-    ok, err, cost = run_claude_and_log_cost(cmd, run_id, name, cwd=PROJECT_ROOT, timeout=timeout)
+    cost = 0.0
+    rl_waits = 0
+    while True:
+        ok, err, leg_cost = run_claude_and_log_cost(cmd, run_id, name, cwd=PROJECT_ROOT, timeout=timeout)
+        cost += leg_cost
+        if ok or not looks_rate_limited_err(err):
+            break
+        wait = rate_limit_wait_seconds(err, rl_waits)
+        if wait is None:
+            break  # wait budget exhausted or reset too far out -- fail the stage
+        rl_waits += 1
+        print(
+            f"[STAGE] {name} -- rate-limited; sleeping {wait}s then resuming "
+            f"(wait {rl_waits}/{RATE_LIMIT_MAX_WAITS})"
+        )
+        notify(
+            "Rate limited",
+            f"Stage {name} for run {run_id} hit a usage limit; auto-resuming in ~{wait // 60} min",
+        )
+        time.sleep(wait)
 
     end = time.monotonic()
     duration = round(end - start, 1)
@@ -147,6 +179,30 @@ def run_scan_phase(
 
     run_stage("orchestrator-scan", cmd, run_id, run_dir, audit_entries)
 
+    # Routing runs here in the driver, NOT inside the orchestrator:
+    # route-findings.py spawns nested `claude -p` calls that stall inside a
+    # non-interactive orchestrator session. Best-effort — the research phase
+    # defaults findings to NEW_REPORT when scanner-routing.json is absent,
+    # so a routing failure warns loudly but does not fail the scan.
+    if (run_dir / "scanner-deduped.json").exists():
+        for route_cmd, label in [
+            (["python3", "pipeline/scripts/build-clusters-state.py"], "build-clusters"),
+            (["python3", "pipeline/scripts/route-findings.py", str(run_dir)], "route-findings"),
+        ]:
+            try:
+                # Routing makes up to two 120s-bounded claude calls per finding.
+                result = subprocess.run(route_cmd, cwd=PROJECT_ROOT, timeout=7200)
+                route_ok = result.returncode == 0
+            except (OSError, subprocess.TimeoutExpired):
+                route_ok = False
+            if not route_ok:
+                audit_entries.append({
+                    "name": f"routing-{label}", "duration_seconds": 0, "status": "warning",
+                    "error": f"{label} failed -- findings default to NEW_REPORT (duplicate risk)",
+                })
+                print(f"[WARN] routing step {label} failed; findings default to NEW_REPORT")
+                break
+
     # Check for scan-complete marker
     marker = run_dir / "scan-complete.marker"
     if not marker.exists():
@@ -189,18 +245,31 @@ def run_research_phase(
         )
 
     research_prompt = (
-        f"Research phase for run {run_id}. Process approved findings from "
-        f"pipeline/runs/{run_id}/scanner-approved.json. "
-        f"Follow Mode 2 (research-only): researcher per finding (skip findings whose "
-        f"researcher-{{id}}.json already exists), then write research-complete.marker. "
-        f"Do NOT invoke reviewer or categorizer."
+        f"Run Mode 2 (research-only) for run {run_id}, exactly as specified in your "
+        f"instructions. Process approved findings from "
+        f"pipeline/runs/{run_id}/scanner-approved.json: researcher per finding (skip "
+        f"findings whose researcher-{{id}}.json already exists), then write "
+        f"research-complete.marker and stop. The scope of this invocation is researcher "
+        f"outputs only; review and categorization run in a later, separate invocation."
     )
     cmd = [
         "claude", "-p", "--agent", "orchestrator",
         "--output-format", "json", "--permission-mode", "acceptEdits",
         "--max-turns", "200", research_prompt,
     ]
-    run_stage("orchestrator-research", cmd, run_id, run_dir, audit_entries, timeout=5400)
+    # Research cost scales with the finding count, so the timeout must too --
+    # a fixed value gets the stage SIGKILLed mid-stride on large batches.
+    # Re-running resume continues from the researcher outputs already on disk.
+    try:
+        approved_findings = json.loads(approved.read_text()).get("data", {}).get("findings", [])
+    except (json.JSONDecodeError, OSError):
+        approved_findings = []
+    todo = sum(
+        1 for f in approved_findings
+        if not (run_dir / f"researcher-{f.get('id','')}.json").exists()
+    )
+    run_stage("orchestrator-research", cmd, run_id, run_dir, audit_entries,
+              timeout=research_timeout(todo))
 
     if not (run_dir / "research-complete.marker").exists():
         audit_entries.append({
@@ -211,17 +280,22 @@ def run_research_phase(
         return audit_entries
 
     review_prompt = (
-        f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
-        f"verify research-complete.marker exists, run reviewer, check escalations, "
-        f"run categorizer if no escalations, and write pipeline-complete.marker. "
-        f"Do NOT re-invoke researcher."
+        f"Run Mode 4 (review & categorize) for run {run_id}, exactly as specified in "
+        f"your instructions: verify research-complete.marker exists, run reviewer, "
+        f"check escalations, run categorizer if no escalations, and write "
+        f"pipeline-complete.marker. The scope of this invocation starts from the "
+        f"researcher outputs already on disk; research is complete."
     )
     cmd = [
         "claude", "-p", "--agent", "orchestrator",
         "--output-format", "json", "--permission-mode", "acceptEdits",
         "--max-turns", "200", review_prompt,
     ]
-    run_stage("orchestrator-review", cmd, run_id, run_dir, audit_entries, timeout=5400)
+    # Review wall-clock scales with the report count, same as research -- a
+    # fixed 5400s SIGKILLed large batches mid-review. review_timeout() caps at
+    # 6h; anything beyond that is picked up by an idempotent re-run.
+    run_stage("orchestrator-review", cmd, run_id, run_dir, audit_entries,
+              timeout=review_timeout(count_reviewable_reports(run_dir)))
 
     complete_marker = run_dir / "pipeline-complete.marker"
     escalation_marker = run_dir / "has-escalations.marker"

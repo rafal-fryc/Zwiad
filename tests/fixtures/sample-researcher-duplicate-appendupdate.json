@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "pipeline_run_id": "2026-07-17T13-54-18",
+  "timestamp": "2026-07-17T14:43:32+00:00",
+  "stage": "researcher",
+  "status": "complete",
+  "data": {
+    "reports": [
+      {
+        "finding_id": "SCAN-20260717-009",
+        "report_path": "reports/ai-law/frontier-models/federal-openai-gpt56-release-limit-2026-06-26.md",
+        "topic_key": "federal-0d790fa9-2026",
+        "topic_type": "rulemaking",
+        "operation": "append_update",
+        "topic_key_confidence": "low",
+        "update_markdown": "CAISI cleared GPT-5.6 for full public release on July 7, 2026; the restricted preview ended July 9, 2026.",
+        "status_before": "restricted-preview",
+        "status_after": "restriction-lifted",
+        "diff_signal": "status_change",
+        "date": "2026-07-09",
+        "source_url": "https://www.axios.com/2026/07/08/openai-gpt-trump-ban-lifted"
+      }
+    ]
+  }
+}

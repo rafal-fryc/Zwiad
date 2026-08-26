@@ -1,18 +1,26 @@
-(.data.reports | type == "array") and
-(.data.reports | all(
-  (.finding_id | type == "string") and
-  (.report_path | type == "string") and
-  (if (.operation // "") == "append_update" then
-    (.topic_key | type == "string") and
-    (.topic_type | type == "string")
-  else
-    (has("operation") | not) and
-    (.format | type == "string") and
-    (.format | IN("client-alert", "research-memo")) and
-    (.jurisdiction_tags | type == "array") and
-    (.confidence_summary | type == "object") and
-    (.confidence_summary.high | type == "number") and
-    (.confidence_summary.medium | type == "number") and
-    (.confidence_summary.low | type == "number")
-  end)
-))
+# An error envelope (per researcher.md "Error Handling") carries data.error
+# instead of data.reports. It is schema-valid so a single malformed finding
+# does not fail validation and abort the rest of the batch — the orchestrator
+# records it and continues.
+if .status == "error" then
+  (.data.error | type == "string")
+else
+  (.data.reports | type == "array") and
+  (.data.reports | all(
+    (.finding_id | type == "string") and
+    (.report_path | type == "string") and
+    (if (.operation // "") == "append_update" then
+      (.topic_key | type == "string") and
+      (.topic_type | type == "string")
+    else
+      (has("operation") | not) and
+      (.format | type == "string") and
+      (.format | IN("client-alert", "research-memo")) and
+      (.jurisdiction_tags | type == "array") and
+      (.confidence_summary | type == "object") and
+      (.confidence_summary.high | type == "number") and
+      (.confidence_summary.medium | type == "number") and
+      (.confidence_summary.low | type == "number")
+    end)
+  ))
+end

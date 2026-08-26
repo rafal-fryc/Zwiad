@@ -65,7 +65,9 @@ UPDATED=$(jq --arg fid "$FINDING_ID" '
   ]
 ' "$OUTPUT")
 
-echo "$UPDATED" > "$OUTPUT"
+# Atomic replace (same pattern as the envelope-status write below) — a plain
+# `>` clobber can leave a truncated reviewer-output.json if interrupted.
+echo "$UPDATED" > "$OUTPUT.tmp" && mv "$OUTPUT.tmp" "$OUTPUT"
 
 # Check if all reviews are now verified
 ALL_VERIFIED=$(jq '[.data.reviews[] | select(.status != "verified")] | length == 0' "$OUTPUT")

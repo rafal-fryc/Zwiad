@@ -141,40 +141,11 @@ def infer_jurisdiction(title: str, summary: str = "") -> str:
             return "Federal"
     return "Unknown"
 
-def call_claude(prompt, timeout_sec=120):
-    """Call `claude -p` with the prompt; return stdout text or None on error."""
-    try:
-        res = subprocess.run(
-            ["claude", "-p", "--model", "sonnet", prompt],
-            capture_output=True, text=True, timeout=timeout_sec,
-        )
-        if res.returncode != 0:
-            print(f"  claude call failed rc={res.returncode}: {res.stderr[:200]}", file=sys.stderr)
-            return None
-        return res.stdout.strip()
-    except FileNotFoundError:
-        return None
-    except subprocess.TimeoutExpired:
-        print("  claude call timed out", file=sys.stderr)
-        return None
-
-def extract_json_from_response(text):
-    """Pull the first JSON object out of a claude response (may include prose)."""
-    if not text:
-        return None
-    # Try direct parse
-    try:
-        return json.loads(text)
-    except Exception:
-        pass
-    # Find first {...} block
-    m = re.search(r"\{[^{}]*\}", text, re.DOTALL)
-    if not m:
-        return None
-    try:
-        return json.loads(m.group(0))
-    except Exception:
-        return None
+# LLM plumbing is shared with the pipeline (pipeline/lib/clustering.py):
+# structured --output-format json + a nested-object-safe extractor, instead of
+# the old raw-stdout call and single-level regex that broke on any preamble.
+sys.path.insert(0, str(zwiad_root / "pipeline" / "lib"))
+from clustering import call_claude, extract_json as extract_json_from_response
 
 def classify_report(title, summary, topic, existing_clusters):
     cluster_list = "\n".join(

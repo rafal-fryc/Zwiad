@@ -74,7 +74,14 @@ Produce a single merged markdown document:
 Output the entire merged markdown document. No prose, no JSON, no code fence — just the raw markdown starting with the YAML frontmatter `---` line."""
 
     resp = call_claude(prompt, timeout_sec=300, model="sonnet")
-    if not resp or not resp.lstrip().startswith("---"):
+    if resp:
+        # Tolerate a wrapping code fence despite the no-fence instruction —
+        # models occasionally add one, and dropping the merge over it wastes
+        # the whole (expensive) call.
+        fence = re.match(r"^```[a-zA-Z]*\s*(.*?)\s*```\s*$", resp.strip(), re.DOTALL)
+        if fence:
+            resp = fence.group(1)
+    if not resp or "---" not in resp:
         print(f"    !! merge LLM failed for cluster '{cluster['name']}'", file=sys.stderr)
         return False
 

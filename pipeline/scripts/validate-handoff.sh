@@ -54,13 +54,18 @@ if [ "$ACTUAL_VERSION" != "$EXPECTED_VERSION" ]; then
   exit 1
 fi
 
-# 6. Stage-specific validation
+# 6. Stage-specific validation. A missing stage schema is an ERROR, not a
+# pass: silently skipping meant a typo'd stage name (or a stage without a .jq,
+# like fpf-scanner before it got one) validated only the envelope while
+# printing OK.
 STAGE_JQ="${SCRIPT_DIR}/schemas/${SCHEMA}.jq"
-if [ -f "$STAGE_JQ" ]; then
-  if ! jq -e -f "$STAGE_JQ" "$FILE" >/dev/null 2>&1; then
-    echo "ERROR: Stage-specific validation failed for $FILE against $SCHEMA" >&2
-    exit 1
-  fi
+if [ ! -f "$STAGE_JQ" ]; then
+  echo "ERROR: No stage schema at $STAGE_JQ — unknown stage '$SCHEMA'?" >&2
+  exit 1
+fi
+if ! jq -e -f "$STAGE_JQ" "$FILE" >/dev/null 2>&1; then
+  echo "ERROR: Stage-specific validation failed for $FILE against $SCHEMA" >&2
+  exit 1
 fi
 
 # 7. Success

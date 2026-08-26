@@ -197,11 +197,10 @@ Write the categorizer output JSON to the path specified in the prompt. The outpu
 
 The output must validate against `pipeline/schemas/categorizer.schema.json` wrapped in `pipeline/schemas/envelope.schema.json`.
 
-**Critical field names (do NOT invent alternatives):**
-- The array key is `filed_reports` — NOT `reports_filed`, `reports`, or `filed`
-- Per-entry fields are `finding_id`, `source_path`, `destination_path`, `topic`, `subcategory`, `is_pending`, `symlinks`
-- `destination_path` (where the report landed) — NOT `report_path`
-- `topic` (primary topic, one of privacy/cybersecurity/ai-law) — NOT `category` (though the values overlap)
+**Field names are exact** — copy them from the example above verbatim:
+- The array key is exactly `filed_reports`
+- Per-entry fields are exactly `finding_id`, `source_path`, `destination_path`, `topic`, `subcategory`, `is_pending`, `symlinks`
+- The report's final location goes in `destination_path`; the primary topic (one of privacy/cybersecurity/ai-law) goes in `topic`
 
 If an entry's action is "deprecated" (superseded by another report), still include it in `filed_reports` with the final resting path in `destination_path`. Downstream consumers treat it as a filed report for indexing purposes.
 

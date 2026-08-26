@@ -105,6 +105,7 @@ def main():
             reports_by_cluster.setdefault(cs, []).append(r)
 
     routing = []
+    llm_failures = 0
     for f in findings:
         fid = f.get("finding_id") or f.get("id") or ""
         title = f.get("title", "")
@@ -115,6 +116,7 @@ def main():
         print(f"[{fid}] classifying: {title[:60]}…")
         slug, name = classify_report(title, gist, topic, existing_clusters)
         if not slug:
+            llm_failures += 1
             routing.append({
                 "finding_id": fid,
                 "route": "NEW_REPORT",
@@ -143,6 +145,7 @@ def main():
         print(f"  routing against {len(candidates)} existing report(s)…")
         decision = route_finding(title, gist, url, candidates)
         if not decision:
+            llm_failures += 1
             routing.append({
                 "finding_id": fid,
                 "route": "NEW_REPORT",
@@ -172,6 +175,14 @@ def main():
     print(f"Wrote {out_file}")
     for k, v in by_route.items():
         print(f"  {k}: {v}")
+    if llm_failures:
+        # Loud, not silent: each failure defaulted a finding to NEW_REPORT,
+        # which risks filing a duplicate of an existing report.
+        print(
+            f"WARNING: {llm_failures}/{len(findings)} routing decision(s) fell back to "
+            f"NEW_REPORT because the classify/route LLM call failed — check for duplicates.",
+            file=sys.stderr,
+        )
 
 
 if __name__ == "__main__":

@@ -38,7 +38,21 @@ RUNS_DIR = PROJECT_ROOT / "pipeline" / "runs"
 # by default; per-run audit logs can be attached via attach_run_file_handler.
 sys.path.insert(0, str(PROJECT_ROOT))
 from tools.logging_setup import get_logger, attach_run_file_handler, detach_handler  # noqa: E402
-from tools.claude_stage import run_claude_and_log_cost, run_subprocess_checked, _atomic_write_json  # noqa: E402
+from tools.claude_stage import (  # noqa: E402
+    run_claude_and_log_cost,
+    run_subprocess_checked,
+    _atomic_write_json,
+    research_timeout,
+    next_leg_action,
+    looks_timed_out,
+    looks_rate_limited_err,
+    rate_limit_wait_seconds,
+    review_timeout,
+    count_reviewable_reports,
+    RATE_LIMIT_MAX_WAITS,
+    RESEARCH_MAX_LEGS,
+    REVIEW_MAX_LEGS,
+)
 logger = get_logger("zwiad.bot")
 
 MY_GUILD = discord.Object(id=GUILD_ID)
@@ -949,13 +963,13 @@ async def cmd_scan(interaction: discord.Interaction):
         if not scan_ok:
             scanner_output = run_dir / "scanner-output.json"
             scanner_deduped = run_dir / "scanner-deduped.json"
-            scanner_routing = run_dir / "scanner-routing.json"
-            # If the orchestrator already produced both deduped findings and the
-            # routing review file before exiting non-zero, recovery is unnecessary
+            # If the orchestrator already produced deduped findings and wrote its
+            # completion marker before exiting non-zero, recovery is unnecessary
             # — the deterministic steps are done. Just treat the scan as ok.
-            if scanner_deduped.exists() and scanner_routing.exists():
+            # (Routing is no longer an orchestrator step; it runs below.)
+            if scanner_deduped.exists() and (run_dir / "scan-complete.marker").exists():
                 logger.warning(
-                    "scan exited with error but deduped+routing already exist; treating as recovered run_id=%s",
+                    "scan exited with error but deduped+marker already exist; treating as recovered run_id=%s",
                     run_id,
                 )
                 scan_ok = True
@@ -988,6 +1002,34 @@ async def cmd_scan(interaction: discord.Interaction):
         elif scan_cost > 0:
             logger.info("scan cost run_id=%s usd=%.4f", run_id, scan_cost)
             await channel.send(f"Scan cost: **${scan_cost:.4f}**")
+
+        # Routing (cluster classify + NEW_REPORT/MERGE/APPEND_SOURCE) runs here
+        # in the bot, NOT inside the orchestrator: route-findings.py spawns
+        # nested `claude -p` calls, and a non-interactive orchestrator's Bash
+        # tool cannot self-approve that recursive invocation — it silently
+        # stalls (the same failure run-reviewer.sh had before it was hoisted).
+        # Best-effort: Mode 2 defaults findings to NEW_REPORT when
+        # scanner-routing.json is absent, so a routing failure must not fail
+        # the scan — but it is reported loudly because that default risks
+        # filing duplicate reports.
+        if (run_dir / "scanner-deduped.json").exists():
+            for route_cmd, label in [
+                (["python3", "pipeline/scripts/build-clusters-state.py"], "build-clusters"),
+                (["python3", "pipeline/scripts/route-findings.py", str(run_dir)], "route-findings"),
+            ]:
+                # Routing makes up to two 120s-bounded claude calls per finding.
+                route_ok, route_err = await asyncio.to_thread(
+                    run_subprocess_checked, route_cmd, PROJECT_ROOT, True, 7200,
+                )
+                if not route_ok:
+                    logger.warning(
+                        "scan routing step %s failed run_id=%s: %s", label, run_id, route_err[:200]
+                    )
+                    await channel.send(
+                        f"Routing step `{label}` failed for `{run_id}` — findings will default "
+                        f"to NEW_REPORT at research time (duplicate risk). {route_err[:200]}"
+                    )
+                    break
         latest_run_id = run_id
 
         all_findings = load_findings(run_id, us_only=False)
@@ -1307,13 +1349,21 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
         logger.info("research starting run_id=%s findings=%d remaining=%d estimated_usd=%.2f",
                     run_id, len(findings), remaining, estimated_cost)
 
-        def _run_research_phase():
+        def _count_done() -> int:
+            return sum(
+                1 for f_ in findings
+                if (run_dir / f"researcher-{f_.get('id','')}.json").exists()
+            )
+
+        def _run_research_leg(todo: int):
             prompt = (
-                f"Research phase for run {run_id}. Process approved findings from "
-                f"pipeline/runs/{run_id}/scanner-approved.json. "
-                f"Follow Mode 2 (research-only) of the orchestrator instructions: researcher "
-                f"per finding (skip findings whose researcher-{{id}}.json already exists), "
-                f"then write research-complete.marker. Do NOT invoke reviewer or categorizer."
+                f"Run Mode 2 (research-only) for run {run_id}, exactly as specified in "
+                f"your instructions. Process approved findings from "
+                f"pipeline/runs/{run_id}/scanner-approved.json: researcher per finding "
+                f"(skip findings whose researcher-{{id}}.json already exists), then write "
+                f"research-complete.marker and stop. The scope of this invocation is "
+                f"researcher outputs only; review and categorization run in a later, "
+                f"separate invocation."
             )
             cmd = [
                 "claude", "-p",
@@ -1321,20 +1371,82 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
                 "--output-format", "json",
                 "--permission-mode", "acceptEdits",
                 "--max-turns", "200",
-                "--max-budget-usd", f"{max(5.0, remaining * 3.0):.2f}",
+                "--max-budget-usd", f"{max(5.0, todo * 3.0):.2f}",
                 prompt,
             ]
-            return run_claude_and_log_cost(cmd, run_id, "research", cwd=PROJECT_ROOT, timeout=5400)
+            return run_claude_and_log_cost(
+                cmd, run_id, "research", cwd=PROJECT_ROOT, timeout=research_timeout(todo),
+            )
 
-        ok, err, actual_cost = await asyncio.to_thread(_run_research_phase)
-        if not ok:
-            await channel.send(f"Research phase FAILED for `{run_id}` — {err}")
-            return
-        if actual_cost > 0:
-            logger.info("research cost run_id=%s usd=%.4f", run_id, actual_cost)
+        # One `claude -p` researches findings sequentially, so a single
+        # invocation can run out of clock on a large batch. Researcher outputs
+        # are written per finding and skipped on resume, so a cut-short leg is
+        # continued rather than surfaced as a failure.
+        total_cost = 0.0
+        legs = 0
+        rl_waits = 0
+        action, reason, last_err = "continue", "", ""
+
+        while True:
+            done_before = _count_done()
+            todo = len(findings) - done_before
+            if todo <= 0:
+                action, reason = "complete", "every finding has researcher output"
+                break
+
+            legs += 1
+            ok, err, leg_cost = await asyncio.to_thread(_run_research_leg, todo)
+            total_cost += leg_cost
+            done_after = _count_done()
+            marker_exists = (run_dir / "research-complete.marker").exists()
+
+            # Usage/session limits lift at a known reset time — wait it out and
+            # resume instead of stopping the run (resume is idempotent). Waiting
+            # legs don't count against the leg budget.
+            if not ok and not marker_exists and looks_rate_limited_err(err):
+                wait = rate_limit_wait_seconds(err, rl_waits)
+                if wait is not None:
+                    rl_waits += 1
+                    legs -= 1
+                    logger.warning(
+                        "research rate-limited run_id=%s; auto-resuming in %ds (wait %d/%d)",
+                        run_id, wait, rl_waits, RATE_LIMIT_MAX_WAITS,
+                    )
+                    await channel.send(
+                        f"Research for `{run_id}` hit a usage limit — auto-resuming in "
+                        f"~{max(1, wait // 60)} min (wait {rl_waits}/{RATE_LIMIT_MAX_WAITS})."
+                    )
+                    await asyncio.sleep(wait)
+                    continue
+
+            action, reason = next_leg_action(
+                ok=ok,
+                timed_out=looks_timed_out(err),
+                done_before=done_before,
+                done_after=done_after,
+                marker_exists=marker_exists,
+                legs_used=legs,
+            )
+            logger.info(
+                "research leg=%d run_id=%s done=%d/%d ok=%s action=%s reason=%s",
+                legs, run_id, done_after, len(findings), ok, action, reason,
+            )
+            if not ok:
+                last_err = err
+
+            if action != "continue":
+                break
+
             await channel.send(
-                f"Research cost: **${actual_cost:.4f}** "
-                f"(estimated ${estimated_cost:.2f})"
+                f"Research for `{run_id}`: **{done_after}/{len(findings)}** findings done "
+                f"— continuing (leg {legs + 1} of at most {RESEARCH_MAX_LEGS})."
+            )
+
+        if total_cost > 0:
+            logger.info("research cost run_id=%s usd=%.4f legs=%d", run_id, total_cost, legs)
+            await channel.send(
+                f"Research cost: **${total_cost:.4f}** "
+                f"(estimated ${estimated_cost:.2f}, {legs} leg(s))"
             )
 
         research_complete = (run_dir / "research-complete.marker").exists()
@@ -1346,14 +1458,15 @@ async def cmd_research(interaction: discord.Interaction, run_id: str = None):
                 f"output(s) written. Run `/review run_id:{run_id}` to verify and categorize."
             )
         else:
-            error_log = run_dir / "error.log"
+            error_log = run_dir / "research-error.log"
             tail = ""
             if error_log.exists():
                 tail = error_log.read_text()[-500:]
             await channel.send(
-                f"Research phase ended without research-complete.marker for `{run_id}`. "
-                f"{len(researcher_files)} researcher output(s) on disk. "
-                f"You can re-run `/research` (idempotent — skips done findings).\n"
+                f"Research phase stopped for `{run_id}` — {reason}. "
+                f"**{_count_done()}/{len(findings)}** findings have researcher output on disk. "
+                f"Re-run `/research run_id:{run_id}` to continue (idempotent — skips done findings)."
+                + (f"\n{last_err}" if last_err else "")
                 + (f"```\n{tail}\n```" if tail else "")
             )
     finally:
@@ -1393,7 +1506,14 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
     try:
         run_dir = RUNS_DIR / run_id
         research_marker = run_dir / "research-complete.marker"
-        researcher_files = sorted(run_dir.glob("researcher-*.json"))
+        # Exclude researcher-revision-r*.json: those are per-round artifacts of
+        # the review loop itself, not reports to review. run-reviewer.sh skips
+        # them the same way, so counting them here only inflated the figure
+        # reported to the user (56 vs the real 37 on run 2026-07-25T18-29-52).
+        researcher_files = sorted(
+            p for p in run_dir.glob("researcher-*.json")
+            if not p.name.startswith("researcher-revision-")
+        )
 
         if not research_marker.exists() and not researcher_files:
             await interaction.response.send_message(
@@ -1408,82 +1528,218 @@ async def cmd_review(interaction: discord.Interaction, run_id: str = None):
                 f"Writing marker now."
             )
             research_marker.write_text("RESEARCH_COMPLETE\n")
-        else:
+        # Reports the reviewer will actually walk -- NOT the researcher file
+        # count. Findings skipped as duplicates write an output with
+        # reports: [], so the file count overstates the work (37 files vs 29
+        # real reports on run 2026-07-25T18-29-52) and would leave the resume
+        # loop below chasing reports that can never be reviewed.
+        total_reports = count_reviewable_reports(run_dir)
+
+        if research_marker.exists():
             await interaction.response.send_message(
                 f"**Starting review phase for `{run_id}`** — "
-                f"{len(researcher_files)} report(s) to verify. Delegating to orchestrator Mode 4."
+                f"{total_reports} report(s) to verify. Running reviewer + categorizer directly."
             )
 
         channel = bot.get_channel(CHANNEL_ID)
-        logger.info("review starting run_id=%s reports=%d", run_id, len(researcher_files))
+        logger.info("review starting run_id=%s reports=%d files=%d",
+                    run_id, total_reports, len(researcher_files))
 
-        def _run_review_phase():
-            prompt = (
-                f"Review phase for run {run_id}. Mode 4 of the orchestrator instructions: "
-                f"verify research-complete.marker exists, run reviewer, check escalations, "
-                f"run categorizer if no escalations, and write pipeline-complete.marker. "
-                f"Do NOT re-invoke researcher."
+        # Run the reviewer stage by invoking run-reviewer.sh DIRECTLY from the
+        # bot (a plain process), NOT via the `claude -p` orchestrator. The
+        # script spawns nested `claude -p --agent reviewer` subprocesses; a
+        # non-interactive orchestrator's Bash tool cannot self-approve that
+        # recursive claude invocation and silently halts (this is what stalled
+        # run 2026-07-17T13-54-18). Launched as a bot subprocess, the nested
+        # reviewers are top-level claude sessions — exactly how the bot already
+        # launches the scanner/researcher — so they run non-interactively.
+        # (Per-reviewer costs are not itemized into cost.json when run this way.)
+        def _run_reviewer_script(todo: int):
+            return run_subprocess_checked(
+                ["bash", "pipeline/scripts/run-reviewer.sh", run_id],
+                PROJECT_ROOT,
+                timeout=review_timeout(todo),
             )
-            cmd = [
-                "claude", "-p",
-                "--agent", "orchestrator",
-                "--output-format", "json",
-                "--permission-mode", "acceptEdits",
-                "--max-turns", "200",
-                "--max-budget-usd", f"{max(5.0, len(researcher_files) * 2.0):.2f}",
-                prompt,
-            ]
-            return run_claude_and_log_cost(cmd, run_id, "review", cwd=PROJECT_ROOT, timeout=5400)
 
-        ok, err, actual_cost = await asyncio.to_thread(_run_review_phase)
-        if not ok:
-            await channel.send(f"Review phase FAILED for `{run_id}` — {err}")
+        def _count_review_failed() -> int:
+            """Gates whose reviewer never returned a verdict (review_failed:true).
+
+            These reports were never fact-checked — typically the nested
+            reviewer hit a usage limit — and run-reviewer.sh re-reviews them on
+            resume, so they must not count as terminal here.
+            """
+            n = 0
+            for gate_path in run_dir.glob("escalation-*.json"):
+                gate = _read_run_json(gate_path)
+                if gate and gate.get("review_failed"):
+                    n += 1
+            return n
+
+        def _count_reviewed() -> int:
+            """Reports with a genuinely terminal result checkpointed by
+            run-reviewer.sh: checkpointed reviews minus review_failed gates."""
+            checkpoint = _read_run_json(run_dir / "reviewer-output.json")
+            if not checkpoint:
+                return 0
+            reviews = len(checkpoint.get("data", {}).get("reviews", []))
+            return max(0, reviews - _count_review_failed())
+
+        # Same leg pattern as research: run-reviewer.sh checkpoints after every
+        # finding and skips terminal ones on resume, so a leg cut short by the
+        # clock is continued rather than reported as a failure.
+        rev_ok, rev_err, legs = True, "", 0
+        rl_waits = 0
+        action, reason = "complete", ""
+
+        while True:
+            done_before = _count_reviewed()
+            todo = total_reports - done_before
+            if todo <= 0:
+                action, reason = "complete", "every report has a terminal result"
+                break
+
+            legs += 1
+            rev_ok, rev_err = await asyncio.to_thread(_run_reviewer_script, todo)
+            done_after = _count_reviewed()
+
+            action, reason = next_leg_action(
+                ok=rev_ok,
+                timed_out=looks_timed_out(rev_err),
+                done_before=done_before,
+                done_after=done_after,
+                marker_exists=done_after >= total_reports,
+                legs_used=legs,
+                max_legs=REVIEW_MAX_LEGS,
+            )
+            logger.info(
+                "review leg=%d run_id=%s reviewed=%d/%d ok=%s action=%s reason=%s",
+                legs, run_id, done_after, total_reports, rev_ok, action, reason,
+            )
+
+            # A leg that made no terminal progress but left review_failed gates
+            # means the nested reviewers died without verdicts — the classic
+            # signature of a usage limit (run-reviewer.sh itself exits 0). Wait
+            # and retry those reports instead of stopping; the resume path
+            # re-reviews review_failed gates. Bounded by the shared wait policy
+            # so a permanently-broken reviewer can't loop forever.
+            if action == "stop" and _count_review_failed() > 0:
+                wait = rate_limit_wait_seconds(rev_err, rl_waits)
+                if wait is not None:
+                    rl_waits += 1
+                    legs -= 1
+                    logger.warning(
+                        "review run_id=%s: %d report(s) never fact-checked; auto-retrying in %ds (wait %d/%d)",
+                        run_id, _count_review_failed(), wait, rl_waits, RATE_LIMIT_MAX_WAITS,
+                    )
+                    await channel.send(
+                        f"Review for `{run_id}`: {_count_review_failed()} report(s) were never "
+                        f"fact-checked (reviewer likely hit a usage limit) — auto-retrying in "
+                        f"~{max(1, wait // 60)} min (wait {rl_waits}/{RATE_LIMIT_MAX_WAITS})."
+                    )
+                    await asyncio.sleep(wait)
+                    continue
+
+            if action != "continue":
+                break
+
+            await channel.send(
+                f"Review for `{run_id}`: **{done_after}/{total_reports}** reports done "
+                f"— continuing (leg {legs + 1} of at most {REVIEW_MAX_LEGS})."
+            )
+
+        if action == "stop":
+            await channel.send(
+                f"Review phase stopped for `{run_id}` — {reason}. "
+                f"**{_count_reviewed()}/{total_reports}** reports have a terminal result saved. "
+                f"Re-run `/review run_id:{run_id}` to continue from there."
+                + (f"\nLast error: {rev_err}" if rev_err else "")
+            )
             return
-        if actual_cost > 0:
-            logger.info("review cost run_id=%s usd=%.4f", run_id, actual_cost)
-            await channel.send(f"Review cost: **${actual_cost:.4f}**")
 
-        pipeline_complete = (run_dir / "pipeline-complete.marker").exists()
+        reviewer_output = run_dir / "reviewer-output.json"
+        if not reviewer_output.exists():
+            await channel.send(
+                f"Review phase FAILED for `{run_id}` — reviewer produced no reviewer-output.json. "
+                f"Check pipeline/runs/{run_id}/."
+            )
+            return
+
         has_escalations = (run_dir / "has-escalations.marker").exists() or any(
             run_dir.glob("escalation-*.json")
         )
-        reviewer_output = run_dir / "reviewer-output.json"
 
-        if reviewer_output.exists():
-            rev_data = _read_run_json(reviewer_output)
-            if rev_data is None:
-                logger.warning("Could not read reviewer-output.json for %s", run_id)
-            else:
-                reviews = rev_data.get("data", {}).get("reviews", [])
-                verified = sum(1 for r in reviews if r.get("status") == "verified")
-                escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
-                await channel.send(
-                    f"**Review stats:** {verified} verified, {escalated} escalated."
-                )
+        rev_data = _read_run_json(reviewer_output)
+        if rev_data is None:
+            logger.warning("Could not read reviewer-output.json for %s", run_id)
+        else:
+            reviews = rev_data.get("data", {}).get("reviews", [])
+            verified = sum(1 for r in reviews if r.get("status") == "verified")
+            escalated = sum(1 for r in reviews if r.get("status") == "needs-human-review")
+            await channel.send(
+                f"**Review stats:** {verified} verified, {escalated} escalated."
+            )
 
-        if has_escalations and not pipeline_complete:
+        if has_escalations:
             await channel.send(
                 f"**Pipeline paused for `{run_id}`** — escalations need human review. "
                 "Resolve escalations, then run `/review` again."
             )
             return
 
-        if pipeline_complete:
-            filed = find_run_reports(run_id)
-            await channel.send(
-                f"**Pipeline complete for `{run_id}`!** "
-                f"{len(filed)} report(s) filed. Use `/results` to view them."
+        # No escalations: file the verified reports with the categorizer, run
+        # DIRECTLY as a bot subprocess (top-level claude, like the scanner) so we
+        # never route through the orchestrator's Bash tool. The categorizer only
+        # uses Read/Write/Glob/Bash (no nested claude), then we validate its
+        # output and write the pipeline-complete marker ourselves (orchestrator
+        # Mode 4 Steps 4-5).
+        await channel.send("Review passed with no escalations — filing reports (categorizer)...")
+
+        def _run_categorizer():
+            prompt = (
+                f"Categorize verified reports. "
+                f"Reviewer output: pipeline/runs/{run_id}/reviewer-output.json. "
+                f"Pipeline run ID: {run_id}. "
+                f"Write output to pipeline/runs/{run_id}/categorizer-output.json"
             )
-        else:
-            error_log = run_dir / "error.log"
-            tail = ""
-            if error_log.exists():
-                tail = error_log.read_text()[-500:]
+            cmd = [
+                "claude", "-p",
+                "--agent", "categorizer",
+                "--output-format", "json",
+                "--permission-mode", "acceptEdits",
+                "--max-turns", "80",
+                "--max-budget-usd", "10.00",
+                prompt,
+            ]
+            return run_claude_and_log_cost(cmd, run_id, "categorize", cwd=PROJECT_ROOT, timeout=3600)
+
+        cat_ok, cat_err, cat_cost = await asyncio.to_thread(_run_categorizer)
+        if cat_cost > 0:
+            logger.info("categorize cost run_id=%s usd=%.4f", run_id, cat_cost)
+            await channel.send(f"Categorize cost: **${cat_cost:.4f}**")
+        if not cat_ok:
+            await channel.send(f"Categorize phase FAILED for `{run_id}` — {cat_err}")
+            return
+
+        categorizer_output = run_dir / "categorizer-output.json"
+        cat_valid, cat_valid_err = await asyncio.to_thread(
+            run_subprocess_checked,
+            ["bash", "pipeline/scripts/validate-handoff.sh", "categorizer", str(categorizer_output)],
+            PROJECT_ROOT,
+        )
+        if not cat_valid:
             await channel.send(
-                f"Review phase ended without pipeline-complete.marker for `{run_id}`. "
-                f"Check pipeline/runs/{run_id}/ for details.\n"
-                + (f"```\n{tail}\n```" if tail else "")
+                f"Categorize phase produced invalid output for `{run_id}` — {cat_valid_err}. "
+                f"Not marking pipeline complete."
             )
+            return
+
+        # Orchestrator Mode 4 Step 5: write the pipeline-complete marker.
+        (run_dir / "pipeline-complete.marker").write_text("PIPELINE_COMPLETE\n")
+        filed = find_run_reports(run_id)
+        await channel.send(
+            f"**Pipeline complete for `{run_id}`!** "
+            f"{len(filed)} report(s) filed. Use `/results` to view them."
+        )
     finally:
         detach_handler(audit_handler)
         _release_run(run_id)
