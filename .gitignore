@@ -1,1 +1,15 @@
 .env
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Raw email inputs (fetched locally, not versioned)
+input/*
+!input/.gitkeep
+
+# Per-run pipeline artifacts (ephemeral debug state)
+pipeline/runs/
