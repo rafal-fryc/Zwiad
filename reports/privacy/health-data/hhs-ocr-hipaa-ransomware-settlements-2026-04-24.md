@@ -1,0 +1,1 @@
+../../cybersecurity/enforcement-actions/hhs-ocr-hipaa-ransomware-settlements-2026-04-24.md

@@ -1,0 +1,142 @@
+---
+title: "DC Circuit Upholds DMCA Anti-Circumvention Provisions, Rejecting First Amendment Challenge in Green v. DOJ"
+date: 2024-08-19
+jurisdiction: "Federal"
+category: "privacy"
+development_type: "court-decision"
+finding_id: "SCAN-20240819-025"
+topic_key: "district-of-columbia-59b800dd-2024"
+topic_type: "enforcement"
+topic_key_confidence: "low"
+first_reported: 2024-08-19
+last_updated: 2024-08-19
+status_history: []
+cluster: "DMCA Section 1201 Anti-Circumvention: First Amendment Litigation (Green v. DOJ)"
+cluster_slug: "dmca-section-1201-anti-circumvention-litigation"
+---
+
+# DC Circuit Upholds DMCA Anti-Circumvention Provisions, Rejecting First Amendment Challenge in Green v. DOJ
+
+**Jurisdiction:** Federal (D.C. Circuit) | **Category:** Privacy / Copyright | **Date:** August 2, 2024
+
+## Executive Summary [HIGH confidence]
+
+On August 2, 2024, the United States Court of Appeals for the District of Columbia Circuit issued its decision in [*Green v. United States Department of Justice*, No. 23-5159](https://law.justia.com/cases/federal/appellate-courts/cadc/23-5159/23-5159-2024-08-02.html), rejecting a constitutional challenge to Section 1201 of the Digital Millennium Copyright Act (DMCA). The court held that the DMCA's anti-circumvention and anti-trafficking provisions regulate conduct rather than speech, and thus do not implicate the First Amendment. The court also affirmed that the Librarian of Congress's triennial rulemaking authority — through which limited exemptions to circumvention may be granted — does not constitute an unconstitutional prior restraint on speech. This decision concludes an eight-year legal campaign by the Electronic Frontier Foundation (EFF) to have Section 1201 declared facially unconstitutional, and firmly establishes the current legal framework governing digital rights management (DRM) circumvention across the United States.
+
+## Background [HIGH confidence]
+
+### The Digital Millennium Copyright Act and Section 1201
+
+The DMCA, enacted in 1998, added Chapter 12 to Title 17 of the United States Code. [Section 1201](https://www.law.cornell.edu/uscode/text/17/1201) — the anti-circumvention provision — makes it unlawful to "circumvent a technological measure that effectively controls access to" a copyrighted work. The statute separately prohibits trafficking in technology or services that facilitate circumvention. These provisions were enacted to implement the World Intellectual Property Organization (WIPO) Copyright Treaty and to protect copyright holders in the digital age.
+
+Section 1201 draws a distinction between two types of technological measures: "access controls" (measures that restrict access to a work) and "copy controls" (measures that restrict copying or other uses of a work). Circumventing access controls is directly prohibited; circumventing copy controls is not independently illegal, though trafficking in tools to circumvent either type of measure is prohibited.
+
+Congress built a safety valve into Section 1201: the Librarian of Congress, on the recommendation of the Register of Copyrights, may grant temporary three-year exemptions for specific classes of works where users would otherwise be adversely affected in their ability to make non-infringing uses. This rulemaking occurs on a triennial cycle and requires petitioners to demonstrate both a concrete need and the absence of viable alternatives.
+
+### Origins of the Green Litigation
+
+EFF filed *Green v. DOJ* in July 2016 in the United States District Court for the District of Columbia on behalf of two plaintiffs:
+
+- **Dr. Matthew Green**, a cryptographer and computer security researcher at the Johns Hopkins Information Security Institute, whose work on communications systems, financial transaction devices, and medical hardware was chilled by Section 1201's legal risk; and
+- **Andrew "bunnie" Huang**, an electrical engineer and inventor who sought to develop a device capable of recording and analyzing encrypted video streams for legitimate journalistic and research purposes.
+
+Both plaintiffs argued that Section 1201 prevented them from engaging in work they contended was protected by the First Amendment and by the doctrine of fair use under copyright law.
+
+### District Court Phase (2016–2019)
+
+In June 2019, District Judge Emmet G. Sullivan partially denied the government's motion for summary judgment. Judge Sullivan held that the DMCA did interfere with the specific activities Green and Huang intended to perform — activities with First Amendment dimensions. However, the district court ultimately dismissed the facial overbreadth challenge, finding that the statute's legitimate applications outweighed any unconstitutional applications.
+
+### Initial D.C. Circuit Round (2022)
+
+The D.C. Circuit previously addressed the case in 2022, issuing a ruling that the [EFF characterized as evading important questions](https://www.eff.org/id/deeplinks/2022/12/dc-circuit-evades-important-questions-disappointing-ruling-section-1201-dmca). The 2022 opinion left several constitutional issues unresolved, including the facial overbreadth challenge and the prior restraint question, setting the stage for the 2024 remand and ultimate ruling.
+
+## Detailed Analysis [HIGH confidence]
+
+### The August 2, 2024 Opinion
+
+The D.C. Circuit's August 2, 2024 opinion in *Green v. DOJ* addressed two discrete constitutional theories:
+
+#### 1. Facial Overbreadth Challenge
+
+Plaintiffs argued that Section 1201 is unconstitutionally overbroad because it restricts a substantial amount of protected speech and fair use activity. The court rejected this argument by applying the standard overbreadth analysis: a statute is facially unconstitutional only if the number of its unconstitutional applications substantially outweighs its legitimate applications.
+
+The court held that Section 1201 primarily regulates **conduct** — the act of bypassing a technological lock — rather than speech or expressive activity. Because the provision targets the circumvention act itself rather than any communicative dimension of that act, First Amendment scrutiny is not implicated in the first instance. The court drew an analogy to routine prohibitions on trespass: circumventing a digital access control is more akin to picking a lock than to delivering a message.
+
+The court further found that the statute's legitimate applications — principally the prevention of digital piracy — far outweigh any incidental burden on constitutionally protected conduct. Accordingly, the facial overbreadth claim was rejected.
+
+#### 2. Prior Restraint on the Triennial Rulemaking
+
+Plaintiffs' second argument was more novel: they contended that the triennial exemption process under Section 1201(a)(1)(B)–(E) constitutes a prior restraint on speech because it requires advance government permission before any circumvention may lawfully occur. Under prior restraint doctrine, a licensing scheme that gives government officials unbounded discretion to suppress speech is presumptively unconstitutional.
+
+The court rejected this theory as well. It held that the DMCA's triennial rulemaking is **not a speech-licensing scheme**. The exemption process determines whether certain non-infringing *uses* of copyrighted works may proceed; it does not regulate the expression of ideas. The court noted that the process does not condition any speaker's ability to convey a message on government approval. Rather, it addresses whether particular conduct (circumvention) is lawful in specific circumstances.
+
+The court further observed that alternative avenues for lawful access to copyrighted works remain available — users can obtain authorized licenses, seek public domain works, or rely on content made available through non-DRM-protected channels. This availability of alternatives is inconsistent with the paradigmatic prior restraint, which forecloses expression entirely absent government approval.
+
+### As-Applied Claims (History and Disposition)
+
+The 2024 ruling addressed facial challenges only. The as-applied claims of the two original plaintiffs had been resolved earlier in the litigation:
+
+- **Dr. Green's as-applied claim** was mooted after the Librarian of Congress granted a security research exemption in a prior triennial rulemaking, giving Green authorization to conduct the research at issue.
+- **Huang's as-applied claim** was dismissed by the district court after finding that the device he proposed — a hardware module designed to record and analyze HDCP-encrypted video — would likely enable widespread copyright infringement, and therefore did not qualify for First Amendment protection as a predominantly expressive activity.
+
+### The 2024 Triennial Rulemaking: Parallel Context
+
+Contemporaneous with the Green litigation's conclusion, the Copyright Office completed its [Ninth Triennial Section 1201 Rulemaking](https://www.copyright.gov/1201/2024/), with a [final rule published October 28, 2024](https://www.federalregister.gov/documents/2024/10/28/2024-24563/exemption-to-prohibition-on-circumvention-of-copyright-protection-systems-for-access-control). The Office received 11 new exemption petitions and 37 renewal petitions. Notable outcomes include:
+
+- Renewal of all previously granted exemptions.
+- A new exemption for computer programs to support good-faith AI trustworthiness research.
+- Denial of a proposed exemption to allow circumvention of AI platform access controls for bias-detection security research (the Weiss petition).
+
+The 2024 rulemaking exemptions remain in effect until October 28, 2027. The Copyright Office is expected to initiate the next triennial proceeding in June 2026.
+
+## Impact Assessment [MEDIUM confidence]
+
+### For Security Researchers and Academics
+
+The Green ruling closes the constitutional path to broadly exempting security research from Section 1201 liability. Researchers whose work requires circumventing access controls — including cryptographers, vulnerability researchers, and hardware security analysts — must continue to rely on the triennial exemption process, seek case-by-case authorization, or risk civil and criminal liability under Section 1201.
+
+The current triennial exemption does include a security research carve-out, renewed and expanded over successive rulemaking cycles. However, the EFF and digital rights advocates have consistently criticized the process for its high evidentiary burden and the three-year expiration cycle, which requires researchers to re-petition even for long-established, uncontroversial activities.
+
+### For Technology Companies and DRM Providers
+
+For companies that deploy technological protection measures — streaming services, software publishers, game developers, hardware manufacturers — the decision reinforces that Section 1201 remains a powerful tool to protect their DRM implementations from circumvention and trafficking in circumvention tools. Copyright holders may bring civil actions under Section 1201(c), and the government may pursue criminal enforcement under Section 1201(a)(1) for willful circumvention for commercial advantage.
+
+The ruling also confirms that the triennial rulemaking process does not undermine the legal enforceability of Section 1201; exemptions granted through that process are narrow and time-limited, and they do not affect the statute's core prohibitions.
+
+### For the Broader Digital Rights Landscape
+
+The [EFF's reaction](https://www.eff.org/cases/green-v-us-department-justice) to the decision was critical: the organization characterized the ruling as leaving intact "a law that has stifled speech and innovation for decades and forced researchers, advocates, teachers, and tinkerers to beg for government permission to do their work." EFF noted that many issues were "left to be determined another day," suggesting continued litigation avenues may exist in future as-applied challenges or in other circuits.
+
+The [Association of American Publishers](https://publishers.org/news/dc-circuit-court-rejects-effs-challenge-to-dmca-confirms-symbiotic-relationship-of-copyright-law-and-free-expression/) and the [Entertainment Software Association](https://www.theesa.com/esa-statement-on-d-c-circuit-court-of-appeals-decision-in-green-v-department-of-justice/) welcomed the ruling, characterizing it as confirming the "symbiotic relationship" between copyright law and free expression and providing certainty for industry reliance on DMCA protections.
+
+The decision may also have implications for emerging technology disputes. The ongoing intersection of DMCA circumvention and AI systems — including challenges to DRM on training data used for generative AI — could generate new as-applied or facial challenges in the coming years, particularly as the Copyright Office continues to develop AI-related exemption precedents.
+
+## Action Items
+
+- **Security researchers and academics**: Identify and file renewal petitions in the next Copyright Office triennial rulemaking proceeding (expected to open June 2026) if existing exemptions cover your work. File new exemption petitions if your research falls outside currently granted exemptions. Document your exemption reliance as part of research protocols.
+- **DRM-dependent technology companies**: Confirm that existing technological protection measures meet the Section 1201 definition of "effectively controlling access." Review whether current DRM practices are adequately documented for enforcement purposes.
+- **Counsel advising security research programs**: Update engagement letters and institutional policies to reflect the confirmed legality of the triennial exemption framework and to note that facial constitutional challenges to Section 1201 have now been definitively rejected in the D.C. Circuit.
+- **Monitor next triennial cycle**: The Ninth Triennial exemptions (including the new AI trustworthiness research exemption) expire October 28, 2027. The Copyright Office is expected to open its Tenth Triennial proceeding in June 2026 — begin monitoring petition deadlines.
+- **Watch for Supreme Court certiorari petition**: EFF has not yet announced whether it will seek Supreme Court review. A cert petition would be a significant development to monitor, as other circuits have not yet addressed the Section 1201 facial overbreadth question.
+
+## Related Reports
+
+- [reports/privacy/litigation/federal-dc-circuit-thaler-ai-copyright-2025-03-18.md](reports/privacy/litigation/federal-dc-circuit-thaler-ai-copyright-2025-03-18.md) — Also a D.C. Circuit ruling addressing the boundaries of copyright protection in the digital and technology context (AI authorship vs. DRM circumvention).
+- [reports/privacy/litigation/new-york-dow-jones-perplexity-ai-copyright-2024-10-23.md](reports/privacy/litigation/new-york-dow-jones-perplexity-ai-copyright-2024-10-23.md) — Active copyright litigation involving DMCA claims in the AI/scraping context; Green v. DOJ's Section 1201 analysis is directly relevant to the DMCA anti-circumvention dimension of AI training data disputes.
+
+## Sources
+
+1. [Matthew Green v. DOJ, No. 23-5159 (D.C. Cir. Aug. 2, 2024) — Justia](https://law.justia.com/cases/federal/appellate-courts/cadc/23-5159/23-5159-2024-08-02.html) — Official case record with full opinion text on Justia.
+2. [17 U.S.C. § 1201 — Circumvention of Copyright Protection Systems (Cornell LII)](https://www.law.cornell.edu/uscode/text/17/1201) — Official statutory text of DMCA Section 1201.
+3. [Green v. U.S. Department of Justice — Electronic Frontier Foundation](https://www.eff.org/cases/green-v-us-department-justice) — EFF case page with full litigation history, party information, and EFF's assessment of the ruling.
+4. [DC Circuit Rejects First Amendment Challenge to the DMCA — Finnegan IP Updates](https://www.finnegan.com/en/insights/ip-updates/dc-circuit-court-rejects-first-amendment-challenge-to-the-dmca-and-the-librarian-of-congresss-rulemaking-authority.html) — Law firm analysis of the August 2024 ruling's key holdings.
+5. [DMCA Survives Another First Amendment Challenge — Finnegan (blog)](https://www.finnegan.com/en/insights/blogs/incontestable/dmca-survives-another-first-amendment-challenge.html) — Supplemental commentary on the ruling's implications for practitioners.
+6. [GREEN v. UNITED STATES DEPARTMENT OF JUSTICE (2024) — FindLaw](https://caselaw.findlaw.com/court/us-dc-circuit/116448806.html) — Caselaw summary and party information.
+7. [DC Circuit Evades Important Questions in Disappointing Ruling on Section 1201 of the DMCA (2022) — EFF](https://www.eff.org/id/deeplinks/2022/12/dc-circuit-evades-important-questions-disappointing-ruling-section-1201-dmca) — EFF's analysis of the 2022 interlocutory ruling, providing context for the 2024 final decision.
+8. [Ninth Triennial Section 1201 Proceeding, 2024 Cycle — U.S. Copyright Office](https://www.copyright.gov/1201/2024/) — Official Copyright Office page for the 2024 triennial rulemaking; includes petitions, hearings, and final rule.
+9. [Federal Register: Exemption to Prohibition on Circumvention of Copyright Protection Systems (Oct. 28, 2024)](https://www.federalregister.gov/documents/2024/10/28/2024-24563/exemption-to-prohibition-on-circumvention-of-copyright-protection-systems-for-access-control) — Official final rule publishing the Ninth Triennial Section 1201 exemptions.
+10. [DC Circuit Court Rejects EFF's Challenge to DMCA — Association of American Publishers](https://publishers.org/news/dc-circuit-court-rejects-effs-challenge-to-dmca-confirms-symbiotic-relationship-of-copyright-law-and-free-expression/) — Publisher industry perspective on the ruling.
+11. [ESA Statement on Green v. Department of Justice — Entertainment Software Association](https://www.theesa.com/esa-statement-on-d-c-circuit-court-of-appeals-decision-in-green-v-department-of-justice/) — Video game industry response welcoming the decision.
+12. [Digital Rights, Digital Wrongs: The DMCA Lives On — IP Update (McDermott Will & Emery)](https://www.ipupdate.com/2024/08/digital-rights-digital-wrongs-the-dmca-lives-on/) — Original alert from the finding's source publication summarizing the ruling.
+13. [Green (EFF) v. DOJ — Copyright Alliance](https://copyrightalliance.org/copyright-cases/green-v-u-s-dept-justice/) — Copyright holder advocacy perspective with case background.
+14. [Copyright Office Denies Proposed AI Security Research Exemption — IPWatchdog](https://ipwatchdog.com/2024/10/25/copyright-office-denies-proposed-ai-security-research-exemption-triennial-rulemaking-dmca/) — Analysis of the Weiss petition denial in the 2024 triennial rulemaking.

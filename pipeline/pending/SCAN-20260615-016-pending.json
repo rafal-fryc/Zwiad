@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20260615-016",
+  "original_path": "reports/ai-law/employment-ai/california-eo-n-6-26-ai-workforce-disruption-2026-05-21.md",
+  "proposed_topic": "ai-law",
+  "proposed_subcategory": "employment-ai",
+  "reason": "California EO N-6-26 on AI workforce disruption — employment-ai subcategory directory exists under reports/ai-law/ but employment-ai is not yet registered in pipeline/config/categories.json. Requires human confirmation to formally add employment-ai as a known ai-law subcategory."
+}

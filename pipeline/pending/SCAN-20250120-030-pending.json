@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20250120-030",
+  "original_path": "reports/privacy/litigation/california-perry-hudson-twilio-arbitration-estoppel-2025-01-20.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "litigation",
+  "reason": "Report covers a federal district court ruling on CIPA Section 631 wiretapping and equitable estoppel arbitration doctrine (Perry-Hudson v. Twilio, Inc.). The 'litigation' subcategory is not in the known privacy subcategories in categories.json. The reports/privacy/litigation/ directory already exists with many similar CIPA and privacy litigation reports. Human approval needed to add 'litigation' to known privacy subcategories in categories.json."
+}

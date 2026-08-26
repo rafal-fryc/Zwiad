@@ -12,6 +12,1600 @@
       "subject": "Understanding emerging digital litigation trends in the US",
       "from": "IAPP Daily Dashboard <publications@iapp.org>",
       "processed_at": "2026-04-13T22:26:29.862102+00:00"
+    },
+    "<44.43.26737.1EB1ED96@i-057e79f5e13044a3e.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-14T17-48-15",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-14T17:48:16.775941+00:00"
+    },
+    "<842680490.52248308.1776186435351@abmktmail-batch1a.marketo.org>": {
+      "first_seen_run": "2026-04-14T17-48-15",
+      "subject": "California's cybersecurity audit rule and its impact for class\r\n litigation",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-14T17:48:17.036363+00:00"
+    },
+    "lexology-archive:2024-05-07_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T01-17-06",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T01:19:58.062661+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 3,
+      "rejected_count": 54,
+      "dry_run": true
+    },
+    "lexology-archive:2024-05-13_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T01-20-24",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T01:23:29.124722+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 2,
+      "rejected_count": 60,
+      "dry_run": true
+    },
+    "lexology-archive:2024-03-08_SciTech-e-Merging-News.html": {
+      "first_seen_run": "2026-04-15T01-29-03",
+      "subject": "SciTech e-Merging News",
+      "from": "\"American Bar Association\" <aba@em.americanbar.org>",
+      "processed_at": "2026-04-15T01:29:04.157767+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 0,
+      "rejected_count": 0,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-16_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T05-07-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T05:38:24.318230+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 2,
+      "rejected_count": 45,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-29_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T08-21-23",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T08:46:23.648073+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 2,
+      "rejected_count": 38,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-31_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T09-57-38",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T10:17:06.989323+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 3,
+      "rejected_count": 63,
+      "dry_run": false
+    },
+    "lexology-archive:2024-06-03_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T10-17-06",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T10:55:27.957143+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 4,
+      "rejected_count": 70,
+      "dry_run": false
+    },
+    "lexology-archive:2024-04-17_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T11-24-15",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T11:35:27.660561+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 7,
+      "rejected_count": 59,
+      "dry_run": false
+    },
+    "lexology-archive:2024-04-22_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T11-35-27",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T11:47:39.224439+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 6,
+      "rejected_count": 70,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-14_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T11-47-39",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T12:00:47.741766+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 10,
+      "rejected_count": 45,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-15_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T12-00-47",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T12:09:58.855527+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 7,
+      "rejected_count": 55,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-20_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T12-09-58",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T12:23:24.998864+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 10,
+      "rejected_count": 44,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-22_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T12-23-25",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T12:36:05.042636+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 13,
+      "rejected_count": 57,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-23_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T12-36-05",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T13:01:12.035184+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 7,
+      "rejected_count": 46,
+      "dry_run": false
+    },
+    "lexology-archive:2024-06-20_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T15-49-04",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T15:51:35.378095+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 0,
+      "rejected_count": 50,
+      "dry_run": false
+    },
+    "lexology-archive:2024-11-07_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T19-27-02",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T19:29:28.048856+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 0,
+      "rejected_count": 50,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-28_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T20-49-39",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T21:29:25.522698+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 11,
+      "rejected_count": 52,
+      "dry_run": false
+    },
+    "lexology-archive:2024-05-30_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T21-29-25",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T22:08:25.627676+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 6,
+      "rejected_count": 49,
+      "dry_run": false
+    },
+    "lexology-archive:2024-06-04_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T22-08-25",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T22:19:30.755137+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 5,
+      "rejected_count": 63,
+      "dry_run": false
+    },
+    "lexology-archive:2024-06-05_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-15T22-19-30",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-15T23:23:57.612055+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 6,
+      "rejected_count": 51,
+      "dry_run": false
+    },
+    "lexology-archive:2024-07-23_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T00-59-06",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T02:08:06.452086+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 6,
+      "rejected_count": 74,
+      "dry_run": false
+    },
+    "lexology-archive:2024-07-24_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T02-08-06",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T02:48:57.475032+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 5,
+      "rejected_count": 47,
+      "dry_run": false
+    },
+    "lexology-archive:2024-07-25_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T02-48-57",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T03:14:50.270719+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 6,
+      "rejected_count": 52,
+      "dry_run": false
+    },
+    "lexology-archive:2024-10-18_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T05-59-48",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T06:49:00.497781+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 3,
+      "rejected_count": 54,
+      "dry_run": false
+    },
+    "lexology-archive:2024-10-21_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T06-49-00",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T07:46:16.636431+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 4,
+      "rejected_count": 49,
+      "dry_run": false
+    },
+    "lexology-archive:2024-10-22_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T07-46-16",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T08:24:26.685380+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 5,
+      "rejected_count": 60,
+      "dry_run": false
+    },
+    "lexology-archive:2024-10-23_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T08-24-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T08:59:34.186942+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 3,
+      "rejected_count": 54,
+      "dry_run": false
+    },
+    "lexology-archive:2025-01-14_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T10-57-32",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T11:47:47.357711+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 4,
+      "rejected_count": 58,
+      "dry_run": false
+    },
+    "lexology-archive:2025-01-15_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T11-47-47",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T13:25:02.691372+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 7,
+      "rejected_count": 70,
+      "dry_run": false
+    },
+    "lexology-archive:2025-01-16_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T13-25-02",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T13:26:31.802794+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 0,
+      "rejected_count": 28,
+      "dry_run": false
+    },
+    "lexology-archive:2025-03-10_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T15-23-10",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T15:26:18.517904+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 0,
+      "rejected_count": 60,
+      "dry_run": false
+    },
+    "lexology-archive:2025-04-07_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-16T16-59-23",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-16T17:02:52.480770+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 0,
+      "rejected_count": 65,
+      "dry_run": false
+    },
+    "<34.47.24351.67D6FD96@i-07e6a8d1d4c5128bd.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-19T23:19:18.383232+00:00"
+    },
+    "<1357783354.14481371.1776274605599@abmktmail-batch1o.marketo.org>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "European Commission's age verification app 'technically ready,'\r\n rollout to come",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-19T23:19:18.666732+00:00"
+    },
+    "<524582517.16560269.1776283290822@abmktmail-batch1a.marketo.org>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "New AI model sparks alarm as governments brace for AI-driven\r\n cyberattacks",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-19T23:19:19.005822+00:00"
+    },
+    "<1815fb39-65a4-4ccd-819c-3e37c7bfcee1@atl1s11mta1073.xt.local>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "Quick Tip #2:  Keep track of important articles with My Lexology",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-04-19T23:19:19.275840+00:00"
+    },
+    "<A4.D0.49200.2DDB0E96@i-0c4d8db310bfdc9a6.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-19T23:19:19.606871+00:00"
+    },
+    "<339314859.16570520.1776363473026@abmktmail-batch1h.marketo.org>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "European Commissioner McGrath discusses digital simplification,\r\n upcoming Digital Fairness Act proposal",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-19T23:19:19.902623+00:00"
+    },
+    "<69e5a6b8eeeacba3f66a72502ff6c665b7972eae-20261313-111311940@google.com>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "\r\n Business Tip: Show up on Google Search and Maps",
+      "from": "Google Community Team <googlecommunityteam-noreply@google.com>",
+      "processed_at": "2026-04-19T23:19:20.250041+00:00"
+    },
+    "<7C.62.59056.4E012E96@i-03ab4ad38ee505750.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-19T23:19:20.655566+00:00"
+    },
+    "<1440164952.8352125.1776445400800@abmktmail-batch1a.marketo.org>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "EU member states seek aligned social media restriction strategy\r\n amid global fragmentation",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-19T23:19:21.098014+00:00"
+    },
+    "<1855127447.9406259.1776452471455@abmktmail-batch1k.marketo.org>": {
+      "first_seen_run": "2026-04-19T23-19-16",
+      "subject": "US House Energy and Commerce's latest comprehensive privacy bill\r\n looming",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-04-19T23:19:21.524929+00:00"
+    },
+    "lexology-archive:2024-06-06_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-21T17-20-27",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-21T19:48:16.283514+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 11,
+      "rejected_count": 55,
+      "dry_run": false
+    },
+    "lexology-archive:2024-08-15_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-21T21-57-54",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-21T23:10:15.410673+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 11,
+      "rejected_count": 35,
+      "dry_run": false
+    },
+    "lexology-archive:2024-08-16_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-21T23-10-15",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-21T23:23:39.652369+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 1,
+      "rejected_count": 11,
+      "dry_run": false
+    },
+    "lexology-archive:2024-08-19_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-21T23-23-39",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T00:58:10.400228+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 17,
+      "rejected_count": 62,
+      "dry_run": false
+    },
+    "lexology-archive:2024-11-04_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T02-58-36",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T04:48:27.790413+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 9,
+      "rejected_count": 74,
+      "dry_run": false
+    },
+    "lexology-archive:2024-11-05_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T04-48-27",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T05:17:30.940746+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 3,
+      "rejected_count": 67,
+      "dry_run": false
+    },
+    "lexology-archive:2024-11-06_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T05-17-30",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T06:05:38.716073+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 2,
+      "rejected_count": 44,
+      "dry_run": false
+    },
+    "lexology-archive:2025-01-20_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T07-59-51",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T09:23:16.354848+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 8,
+      "rejected_count": 75,
+      "dry_run": false
+    },
+    "lexology-archive:2025-01-21_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T09-23-16",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T10:29:02.307152+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 5,
+      "rejected_count": 82,
+      "dry_run": false
+    },
+    "lexology-archive:2025-03-13_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T12-58-22",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T14:26:45.080172+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 5,
+      "rejected_count": 54,
+      "dry_run": false
+    },
+    "lexology-archive:2025-03-17_Lexology---practical-know-how.html": {
+      "first_seen_run": "2026-04-22T14-26-45",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T15:19:36.812458+00:00",
+      "source": "lexology-archive-backfill",
+      "approved_count": 3,
+      "rejected_count": 28,
+      "dry_run": false
+    },
+    "<74785980-31b2-45d1-96be-85b9a74b1f48@atl1s11mta108.xt.local>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "Stay on top of legal and regulatory change globally",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-04-22T19:08:58.083952+00:00"
+    },
+    "<4C.EC.04108.07306E96@i-0301217ac1bfc3c07.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T19:08:58.336919+00:00"
+    },
+    "<637488746.32830314.1776704667624@abmktmail-batch1h.marketo.org>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "Smart glasses at work: A policy problem hiding in plain sight",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-22T19:08:58.605415+00:00"
+    },
+    "<0D.E2.05494.BA557E96@i-00f0ff97d0c7e9617.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T19:08:59.152114+00:00"
+    },
+    "<1842353449.52551071.1776791155247@abmktmail-batch1i.marketo.org>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "CalPrivacy seeks preliminary comments on privacy disclosures,\r\n employee data",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-22T19:08:59.456831+00:00"
+    },
+    "<FD.34.14980.F36A8E96@i-0eef57af0509905cd.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-22T19:08:59.751132+00:00"
+    },
+    "<186273956.75115264.1776881566222@abmktmail-batch1f.marketo.org>": {
+      "first_seen_run": "2026-04-22T19-08-57",
+      "subject": "US Republicans introduce latest comprehensive privacy legislation",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-22T19:09:00.251195+00:00"
+    },
+    "<1815755634.76271091.1776887169194@abmktmail-batch1f.marketo.org>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "EU AI Act: Mapping the interplays with the GDPR",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-27T23:33:55.381413+00:00"
+    },
+    "<563292b2-ad9b-4b84-817f-56d5ad4719e4@atl1s11mta106.xt.local>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "Carry out core legal tasks at ease with Lexology PRO",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-04-27T23:33:55.714720+00:00"
+    },
+    "<54.B6.20633.C09F9E96@i-057e79f5e13044a3e.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-27T23:33:55.999504+00:00"
+    },
+    "<1032525142.94984167.1776963947025@abmktmail-batch1a.marketo.org>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "Pseudonymization as a gateway to AI data use: South Korea's\r\n emerging privacy governance model",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-27T23:33:56.407185+00:00"
+    },
+    "<3D.B7.04926.F9A4BE96@i-0f649643bf28ba518.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-27T23:33:56.762890+00:00"
+    },
+    "<1685279060.109822294.1777050192153@abmktmail-batch1o.marketo.org>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "AI for HR in Canada and the US: What's new for 2026 and what\r\n employers are doing",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-27T23:33:57.067491+00:00"
+    },
+    "<1323021832.111031048.1777057283175@abmktmail-batch1l.marketo.org>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "US Republicans introduce latest comprehensive privacy legislation",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-04-27T23:33:57.365745+00:00"
+    },
+    "<CD.F7.15743.EAE3FE96@i-03863fe85411e7df7.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-04-27T23:33:57.684543+00:00"
+    },
+    "<1730781194.21918731.1777310797916@mlm-mktmail-batch-0001-a-004.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-04-27T23-33-53",
+      "subject": "New obstacles for health care: Federal and state national security\r\n regulations increasingly target health data",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-04-27T23:33:58.039852+00:00"
+    },
+    "<30.B4.38119.3C090F96@i-0d82ed9f581f04d6e.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-04T19:14:55.815580+00:00"
+    },
+    "<575467382.42141591.1777395851547@mlm-mktmail-batch-0001-a-006.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "US Supreme Court weighs privacy implications of geofence warrants",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:56.122727+00:00"
+    },
+    "<2C.F8.63591.9A2E1F96@i-02dd5cd2520ad3386.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-04T19:14:56.396918+00:00"
+    },
+    "<1876690588.60976022.1777483700061@mlm-mktmail-batch-0001-a-011.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "EU AI Act reform talks stall as key compliance deadline looms",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:56.677966+00:00"
+    },
+    "<273518053.63051109.1777491156229@mlm-mktmail-batch-0001-a-015.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "EU AI Act reform talks stall as key compliance deadline looms",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:57.263671+00:00"
+    },
+    "<2F.E2.31116.35333F96@i-0eef57af0509905cd.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-04T19:14:57.518516+00:00"
+    },
+    "<486736599.81215093.1777568798683@mlm-mktmail-batch-0001-a-003.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "US states issued more than $3.4B in privacy enforcement fines in\r\n 2025",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:57.834939+00:00"
+    },
+    "<BA.8E.19011.DF484F96@i-04289caac248c2739.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-04T19:14:58.199266+00:00"
+    },
+    "<194394288.95274096.1777656317959@mlm-mktmail-batch-0001-a-011.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "US Senate Judiciary tees up AI chatbot, companion safety debate",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:58.491194+00:00"
+    },
+    "<1205655408.96294693.1777662114566@mlm-mktmail-batch-0001-a-005.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "US states issued more than $3.4B in privacy enforcement fines in\r\n 2025",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:58.813120+00:00"
+    },
+    "<A7.B8.35979.5B878F96@i-0a2555901ecb7f87a.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-04T19:14:59.205224+00:00"
+    },
+    "<1257767793.115276064.1777918341687@mlm-mktmail-batch-0001-a-003.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-04T19-14-55",
+      "subject": "CalPrivacy explores data broker enforcement uptick, EU adequacy\r\n prospects",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-04T19:14:59.489507+00:00"
+    },
+    "<A9.FA.35485.66AC9F96@i-0301217ac1bfc3c07.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-08T18:19:19.873027+00:00"
+    },
+    "<2103257305.132314606.1778000759395@mlm-mktmail-batch-0001-a-006.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "=?UTF-8?Q?OPC=E2=80=99s_Dufresne_touts_new_age_assurance?=\r\n =?UTF-8?Q?_guides,_teases_AI_enforcement_updates?=",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-08T18:19:20.234788+00:00"
+    },
+    "<C5.69.47789.5CB1BF96@i-0559509f991175267.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-08T18:19:20.536776+00:00"
+    },
+    "<105868098.152394551.1778087197112@mlm-mktmail-batch-0001-a-009.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "UK, US announce agreements on pre-launch model evaluations with\r\n major AI developers",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-08T18:19:20.926126+00:00"
+    },
+    "<296240570.155262617.1778096768704@mlm-mktmail-batch-0001-a-014.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Probe finds ChatGPT's model training violated Canada's federal,\r\n provincial privacy laws",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-08T18:19:21.239573+00:00"
+    },
+    "<177810938077.1056.6255393838347296091@ip-10-0-68-81.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Your registration for Building with the Claude API",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:21.520642+00:00"
+    },
+    "<177811036999.326.2271189671429296990@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Your registration for Claude Code in Action",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:21.837502+00:00"
+    },
+    "<177811061034.326.17418351912729486396@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Your registration for Introduction to Model Context Protocol",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:22.148275+00:00"
+    },
+    "<177811079527.697.6020927870564769871@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Your registration for Model Context Protocol: Advanced Topics",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:22.548641+00:00"
+    },
+    "<177811092365.329.10122495094916432939@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Your registration for Introduction to agent skills",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:22.890063+00:00"
+    },
+    "<177811096912.697.3779314378644198046@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Completion of Introduction to agent skills",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:23.167614+00:00"
+    },
+    "<177811103456.697.1624105098728066490@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Your registration for Introduction to subagents",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:23.578396+00:00"
+    },
+    "<177811107610.317.7583203575549769029@ip-10-0-69-23.ec2.internal>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Completion of Introduction to subagents",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-05-08T18:19:23.928435+00:00"
+    },
+    "<4A.9E.37675.6AD6CF96@i-0f5d359962ec32d6b.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-08T18:19:24.397823+00:00"
+    },
+    "<1237538851.174044552.1778173577595@mlm-mktmail-batch-0001-a-006.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "EU agrees to amend AI Act, clarifies overlap with machinery rules",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-08T18:19:24.891896+00:00"
+    },
+    "<72.1E.26080.C9FBDF96@i-0c06b53ce82785804.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-08T18:19:25.323448+00:00"
+    },
+    "<161602932.189107669.1778259737915@mlm-mktmail-batch-0001-a-015.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-08T18-19-17",
+      "subject": "One-on-one: OPC's Dufresne on state of AI, privacy landscape in\r\n Canada",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-08T18:19:25.633363+00:00"
+    },
+    "<1967987698.190299014.1778266858339@mlm-mktmail-batch-0001-a-008.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "CalPrivacy explores data broker enforcement uptick, EU adequacy\r\n prospects",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:11.342983+00:00"
+    },
+    "<C0.0B.11693.133B10A6@i-0a70073e8fd3093b9.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:11.820432+00:00"
+    },
+    "<1822942444.16638680.1778518945563@mlm-mktmail-batch-0001-a-013.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "California authorities announce largest CCPA fine to date",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:12.098021+00:00"
+    },
+    "<AD.A0.15500.C65030A6@i-00a17aa239b12e3da.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:12.379325+00:00"
+    },
+    "<1653906862.38001391.1778608519102@mlm-mktmail-batch-0001-a-013.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Digital sovereignty through the prism of global law",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:12.852121+00:00"
+    },
+    "<3D.68.05716.2D5540A6@i-0c06b53ce82785804.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:13.976493+00:00"
+    },
+    "<84d58272-103a-40da-b74c-f66947044bd6@atl1s11mta101.xt.local>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "AI hallucinations at law firms: lessons for in-house teams",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-05-19T15:28:14.647572+00:00"
+    },
+    "<1331140174.13364167.1778691871154@mlm-mktmail-batch-0001-a-008.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "=?UTF-8?Q?Amendments_move_Colorado_AI_Act=E2=80=99?=\r\n =?UTF-8?Q?s_focus_from_risk_to_transparency?=",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:15.064813+00:00"
+    },
+    "<1260609675.15540970.1778700637597@mlm-mktmail-batch-0001-a-010.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "EU agrees to amend AI Act, clarifies overlap with machinery rules",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:15.511682+00:00"
+    },
+    "<49.5B.33264.247A50A6@i-04e6a42a332e661a4.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:15.954324+00:00"
+    },
+    "<1845582819.36272231.1778780055897@mlm-mktmail-batch-0001-a-008.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "King's Speech signals diffuse UK digital policy agenda, but no AI\r\n bill",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:16.269780+00:00"
+    },
+    "<10.56.46431.02AF60A6@i-0c4d8db310bfdc9a6.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:16.646046+00:00"
+    },
+    "<642974167.52972624.1778864655302@mlm-mktmail-batch-0001-a-009.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "=?UTF-8?Q?Brazil_reshapes_children=E2=80=99s_data_protec?=\r\n =?UTF-8?Q?tion_under_the_=E2=80=98Digital_ECA=E2=80=99_framework?=",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:16.944025+00:00"
+    },
+    "<2147056002.53870548.1778871654550@mlm-mktmail-batch-0001-a-010.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Amendments move Colorado AI Act's focus from risk to transparency",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:17.478639+00:00"
+    },
+    "<62.A2.39356.90DEA0A6@i-0c06b53ce82785804.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:17.869324+00:00"
+    },
+    "<181095044.75806444.1779124157834@mlm-mktmail-batch-0001-a-005.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "US House in bipartisan talks on preemptive AI regulation",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-05-19T15:28:18.406197+00:00"
+    },
+    "<2C.E0.00936.D8F3C0A6@i-0c21d3cf4c78e687f.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-05-19T15-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-05-19T15:28:18.775107+00:00"
+    },
+    "<2082066257.98370242.1779211066383@mlm-mktmail-batch-0001-a-003.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "European Commission delivers draft high-risk AI guidelines after\r\n delays",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:27.641529+00:00"
+    },
+    "<eec0479b-660d-47c4-a2d5-54dccd0d04a6@atl1s11mta108.xt.local>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "When AI errors determine case outcomes: what legal teams need to know",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-06-01T12:53:27.967393+00:00"
+    },
+    "<F0.DE.10529.2909D0A6@i-02dd5cd2520ad3386.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:28.298452+00:00"
+    },
+    "<491961502.117896115.1779298036038@mlm-mktmail-batch-0001-a-002.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "GDPR at 10: A look back at the past 10 years",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:28.742663+00:00"
+    },
+    "<1132516269.120481777.1779306067040@mlm-mktmail-batch-0001-a-006.prod.va10.marketo.org>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "European Commission delivers draft high-risk AI guidelines after\r\n delays",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:29.193385+00:00"
+    },
+    "<09.45.24954.543EE0A6@i-0e072b9ba62e98c34.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:29.674613+00:00"
+    },
+    "<605832376.6256513.1779383346562@marketo-platform--email-sender-prod-batch-cluster-7946d574bnzkw>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "TAKE IT DOWN Act: How to comply as the FTC begins enforcement",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:30.134514+00:00"
+    },
+    "<0D.34.18342.174301A6@i-0d67b0256590868d4.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:30.586207+00:00"
+    },
+    "<519655281.1405645.1779469338878@marketo-platform--email-sender-prod-batch-cluster-65f587f85mcj7>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "US President Trump postpones executive order on AI cybersecurity",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:31.033138+00:00"
+    },
+    "<1481810509.2091877.1779476482511@marketo-platform--email-sender-prod-batch-cluster-65f587f8zl7pr>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "TAKE IT DOWN Act: How to comply as the FTC begins enforcement",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:31.476019+00:00"
+    },
+    "<24.07.56960.B67241A6@i-03ab4ad38ee505750.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:31.880822+00:00"
+    },
+    "<d9b8b798-9244-49bb-bb8d-22f2848a8c97@atl1s11mta101.xt.local>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Regulatory Maturity Assessment: Access tailored guiadance and practical next steps",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-06-01T12:53:32.151413+00:00"
+    },
+    "<6B.BA.56960.F79751A6@i-03ab4ad38ee505750.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:32.538067+00:00"
+    },
+    "<923157525.1816357.1779815024772@marketo-platform--email-sender-prod-batch-cluster-588c84d5gt6s2>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Pope Leo issues papal declaration on AI",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:32.949910+00:00"
+    },
+    "<AF.A4.55818.02AC61A6@i-0ba1ac46a12efe898.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:33.302644+00:00"
+    },
+    "<1856250343.5308938.1779901393605@marketo-platform--email-sender-prod-batch-cluster-588c84d5qm9fs>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "The interstices of EU digital responsibility",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:33.822228+00:00"
+    },
+    "<1030467888.3125.1779910423802@marketo-platform--email-sender-prod-batch-cluster-588c84d5zfc2p>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "TAKE IT DOWN Act: How to comply as the FTC begins enforcement",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:34.241874+00:00"
+    },
+    "<BC.80.44420.31A181A6@i-0559509f991175267.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:34.693188+00:00"
+    },
+    "<1905646770.4952359.1779991358097@marketo-platform--email-sender-prod-batch-cluster-588c84d5djs65>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Notable AI, privacy bills hit finish line in Illinois, Connecticut\r\n and New York",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:35.070425+00:00"
+    },
+    "<B0.1E.20402.811791A6@i-03863fe85411e7df7.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:35.435349+00:00"
+    },
+    "<1159264778.2000464.1780074109487@marketo-platform--email-sender-prod-batch-cluster-588c84d5gp8b5>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Taking stock of US House Republicans' proposed SECURE Data Act",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:35.867953+00:00"
+    },
+    "<882743058.3439810.1780081268392@marketo-platform--email-sender-prod-batch-cluster-588c84d5r42vs>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Notable AI, privacy bills hit finish line in Illinois, Connecticut\r\n and New York",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-06-01T12:53:36.347904+00:00"
+    },
+    "<98.A2.28976.E136D1A6@i-0f649643bf28ba518.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-01T12-53-26",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-01T12:53:36.774181+00:00"
+    },
+    "<1752830061.5436804.1780333305797@marketo-platform--email-sender-prod-batch-cluster-588c84d5w44lk>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "US House subcommittee to hold open hearing on frontier AI,\r\n cybersecurity risks",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:37.268252+00:00"
+    },
+    "<40.42.07262.1F4BE1A6@i-0bdc088a353f91880.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:37.662512+00:00"
+    },
+    "<640155777.181876.1780424027938@marketo-platform--email-sender-prod-batch-cluster-588c84d5l8grp>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "US President Trump signs scaled-back executive order on frontier AI\r\n cybersecurity risks",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:37.945112+00:00"
+    },
+    "<4D.F5.01094.3C5002A6@i-0e072b9ba62e98c34.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:38.221775+00:00"
+    },
+    "<1144776503.5705523.1780506863746@marketo-platform--email-sender-prod-batch-cluster-588c84d5xz6z9>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "EU AI sovereignty top of mind during AIGG EU's opening keynote\r\n session",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:38.688636+00:00"
+    },
+    "<260647531.3350201.1780513292593@marketo-platform--email-sender-prod-batch-cluster-588c84d5qrlk6>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "EU AI sovereignty top of mind during AIGG EU's opening keynote\r\n session",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:39.098064+00:00"
+    },
+    "<3F.58.49204.2A7512A6@i-0c19b7dfcaaac5dd7.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:39.440765+00:00"
+    },
+    "<1347486091.7490087.1780597070063@marketo-platform--email-sender-prod-batch-cluster-588c84d5nl5zt>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "US introduces bipartisan AI legislation",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:39.700612+00:00"
+    },
+    "<8E.C5.22216.898A22A6@i-0301217ac1bfc3c07.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:40.242691+00:00"
+    },
+    "<826063472.110719.1780678917563@marketo-platform--email-sender-prod-batch-cluster-588c84d55dmn6>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "A view from DC: A bipartisan blockbuster bill on AI",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:40.582693+00:00"
+    },
+    "<69513408.30371509.1780686066042@marketo-platform--email-sender-prod-batch-cluster-588c84d5m62lx>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Unpacking the White House executive order on frontier AI,\r\n cybersecurity",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:40.840440+00:00"
+    },
+    "<E4.93.44923.61C962A6@i-0a29a808e1f9ef1ef.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:41.252445+00:00"
+    },
+    "<39950660.5515317.1780938132522@marketo-platform--email-sender-prod-batch-cluster-588c84d5dptx7>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "UK prime minister to announce social media restrictions for\r\n underage users",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:41.512699+00:00"
+    },
+    "<41.11.20416.8F1F72A6@i-0a2555901ecb7f87a.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:41.855937+00:00"
+    },
+    "<679627443.8817946.1781024781119@marketo-platform--email-sender-prod-batch-cluster-588c84d5g4xjc>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "EU officials may target surveillance risks posed by smart glasses",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:42.158378+00:00"
+    },
+    "<5A.1B.18305.ADF392A6@i-00f0ff97d0c7e9617.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:42.446955+00:00"
+    },
+    "<1746889419.7313750.1781112261135@marketo-platform--email-sender-prod-batch-cluster-588c84d5vnv2r>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "EDPB meets with European Commissioner, adopts common breach\r\n notification template",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:42.715562+00:00"
+    },
+    "<1525384443.12074893.1781121653300@marketo-platform--email-sender-prod-batch-cluster-588c84d5zps4t>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "AI risks are here. What's the 'shock event' that governments won't\r\n be able to ignore?",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:43.036886+00:00"
+    },
+    "<5F.12.01988.4819A2A6@i-0c4d8db310bfdc9a6.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:43.450676+00:00"
+    },
+    "<21444817.5980433.1781201302416@marketo-platform--email-sender-prod-batch-cluster-588c84d5llx7r>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Irish High Court upholds core GDPR ruling against TikTok",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:43.861928+00:00"
+    },
+    "<1C.48.01791.EE5EB2A6@i-00f0ff97d0c7e9617.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:44.251634+00:00"
+    },
+    "<541144546.3752662.1781283752306@marketo-platform--email-sender-prod-batch-cluster-588c84d5rwvrd>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "A view from DC: The plan to trade kids' safety rules for AI\r\n preemption",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:44.533985+00:00"
+    },
+    "<1670180474.57930.1781290862868@marketo-platform--email-sender-prod-batch-cluster-588c84d5tnpt6>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "White House negotiating with Senate to introduce federal AI\r\n preemption bill containing KOSA",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-06-15T16:56:44.784577+00:00"
+    },
+    "<E6.3E.28922.A29DF2A6@i-01536a486ccb06d84.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-15T16-56-35",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-15T16:56:45.068648+00:00"
+    },
+    "<753533124.2452.1781549845077@marketo-platform--email-sender-prod-batch-cluster-588c84d5c454q>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "IAPP releases Navigate: Digital Risk Index 2026 infographic",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:11.070623+00:00"
+    },
+    "<BB.FD.37849.548213A6@i-0fbdafab2ca626ab1.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:11.305424+00:00"
+    },
+    "<1808084917.3396978.1781635010221@marketo-platform--email-sender-prod-batch-cluster-588c84d5c7kr4>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Canada's Bill C-36 introduces privacy reforms, enforcement changes",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:11.634671+00:00"
+    },
+    "<AA.05.64182.BA9723A6@i-0c21d3cf4c78e687f.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:11.890162+00:00"
+    },
+    "<184187522.1416029.1781721603538@marketo-platform--email-sender-prod-batch-cluster-588c84d55xjx7>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Vermont becomes 23rd state to enact consumer privacy law",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:12.202389+00:00"
+    },
+    "<2076288063.6773.1781726475153@marketo-platform--email-sender-prod-batch-cluster-588c84d5fbcwz>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "US orders Anthropic to halt access to new AI models over security\r\n concerns",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:12.465555+00:00"
+    },
+    "<3B.F2.30643.8FEC33A6@i-0bdc088a353f91880.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:12.720211+00:00"
+    },
+    "<1052692505.4451887.1781802175904@marketo-platform--email-sender-prod-batch-cluster-588c84d5cv5sx>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "G7 pushes for collaborative AI innovation, aiming to block China's\r\n AI tools",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:12.963658+00:00"
+    },
+    "<CF.BC.44003.95D153A6@i-0d82ed9f581f04d6e.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:13.215770+00:00"
+    },
+    "<B4.0F.08083.844193A6@i-02dd5cd2520ad3386.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:13.474728+00:00"
+    },
+    "<1686377738.160954.1782147817547@marketo-platform--email-sender-prod-batch-cluster-545fbbd7rftzn>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Bipartisan compromise reached on KIDS Act, containing KOSA, COPPA\r\n 2.0",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:13.760397+00:00"
+    },
+    "<0a1f8d9043dc9b5ed87c77d6021d0f6b452d2641-20397628-1852771076@google.com>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "New privacy settings for Search services and Google Play",
+      "from": "Google <google-noreply@google.com>",
+      "processed_at": "2026-06-28T19:28:14.022768+00:00"
+    },
+    "<1C.ED.62266.EE26A3A6@i-03863fe85411e7df7.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:14.274313+00:00"
+    },
+    "<733934919.6014193.1782234316564@marketo-platform--email-sender-prod-batch-cluster-545fbbd7qzndq>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Five Eyes issues joint statement on evolving AI cyber threats",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:14.534003+00:00"
+    },
+    "<edf931d7f3f32c85d077ebbccad119d753150a79-20400046-613148321@google.com>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Learn more about our updated Terms of Service",
+      "from": "Google <google-noreply@google.com>",
+      "processed_at": "2026-06-28T19:28:14.828952+00:00"
+    },
+    "<0C.72.21739.B04BB3A6@i-02dd5cd2520ad3386.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:15.078593+00:00"
+    },
+    "<1978075587.1151897.1782321043361@marketo-platform--email-sender-prod-batch-cluster-545fbbd78xdlj>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "OAIC finds healthcare firms misused tracking pixels, exposed\r\n sensitive data",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:15.338716+00:00"
+    },
+    "<1456026953.919545.1782330423841@marketo-platform--email-sender-prod-batch-cluster-545fbbd7d4tn4>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "IAPP releases Navigate: Digital Risk Index 2026 infographic",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:15.584798+00:00"
+    },
+    "<8E.1C.12940.9380D3A6@i-00f0ff97d0c7e9617.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:15.840136+00:00"
+    },
+    "<1707210695.51921.1782409800241@marketo-platform--email-sender-prod-batch-cluster-545fbbd7lw2kf>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "All things Canadian digital policy: A conversation with Kris Klein",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:16.271644+00:00"
+    },
+    "<35.73.29072.FC95E3A6@i-0a29a808e1f9ef1ef.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-06-28T19:28:16.548381+00:00"
+    },
+    "<2106080346.1211498.1782493347001@marketo-platform--email-sender-prod-batch-cluster-545fbbd7tntmr>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "EU ambassadors delay vote on Digital Omnibus compromise text",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:16.848546+00:00"
+    },
+    "<383240757.130736.1782500477458@marketo-platform--email-sender-prod-batch-cluster-545fbbd7ftlpz>": {
+      "first_seen_run": "2026-06-28T19-28-09",
+      "subject": "The state of enforcement: Consumer privacy rights",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-06-28T19:28:17.106955+00:00"
+    },
+    "<5C.BE.43682.87B424A6@i-0a29a808e1f9ef1ef.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:21.005823+00:00"
+    },
+    "<1692904889.200086.1782755895124@marketo-platform--email-sender-prod-batch-cluster-545fbbd7xgftm>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "US Supreme Court limits use of location data; upholds firing of\r\n FTC's Slaughter",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:21.459103+00:00"
+    },
+    "<32.AF.43482.C9F934A6@i-0a2555901ecb7f87a.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:21.756079+00:00"
+    },
+    "<264835858.81807.1782844005521@marketo-platform--email-sender-prod-batch-cluster-545fbbd7txp72>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "US House passes the KIDS Act",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:22.138975+00:00"
+    },
+    "<7A.A3.64984.DEEE44A6@i-03ab4ad38ee505750.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:22.423558+00:00"
+    },
+    "<47736690.571428.1782926888854@marketo-platform--email-sender-prod-batch-cluster-545fbbd7jkk4c>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Unpacking the scope of the KIDS Act",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:22.701328+00:00"
+    },
+    "<2072135911.225041.1782934264538@marketo-platform--email-sender-prod-batch-cluster-545fbbd7snfnv>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Chatbot laws: Coming to a state near you",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:23.134623+00:00"
+    },
+    "<D0.76.16148.D40464A6@i-0c06b53ce82785804.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:23.401222+00:00"
+    },
+    "<746602571.78411.1783011876786@marketo-platform--email-sender-prod-batch-cluster-545fbbd76ls4c>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Independence Day surprise: New Jersey's costly new data broker law",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:23.860047+00:00"
+    },
+    "<13.F3.19015.DA4974A6@i-0a70073e8fd3093b9.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:24.121629+00:00"
+    },
+    "<39.14.49585.D688B4A6@i-03eb9cb9906c4145a.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:24.401130+00:00"
+    },
+    "<1332324249.137044.1783357336616@marketo-platform--email-sender-prod-batch-cluster-545fbbd7mhrxr>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "The ground shifts: Chatrie's impact on data governance beyond the\r\n Fourth Amendment",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:24.701349+00:00"
+    },
+    "<F3.70.20354.62ADC4A6@i-0c19b7dfcaaac5dd7.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:25.001773+00:00"
+    },
+    "<8eef0c58-4f8e-4acf-a388-755eaf223efd@atl1s11mta104.xt.local>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Quick view: Legal risks associated with business social media use (USA)",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-07-17T13:54:25.317213+00:00"
+    },
+    "<368314688.355289.1783444423070@marketo-platform--email-sender-prod-batch-cluster-545fbbd7jqsrg>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "After Slaughter: FTC independence and EU-US DPF face potential\r\n challenges",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:25.634037+00:00"
+    },
+    "<BE.61.35736.E982E4A6@i-0a29a808e1f9ef1ef.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:25.997977+00:00"
+    },
+    "<1201091695.2696880.1783534544573@marketo-platform--email-sender-prod-batch-cluster-545fbbd7xcxvp>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "EDPB adopts guidance on anonymization, blockchain and AI web\r\n scraping",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:26.270440+00:00"
+    },
+    "<1720041756.2953503.1783537283928@marketo-platform--email-sender-prod-batch-cluster-545fbbd75hfxj>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "EDPB adopts guidance on anonymization, blockchain and AI web\r\n scraping",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:26.704064+00:00"
+    },
+    "<4C.96.33306.F7A7F4A6@i-057e79f5e13044a3e.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:26.971590+00:00"
+    },
+    "<492063997.462896.1783617879081@marketo-platform--email-sender-prod-batch-cluster-545fbbd72grgp>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Reflecting on digital sovereignty discussions at Navigate 2026",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:27.264275+00:00"
+    },
+    "<73.40.59858.15EC05A6@i-0301217ac1bfc3c07.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:27.530406+00:00"
+    },
+    "<1019890250.2746382.1783703009992@marketo-platform--email-sender-prod-batch-cluster-545fbbd7g5xnl>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "European Commission claims Meta's algorithms violate DSA",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:27.789243+00:00"
+    },
+    "<1417525280.228675.1783710097505@marketo-platform--email-sender-prod-batch-cluster-545fbbd7w955s>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "US Supreme Court limits use of location data; upholds firing of\r\n FTC's Slaughter",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:28.055359+00:00"
+    },
+    "<6C.68.43026.E81C45A6@i-0d67b0256590868d4.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:28.330489+00:00"
+    },
+    "<1530444581.53951.1783962201179@marketo-platform--email-sender-prod-batch-cluster-5df9b6b7k9j9p>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "=?UTF-8?Q?The_state_of_enforcement:_Par?=\r\n =?UTF-8?Q?t_II_=E2=80=94_Kids_and_teens'_privacy?=",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:28.729141+00:00"
+    },
+    "<48.7A.24251.C15165A6@i-0c21d3cf4c78e687f.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:29.021617+00:00"
+    },
+    "<1253773739.166752.1784048663878@marketo-platform--email-sender-prod-batch-cluster-5df9b6b77t8wc>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Latest EDPB guidelines: anonymization and web scraping",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:29.356882+00:00"
+    },
+    "<87.48.15728.F44675A6@i-00f0ff97d0c7e9617.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:29.672651+00:00"
+    },
+    "<2066403465.5023966.1784137648490@marketo-platform--email-sender-prod-batch-cluster-b7859b74zgws2>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "UK Information Commission takes shape with non-executive board\r\n appointments; DSIT opens data-use consults",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:30.099926+00:00"
+    },
+    "<1301950908.31698.1784145893887@marketo-platform--email-sender-prod-batch-cluster-b7859b74rvllp>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Latest EDPB guidelines: anonymization and web scraping",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:30.375429+00:00"
+    },
+    "<3C.59.03328.8C5B85A6@i-01536a486ccb06d84.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:30.821629+00:00"
+    },
+    "<1858937229.4437371.1784221410680@marketo-platform--email-sender-prod-batch-cluster-b7859b74gjf96>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "EU debuts new digital sovereignty assessment tools",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-17T13:54:31.094150+00:00"
+    },
+    "<F1.D1.08975.FB80A5A6@i-0f5d359962ec32d6b.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-17T13-54-18",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-17T13:54:31.405221+00:00"
+    },
+    "<538908526.60006.1784307791438@marketo-platform--email-sender-prod-batch-cluster-b7859b74mzp5l>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "EDPB seeks information-sharing network across EU digital regulators",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:29:54.871939+00:00"
+    },
+    "<1498827517.68731.1784314860558@marketo-platform--email-sender-prod-batch-cluster-b7859b74cn82c>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "=?UTF-8?Q?The_state_of_enforcement:_Par?=\r\n =?UTF-8?Q?t_II_=E2=80=94_Kids_and_teens'_privacy?=",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:29:55.324276+00:00"
+    },
+    "<09.1C.30753.35CFD5A6@i-04289caac248c2739.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-25T18:29:55.786751+00:00"
+    },
+    "<1236833004.2872410.1784567367449@marketo-platform--email-sender-prod-batch-cluster-b7859b74gjlpw>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "=?UTF-8?Q?The_state_of_enforcement:_Part_III?=\r\n =?UTF-8?Q?_=E2=80=94_Data_brokers_and_sensitive_data?=",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:29:56.216847+00:00"
+    },
+    "<AC.B5.44756.E1D4F5A6@i-0c4d8db310bfdc9a6.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-25T18:29:57.017199+00:00"
+    },
+    "<2101181715.5892183.1784654912079@marketo-platform--email-sender-prod-batch-cluster-b7859b74fqkcd>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Congressional stalemates take wind out of US digital policy sails",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:29:57.352665+00:00"
+    },
+    "<178468355187.5522.10314700478556345911@ip-10-0-69-245.ec2.internal>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Zwiad, there is a new message for you from Anthropic Education",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-07-25T18:29:57.776387+00:00"
+    },
+    "<178468582832.1000.14718360830958542613@ip-10-0-69-114.ec2.internal>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Zwiad, there is a new message for you from Anthropic Education",
+      "from": "Anthropic Education <academy-support@anthropic.com>",
+      "processed_at": "2026-07-25T18:29:58.198812+00:00"
+    },
+    "<C2.E0.38607.85D906A6@i-0ba1ac46a12efe898.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-25T18:29:58.660722+00:00"
+    },
+    "<d09a9a57-d541-4292-bf03-131c31d9f9fd@atl1s11mta102.xt.local>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Smart glasses: what to do instead of a ban",
+      "from": "\"Lexology PRO\" <lexology-pro@p.lexology.com>",
+      "processed_at": "2026-07-25T18:29:59.117110+00:00"
+    },
+    "<940001916.199757.1784739800871@marketo-platform--email-sender-prod-batch-cluster-b7859b74lmgjz>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "CalPrivacy launches first privacy audit on gig platforms",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:29:59.579235+00:00"
+    },
+    "<509342320.7125500.1784748773303@marketo-platform--email-sender-prod-batch-cluster-b7859b7452m4t>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "AI in legal practice: New rules of profession responsibility",
+      "from": "IAPP AI Governance Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:30:00.246114+00:00"
+    },
+    "<41.D1.02874.423F16A6@i-0d67b0256590868d4.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-25T18:30:00.803383+00:00"
+    },
+    "<1617281028.110328.1784826285911@marketo-platform--email-sender-prod-batch-cluster-b7859b74tdlfs>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "EDPB Chair Anu Talus on the next chapter of GDPR enforcement",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:30:01.422359+00:00"
+    },
+    "<1E.FA.11674.E81436A6@i-0dcae1139d500ecaf.mta3vrest.sd.prd.sparkpost>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Lexology - practical know-how",
+      "from": "\"Lexology\" <editorc@lexology.com>",
+      "processed_at": "2026-07-25T18:30:01.831657+00:00"
+    },
+    "<2057610843.2338469.1784912513942@marketo-platform--email-sender-prod-batch-cluster-6478fd5bbcdnd>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "Digital Omnibus on AI published in EU Journal",
+      "from": "IAPP Daily Dashboard <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:30:02.484018+00:00"
+    },
+    "<194846800.724845.1784919662846@marketo-platform--email-sender-prod-batch-cluster-6478fd5b4qpqp>": {
+      "first_seen_run": "2026-07-25T18-29-52",
+      "subject": "=?UTF-8?Q?The_state_of_enforcement:_Part_III?=\r\n =?UTF-8?Q?_=E2=80=94_Data_brokers_and_sensitive_data?=",
+      "from": "\"IAPP U.S. Privacy Digest\" <publications@iapp.org>",
+      "processed_at": "2026-07-25T18:30:02.936247+00:00"
     }
   }
 }

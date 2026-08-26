@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20260427-041",
+  "original_path": "reports/ai-law/employment-ai/ai-hr-canada-us-employer-governance-2026-04-24.md",
+  "proposed_topic": "ai-law",
+  "proposed_subcategory": "employment-ai",
+  "reason": "This report covers AI regulation in employment and HR contexts across the US and Canada (NYC Local Law 144, Colorado SB 24-205, Illinois IHRA, California ADMT regulations, Ontario disclosure mandate). The subcategory 'employment-ai' is not listed in categories.json under ai-law known subcategories (federal-regulation, state-legislation, executive-orders, enforcement-actions, frameworks-guidance, health, chatbots, liability, frontier-models). The file was placed at reports/ai-law/employment-ai/ by the researcher but this subcategory requires human confirmation before formal filing."
+}

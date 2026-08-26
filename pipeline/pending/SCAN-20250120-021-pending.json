@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20250120-021",
+  "original_path": "reports/privacy/litigation/california-cipa-ddr-media-jornaya-hashing-2025-01-20.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "litigation",
+  "reason": "Report covers a federal district court ruling on CIPA Section 631 wiretapping claims (Williams v. DDR Media, LLC). The 'litigation' subcategory is not in the known privacy subcategories in categories.json (which lists: state-comprehensive-laws, federal-legislation, enforcement-actions, data-breach, childrens-privacy, health-data, financial-privacy). The reports/privacy/litigation/ directory already exists with many similar reports, suggesting this subcategory is in use but not yet formally registered. Human approval needed to add 'litigation' to known privacy subcategories."
+}

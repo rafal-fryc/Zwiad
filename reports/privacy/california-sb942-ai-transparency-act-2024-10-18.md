@@ -1,0 +1,1 @@
+../ai-law/state-legislation/california-sb942-ai-transparency-act-2024-10-18.md

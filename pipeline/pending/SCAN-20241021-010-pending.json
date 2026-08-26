@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20241021-010",
+  "original_path": "reports/privacy/california-ab2426-digital-goods-disclosure-2024-10-21.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "state-consumer-protection",
+  "reason": "California AB 2426 is a targeted consumer protection / false advertising statute requiring licensing disclosures for digital goods sales. It does not fit any of the known privacy subcategories: it is not a comprehensive omnibus privacy law (state-comprehensive-laws), not a federal statute (federal-legislation), not an enforcement action (enforcement-actions), not a data breach law (data-breach), not a children's privacy law (childrens-privacy), not a health data law (health-data), and not a financial privacy law (financial-privacy). A new subcategory such as 'state-consumer-protection' is needed to cover targeted state laws addressing digital goods disclosure, deceptive advertising, and consumer rights in digital transactions."
+}

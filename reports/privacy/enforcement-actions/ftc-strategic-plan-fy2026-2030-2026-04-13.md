@@ -1,6 +1,7 @@
 ---
 cluster: "FTC FY 2026-2030 Strategic Plan"
 cluster_slug: "ftc-strategic-plan-2026-2030"
+last_updated: 2026-04-27
 ---
 
 # FTC Publishes FY 2026-2030 Strategic Plan Prioritizing Children's Privacy and Data Security
@@ -62,6 +63,7 @@ The inclusion of "without unduly burdening legitimate business activity" in the 
 9. [H.R. 7520 — PADFAA text](https://www.congress.gov/bill/118th-congress/house-bill/7520/text)
 10. [FTC press release — PADFAA data broker letters (Feb 2026)](https://www.ftc.gov/news-events/news/press-releases/2026/02/ftc-reminds-data-brokers-their-obligations-comply-padfaa)
 11. [Morrison Foerster — FTC PADFAA enforcement](https://www.mofo.com/resources/insights/250722-ftc-looks-to-leverage-padfaa-enforcement)
+12. [Sheppard Mullin via Lexology — FTC FY 2026-2030 Strategic Plan analysis (April 23, 2026)](https://www.lexology.com/r/VHZtDsK/77abca8381/Yvun) — Law firm client alert corroborating privacy and data security as priority enforcement areas; notes restoration of "without unduly burdening legitimate business activity" language (SCAN-20260427-014).
 
 ## Related Reports
 

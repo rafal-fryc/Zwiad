@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20250121-020",
+  "original_path": "reports/ai-law/california/california-ai-regulatory-landscape-2025-2025-01-21.md",
+  "proposed_topic": "ai-law",
+  "proposed_subcategory": "california",
+  "reason": "The report is a comprehensive overview of California's entire AI regulatory landscape spanning multiple subcategory types (state legislation, enforcement, rulemaking). The existing 'california' directory is an established project convention for California-specific multi-topic AI reports, but 'california' is not a registered subcategory in categories.json. The closest known subcategory is 'state-legislation', but the report also covers CPPA rulemaking, enforcement actions (xAI litigation), and frontier model law (SB 53), making a single known subcategory an imprecise fit. Human confirmation is requested to either add 'california' as a registered subcategory or reclassify this report under 'state-legislation'."
+}

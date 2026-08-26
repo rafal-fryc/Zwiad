@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20250120-003",
+  "original_path": "reports/privacy/federal-trump-administration-uk-tech-sector-2025-01-20.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "federal-executive-policy",
+  "reason": "Report covers Trump administration executive actions (PCLOB dismissals, AI EO revocation) and their cross-jurisdictional impact on UK-US data flows. No known privacy subcategory fits: it is not federal-legislation (no bill), not enforcement-actions (no AG action), not state-comprehensive-laws, data-breach, childrens-privacy, health-data, or financial-privacy. The content is an executive policy/analysis report spanning AI and privacy with a UK cross-jurisdictional angle. A new 'federal-executive-policy' subcategory (or 'federal-policy') is proposed."
+}

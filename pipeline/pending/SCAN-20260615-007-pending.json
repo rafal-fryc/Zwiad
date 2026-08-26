@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20260615-007",
+  "original_path": "reports/privacy/litigation/california-cipa-blaker-netscout-pen-register-2026-05-27.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "litigation",
+  "reason": "CIPA pen register court ruling — litigation subcategory directory exists under reports/privacy/ but litigation is not yet registered in pipeline/config/categories.json. Requires human confirmation to formally add litigation as a known privacy subcategory."
+}

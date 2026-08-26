@@ -1,0 +1,82 @@
+---
+title: "Texas AG Sues LG Electronics and Netflix for Unauthorized Biometric Data Collection via ACR Technology"
+date: 2026-05-12
+jurisdiction: "Texas"
+category: "privacy"
+development_type: "enforcement"
+finding_id: "SCAN-20260519-006"
+topic_key: "TXAG-LG-ELECTRONICS-AND-NETFLIX-2026"
+topic_type: "enforcement"
+first_reported: 2026-05-12
+last_updated: 2026-05-19
+status_history:
+  - "2026-05-19: R1 revision — corrected Samsung TRO narrative (vacated Jan 6, 2026; voluntary settlement Feb 26, 2026); corrected Google settlement figure to exact $1.375 billion."
+cluster: "Texas AG ACR Smart TV Biometric Enforcement: LG, Netflix, and Related Actions"
+cluster_slug: "texas-ag-acr-smart-tv-biometric-enforcement"
+---
+
+# Texas AG Sues LG Electronics and Netflix for Unauthorized Biometric Data Collection via ACR Technology
+
+**Jurisdiction:** Texas | **Category:** privacy | **Date:** 2026-05-12
+
+## Summary [HIGH confidence]
+
+Texas Attorney General Ken Paxton filed suit against both LG Electronics and Netflix in May 2026, alleging violations of the [Texas Data Privacy and Security Act (TDPSA)](https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act) and the Texas Deceptive Trade Practices Act (DTPA) for unauthorized data collection. The LG action, part of a broader December 2025 lawsuit against five smart TV manufacturers over Automated Content Recognition (ACR) technology, has already settled — LG agreed to cease ACR-based data collection without informed consent and implement prominent on-screen disclosures. The Netflix suit, filed May 11, 2026, alleges the streaming platform operates a covert surveillance apparatus that tracks and monetizes billions of behavioral events from consumers and children without their knowledge, seeking up to $10,000 per violation in civil penalties.
+
+## Key Facts [HIGH confidence]
+
+- Texas AG Paxton filed lawsuits against **five smart TV manufacturers** — Samsung, Sony, LG, Hisense, and TCL — on **December 15, 2025**, alleging their ACR software captures television screenshots as frequently as every 500 milliseconds and monetizes viewing data without informed consumer consent ([The Record / Recorded Future News](https://therecord.media/texas-sues-5-smart-tv-makers-over-acr-tech); [Privacy Guides](https://www.privacyguides.org/news/2025/12/24/texas-sues-smart-tv-makers-for-spying-on-peoples-watch-habits/)).
+- The AG obtained a **Temporary Restraining Order (TRO) against Hisense**, immediately blocking ACR data collection and transfer from Texas consumers. A TRO was also briefly issued against **Samsung on January 5, 2026**, but was **vacated by the same court the following day, January 6, 2026**. Samsung later **voluntarily settled on February 26, 2026** ([Alston & Bird — Texas Court Blocks Smart TV Data Collection](https://www.alston.com/en/insights/publications/2026/01/texas-court-blocks-smart-tv-data-collection)).
+- **Samsung settled** in February 2026 as the first manufacturer to resolve the suit; **LG settled** in May 2026 as the second, with both agreements requiring cessation of ACR collection without opt-in consent, mandatory pop-up disclosures on smart TV devices, and clear opt-out mechanisms ([Texas OAG — LG Press Release](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-major-agreement-lg-protect-texans-privacy-and-stop-data-being); [National Law Review](https://natlawreview.com/article/texas-obtains-smart-tv-privacy-settlement-lg-heres-what-changes)).
+- The LG settlement additionally **prohibits transfer of viewing data to the Chinese Communist Party** in any form ([Texas OAG — LG Press Release](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-major-agreement-lg-protect-texans-privacy-and-stop-data-being)).
+- Cases against **Sony, Hisense, and TCL remain pending** as of May 2026 ([National Law Review](https://natlawreview.com/article/texas-obtains-smart-tv-privacy-settlement-lg-heres-what-changes); [KVUE](https://www.kvue.com/article/news/local/texas/ag-paxton-lg-data-collection-agreement/269-4328e4bb-377e-4f71-afa3-78211a318b44)).
+- The Netflix suit was filed **May 11, 2026**, under the **Texas Deceptive Trade Practices Act (DTPA)** with five counts; it also marks Texas's first large-scale use of the TDPSA against a streaming platform ([Texas OAG — Netflix Press Release](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-netflix-spying-texas-kids-and-consumers-illegally-collecting-users); [CBS Texas](https://www.cbsnews.com/texas/news/texas-ken-paxton-netflix-lawsuit-data-collection-5-11-2026/)).
+- The Netflix complaint alleges the company built a surveillance apparatus capable of **processing over 10 million events per second** generating 5 petabytes of daily behavioral logs, tracking viewing habits, devices, household networks, and application usage, then sharing data with advertising technology firms and data brokers ([Time](https://time.com/article/2026/05/13/netflix-spying-on-users-lawsuit-claims-texas-allegations/); [Malwarebytes](https://www.malwarebytes.com/blog/news/2026/05/texas-sued-netflix-over-claims-it-secretly-collected-and-sold-users-data)).
+- Netflix is also accused of using **dark patterns and autoplay features** on children's profiles to prolong engagement and maximize data collection; the AG seeks a court order requiring Netflix to disable autoplay by default on kids' profiles ([Texas OAG — Netflix Press Release](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-netflix-spying-texas-kids-and-consumers-illegally-collecting-users)).
+- Relief sought in the Netflix case includes **civil penalties up to $10,000 per violation**, disgorgement of assets, permanent injunctions against further data collection, and a requirement to purge all unlawfully collected Texas consumer data ([Rolling Out — Texas sues Netflix over 5 privacy violations](https://rollingout.com/2026/05/15/texas-sues-netflix-privacy-violations/)).
+- Netflix denied the allegations, stating the lawsuit "lacks merit and is based on inaccurate and distorted information" ([KSAT](https://www.ksat.com/news/local/2026/05/12/texas-attorney-general-ken-paxton-sues-netflix-over-alleged-collection-of-user-data-with-permission/)).
+
+## Why It Matters [HIGH confidence]
+
+These actions represent a significant escalation in Texas's data privacy enforcement posture and establish new precedent on several fronts:
+
+- **ACR as sensitive/biometric data.** The TDPSA defines biometric data as data generated from automatic measurement of individuals' biological characteristics, processed to uniquely identify them. The AG's theory in the smart TV cases — that ACR-derived viewing pattern data constitutes biometric or sensitive data requiring opt-in consent — expands how regulators characterize passive, ambient data collection. If sustained in the remaining Sony/Hisense/TCL litigation, this theory will affect every smart device manufacturer deploying behavioral fingerprinting technology ([IAPP — ACR Technology Takes Privacy Enforcement Spotlight](https://iapp.org/news/a/automated-content-recognition-technology-takes-privacy-enforcement-spotlight)).
+- **Streaming platforms are the next enforcement target.** The Netflix suit demonstrates that the Texas AG is moving beyond hardware manufacturers to pursue software and content platforms for behavioral data monetization. The DTPA's per-violation penalty structure ($10,000 per violation) combined with TDPSA counts creates substantial aggregate exposure for large-scale data collection pipelines.
+- **Children's privacy remains a priority.** The autoplay/dark patterns allegations against Netflix, combined with prior Texas actions against Character.AI and others, confirm Texas is actively cross-referencing children's data protections across multiple statutes.
+- **The LG settlement is a compliance template.** The required elements — informed opt-in consent before ACR activation, prominent pop-up disclosure on device setup, and a clear opt-out mechanism — constitute a de facto compliance standard that other manufacturers and technology companies should treat as the minimum bar for consent-based data collection in Texas.
+- **National implications.** Texas has secured $1.375 billion from Google in a prior data privacy settlement and is now processing actions against multiple verticals simultaneously. Other state AGs with comprehensive privacy laws — California, Colorado, Connecticut, Oregon — are watching closely, and similar ACR enforcement actions could follow in those jurisdictions ([Texas Secures Historic $1.375 Billion Settlement with Google](https://commlawgroup.com/2025/texas-secures-historic-1-375-billion-data-privacy-settlement-with-google/)).
+
+## Action Items
+
+- **Smart TV and connected device manufacturers:** Review all default ACR and behavioral data collection configurations. Follow the LG/Samsung settlement template: require informed opt-in consent before any ACR collection begins, deploy conspicuous pop-up disclosures at device setup, and provide a simple opt-out. These standards should be treated as Texas minimum requirements.
+- **Streaming platforms:** Audit data collection pipelines — specifically whether behavioral event logs, viewing histories, device identifiers, and household network data are shared with data brokers or ad-tech firms. Assess whether such sharing requires consent under the TDPSA (particularly for sensitive data categories) and whether the DTPA's prohibition on deceptive data representations is implicated.
+- **Companies collecting children's data:** Review autoplay defaults, engagement-optimization dark patterns, and consent architectures for children's profiles. The Netflix complaint foreshadows additional enforcement against platforms that maximize engagement for minors without meaningful parental controls.
+- **Assess exposure under TDPSA sensitive data provisions:** The TDPSA requires affirmative opt-in consent before processing biometric data or other sensitive data categories. Any company collecting passive behavioral data that could constitute biometric or sensitive information should obtain counsel on whether the Texas AG's ACR theory applies to their data practices.
+- **Monitor the pending cases:** The Sony, Hisense, and TCL actions remain live. Track whether additional TROs are issued and what settlement terms emerge, as each consent order refines the de facto compliance standard.
+- **Companies with Chinese-affiliated data flows:** The Hisense and TCL complaints include national-security-adjacent allegations about CCP data access requirements. Multinational businesses with data flows to Chinese entities should review TDPSA disclosure obligations regarding potential government access.
+
+## Related Reports
+
+- [reports/privacy/enforcement-actions/texas-allstate-arity-tdpsa-enforcement-2026-04-14.md](../enforcement-actions/texas-allstate-arity-tdpsa-enforcement-2026-04-14.md) — First-ever TDPSA enforcement action by Texas AG; establishes the statutory framework and penalty structure at issue in the ACR and Netflix cases.
+- [reports/privacy/enforcement-actions/texas-meta-biometric-cubi-settlement-2024-07-30.md](../enforcement-actions/texas-meta-biometric-cubi-settlement-2024-07-30.md) — Texas AG's $1.4 billion biometric data settlement with Meta under the Capture or Use of Biometric Identifier (CUBI) Act; background on Texas biometric enforcement posture.
+- [reports/privacy/enforcement-actions/texas-character-ai-children-privacy-2025-01-15.md](../enforcement-actions/texas-character-ai-children-privacy-2025-01-15.md) — Texas AG children's privacy enforcement action against multiple platforms; connects to Netflix's alleged dark patterns targeting minors.
+- [reports/privacy/state-comprehensive-laws/kentucky-hb692-acr-sensitive-data-2026-04-13.md](../state-comprehensive-laws/kentucky-hb692-acr-sensitive-data-2026-04-13.md) — Kentucky legislation directly addressing ACR technology as sensitive data; parallel state-law development tracking the same enforcement theory Texas is applying.
+
+## Sources
+
+1. [Texas OAG — Attorney General Paxton Secures Major Agreement with LG](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-major-agreement-lg-protect-texans-privacy-and-stop-data-being) — Official Texas AG press release announcing the LG settlement terms.
+2. [Texas OAG — Attorney General Paxton Sues Netflix](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-netflix-spying-texas-kids-and-consumers-illegally-collecting-users) — Official Texas AG press release announcing the Netflix lawsuit, statutes cited, and relief sought.
+3. [Texas OAG — TDPSA Consumer Page](https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act) — Official summary of the Texas Data Privacy and Security Act.
+4. [National Law Review — Texas Obtains Smart TV Privacy Settlement With LG](https://natlawreview.com/article/texas-obtains-smart-tv-privacy-settlement-lg-heres-what-changes) — Law firm analysis of LG settlement terms and what changes for consumers.
+5. [Alston & Bird — Texas Court Blocks Smart TV Data Collection](https://www.alston.com/en/insights/publications/2026/01/texas-court-blocks-smart-tv-data-collection) — Analysis of TRO proceedings against Samsung and Hisense, including Samsung TRO vacatur on January 6, 2026; describes DTPA and TDPSA legal theories in the complaints.
+6. [The Record / Recorded Future News — Texas Sues 5 Smart TV Makers Over ACR Tech](https://therecord.media/texas-sues-5-smart-tv-makers-over-acr-tech) — News coverage of the December 2025 initial filing against all five manufacturers.
+7. [Privacy Guides — Texas Sues Smart TV Makers for Spying on People's Watch Habits](https://www.privacyguides.org/news/2025/12/24/texas-sues-smart-tv-makers-for-spying-on-peoples-watch-habits/) — Background on ACR technology and the December 2025 filings.
+8. [IAPP — Automated Content Recognition Technology Takes Privacy Enforcement Spotlight](https://iapp.org/news/a/automated-content-recognition-technology-takes-privacy-enforcement-spotlight) — Industry analysis of ACR enforcement across jurisdictions.
+9. [Time — 'Netflix Watches You': Lawsuit Accuses Streaming Giant of Spying on Users](https://time.com/article/2026/05/13/netflix-spying-on-users-lawsuit-claims-texas-allegations/) — News coverage of the Netflix lawsuit allegations.
+10. [CBS Texas — Texas AG Ken Paxton Sues Netflix](https://www.cbsnews.com/texas/news/texas-ken-paxton-netflix-lawsuit-data-collection-5-11-2026/) — Coverage noting the Netflix case as first large-scale TDPSA application to a streaming platform.
+11. [Malwarebytes — Texas Sued Netflix Over Claims It Secretly Collected and Sold Users' Data](https://www.malwarebytes.com/blog/news/2026/05/texas-sued-netflix-over-claims-it-secretly-collected-and-sold-users-data) — Technical details of alleged Netflix surveillance architecture (10M events/second, 5 petabytes/day).
+12. [KSAT — Texas Attorney General Ken Paxton Sues Netflix](https://www.ksat.com/news/local/2026/05/12/texas-attorney-general-ken-paxton-sues-netflix-over-alleged-collection-of-user-data-with-permission/) — Netflix's denial statement.
+13. [Rolling Out — Texas Sues Netflix Over 5 Privacy Violations](https://rollingout.com/2026/05/15/texas-sues-netflix-privacy-violations/) — Details on penalty structure and relief sought.
+14. [KVUE — Texas Reaches Settlement with LG in Smart TV Privacy Lawsuit](https://www.kvue.com/article/news/local/texas/ag-paxton-lg-data-collection-agreement/269-4328e4bb-377e-4f71-afa3-78211a318b44) — Status of remaining pending cases (Sony, Hisense, TCL).
+15. [Texas AG — Attorney General Paxton Secures Major Agreement with Samsung](https://www.texasattorneygeneral.gov/news/releases/attorney-general-paxton-secures-major-agreement-samsung-ensure-texans-are-protected-smart-tvs) — Prior Samsung settlement as precedent for the LG agreement terms.
+16. [CommLaw Group — Texas Secures Historic $1.375 Billion Data Privacy Settlement with Google](https://commlawgroup.com/2025/texas-secures-historic-1-375-billion-data-privacy-settlement-with-google/) — Context for Texas's position as a leading data privacy enforcement jurisdiction.

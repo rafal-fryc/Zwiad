@@ -8,7 +8,7 @@ format: research-memo
 cluster: "Kentucky HB 692: ACR Data Under KCDPA"
 cluster_slug: "kentucky-hb-692-acr-kcdpa"
 first_reported: 2026-04-07
-last_updated: 2026-04-13
+last_updated: 2026-04-14
 status_history:
   - date: 2026-02-23
     status: "Introduced in House"
@@ -18,8 +18,10 @@ status_history:
     status: "Passed Senate 38-0"
   - date: 2026-04-07
     status: "Delivered to Governor for signature"
+  - date: 2026-04-14
+    status: "Signed into law by Governor Beshear"
   - date: 2027-07-01
-    status: "Scheduled effective date (if signed)"
+    status: "Scheduled effective date"
 ---
 
 # Kentucky HB 692: Automatic Content Recognition Data Classified as Sensitive Under KCDPA
@@ -80,7 +82,8 @@ The KCDPA is enforced exclusively by the [Kentucky Attorney General](https://www
 - **March 13, 2026** — Kentucky House passes HB 692, 92-0.
 - **March 31, 2026** — Kentucky Senate passes HB 692, 38-0.
 - **Early April 2026** — Bill delivered to the Governor for signature.
-- **July 1, 2027** — Scheduled effective date if signed.
+- **April 14, 2026** — Governor Andy Beshear signs HB 692 into law.
+- **July 1, 2027** — Scheduled effective date.
 
 ## Action Items
 
@@ -95,7 +98,7 @@ The KCDPA is enforced exclusively by the [Kentucky Attorney General](https://www
 2. [HB 692 Bill Text (PDF)](https://apps.legislature.ky.gov/recorddocuments/bill/26RS/hb692/bill.pdf) — Full enrolled text of the legislation
 3. [KRS 367.3611 — Definitions](https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=55836) — Current statutory text of the KCDPA definitions section
 4. [HB 692 Vote History (PDF)](https://apps.legislature.ky.gov/record/26RS/hb692/vote_history.pdf) — House vote record showing 92-0 passage
-5. [LegiScan — KY HB692 2026](https://legiscan.com/KY/bill/HB692/2026) — Bill tracking confirming enrollment
+5. [LegiScan — KY HB692 2026](https://legiscan.com/KY/bill/HB692/2026) — Bill tracking confirming enrollment and signing
 6. [FastDemocracy — KY HB 692 Tracking](https://fastdemocracy.com/bill-search/ky/2026RS/bills/KYB00019872/) — Bill tracking with timeline and summary
 7. [TrackBill — Kentucky HB 692](https://trackbill.com/bill/kentucky-house-bill-692-an-act-relating-to-data-privacy/2820559/) — Bill tracking record
 8. [BillTrack50 — KY HB692](https://www.billtrack50.com/billdetail/1978211) — Bill tracking record
@@ -105,8 +108,14 @@ The KCDPA is enforced exclusively by the [Kentucky Attorney General](https://www
 12. [SecurityWeek — Smart TV Surveillance: How Samsung and LG's ACR Technology Tracks What You Watch](https://www.securityweek.com/smart-tv-surveillance-how-samsung-and-lgs-acr-technology-tracks-what-you-watch/) — Technical background on ACR data collection
 13. [arXiv — Automatic Content Recognition Tracking in Smart TVs](https://arxiv.org/abs/2409.06203) — Academic research on ACR tracking frequency and scope
 14. [State of Surveillance — Smart TV Surveillance and ACR](https://stateofsurveillance.org/articles/surveillance/smart-tv-surveillance-acr/) — Analysis of ACR data collection practices
-15. [State of Surveillance — Kentucky Smart TV ACR Privacy Bill HB 692](https://stateofsurveillance.org/news/kentucky-smart-tv-acr-privacy-bill-hb692-2026/) — Dedicated coverage of HB 692
+15. [State of Surveillance — Kentucky Smart TV ACR Privacy Bill HB 692](https://stateofsurveillance.org/news/kentucky-smart-tv-acr-privacy-bill-hb692-2026/) — Dedicated coverage of HB 692, including signing
 16. [State of Surveillance — March 2026 State Privacy Legislation Tracker](https://stateofsurveillance.org/news/state-privacy-legislation-march-2026-six-bills-tracker/) — Broader state privacy legislative context
 17. [Consumer Reports — How to Turn Off Smart TV Snooping Features](https://www.consumerreports.org/electronics/privacy/how-to-turn-off-smart-tv-snooping-features-a4840102036/) — Consumer guidance on ACR opt-out; references 2017 Vizio settlement
 18. [Akin Gump — Kentucky Data Protection Act: What Businesses Need to Know](https://www.akingump.com/en/insights/blogs/ag-data-dive/kentucky-data-protection-act-what-businesses-need-to-know) — Law firm analysis of the underlying KCDPA
 19. [Kentucky Attorney General — KCDPA Page](https://www.ag.ky.gov/about/Office-Divisions/ODP/KCDPA/Pages/default.aspx) — Official enforcement authority information
+
+## Status Update — 2026-04-14 [HIGH confidence]
+
+Kentucky Governor Andy Beshear signed HB 692 into law, enacting the amendment to the Kentucky Consumer Data Protection Act that classifies automatic content recognition (ACR) data as sensitive data requiring opt-in consent. With the signature, Kentucky becomes the first state in the nation to directly regulate ACR technology through a dedicated statutory definition embedded in a comprehensive privacy law. The law takes effect [July 1, 2027](https://legiscan.com/KY/bill/HB692/2026), giving smart TV and smart monitor manufacturers, ad-tech intermediaries, and ACR platform operators (including Samba TV and Inscape) roughly 15 months to build Kentucky-specific opt-in consent flows and re-paper downstream data-sharing agreements. The signing confirms the compliance timeline previously treated as conditional in this report; the "if signed" qualifier throughout the analysis should now be read as operative.
+
+**Source:** [State of Surveillance — Kentucky HB 692](https://stateofsurveillance.org/news/kentucky-smart-tv-acr-privacy-bill-hb692-2026/); [LegiScan KY HB692](https://legiscan.com/KY/bill/HB692/2026).

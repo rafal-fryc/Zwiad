@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20260628-025",
+  "original_path": "reports/privacy/litigation/illinois-wyssta-delta-dental-pixel-settlement-2026-06-28.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "litigation",
+  "reason": "Report covers the Wyssta Services / Delta Dental pixel tracking class action settlement under federal ECPA and Illinois Eavesdropping Statute — a litigation-specific report. The 'litigation' subcategory directory exists under reports/privacy/ but is not yet listed in pipeline/config/categories.json. Human confirmation required before creating the subcategory entry in the registry."
+}

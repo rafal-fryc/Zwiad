@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20240819-025",
+  "original_path": "reports/privacy/litigation/federal-dmca-green-v-doj-2024-08-19.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "copyright-litigation",
+  "reason": "Report covers a DC Circuit ruling on DMCA Section 1201 First Amendment challenge. The primary subject is federal copyright/digital rights law rather than any standard privacy subcategory. The 'litigation' directory where it was stored is not a known subcategory in categories.json. A new 'copyright-litigation' subcategory would be required, which needs human confirmation."
+}

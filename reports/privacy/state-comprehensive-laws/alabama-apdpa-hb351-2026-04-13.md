@@ -10,15 +10,19 @@ topic_type: state_bill
 cluster: "Alabama HB 351: Personal Data Protection Act (2026)"
 cluster_slug: "alabama-hb-351-apdpa"
 first_reported: 2026-04-10
-last_updated: 2026-04-13
-status_history: []
+last_updated: 2026-04-27
+status_history:
+  - "2026-04-14: status_change introduced -> passed; House 104-0, Senate 34-0; awaiting Gov. Ivey signature (SCAN-20260414-012)"
+  - "2026-04-19: status_change passed -> signed; Gov. Kay Ivey signed HB 351 on April 16, 2026; APDPA is now enacted law effective May 1, 2027 (SCAN-20260419-001)"
+  - "2026-04-22: narrative_update signed -> signed; Troutman Pepper Locke client alert confirmed April 16, 2026 signing and key APDPA provisions. No new substantive provisions. (SCAN-20260422-001)"
+  - "2026-04-27: source_append; Squire Patton Boggs/Lexology client alert (April 23, 2026) appended as additional corroborating source. No new substantive provisions. (SCAN-20260427-003)"
 ---
 
 # Alabama Becomes 21st State to Enact Comprehensive Privacy Law (HB 351 — APDPA)
 
 ## Executive Summary [HIGH confidence]
 
-On April 7, 2026, the Alabama Legislature unanimously passed [House Bill 351](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf), the Alabama Personal Data Protection Act ("APDPA"), making Alabama the [21st U.S. state](https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/) to adopt a comprehensive consumer privacy statute. The bill cleared the House 104-0 and the Senate 34-0 and awaits signature by Governor Kay Ivey. If signed, the law will take effect on **May 1, 2027**.
+On April 7, 2026, the Alabama Legislature unanimously passed [House Bill 351](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf), the Alabama Personal Data Protection Act ("APDPA"), making Alabama the [21st U.S. state](https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/) to adopt a comprehensive consumer privacy statute. The bill cleared the House 104-0 and the Senate 34-0 on April 7, 2026, and was signed by Governor Kay Ivey on April 16, 2026. The law takes effect on **May 1, 2027**.
 
 While the APDPA broadly tracks the Virginia/Connecticut template, it contains several notable departures — including one of the lowest applicability thresholds in the country, a narrower definition of "sale," a non-sunsetting cure period, expanded entity-level exemptions, and no requirement to recognize universal opt-out preference signals such as Global Privacy Control — that will require tailored compliance mapping.
 
@@ -58,7 +62,6 @@ Controllers must:
 - Provide a clear and accessible privacy notice.
 - Post a clear, conspicuous link to opt out of sales and targeted advertising.
 - Obtain opt-in consent before processing sensitive data.
-- Conduct data protection assessments for high-risk processing activities.
 
 Processors must adhere to controller instructions and execute data processing agreements. Written contracts must address confidentiality, subcontractor flow-downs, deletion or return of data at contract termination, and audit rights — mirroring the VCDPA-style controller/processor contracting framework.
 
@@ -89,7 +92,7 @@ According to [DLA Piper's Privacy Matters](https://privacymatters.dlapiper.com/2
 
 2. **Non-sunsetting 45-day cure period.** The AG must provide 45-day written notice and an opportunity to cure before initiating an enforcement action, and this cure right **does not sunset**. If the controller cures and provides an express written statement that no further violations will occur, no action may be brought. Most Virginia-model states originally included cure periods that expired on a set date; Alabama's is permanent — among the most business-friendly enforcement postures in the country.
 
-3. **No universal opt-out / preference signal requirement.** A Senate amendment removed a House-passed provision that would have required controllers to recognize browser-based universal opt-out signals such as Global Privacy Control (GPC). Alabama therefore does not mandate UOOM recognition, unlike [Connecticut (Conn. Gen. Stat. § 42-515b)](https://www.cga.ct.gov/current/pub/chap_743dd.htm), [Colorado (C.R.S. § 6-1-1306)](https://leg.colorado.gov/sites/default/files/2021a_190_signed.pdf), California (CCPA/CPRA), Oregon, Texas, Montana, New Jersey, and Delaware.
+3. **No universal opt-out / preference signal requirement.** A Senate amendment removed a House-passed provision that would have required controllers to recognize browser-based universal opt-out signals such as Global Privacy Control (GPC). Alabama therefore does not mandate UOOM recognition, unlike [Connecticut (Conn. Gen. Stat. § 42-520)](https://www.cga.ct.gov/current/pub/chap_743jj.htm), [Colorado (C.R.S. § 6-1-1306)](https://law.justia.com/codes/colorado/title-6/article-1/part-13/section-6-1-1306/), California (CCPA/CPRA), Oregon, Texas, Montana, New Jersey, and Delaware.
 
 4. **Narrower definition of "sale"** with analytics and marketing-to-controller carve-outs (see above).
 
@@ -110,7 +113,7 @@ As [Privacy Daily reported](https://privacy-daily.com/article/2026/02/25/alabama
 - **February 2026** — [HB 351 passes the Alabama House](https://privacy-daily.com/article/2026/02/25/alabama-house-passes-comprehensive-privacy-bill-with-no-mention-of-ai-2602250016?BC=bc_679b511912c1f).
 - **March 2026** — [Senate amends bill to remove universal opt-out (GPC) requirement](https://privacy-daily.com/news/2026/03/10/Alabama-Senators-Slash-Universal-OptOut-Rule-from-Comprehensive-Privacy-Bill-2603100063) and to add political-organization exemption.
 - **April 7, 2026** — Legislature finalizes passage: House 104-0 and Senate 34-0.
-- **Pending** — Governor Kay Ivey's signature.
+- **April 16, 2026** — Governor Kay Ivey signs HB 351 into law.
 - **May 1, 2027** — Effective date.
 
 ## Compliance Action Items
@@ -142,5 +145,19 @@ For organizations already compliant with the VCDPA and peer state laws, the incr
 11. [Privacy Daily — Alabama Senators Slash Universal Opt-Out Rule from Comprehensive Privacy Bill](https://privacy-daily.com/news/2026/03/10/Alabama-Senators-Slash-Universal-OptOut-Rule-from-Comprehensive-Privacy-Bill-2603100063) — Coverage of Senate amendment removing UOOM/GPC recognition requirement.
 12. [ComplianceHub — State Privacy Bills March 2026 (Alabama, Kentucky, Hawaii)](https://compliancehub.wiki/state-privacy-bills-march-2026-alabama-kentucky-hawaii/) — Corroborates UOOM removal and carve-out expansion.
 13. [GovPing — Alabama Passes Privacy Law, Becomes 21st State (2026)](https://changeflow.com/govping/data-privacy-cybersecurity/alabama-passes-privacy-law-becomes-21st-state-2026-04-10) — Independent confirmation of passage.
-14. [Connecticut Data Privacy Act (Conn. Gen. Stat. Chap. 743dd)](https://www.cga.ct.gov/current/pub/chap_743dd.htm) — Comparator law requiring UOOM recognition (§ 42-515b).
-15. [Colorado Privacy Act (C.R.S. § 6-1-1306)](https://leg.colorado.gov/sites/default/files/2021a_190_signed.pdf) — Comparator law requiring universal opt-out mechanism recognition.
+14. [Connecticut Data Privacy Act (Conn. Gen. Stat. § 42-520)](https://www.cga.ct.gov/current/pub/chap_743jj.htm) — Comparator law requiring UOOM recognition (§ 42-520, Chapter 743jj).
+15. [Colorado Privacy Act (C.R.S. § 6-1-1306)](https://law.justia.com/codes/colorado/title-6/article-1/part-13/section-6-1-1306/) — Comparator law requiring universal opt-out mechanism recognition.
+16. [Squire Patton Boggs via Lexology — Alabama Personal Data Protection Act (April 23, 2026)](https://www.lexology.com/r/VHZtDLU/cee70d1cc7/Yvun) — Law firm client alert corroborating governor's signature on April 16, 2026; confirms covered businesses threshold (25,000 consumers or 25% gross revenue from data sales), standard consumer rights, opt-in consent for sensitive data, and AG-only enforcement. No new substantive provisions beyond prior reporting (SCAN-20260427-003).
+
+
+## Status Update — 2026-04-19 [HIGH confidence]
+
+Governor Kay Ivey signed [HB 351](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf) into law on **April 16, 2026**, making Alabama the 21st state with a comprehensive consumer privacy statute. The signing confirms the May 1, 2027 effective date and starts the compliance countdown. No substantive changes were made to the bill between legislative passage (April 7, 2026) and signing; the enacted text reflects the Senate-amended version without the universal opt-out (GPC) recognition requirement. Status transitions from *passed* to *signed (enacted)*. Compliance teams should treat the program build as active with a fixed deadline.
+
+**Source:** [IAPP Daily Dashboard — SCAN-20260419-001](http://info.iapp.org/n/MTM4LUVaTS0wNDIAAAGhO15WukgALJ9eYLwj3tPdOqvOk6qP81cjm_WyleP-NUgf0CN2A_oDQr5a1CXcnIJYTQfxqZY=) | **Finding ID:** SCAN-20260419-001
+
+## Update 2026-04-22 [LOW confidence]
+
+Troutman Pepper Locke published a client alert on April 20, 2026 confirming that Governor Kay Ivey signed House Bill 351 into law on April 16, 2026, making Alabama the 21st state to enact a comprehensive consumer data privacy law. The Troutman analysis re-confirms the key provisions: a 25,000-consumer applicability threshold, enforcement exclusively through the Alabama Attorney General with a non-sunsetting 45-day cure period, civil penalties up to $15,000 per violation, and a May 1, 2027 effective date. No new substantive provisions beyond what was previously reported.
+
+**Source:** [Troutman Pepper Locke — Alabama Enacts Consumer Data Privacy Law](https://www.troutmanprivacy.com/2026/04/alabama-enacts-consumer-data-privacy-law/) | **Finding ID:** SCAN-20260422-001

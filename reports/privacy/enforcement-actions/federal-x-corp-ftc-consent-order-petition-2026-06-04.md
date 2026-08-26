@@ -8,8 +8,9 @@ finding_id: "SCAN-20260615-025"
 topic_key: "FTC-ORDER-2026"
 topic_type: "enforcement"
 first_reported: 2026-06-04
-last_updated: "2026-06-28"
+last_updated: "2026-07-17"
 status_history:
+  - {date: "2026-07-17", status: "comment-period-open", finding_id: "SCAN-20260717-025", run_id: "2026-07-17T13-54-18"}
   - {date: "2026-06-28", status: "comment-period-open", finding_id: "SCAN-20260628-008", run_id: "2026-06-28T19-28-09"}
 cluster: "FTC v. Twitter/X Corp.: 2022 Privacy Consent Order and Termination Petition"
 cluster_slug: "ftc-twitter-x-corp-2022-consent-order"
@@ -145,3 +146,11 @@ The Arnold & Porter analysis of the [2022 Twitter settlement](https://www.arnold
 **Summary:** As of June 28, 2026, the 30-day public comment period — opened June 3, 2026 and closing July 2, 2026 — remains active, with the full Commission vote expected to follow. The comment record includes both opposition (critics note that X Corp.'s characterization of $17 million in annual compliance costs as excessive is difficult to reconcile with the company's estimated $44 billion valuation) and institutional signals favoring reconsideration: the current Republican-majority Commission has accepted the petition and initiated the process without prejudging the outcome. Analysts are situating the petition within a broader FTC deregulatory posture: the Commission recently vacated its 2024 consent order against Rytr LLC — a generative AI writing tool — acknowledging that the original remedy, a categorical ban on AI-generated reviews, went further than the evidence of consumer harm warranted. That walk-back, alongside the X Corp. petition, reflects an emerging pattern in which the Trump-era FTC is retreating from expansive structural AI-liability theories while maintaining misrepresentation enforcement. No Commission decision has issued; under 16 C.F.R. § 2.51, the agency has 120 days from the July 2 comment deadline — approximately through early November 2026 — to act.
 **Finding ID:** SCAN-20260628-008
 **Run ID:** 2026-06-28T19-28-09
+
+## Update 2026-07-17
+
+**Change:** comment-period-open → comment-period-open
+**Source:** http://info.iapp.org/MTM4LUVaTS0wNDIAAAGi3IrxjU327tbfIugUVfh7CyOuE6KuNDyoTZk9tvcTpjYAtcTH_yd0Xk7sgQ3AwtmVDqIcMMo=
+**Summary:** Rohit Chopra -- the former CFPB director now leading California's newly launched Business and Consumer Services Agency (BCSA), which formally began operations July 1, 2026 -- publicly urged the FTC to deny X Corp.'s pending petition to set aside or modify the 2022 consent order (Docket No. C-4316), warning that granting the company a "pardon" from its privacy and data-security compliance obligations would expose users to further fraud and abuse. Chopra's comments, reported by Law360, came during the FTC's public comment period on the petition, which closed July 2, 2026. This is the first identified instance of a state consumer-protection official publicly weighing in against the petition, adding a state-level voice to the record the Commission will consider in its forthcoming decision (due within 120 days of the comment deadline, i.e., by approximately early November 2026). No formal written comment letter from BCSA or Chopra was independently located in the FTC's public docket at the time of this update.
+**Finding ID:** SCAN-20260717-025
+**Run ID:** 2026-07-17T13-54-18

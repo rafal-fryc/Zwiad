@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20250313-017",
+  "original_path": "reports/privacy/global-data-governance-frameworks-2025-03-13.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "international-frameworks",
+  "reason": "Report is a multi-jurisdiction survey of GDPR-inspired data governance frameworks covering Japan APPI, Canada Bill C-27, Brazil ANPD, EU EDPB, Quebec Law 25, and eight US state comprehensive privacy laws. None of the known privacy subcategories (state-comprehensive-laws, federal-legislation, enforcement-actions, data-breach, childrens-privacy, health-data, financial-privacy) adequately captures international/comparative regulatory frameworks. A new 'international-frameworks' subcategory is proposed to house cross-jurisdictional and comparative law surveys."
+}

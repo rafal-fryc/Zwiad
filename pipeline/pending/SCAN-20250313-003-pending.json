@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20250313-003",
+  "original_path": "reports/privacy/litigation/california-pharma-pixel-class-certification-2025-03-13.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "litigation",
+  "reason": "Report covers California CIPA/CMIA/VPPA pharma pixel class certification litigation. The 'litigation' subcategory does not exist in the known privacy subcategories registry (categories.json). Existing categories include enforcement-actions, state-comprehensive-laws, health-data, childrens-privacy, data-breach, federal-legislation, and financial-privacy. A dedicated 'litigation' subcategory would better serve the existing directory structure already containing numerous CIPA/wiretapping cases."
+}

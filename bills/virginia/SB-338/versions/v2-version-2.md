@@ -107,3 +107,15 @@ personal data collected from a known child:
 - d. For longer than is reasonably necessary to provide the online service, product, or feature.
 2. Subject to the consent requirement established by subdivision 3, no controller shall collect precise geolocation data from a known child unless (i) such precise geolocation data is reasonably necessary for the controller to provide an online service, product, or feature and, if such data is necessary to provide such online service, product, or feature, such controller shall only collect such data for the time necessary to provide such online service, product, or feature and (ii) the controller provides to the known child a signal indicating that such controller is collecting such precise geolocation data, which signal shall be available to such known child for the entire duration of such collection.
 3. No controller shall engage in the activities described in subdivisions 1 or 2 unless the controller obtains consent from the child's parent or legal guardian in accordance with the federal Children's Online Privacy Protection Act (15 U.S.C. § 6501 et seq.).
+---
+
+## Status Update — 2026-04-14
+
+**Status change:** passed → signed
+
+Virginia Governor Abigail Spanberger signed Senate Bill 338 into law on April 13, 2026, enacting the amendments to § 59.1-578 of the Code of Virginia shown above. The law takes effect **July 1, 2026**, and prohibits controllers from selling or offering for sale precise geolocation data concerning a consumer. With the signing, Virginia joins Maryland and Oregon as the few states to ban the sale of precise geolocation data. The bill had passed both chambers of the General Assembly with unanimous bipartisan support.
+
+Sources:
+- [Virginia Governor signs landmark location privacy bill into law — Consumer Reports Advocacy](https://advocacy.consumerreports.org/press_release/virginia-governor-signs-landmark-location-privacy-bill-into-law/)
+- [SB338 — 2026 Regular Session | Virginia LIS](https://lis.virginia.gov/bill-details/20261/SB338)
+- [IAPP Daily Dashboard — Governors enact amendments to comprehensive privacy laws in Virginia and Kentucky](http://info.iapp.org/MTM4LUVaTS0wNDIAAAGhK-7XBv4YI5MSaAnJZTXieGYgIF3wepUevLgDHARK_dJlLtMyyJPh4f9BFk6C0ew9kDy8U18=)

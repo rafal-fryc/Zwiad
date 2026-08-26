@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20240819-038",
+  "original_path": "reports/privacy/new-york-nyc-drone-emergency-management-2024-08-19.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "surveillance-technology",
+  "reason": "Report covers NYC drone deployments, POST Act compliance, and surveillance privacy oversight. None of the known privacy subcategories (state-comprehensive-laws, federal-legislation, enforcement-actions, data-breach, childrens-privacy, health-data, financial-privacy) adequately covers surveillance technology and law enforcement privacy. A new 'surveillance-technology' subcategory would be required, which needs human confirmation."
+}

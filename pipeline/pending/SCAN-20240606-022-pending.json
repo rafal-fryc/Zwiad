@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20240606-022",
+  "original_path": "reports/privacy/litigation/illinois-thermoflex-bipa-insurance-coverage-2024-06-06.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "litigation",
+  "reason": "The report covers a Seventh Circuit court decision on insurance coverage for BIPA class actions (Thermoflex v. Mitsui). The content focuses on civil litigation outcomes and insurance coverage exclusions for biometric privacy claims — a litigation-focused category. No existing known subcategory in privacy (state-comprehensive-laws, federal-legislation, enforcement-actions, data-breach, childrens-privacy, health-data, financial-privacy) adequately captures civil litigation and insurance coverage decisions. A 'litigation' subcategory is proposed to accommodate BIPA case law, insurance coverage decisions, and related civil court rulings."
+}

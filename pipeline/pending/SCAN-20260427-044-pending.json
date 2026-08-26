@@ -1,0 +1,7 @@
+{
+  "finding_id": "SCAN-20260427-044",
+  "original_path": "reports/privacy/openai-privacy-filter-pet-tool-2026-04-23.md",
+  "proposed_topic": "privacy",
+  "proposed_subcategory": "privacy-enhancing-technology",
+  "reason": "OpenAI Privacy Filter is an open-weight PII redaction tool (privacy-enhancing technology / PET). It does not fit any of the known privacy subcategories: state-comprehensive-laws, federal-legislation, enforcement-actions, data-breach, childrens-privacy, health-data, or financial-privacy. A new subcategory (e.g., 'privacy-enhancing-technology' or 'industry-tools') would be required to file this report under reports/privacy/."
+}

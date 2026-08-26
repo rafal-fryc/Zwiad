@@ -1,6 +1,1373 @@
 {
-  "generated": "2026-04-13",
+  "generated": "2026-07-25",
   "clusters": [
+    {
+      "slug": "colorado-ai-act-sb-24-205-enforcement",
+      "name": "Colorado AI Act (SB 24-205): Enforcement and Amendments",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-08-colorado-sb189-ai-act-reform",
+        "2026-05-08-colorado-ai-act-xai-court-stay",
+        "2026-04-13-colorado-ai-act-enforcement-delayed",
+        "2024-08-19-colorado-eu-ai-summer-roundup",
+        "2024-08-16-colorado-ai-act-task-force-hb24-1468",
+        "2024-06-07-colorado-kilpatrick-ai-act-algorithmic-discrimination",
+        "2024-06-06-colorado-sb24-205-venable-compliance",
+        "2024-06-06-colorado-hogan-lovells-data-chronicles-ai-act",
+        "2024-06-05-colorado-sb205-dla-piper-guardrails",
+        "2024-06-04-colorado-benesch-sb205-state-patchwork",
+        "2024-06-03-colorado-sb205-akin-gump-consumer-protection",
+        "2024-05-31-colorado-sb24-205-taft",
+        "2024-05-30-colorado-sb205-spb-employer-liability",
+        "2024-05-30-colorado-sb205-bbb-advertising-self-regulation",
+        "2024-05-30-colorado-sb205-akin-gump-developer-deployer",
+        "2024-05-29-colorado-sb205-ai-act",
+        "2024-05-28-colorado-sb205-healthcare-ai-implications",
+        "2024-05-23-colorado-polis-ai-signing-squire-patton-boggs",
+        "2024-05-20-colorado-sb205-employer-ai-employment",
+        "2024-05-20-colorado-sb205-ai-act",
+        "2024-05-14-colorado-ai-act-sb24-205-passage"
+      ],
+      "dateRange": {
+        "first": "2024-05-14",
+        "latest": "2026-05-08"
+      },
+      "jurisdictions": [
+        "Colorado"
+      ]
+    },
+    {
+      "slug": "cipa-website-wiretapping-litigation",
+      "name": "CIPA Website Wiretapping Class Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-21-california-cipa-toyota-fingerprinting",
+        "2026-07-17-california-sb690-cipa-reform",
+        "2026-05-27-california-cipa-blaker-netscout-pen-register",
+        "2026-04-28-california-cipa-trap-trace-rounds-v-ddi",
+        "2026-04-22-federal-article-iii-standing-website-privacy-popa",
+        "2025-01-20-california-perry-hudson-twilio-arbitration-estoppel",
+        "2025-01-20-california-cipa-ddr-media-jornaya-hashing",
+        "2025-01-15-california-cipa-pen-register-ip-address",
+        "2024-11-06-california-shah-v-fandom-cipa-tracking-consent",
+        "2024-07-24-california-cipa-punitive-damages-attorney-fees",
+        "2024-06-10-california-cipa-pen-register-mirmalek-la-times",
+        "2024-05-29-california-wilson-v-google-dmv-disability-data-cipa-dppa",
+        "2024-05-23-california-cipa-chat-wiretapping-cody-v-boscov",
+        "2024-04-17-pennsylvania-smidga-spirit-airlines-standing",
+        "2024-04-17-california-cipa-chat-wiretapping-garcia-v-buildcom"
+      ],
+      "dateRange": {
+        "first": "2024-04-17",
+        "latest": "2026-07-21"
+      },
+      "jurisdictions": [
+        "California",
+        "Federal",
+        "Pennsylvania"
+      ]
+    },
+    {
+      "slug": "illinois-bipa-litigation",
+      "name": "Illinois BIPA Litigation and Amendments",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-delgado-meta-bipa-voiceprint",
+        "2026-05-12-federal-third-circuit-mcgoveran-aws-bipa-glba",
+        "2026-04-22-illinois-bipa-clay-7th-circuit",
+        "2026-04-12-illinois-bipa-7th-circuit-retroactivity",
+        "2024-08-19-illinois-bipa-sb2979-signed",
+        "2024-08-06-illinois-bipa-prisma-labs-lensa-magic-avatar",
+        "2024-06-10-illinois-bipa-sb2979-damages",
+        "2024-06-06-illinois-thermoflex-bipa-insurance-coverage",
+        "2024-04-17-illinois-bipa-sb2979-damages-amendment"
+      ],
+      "dateRange": {
+        "first": "2024-04-17",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Federal",
+        "Illinois",
+        "Illinois, Federal (Seventh Circuit)"
+      ]
+    },
+    {
+      "slug": "anthropic-claude-mythos-cybersecurity",
+      "name": "Anthropic Claude Mythos: AI-Driven Vulnerability Research",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-08-federal-wh-ai-pre-launch-evaluation-eo",
+        "2026-04-22-global-anthropic-mythos-financial-breach",
+        "2026-04-19-federal-anthropic-id-verification-persona",
+        "2026-04-15-federal-ai-cyberattack-agency-response",
+        "2026-04-14-federal-anthropic-project-glasswing-claude-mythos",
+        "2026-04-12-anthropic-claude-mythos-cyberattack"
+      ],
+      "dateRange": {
+        "first": "2026-04-12",
+        "latest": "2026-05-08"
+      },
+      "jurisdictions": [
+        "Federal",
+        "UK"
+      ]
+    },
+    {
+      "slug": "cppa-cpra-rulemaking-agenda",
+      "name": "CPPA CPRA Rulemaking: ADMT, Cybersecurity Audits, and Risk Assessments",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-15-california-cppa-risk-assessment-cybersecurity-audit",
+        "2026-04-24-cppa-privacy-disclosures-employee-data-rulemaking",
+        "2026-04-20-california-cppa-notices-disclosures-employee-data",
+        "2025-01-22-california-cppa-admt-cybersecurity-risk-assessment-rulemaking",
+        "2025-01-15-california-cppa-admt-comment-extension",
+        "2024-05-14-california-cppa-opposes-apra-federal-preemption"
+      ],
+      "dateRange": {
+        "first": "2024-05-14",
+        "latest": "2026-06-15"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "connected-car-telematics-data-broker-enforcement",
+      "name": "Connected Car Telematics Data Sharing: State AG Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-11-california-cppa-gm-onstar-ccpa-settlement",
+        "2026-05-08-california-gm-onstar-ccpa-settlement",
+        "2026-04-19-montana-ford-stellantis-auto-data-cid",
+        "2024-08-19-texas-gm-onstar-ag-enforcement-posture",
+        "2024-08-15-texas-ag-gm-onstar-driver-data",
+        "2024-08-13-texas-gm-onstar-driver-data"
+      ],
+      "dateRange": {
+        "first": "2024-08-13",
+        "latest": "2026-05-11"
+      },
+      "jurisdictions": [
+        "California",
+        "Montana",
+        "Texas"
+      ]
+    },
+    {
+      "slug": "fisa-section-702-reauthorization",
+      "name": "FISA Section 702 Reauthorization (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-17-federal-dni-fisa702-lapse-jay-clayton",
+        "2026-04-30-federal-fisa702-45day-extension",
+        "2026-04-22-federal-fisa702-house-gop-revolt-april30-deadline",
+        "2026-04-19-federal-wyden-fisa702-reform-democrats",
+        "2026-04-14-federal-fisa-702-reauthorization-grassley-clean-renewal",
+        "2026-04-13-fisa-section-702-renewal"
+      ],
+      "dateRange": {
+        "first": "2026-04-13",
+        "latest": "2026-06-17"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "hhs-ocr-hipaa-security-rule-enforcement",
+      "name": "HHS OCR HIPAA Security Rule Enforcement Initiative (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-18-federal-hhs-ocr-spencer-gifts-ransomware",
+        "2026-05-21-federal-hhs-ocr-reorganization-cybersecurity-division",
+        "2026-04-27-federal-health-data-security-overlay",
+        "2026-04-24-hhs-ocr-hipaa-ransomware-settlements",
+        "2026-04-23-federal-ocr-hipaa-self-funded-plan-enforcement",
+        "2026-04-12-hhs-ocr-hipaa-risk-management-video"
+      ],
+      "dateRange": {
+        "first": "2026-04-12",
+        "latest": "2026-06-18"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "trump-eo-ai-cybersecurity-frontier-models-2026",
+      "name": "Trump AI Cybersecurity Executive Order: Frontier Model Review and Critical Sector Provisions (May 2026)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-22-federal-anthropic-cybersecurity-framework-negotiations",
+        "2026-06-15-federal-trump-ai-innovation-security-eo-wilson-sonsini-analysis",
+        "2026-06-05-federal-cisa-ai-eo-bod",
+        "2026-06-04-federal-house-subcommittee-frontier-ai-cybersecurity-hearing",
+        "2026-06-02-federal-trump-ai-innovation-security-eo",
+        "2026-05-20-federal-ai-cybersecurity-eo-frontier-model-postponed"
+      ],
+      "dateRange": {
+        "first": "2026-05-20",
+        "latest": "2026-06-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "meta-addictive-design-minors-litigation",
+      "name": "Meta Addictive Design for Minors: State AG Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-20-tennessee-meta-instagram-addiction-trial",
+        "2026-07-17-multistate-meta-mdl3047-14-trillion-penalties",
+        "2026-05-05-new-mexico-meta-children-safety",
+        "2026-04-13-massachusetts-sjc-meta-minors",
+        "2024-10-22-california-meta-coppa-mdl3047-ruling"
+      ],
+      "dateRange": {
+        "first": "2024-10-22",
+        "latest": "2026-07-20"
+      },
+      "jurisdictions": [
+        "Federal",
+        "Massachusetts",
+        "Multi-state",
+        "New Mexico",
+        "Tennessee"
+      ]
+    },
+    {
+      "slug": "nydfs-cybersecurity-regulation-23-nycrr-500",
+      "name": "NYDFS Cybersecurity Regulation (23 NYCRR Part 500): AI Guidance and Enforcement",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-21-new-york-nydfs-frontier-ai-cybersecurity",
+        "2026-04-30-new-york-dfs-delta-dental-moveit-settlement",
+        "2024-10-16-new-york-nydfs-ai-cybersecurity-guidance",
+        "2024-10-16-new-york-dfs-ai-cybersecurity-industry-letter-ai-law",
+        "2024-10-16-new-york-dfs-ai-cybersecurity-guidance"
+      ],
+      "dateRange": {
+        "first": "2024-10-16",
+        "latest": "2026-05-21"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "take-it-down-act-enforcement",
+      "name": "TAKE IT DOWN Act: Federal NCII Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-15-federal-deepfake-minors-kids-act-coppa",
+        "2026-05-20-federal-ftc-nudify-warning-letters",
+        "2026-05-19-federal-take-it-down-act-ftc-enforcement",
+        "2026-05-19-federal-ftc-take-it-down-act-platforms",
+        "2026-04-12-take-it-down-act-strahler-conviction"
+      ],
+      "dateRange": {
+        "first": "2026-04-08",
+        "latest": "2026-06-15"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "trump-eo-national-ai-policy",
+      "name": "Trump EO: National AI Policy Framework (Dec 2025)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-01-federal-trump-ai-cabinet-divisions",
+        "2026-05-22-federal-trump-ai-cybersecurity-eo-delayed",
+        "2026-04-29-federal-trump-eo-ai-agency-deadlines-missed",
+        "2026-04-14-federal-national-policy-framework-ai-preemption",
+        "2026-04-12-trump-ai-executive-order-state-preemption"
+      ],
+      "dateRange": {
+        "first": "2025-12-11",
+        "latest": "2026-06-01"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "cppa-data-broker-drop-audits",
+      "name": "CalPrivacy DROP Program: Data Broker Audit Regulations",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-08-california-cppa-delete-act-registration-sweep",
+        "2026-05-04-california-cppa-drop-enforcement",
+        "2026-04-12-cppa-drop-audit-rulemaking",
+        "2025-03-13-california-cppa-data-broker-delete-act-growbots"
+      ],
+      "dateRange": {
+        "first": "2025-03-13",
+        "latest": "2026-05-08"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-sep-2024-ai-legislative-package",
+      "name": "California September 2024 AI Legislative Package (AB 2013, SB 942, and Related Bills)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-19-california-xai-v-bonta-ab2013-litigation",
+        "2024-11-04-california-ai-bills-privacy-data-security",
+        "2024-10-18-california-sb942-ai-transparency-act",
+        "2024-10-18-california-ai-training-data-transparency"
+      ],
+      "dateRange": {
+        "first": "2024-10-18",
+        "latest": "2026-04-19"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "state-chatbot-disclosure-laws-2026",
+      "name": "State Chatbot Disclosure and AI Mental Health Practice Laws: 2026 Legislative Wave",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-17-multi-state-ai-chatbot-law-comparative",
+        "2026-05-05-iowa-sf2417-ai-chatbot-minors",
+        "2026-05-01-federal-guard-act-s3062-minors",
+        "2026-04-22-nebraska-maine-ai-chatbot-health-enacted"
+      ],
+      "dateRange": {
+        "first": "2026-04-22",
+        "latest": "2026-07-01"
+      },
+      "jurisdictions": [
+        "Federal",
+        "Iowa",
+        "Multi-state",
+        "Nebraska"
+      ]
+    },
+    {
+      "slug": "utah-uaipa-sb149-ai-disclosure",
+      "name": "Utah AI Policy Act (SB 149): Disclosure Framework and Compliance",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-06-07-utah-benesch-ai-disclosure-compliance",
+        "2024-06-06-utah-aipa-provider-compliance",
+        "2024-05-15-utah-uaipa-sb149-ai-disclosure",
+        "2024-05-15-utah-uaipa-ai-disclosure-cozen"
+      ],
+      "dateRange": {
+        "first": "2024-05-15",
+        "latest": "2024-06-07"
+      },
+      "jurisdictions": [
+        "Utah"
+      ]
+    },
+    {
+      "slug": "vermont-h121-data-privacy-act-2024",
+      "name": "Vermont H.121: Data Privacy Act (Passed and Vetoed, 2024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-15-vermont-sb71-data-privacy-surveillance-act",
+        "2024-06-07-vermont-vdpa-h121",
+        "2024-05-28-vermont-vdpa-h121",
+        "2024-05-22-vermont-vdpa-h121-vetoed"
+      ],
+      "dateRange": {
+        "first": "2024-05-22",
+        "latest": "2026-06-16"
+      },
+      "jurisdictions": [
+        "Vermont"
+      ]
+    },
+    {
+      "slug": "state-ai-governance-bills-2026-wave",
+      "name": "2026 State AI Governance Legislative Wave: Connecticut SB 5, Colorado HB 1263, and Related Bills",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-28-illinois-ct-ny-ai-privacy-bills",
+        "2026-05-01-connecticut-sb5-ai-responsibility-transparency-act",
+        "2026-04-28-multi-state-ai-chatbot-bills-april"
+      ],
+      "dateRange": {
+        "first": "2026-04-28",
+        "latest": "2026-05-28"
+      },
+      "jurisdictions": [
+        "Connecticut",
+        "Multi-state"
+      ]
+    },
+    {
+      "slug": "23andme-genetic-data-breach-ag-enforcement",
+      "name": "23andMe 2023 Genetic Data Breach: State AG Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-15-multistate-23andme-ag-settlement",
+        "2026-06-12-federal-23andme-data-breach-settlement",
+        "2026-05-29-california-23andme-chrome-holding-breach"
+      ],
+      "dateRange": {
+        "first": "2026-05-29",
+        "latest": "2026-07-15"
+      },
+      "jurisdictions": [
+        "California",
+        "Federal",
+        "Multi-state"
+      ]
+    },
+    {
+      "slug": "bis-export-controls-frontier-ai-models",
+      "name": "BIS Export Controls on Frontier AI Model Access: Anthropic Fable 5 and Mythos 5",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-29-federal-anthropic-export-controls-lifted-california-partnership",
+        "2026-06-24-federal-anthropic-nsa-mythos-access",
+        "2026-06-15-federal-anthropic-fable5-mythos5-export-control"
+      ],
+      "dateRange": {
+        "first": "2026-06-15",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "doj-data-security-program-eo14117",
+      "name": "DOJ Data Security Program (EO 14117): Cross-Border Data Transfer Restrictions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-ecpa-bulk-sensitive-data-baker-index-exchange",
+        "2026-07-17-federal-doj-dsp-audit-certification-deadlines",
+        "2026-05-22-federal-doj-data-security-program-dsp-loopholes"
+      ],
+      "dateRange": {
+        "first": "2026-05-22",
+        "latest": "2026-07-17"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "federal-ai-preemption-legislation-2026",
+      "name": "Federal AI Preemption Legislation: House Bipartisan Negotiations (2026)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-09-federal-white-house-ai-preemption-kosa",
+        "2026-06-04-federal-great-american-ai-act",
+        "2026-05-19-federal-house-bipartisan-ai-preemption"
+      ],
+      "dateRange": {
+        "first": "2026-05-19",
+        "latest": "2026-06-09"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "great-american-ai-act-gaaia-2026",
+      "name": "Great American AI Act (GAAIA 2026): Federal AI Governance Framework",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-17-federal-congress-ai-export-controls-anthropic",
+        "2026-06-09-federal-great-american-ai-act-split-bills",
+        "2026-06-05-federal-openai-frontier-ai-blueprint"
+      ],
+      "dateRange": {
+        "first": "2026-06-05",
+        "latest": "2026-06-17"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "healthcare-tracking-pixel-litigation",
+      "name": "Healthcare Provider Tracking Pixel Litigation (Meta Pixel & HIPAA-Adjacent Claims)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-28-illinois-wyssta-delta-dental-pixel-settlement",
+        "2024-06-07-washington-overlake-hospital-pixel-privacy",
+        "2024-05-20-massachusetts-doe-v-tenet-healthcare-pixel-tracking"
+      ],
+      "dateRange": {
+        "first": "2024-05-20",
+        "latest": "2026-06-28"
+      },
+      "jurisdictions": [
+        "Illinois",
+        "Massachusetts",
+        "Washington"
+      ]
+    },
+    {
+      "slug": "kids-act-hr7757-child-online-safety-omnibus",
+      "name": "KIDS Act (H.R. 7757): KOSA, COPPA 2.0, and Child Online Safety Omnibus",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-29-federal-kids-act-house-passage",
+        "2026-06-28-federal-kids-act-hr7757",
+        "2026-06-25-federal-whitehouse-big-tech-ceos-child-safety-hearing"
+      ],
+      "dateRange": {
+        "first": "2026-06-25",
+        "latest": "2026-06-30"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "maryland-modpa-kids-code-2024",
+      "name": "Maryland MODPA and Kids Code (HB 567 / HB 603)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-07-24-maryland-2024-laws-financial-services",
+        "2024-05-16-maryland-modpa-kids-code",
+        "2024-04-17-maryland-sb541-modpa"
+      ],
+      "dateRange": {
+        "first": "2024-04-17",
+        "latest": "2024-07-24"
+      },
+      "jurisdictions": [
+        "Maryland"
+      ]
+    },
+    {
+      "slug": "massachusetts-ag-ai-advisory-enforcement",
+      "name": "Massachusetts AG AI Advisory and Enforcement Initiative",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-05-23-massachusetts-ag-ai-private-equity",
+        "2024-05-15-massachusetts-ag-ai-advisory-gala",
+        "2024-04-22-massachusetts-ag-ai-advisory"
+      ],
+      "dateRange": {
+        "first": "2024-04-22",
+        "latest": "2024-05-23"
+      },
+      "jurisdictions": [
+        "Massachusetts"
+      ]
+    },
+    {
+      "slug": "minnesota-mcdpa-hf4757-comprehensive-privacy",
+      "name": "Minnesota Consumer Data Privacy Act (MCDPA / HF 4757)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-06-minnesota-mcdpa-hf4757",
+        "2024-06-06-minnesota-mcdpa-dwt-compliance",
+        "2024-05-30-minnesota-mcdpa-hf4757"
+      ],
+      "dateRange": {
+        "first": "2024-05-30",
+        "latest": "2024-06-06"
+      },
+      "jurisdictions": [
+        "Minnesota"
+      ]
+    },
+    {
+      "slug": "roblox-multistate-ag-children-safety-enforcement",
+      "name": "Roblox Multistate AG Enforcement: Children's Online Safety Settlements",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-22-arkansas-ag-roblox-discord-lawsuit",
+        "2026-05-07-indiana-roblox-discord-child-safety-dcsa",
+        "2026-04-21-alabama-ag-roblox-children-settlement"
+      ],
+      "dateRange": {
+        "first": "2026-04-21",
+        "latest": "2026-06-22"
+      },
+      "jurisdictions": [
+        "Alabama",
+        "Arkansas",
+        "Indiana"
+      ]
+    },
+    {
+      "slug": "sec-crypto-enforcement-coinbase",
+      "name": "SEC v. Coinbase: Crypto Asset Securities Enforcement",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2025-01-13-federal-coinbase-third-circuit-sec-rulemaking",
+        "2024-08-19-federal-sec-ripple-labs-xrp",
+        "2024-03-27-federal-sec-coinbase-sdny-ruling"
+      ],
+      "dateRange": {
+        "first": "2024-03-27",
+        "latest": "2025-01-13"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "sec-solarwinds-cybersecurity-enforcement",
+      "name": "SEC v. SolarWinds: Cybersecurity Disclosure Enforcement Limits",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-07-26-federal-sec-cyber-enforcement-authority-solarwinds",
+        "2024-07-18-federal-sec-solarwinds-dismissal",
+        "2024-07-18-federal-sec-solarwinds-ciso-personal-liability"
+      ],
+      "dateRange": {
+        "first": "2024-07-18",
+        "latest": "2024-07-26"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "secure-data-act-hr8413-federal-privacy-preemption",
+      "name": "SECURE Data Act (HR 8413): Federal Privacy Framework and State Preemption",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-01-federal-secure-data-act-hr8413-june-hearing",
+        "2026-05-11-federal-state-ags-secure-data-act-preemption",
+        "2026-04-22-federal-secure-data-act-hr8413"
+      ],
+      "dateRange": {
+        "first": "2026-04-22",
+        "latest": "2026-06-01"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "texas-ag-allstate-arity-tdpsa-enforcement",
+      "name": "Texas AG v. Allstate/Arity: TDPSA Enforcement Action",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-14-texas-allstate-arity-tdpsa-enforcement",
+        "2025-01-20-texas-allstate-arity-tdpsa-enforcement",
+        "2025-01-15-texas-allstate-arity-tdpsa-enforcement"
+      ],
+      "dateRange": {
+        "first": "2025-01-15",
+        "latest": "2026-04-14"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "tiktok-state-ag-enforcement",
+      "name": "TikTok State AG Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-22-iowa-tiktok-amended-complaint",
+        "2024-06-10-utah-tiktok-live-virtual-currency",
+        "2024-06-04-arkansas-tiktok-adtpa-motion-to-dismiss"
+      ],
+      "dateRange": {
+        "first": "2024-06-04",
+        "latest": "2026-04-22"
+      },
+      "jurisdictions": [
+        "Arkansas",
+        "Iowa",
+        "Utah"
+      ]
+    },
+    {
+      "slug": "x-corp-bright-data-web-scraping-litigation",
+      "name": "X Corp. v. Bright Data: Web Scraping Terms-of-Service Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-07-california-x-corp-bright-data-preemption",
+        "2024-06-05-california-x-corp-bright-data-scraping",
+        "2024-05-09-california-x-corp-bright-data-web-scraping"
+      ],
+      "dateRange": {
+        "first": "2024-05-09",
+        "latest": "2024-06-07"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "ai-hr-employment-decisions-multijurisdiction-2026",
+      "name": "AI in Employment Decisions: Multi-Jurisdiction Employer Obligations (Illinois HRA, NYC LL144, Ontario WFWA, and Related Laws)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-20-connecticut-sb5-aedt-employment-ai",
+        "2026-04-24-ai-hr-canada-us-employer-governance"
+      ],
+      "dateRange": {
+        "first": "2026-04-24",
+        "latest": "2026-05-20"
+      },
+      "jurisdictions": [
+        "Connecticut",
+        "Federal"
+      ]
+    },
+    {
+      "slug": "cppa-ccpa-enforcement-actions",
+      "name": "CPPA CCPA Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-07-cppa-playon-sports-ccpa-enforcement",
+        "2024-04-02-california-cppa-enforcement-advisory-data-minimization"
+      ],
+      "dateRange": {
+        "first": "2024-04-22",
+        "latest": "2026-04-07"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "colorado-cpa-hb1058-neural-biological-data",
+      "name": "Colorado CPA H.B. 1058: Neural and Biological Data Protections",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-10-21-colorado-california-neural-data-privacy-laws",
+        "2024-05-14-colorado-hb1058-biological-neural-data"
+      ],
+      "dateRange": {
+        "first": "2024-05-14",
+        "latest": "2024-10-21"
+      },
+      "jurisdictions": [
+        "Colorado"
+      ]
+    },
+    {
+      "slug": "colorado-cpa-hb1130-biometric-data",
+      "name": "Colorado CPA HB 24-1130: Biometric Data Requirements",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-11-04-colorado-cpa-rulemaking-hearing",
+        "2024-06-04-colorado-hb1130-biometric-data"
+      ],
+      "dateRange": {
+        "first": "2024-06-04",
+        "latest": "2024-11-04"
+      },
+      "jurisdictions": [
+        "Colorado"
+      ]
+    },
+    {
+      "slug": "connecticut-ctdpa-compliance-enforcement",
+      "name": "Connecticut Data Privacy Act (CTDPA): Opt-Out Rights and Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-connecticut-pa26-64-data-broker",
+        "2025-01-01-connecticut-ctdpa-opt-out-rights"
+      ],
+      "dateRange": {
+        "first": "2024-12-30",
+        "latest": "2026-07-06"
+      },
+      "jurisdictions": [
+        "Connecticut"
+      ]
+    },
+    {
+      "slug": "delaware-dpdpa-hb154-compliance",
+      "name": "Delaware Personal Data Privacy Act (DPDPA / HB 154)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-delaware-hb380-dpdpa-amendment",
+        "2024-05-15-delaware-dpdpa-hb154"
+      ],
+      "dateRange": {
+        "first": "2024-05-15",
+        "latest": "2026-07-16"
+      },
+      "jurisdictions": [
+        "Delaware"
+      ]
+    },
+    {
+      "slug": "ftc-coppa-2025-amendments",
+      "name": "FTC COPPA Rule Amendments (2025)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-04-federal-coppa-enforcement-begins",
+        "2026-04-13-coppa-amendments-compliance-deadline"
+      ],
+      "dateRange": {
+        "first": "2026-04-13",
+        "latest": "2026-05-04"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-match-group-okcupid-clarifai-enforcement",
+      "name": "FTC Enforcement: Match Group/OkCupid Data Sharing with Clarifai",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-22-federal-clarifai-okcupid-data-deletion-ftc",
+        "2026-04-07-ftc-match-okcupid-clarifai-enforcement"
+      ],
+      "dateRange": {
+        "first": "2026-04-07",
+        "latest": "2026-04-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-strategic-plan-2026-2030",
+      "name": "FTC FY 2026-2030 Strategic Plan",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-28-federal-ftc-ferguson-privacy-enforcement-surge",
+        "2026-04-13-ftc-strategic-plan-fy2026-2030"
+      ],
+      "dateRange": {
+        "first": "2026-04-13",
+        "latest": "2026-06-28"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-location-data-broker-enforcement",
+      "name": "FTC Sensitive Location Data Broker Enforcement Actions (Kochava, Outlogic, InMarket, Gravy Analytics)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-15-federal-ftc-kochava-location-data",
+        "2026-05-08-federal-ftc-kochava-location-data"
+      ],
+      "dateRange": {
+        "first": "2026-05-08",
+        "latest": "2026-06-15"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "federal-ai-procurement-omb-memoranda",
+      "name": "Federal AI Procurement and Governance: OMB M-25-21, M-25-22, and M-26-04",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-28-federal-va-oig-genai-clinical-oversight",
+        "2026-05-18-federal-wh-ostp-ai-safety-procurement"
+      ],
+      "dateRange": {
+        "first": "2026-05-18",
+        "latest": "2026-06-28"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "federal-healthcare-data-privacy-cms-2024",
+      "name": "Federal Healthcare Data Privacy: CMS and Senate HELP Committee Developments (2024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-15-federal-telehealth-medicaid-unwinding",
+        "2024-04-17-federal-cms-healthcare-privacy"
+      ],
+      "dateRange": {
+        "first": "2024-04-17",
+        "latest": "2024-05-15"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "five-eyes-agentic-ai-cybersecurity-guidance",
+      "name": "Five Eyes Joint Agentic AI Cybersecurity Guidance (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-22-federal-five-eyes-ai-cyber-threat-statement",
+        "2026-05-01-federal-five-eyes-agentic-ai-guidance"
+      ],
+      "dateRange": {
+        "first": "2026-05-01",
+        "latest": "2026-06-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "florida-ag-openai-criminal-investigation-fsu",
+      "name": "Florida AG Criminal Investigation of OpenAI: FSU Shooting and ChatGPT Facilitation",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-01-florida-openai-chatgpt-civil-lawsuit",
+        "2026-04-22-florida-ag-openai-chatgpt-criminal-investigation"
+      ],
+      "dateRange": {
+        "first": "2026-04-22",
+        "latest": "2026-06-01"
+      },
+      "jurisdictions": [
+        "Florida"
+      ]
+    },
+    {
+      "slug": "florida-oregon-texas-privacy-laws-2024",
+      "name": "Florida FDBR / Oregon OCPA / Texas TDPSA: July 2024 Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-17-oregon-ocpa-six-month-enforcement-report",
+        "2024-05-15-florida-oregon-texas-privacy-laws-july-2024"
+      ],
+      "dateRange": {
+        "first": "2024-05-15",
+        "latest": "2025-03-17"
+      },
+      "jurisdictions": [
+        "Florida",
+        "Oregon"
+      ]
+    },
+    {
+      "slug": "geofence-warrant-fourth-amendment-scotus",
+      "name": "Geofence Warrants and the Fourth Amendment: Chatrie v. United States",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-29-federal-scotus-chatrie-slaughter",
+        "2026-04-28-federal-chatrie-geofence-warrant"
+      ],
+      "dateRange": {
+        "first": "2026-04-28",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "hhs-ocr-hipaa-right-of-access-initiative",
+      "name": "HHS OCR HIPAA Right of Access Initiative: Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-06-federal-hhs-ocr-ohsu-right-of-access",
+        "2024-11-08-federal-hhs-ocr-gums-dental-right-of-access"
+      ],
+      "dateRange": {
+        "first": "2024-11-08",
+        "latest": "2025-03-06"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "kentucky-kcdpa-hb15-comprehensive-privacy",
+      "name": "Kentucky KCDPA (HB 15): Comprehensive Consumer Data Privacy Act",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-15-kentucky-hb473-kcdpa-hipaa-exemption",
+        "2024-04-22-kentucky-kcdpa-hb15"
+      ],
+      "dateRange": {
+        "first": "2024-04-22",
+        "latest": "2025-03-24"
+      },
+      "jurisdictions": [
+        "Kentucky"
+      ]
+    },
+    {
+      "slug": "maryland-kids-code-modpa-2024",
+      "name": "Maryland Age-Appropriate Design Code & MODPA (2024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-15-maryland-aadc-kids-code-modpa",
+        "2024-04-22-maryland-hb603-aadc-kids-code"
+      ],
+      "dateRange": {
+        "first": "2024-04-22",
+        "latest": "2024-05-15"
+      },
+      "jurisdictions": [
+        "Maryland"
+      ]
+    },
+    {
+      "slug": "maryland-hb895-surveillance-pricing-ban",
+      "name": "Maryland HB 895: Surveillance Pricing Ban for Food Retail and Delivery",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-08-maryland-hb895-predatory-pricing-act",
+        "2026-04-19-maryland-hb895-predatory-pricing"
+      ],
+      "dateRange": {
+        "first": "2026-04-19",
+        "latest": "2026-05-08"
+      },
+      "jurisdictions": [
+        "Maryland"
+      ]
+    },
+    {
+      "slug": "nysdoh-hospital-cybersecurity-10nycrr-405-46",
+      "name": "NYSDOH Hospital Cybersecurity Rule (10 NYCRR 405.46)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-11-08-new-york-nysdoh-hospital-cybersecurity",
+        "2024-06-10-new-york-nysdoh-hospital-cybersecurity"
+      ],
+      "dateRange": {
+        "first": "2024-06-10",
+        "latest": "2024-11-08"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "new-jersey-njdpa-s332-comprehensive-privacy",
+      "name": "New Jersey Data Protection Act (NJDPA / S332)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-01-06-new-jersey-njdpa-dca-faqs",
+        "2024-04-17-new-jersey-njdpa-s332"
+      ],
+      "dateRange": {
+        "first": "2024-04-17",
+        "latest": "2025-01-06"
+      },
+      "jurisdictions": [
+        "New Jersey"
+      ]
+    },
+    {
+      "slug": "new-york-ag-website-privacy-controls-enforcement",
+      "name": "New York AG Website Privacy Controls: Tracking Technology Enforcement (GBL \u00a7\u00a7 349-350)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-07-30-new-york-ag-website-tracking-privacy-guides",
+        "2024-07-30-new-york-ag-website-privacy-tracking-guide"
+      ],
+      "dateRange": {
+        "first": "2024-07-30",
+        "latest": "2024-08-15"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "new-york-safe-kids-act-child-data-protection-act",
+      "name": "New York SAFE for Kids Act and Child Data Protection Act (S7694-A / S7695-A)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-11-04-new-york-age-signals-cdpa-safe-kids",
+        "2024-08-19-new-york-safe-kids-child-data-anprm"
+      ],
+      "dateRange": {
+        "first": "2024-08-19",
+        "latest": "2024-11-04"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "rhode-island-ridtppa-h7787-comprehensive-privacy",
+      "name": "Rhode Island Data Transparency and Privacy Protection Act (H 7787 / RIDTPPA)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-08-15-rhode-island-ridtppa-h7787",
+        "2024-06-28-rhode-island-dtppa-h7787"
+      ],
+      "dateRange": {
+        "first": "2024-07-26",
+        "latest": "2024-08-15"
+      },
+      "jurisdictions": [
+        "Rhode Island"
+      ]
+    },
+    {
+      "slug": "state-ag-privacy-enforcement-teams",
+      "name": "State AG Privacy Enforcement Unit Buildouts",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-10-texas-tdpsa-ag-enforcement-initiative",
+        "2024-05-28-nj-tx-ag-privacy-enforcement-team"
+      ],
+      "dateRange": {
+        "first": "2024-05-28",
+        "latest": "2024-06-10"
+      },
+      "jurisdictions": [
+        "New Jersey",
+        "Texas"
+      ]
+    },
+    {
+      "slug": "state-ag-rent-a-bank-fintech-enforcement",
+      "name": "State AG Rent-a-Bank / True Lender Enforcement Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-01-21-ohio-dfi-bank-partnership-sla-guidance",
+        "2024-05-28-massachusetts-easypay-true-lender-aod"
+      ],
+      "dateRange": {
+        "first": "2024-05-28",
+        "latest": "2025-01-21"
+      },
+      "jurisdictions": [
+        "Massachusetts",
+        "Ohio"
+      ]
+    },
+    {
+      "slug": "temu-state-ag-enforcement-china-data",
+      "name": "Temu State AG Enforcement: Spyware Allegations and China-Linked Data Sharing",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-01-iowa-ag-temu-consumer-fraud-act",
+        "2026-05-18-oklahoma-temu-ocpa-data-sharing"
+      ],
+      "dateRange": {
+        "first": "2026-05-18",
+        "latest": "2026-07-01"
+      },
+      "jurisdictions": [
+        "Iowa",
+        "Oklahoma"
+      ]
+    },
+    {
+      "slug": "tennessee-elvis-act-right-of-publicity",
+      "name": "Tennessee ELVIS Act: AI Voice and Likeness Rights",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-06-06-tennessee-elvis-act-voice-likeness",
+        "2024-05-28-tennessee-elvis-act-hb2091"
+      ],
+      "dateRange": {
+        "first": "2024-05-28",
+        "latest": "2024-06-06"
+      },
+      "jurisdictions": [
+        "Tennessee"
+      ]
+    },
+    {
+      "slug": "texas-ag-biometric-cubi-enforcement",
+      "name": "Texas AG Biometric Data Enforcement: CUBI and Facebook Facial Recognition",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-21-texas-meta-glasses-biometric-investigation",
+        "2024-07-30-texas-meta-biometric-cubi-settlement"
+      ],
+      "dateRange": {
+        "first": "2024-07-30",
+        "latest": "2026-05-21"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "texas-traiga-hb149-ai-governance",
+      "name": "Texas Responsible AI Governance Act (TRAIGA / HB 149)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-15-texas-traiga-now-in-effect",
+        "2025-01-15-texas-traiga-hb1709-hb149"
+      ],
+      "dateRange": {
+        "first": "2025-01-15",
+        "latest": "2026-06-15"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "virginia-jlarc-sjr17-data-center-study",
+      "name": "Virginia JLARC SJR 17: Data Center Industry Study",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-05-virginia-jlarc-data-center-mcguirewoods",
+        "2024-05-30-virginia-jlarc-data-center-study-sjr17"
+      ],
+      "dateRange": {
+        "first": "2024-05-30",
+        "latest": "2024-06-05"
+      },
+      "jurisdictions": [
+        "Virginia"
+      ]
+    },
+    {
+      "slug": "ai-agent-act-warner-federal-agent-regulation",
+      "name": "AI AGENT Act (Warner Discussion Draft): Federal Custodial Agent Regulation",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-warner-ai-agent-act-discussion-draft"
+      ],
+      "dateRange": {
+        "first": "2026-07-09",
+        "latest": "2026-07-09"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ai-data-center-energy-policy-2025",
+      "name": "AI Data Center Energy Demands: Congressional Hearings and Executive Action (2025)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2025-03-05-congress-ai-data-center-energy-hearing"
+      ],
+      "dateRange": {
+        "first": "2025-03-13",
+        "latest": "2025-03-13"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ai-reidentification-hipaa-deid-research",
+      "name": "AI Reidentification Risk and HIPAA De-Identification Adequacy Research",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-18-federal-ai-reidentification-anonymization-standards"
+      ],
+      "dateRange": {
+        "first": "2026-06-18",
+        "latest": "2026-06-18"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ai-enhanced-evidence-admissibility-litigation",
+      "name": "AI-Enhanced Evidence Admissibility: State v. Puloka and Frye/Daubert Standards",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-10-washington-puloka-ai-evidence"
+      ],
+      "dateRange": {
+        "first": "2024-06-10",
+        "latest": "2024-06-10"
+      },
+      "jurisdictions": [
+        "Washington"
+      ]
+    },
+    {
+      "slug": "alabama-hb-21-agdpa-genetic-data-privacy",
+      "name": "Alabama HB 21: Genetic Data Privacy Act (AGDPA)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-22-alabama-genetic-data-privacy-act-hb21"
+      ],
+      "dateRange": {
+        "first": "2024-05-22",
+        "latest": "2024-05-22"
+      },
+      "jurisdictions": [
+        "Alabama"
+      ]
+    },
     {
       "slug": "alabama-hb-351-apdpa",
       "name": "Alabama HB 351: Personal Data Protection Act (2026)",
@@ -18,18 +1385,196 @@
       ]
     },
     {
-      "slug": "anthropic-claude-mythos-cybersecurity",
-      "name": "Anthropic Claude Mythos: AI-Driven Vulnerability Research",
+      "slug": "american-leadership-in-ai-act-119th-congress",
+      "name": "American Leadership in AI Act (119th Congress): Deepfake Penalties, Whistleblower Protections, and AI Standards",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-27-federal-lieu-ai-deepfakes-whistleblower-bill"
+      ],
+      "dateRange": {
+        "first": "2026-04-27",
+        "latest": "2026-04-27"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "anthropic-recursive-self-improvement-governance",
+      "name": "Anthropic \\\"When AI Builds Itself\\\": Recursive Self-Improvement and Coordinated Pause Proposal",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-05-global-anthropic-recursive-self-improvement-pause"
+      ],
+      "dateRange": {
+        "first": "2026-06-05",
+        "latest": "2026-06-05"
+      },
+      "jurisdictions": [
+        "Global"
+      ]
+    },
+    {
+      "slug": "arizona-tucsr-spy-pixel-litigation",
+      "name": "Arizona TUCSR Act: Email Tracking Pixel Class Action Wave",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-30-arizona-tucsr-spy-pixel-class-action"
+      ],
+      "dateRange": {
+        "first": "2024-05-30",
+        "latest": "2024-05-30"
+      },
+      "jurisdictions": [
+        "Arizona"
+      ]
+    },
+    {
+      "slug": "ai-hallucination-sanctions-litigation",
+      "name": "Attorney AI Hallucination Sanctions: Federal Court Show Cause Proceedings",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-29-federal-chatgpt-account-deletion-sanctions"
+      ],
+      "dateRange": {
+        "first": "2026-06-29",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "attorney-ai-hallucination-sanctions-litigation",
+      "name": "Attorney AI Hallucination Sanctions: Federal Court Show Cause Proceedings",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-08-19-virginia-ai-sanctions-iovino-stapleton"
+      ],
+      "dateRange": {
+        "first": "2024-08-19",
+        "latest": "2024-08-19"
+      },
+      "jurisdictions": [
+        "Virginia"
+      ]
+    },
+    {
+      "slug": "biden-eo-14110-ai-national-security-memorandum",
+      "name": "Biden EO 14110 and NSM on AI: National Security AI Governance Framework",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-11-05-federal-biden-nsm-ai-national-security"
+      ],
+      "dateRange": {
+        "first": "2024-11-05",
+        "latest": "2024-11-05"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "biden-final-week-ai-actions-jan-2025",
+      "name": "Biden Final Week: AI Export Controls, Infrastructure, and Cybersecurity EOs (January 2025)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2025-01-21-federal-biden-final-week-ai-actions"
+      ],
+      "dateRange": {
+        "first": "2025-01-21",
+        "latest": "2025-01-21"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "senate-ai-working-group-roadmap-2024",
+      "name": "Bipartisan Senate AI Working Group: Policy Roadmap (2024)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-05-15-federal-senate-ai-working-group-roadmap"
+      ],
+      "dateRange": {
+        "first": "2024-05-15",
+        "latest": "2024-05-15"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "blackbaud-2020-data-breach-litigation",
+      "name": "Blackbaud 2020 Data Breach: MDL Class Action and Regulatory Enforcement",
       "topic": "cybersecurity",
       "summary": "",
       "reports": [
-        "2026-04-12-anthropic-claude-mythos-cyberattack"
+        "2024-06-04-south-carolina-blackbaud-data-breach-class-cert-denied"
       ],
       "dateRange": {
-        "first": "2026-04-12",
-        "latest": "2026-04-12"
+        "first": "2024-06-04",
+        "latest": "2024-06-04"
       },
-      "jurisdictions": []
+      "jurisdictions": [
+        "South Carolina"
+      ]
+    },
+    {
+      "slug": "booking-com-2026-data-breach",
+      "name": "Booking.com 2026 Reservation Data Breach",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-04-14-global-booking-com-reservation-data-breach"
+      ],
+      "dateRange": {
+        "first": "2026-04-14",
+        "latest": "2026-04-14"
+      },
+      "jurisdictions": [
+        "Global"
+      ]
+    },
+    {
+      "slug": "cftc-ai-rulemaking-financial-markets",
+      "name": "CFTC Technology Advisory Committee: AI Rulemaking in Financial Markets",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-05-02-federal-cftc-tac-ai-report"
+      ],
+      "dateRange": {
+        "first": "2024-05-02",
+        "latest": "2024-05-02"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "chatbot-act-s4407-children-ai-chatbot-safety",
+      "name": "CHATBOT Act (S.4407): Children's AI Chatbot Family Account Mandate",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-29-federal-chatbot-act-s4407-children-ai"
+      ],
+      "dateRange": {
+        "first": "2026-04-29",
+        "latest": "2026-04-29"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
     },
     {
       "slug": "circia-cyber-incident-reporting-rule",
@@ -48,112 +1593,804 @@
       ]
     },
     {
-      "slug": "cppa-ccpa-enforcement-actions",
-      "name": "CPPA CCPA Enforcement Actions",
+      "slug": "cms-npd-ssn-data-breach-2026",
+      "name": "CMS National Provider Directory SSN Exposure (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-01-federal-cms-provider-directory-ssn-exposure"
+      ],
+      "dateRange": {
+        "first": "2026-05-01",
+        "latest": "2026-05-01"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "cppa-ccpa-gpc-opt-out-enforcement",
+      "name": "CPPA CCPA Global Privacy Control (GPC) Opt-Out Enforcement",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-07-cppa-playon-sports-ccpa-enforcement"
+        "2026-04-22-california-ccpa-gpc-webxray-audit"
       ],
       "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-07"
+        "first": "2026-04-22",
+        "latest": "2026-04-22"
       },
       "jurisdictions": [
         "California"
       ]
     },
     {
-      "slug": "cppa-data-broker-drop-audits",
-      "name": "CalPrivacy DROP Program: Data Broker Audit Regulations",
-      "topic": "privacy",
+      "slug": "cppa-cybersecurity-audit-rule",
+      "name": "CPPA Cybersecurity Audit Regulations (2026)",
+      "topic": "cybersecurity",
       "summary": "",
       "reports": [
-        "2026-04-12-cppa-drop-audit-rulemaking"
+        "2026-04-14-california-ccpa-cybersecurity-audit-class-litigation"
       ],
       "dateRange": {
-        "first": "2026-04-12",
-        "latest": "2026-04-12"
+        "first": "2026-04-14",
+        "latest": "2026-04-14"
       },
       "jurisdictions": [
         "California"
       ]
     },
     {
-      "slug": "colorado-ai-act-sb-24-205-enforcement",
-      "name": "Colorado AI Act (SB 24-205): Enforcement and Amendments",
+      "slug": "california-2025-ai-regulatory-landscape",
+      "name": "California 2025 AI Regulatory Landscape: SB 53, CPPA ADMT Rules, and AG Enforcement",
       "topic": "ai-law",
       "summary": "",
       "reports": [
-        "2026-04-13-colorado-ai-act-enforcement-delayed"
+        "2025-01-21-california-ai-regulatory-landscape-2025"
       ],
       "dateRange": {
-        "first": "2026-04-13",
-        "latest": "2026-04-13"
+        "first": "2025-01-21",
+        "latest": "2025-01-21"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-ab2426-digital-goods-licensing-disclosures",
+      "name": "California AB 2426: Digital Goods Licensing Disclosure Mandate",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-10-21-california-ab2426-digital-goods-disclosure"
+      ],
+      "dateRange": {
+        "first": "2024-10-21",
+        "latest": "2024-10-21"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-ag-ccpa-investigative-sweeps",
+      "name": "California AG CCPA Investigative Sweeps (Bonta Era)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-10-california-ag-location-data-sweep"
+      ],
+      "dateRange": {
+        "first": "2025-03-13",
+        "latest": "2025-03-13"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-caadca-ab2273-litigation",
+      "name": "California Age-Appropriate Design Code Act (CAADCA / AB 2273): Constitutional Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-08-20-california-caadca-ninth-circuit-dpia"
+      ],
+      "dateRange": {
+        "first": "2024-08-20",
+        "latest": "2024-08-20"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-cmia-ab254-ab352-reproductive-health",
+      "name": "California CMIA Amendments (AB 254 & AB 352): Reproductive and Sexual Health Data",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-28-california-cmia-ab254-ab352-reproductive-health"
+      ],
+      "dateRange": {
+        "first": "2024-05-28",
+        "latest": "2024-05-28"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-ai-workforce-eo-n-6-26",
+      "name": "California EO N-6-26: AI Workforce Disruption Study and Labor Market Reform",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-21-california-eo-n-6-26-ai-workforce-disruption"
+      ],
+      "dateRange": {
+        "first": "2026-05-21",
+        "latest": "2026-05-21"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-pharma-pixel-privacy-class-actions",
+      "name": "California Pharma Pixel Privacy Class Actions (CIPA and CMIA)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-13-california-pharma-pixel-class-certification"
+      ],
+      "dateRange": {
+        "first": "2025-03-13",
+        "latest": "2025-03-13"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-sb1047-eu-ai-act-comparative-analysis",
+      "name": "California SB 1047 vs. EU AI Act: Cross-Continental AI Regulatory Comparison",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-11-08-california-sb1047-eu-ai-act-comparative-analysis"
+      ],
+      "dateRange": {
+        "first": "2024-11-08",
+        "latest": "2024-11-08"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-sb53-tfaia-frontier-ai-obligations",
+      "name": "California SB 53: Transparency in Frontier Artificial Intelligence Act (TFAIA)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-17-california-sb53-compliance-timeline-2026-2027"
+      ],
+      "dateRange": {
+        "first": "2026-07-10",
+        "latest": "2026-07-10"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-sb976-protecting-kids-social-media-act",
+      "name": "California SB 976: Protecting Our Kids from Social Media Addiction Act",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-01-california-sb976-social-media-addiction-rulemaking"
+      ],
+      "dateRange": {
+        "first": "2026-06-01",
+        "latest": "2026-06-01"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "california-nj-ag-ai-advisories-existing-law-2025",
+      "name": "California and New Jersey AG AI Advisories: Existing Law Applied to AI (2025)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2025-01-20-california-nj-ai-advisories"
+      ],
+      "dateRange": {
+        "first": "2025-01-20",
+        "latest": "2025-01-20"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "state-ag-character-ai-mental-health-enforcement",
+      "name": "Character.AI State Enforcement: Children's Safety and Mental Health Harm",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-18-pennsylvania-character-ai-medical-practice-act"
+      ],
+      "dateRange": {
+        "first": "2026-05-18",
+        "latest": "2026-05-18"
+      },
+      "jurisdictions": [
+        "Pennsylvania"
+      ]
+    },
+    {
+      "slug": "charter-communications-spectrum-shinyhunters-breach-2026",
+      "name": "Charter Communications (Spectrum) ShinyHunters Data Breach (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-01-federal-charter-communications-shinyhunters-breach"
+      ],
+      "dateRange": {
+        "first": "2026-06-01",
+        "latest": "2026-06-01"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "clearview-ai-biometric-privacy-litigation",
+      "name": "Clearview AI Biometric Privacy Class Action Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-clearview-ai-settlement-vacated-7th-circuit"
+      ],
+      "dateRange": {
+        "first": "2026-07-14",
+        "latest": "2026-07-14"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "colorado-didmca-opt-out-preemption",
+      "name": "Colorado DIDMCA Opt-Out: Federal Interest Rate Preemption Litigation (HB 23-1229)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-20-colorado-didmca-opt-out-hb23-1229"
+      ],
+      "dateRange": {
+        "first": "2024-05-20",
+        "latest": "2024-05-20"
       },
       "jurisdictions": [
         "Colorado"
       ]
     },
     {
-      "slug": "fisa-section-702-reauthorization",
-      "name": "FISA Section 702 Reauthorization (2026)",
+      "slug": "dmca-section-1201-anti-circumvention-litigation",
+      "name": "DMCA Section 1201 Anti-Circumvention: First Amendment Litigation (Green v. DOJ)",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-13-fisa-section-702-renewal"
+        "2024-08-19-federal-dmca-green-v-doj"
       ],
       "dateRange": {
-        "first": "2026-04-13",
-        "latest": "2026-04-13"
-      },
-      "jurisdictions": []
-    },
-    {
-      "slug": "ftc-coppa-2025-amendments",
-      "name": "FTC COPPA Rule Amendments (2025)",
-      "topic": "privacy",
-      "summary": "",
-      "reports": [
-        "2026-04-13-coppa-amendments-compliance-deadline"
-      ],
-      "dateRange": {
-        "first": "2026-04-13",
-        "latest": "2026-04-13"
+        "first": "2024-08-19",
+        "latest": "2024-08-19"
       },
       "jurisdictions": [
         "Federal"
       ]
     },
     {
-      "slug": "ftc-match-group-okcupid-clarifai-enforcement",
-      "name": "FTC Enforcement: Match Group/OkCupid Data Sharing with Clarifai",
-      "topic": "privacy",
+      "slug": "doge-chatgpt-ai-decision-making-litigation",
+      "name": "DOGE ChatGPT-Assisted Federal Grant Terminations: AI Decision-Making Litigation",
+      "topic": "ai-law",
       "summary": "",
       "reports": [
-        "2026-04-07-ftc-match-okcupid-clarifai-enforcement"
+        "2026-05-07-federal-sdny-neh-chatgpt-ai-governance"
       ],
       "dateRange": {
-        "first": "2026-04-07",
-        "latest": "2026-04-07"
+        "first": "2026-05-07",
+        "latest": "2026-05-07"
       },
       "jurisdictions": [
         "Federal"
       ]
     },
     {
-      "slug": "ftc-strategic-plan-2026-2030",
-      "name": "FTC FY 2026-2030 Strategic Plan",
+      "slug": "doj-algorithmic-pricing-antitrust-enforcement",
+      "name": "DOJ Algorithmic Pricing Antitrust Enforcement",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-doj-algorithmic-pricing-antitrust-energy"
+      ],
+      "dateRange": {
+        "first": "2026-07-08",
+        "latest": "2026-07-08"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "doj-civil-cyber-fraud-initiative-fca-enforcement",
+      "name": "DOJ Civil Cyber-Fraud Initiative (CCFI): False Claims Act Cybersecurity Enforcement",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-10-22-federal-doj-penn-state-fca-cybersecurity"
+      ],
+      "dateRange": {
+        "first": "2024-10-22",
+        "latest": "2024-10-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "doj-civil-rights-ai-enforcement-eo14110",
+      "name": "DOJ Civil Rights Division AI Enforcement Initiative (EO 14110)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-10-18-federal-doj-ai-civil-rights-interagency"
+      ],
+      "dateRange": {
+        "first": "2024-10-18",
+        "latest": "2024-10-18"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "doj-olc-voter-roll-data-federal-authority",
+      "name": "DOJ OLC Voter Roll Data Opinion: Federal Authority vs. State Privacy Laws",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-13-ftc-strategic-plan-fy2026-2030"
+        "2026-05-19-federal-doj-olc-voter-data-cisa-opinion"
       ],
       "dateRange": {
-        "first": "2026-04-13",
-        "latest": "2026-04-13"
+        "first": "2026-05-14",
+        "latest": "2026-05-14"
       },
-      "jurisdictions": []
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ecpa-federal-wiretap-privacy-policy-class-actions",
+      "name": "ECPA Federal Wiretap Act: Privacy Policy Inaccuracy Class Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-22-federal-ecpa-privacy-policy-class-actions"
+      ],
+      "dateRange": {
+        "first": "2026-04-22",
+        "latest": "2026-04-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "edny-sdny-joint-local-rules-ediscovery-2024",
+      "name": "EDNY/SDNY Joint Local Rules: E-Discovery Amendments (2024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-07-26-new-york-edny-sdny-ediscovery-local-rules"
+      ],
+      "dateRange": {
+        "first": "2024-07-26",
+        "latest": "2024-07-26"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "edpb-dpia-template-2026",
+      "name": "EDPB Standardized DPIA Template (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-14-eu-edpb-dpia-template"
+      ],
+      "dateRange": {
+        "first": "2026-04-14",
+        "latest": "2026-04-14"
+      },
+      "jurisdictions": [
+        "EU"
+      ]
+    },
+    {
+      "slug": "elsag-signaltrace-alpr-device-identifier-surveillance",
+      "name": "ELSAG SignalTrace: ALPR Multi-Modal Device Identifier Surveillance Infrastructure",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-24-federal-signaltrace-alpr-surveillance"
+      ],
+      "dateRange": {
+        "first": "2026-06-24",
+        "latest": "2026-06-24"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "eo-14409-voluntary-ai-prerelease-review-framework",
+      "name": "EO 14409: Voluntary AI Pre-Release Review Framework (June 2026)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-26-federal-openai-gpt56-release-limit"
+      ],
+      "dateRange": {
+        "first": "2026-06-26",
+        "latest": "2026-06-26"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "eu-us-digital-trade-tech-sovereignty-friction",
+      "name": "EU-U.S. Digital Trade and Tech Sovereignty Clash: CADA and Trade Framework Negotiations",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-06-eu-us-tech-sovereignty-cloud-ai-act-trade-warning"
+      ],
+      "dateRange": {
+        "first": "2026-05-06",
+        "latest": "2026-05-06"
+      },
+      "jurisdictions": [
+        "EU"
+      ]
+    },
+    {
+      "slug": "email-privacy-act-ecpa-warrant-reform",
+      "name": "Email Privacy Act (H.R. 9016): ECPA Warrant Reform for Stored Communications",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-02-federal-email-privacy-act-hr9016"
+      ],
+      "dateRange": {
+        "first": "2026-06-02",
+        "latest": "2026-06-02"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "fcc-deepfake-robocall-enforcement",
+      "name": "FCC Deepfake Robocall Enforcement: AI-Generated Political Calls (TCPA/STIR-SHAKEN)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-06-05-federal-fcc-deepfake-robocall-nh-primary"
+      ],
+      "dateRange": {
+        "first": "2024-06-05",
+        "latest": "2024-06-05"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "fcc-location-data-fines-carrier-enforcement",
+      "name": "FCC Location Data Fines: AT&T and Verizon Carrier Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-22-federal-fcc-att-verizon-scotus-cpni"
+      ],
+      "dateRange": {
+        "first": "2026-04-22",
+        "latest": "2026-04-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "fcc-net-neutrality-section-222-privacy",
+      "name": "FCC Net Neutrality Order: Section 222 Broadband Privacy (Vacated 2025)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-05-23-federal-fcc-net-neutrality-cpni-broadband"
+      ],
+      "dateRange": {
+        "first": "2024-05-23",
+        "latest": "2024-05-23"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "fda-cgmp-ai-overreliance-enforcement",
+      "name": "FDA cGMP AI Overreliance Enforcement Actions",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-02-federal-fda-ai-overreliance-cgmp-warning"
+      ],
+      "dateRange": {
+        "first": "2026-04-02",
+        "latest": "2026-04-02"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ferpa-fafsa-student-data-privacy-2024",
+      "name": "FERPA / FAFSA Student Data Privacy: GAO Findings and ED Guidance (2024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-10-21-federal-education-fafsa-student-privacy"
+      ],
+      "dateRange": {
+        "first": "2024-10-21",
+        "latest": "2024-10-21"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-edtech-student-data-breach-enforcement",
+      "name": "FTC EdTech Student Data Privacy Enforcement (Illuminate Education and Related Actions)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-08-federal-ftc-illuminate-education-student-data"
+      ],
+      "dateRange": {
+        "first": "2026-06-08",
+        "latest": "2026-06-08"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-false-advertising-ai-tech-enforcement",
+      "name": "FTC False Advertising: AI Technology Capability Claims",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-22-federal-ftc-cox-media-group-active-listening-ai"
+      ],
+      "dateRange": {
+        "first": "2026-05-22",
+        "latest": "2026-05-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-negative-option-rosca-enforcement",
+      "name": "FTC Negative Option and ROSCA Subscription Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-13-federal-ftc-shutterstock-negative-option-settlement"
+      ],
+      "dateRange": {
+        "first": "2026-05-13",
+        "latest": "2026-05-13"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-ai-output-accuracy-suppression-policy",
+      "name": "FTC Policy Statement: AI Output Accuracy Suppression Under Section 5",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-ftc-ai-accuracy-policy-statement"
+      ],
+      "dateRange": {
+        "first": "2026-07-02",
+        "latest": "2026-07-02"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-tenant-screening-fcra-enforcement",
+      "name": "FTC Tenant Screening Company FCRA Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-ftc-rentgrow-fcra-settlement"
+      ],
+      "dateRange": {
+        "first": "2026-07-10",
+        "latest": "2026-07-10"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ftc-twitter-x-corp-2022-consent-order",
+      "name": "FTC v. Twitter/X Corp.: 2022 Privacy Consent Order and Termination Petition",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-04-federal-x-corp-ftc-consent-order-petition"
+      ],
+      "dateRange": {
+        "first": "2026-06-04",
+        "latest": "2026-06-04"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "federal-bank-fintech-third-party-risk-management",
+      "name": "Federal Banking Regulator Bank-Fintech Third-Party Risk Management Guidance (2023\u20132024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-07-federal-bank-fintech-tprm-guidance"
+      ],
+      "dateRange": {
+        "first": "2024-06-07",
+        "latest": "2024-06-07"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "federal-court-privacy-rules-redaction-amendments",
+      "name": "Federal Court Privacy Rules: SSN Redaction and Minor Pseudonym Amendments (FRCP/FRCrP/FRAP/FRBP)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-04-federal-judicial-conference-court-filings-privacy-redaction"
+      ],
+      "dateRange": {
+        "first": "2026-06-04",
+        "latest": "2026-06-04"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "federal-financial-ai-risk-management-2026",
+      "name": "Federal Financial Services AI Risk Management: SR 26-2, FS AI RMF, and Interagency Guidance (2026)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-02-federal-financial-services-ai-risk-management"
+      ],
+      "dateRange": {
+        "first": "2026-06-02",
+        "latest": "2026-06-02"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "first-choice-womens-resource-centers-v-davenport-donor-privacy",
+      "name": "First Choice Women's Resource Centers v. Davenport: Donor Privacy and First Amendment Standing",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-29-federal-first-choice-donor-privacy-scotus"
+      ],
+      "dateRange": {
+        "first": "2026-04-29",
+        "latest": "2026-04-29"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "florida-fdbr-roku-enforcement",
+      "name": "Florida Digital Bill of Rights: Roku Children's Data Enforcement Action",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-29-florida-ag-roku-fdbr-children-settlement"
+      ],
+      "dateRange": {
+        "first": "2026-06-29",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Florida"
+      ]
+    },
+    {
+      "slug": "florida-ai-hallucination-court-rule-2515",
+      "name": "Florida Rule 2.515: AI-Generated Citation Certification Requirement",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-17-florida-supreme-court-ai-citation-rule-2515"
+      ],
+      "dateRange": {
+        "first": "2026-07-03",
+        "latest": "2026-07-03"
+      },
+      "jurisdictions": [
+        "Florida"
+      ]
+    },
+    {
+      "slug": "g7-dpa-joint-declarations",
+      "name": "G7 Data Protection Authorities Roundtable: Joint Declarations and Soft-Law Guidance",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-29-global-g7-dpa-age-assurance-declaration"
+      ],
+      "dateRange": {
+        "first": "2026-06-29",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Global"
+      ]
+    },
+    {
+      "slug": "glba-safeguards-rule-ai-governance",
+      "name": "GLBA Safeguards Rule: AI Governance and Shadow AI Liability",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-16-federal-glba-shadow-ai-safeguards"
+      ],
+      "dateRange": {
+        "first": "2026-06-16",
+        "latest": "2026-06-16"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
     },
     {
       "slug": "glba-title-v-modernization-2026",
@@ -172,35 +2409,163 @@
       ]
     },
     {
-      "slug": "hhs-ocr-hipaa-security-rule-enforcement",
-      "name": "HHS OCR HIPAA Security Rule Enforcement Initiative (2026)",
+      "slug": "global-data-privacy-framework-proliferation-2025",
+      "name": "Global GDPR-Inspired Data Privacy Framework Proliferation (Japan, Canada, Brazil, US)",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-12-hhs-ocr-hipaa-risk-management-video"
+        "2025-03-13-global-data-governance-frameworks"
       ],
       "dateRange": {
-        "first": "2026-04-12",
-        "latest": "2026-04-12"
+        "first": "2025-03-13",
+        "latest": "2025-03-13"
+      },
+      "jurisdictions": [
+        "Multi-jurisdiction"
+      ]
+    },
+    {
+      "slug": "google-operation-ghost-hook-phishing-as-a-service-lawsuit",
+      "name": "Google v. Outsider Enterprise: Operation Ghost Hook AI-Enabled Phishing Lawsuit",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-12-federal-google-outsider-enterprise-phishing"
+      ],
+      "dateRange": {
+        "first": "2026-06-12",
+        "latest": "2026-06-12"
       },
       "jurisdictions": [
         "Federal"
       ]
     },
     {
-      "slug": "illinois-bipa-litigation",
-      "name": "Illinois BIPA Litigation and Amendments",
+      "slug": "halo-act-military-ai-autonomous-weapons",
+      "name": "HALO Act: Military AI, Autonomous Weapons, and DOD Domestic Surveillance Restrictions",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-08-federal-schiff-halo-act-ai-surveillance"
+      ],
+      "dateRange": {
+        "first": "2026-06-08",
+        "latest": "2026-06-08"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "hipaa-security-rule-nprm-2025",
+      "name": "HIPAA Security Rule NPRM (2025): Cybersecurity Overhaul Proposal",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-12-illinois-bipa-7th-circuit-retroactivity"
+        "2026-06-02-federal-hipaa-modernization-nprm"
       ],
       "dateRange": {
-        "first": "2026-04-01",
-        "latest": "2026-04-01"
+        "first": "2026-06-02",
+        "latest": "2026-06-02"
       },
       "jurisdictions": [
-        "Illinois, Federal (Seventh Circuit)"
+        "Federal"
+      ]
+    },
+    {
+      "slug": "ice-domestic-surveillance-expansion-2026",
+      "name": "ICE Domestic Surveillance Expansion: Data Broker Contracts, Spyware, and Congressional Scrutiny (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-04-federal-ice-domestic-surveillance-tools"
+      ],
+      "dateRange": {
+        "first": "2026-05-04",
+        "latest": "2026-05-04"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "irgc-cyberav3ngers-ics-plc-attacks",
+      "name": "IRGC CyberAv3ngers ICS/PLC Attacks on US Critical Infrastructure",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-04-07-cisa-iran-plc-advisory-aa26-097a"
+      ],
+      "dateRange": {
+        "first": "2026-04-07",
+        "latest": "2026-04-07"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "illinois-hb3773-ai-employment-discrimination",
+      "name": "Illinois HB 3773: AI in Employment Decisions Under Amended Human Rights Act",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-08-15-illinois-hb3773-ai-employment-ihra"
+      ],
+      "dateRange": {
+        "first": "2024-08-15",
+        "latest": "2024-08-15"
+      },
+      "jurisdictions": [
+        "Illinois"
+      ]
+    },
+    {
+      "slug": "illinois-right-to-privacy-workplace-act-e-verify",
+      "name": "Illinois Right to Privacy in the Workplace Act: E-Verify Compliance and Amendments",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-11-04-illinois-everify-right-to-privacy-guidance"
+      ],
+      "dateRange": {
+        "first": "2024-11-04",
+        "latest": "2024-11-04"
+      },
+      "jurisdictions": [
+        "Illinois"
+      ]
+    },
+    {
+      "slug": "illinois-sb315-ai-safety-measures-act",
+      "name": "Illinois SB 315: Artificial Intelligence Safety Measures Act",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-01-illinois-sb315-ai-safety-measures-act"
+      ],
+      "dateRange": {
+        "first": "2026-06-01",
+        "latest": "2026-06-01"
+      },
+      "jurisdictions": [
+        "Illinois"
+      ]
+    },
+    {
+      "slug": "indiana-sb17-age-verification-breach-notification",
+      "name": "Indiana SB 17: Age Verification Mandate and Breach Notification Amendments",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-07-25-indiana-sb17-breach-notification-age-verification"
+      ],
+      "dateRange": {
+        "first": "2024-07-25",
+        "latest": "2024-07-25"
+      },
+      "jurisdictions": [
+        "Indiana"
       ]
     },
     {
@@ -220,6 +2585,70 @@
       ]
     },
     {
+      "slug": "kids-teens-privacy-enforcement-2026",
+      "name": "Kids' and Teens' Privacy Enforcement: FTC COPPA, State AG, and Congressional Actions (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-federal-childrens-teens-privacy-enforcement-landscape"
+      ],
+      "dateRange": {
+        "first": "2026-07-13",
+        "latest": "2026-07-13"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "life-sciences-privacy-cybersecurity-enforcement-2024",
+      "name": "Life Sciences Privacy and Cybersecurity Enforcement Trends (2024)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-10-22-federal-life-sciences-privacy-enforcement-trends"
+      ],
+      "dateRange": {
+        "first": "2024-10-22",
+        "latest": "2024-10-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "louisiana-ldpa-sb386-comprehensive-privacy",
+      "name": "Louisiana Data Privacy Act (SB 386)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-29-louisiana-sb386-ldpa"
+      ],
+      "dateRange": {
+        "first": "2026-06-29",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Louisiana"
+      ]
+    },
+    {
+      "slug": "msg-shinyhunters-data-breach-2026",
+      "name": "Madison Square Garden ShinyHunters Data Breach: Class Action Litigation (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-28-federal-msg-shinyhunters-breach"
+      ],
+      "dateRange": {
+        "first": "2026-06-28",
+        "latest": "2026-06-28"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
       "slug": "maine-ld-1822-online-data-privacy",
       "name": "Maine LD 1822: Online Data Privacy Act (2026)",
       "topic": "privacy",
@@ -236,18 +2665,116 @@
       ]
     },
     {
-      "slug": "meta-addictive-design-minors-litigation",
-      "name": "Meta Addictive Design for Minors: State AG Litigation",
+      "slug": "massachusetts-cpicta-email-checkout-litigation",
+      "name": "Massachusetts CPICTA: Email Collection at Checkout Class Actions",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-13-massachusetts-sjc-meta-minors"
+        "2024-08-15-massachusetts-cpicta-email-checkout-lawsuits"
       ],
       "dateRange": {
-        "first": "2026-04-13",
-        "latest": "2026-04-13"
+        "first": "2024-08-15",
+        "latest": "2024-08-15"
       },
-      "jurisdictions": []
+      "jurisdictions": [
+        "Massachusetts"
+      ]
+    },
+    {
+      "slug": "massachusetts-ch93a-health-data-omission-litigation",
+      "name": "Massachusetts Chapter 93A: Healthcare Data Sharing Omission Claims",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-11-04-california-marden-lmnd-93a-medical-data"
+      ],
+      "dateRange": {
+        "first": "2024-11-04",
+        "latest": "2024-11-04"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "massachusetts-wiretap-act-website-tracking-litigation",
+      "name": "Massachusetts Wiretap Act (M.G.L. c. 272 \u00a7 99): Website Tracking Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-11-08-massachusetts-vita-sjc-wiretap-tracking"
+      ],
+      "dateRange": {
+        "first": "2024-11-08",
+        "latest": "2024-11-08"
+      },
+      "jurisdictions": [
+        "Massachusetts"
+      ]
+    },
+    {
+      "slug": "meta-smart-glasses-facial-recognition-coalition",
+      "name": "Meta Smart Glasses Facial Recognition: Civil Society Coalition Pressure",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-14-federal-meta-smart-glasses-facial-recognition-coalition"
+      ],
+      "dateRange": {
+        "first": "2026-04-14",
+        "latest": "2026-04-14"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "missouri-ag-algorithmic-freedom-regulation-mpa",
+      "name": "Missouri AG Algorithmic Freedom Regulation (15 C.S.R. \u00a7 60-19)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2025-01-21-missouri-algorithmic-freedom-regulation"
+      ],
+      "dateRange": {
+        "first": "2025-01-21",
+        "latest": "2025-01-21"
+      },
+      "jurisdictions": [
+        "Missouri"
+      ]
+    },
+    {
+      "slug": "multistate-ag-healthcare-data-breach-enforcement",
+      "name": "Multistate AG Healthcare Data Breach Settlements and Enforcement",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-08-13-multistate-enzo-biochem-data-breach-settlement"
+      ],
+      "dateRange": {
+        "first": "2024-08-13",
+        "latest": "2024-08-13"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "nerc-cip-cloud-emerging-tech-framework",
+      "name": "NERC CIP 100-Series: Cloud and Emerging Technology Standards for Bulk Power Systems",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-04-28-federal-nerc-cip-cloud-emerging-tech-framework"
+      ],
+      "dateRange": {
+        "first": "2026-04-28",
+        "latest": "2026-04-28"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
     },
     {
       "slug": "nist-ai-agent-standards-initiative",
@@ -280,6 +2807,390 @@
       "jurisdictions": []
     },
     {
+      "slug": "nist-aria-ai-risk-assessment",
+      "name": "NIST ARIA Program: AI Risk and Impact Assessment",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-06-04-federal-nist-aria-ai-risk-assessment"
+      ],
+      "dateRange": {
+        "first": "2024-06-04",
+        "latest": "2024-06-04"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "nist-caisi-uk-aisi-frontier-ai-predeployment-evaluation",
+      "name": "NIST CAISI and UK AISI Frontier AI Pre-Deployment Evaluation Programs",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-06-federal-caisi-uk-aisi-pre-deployment-model-evaluations"
+      ],
+      "dateRange": {
+        "first": "2026-05-06",
+        "latest": "2026-05-06"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "nist-csf-cyber-ai-profile-nistir8596",
+      "name": "NIST Cybersecurity Framework Profile for AI (NISTIR 8596 / Cyber AI Profile)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-19-federal-nistir-8596-cyber-ai-profile"
+      ],
+      "dateRange": {
+        "first": "2026-05-19",
+        "latest": "2026-05-19"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "nist-itl-cybersecurity-privacy-program-annual-reports",
+      "name": "NIST ITL Cybersecurity and Privacy Program: Annual Reports (SP 800-238 Series)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-28-federal-nist-sp800238-fy2025-annual-report"
+      ],
+      "dateRange": {
+        "first": "2026-05-21",
+        "latest": "2026-05-21"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "no-fakes-act-federal-ai-voice-likeness",
+      "name": "NO FAKES Act (S. 4591): Federal AI Voice and Likeness Rights",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-06-18-federal-no-fakes-act-deepfakes"
+      ],
+      "dateRange": {
+        "first": "2026-06-18",
+        "latest": "2026-06-18"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "nyc-local-law-144-aedt-bias-audits",
+      "name": "NYC Local Law 144: AEDT Bias Audit Mandate",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-05-23-nyc-local-law-144-aedt-bias-audit"
+      ],
+      "dateRange": {
+        "first": "2024-05-23",
+        "latest": "2024-05-23"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "nyc-post-act-drone-surveillance-oversight",
+      "name": "NYC POST Act: Drone and Surveillance Technology Oversight",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-08-19-new-york-nyc-drone-emergency-management"
+      ],
+      "dateRange": {
+        "first": "2024-08-19",
+        "latest": "2024-08-19"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "nebraska-age-appropriate-online-design-code-act",
+      "name": "Nebraska Age-Appropriate Online Design Code Act (AAODCA / LB 838)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-17-nebraska-lb838-aaodca-amendment"
+      ],
+      "dateRange": {
+        "first": "2026-04-14",
+        "latest": "2026-04-14"
+      },
+      "jurisdictions": [
+        "Nebraska"
+      ]
+    },
+    {
+      "slug": "nebraska-ndpa-lb1074-comprehensive-privacy",
+      "name": "Nebraska Data Privacy Act (NDPA / LB 1074)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-04-22-nebraska-ndpa-lb1074"
+      ],
+      "dateRange": {
+        "first": "2024-04-22",
+        "latest": "2024-04-22"
+      },
+      "jurisdictions": [
+        "Nebraska"
+      ]
+    },
+    {
+      "slug": "netchoice-v-yost-ohio-social-media-parental-notification",
+      "name": "NetChoice v. Yost: Ohio Social Media Parental Notification Act Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-01-ohio-social-media-parental-notification-sixth-circuit"
+      ],
+      "dateRange": {
+        "first": "2026-07-01",
+        "latest": "2026-07-01"
+      },
+      "jurisdictions": [
+        "Ohio"
+      ]
+    },
+    {
+      "slug": "new-hampshire-nhdpa-rsa-507-h-compliance",
+      "name": "New Hampshire Data Privacy Act (NHDPA / RSA 507-H)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-17-new-hampshire-nhdpa-hb1460-childrens-data-sale-ban"
+      ],
+      "dateRange": {
+        "first": "2026-07-16",
+        "latest": "2026-07-16"
+      },
+      "jurisdictions": [
+        "New Hampshire"
+      ]
+    },
+    {
+      "slug": "new-jersey-a5328-data-broker-law",
+      "name": "New Jersey A5328: Data Broker and Data Collector Registration Law (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-02-new-jersey-data-broker-law-a5328"
+      ],
+      "dateRange": {
+        "first": "2026-07-02",
+        "latest": "2026-07-02"
+      },
+      "jurisdictions": [
+        "New Jersey"
+      ]
+    },
+    {
+      "slug": "new-york-gbl-396b-ai-synthetic-performer-disclosure",
+      "name": "New York GBL \u00a7 396-b: AI Synthetic Performer Advertising Disclosure Law",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-07-01-new-york-synthetic-performer-ad-disclosure"
+      ],
+      "dateRange": {
+        "first": "2026-07-01",
+        "latest": "2026-07-01"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "new-york-gbl-899aa-data-breach-notification-amendments",
+      "name": "New York GBL \u00a7 899-aa Data Breach Notification Amendments (2024\u20132025)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2025-01-15-new-york-data-breach-notification"
+      ],
+      "dateRange": {
+        "first": "2025-01-15",
+        "latest": "2025-01-15"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "new-york-raise-act-frontier-ai-safety",
+      "name": "New York RAISE Act: Frontier AI Safety and Federal Preemption",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-19-new-york-raise-act-frontier-ai-preemption"
+      ],
+      "dateRange": {
+        "first": "2026-04-19",
+        "latest": "2026-04-19"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "new-york-safe-by-design-act-sopa-minors",
+      "name": "New York Safe by Design Act (Stop Online Predators Act): Minor Protection Platform Design Obligations",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-27-new-york-safe-by-design-act-sopa"
+      ],
+      "dateRange": {
+        "first": "2026-05-28",
+        "latest": "2026-05-28"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "new-york-warn-act-ai-disclosure-mandate",
+      "name": "New York WARN Act AI Disclosure Mandate",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-05-20-new-york-warn-act-ai-disclosure-zero-reports"
+      ],
+      "dateRange": {
+        "first": "2026-05-20",
+        "latest": "2026-05-20"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "news-publisher-ai-copyright-litigation",
+      "name": "News Publisher AI Copyright Litigation (RAG and Scraping Claims)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-10-23-new-york-dow-jones-perplexity-ai-copyright"
+      ],
+      "dateRange": {
+        "first": "2024-10-23",
+        "latest": "2024-10-23"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "deepseek-government-device-ban-legislation",
+      "name": "No DeepSeek on Government Devices Act: Federal and State Legislative Campaign",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-17-federal-no-deepseek-government-devices-act"
+      ],
+      "dateRange": {
+        "first": "2025-03-17",
+        "latest": "2025-03-17"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "oncd-ai-cybersecurity-industry-outreach",
+      "name": "ONCD AI-Enhanced Cyber Defense Industry Outreach (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-01-federal-oncd-ai-cyber-defense-industry-outreach"
+      ],
+      "dateRange": {
+        "first": "2026-05-01",
+        "latest": "2026-05-01"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "osi-open-source-ai-definition-osaid",
+      "name": "OSI Open Source AI Definition (OSAID v1.0): Criteria and Regulatory Impact",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-11-08-california-osi-open-source-ai-definition"
+      ],
+      "dateRange": {
+        "first": "2024-11-08",
+        "latest": "2024-11-08"
+      },
+      "jurisdictions": [
+        "California"
+      ]
+    },
+    {
+      "slug": "openai-privacy-filter-pet-tool",
+      "name": "OpenAI Privacy Filter: Open-Weight PII Redaction Tool",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-23-openai-privacy-filter-pet-tool"
+      ],
+      "dateRange": {
+        "first": "2026-04-23",
+        "latest": "2026-04-23"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "openai-trusted-access-cyber-program",
+      "name": "OpenAI Trusted Access for Cyber (TAC) Program and GPT-5.4-Cyber",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-04-15-federal-openai-gpt54-cyber-trusted-access"
+      ],
+      "dateRange": {
+        "first": "2026-04-15",
+        "latest": "2026-04-15"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "oregon-ag-ai-guidance-consumer-protection",
+      "name": "Oregon AG AI Guidance: Existing Consumer Protection Laws Applied to AI",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-01-14-oregon-ag-ai-guidance-existing-laws"
+      ],
+      "dateRange": {
+        "first": "2025-01-14",
+        "latest": "2025-01-14"
+      },
+      "jurisdictions": [
+        "Oregon"
+      ]
+    },
+    {
       "slug": "oregon-sb-1546-ai-companion",
       "name": "Oregon SB 1546 (AI Companion Chatbot Safety)",
       "topic": "ai-law",
@@ -296,35 +3207,467 @@
       ]
     },
     {
-      "slug": "take-it-down-act-enforcement",
-      "name": "TAKE IT DOWN Act: Federal NCII Enforcement",
+      "slug": "republican-ag-ai-financial-services-treasury-rfi",
+      "name": "Republican AG Coalition: Treasury AI in Financial Services RFI (2024)",
       "topic": "privacy",
       "summary": "",
       "reports": [
-        "2026-04-12-take-it-down-act-strahler-conviction"
+        "2024-08-19-federal-republican-ags-treasury-ai-rfi"
       ],
       "dateRange": {
-        "first": "2026-04-08",
-        "latest": "2026-04-08"
+        "first": "2024-08-19",
+        "latest": "2024-08-19"
       },
       "jurisdictions": [
         "Federal"
       ]
     },
     {
-      "slug": "trump-eo-national-ai-policy",
-      "name": "Trump EO: National AI Policy Framework (Dec 2025)",
-      "topic": "ai-law",
+      "slug": "residential-proxy-abuse-cyberattack-evasion",
+      "name": "Residential Proxy Abuse: Botnet Enforcement and ISP Liability (GreyNoise, 911 S5, BADBOX 2.0)",
+      "topic": "cybersecurity",
       "summary": "",
       "reports": [
-        "2026-04-12-trump-ai-executive-order-state-preemption"
+        "2026-06-18-federal-residential-proxy-abuse-cyberattacks"
       ],
       "dateRange": {
-        "first": "2025-12-11",
-        "latest": "2025-12-11"
+        "first": "2026-06-18",
+        "latest": "2026-06-18"
       },
       "jurisdictions": [
         "Federal"
+      ]
+    },
+    {
+      "slug": "rhode-island-genetic-information-privacy-act-s2203",
+      "name": "Rhode Island Genetic Information Privacy Act (S 2203)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-07-02-rhode-island-genetic-information-privacy-act-s2203"
+      ],
+      "dateRange": {
+        "first": "2026-07-02",
+        "latest": "2026-07-02"
+      },
+      "jurisdictions": [
+        "Rhode Island"
+      ]
+    },
+    {
+      "slug": "senate-commerce-committee-ai-bills-118th-congress",
+      "name": "Senate Commerce Committee AI Legislative Package (118th Congress)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-07-31-federal-senate-commerce-10-ai-bills"
+      ],
+      "dateRange": {
+        "first": "2024-08-19",
+        "latest": "2024-08-19"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "senate-ai-election-bills-118th-congress",
+      "name": "Senate Rules Committee AI Election Bills (118th Congress)",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-06-10-federal-senate-ai-election-bills-committee"
+      ],
+      "dateRange": {
+        "first": "2024-06-10",
+        "latest": "2024-06-10"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "shinyhunters-instructure-canvas-lms-breach",
+      "name": "ShinyHunters Instructure Canvas LMS Data Breach (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-08-federal-canvas-instructure-shinyhunters"
+      ],
+      "dateRange": {
+        "first": "2026-05-08",
+        "latest": "2026-05-08"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "southeastern-state-privacy-laws-regional-wave",
+      "name": "Southeastern State Comprehensive Privacy Laws: Alabama, Georgia, Florida, and Tennessee",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-02-southeastern-states-privacy-laws-alabama-georgia-florida-tennessee"
+      ],
+      "dateRange": {
+        "first": "2026-06-02",
+        "latest": "2026-06-02"
+      },
+      "jurisdictions": [
+        "Alabama"
+      ]
+    },
+    {
+      "slug": "state-ai-health-insurance-prior-authorization",
+      "name": "State AI Restrictions in Health Insurance Prior Authorization: Indiana, Alabama, and Pending Legislation",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2026-04-23-state-ai-health-insurance-prior-auth-bills"
+      ],
+      "dateRange": {
+        "first": "2026-04-23",
+        "latest": "2026-04-23"
+      },
+      "jurisdictions": [
+        "Multi-state"
+      ]
+    },
+    {
+      "slug": "state-comprehensive-privacy-q2-2024",
+      "name": "State Comprehensive Privacy Laws: Q2 2024 Wave (Kentucky, Nebraska, Rhode Island, Maryland, Minnesota)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-07-26-five-states-q2-2024-privacy-laws-comparative"
+      ],
+      "dateRange": {
+        "first": "2024-07-26",
+        "latest": "2024-07-26"
+      },
+      "jurisdictions": [
+        "Multi-State"
+      ]
+    },
+    {
+      "slug": "state-aca-exchange-tracking-pixel-data-sharing",
+      "name": "State Health Insurance Exchange Ad Tracker Data Sharing (Bloomberg Investigation)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-06-federal-state-health-exchange-tracking-pixels"
+      ],
+      "dateRange": {
+        "first": "2026-05-06",
+        "latest": "2026-05-06"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "state-os-level-age-verification-laws-2026",
+      "name": "State OS-Level Age Verification Laws: Colorado SB 26-051 and Related Bills (2026)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-08-colorado-sb26051-michigan-kids-code-age-verification"
+      ],
+      "dateRange": {
+        "first": "2026-05-08",
+        "latest": "2026-05-08"
+      },
+      "jurisdictions": [
+        "Colorado"
+      ]
+    },
+    {
+      "slug": "state-social-media-minor-protection-litigation",
+      "name": "State Social Media Minor Protection Laws: Constitutional Litigation (NetChoice and Related Challenges)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-22-arkansas-act900-addictive-design-injunction"
+      ],
+      "dateRange": {
+        "first": "2026-04-22",
+        "latest": "2026-04-22"
+      },
+      "jurisdictions": [
+        "Arkansas"
+      ]
+    },
+    {
+      "slug": "surveillance-pricing-ban-legislation",
+      "name": "Surveillance Pricing Ban Legislation: New York, Maryland, and Connecticut",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-15-new-york-one-fair-price-act"
+      ],
+      "dateRange": {
+        "first": "2026-06-08",
+        "latest": "2026-06-08"
+      },
+      "jurisdictions": [
+        "New York"
+      ]
+    },
+    {
+      "slug": "tennessee-hb-2434-data-breach-safe-harbor",
+      "name": "Tennessee HB 2434: Data Breach Class Action Safe Harbor",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-05-21-tennessee-hb2434-data-breach-safe-harbor"
+      ],
+      "dateRange": {
+        "first": "2024-05-30",
+        "latest": "2024-05-30"
+      },
+      "jurisdictions": [
+        "Tennessee"
+      ]
+    },
+    {
+      "slug": "texas-ag-acr-smart-tv-biometric-enforcement",
+      "name": "Texas AG ACR Smart TV Biometric Enforcement: LG, Netflix, and Related Actions",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-12-texas-lg-netflix-acr-biometric"
+      ],
+      "dateRange": {
+        "first": "2026-05-12",
+        "latest": "2026-05-12"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "texas-ag-children-privacy-scope-act-investigations",
+      "name": "Texas AG Children's Privacy Investigations: SCOPE Act and TDPSA Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-01-15-texas-character-ai-children-privacy"
+      ],
+      "dateRange": {
+        "first": "2025-01-15",
+        "latest": "2025-01-15"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "texas-carnival-cruise-line-data-breach-2026",
+      "name": "Texas AG Investigation of Carnival Cruise Line Data Breach (2026)",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-29-texas-carnival-cruise-line-data-breach"
+      ],
+      "dateRange": {
+        "first": "2026-06-29",
+        "latest": "2026-06-29"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "texas-ag-meta-whatsapp-dtpa-encryption-enforcement",
+      "name": "Texas AG v. Meta/WhatsApp: DTPA Encrypted Messaging Enforcement",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-05-21-texas-whatsapp-meta-encryption-dtpa"
+      ],
+      "dateRange": {
+        "first": "2026-05-21",
+        "latest": "2026-05-21"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "texas-app-store-accountability-act-sb2420",
+      "name": "Texas App Store Accountability Act (SB 2420): Age Verification and Parental Consent",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-15-texas-sb2420-app-store-fifth-circuit-stay"
+      ],
+      "dateRange": {
+        "first": "2026-06-15",
+        "latest": "2026-06-15"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "texas-house-select-committee-ai-emerging-tech",
+      "name": "Texas House Select Committee on AI and Emerging Technologies",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-04-17-texas-house-select-committee-ai-emerging-tech"
+      ],
+      "dateRange": {
+        "first": "2024-04-17",
+        "latest": "2024-04-17"
+      },
+      "jurisdictions": [
+        "Texas"
+      ]
+    },
+    {
+      "slug": "thaler-perlmutter-ai-copyright-authorship",
+      "name": "Thaler v. Perlmutter: AI Copyright Authorship Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-03-18-federal-dc-circuit-thaler-ai-copyright"
+      ],
+      "dateRange": {
+        "first": "2025-03-18",
+        "latest": "2025-03-18"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "trump-save-system-voter-data-aggregation-litigation",
+      "name": "Trump Administration SAVE System: Voter Data Aggregation Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-23-federal-save-system-voter-pii"
+      ],
+      "dateRange": {
+        "first": "2026-06-23",
+        "latest": "2026-06-23"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "trump-eo-bank-citizenship-data-collection",
+      "name": "Trump EO: Bank Customer Citizenship Data Collection Mandate",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-19-federal-bank-citizenship-data-eo"
+      ],
+      "dateRange": {
+        "first": "2026-04-15",
+        "latest": "2026-04-15"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "trump-eo-post-quantum-cryptography-migration",
+      "name": "Trump EOs 14412/14413: Federal Post-Quantum Cryptography Migration Mandate",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-06-22-federal-post-quantum-cryptography-eo14412"
+      ],
+      "dateRange": {
+        "first": "2026-06-22",
+        "latest": "2026-06-22"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "state-privacy-enforcement-fines-trend-2025-2028",
+      "name": "U.S. State Privacy Enforcement Fines Trend: 2025\u20132028 Gartner Benchmarks",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-30-us-state-privacy-fines-2025-gartner-report"
+      ],
+      "dateRange": {
+        "first": "2026-04-30",
+        "latest": "2026-04-30"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "uk-us-data-bridge-eu-us-dpf-trump-administration",
+      "name": "UK-US Data Bridge and EU-US Data Privacy Framework: Trump Administration Stability Risks",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2025-01-20-federal-trump-administration-uk-tech-sector"
+      ],
+      "dateRange": {
+        "first": "2025-01-20",
+        "latest": "2025-01-20"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "uscybercom-nsa-ai-offensive-cyber-task-force",
+      "name": "US Cyber Command / NSA Joint Task Force: AI Offensive Cyber Capabilities",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2026-05-21-federal-cybercom-nsa-ai-task-force"
+      ],
+      "dateRange": {
+        "first": "2026-05-21",
+        "latest": "2026-05-21"
+      },
+      "jurisdictions": [
+        "Federal"
+      ]
+    },
+    {
+      "slug": "state-ai-regulatory-models-utah-colorado",
+      "name": "Utah SB 149 and Colorado SB 24-205: First State AI Statutes Compared",
+      "topic": "ai-law",
+      "summary": "",
+      "reports": [
+        "2024-06-06-utah-colorado-ai-pioneering-state-laws"
+      ],
+      "dateRange": {
+        "first": "2024-06-06",
+        "latest": "2024-06-06"
+      },
+      "jurisdictions": [
+        "Utah"
+      ]
+    },
+    {
+      "slug": "utah-sb-98-2024-data-breach-notification",
+      "name": "Utah SB 98 (2024): Data Breach Notification Amendments",
+      "topic": "cybersecurity",
+      "summary": "",
+      "reports": [
+        "2024-05-14-utah-sb98-data-breach-notification-amendment"
+      ],
+      "dateRange": {
+        "first": "2024-05-14",
+        "latest": "2024-05-14"
+      },
+      "jurisdictions": [
+        "Utah"
       ]
     },
     {
@@ -344,6 +3687,70 @@
       ]
     },
     {
+      "slug": "vermont-data-broker-registration-act138",
+      "name": "Vermont Data Broker Registration Law: Act 138 (H.211) Overhaul",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-06-16-vermont-h211-data-broker-act138"
+      ],
+      "dateRange": {
+        "first": "2026-06-16",
+        "latest": "2026-06-16"
+      },
+      "jurisdictions": [
+        "Vermont"
+      ]
+    },
+    {
+      "slug": "vermont-money-transmission-mtma-virtual-currency-licensing",
+      "name": "Vermont Money Transmission Modernization Act (Act 110 / H.659): Virtual Currency Licensing",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-08-19-vermont-act110-h659-money-transmission-virtual-currency"
+      ],
+      "dateRange": {
+        "first": "2024-08-19",
+        "latest": "2024-08-19"
+      },
+      "jurisdictions": [
+        "Vermont"
+      ]
+    },
+    {
+      "slug": "virginia-vcdpa-children-privacy-sb361",
+      "name": "Virginia VCDPA Children's Privacy Amendments (SB 361 / HB 707)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-06-03-virginia-vcdpa-sb361-minors"
+      ],
+      "dateRange": {
+        "first": "2024-06-03",
+        "latest": "2024-06-03"
+      },
+      "jurisdictions": [
+        "Virginia"
+      ]
+    },
+    {
+      "slug": "virginia-vcdpa-sb338-geolocation-data-ban",
+      "name": "Virginia VCDPA SB 338: Precise Geolocation Data Sale Ban",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2026-04-19-virginia-sb338-vcdpa-geolocation-ban"
+      ],
+      "dateRange": {
+        "first": "2026-04-19",
+        "latest": "2026-04-19"
+      },
+      "jurisdictions": [
+        "Virginia"
+      ]
+    },
+    {
       "slug": "washington-hb-2225-hb-1170-ai-safety",
       "name": "Washington HB 2225 & HB 1170 (AI Chatbot Safety and Content Provenance)",
       "topic": "ai-law",
@@ -357,6 +3764,38 @@
       },
       "jurisdictions": [
         "Washington"
+      ]
+    },
+    {
+      "slug": "washington-mhmda-health-data-privacy",
+      "name": "Washington My Health My Data Act (MHMDA): Requirements and Litigation",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-08-15-washington-mhmda-fully-effective"
+      ],
+      "dateRange": {
+        "first": "2024-08-15",
+        "latest": "2024-08-15"
+      },
+      "jurisdictions": [
+        "Washington"
+      ]
+    },
+    {
+      "slug": "yearbook-database-right-of-publicity-litigation",
+      "name": "Yearbook Database Right of Publicity Class Actions (Ancestry, Classmates, and Similar)",
+      "topic": "privacy",
+      "summary": "",
+      "reports": [
+        "2024-11-04-ohio-ancestry-yearbook-right-of-publicity"
+      ],
+      "dateRange": {
+        "first": "2024-11-04",
+        "latest": "2024-11-04"
+      },
+      "jurisdictions": [
+        "Ohio"
       ]
     }
   ]

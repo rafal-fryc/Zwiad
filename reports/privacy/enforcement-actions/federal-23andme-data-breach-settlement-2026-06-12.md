@@ -1,0 +1,79 @@
+---
+title: "23andMe Bankruptcy Administrator Approves $46.75 Million Distribution to Data Breach Victims"
+date: 2026-06-12
+jurisdiction: "Federal"
+category: "privacy"
+development_type: "enforcement"
+finding_id: "SCAN-20260615-054"
+topic_key: "federal-db66629a-2026"
+topic_type: "enforcement"
+first_reported: 2026-06-12
+last_updated: 2026-06-15
+status_history: []
+cluster: "23andMe 2023 Genetic Data Breach: State AG Enforcement Actions"
+cluster_slug: "23andme-genetic-data-breach-ag-enforcement"
+---
+
+# 23andMe Bankruptcy Administrator Approves $46.75 Million Distribution to Data Breach Victims
+
+**Jurisdiction:** Federal (E.D. Missouri Bankruptcy Court) | **Category:** Privacy | **Date:** June 12, 2026
+
+## Summary [HIGH confidence]
+
+On June 11, 2026, the bankruptcy plan administrator for 23andMe (now operating as Chrome Holding Co.) approved a $46.75 million distribution to victims of the company's 2023 genetic data breach, representing the largest settlement yet resolved from the credential stuffing attack that exposed genetic and ancestry data belonging to approximately 6.9 million customers. The amount is $3.25 million below the $50 million cap authorized by the Eastern District of Missouri bankruptcy court in January 2026, with the reduction reflecting final claims adjudication. Of the total, approximately $32.46 million flows to claimants directly, while more than $14.29 million covers administration costs paid to Kroll, the court-appointed settlement administrator. The distribution is subject to final bankruptcy court approval and arrives while a separate California Attorney General enforcement action against Chrome Holding — covering the same 2023 breach — remains pending in state court.
+
+## Key Facts [HIGH confidence]
+
+- The bankruptcy plan administrator filed its distribution proposal on **June 11, 2026**, recommending $46.75 million to resolve data breach claims arising from the 2023 credential stuffing attack, per [The Record from Recorded Future News](https://therecord.media/bankruptcy-admin-approves-settlement-for-23andme-breach-victims).
+- The authorized settlement cap of **$50 million** was approved by the U.S. Bankruptcy Court, Eastern District of Missouri, in **January 2026**; the final payout of $46.75 million is $3.25 million below the authorized maximum, per [Insurance Journal](https://www.insurancejournal.com/news/national/2026/06/12/873539.htm).
+- Of the $46.75 million fund, approximately **$32.46 million** will be distributed to breach victims while **$14.29 million** has been directed to Kroll, the court-appointed settlement and claims administrator, per [Bloomberg Law](https://news.bloomberglaw.com/bankruptcy-law/23andme-data-breach-claimants-to-receive-47-million-under-deal).
+- The administrator resolved more than **255,860 individual claims**; individual payouts range from **$50 to $10,000** depending on documented harm, per [ComplianceHub.Wiki](https://compliancehub.wiki/23andme-data-breach-settlement-46-million/).
+- Approximately **$13 million** of the total fund was sourced from 23andMe's cyber insurance policies, including Allied World Specialty Insurance, Tokio Marine HCC's Houston Casualty Company, Berkshire Hathaway's Landmark American Insurance, and Lloyd's syndicates, per [Insurance Journal](https://www.insurancejournal.com/news/national/2026/06/12/873539.htm).
+- The breach originated in **April 2023** via credential stuffing, exploiting reused credentials from prior unrelated breaches to access approximately **14,000 direct 23andMe accounts**; attackers then exploited the "DNA Relatives" feature to laterally access data of approximately **6.9 million additional users**, per [HIPAA Journal](https://www.hipaajournal.com/23andme-user-data-stolen-credential-stuffing-campaign/).
+- **23andMe filed for Chapter 11 bankruptcy on March 23, 2025** in the Eastern District of Missouri; in July 2025, co-founder Anne Wojcicki's nonprofit TTAM Research Institute purchased substantially all company assets for **$305 million**, creating additional liquidity that enabled the settlement increase from the original $30 million, per [Bio-IT World](https://www.bio-itworld.com/news/2025/07/02/anne-wojcicki-buys-back-23andme-for-305m-promises-data-security).
+- The original class-action settlement — consolidating more than 40 lawsuits in the Northern District of California before Judge Edward M. Chen — was agreed at **$30 million in September 2024** and received preliminary approval in December 2024; it was subsequently increased to $50 million after bankruptcy proceedings generated additional funds, per [ClassAction.org](https://www.classaction.org/blog/23andme-data-breach-settlement-30m-deal-covers-millions-whose-info-was-stolen).
+- The class-action settlement received **final approval on January 20, 2026**, with the claim filing deadline set as **February 17, 2026**, per [HIPAA Journal](https://www.hipaajournal.com/23andme-class-action-data-breach-settlement/).
+- In parallel, California AG Rob Bonta filed **People v. Chrome Holding Co., fka 23andMe et al.** in San Francisco Superior Court on May 27, 2026, alleging violations of California's Genetic Information Privacy Act (GIPA), CCPA, Reasonable Data Security Law, and False Advertising Law — a separate action not resolved by this settlement, per [California DOJ press release](https://oag.ca.gov/news/press-releases/attorney-general-bonta-sues-chrome-holding-co-formerly-known-23andme-over-2023).
+- The FTC separately flagged privacy concerns during the bankruptcy asset sale, warning that any buyer must honor 23andMe's existing consumer privacy commitments consistent with Section 363(b)(1) of the Bankruptcy Code, per [GovInfoSecurity](https://www.govinfosecurity.com/ftc-23andmes-buyer-must-uphold-cos-data-privacy-pledge-a-27885).
+
+## Regulatory and Legal Context [MEDIUM confidence]
+
+**Federal genetic privacy gap.** The 23andMe breach exposed a significant gap in federal law: neither HIPAA nor the Genetic Information Nondiscrimination Act (GINA) governs direct-to-consumer (DTC) genetic testing companies in a comprehensive way. HIPAA applies to covered healthcare entities and their business associates; GINA prohibits discrimination in employment and health insurance but does not regulate data security at DTC companies like 23andMe. This leaves genetic data — arguably the most sensitive category of personal information — subject only to the FTC's general Section 5 authority against unfair or deceptive practices and to a patchwork of state laws, per [Bloomberg Law genetic privacy analysis](https://news.bloomberglaw.com/privacy-and-data-security/23andme-genetic-data-sale-will-hit-wild-west-of-privacy-rules) and [EPIC analysis](https://epic.org/somebody-spilled-the-genes-23andmes-downturn-highlights-insufficient-privacy-and-data-security-safeguards-for-consumer-genetic-data/).
+
+**State genetic privacy laws.** Several states have enacted targeted genetic privacy statutes that create obligations for DTC genetic testing companies. California's Genetic Information Privacy Act (GIPA) is among the strongest; its invocation in the Bonta lawsuit signals potential applicability to the same conduct underlying the federal settlement. Alabama enacted the Genetic Data Privacy Act (HB 21) in 2024. The ICO (UK Information Commissioner's Office) separately fined 23andMe £2.31 million in June 2025 for failing to protect UK users' genetic data, per [ICO press release](https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2025/06/23andme-fined-for-failing-to-protect-uk-users-genetic-data/).
+
+**Credential stuffing liability standard.** The litigation established that credential stuffing attacks on accounts using reused third-party credentials — combined with a feature that amplifies access to non-targeted users (here, the DNA Relatives feature) — can support multi-billion-user class recovery under state data security statutes. The coding error enabling lateral pivot through DNA Relatives is particularly significant: it transforms what would otherwise be a modest 14,000-account compromise into a 6.9-million-user event, per [Breachsense case study](https://www.breachsense.com/blog/23andme-data-breach-case-study/).
+
+## Action Items
+
+- **Reassess DTC genetic data security posture.** Any company collecting genetic or biometric data — regardless of whether it is a licensed healthcare entity — should evaluate whether current security controls would detect and interrupt a sustained credential stuffing campaign lasting five months. Implement MFA as a default, not an option; 23andMe's failure to require MFA was cited as a contributing factor.
+- **Audit "data amplification" features.** Review product features that allow one authenticated user's activity to surface data belonging to third parties (social graph features, family tree matching, shared health insights). A single compromised account that can pivot to millions of non-compromised records dramatically increases breach scope and legal exposure.
+- **Evaluate cyber insurance alignment.** The $13 million cyber insurance contribution shows coverage can be a meaningful offset, but companies should verify policy terms cover class-action settlements arising from credential stuffing, not just direct system intrusion.
+- **Monitor the California AG action.** The Bonta lawsuit against Chrome Holding is the first state AG enforcement action from the 23andMe breach and is proceeding independently of the federal settlement. Its outcome will shape GIPA liability standards and could produce injunctive relief requiring specific security measures on the successor company.
+- **Review consumer notification protocols.** 23andMe's failure to promptly notify customers — the breach ran April through October 2023 before public disclosure — is a separate liability vector under California and federal breach notification laws. Ensure internal detection-to-notification timelines comply with applicable state and federal requirements.
+- **Track federal genetic privacy legislation.** Congress has yet to enact a comprehensive federal genetic privacy statute. Legislative proposals for consent requirements, data minimization, and restrictions on genetic data resale are circulating. Companies should monitor for GINA reform or a standalone DTC genetic privacy bill.
+
+## Related Reports
+
+- [reports/privacy/enforcement-actions/california-23andme-chrome-holding-breach-2026-05-29.md](reports/privacy/enforcement-actions/california-23andme-chrome-holding-breach-2026-05-29.md) — The California AG enforcement action (People v. Chrome Holding Co.) arising from the same 2023 breach, filed two weeks before the federal settlement approval; the two proceedings are parallel and independent.
+- [reports/privacy/alabama-genetic-data-privacy-act-hb21-2024-05-22.md](reports/privacy/alabama-genetic-data-privacy-act-hb21-2024-05-22.md) — Alabama's Genetic Data Privacy Act, one of the state DTC genetic testing statutes whose emergence is directly attributable to the regulatory gap the 23andMe breach exposed.
+- [reports/privacy/enforcement-actions/federal-ftc-shutterstock-negative-option-settlement-2026-05-13.md](reports/privacy/enforcement-actions/federal-ftc-shutterstock-negative-option-settlement-2026-05-13.md) — Another large federal class-action settlement resolved through bankruptcy-adjacent proceedings in 2026, illustrating the procedural interaction between Chapter 11 and pending class settlements.
+
+## Sources
+
+1. [Bankruptcy Admin Approves Settlement Fund of $47 Million for 23andMe Data Breach Victims — The Record (Recorded Future News)](https://therecord.media/bankruptcy-admin-approves-settlement-for-23andme-breach-victims) — Primary coverage of the June 11, 2026 administrator approval
+2. [23andMe Data Breach Claimants to Receive $47 Million Under Deal — Bloomberg Law](https://news.bloomberglaw.com/bankruptcy-law/23andme-data-breach-claimants-to-receive-47-million-under-deal) — Distribution breakdown: claimant share vs. Kroll administration fees
+3. [Claimants of 23andMe Data Breach to Get $46.75M in Settlement Deal — Insurance Journal](https://www.insurancejournal.com/news/national/2026/06/12/873539.htm) — Insurance contribution breakdown and settlement amount detail
+4. [23andMe Scores Approval of Data Breach Deal in Bankruptcy Court — Bloomberg Law](https://news.bloomberglaw.com/bankruptcy-law/23andme-scores-approval-of-data-breach-deal-in-bankruptcy-court) — Court approval procedural status
+5. [In re 23andMe, Inc. Customer Data Security Breach Litigation — Official Settlement Website](https://www.23andmedatasettlement.com/) — Official settlement administrator site for claimant eligibility and procedures
+6. [23andMe Data Breach Settlement: $30M Deal Covers Millions Whose Info Was Stolen — ClassAction.org](https://www.classaction.org/blog/23andme-data-breach-settlement-30m-deal-covers-millions-whose-info-was-stolen) — Consolidated class action history and timeline, Northern District of California proceedings
+7. [23andMe Requests Bankruptcy Judge Approve Revised $50 Million Data Breach Settlement — HIPAA Journal](https://www.hipaajournal.com/23andme-class-action-data-breach-settlement/) — Details on settlement increase from $30M to $50M and January 2026 final approval
+8. [23andMe User Data Stolen in Credential Stuffing Attack — HIPAA Journal](https://www.hipaajournal.com/23andme-user-data-stolen-credential-stuffing-campaign/) — Technical details of the breach: credential stuffing, 14,000 accounts, DNA Relatives feature pivot
+9. [23andMe Data Breach: How Credential Stuffing Exposed Genetic Data — Breachsense](https://www.breachsense.com/blog/23andme-data-breach-case-study/) — Technical case study on the credential stuffing vector and lateral pivot mechanism
+10. [Attorney General Bonta Sues Chrome Holding Co., Formerly Known as 23andMe, Over 2023 Data Breach — California DOJ](https://oag.ca.gov/news/press-releases/attorney-general-bonta-sues-chrome-holding-co-formerly-known-23andme-over-2023) — Official press release for the parallel California AG enforcement action
+11. [Anne Wojcicki Buys Back 23andMe for $305M, Promises Data Security — Bio-IT World](https://www.bio-itworld.com/news/2025/07/02/anne-wojcicki-buys-back-23andme-for-305m-promises-data-security) — July 2025 asset sale to TTAM Research Institute enabling settlement increase
+12. [FTC: 23andMe's Buyer Must Uphold Co.'s Data Privacy Pledge — GovInfoSecurity](https://www.govinfosecurity.com/ftc-23andmes-buyer-must-uphold-cos-data-privacy-pledge-a-27885) — FTC Section 363(b)(1) position on data privacy commitments in bankruptcy asset sales
+13. [23andMe Fined £2.31 Million for Failing to Protect UK Users' Genetic Data — ICO](https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2025/06/23andme-fined-for-failing-to-protect-uk-users-genetic-data/) — UK ICO fine arising from the same 2023 breach, establishing international regulatory scope
+14. [23andMe Genetic Data Sale Will Hit 'Wild West' of Privacy Rules — Bloomberg Law](https://news.bloomberglaw.com/privacy-and-data-security/23andme-genetic-data-sale-will-hit-wild-west-of-privacy-rules) — Analysis of federal genetic privacy gap: HIPAA and GINA limitations for DTC companies
+15. [Somebody Spilled the Genes: 23andMe's Downturn Highlights Insufficient Privacy and Data Security Safeguards — EPIC](https://epic.org/somebody-spilled-the-genes-23andmes-downturn-highlights-insufficient-privacy-and-data-security-safeguards-for-consumer-genetic-data/) — EPIC analysis of structural federal law gaps for DTC genetic testing
+16. [23andMe Breach Claimants to Receive $46.75 Million: Genetic Data, Bankruptcy, and a Settlement Built on the Wreckage — ComplianceHub.Wiki](https://compliancehub.wiki/23andme-data-breach-settlement-46-million/) — Claims count detail: 255,860 resolved claims, $50–$10,000 individual payout range
